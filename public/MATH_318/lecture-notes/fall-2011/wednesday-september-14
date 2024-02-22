@@ -1,0 +1,185 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 14, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 14, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Relations continued
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Properties of relations<a class="headerlink" href="#properties-of-relations" name="properties-of-relations">&para;</a></h2>
+<p>A relation <span>$R$</span> on <span>$A$</span> is <span>$R \subseteq A \times A$</span>. Such a relation can be:</p>
+<dl>
+<dt>(r) - <strong>reflexive</strong></dt>
+<dd>on <span>$A$</span> if <span>$aRa$</span> for all <span>$a \in A$</span>. Not intrinsic to the relation - depends on the choice of <span>$A$</span>.</dd>
+<dt>(ir) - <strong>irreflexive</strong></dt>
+<dd>on <span>$A$</span> if <span>$aRa$</span> for <em>no</em> <span>$a \in A$</span>. Note that it's not a negation of the above - to say that a relation is not reflexive means that no <span>$a \in A$</span> is related to itself, while a relation that is not reflexive just has to have one <span>$a \in A$</span> that is not related to itself<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Note: only the empty set is both (r) and (ir).">1</a></sup>. Irreflexivity is an intrinsic property, meaning that no <span>$a \in A$</span> is related to itself for any <span>$A$</span><sup>confirm?</sup>.</dd>
+<dt>(s) - <strong>symmetric</strong></dt>
+<dd>if whenever <span>$aRb$</span>, then <span>$bRa$</span>.</dd>
+<dt>(as) - <strong>antisymmetric</strong></dt>
+<dd>if whenever <span>$aRb$</span> and <span>$bRa$</span>, then <span>$a = b$</span>. Not the negation of the above - a relation can be both symmetric and antisymmetric (or neither?). So basically <span>$aRb$</span> and <span>$bRa$</span> <em>never</em> happens when <span>$b \neq a$</span>. That's it.</dd>
+<dt>(t) - <strong>transitive</strong></dt>
+<dd>if whenever <span>$aRb$</span> and <span>$bRc$</span>, then <span>$aRc$</span>.</dd>
+<dt><strong>total</strong><sup id="fnref:2"><a href="#fn:2" rel="footnote" title="No cute little shortcut, like the others.">2</a></sup></dt>
+<dd>For any <span>$a, b \in A$</span>, <span>$aRb$</span> or <span>$bRa$</span> (or both) or <span>$a = b$</span>.</dd>
+</dl>
+<h3 class="header"><i>1.1</i>Some example relations<a class="headerlink" href="#some-example-relations" name="some-example-relations">&para;</a></h3>
+<p>On <span>$\mathbb{R}$</span>, the <span>$\leq$</span> relation is (r), not (ir), not (s), (as), (t), and total.</p>
+<p>The <span>$&lt;$</span> relation is not (r), (ir), not (s), (as)<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="Because the premise is never true - we never have ...">3</a></sup>, (t), and total.</p>
+<p>The "divides" relation on <span>$\mathbb{N} \backslash \{0\}$</span><sup id="fnref:4"><a href="#fn:4" rel="footnote" title="Incidentally, 0 is divisible by everything, and di...">4</a></sup>: <span>$m \mid n$</span> (where <span>$m$</span> is typically the smaller one, the one "doing the dividing") if <span>$n$</span> is divisible by <span>$m$</span> (so if <span>$m$</span> is a factor of <span>$n$</span>, or if there is a <span>$k \in \mathbb{N}$</span> such that <span>$m \cdot k = n$</span>). This relation is (r), not (ir), not (s), (as), (t), not total.</p>
+<p>On any set <span>$A$</span>, let <span>$R = A \times A$</span> (so everything is related to itself). This set is (r), not (ir) unless <span>$A = \varnothing$</span>, (s), not (as) unless A has zero or one elements, (t), and total.</p>
+<p>On <span>$A \neq \varnothing$</span>, <span>$R = \varnothing$</span>: not (r), (ir), (s) due to material implication, (as) also due to material implication, (t) again, and not total unless <span>$A$</span> is a singleton or the empty set.</p>
+<p><span>$\iota_A = \Delta_A = \{(a, a): a \in A\}$</span> (the diagonal, or identity relation basically): (r), not (ir) unless <span>$A = \varnothing$</span>, (s), (as), (t), not total unless <span>$A$</span> is the empty set or a singleton<sup>why?</sup>. Note that a relation on <span>$A$</span> is only going to be both (s) and (as) if it is a subset of <span>$\iota_A$</span>.</p>
+<h3 class="header"><i>1.2</i>Equivalence relations<a class="headerlink" href="#equivalence-relations" name="equivalence-relations">&para;</a></h3>
+<blockquote>
+<p>A relation <span>$R$</span> is called an equivalence relation on <span>$A$</span> if it is (r), (s), and (t).</p>
+</blockquote>
+<p>The largest equivalence relation on <span>$A$</span> is <span>$A \times A$</span>, while the smallest is <span>$\iota_A$</span>.<sup>Add something about birthdays?</sup></p>
+<p>An example: let <span>$R = \{(a, b): 3 \mid | a- b|,\, a, b \in \mathbb{N} \}$</span>. So <span>$aRa$</span> since <span>$3 \mid 0$</span> (alternatively, since <span>$a - a = 0 = 3k$</span> for <span>$k=0$</span>), meaning the relation is reflexive. It's also transitive: <span>$aRb$</span> and <span>$bRc$</span>, then <span>$a - b = 3k$</span> and <span>$b -c = 3l$</span> (<span>$k, l \in \mathbb{Z}$</span>), and so <span>$a - c = 3 (k + l)$</span> and so <span>$aRc$</span> where the integer is <span>$k + l$</span>. And it's also symmetric as well, due to the symmetry of the absolute value function. So this is an equivalence relation. We could have used any <span>$n \in \mathbb{N}$</span> except 0, actually, instead of 3. 1 would have worked too, although that's a special case that has some additional properties.</p>
+<p>A real-world example: Loveys takes the 80 bus every day. He doesn't care <em>which</em> bus he takes, as long as it's going along the correct route. So there is an equivalence relation on routes, based on the numbers. So an equivalence relation really just means that things have something in common.</p>
+<h4 class="header"><i>1.2.1</i>Equivalence classes<a class="headerlink" href="#equivalence-classes" name="equivalence-classes">&para;</a></h4>
+<blockquote>
+<p>Notation: <span>$a / E$</span> or <span>$[a]_E$</span> is the set <span>$\{x \in A: aEx \}$</span> (so a subset of <span>$A$</span>).</p>
+</blockquote>
+<p>In the total <span>$(A \times A)$</span> relation, there is only one equivalence class. In the <span>$\iota_A$</span> relation, each equivalence class is <span>$\{x\}$</span>, the singleton. So the number of equivalence classes is equal to the size of the set.</p>
+<p>For the <span>$3 \mid |a - b|$</span> relation, there are three different equivalence classes. Each class would contain numbers that differ by a multiple of 3. For example, one class would contain <span>$0, 3, 6, 9 ...$</span>, another would contain <span>$1, 4, 7, 10 ...$</span> and the last would contain <span>$2, 5, 8, 11 ...$</span>.</p>
+<blockquote>
+<p><strong>Proposition</strong>: <span>$[a]_E = [b]_E \iff aEb$</span>.<br />
+<strong>Proof</strong>: Suppose <span>$[a]_E = [b]_E$</span>. Then <span>$b \in [b]_E$</span> (by (r)). So <span>$b \in [a]_E$</span>. Hence <span>$a Eb$</span>.<br />
+Conversely, suppose <span>$aEb$</span> and <span>$c \in [a]_E$</span>. So <span>$aEc$</span>. By (s), <span>$bEa$</span>, so <span>$bEc$</span> by (t), so <span>$c \in[b]_E$</span>. Suppose <span>$d \in [b]_E$</span>. So <span>$b E d$</span>; <span>$aEb$</span>, so <span>$aEd$</span> by (t), so <span>$d \in [a]_E$</span>. So <span>$[a]_E = [b]_E$</span>. Lol no idea</p>
+</blockquote>
+<p>Another way to say it: if <span>$[a]_E \cap [b]_E \neq \varnothing$</span>, then they're equal. Why? Say <span>$c \in [a]_E \cap [b]_E$</span>. So <span>$aEc$</span> and <span>$bEc$</span>. So <span>$cEb$</span> by (s). So <span>$a E b$</span> by (t). So every element is in exactly one equivalence class? What?</p>
+<h4 class="header"><i>1.2.2</i>Partitions<a class="headerlink" href="#partitions" name="partitions">&para;</a></h4>
+<blockquote>
+<p>A partition <span>$\Pi$</span> of <span>$A$</span> is a collection of nonempty subsets of <span>$A$</span>, such that every element of <span>$A$</span> is in just one of the sets in <span>$\Pi$</span>.</p>
+</blockquote>
+<p>The sets in a partition <span>$\Pi$</span> are called the parts. Given that <span>$\Pi$</span> is a collection of subsets of <span>$A$</span>, <span>$\Pi$</span> is a partition if and only if:</p>
+<ol>
+<li>for <span>$P_1, P_2 \in \Pi, P_1 \neq P_2 \to (P_1 \cap P_2 \neq \varnothing)$</span></li>
+<li><span>$\bigcup$</span><sup id="fnref:5"><a href="#fn:5" rel="footnote" title="Join all the things in the set with $\cup$">5</a></sup><span>$\{ P_1, P_2 ... \in \Pi \} = A$</span></li>
+</ol>
+<p>An equivalence relation gives rise to a partition, and vice versa.</p>
+<p>Suppose <span>$\Pi$</span> is a partition of <span>$A$</span>. Define <span>$E_{\Pi}$</span> on <span>$A$</span> by <span>$aE_{\Pi}b $</span> if and only if they're in the same part.</p>
+<p>For example: an equivalence relation on gender, in this classroom. Two students are in the same class if and only if they have the same gender. So there are two parts - <span>$\{M\}$</span>, and <span>$\{F\}$</span>.</p>
+<p>N.B.: <span>$aE_{\Pi_E}b$</span> are in the same part if they're related by <span>$E$</span> (i.e. <span>$a Eb$</span>. So <span>$E_{\Pi_E} = E$</span>. And, <span>$\Pi_{E_{\Pi}} = \Pi$</span>. Lol.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Note: only the empty set is both (r) and (ir).&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>No cute little shortcut, like the others.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Because the premise is never true - we never have <span>$aRb$</span> and <span>$bRa$</span>. So by material implication, the relation is antisymmetric.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Incidentally, 0 is divisible by everything, and divides nothing, while 1 is divisible by nothing, and divides everything.&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>Join all the things in the set with <span>$\cup$</span>&#160;<a href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

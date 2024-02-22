@@ -1,0 +1,122 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>A guide to solving the various types of problems encountered in this course.</p>
+<h2 class="header"><i>1</i>Problems<a class="headerlink" href="#problems" name="problems">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Computing the matrix of an operator<a class="headerlink" href="#computing-the-matrix-of-an-operator" name="computing-the-matrix-of-an-operator">&para;</a></h3>
+<p>For the standard basis, just take the coefficients for each dimension and put them into rows. LTR first.</p>
+<p>For a different ordered basis, first determine the effect of <span>$T$</span> on each basis vector <span>$i$</span>, the result into column <span>$i$</span> (NOT ROWS!).</p>
+<h3 class="header"><i>1.2</i>Finding the eigenvalues of a matrix<a class="headerlink" href="#finding-the-eigenvalues-of-a-matrix" name="finding-the-eigenvalues-of-a-matrix">&para;</a></h3>
+<p>If the matrix is UT, it's the values along the diagonal.</p>
+<h3 class="header"><i>1.3</i>Diagonalising a matrix<a class="headerlink" href="#diagonalising-a-matrix" name="diagonalising-a-matrix">&para;</a></h3>
+<p>This only works if the algebraic multiplicity = geometric multiplicity for each eigenvalue.</p>
+<p>To diagonalise, first find the eigenvectors (<span>$A-\lambda I$</span> then row-reduce, parametrise, etc). Make these the columns of <span>$P$</span>, then calculate the inverse by row-reducing to the identity etc. The diagonal matrix just has the evalues along the diagonal, in the same order as the associated eigenvectors.</p>
+<h3 class="header"><i>1.4</i>Finding the characteristic and minimal polynomials<a class="headerlink" href="#finding-the-characteristic-and-minimal-polynomials" name="finding-the-characteristic-and-minimal-polynomials">&para;</a></h3>
+<p>If the matrix is in UT form already, then the eigenvalues are the values along the diagonal. To find the minimal polynomial, you could just try all possibilities for the algebraic multiplicity (remember that all the eigenvalues are roots).</p>
+<h3 class="header"><i>1.5</i>Finding the Jordan form<a class="headerlink" href="#finding-the-jordan-form" name="finding-the-jordan-form">&para;</a></h3>
+<p>If there's, say, only one eigenvalue, then just make that the only block and put 1's in the diagonal above it.</p>
+<p>Otherwise, find the determinant of <span>$\lambda I - A$</span>, find the roots, get the eigenvalues. It seems that if the geometric multiplicity for an evalue is 1, and the algebraic multiplicity is 2, then there is a 1 above the diagonal? Otherwise, no 1? So the number of blocks per eigenvalue is given by its geometric multiplicity? Sounds about right.</p>
+<p>To find the matrix <span>$P$</span> such that <span>$PAP^{-1} = J$</span>, use the eigenvectors as column vectors in the same order as the eigenvalues. If the geometric multiplicity is not equal to the algebraic multiplicity, look at the nullspace of <span>$(A-\lambda I)^a$</span> instead where <span>$a$</span> is the algebraic multiplicity (I think).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

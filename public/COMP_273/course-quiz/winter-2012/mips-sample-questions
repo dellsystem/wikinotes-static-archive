@@ -1,0 +1,469 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                MIPS sample questions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            MIPS sample questions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Under construction</strong></p>
+<p>Some of the questions aren't working properly with the "Grade answers" feature. This is a known issue that will be addressed eventually.</p>
+<h2 class="header"><i>1</i>MIPS: the basics<a class="headerlink" href="#mips-the-basics" name="mips-the-basics">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Instruction formats<a class="headerlink" href="#instruction-formats" name="instruction-formats">&para;</a></h3>
+<ol>
+<li>
+<p>Which of the following instructions is a J-format instruction?</p>
+<ul>
+<li>(A) <code>jal</code></li>
+<li>(B) <code>jr</code></li>
+<li>(C) <code>bne</code></li>
+<li>(D) <code>slt</code></li>
+<li>ANSWER: (A). <code>jr</code> and <code>slt</code> are R-format, and <code>bne</code> is I-format.</li>
+</ul>
+</li>
+<li>
+<p>Which of the following instructions or pseudoinstructions does not involve an immediate value?</p>
+<ul>
+<li>(A) <code>la</code></li>
+<li>(B) <code>j</code></li>
+<li>(C) <code>sw</code></li>
+<li>(D) <code>jr</code></li>
+<li>ANSWER: (D). <code>la</code> and <code>j</code> use immediate addresses, and <code>sw</code> uses an immediate offset.</li>
+</ul>
+</li>
+<li>
+<p>Which of the following instruction-format pairings is incorrect?</p>
+<ul>
+<li>(A) <code>j</code> - J-format</li>
+<li>(B) <code>lb</code> - R-format</li>
+<li>(C) <code>slt</code> - R-format</li>
+<li>(D) <code>addi</code> - I-format</li>
+<li>ANSWER: (B). <code>lb</code> is I-format (you need to specify an immediate as the offset).</li>
+</ul>
+</li>
+<li>
+<p>Bits 6-10 of an R-format instruction are only used for particular instructions. Which of the following R-format instructions uses those bits?</p>
+<ul>
+<li>(A) <code>sub</code></li>
+<li>(B) <code>sll</code></li>
+<li>(C) <code>mfhi</code></li>
+<li>(D) <code>xor</code></li>
+<li>ANSWER: (B). Bits 6-10 are the "shift amount", or <code>shamt</code>. They are used for <code>sll</code>, <code>srl</code>, and <code>sra</code>, which is essentially the same as <code>srl</code> except in the sense that it works "as expected" for negative numbers.</li>
+</ul>
+</li>
+<li>
+<p>I-format and J-format instructions both accomodate an immediate value to be specified. What is the maximum number of bits that can be specified for each instruction format?</p>
+<ul>
+<li>(A) 16 for I, 26 for J</li>
+<li>(B) 20 for I, 26 for J</li>
+<li>(C) 16 for I, 28 for J</li>
+<li>(D) 28 for I, 28 for J</li>
+<li>ANSWER: (A). See <a href="/COMP_273/summary/winter-2012/final-review-mips#instruction-formats">Final review: MIPS - Instruction formats</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.2</i>Pseudoinstructions<a class="headerlink" href="#pseudoinstructions" name="pseudoinstructions">&para;</a></h3>
+<ol>
+<li>
+<p>Which of the following instructions is NOT part of the MIPS instruction set, and is merely a pseudoinstruction that will be converted into real MIPS instructions by the assembler?</p>
+<ul>
+<li>(A) <code>beq</code></li>
+<li>(B) <code>blt</code></li>
+<li>(C) <code>sll</code></li>
+<li>(D) <code>addi</code></li>
+<li>ANSWER: (B). <code>blt</code> is converted into two instructions: <code>slt</code> and <code>bne</code>.</li>
+</ul>
+</li>
+<li>
+<p>Which of the following would correctly translate the pseudoinstruction <code>move $t1, $t0</code> into real MIPS commands?</p>
+<ul>
+<li>(A) <code>add $t1, $t0, $t0</code></li>
+<li>(B) <code>add $t0, $t1, $t1</code></li>
+<li>(C) <code>add $t1, $t0, $0</code></li>
+<li>(D) <code>addi $t0, $t1, 0</code></li>
+<li>ANSWER: (C). The actual translation would be <code>addi $t1, $t0, 0</code>, which is not listed above. Only (C) would be an accurate translation for every case among the possibilities above.</li>
+</ul>
+</li>
+<li>
+<p>Which of the following would correctly translate the pseudoinstruction <code>bge $t0, $t1, somelabel</code> into real MIPS commands?</p>
+<ul>
+<li>(A) <code>slt $t2, $t1, $t0; beq $t2, $0, somelabel</code></li>
+<li>(B) <code>slt $t2, $t0, $t1; beq $t2, $t0, somelabel</code></li>
+<li>(C) <code>slt $t2, $t1, $t0; bne $t2, $0, somelabel</code></li>
+<li>(D) <code>slt $t2, $t0, $t1, bne $t2, $t0, somelabel</code></li>
+<li>ANSWER: (C). The actual translation would make use of register \$1, not \$t2.</li>
+</ul>
+</li>
+<li>
+<p>When we use the pseudoinstruction <code>li</code> to load a register with an immediate, the assembler actually translates this into two instructions, because the register is able to hold a 32-bit value but only a 16-bit immediate can be specified per MIPS instruction. The first of these two instructions is <code>lui</code> (load upper immediate), which takes the upper 16 bits provided and stores them as the upper 16 bits of the register. What is the other command?</p>
+<ul>
+<li>(A) <code>ori</code></li>
+<li>(B) <code>addi</code></li>
+<li>(C) <code>add</code></li>
+<li>(D) <code>and</code></li>
+<li>ANSWER: (A). See <a href="/COMP_273/summary/winter-2012/final-review-mips#storing-an-immediate-32-bit-value">Final review: MIPS - Storing an immediate 32-bit value</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.3</i>Signed vs unsigned instructions<a class="headerlink" href="#signed-vs-unsigned-instructions" name="signed-vs-unsigned-instructions">&para;</a></h3>
+<ol>
+<li>
+<p>What would be stored in \$s0 and \$s1 after the execution of the following instructions?</p>
+<div class="codehilite"><pre>li $t0, -50000
+li $t1, 50000
+slt $s0, $t0, $t1
+sltu $s1, $t0, $t1
+</pre></div>
+
+
+<ul>
+<li>(A) 0 in \$s0 and 0 in \$s1</li>
+<li>(B) 0 in \$s0 and 1 in \$s1</li>
+<li>(C) 1 in \$s0 and 0 in \$s1</li>
+<li>(D) 1 in \$s0 and 1 in \$s1</li>
+<li>ANSWER: (C).</li>
+</ul>
+</li>
+<li>
+<p>What would be stored in \$s0 and \$s1 after the execution of the following instructions? (Same type of question as the previous one, but with different numeric values.)</p>
+<div class="codehilite"><pre>li $t0, -50000
+li $t1, 50001
+slt $s0, $t0, $t1
+sltu $s1, $t0, $t1
+</pre></div>
+
+
+<ul>
+<li>(A) 0 in \$s0 and 0 in \$s1</li>
+<li>(B) 0 in \$s0 and 1 in \$s1</li>
+<li>(C) 1 in \$s0 and 0 in \$s1</li>
+<li>(D) 1 in \$s0 and 1 in \$s1</li>
+<li>ANSWER: (C). For sltu, recall that -50000 is stored in two's complement form, and since its MSB is 1 it will definitely not be seen as less than 50001.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.4</i>Register conventions<a class="headerlink" href="#register-conventions" name="register-conventions">&para;</a></h3>
+<ol>
+<li>Let's say you're a child function and you were called by a parent who had put values in all of the following registers. Which register should the parent function NOT expect to be unchanged once execution goes back to the parent? In other words, which registers are you allowed to freely change, by MIPS conventions?<ul>
+<li>(A) <code>$sp</code></li>
+<li>(B) <code>$s0</code></li>
+<li>(C) <code>$s1</code></li>
+<li>(D) <code>$ra</code></li>
+<li>ANSWER: (D). Although you can change <code>$sp</code>, you cannot <em>freely</em> change it in that by the time you return the flow of execution to the parent, <code>$sp</code> should be the same as it was before. How else can the parent function retrieve things it has placed on the stack? At least that's my interpretation of it. (In any case, it definitely should not expect whatever is in <code>$ra</code> to be saved, especially if the child function was called with <code>jal</code>.)</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.5</i>Memory<a class="headerlink" href="#memory" name="memory">&para;</a></h3>
+<ol>
+<li>Which of the following best describes the sizes of the various parts of MIPS memory?<ul>
+<li>(A) The kernel and user regions are both divided into "data" and "instruction" subregions, but the kernel region is much smaller than the user region.</li>
+<li>(B) The user region is divided into "data" and "instruction" subregions, while the kernel region is not divided into subregions.</li>
+<li>(C) The kernel and user regions are of the same size, and each is divided into "data" and "instruction" subregions, with the "data" subregion being much larger than the "instruction" subregion.</li>
+<li>(D) The kernel and user regions are of the same size, and each is divided into "data" and "instruction" subregions, with the "instruction" subregion being much larger than the "data" subregion.</li>
+<li>ANSWER: (C). See <a href="/COMP_273/summary/winter-2012/final-review-mips#memory">Final review: MIPS - Memory</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>2</i>Various MIPS operations<a class="headerlink" href="#various-mips-operations" name="various-mips-operations">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Bitshift operations<a class="headerlink" href="#bitshift-operations" name="bitshift-operations">&para;</a></h3>
+<ol>
+<li>Which of the following operations would change the contents of \$t0 from <code>0x0000000f</code> into <code>0x0000003c</code><ul>
+<li>(A) <code>sll $t0, 2</code></li>
+<li>(B) <code>srl $t0, 2</code></li>
+<li>(C) <code>sll $t0, 4</code></li>
+<li>(D) <code>srl $t0, 4</code></li>
+<li>ANSWER: (A). See <a href="/COMP_273/summary/winter-2012/final-review-mips#bitshift-operations">Final review: MIPS - Bitshift operations</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.2</i>Array operations<a class="headerlink" href="#array-operations" name="array-operations">&para;</a></h3>
+<ol>
+<li>Let's say we have an array with 4 integer elements. The address of the first element in the array is stored in \$t0. Which of the following gives us the result of the last element of the array (stored in \$t1)?<ul>
+<li>(A) <code>addi $t1, $t0, 3; sll $t1, 2</code>;</li>
+<li>(B) <code>addi $t1, $t0, 16</code></li>
+<li>(C) <code>sll $t0, 2; addi $t1, $t0, 3</code></li>
+<li>(D) <code>addi $t1, $t0, 12</code></li>
+<li>ANSWER: (D). See <a href="/COMP_273/summary/winter-2012/final-review-mips#array-operations">Final review: MIPS - Array operations</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.3</i>Working with strings<a class="headerlink" href="#working-with-strings" name="working-with-strings">&para;</a></h3>
+<ol>
+<li>
+<p>How many bits does the string <code>hello world!</code> take up?</p>
+<ul>
+<li>(A) 12</li>
+<li>(B) 48</li>
+<li>(C) 104</li>
+<li>(D) 384</li>
+<li>ANSWER: (C). Each character is a byte, which is 8 bits, and there are 12 characters + 1 null terminator, and <span>$13 \times 8 = 104$</span>.</li>
+</ul>
+</li>
+<li>
+<p>Which of the following statements about working with strings in MIPS is incorrect?</p>
+<ul>
+<li>(A) To load individual characters from memory or write them back into memory, we use the instructions <code>lc</code> and <code>sc</code>, respectively.</li>
+<li>(B) When loading a character from memory, the numerical value is sign-extended to fill all 32 bits of the register.</li>
+<li>(C) When saving a character into memory, the upper 24 bits in the register are ignored.</li>
+<li>(D) We can compute the length of a string by making the use of the fact that the null terminator for strings is \$0.</li>
+<li>ANSWER: (A). The commands are <code>lb</code> and <code>sb</code>.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.4</i>Assembler directives<a class="headerlink" href="#assembler-directives" name="assembler-directives">&para;</a></h3>
+<ol>
+<li>Which of the following statements is incorrect?<ul>
+<li>(A) To align subsequent declarations with word boundaries, we can use the directive <code>.align 2</code>.</li>
+<li>(B) Static data must be declared under the <code>.data</code> section (not underneath the <code>.text</code> section).</li>
+<li>(C) To allocate enough space for exactly 100 bits, we can use the directive <code>.space 100</code></li>
+<li>(D) To declare a string containing a line break, we can use the directive <code>.asciiz "\n"</code></li>
+<li>ANSWER: (C). <code>.space 100</code> would allocate space for 100 <em>bytes</em>, not bits.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.5</i>IO and system calls<a class="headerlink" href="#io-and-system-calls" name="io-and-system-calls">&para;</a></h3>
+<ol>
+<li>Which of the following statements about system calls is incorrect?<ul>
+<li>(A) To exit the program, we store 10 in \$v0.</li>
+<li>(B) To print an integer, we store 1 in \$v0, and place the integer itself in \$v1.</li>
+<li>(C) After reading an integer from the command prompt, the integer itself is stored in \$v0.</li>
+<li>(D) To print a string, we must have created the string beforehand, either in the static data section or dynamically.</li>
+<li>ANSWER: (B). The integer is stored in \$a0, the first argument register.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.6</i>Using the stack<a class="headerlink" href="#using-the-stack" name="using-the-stack">&para;</a></h3>
+<ol>
+<li>
+<p>The following commands were used to store the contents of registers \$s0 and \$s1 onto the stack:</p>
+<div class="codehilite"><pre>addi $sp, $sp, -8
+sw $s0, 0($sp)
+sw $s1, 4($sp)
+# insert various unrelated instructions here
+</pre></div>
+
+
+<p>Assuming that neither the stack pointer nor the stack has been changed during the "various unrelated instructions" part, which of the following would allow you to recover the contents of \$s0 and \$s1 while returning \$sp to its original (pre-decremented) value?</p>
+<ul>
+<li>(A) <code>addi $sp, $sp, 8; lw $s0, 4($sp); lw $s1, 0($sp)</code></li>
+<li>(B) <code>addi $sp, $sp, 8; lw $s0, 0($sp); lw $s1, 4($sp)</code></li>
+<li>(C) <code>lw $s0, 4($sp); lw $s1, 0($sp); addi $sp, $sp, 8</code></li>
+<li>(D) <code>lw $s0, 0($sp); lw $s1, 4($sp); addi $sp, $sp, 8</code></li>
+<li>ANSWER: (D). See <a href="/COMP_273/summary/winter-2012/final-review-mips#using-the-stack">Final review: MIPS - Using the stack</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.7</i>Multiplication and division<a class="headerlink" href="#multiplication-and-division" name="multiplication-and-division">&para;</a></h3>
+<ol>
+<li>Which of the following statements about multiplication and division is incorrect?<ul>
+<li>(A) Integer multiplications takes an input two 32-bit values and returns a 64-bit value</li>
+<li>(B) The result of a multiplication is stored in a read-only (for the programmer at least) "product" register</li>
+<li>(C) The product of two numbers is accesssed using two separate instructions - <code>mfhi</code> to get bits 0-31 (the rightmost bits), and <code>mflo</code> to get bits 32-63</li>
+<li>(D) The <code>div</code> command stores the quotient and the remainder in the product register, and the two can be accessed using <code>mfhi</code> and <code>mflo</code></li>
+<li>ANSWER: (C). See <a href="/COMP_273/summary/winter-2012/final-review-mips#multiplication-and-division">Final review: MIPS - Multiplication and division</a> for more details.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.8</i>Floating point operations<a class="headerlink" href="#floating-point-operations" name="floating-point-operations">&para;</a></h3>
+<ol>
+<li>Which of the following statements about floating point operations is true?<ul>
+<li>(A) Floating point operations are done in the ALU, just as with integers.</li>
+<li>(B) If all the floating point registers are full, we can store 32 different double-precision floats.</li>
+<li>(C) When using instructions that require a double-precision float, only the first register (the even register) needs to be mentioned.</li>
+<li>(D) \$f0 is hardwired to the value 0.0.</li>
+<li>ANSWER: (C). (A) is false because a different coprocessor is needed, (B) is false because there are 32 registers and so we can only store 16 double-precision floats, and (D) is sadly not true either.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.9</i>Type conversion<a class="headerlink" href="#type-conversion" name="type-conversion">&para;</a></h3>
+<ol>
+<li>Let the register <code>$t0</code> hold the value 14925, and let the registers <code>$f0</code> and <code>$f1</code> hold the value 19485.105 (double precision). We want to compute the sum of the two numbers (with as much precision as possible) and store it in <code>$f10</code>. How could we go about doing this?<ul>
+<li>(A) <code>mtc1 $t0, $f2; cvt.d.w. $f2, $f2; add.d $f4, $f0, $f2</code></li>
+<li>(B) <code>mfc1 $t0, $f1; cvt.s.w $f1, $f1; add.s $f10, $f0, $f1</code></li>
+<li>(C) <code>mtc1 $t0, $f2; cvt.w.d $f2, $f0; add $f10, $f0, $f1; add $f10, $f10, $f2</code></li>
+<li>(D) <code>cvt.s.w $t0, $t0; mfc1 $f2, $t0; add.s $f10, $f2, $f0</code></li>
+<li>ANSWER: (A). None of the others make sense.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.10</i>Exception handling<a class="headerlink" href="#exception-handling" name="exception-handling">&para;</a></h3>
+<ol>
+<li>Which of the following statements about exception handling is true?<ul>
+<li>(A) Exception handling is done within coprocessor 1.</li>
+<li>(B) The return address (the line that immediately follows the one that caused the exception) is stored in a kernel-only register, called EPC.</li>
+<li>(C) Trying to access an illegal address will not cause an exception, but it will probably cause errors in your program</li>
+<li>(D) Trying to divide 1.0 by 0.0 in the FPU will result in an exception</li>
+<li>ANSWER: (B). (A) is false because exception handling is done by coprocessor 0, (C) is false because it will cause an exception, and (D) is false because division by zero (and also overflow errors) result in something like <span>$\pm \infty$</span> or NaN for floats.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>3</i>Datapaths<a class="headerlink" href="#datapaths" name="datapaths">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Single-cycle datapaths<a class="headerlink" href="#single-cycle-datapaths" name="single-cycle-datapaths">&para;</a></h3>
+<ol>
+<li>
+<p>Which of the following instructions could this single-cycle datapath description be referring to?</p>
+<p>Two source registers (ReadReg) and one destination register (WriteReg) are selected, and the values are read from the source registers and sent as input to the ALU. The ALU operation is performed, the result is written to the destination register, and the PC is updated.</p>
+<ul>
+<li>(A) <code>add</code></li>
+<li>(B) <code>ori</code></li>
+<li>(C) <code>li</code></li>
+<li>(D) <code>sll</code></li>
+<li>ANSWER: (A). No immediate is used, so (B) and (C) are out (both are I-format). The <code>shamt</code> is not used, so (D) is out.</li>
+</ul>
+</li>
+<li>
+<p>(Same type of question)</p>
+<p>Two source registers (ReadReg) are selected, and their values are read. One of these values is sent along with an immediate value to the ALU. The value in the other source register is then written into memory, at the address specified by the output of the ALU. The PC is then updated.</p>
+<ul>
+<li>(A) <code>lui</code></li>
+<li>(B) <code>lw</code></li>
+<li>(C) <code>sw</code></li>
+<li>(D) <code>slt</code></li>
+<li>ANSWER: (C). The description of <code>sw</code> is fairly unique (although it would work for <code>sb</code> too I suppose).</li>
+</ul>
+</li>
+<li>
+<p>(Same type of question)</p>
+<p>Two source registers (ReadReg) are selected, and their values are read and sent to the ALU. An immediate value is also sent to the ALU, along with the value of the PC (program counter). Depending on the output of the first ALU operation, either the output of the ALU or PC + 4 is selected and written back to the ALU.</p>
+<ul>
+<li>(A) <code>lb</code></li>
+<li>(B) <code>j</code></li>
+<li>(C) <code>jal</code></li>
+<li>(D) <code>beq</code></li>
+<li>ANSWER: (D). I figured that the datapaths for <code>bne</code> and <code>beq</code> (former is given in the lecture notes - see <a href="/COMP_273/summary/winter-2012/final-review-mips#single-cycle-datapaths">Final review: MIPS - Single-cycle datapaths</a>) should be similar, so I tried to describe the datapath for it as accurately as I could. This description can definitely be improved, though.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>3.2</i>Multi-cycle datapaths<a class="headerlink" href="#multi-cycle-datapaths" name="multi-cycle-datapaths">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>Microinstructions<a class="headerlink" href="#microinstructions" name="microinstructions">&para;</a></h4>
+<ol>
+<li>Later</li>
+</ol>
+<h4 class="header"><i>3.2.2</i>Pipelining<a class="headerlink" href="#pipelining" name="pipelining">&para;</a></h4>
+<ol>
+<li>Later</li>
+</ol>
+<h2 class="header"><i>4</i>Miscellaneous<a class="headerlink" href="#miscellaneous" name="miscellaneous">&para;</a></h2>
+<ol>
+<li>Which of the following commands would NOT result in the register <code>$t0</code> being set to 0?<ul>
+<li>(A) <code>li $t0, 0</code></li>
+<li>(B) <code>xor $t0, $t0, $t0</code></li>
+<li>(C) <code>and $t0, $t0, $0</code></li>
+<li>(D) <code>ori $t0, $t0, 0</code></li>
+<li>ANSWER: (D). Fairly straightforward. Inspired by a <a href="http://stackoverflow.com/questions/4023026/mips-curiosity-faster-way-of-clearing-a-register">stackoverflow question</a>.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>5</i>Notes to self<a class="headerlink" href="#notes-to-self" name="notes-to-self">&para;</a></h2>
+<ul>
+<li>given some simple instructions, write down the output or draw the datapath<ul>
+<li>examples:<ul>
+<li>li \$t1, 100</li>
+<li>addi \$t2, \$t1, -40</li>
+<li>swapping two words/bytes or whatever (trace out the steps)</li>
+</ul>
+</li>
+<li>write down the contents of \$t2 and \$t1 at the end</li>
+<li>with casting, adding ints/floats in the CPU or in the FPU, then compare etc</li>
+</ul>
+</li>
+<li>given some instructions that may cause data hazards, give solutions for dealing with them etc</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

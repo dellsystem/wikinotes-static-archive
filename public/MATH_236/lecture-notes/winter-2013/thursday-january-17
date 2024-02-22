@@ -1,0 +1,187 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, January 17, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, January 17, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Dimension
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Material covered: the definition of the dimension of a vector space, the lunch in Chinatown identity<sup id="fnref:loveys"><a href="#fn:loveys" rel="footnote" title="As Loveys would call it. :(">1</a></sup>.</p>
+<div class="toc">
+<ul>
+<li><a href="#proposition-213">1 Proposition 2.13</a></li>
+<li><a href="#theorem-214">2 Theorem 2.14</a></li>
+<li><a href="#dimension">3 Dimension</a><ul>
+<li><a href="#proposition-215-217">3.1 Proposition 2.15-2.17</a></li>
+<li><a href="#theorem-218-lunch-in-chinatown">3.2 Theorem 2.18: Lunch in Chinatown</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Proposition 2.13<a class="headerlink" href="#proposition-213" name="proposition-213">&para;</a></h2>
+<blockquote>
+<p>Suppose <span>$V$</span> is a finite-dimensional vector space, of which <span>$U$</span> is a subspace. Then, there exists a subspace <span>$W \subset V$</span> such that <span>$V = U \oplus W$</span>.</p>
+</blockquote>
+<p>Proof: Let <span>$B = (u_1, \ldots, u_n)$</span> be a basis for <span>$U$</span>. Since each of the vectors are in <span>$V$</span>, and they're linearly independent in <span>$U$</span>, they are also linearly independent in <span>$V$</span>; thus, by <a href="/MATH_236/lecture-notes/winter-2013/tuesday-january-15#theorem-212">theorem 2.12</a>, we can extend <span>$B$</span> to a basis of <span>$V$</span>. Let <span>$(u_1, \ldots, u_n, w_1, \ldots, w_m)$</span> be a basis for <span>$V$</span>. Then, <span>$(w_1, \ldots, w_m)$</span> is a set of vectors whose span is a subspace, which we will call <span>$W$</span>.</p>
+<p>Now, we need to show that <span>$U \oplus W = V$</span>. First, we need to show that <span>$U + W = V$</span>, which we can do by proving that <span>$V \subseteq U + W$</span> and that <span>$U + W \subseteq V$</span>. For the former, let <span>$v \in V$</span>, which we can write as a linear combination of basis vectors in <span>$B$</span>:</p>
+<p><span>$$v = \underbrace{a_1 u_1 + \ldots + a_nu_n}_{\in U} + \underbrace{b_1w_1 + \ldots + b_mw_m}_{\in W} = u + w, \; u \in U, w \in W$$</span></p>
+<p>So this tells us that any vector <span>$V$</span> can be expressed as the sum of vectors in <span>$U$</span> and <span>$W$</span>, and so <span>$V \subseteq U + W$</span>. The other direction is trivial: if <span>$u \in U$</span>, <span>$u = a_1u_1 + \ldots + a_nu_n = a_1u_1 + \ldots + a_nu_n + 0w_1 + \ldots + 0w_m \in V$</span>, and if <span>$w \in W$</span>, then <span>$w = b_1w_1 + \ldots + b_mw_m = 0u_1 + ldots + 0u_n + b_1w_1 + \ldots + b_mw_m \in V$</span>. So we've shown that <span>$V = U + W$</span>.</p>
+<p>To conclude the proof, we need to show that <span>$U \cap W = \{0\}$</span>. Let <span>$x \in U \cap W$</span> be some vector in their intersection. We will proceed to show that <span>$x$</span> must be the zero vector. Since <span>$x \in U$</span>, we can write it as a linear combination of the basis vectors in <span>$U$</span>: <span>$x = a_1u_1 + \ldots + a_nu_n$</span>. Similarly, since <span>$x \in W$</span>, we can write it as a linear combination of the basis vectors in <span>$W$</span>: <span>$x = b_1w_1 + \ldots + b_mw_m$</span>. We can then combine these two representations by subtracting one from the other, as follows:</p>
+<p><span>$$0 = x-x = (a_1u_1 + \ldots + a_nu_n) - (b_1w_1 + \ldots + b_mw_m) = a_1u_1 + a_nu_n + c_1w_1 + \ldots c_mw_m$$</span></p>
+<p>(where <span>$c_i = - b_i$</span> is just some coefficient in the field). However, since the basis <span>$B$</span> is linearly independent in <span>$V$</span>, we know that the coefficients above must all be zero. So we have that <span>$x = 0$</span>, which tells us that the only vector in the intersection of <span>$U$</span> and <span>$W$</span> is the zero vector. This concludes the proof that <span>$V = U \oplus W$</span>. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Theorem 2.14<a class="headerlink" href="#theorem-214" name="theorem-214">&para;</a></h2>
+<blockquote>
+<p>Any 2 bases of a finite-dimension vector space <span>$V$</span> are the same size (i.e., contain the same number of vectors).</p>
+</blockquote>
+<p>Proof: The proof given for this is quite simple and relies heavily on <a href="/MATH_236/lecture-notes/winter-2013/monday-january-14#theorem-26">theorem 2.6</a>. Let <span>$B_1$</span> and <span>$B_2$</span> be two bases of <span>$V$</span>, where <span>$B_1$</span> contains <span>$m$</span> vectors and <span>$B_2$</span> contains <span>$n$</span> vectors. Since <span>$B_1$</span> spans <span>$V$</span>, and since <span>$B_2$</span> is a linearly independent set, we know that <span>$m \geq n$</span>. Similarly, since <span>$B_2$</span> spans <span>$V$</span>, and since <span>$B_1$</span> is a linearly independent set, we know that <span>$n \geq m$</span>. So <span>$m = n$</span> and thus any two bases in a vector space <span>$V$</span> contain the same number of vectors. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>3</i>Dimension<a class="headerlink" href="#dimension" name="dimension">&para;</a></h2>
+<p>The <strong>dimension</strong> of a vector space <span>$V$</span> is the number of vectors in any basis of <span>$V$</span>. This is well-defined since, as we saw in the previous section, any two bases in a vector space contain the same number of vectors.</p>
+<p>Examples:</p>
+<ul>
+<li><span>$\dim(\mathbb F^n) = n$</span> (where <span>$\mathbb F^n$</span> is a vector space over <span>$\mathbb F$</span>)</li>
+<li><span>$\dim(\mathbb C) = 1$</span> over <span>$\mathbb C$</span> (when considered over <span>$\mathbb R$</span>, its dimension would be 2)</li>
+<li><span>$\dim(P_n(\mathbb F)) = n+1$</span> (because of the constant term for polynomials)</li>
+</ul>
+<h3 class="header"><i>3.1</i>Proposition 2.15-2.17<a class="headerlink" href="#proposition-215-217" name="proposition-215-217">&para;</a></h3>
+<blockquote>
+<p>Let <span>$V$</span> be a finite-dimensional vector space.</p>
+<ol>
+<li>Let <span>$U$</span> be a subspace of <span>$V$</span>. Then, <span>$\dim(U) \subseteq \dim(V)$</span>. (Reason: any basis of <span>$U$</span> is linearly independent in the ambient space, <span>$V$</span>, as well; so, theorem 2.6 applies.)</li>
+<li>Every spanning list for <span>$V$</span> with length <span>$\dim(v)$</span> is a basis for <span>$V$</span>.</li>
+<li>Every linearly independent list with length <span>$\dim(V)$</span> is also a basis for <span>$V$</span>.</li>
+</ol>
+</blockquote>
+<p>Proofs: left as an exercise.</p>
+<h3 class="header"><i>3.2</i>Theorem 2.18: Lunch in Chinatown<a class="headerlink" href="#theorem-218-lunch-in-chinatown" name="theorem-218-lunch-in-chinatown">&para;</a></h3>
+<blockquote>
+<p><span>$$\dim(U_1 + U_2) = \dim(U_1) + \dim(U_2) - \dim(U_1 \cap U_2)$$</span></p>
+<p>This is a fairly important identity relating the dimensions of the sum to the sum of the dimensions. Make sure you know how to prove this.</p>
+</blockquote>
+<p>Proof: <span>$(U_1 \cap U_2)$</span> is a finite-dimensional subspace of both <span>$U_1$</span> and <span>$U_2$</span>. Let <span>$B_1 = (u_1, \ldots, u_m)$</span> be a basis for this intersection. Since <span>$B_1$</span> is linearly independent in both <span>$U_1$</span> and <span>$U_2$</span>, we are able to extend it to a basis of <span>$U_1$</span> and to a basis of <span>$U_2$</span>. We propose the following basis for <span>$U_1$</span>: <span>$(u_1, \ldots, u_m, v_1, \ldots, v_j)$</span>. So <span>$\dim(U_1) = m + j$</span>. For <span>$U_2$</span>, our proposed basis is: <span>$(u_1, \ldots, u_m, w_1, \ldots, w_k)$</span>, so <span>$\dim(U_2) = m+k$</span>. So the right-hand side of the equation above simplifies to <span>$\dim(U_1) + \dim(U_2) - \dim(U_1 \cap U_2) = (m+j) + (m+k) - m = m + j + k$</span>.</p>
+<p>Now we need to come up with a suitable basis for <span>$U_1 + U_2$</span>. An obvious choice would be <span>$B_2 = (u_1, \ldots, u_m, v_1, \ldots, v_j, w_1, \ldots, w_k)$</span>. Let's prove that this is indeed a basis for <span>$U_1 + U_2$</span>. To do this, we will need to first show that it is a spanning set, and then that it is linearly independent.</p>
+<p><strong>Proof of spanning-set-ness</strong>: Let <span>$x + y \in U_1 + U_2$</span> (where <span>$x \in U_1$</span> and <span>$y \in U_2$</span>). We can write <span>$x$</span> as a linear combination of basis vectors of <span>$U_1$</span>: <span>$x = a_1u_1 + \ldots + a_mu_m + \ldots + b_1v_1 + \ldots b_jv_j$</span>. Similarly, we can write <span>$y$</span> as <span>$y = c_1u_1 + \ldots + c_mu_m + \ldots + d_1w_1 + \ldots d_kw_k$</span>. Then:</p>
+<p><span>$$\begin{align}x + y &amp; = (a_1u_1 + \ldots + a_mu_m + \ldots + b_1v_1 + \ldots b_jv_j) + (c_1u_1 + \ldots + c_mu_m + \ldots + d_1w_1 + \ldots d_kw_k) \\
+&amp; = (a_1 + c_1)u_1 + \ldots + (a_m + c_m)u_m + \ldots + b_1v_1 + \ldots b_jv_j + d_1w_1 + \ldots d_kw_k \end{align}$$</span></p>
+<p>which tells us that any vector in <span>$U_1 + U_2$</span> can be written as a combination of basis vectors in <span>$B_2$</span>. Thus <span>$U_1 + U_2$</span> is spanned by <span>$B_2$</span>.</p>
+<p>Now we just need to show that <span>$B_2$</span> is linearly independent. To do this, we prove that if some linear combination of the vectors in <span>$B_2$</span> results in the zero vector, then all coefficients must have been zero. The equation for the linear combination is:</p>
+<p><span>$$a_1u_1 + \ldots + a_mu_m + \ldots + b_1v_1 + \ldots + b_jv_j + c_1w_1 + \ldots + c_kw_k = 0$$</span></p>
+<p>We can rearrange this equation by moving the <span>$u$</span> and <span>$v$</span> terms to the right, leaving:</p>
+<p><span>$$c_1w_1 + \ldots + c_kw_k = -a_1u_1 - \ldots - a_mu_m - \ldots -b_1v_1 - \ldots -b_jv_j$$</span></p>
+<p>The vector on the left-hand side is clearly an element of <span>$U_2$</span>, since it's a linear combination of some of the basis vectors of <span>$U_2$</span>. It's also an element of <span>$U_1$</span>, since it's equal to the right-hand side (which is a linear combination of basis vectors of <span>$U_1$</span>). Thus <span>$c_1w_1 + \ldots + c_kw_k \in U_1 \cap U_2$</span>, and so we can write it as a linear combination of the vectors in <span>$B_1$</span>:</p>
+<p><span>$$c_1w_1 + \ldots + c_kw_k = d_1v_1 + \ldots + d_mu_m$$</span></p>
+<p>If we then subtract the two different representations for <span>$c_1w_1 + \ldots + c_kw_k$</span> (which we'll now call <span>$x$</span>, for simplicity), we get the zero vector:</p>
+<p><span>$$\begin{align}0 &amp; = x - x \\ &amp; = d_1v_1 + \ldots + d_mu_m - (-a_1u_1 - \ldots - a_mu_m - \ldots -b_1v_1 - \ldots -b_jv_j) \\ &amp; = (d_1 + b_1)v_1 + \ldots + (d_m + b_m)v_j + a_1u_1 + a_mu_m\end{align}$$</span></p>
+<p>But we know that <span>$(u_1, \ldots, u_m, v_1, \ldots, v_j)$</span> is a basis for <span>$U_1$</span>, which means that the vectors must be linearly independent. So <span>$a_i = 0$</span> for all <span>$i$</span>. If we substitute that into the equation for the linear combination, we get:</p>
+<p><span>$$b_1v_1 + \ldots + b_jv_j + c_1w_1 + \ldots + c_kw_k = 0$$</span></p>
+<p>and since <span>$(u_1, \ldots, u_m, w_1, \ldots, w_k)$</span> is a basis for <span>$U_2$</span>, the vectors must be linearly independent in <span>$U_2$</span> (and thus in <span>$V$</span>) and so the coefficients must all be zero. This completes the proof that the vectors are linearly independent, and so we can conclude that <span>$B_2$</span> is a basis for <span>$U_1 + U_2$</span>. Since there are <span>$m + j + k$</span> vectors in <span>$B_2$</span>, this shows that the two sides of the original equation are equal. <span>$\blacksquare$</span></p>
+<p>Note that there is no equivalent of lunch in chinatown for <span>$&gt; 2$</span> subspaces.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:loveys">
+<p>As Loveys would call it. :(&#160;<a href="#fnref:loveys" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

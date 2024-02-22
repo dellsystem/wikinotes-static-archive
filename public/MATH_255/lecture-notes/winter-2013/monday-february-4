@@ -1,0 +1,137 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, February 4, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, February 4, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Continuing with the mean value theorem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Continuing with the Mean Value Theorem<a class="headerlink" href="#continuing-with-the-mean-value-theorem" name="continuing-with-the-mean-value-theorem">&para;</a></h2>
+<p><strong>Corollary:</strong> Let <span>$I = [a,b]$</span> be a closed and bounded interval, <span>$f : I \to \mathbb{R}$</span> continuous on <span>$[a,b]$</span> and differentiable on <span>$(a,b)$</span>. Then</p>
+<p>(i) <span>$f$</span> is increasing on <span>$I \iff f'(c) \geq 0$</span> for all <span>$x \in I$</span><br />
+(ii) <span>$f$</span> is decreasing on <span>$I \iff f'(c) \leq 0$</span> for all <span>$x \in I$</span></p>
+<p><strong>Proof:</strong> We'll prove the first, as the second is pretty much the same.<br />
+(<span>$\Leftarrow$</span>)  Let <span>$x_1, x_2 \in I$</span> be such that <span>$x_1 &lt; x_2$</span>. Apply the Mean Value Theorem to <span>$f$</span> on <span>$[x_1,x_2]$</span>. Then there exists <span>$c \in (x_1, x_2)$</span> such that <span>$\displaystyle\frac{f(x_2) - f(x_1)}{x_2 - x_1} = f'(c)$</span>. Then <span>$\displaystyle\frac{f(x_2) - f(x_1)}{x_2 - x_1} \geq 0$</span>. Multiply by <span>$x_2 - x_1 &gt; 0$</span> to get that <span>$f(x_2) - f(x_1) \geq 0$</span>, i.e. <span>$f(x_1) \leq f(x_2)$</span>, i.e. <span>$f$</span> is increasing on <span>$I$</span>.</p>
+<p>(<span>$\Rightarrow)$</span>  If <span>$f$</span> is increasing, for fixed <span>$c \in (a,b)$</span> and <span>$c &lt; x$</span> then <span>$f(c) \leq f(x)$</span> so <span>$f(x) - f(c) \geq 0$</span> and <span>$\displaystyle\frac{f(x) - f(c)}{x-c} \geq 0$</span>. But <span>$\displaystyle\frac{f(x)-f(c)}{x-c} \to f'(c)$</span> as <span>$x \to c$</span>, thus <span>$f'(c) \geq 0$</span>.</p>
+<p>As we mentioned, (ii) follows similarly.</p>
+<p><strong>Lemma:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be an interval, <span>$f : I \to \mathbb{R}$</span> be a function on <span>$I$</span> differentiable at <span>$c \in I$</span>. </p>
+<p>(i) if <span>$f'(c) &gt; 0$</span>, there exists <span>$\delta &gt; 0$</span> such that <span>$f(x) &gt; f(c)$</span> for all <span>$c &lt; x &lt; c + \delta$</span>. <br />
+(ii) if <span>$f'(c) &lt; 0$</span>, there exists <span>$\delta &gt; 0$</span> such that <span>$f(x) &gt; f(c)$</span> for all <span>$c-\delta &lt; x &lt; c$</span>.</p>
+<p><strong>Proof:</strong> We'll prove the first as the second follow similarly. Using essentially the same proof as the previous corollary: let <span>$c \in I$</span> be such that <span>$f'(c) &gt; 0$</span>. There exists <span>$\delta &gt; 0$</span> such that if <span>$0 &lt; |x-c|&lt;\delta$</span> then <span>$\displaystyle\frac{f(x)-f(c)}{x-c} &gt; 0$</span> if <span>$x-c &gt; 0$</span>, i.e. if <span>$x$</span> is such that <span>$c &lt; x &lt; c+\delta$</span> then <span>$\displaystyle\frac{f(x)-f(c)}{x-c} &gt; 0$</span>. Multiplying by <span>$x-c&gt;0$</span> gives us <span>$f(c) &lt; f(x)$</span>.</p>
+<p>As we mentioned, (ii) follows similarly.</p>
+<p>This leads us to Darboux's Theorem:</p>
+<p><strong>Theorem:</strong> (Darboux's) Let <span>$f$</span> be differentiable on <span>$I = [a,b]$</span>, a closed and bounded interval. If there exists <span>$k \in \mathbb{R}$</span> between <span>$f'(a)$</span> and <span>$f'(b)$</span> then there exists <span>$c \in (a,b)$</span> such that <span>$f'(c) = k$</span>.</p>
+<p><strong>Proof:</strong> Suppose WLOG that <span>$f'(a) &lt; k &lt; f'(b)$</span>. Define <span>$g(x) = kx - f(x)$</span>. <span>$g(x)$</span> is also differentiable on <span>$I$</span>. In particular, <span>$g$</span> is continuous on <span>$I$</span>, so <span>$g(x)$</span> attains a maximum on <span>$I$</span>. <span>$g'(a) = k - f'(a) &gt; 0$</span>. Thus by the previous lemma, the maximum is not attained at <span>$x = a$</span>. Similarly, <span>$g'(b) = k - f'(b) &lt; 0$</span>, so again the maximum of <span>$g$</span> is not attained at <span>$b$</span>. Let <span>$c \in (a,b)$</span> be the point where <span>$g$</span> attains its maximum by the theorem. As we saw last time, <span>$g'(c) = 0 = k - f'(c)$</span>, i.e. <span>$f'(c) = k$</span>.</p>
+<p>Here is a nice application of the above theorem: imagine being given some function <span>$g(x)$</span> defined by:</p>
+<p><span>$$
+g(x) = \left\{
+     \begin{array}{rl}
+       -1 &amp; : x \in [-1,0)\\
+       0 &amp; : x = 0 \\
+       1 &amp; : x \in (0, 1]
+     \end{array}
+   \right.
+$$</span></p>
+<p>Is <span>$g$</span> the derivative of some function <span>$f$</span> on <span>$[-1,1]$</span>? No! (emphasis via the prof) by Darboux's theorem.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, October 22, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, October 22, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The pumping lemma for CFLs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-pumping-lemma-for-cfls">1 The pumping lemma for CFLs</a><ul>
+<li><a href="#relation-to-regular-languages">1.1 Relation to regular languages</a></li>
+<li><a href="#sketch-of-the-proof">1.2 Sketch of the proof</a></li>
+<li><a href="#formal-statement-of-the-pumping-lemma">1.3 Formal statement of the pumping lemma</a></li>
+<li><a href="#using-the-contrapositive">1.4 Using the contrapositive</a><ul>
+<li><a href="#examples">1.4.1 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#further-notes-on-cfls">2 Further notes on CFLs</a><ul>
+<li><a href="#one-letter-alphabets">2.1 One-letter alphabets</a></li>
+<li><a href="#designing-a-cfl-from-its-complement">2.2 Designing a CFL from its complement</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The pumping lemma for CFLs<a class="headerlink" href="#the-pumping-lemma-for-cfls" name="the-pumping-lemma-for-cfls">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Relation to regular languages<a class="headerlink" href="#relation-to-regular-languages" name="relation-to-regular-languages">&para;</a></h3>
+<p>Just as we had for regular languages, context-free languages also have a pumping lemma that can be used to prove that a language is not context-free. However, this pumping lemma is quite different from the one we've seen before. The major difference between the machines for recognising context-free languages and those for regular languages is that the latter are finite-state machines, while the former are more like infinite-state machines due to the existence of the unbounded stack. Thus, the argument we used to prove the pumping lemma for DFAs will not work for PDAs.</p>
+<p>So where do we find the structure needed to prove the pumping lemma? In the grammar, of course. We learned earlier that any CFL can be described by a grammar in <a href="/COMP_330/lecture-notes/fall-2013/tuesday-october-15#chomsky-normal-form">Chomsky normal form</a>. We'll use this fact in our proof of the pumping lemma.</p>
+<h3 class="header"><i>1.2</i>Sketch of the proof<a class="headerlink" href="#sketch-of-the-proof" name="sketch-of-the-proof">&para;</a></h3>
+<p>Assume that <span>$L$</span> has a context-free grammar <span>$G$</span> in Chomsky normal form, where <span>$G$</span> contains <span>$n$</span> non-terminals (where <span>$n$</span> is finite).</p>
+<p>Recall that in CNF, our rules are all of the form <span>$A \to BC$</span> and <span>$A \to a$</span> (or <span>$S \to \epsilon$</span>). Consider a string of length <span>$2^{n+1}$</span>. By the form of the rules in CNF, we know that the branching in the tree for generating this string is at <em>most</em> binary. So the <em>smallest</em> tree you can build to represent such a tree has a height of <span>$n+1$</span>.</p>
+<p>Here's another way to think about this: going down the tree, you must have hit at least <span>$n+1$</span> non-terminals on the way. Since there are only <span>$n$</span> distinct non-terminals in this grammar, then, by the pigeonhole principle, at least two occurrences along the path must be using the same non-terminal, which we'll call <span>$X$</span>.</p>
+<p><img alt="Pumping lemma diagram" src="http://i.imgur.com/v7yByas.png" title="Original diagram, released under CC0" /></p>
+<p>Now divide the string up into 5 pieces: <span>$uvwxy$</span>. We'll call the tree that generates <span>$w$</span> <span>$t$</span>, and the (larger) tree that generates <span>$vwx$</span> <span>$T$</span>, as in the diagram below.</p>
+<p><img alt="Another pumping lemma diagram" src="http://i.imgur.com/SkC2Quv.png" title="Original diagram, released under CC0" /></p>
+<p>This shows us where we have the opportunity to pump. In a context-free language, we could just replace <span>$t$</span> by <span>$T$</span> or vice versa (pumping up vs. pumping down). So then you would have either <span>$uvxy$</span> or <span>$uvvwxxy$</span>, and in the latter case you could keep pumping indefinitely, resulting in <span>$uv^iwx^iy$</span> for some integer <span>$i$</span>.</p>
+<p>This is the essence of the proof for the pumping lemma. We won't formalise it.</p>
+<h3 class="header"><i>1.3</i>Formal statement of the pumping lemma<a class="headerlink" href="#formal-statement-of-the-pumping-lemma" name="formal-statement-of-the-pumping-lemma">&para;</a></h3>
+<p>Let <span>$L$</span> be a CFL. <span>$\exists p \geq 0$</span> such that <span>$\forall s \in L$</span> with <span>$|s| \geq p$</span>, <span>$\exists u, v, w, x, y \in \Sigma^*$</span> where <span>$s = uvwxy$</span> such that</p>
+<ol>
+<li><span>$|vx| &gt; 0$</span> (i.e., <span>$v$</span> and <span>$x$</span> can't <em>both</em> be the empty string);</li>
+<li><span>$|vwx| \leq p$</span>;</li>
+<li><span>$\forall i \geq 0$</span>, <span>$uv^iwx^iy \in L$</span>.</li>
+</ol>
+<h3 class="header"><i>1.4</i>Using the contrapositive<a class="headerlink" href="#using-the-contrapositive" name="using-the-contrapositive">&para;</a></h3>
+<p>As with regular languages, we can use the contrapositive of the pumping lemma to prove that a language is not context-free. Here's a formal statement of the contrapositive:</p>
+<p>Given some language <span>$L$</span>. If, <span>$\forall p \geq 0$</span>, <span>$\exists s \in L$</span> such that <span>$|s| \geq p$</span>, and <span>$\forall u, v, w, x, y \in \Sigma^*$</span> where <span>$s = uvwxy$</span>, with <span>$|vx| &gt; 0$</span> and <span>$|vwx| \leq p$</span>, <span>$\exists i \geq 0$</span> such that <span>$uv^iwx^iy \notin L$</span>, then <span>$L$</span> is not context-free.</p>
+<h4 class="header"><i>1.4.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p><span>$$L = \{a^nb^na^n\}$$</span></p>
+<p>We see intuitively that a pushdown automaton with only one stack is incapable of recognising this language. To prove it, we can use the pumping lemma. We can use the same sort of <a href="/COMP_330/lecture-notes/fall-2013/tuesday-october-1#game-formulation">game formulation</a> that we used with regular languages:</p>
+<ul>
+<li>Adversary chooses some <span>$p$</span></li>
+<li>We produce a string <span>$s = a^pb^pa^p$</span>, which is clearly <span>$\in L$</span></li>
+<li>Adversary chooses some <span>$u,v,w,x,y\in \Sigma^*$</span> such that <span>$s = uvwxy$</span>.</li>
+</ul>
+<p>Our job, now, is to choose some <span>$i$</span> such that <span>$uv^iwx^iy \notin L$</span>. We can do this on a case-by-case basis, making use of the fact that <span>$|vwx|$</span> must be <span>$\leq p$</span> (and so <span>$v$</span> and <span>$x$</span> cannot be greater than <span>$p$</span> characters apart). We break up the string <span>$s$</span> into blocks as follows:</p>
+<p><span>$$\underbrace{a^p}_{\text{block 1}} \underbrace{b^p}_{\text{block 2}} \underbrace{a^p}_{\text{block 3}}$$</span></p>
+<ul>
+<li>Case 1: both <span>$v$</span> and <span>$x$</span> are in block 1. Choose <span>$i \neq 1$</span>. Then <span>$uv^iwx^iy$</span> would have too many <span>$a$</span>'s at the beginning, and so the resulting string would not be part of <span>$L$</span>.</li>
+<li>Case 2: <span>$v$</span> or <span>$x$</span> straddles a block boundary. Choose <span>$i = 2$</span>. Then, the <span>$a$</span>'s and <span>$b$</span>'s would be out of order in the resulting string.</li>
+<li>Case 3: <span>$v = \epsilon$</span> and <span>$x$</span> is fully within a block or <span>$x = \epsilon$</span> and <span>$v$</span> is fully within a block. Choose <span>$i\neq 1$</span>. Then there would be too many of one letter.</li>
+</ul>
+<p>(There are in fact many other ways of choosing the cases - the solution presented above is merely one of many possibilities.)</p>
+<div class="ui divider"></div>
+<p><span>$$L = \{ww \mid w \in \Sigma^* \} \tag{$\Sigma = \{a, b\}$}$$</span></p>
+<p>This one is trickier since the language is so unconstrained. Instead of using the same approach that we used for the last question, we'll make the following fact: if <span>$L$</span> is context-free and <span>$R$</span> is regular, then <span>$L \cap R$</span> is context-free. We define a language <span>$L' = L \cap \{a^*b^*a^*b^*\} = \{a^nb^ma^nb^m\}$</span>. Since <span>$L'$</span> is the intersection of <span>$L$</span> with a regular language, we can use the pumping lemma on <span>$L'$</span> (which is more structured and thus easier to pump), as proving that <span>$L'$</span> is not context-free suffices to prove that <span>$L$</span> is not context-free.</p>
+<ul>
+<li>Adversary picks some <span>$p$</span>.</li>
+<li>Choose <span>$s = a^pb^pa^pb^p$</span>.</li>
+<li>Adversary chooses some <span>$u,v,w,x,y\in \Sigma^*$</span> such that <span>$s = uvwxy$</span>.</li>
+</ul>
+<p>Now we break up the string <span>$s$</span> into two equal blocks (halves). As before, we analyse the different possibilities for <span>$v$</span> and <span>$x$</span>:</p>
+<ul>
+<li>Case 1: <span>$v$</span> and <span>$x$</span> are both fully contained in the same block. Choose <span>$i \neq 1$</span>. Then the two halves will no longer match and so the resulting word is not in <span>$L'$</span>.</li>
+<li>Case 2: <span>$v$</span> and <span>$x$</span> are both fully contained in different blocks. Because they can only be a maximum of <span>$p$</span> letters apart, <span>$v$</span> must be in the <span>$b$</span> section of the first block and <span>$x$</span> must be in the <span>$a$</span> section of the second block. If we choose <span>$i \neq 1$</span>, the two halves will again no longer match.</li>
+<li>Case 3: either <span>$v$</span> or <span>$x$</span> straddles the boundary between the two blocks. If we pump up, then there will be a middle section in the resulting word where the <span>$a$</span>'s and <span>$b$</span>'s are out of order.</li>
+</ul>
+<div class="ui divider"></div>
+<p><span>$$L = \{a^ib^j \mid j = i^2 \}$$</span></p>
+<p>Left as an exercise for the reader.</p>
+<h2 class="header"><i>2</i>Further notes on CFLs<a class="headerlink" href="#further-notes-on-cfls" name="further-notes-on-cfls">&para;</a></h2>
+<h3 class="header"><i>2.1</i>One-letter alphabets<a class="headerlink" href="#one-letter-alphabets" name="one-letter-alphabets">&para;</a></h3>
+<p>There is no CFL over a one-letter alphabet that is not regular. The proof is left as an exercise for the reader.</p>
+<h3 class="header"><i>2.2</i>Designing a CFL from its complement<a class="headerlink" href="#designing-a-cfl-from-its-complement" name="designing-a-cfl-from-its-complement">&para;</a></h3>
+<p>Recall <span>$L = \{ww \mid w \in \Sigma^* \}$</span>, which we showed is not context-free. However, its complement, <span>$\overline{L}$</span>, is in fact context-free. Let's design a grammar for <span>$\overline{L}$</span>:</p>
+<p><span>$$\begin{align}
+S &amp; \to AB \mid BA \mid A \mid B \\
+A &amp; \to CAC \mid a \\
+B &amp; \to CBC \mid b \\
+C &amp; \to a \mid b
+\end{align}$$</span></p>
+<p>Let's check that this grammar indeed generates <span>$\overline{L}$</span>. This means that no words generated by <span>$G$</span> can be of the form <span>$ww$</span>, and that <em>all</em> words not of the form <span>$ww$</span> must be generated by this grammar.</p>
+<p>Well, between the rules <span>$S \to A$</span> and <span>$S \to B$</span>, we can generate all the possible odd-length strings. <span>$A$</span> generates all odd-length strings with an <span>$a$</span> in the middle (through <span>$AS \overset{*}{\to} C \ldots C a \ldots C$</span>) and <span>$B$</span> generates all odd-length strings with a <span>$b$</span> in the middle. Then, <span>$S \to AB$</span> and <span>$S \to BA$</span> together generate all even-length strings that are not of the form <span>$ww$</span>. To convince yourself that this is true, consider any word <span>$s$</span> generated by <span>$S \to AB$</span>. Suppose the <span>$A$</span> part generates a string <span>$xay$</span> where <span>$x, y \in \Sigma^*$</span> and <span>$|x| = |y| = n$</span>, and suppose the <span>$B$</span> part generates a string <span>$ubv$</span> where <span>$|u| = |v| = m$</span>. Then the string <span>$s$</span> can be divided into two (not necessarily equal) parts:</p>
+<p><span>$$s = \underbrace{xay}_{A \overset{*}{\to}} \mid \underbrace{ubv}_{B \overset{*}{\to}}$$</span></p>
+<p>Recall that <span>$|y| = n$</span> and <span>$|u| = m$</span>. So the <span>$a$</span> and <span>$b$</span> shown above are exactly <span>$m+n$</span> characters apart. The word as a whole has a length of <span>$2(m+n+1)$</span>, which means that each half has a length of <span>$m+n+1$</span>. Now, the first <span>$a$</span> is <span>$n$</span> letters away from the start of the word. But the <span>$b$</span> is also <span>$n$</span> letters away from the midpoint, simply because each half must have <span>$m+n+1$</span> characters. Here's an illustration:</p>
+<p><img alt="Not the clearest diagram in the world but deal with it" src="http://i.imgur.com/s5L3XV0.png" title="Original diagram, released under CC0" /></p>
+<p>So the two halves of the resulting string differ - one half has an <span>$a$</span> at some position where the other half has a <span>$b$</span>. Similar reasoning holds for words generated by the <span>$S \to BA$</span> rule.</p>
+<p>Thus we have an example of a CFL whose complement is not a CFL, illustrating that CFLs are not closed under complementation<sup id="fnref:closed"><a href="#fn:closed" rel="footnote" title="CFLs that can be represented by deterministic PDAs...">1</a></sup>. We also learned that CFLs are not closed under intersection; here's an illustration of that:</p>
+<p><span>$$L_1 = \{a^nb^nc^i\} \quad L_2 = \{a^ib^nc^n \} \quad L_1 \cap L_2 = \{a^nb^nc^n \} \mbox{where $L_1$, $L_2$ are CFLs but $L_1 \cap L_2$ is not}$$</span></p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:closed">
+<p>CFLs that can be represented by deterministic PDAs are closed under complementation, however.&#160;<a href="#fnref:closed" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

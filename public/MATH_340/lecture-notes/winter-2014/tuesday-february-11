@@ -1,0 +1,144 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, February 11, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, February 11, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Discrete probability
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Introduction to discrete probability. The first part of the class was a quiz on discrete probability.</p>
+<p>Notes originally by <a href="/users/xiamx">@xiamx</a>, with some formatting/language changes by <a href="/users/dellsystem">@dellsystem</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#probability">1 Probability</a><ul>
+<li><a href="#examples">1.1 Examples</a></li>
+<li><a href="#union-and-intersection">1.2 Union and intersection</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Probability<a class="headerlink" href="#probability" name="probability">&para;</a></h2>
+<p>The study of probability was initially motivated by gambling. We will consider probability w.r.t. finite probability spaces (or finitely countable spaces). A sample space <span>$S$</span> is the set of all possible outcomes of an experiment. For example, for a die, the sample space is <span>$S = \{1,2,3,4,5,6\}$</span>.</p>
+<p>An event <span>$A$</span> is a subset of the sample space <span>$S$</span>.</p>
+<p>We associate with each outcome <span>$x \in S$</span> the probability <span>$p(x)$</span> that <span>$x$</span> is the outcome of the experiment. We say that <span>$p : 2^S \mapsto \mathbb{R}$</span> is a valid probability distribution on <span>$S$</span> if:</p>
+<ol>
+<li><span>$p(x) \geq 0$</span> <span>$\forall x \in S$</span></li>
+<li><span>$\displaystyle \sum_{x\in S} p(x) = 1$</span></li>
+<li><span>$\displaystyle p(A) = \sum_{x\in A} p(x)$</span></li>
+</ol>
+<p>Sometimes, the outcomes are all equally likely, with <span>$\displaystyle p(x) = \frac {1}{|S|} \forall x\in S$</span> (for example, <span>$p(x) = \frac{1}{6}$</span> for any number <span>$x$</span> on a die). Usually, though, this is not the case.</p>
+<h3 class="header"><i>1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<dl>
+<dt>What is the probability of winning Lotto 6/49, in which the goal is to correctly pick 6 numbers, all in <span>$\{1, \ldots, 49\}$</span>?</dt>
+<dd>Well, the size of the sample space is <span>$\binom{49}{6} = 13983816$</span>. So the probability is <span>$\frac{1}{13983816}$</span>.</dd>
+<dt>What is the probability of a full house in a game of poker?</dt>
+<dd>The sample space is <span>$\binom{52}{5} = 2598960$</span>. The number of ways to get a full house is <span>$13 \cdot \binom{4}{3} \cdot 12 \cdot \binom{4}{2} = 3744$</span>, so the probability is <span>$\frac{3744}{2598960}$</span>.</dd>
+</dl>
+<h3 class="header"><i>1.2</i>Union and intersection<a class="headerlink" href="#union-and-intersection" name="union-and-intersection">&para;</a></h3>
+<p>Lemma: For any probability distribution <span>$P:S \to \mathbb{R}$</span> and any 2 events <span>$A$</span> and <span>$B$</span>, we have:</p>
+<p><span>$$p(A\cup B) = p(A) +p(B) - p(A \cap B)$$</span></p>
+<p>The proof is trivial using set algebra.</p>
+<p>Furthermore:</p>
+<p><span>$$P(A \cup B) = P(A-B) + P(B-A) + P(A\cup B)$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

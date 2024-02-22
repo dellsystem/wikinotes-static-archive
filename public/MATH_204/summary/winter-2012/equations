@@ -1,0 +1,335 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_204/">
+                MATH 204
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Equations
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Equations
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><span>$$Z = \frac{\bar{X}-\mu_0}{S/\sqrt{n}}$$</span><br />
+Use T instead of Z for n &lt; 30, data sampled independently, identically distributed, normally distributed pop</p>
+<p>Testing if two samples have the same proportion:<br />
+<span>$$p = \frac{n_1p_1 + n_2p_2}{n_1+n_2}$$</span><br />
+<span>$$Z = \frac{p_1-p_2}{\sqrt{pq/n_1 + pq/n_2}}$$</span></p>
+<p>Testing if two dependent samples have the same mean:<br />
+<span>$$Z = \frac{\bar{X}_D-\mu_0}{S_D/\sqrt{n_D}}$$</span></p>
+<p>Testing if two independent samples have the same mean:<br />
+<span>$$Z = \frac{\bar{X}_A-\bar{X}_B-\mu_0}{\sqrt{S^2_A/n_A+S^2_B/n_B}}$$</span></p>
+<p>Testing if two independent small pooled samples have the same mean:<br />
+<span>$$Z = \frac{\bar{X}_A-\bar{X}_B-\mu_0}{\sqrt{S^2_P/n_A+S^2_P/n_B}}$$</span><br />
+<span>$$S^2_p = \frac{(n_A-1)s^2_A+(n_B-1)s^2_B}{n_A+n_B-2}$$</span></p>
+<p>Testing about the real proportion of one sample:<br />
+<span>$$Z = \frac{p-p_0}{\sqrt{p_0q_0/n}}$$</span></p>
+<p>Two samples with small n but assume same pop. variance:<br />
+<span>$$s^2_p=\frac{(n_A-1)s^2_A+(n_B-1)s^2_B}{n_A+n_B-2}$$</span><br />
+<span>$$df = n_A+n_B-2$$</span></p>
+<p>Testing the real standard dev of a sample:<br />
+<span>$$W=\frac{(n-1)S^2}{\sigma^2_0}, W \sim \chi^2\:df=n-1$$</span></p>
+<p>Testing if two population variances are the same:<br />
+<span>$$F= \frac{S^2_1}{S^2_2}, \:df=n_1-1,n_2-1$$</span></p>
+<p>Assume random/independent sample, normally distributed pop</p>
+<h2 class="header"><i>1</i>One-Way Anova<a class="headerlink" href="#one-way-anova" name="one-way-anova">&para;</a></h2>
+<p><span>$$SST = \sum_{k=1}^K n_k(Y_k - \hat Y)^2$$</span><br />
+<span>$$MST = \frac{SST}{K-1}$$</span><br />
+<span>$$SSE = \sum_{k=1}^K\sum_{i=1}^{n_k}(Y_{ij} - Y_k)^2$$</span><br />
+<span>$$s_p^2 = MSE = \frac{SSE}{n-K}$$</span><br />
+<span>$$F=\frac{MST}{MSE}$$</span></p>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$K-1$</span></td>
+<td><span>$SST$</span></td>
+<td><span>$MST=\frac{SST}{K-1}$</span></td>
+<td><span>$\frac{MST}{MSE}$</span></td>
+<td>Pr(F* &gt; F)</td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-K$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE=\frac{SST}{K-1}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>$$TSS = \Sigma_{k=1}^K\Sigma_{i=1}^{n_k}(Y_{ij} - Y)^2 = (n-1)s^2$$</span></p>
+<p>Confidence interval for difference between 2 groups if K = 2<br />
+<span>$$y_1 - y_2 \pm t_{\alpha/2,n_1+n_2-2}\sqrt{\frac{s^2_p}{n_1}+\frac{s^2_p}{n_2}},\:df=n_1+n_2+2$$</span><br />
+<span>$$y_1-y_2\pm t_{\alpha/2,n-K}\sqrt{\frac{MSE}{n_i}+\frac{MSE}{n_j}}\:df=n-K$$</span><br />
+Bonferroni correction<br />
+<span>$$\alpha = \frac{\alpha_F}{K(K-1)/2}$$</span></p>
+<h2 class="header"><i>2</i>Two-Way Anova with block design<a class="headerlink" href="#two-way-anova-with-block-design" name="two-way-anova-with-block-design">&para;</a></h2>
+<p><span>$$TSS = \sum_{i=1}^K\sum_{j=1}^B(Y_{ij}-Y)^2$$</span><br />
+<span>$$SST = B\sum_{i=1}^K(Y_{i-} - Y)^2$$</span><br />
+<span>$$SSB = K\sum_{j=1}^B(Y_{-j}-Y)^2$$</span><br />
+<span>$$SSE = TSS - SSB - SST = \sum_{i_1}^{K}\sum_{j=1}^{B}(Y_{ij}-Y_{i-}-Y_{-j}+Y)^2$$</span></p>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$K-1$</span></td>
+<td><span>$SST$</span></td>
+<td><span>$MST=\frac{SST}{K-1}$</span></td>
+<td><span>$\frac{MST}{MSE}$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Blocks</td>
+<td><span>$B-1$</span></td>
+<td><span>$SSB$</span></td>
+<td><span>$MSB=\frac{SSB}{B-1}$</span></td>
+<td><span>$\frac{MSB}{MSE}$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-K-B+1$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE=\frac{SSE}{n-K-B+1}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>3</i>Two-Way Anova with Factors<a class="headerlink" href="#two-way-anova-with-factors" name="two-way-anova-with-factors">&para;</a></h2>
+<p>Overall test<br />
+<span>$$SSE = \sum_{i=1}^{K}\sum_{j=1}^{J}\sum_{r=1}^{R}(Y_{ijr} - Y_{ij-})^2$$</span><br />
+<span>$$MSE = \frac{SSE}{n-KJ}$$</span><br />
+<span>$$SST = R\sum_{i=1}^{K}\sum_{j=1}^{J}(Y_{ij-}-Y)^2$$</span><br />
+<span>$$MST = \frac{SST}{JK-1}$$</span></p>
+<p>Decomposed tests<br />
+<span>$$SS(A) = RJ\sum_{i=1}^{K}(\bar y_{i--} - \bar y_{---})^2$$</span><br />
+<span>$$MS(A) = \frac{SS(A)}{K-1}$$</span><br />
+<span>$$SS(B) = RK\sum_{j=1}^{J}(\bar y_{-j-} - \bar y_{---})^2$$</span><br />
+<span>$$MS(B) = \frac{SS(B)}{J-1}$$</span><br />
+<span>$$SS(AB) = R\sum_{j=1}^J\sum_{i=1}^{K}(\bar y_{ij-} - \bar y_{i--} - \bar y_{-j-} + \bar y_{---})^2$$</span><br />
+<span>$$MS(AB) = \frac{SS(AB)}{KJ-J-K+1}$$</span><br />
+<span>$$F_{AB} = \frac{MS(AB)}{MSE}\:,df=KJ-J-K+1,n-JK$$</span><br />
+if not rejected, then:<br />
+<span>$$F_A = \frac{MS(A)}{MSE}\:,df=K-1,n-JK$$</span></p>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$A$</span></td>
+<td><span>$K-1$</span></td>
+<td><span>$SS(A)$</span></td>
+<td><span>$MS(A)=\frac{SS(A)}{K-1}$</span></td>
+<td><span>$\frac{MS(A)}{MSE}$</span></td>
+</tr>
+<tr>
+<td><span>$B$</span></td>
+<td><span>$J-1$</span></td>
+<td><span>$SS(B)$</span></td>
+<td><span>$MS(B)=\frac{SS(B)}{J-1}$</span></td>
+<td><span>$\frac{MS(B)}{MSE}$</span></td>
+</tr>
+<tr>
+<td><span>$A \times B$</span></td>
+<td><span>$KJ - K - J + 1$</span></td>
+<td><span>$SS(AB)$</span></td>
+<td><span>$MS(AB)=\frac{SS(AB)}{KJ-K-J+1}$</span></td>
+<td><span>$\frac{MS(AB)}{MSE}$</span></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-KJ$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE = \frac{SSE}{n-KJ}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>4</i>Linear Regression<a class="headerlink" href="#linear-regression" name="linear-regression">&para;</a></h2>
+<p><span>$$\sigma_{\hat{\beta}_1} = \frac{\sigma}{\sqrt{S_{XX}}}$$</span><br />
+<span>$$s^2 = \frac{\sigma_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-2} = \frac{SSE}{n-2}$$</span><br />
+<span>$$SSE = SS_{YY} - \hat{\beta}_1SS_{XY}$$</span><br />
+<span>$$T = \frac{\hat{\beta}_1 - 0}{\sigma/\sqrt{SS_{XX}}}$$</span><br />
+<span>$$\hat{\beta}_1 \pm t_{n-2,\alpha/2}\frac{s}{\sqrt{SS_{XX}}}$$</span><br />
+<span>$$r = \frac{SS_{XY}}{\sqrt{SS_{XX}SS_{YY}}}$$</span><br />
+<span>$$SS_{XY} = \sum_{i=1}^n(y_i - \bar{y})(x_i - \bar{x})$$</span><br />
+<span>$$SS_{XX} = \sum_{i=1}^n(x_i - \bar{x})^2$$</span><br />
+<span>$$SS_{YY} = \sum_{i=1}^n(y_i - \bar{y})^2$$</span><br />
+<span>$$r = \hat{\beta}_1\frac{s_x}{s_y}$$</span><br />
+<span>$$SSE = \sum_{i=1}^n(y_i - \hat{y}_i)^2$$</span><br />
+<span>$$r^2 = 1 - \frac{SSE}{SS_{YY}}$$</span><br />
+<span>$$r \pm t_{\alpha/2,n-2}\sqrt{(1-r^2)/(n-2)}$$</span><br />
+In small samples:<br />
+<span>$$Z = \ln{\frac{1+r}{1-r}}$$</span><br />
+<span>$$Z \pm z_{\alpha/2}/\sqrt{(n-3)} = (c_L, c_U)$$</span><br />
+<span>$$[\frac{exp(2*c_L - 1)}{exp(2*c_L + 1)},\frac{exp(2*c_U - 1)}{exp(2*c_U + 1)}]$$</span><br />
+<span>$$E(\hat{y}(x_0)) = \beta_0 + \beta_1x_0$$</span><br />
+<span>$$s_{\hat y(x_0)} = s\sqrt{\frac{1}{n} + \frac{(x_0 - \bar x)^2}{SS_{XX}}}$$</span><br />
+<span>$$S_{\tilde{y}(x_0)} = s\sqrt{1 + \frac{1}{n} + \frac{(x_0 - \bar{x})^2}{SS_{XX}}}$$</span></p>
+<h2 class="header"><i>5</i>Multiple Regression<a class="headerlink" href="#multiple-regression" name="multiple-regression">&para;</a></h2>
+<p>Assume: <span>$E(\epsilon_i) = 0$</span> for all i, <span>$Var(\epsilon_i) = \sigma^2$</span>, normally and independently distributed errors.<br />
+<span>$$s^2 = \frac{\sum_{i=1}^n(y_i-\hat{y}_i)^2}{n-(K+1)}$$</span><br />
+<span>$$t = \frac{\hat{\beta}_j - \beta^*_j}{s\sqrt{c_{jj}}}$$</span><br />
+<span>$c_{jj}$</span> is the variance of <span>$\hat{\beta}_j$</span>.</p>
+<h3 class="header"><i>5.1</i>Measuring the fit of the model<a class="headerlink" href="#measuring-the-fit-of-the-model" name="measuring-the-fit-of-the-model">&para;</a></h3>
+<p><span>$$ SSE = \sum_{i=1}^n(y_i-\hat{y}_i)^2$$</span><br />
+<span>$$ SS_{yy} = \sum_{i=1}^n(y_i - \bar{y})^2$$</span><br />
+<span>$$R^2 = 1 - \frac{SSE}{SS_{yy}}$$</span><br />
+<span>$$R^2_a = 1 - [\frac{n-1}{n-(K+1)}](\frac{SSE}{SS_{yy}})$$</span><br />
+<span>$$F = \frac{(SS_{YY} - SSE)/k}{SSE/[n-(K+1)]} = \frac{R^2/K}{(1-R^2)/(n-(K+1))} = \frac{MSR}{MSE}$$</span></p>
+<h3 class="header"><i>5.2</i>Comparing Nested Models<a class="headerlink" href="#comparing-nested-models" name="comparing-nested-models">&para;</a></h3>
+<p><span>$$F = \frac{(SSE_{M_0} - SSE_{M_1})/(k-g)}{SSE_{M1}/(n-(k+1))},\:df=k-g,n-k-1$$</span><br />
+<span>$$e^{std}_i = \frac{e_i}{s}$$</span></p>
+<h2 class="header"><i>6</i>Categorical Data<a class="headerlink" href="#categorical-data" name="categorical-data">&para;</a></h2>
+<p><span>$$\chi^2 = \sum_{j=1}^k\frac{(n_j - np_j^{(0)})^2}{np_j^{(0)}}$$</span><br />
+<span>$$\chi^2 = \sum_{j=1}^k\frac{(observed - expected)^2}{expected}$$</span><br />
+The degrees of freedom is the difference between k - 1 and the number of unspecified probabilities in <span>$H_0$</span>.</p>
+<p>Test for independence<br />
+<span>$$E(n_{jk}) = n\hat{p}_{j-}\hat{p}_{-k}$$</span><br />
+<span>$$df = rc - 1 - (r+c-2) = (r-1)(c-1)$$</span></p>
+<h2 class="header"><i>7</i>Non-parametric statistics<a class="headerlink" href="#non-parametric-statistics" name="non-parametric-statistics">&para;</a></h2>
+<p><span>$$D_i = X_i - \eta_0$$</span><br />
+use binomial test on <span>$D_i$</span>, <span>$p=0.5$</span><br />
+<span>$$z = \frac{X-np}{\sqrt{npq}}$$</span></p>
+<p>For matched pairs, <span>$D_i = X_i - Y_i$</span>, then do test on <span>$D_i$</span></p>
+<h3 class="header"><i>7.1</i>Wilcoxon Paired Rank Sum<a class="headerlink" href="#wilcoxon-paired-rank-sum" name="wilcoxon-paired-rank-sum">&para;</a></h3>
+<p><span>$T^+$</span> is rank sum of positive <span>$D_i$</span><br />
+<span>$$E(T^+) = \frac{n(n+1)}{4}$$</span> <br />
+<span>$$Var(T^+) = \frac{n(n+1)(2n+1)}{24}$$</span><br />
+Use Z statistic</p>
+<h3 class="header"><i>7.2</i>Wilcoxon Independent Rank Sum<a class="headerlink" href="#wilcoxon-independent-rank-sum" name="wilcoxon-independent-rank-sum">&para;</a></h3>
+<p><span>$$U = n_1n_2 + \frac{n_1(n_1 + 1)}{2} - W$$</span><br />
+Where W is the rank sum of first sample<br />
+<span>$$Z = \frac{U-(n_1n_2/2)}{\sqrt{n_1n_2(n_1+n_2+1)/12}}$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

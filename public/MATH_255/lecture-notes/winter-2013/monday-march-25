@@ -1,0 +1,148 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, March 25, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, March 25, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The exponential function
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Recall from last class:</p>
+<blockquote>
+<p><strong>Theorem:</strong> There exists a function <span>$E(x) : \mathbb R \to \mathbb R$</span> such that </p>
+<p>i) <span>$E'(x) = E(x)$</span> for all <span>$x \in \mathbb R$</span><br />
+ii) <span>$E(0) = 1$</span></p>
+</blockquote>
+<p><strong>Proof:</strong> Let <span>$E_n = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^n}{n!}$</span>. Let <span>$A &gt; 0$</span> be given, then for <span>$|x| \leq A$</span> and <span>$m &gt; m &gt; 2A$</span>, </p>
+<p><span>$$ |E_m(x) - E_n(s)| = \left| \frac{x^{n+1}}{(n+1)!} + \ldots + \frac{x^m}{m!} \right| \leq \frac{A^{n+1}}{(n+1)!}\left( 1 + \frac{A}{n} + \frac{A^2}{n^2} + \ldots + \left(\frac{A}{n}\right)^{m-n-1} \right) &lt; \frac{2A^{n+1}}{(n+1)!} $$</span></p>
+<p>as <span>$\frac{1}{n} &lt; \frac{1}{2A}$</span>. Now since <span>$\frac{A^n}{n!} \to 0$</span> as <span>$n \to \infty$</span> for a fixed <span>$A$</span>, i.e. <span>$E_n$</span> converges uniformly on <span>$[-A, A]$</span> in particular, <span>$E_n(x)$</span> converges for all <span>$x \in \mathbb R$</span>. Let <span>$\lim E_n(x) = E(x)$</span>. For fixed <span>$x_0 \in \mathbb R$</span>, there exists some <span>$A &gt; 0$</span> such that <span>$x_0 \in [-A, A]$</span>. <span>$E_n \rightrightarrows E$</span> on <span>$[-A, A]$</span> so <span>$E$</span> is continuous at <span>$x_0$</span>.  Observe that <span>$E_n(0) = 1$</span> for all <span>$n \in \mathbb N$</span> so <span>$E(0) = 1$</span>. Observe as well that since</p>
+<p><span>$$ E_n(x) = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^n}{n!} $$</span></p>
+<p>it follows that </p>
+<p><span>$$ E_n'(x) = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^{n-1}}{(n-1)!} = E_{n-1}(x) $$</span></p>
+<p>i.e. <span>$E_n(x)$</span> is differentiable for all <span>$x \in \mathbb R$</span> and <span>$E_n'(x) = E_{n-1}(x)$</span>. SInce <span>$E_{n-1}$</span> converges uniformly on <span>$[-A, A]$</span>, so does <span>$E_n'$</span> so by the theorem on interchange of limits and differentiability, we get that </p>
+<p><span>$$ \lim E_n'(x) = (\lim E_n(x))' = E'(x) = \lim E_{n-1}(x) = E(x) $$</span></p>
+<p>i.e. <span>$E'(x) = E(x)$</span> and <span>$E(0) = 1$</span> for all <span>$x \in [-A, A]$</span>. As <span>$A &gt; 0$</span> is arbitrary we conclude <span>$E'(x) = E(x)$</span> for all <span>$x \in \mathbb R$</span>.</p>
+<p><strong>Corollary:</strong> <span>$E$</span> has derivatives of all order and <span>$E^{(n)}(x) = E(x)$</span> for all <span>$n \in \mathbb N$</span>, for all <span>$x \in \mathbb R$</span>.</p>
+<p><strong>Corollary:</strong> If <span>$x &gt; 0$</span>, <span>$1 + x &lt; E(x)$</span></p>
+<p><strong>Proof:</strong> Obvious by series definition of <span>$E(x)$</span>.</p>
+<p><strong>Theorem:</strong> The function <span>$E : \mathbb R \to \mathbb R$</span> such that <span>$E'(x) = E(x)$</span> for all <span>$x \in \mathbb R$</span> and <span>$E(0) = 1$</span> is unique.</p>
+<p><strong>Proof:</strong> Suppose we have two such functions <span>$E(x)$</span> and <span>$F(x)$</span> where <span>$E'(x) = E(x)$</span> and <span>$F'(x) = F(x)$</span>, <span>$E(0) = F(0) = 1$</span>. Consider <span>$G(x) = E(x) - F(x)$</span>. <span>$G'(x) = G(x)$</span> trivially, and <span>$G^{(n)}(x) = G(x)$</span>. <span>$G(0) = 0$</span>. Let <span>$x \in \mathbb R$</span> and <span>$I$</span> be the interval with endpoints 0 and <span>$x$</span>. Since <span>$G$</span> is continuous on <span>$I$</span>, <span>$G$</span> is uniformly bounded on <span>$I$</span> so that <span>$|G(t)| \leq k \in \mathbb R$</span> for all <span>$t \in I$</span>. By Taylor's theorem applied to <span>$G$</span> on <span>$I$</span>,</p>
+<p><span>$$ G(x) = G(0) + \frac{G'(0)}{1!}x + \frac{G''(0)}{2!}x^2 + \ldots + \frac{G^{(n-1)}(0)}{(n-1)!}x^{n-1} + \frac{G^{(n)}(C_n)}{n!}x^n = \frac{G^{(n)}(C_n)}{n!}x^n $$</span></p>
+<p>thus </p>
+<p><span>$$ G(x) = \frac{G^{(n)}(C_n)}{n!}x^n = \frac{G(C_n)}{n!}x^n $$</span></p>
+<p>and</p>
+<p><span>$$ |G(x)| \leq \frac{k|x|^n}{n!} $$</span></p>
+<p>for fixed <span>$x$</span>, the RHS above goes to 0 as <span>$n \to \infty$</span>, so by the squeeze theorem <span>$G(x) = 0$</span>. As <span>$x$</span> is arbitrary we can conclude that <span>$G(x) \equiv 0$</span> and therefore <span>$E(x) = F(x)$</span> for all <span>$x \in \mathbb R$</span>.</p>
+<p><strong>Definition:</strong> The unique function <span>$E : \mathbb R \to \mathbb R$</span> such that <span>$E'(x) = E(x)$</span> and <span>$E(0) = 1$</span> is called the exponential function. <span>$e = E(1)$</span> is called Euler's number.</p>
+<p><strong>Theorem:</strong> <span>$E(x)$</span> satisfies:</p>
+<p>i) <span>$E(x) \neq 0$</span> for all <span>$x \in \mathbb R$</span><br />
+ii) <span>$E(x+y) = E(x)E(y)$</span><br />
+iii) <span>$E(R) = e^R$</span> for all <span>$R \in \mathbb Q$</span></p>
+<p><strong>Proof:</strong><br />
+i) Suppose <span>$E(a) = 0$</span> for some <span>$a \in \mathbb R$</span>. Let <span>$J$</span> be the closed and bounded interval with endpoints 0 and <span>$a$</span>. <span>$E(x)$</span> is continuous on <span>$J$</span> so there exists some <span>$k \in \mathbb R$</span> such that <span>$|E(x)| \leq k$</span> on <span>$J$</span>. By Taylor's theorem,</p>
+<p><span>$$ E(0) = E(a) + \frac{E'(a)}{1!}(-a) + \frac{E''(a)}{2!}(-a)^2 + \ldots + \frac{E^{(n-1)}(a)}{(n-1)!}(-a)^{n-1} + \frac{E^{(n)}(c_n)}{n!}(-a)^n $$</span></p>
+<p>for some <span>$c_n \in J$</span>. By assumption, <span>$E(a) = 0$</span> so that <span>$E'(a) = 0 = E^{(n)}(a)$</span> so that </p>
+<p><span>$$ E(0) = \frac{E(c_n)}{n!}(-a)^n $$</span></p>
+<p>so <span>$|E(0)| \leq \frac{k|a|^n}{n!} \to 0 $</span> which is a contradiction since <span>$E(0) = 1$</span>.</p>
+<p>We'll finish the rest next class.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

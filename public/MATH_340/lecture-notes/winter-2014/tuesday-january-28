@@ -1,0 +1,306 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 28, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 28, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Planar graphs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Planar graphs. Euler's formula, and using the formula to find an upper bound for the number of edges in a planar graph. Platonic solids and their relation to planarity.</p>
+<div class="toc">
+<ul>
+<li><a href="#planar-graphs">1 Planar graphs</a><ul>
+<li><a href="#eulers-formula">1.1 Euler's formula</a></li>
+<li><a href="#upper-bounding-the-number-of-edges">1.2 Upper-bounding the number of edges</a><ul>
+<li><a href="#for-bipartite-graphs">1.2.1 For bipartite graphs</a></li>
+<li><a href="#proving-non-planarity">1.2.2 Proving non-planarity</a></li>
+</ul>
+</li>
+<li><a href="#platonic-solids">1.3 Platonic solids</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Planar graphs<a class="headerlink" href="#planar-graphs" name="planar-graphs">&para;</a></h2>
+<p><em>Note that we're only working with simple graphs at the moment - graphs where each pair of vertices has at most 1 edge between them.</em></p>
+<p>A graph <span>$G$</span> is planar if it can be drawn on a plane without any two edges crossing. Note that the edges don't have to be drawn as straight lines.</p>
+<p>Recall that <span>$K_n$</span> is the complete graph containing <span>$n$</span> vertices. Now, <span>$K_4$</span> is planar, though it might not be obvious at first. Here's <span>$K_4$</span>, drawn the standard way (which is not a planar drawing):</p>
+<p><a href=""><img alt="K4, planar" src="http://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Complete_graph_K4.svg/200px-Complete_graph_K4.svg.png" title="Source: Wikimedia commons" /></a></p>
+<p>Here's a planar way of drawing <span>$K_4$</span>:</p>
+<p><a href=""><img alt="K4, planar" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/K4_planar.svg/200px-K4_planar.svg.png" title="Source: Wikimedia commons" /></a></p>
+<p>So <span>$K_4$</span> is planar, as there's a way of drawing it on a plane without edges crossing.</p>
+<p>What about <span>$K_5$</span>? Well, it doesn't <em>seem</em> planar. Can we prove that it isn't?</p>
+<h3 class="header"><i>1.1</i>Euler's formula<a class="headerlink" href="#eulers-formula" name="eulers-formula">&para;</a></h3>
+<p>First, we introduce the term <strong>faces</strong>, which refers to the regions enclosed by the edges on the plane. We number the faces <span>$F_1, \ldots, F_f$</span> where <span>$f$</span> is the number of faces. Also, the "infinite" or "outer" face around the graph, we call <span>$F_0$</span>.</p>
+<p>Let <span>$n$</span> be the number of vertices, and let <span>$m$</span> be the number of edges. Then:</p>
+<blockquote>
+<p>Theorem (Euler, 1752): A connected planar graph satisfies <span>$m+2 = n+f$</span>.</p>
+</blockquote>
+<p>Proof: by induction. First, note that the cheapest way to connect a graph of <span>$n$</span> vertices is with a spanning tree, which requires <span>$m=n-1$</span> edges. So let the base case be the connected spanning tree <span>$T$</span> on <span>$n$</span> vertices. It's easy to see that if we have a tree, we can draw the graph so that it is planar (recall that trees, by definition, do not have any cycles). There is only one face for a tree, so <span>$f=1$</span>. Thus, <span>$m+2 = (n-1) + 2 = n+1 = n + f \checkmark$</span></p>
+<p>For larger connected graphs, the graph must contain a cycle (otherwise, it's just a tree, which is the base case). Consider the graph <span>$G' = G\setminus e$</span> where <span>$e$</span> is some edge of (one of) the cycle(s). Then, for <span>$G'$</span>, the number of vertices is the same - so <span>$n'=n$</span> - but the number of edges is one less than that of <span>$G$</span>, so <span>$m' = m - 1$</span>. Furthermore, the number of faces is one less as well, since by removing an edge, we merge two faces into one. Thus <span>$f' = f-1$</span>.</p>
+<p>If we assume the induction hypothesis for <span>$G'$</span>, then we have:</p>
+<p><span>$$\begin{align} &amp; m' + 2 = n' + f' \\
+\therefore \; &amp; (m-1) + 2 = n + (f-1) \\
+\therefore \; &amp; m + 2 = n + f \; \blacksquare \tag{so the formula holds for $G$}
+\end{align}$$</span></p>
+<p>A corollary of this theorem is that any drawing of a planar graph results in the same number of faces.</p>
+<h3 class="header"><i>1.2</i>Upper-bounding the number of edges<a class="headerlink" href="#upper-bounding-the-number-of-edges" name="upper-bounding-the-number-of-edges">&para;</a></h3>
+<p>Another corollary of the previous theorem is that it allows us to find an upper bound for the number of edges in a planar graph.</p>
+<blockquote>
+<p>Theorem: In any planar graph, <span>$m \leq 3n - 6$</span> (for <span>$n \geq 4$</span>).</p>
+</blockquote>
+<p><em>Note that in a general graph, the maximum number of edges is <span>$\Omega(n^2)$</span> since <span>$\displaystyle \binom{n}{2} = \frac{1}{2}n(n-1)$</span>. This theorem establishes an even smaller upper bound, but only for planar graphs.</em></p>
+<p>Proof: In a planar graph, each edge touches at most 2 faces<sup id="fnref:faces"><a href="#fn:faces" rel="footnote" title="An edge is always adjacent to at least one face, w...">1</a></sup>. The number of edges around a face is at least 3. Thus, if we count the number of pairs <span>$(e, F)$</span> such that <span>$e \in F$</span>, then this number is at least <span>$3f$</span>, but is at most <span>$2m$</span>. So then we have that <span>$2m \geq 3f$</span>. By Euler's formula, we have that <span>$m + 2 = n + f$</span>. Thus <span>$3m+6 = 3n+3f \leq 3n+2m$</span>, and so <span>$3m+6 \leq 3n+2m$</span>. Subtracting <span>$2m$</span> from both sides, we get <span>$m+6 \leq 3n$</span> and so <span>$m \leq 3n-6$</span>, as desired. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.2.1</i>For bipartite graphs<a class="headerlink" href="#for-bipartite-graphs" name="for-bipartite-graphs">&para;</a></h4>
+<blockquote>
+<p>Theorem: In a planar bipartite graph, <span>$m \leq 2n-4$</span> (when <span>$n \geq 5$</span>).</p>
+</blockquote>
+<p>Proof: In a planar bipartite graph, there are no odd cycles, so the smallest cycle has 4 edges. Thus, any face (other than the infinite one) has to have at least 4 edges around it. Other than that, the proof is similar to what we had before: <span>$2m \geq$</span> the number of pairs <span>$\geq 4f$</span>, so <span>$2m \geq 4f$</span>, thus <span>$m \geq 2f$</span>. Using Euler's formula, we get <span>$2m+4 = 2n+2f$</span> and so <span>$2m+4 \leq 2n+m$</span>. Subtracting <span>$m$</span> from both sides, we get <span>$m+4 \leq 2n$</span>, and so <span>$m \leq 2n-4$</span>. <span>$\blacksquare$</span></p>
+<p>This gives us an upper bound on the density of planar graphs.</p>
+<h4 class="header"><i>1.2.2</i>Proving non-planarity<a class="headerlink" href="#proving-non-planarity" name="proving-non-planarity">&para;</a></h4>
+<p>We can use the theorems above to prove that <span>$K_5$</span> is not planar, as we suspected. For <span>$K_5$</span>, we have <span>$n=5$</span> vertices, and <span>$m=4+3+2+1=10$</span> edges. But <span>$3n-6 = 9$</span> and <span>$10 &gt; 9$</span>. Thus <span>$K_5$</span> is not planar.</p>
+<p>Similarly, consider <span>$K_{3,3}$</span>, the complete bipartite graph with 3 vertices in each bipartition. There are <span>$n=6$</span> vertices, and <span>$m = 9$</span> edges. But <span>$2m-4=8$</span> and <span>$9 &gt; 8$</span>. Thus <span>$K_{3,3}$</span> is also not planar.</p>
+<p>We'll show later that these two graphs - <span>$K_{3,3}$</span> and <span>$K_5$</span> - are the <em>only</em> reasons a graph would not be a planar, in the sense that any graph that is not planar must contain a copy of <span>$K_5$</span> or <span>$K_{3,3}$</span> within it somewhere.</p>
+<h3 class="header"><i>1.3</i>Platonic solids<a class="headerlink" href="#platonic-solids" name="platonic-solids">&para;</a></h3>
+<p>A <strong>regular polytope</strong> is a 3D convex solid whose sides are formed by identical 2D regular polygons. Here's a table of the standard ones, where <span>$d$</span> is the number of faces touching each vertex and <span>$p$</span> is the number of sides for each face:</p>
+<table class="clear">
+<thead>
+<tr>
+<th>Name</th>
+<th>Drawing</th>
+<th>Faces</th>
+<th>Vertices</th>
+<th>Edges</th>
+<th><span>$p$</span></th>
+<th><span>$d$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tetrahedron</td>
+<td><a href=""><img alt="Tetrahedron" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Tetrahedron_%28PSF%29.svg/200px-Tetrahedron_%28PSF%29.svg.png" title="Source: Wikimedia commons" /></a></td>
+<td>4</td>
+<td>4</td>
+<td>6</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Cube</td>
+<td><a href=""><img alt="Cube" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Necker_cube.svg/200px-Necker_cube.svg.png" title="Source: Wikimedia commons" /></a></td>
+<td>6</td>
+<td>8</td>
+<td>12</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Octahedron</td>
+<td><a href=""><img alt="Octahedron" src="http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Euclid_Octahedron_3.svg/200px-Euclid_Octahedron_3.svg.png" title="Source: Wikimedia commons" /></a></td>
+<td>8</td>
+<td>6</td>
+<td>12</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Dodecahedron</td>
+<td><a href=""><img alt="Dodecahedron" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Dodecahedron_t0_H3.png/228px-Dodecahedron_t0_H3.png" title="Source: Wikimedia commons" /></a></td>
+<td>12</td>
+<td>20</td>
+<td>30</td>
+<td>5</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Icosahedron</td>
+<td><a href=""><img alt="Icosahedron" src="http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Icosahedron_t01_H3.png/239px-Icosahedron_t01_H3.png" title="Source: Wikimedia commons" /></a></td>
+<td>20</td>
+<td>12</td>
+<td>30</td>
+<td>3</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Are there any other platonic solids? To find out, let's consider these solids as planar graphs, by projecting them down to a 2D plane. I'm not entirely sure how the projection works, but I don't think that matters. This isn't MATH 350.</p>
+<p><a href="http://mathworld.wolfram.com/PlatonicGraph.html"><img alt="Platonic solids as planar graphs" src="http://mathworld.wolfram.com/images/eps-gif/PlatonicGraphs_800.gif" /></a></p>
+<p><em>Image taken from Wolfram MathWorld, shown in the same order as in the table above</em></p>
+<p>Note that each vertex has degree <span>$d$</span> and each face has <span>$p$</span> sides.</p>
+<blockquote>
+<p>Theorem: The 5 platonic solids above are the only platonic solids.</p>
+</blockquote>
+<p>Proof: We can derive this from Euler's formula. A regular polytope gives a regular planar graph with <span>$\displaystyle 2m = \sum_{v \in V}\deg(v) = n\cdot d$</span> (since it's regular).</p>
+<p>But each edge has exactly 2 faces. So <span>$2m = f \cdot p$</span>.</p>
+<p>By Euler's formula, <span>$m+2 = n+f$</span>, thus</p>
+<p><span>$$m+2 = \frac{2m}{d} + \frac{2m}{p}$$</span></p>
+<p>Divide both sides by <span>$2m$</span>, and we get:</p>
+<p><span>$$\frac{1}{2} + \frac{1}{m} = \frac{1}{d} + \frac{1}{p}$$</span></p>
+<p>For 3d solids, we need <span>$d \geq 3$</span> and <span>$p \geq 3$</span>. So what values of <span>$p$</span> and <span>$d$</span> work for this formula? Suppose <span>$p \geq 4$</span> and <span>$d \geq 4$</span>. Is that possible? No, because then <span>$\displaystyle \frac{1}{d} + \frac{1}{p} \leq \frac{1}{2} &lt; \frac{1}{2} + \frac{1}{m}$</span> and there is no possible value of <span>$m$</span> that could satisfy that equation (that also happens to be a valid number of edges). On the other hand, if <span>$d = 3$</span>, then <span>$\displaystyle \frac{1}{2} + \frac{1}{m} = \frac{1}{3} + \frac{1}{p}$</span>, i.e.,</p>
+<p><span>$$\frac{1}{p} = \frac{1}{6} + \frac{1}{m}$$</span></p>
+<p>Since <span>$\frac{1}{m} &gt; 0$</span>, then <span>$p &lt; 6$</span>, i.e., <span>$p \leq 5$</span>. So the only possible values for <span>$(d, p)$</span> are <span>$(3, 3)$</span>, <span>$(3, 4)$</span>, <span>$(3, 5)$</span>, <span>$(4, 3)$</span>, and <span>$(5, 3)$</span>. Let's investigate the solids resulting from each of these values:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$d$</span></th>
+<th><span>$p$</span></th>
+<th><span>$\displaystyle m = \left (\frac{1}{d} + \frac{1}{p} - \frac{1}{2} \right )^{-1}$</span></th>
+<th><span>$\displaystyle n = \frac{2m}{d}$</span></th>
+<th><span>$\displaystyle f = \frac{2m}{p}$</span></th>
+<th>Resulting solid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$3$</span></td>
+<td><span>$3$</span></td>
+<td><span>$6$</span></td>
+<td><span>$4$</span></td>
+<td><span>$4$</span></td>
+<td>Tetrahedron</td>
+</tr>
+<tr>
+<td><span>$3$</span></td>
+<td><span>$4$</span></td>
+<td><span>$12$</span></td>
+<td><span>$8$</span></td>
+<td><span>$6$</span></td>
+<td>Cube</td>
+</tr>
+<tr>
+<td><span>$3$</span></td>
+<td><span>$5$</span></td>
+<td><span>$30$</span></td>
+<td><span>$20$</span></td>
+<td><span>$12$</span></td>
+<td>Dodecahedron</td>
+</tr>
+<tr>
+<td><span>$4$</span></td>
+<td><span>$3$</span></td>
+<td><span>$12$</span></td>
+<td><span>$6$</span></td>
+<td><span>$8$</span></td>
+<td>Octahedron</td>
+</tr>
+<tr>
+<td><span>$5$</span></td>
+<td><span>$3$</span></td>
+<td><span>$30$</span></td>
+<td><span>$12$</span></td>
+<td><span>$20$</span></td>
+<td>Icosahedron</td>
+</tr>
+</tbody>
+</table>
+<p>So the solids we identified earlier are, in fact, the only ones!</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:faces">
+<p>An edge is always adjacent to at least one face, which may just be the infinite face.&#160;<a href="#fnref:faces" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

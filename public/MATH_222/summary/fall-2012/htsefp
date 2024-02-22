@@ -1,0 +1,175 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_222/">
+                MATH 222
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Sequences and Series<a class="headerlink" href="#sequences-and-series" name="sequences-and-series">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Ratio Test<a class="headerlink" href="#ratio-test" name="ratio-test">&para;</a></h3>
+<p><span>$L = \lim_{n \to \infty} |\frac{a_{n+1}}{a_n}|$</span></p>
+<ul>
+<li>If <span>$L \lt 1$</span> then the series converges absoluetly</li>
+<li>If <span>$L \gt 1$</span> then the series diverges</li>
+<li>If <span>$L = 1$</span> the test is inconclusive</li>
+</ul>
+<h3 class="header"><i>1.2</i>Maclaurin and Taylor Series<a class="headerlink" href="#maclaurin-and-taylor-series" name="maclaurin-and-taylor-series">&para;</a></h3>
+<p><img alt="common sequences and series" src="http://i.imgur.com/gBYbD.png" title="sequences and series" /></p>
+<h3 class="header"><i>1.3</i>Error Estimation<a class="headerlink" href="#error-estimation" name="error-estimation">&para;</a></h3>
+<p>Use Taylor's inequality: if <span>$|f^{(n+1)}(x)| \leq M$</span> then <span>$|R_n(x)| \leq \frac{M}{(n+1)!}|x-a|^{(n+1)}$</span></p>
+<p>Find a suitable <span>$M$</span>, then plug into equation.</p>
+<h3 class="header"><i>1.4</i>Newton's Method<a class="headerlink" href="#newtons-method" name="newtons-method">&para;</a></h3>
+<p>Used for root finding. <span>$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$</span>. Repeat the asked number of iterations with given <span>$x_n$</span>. If none is supplied then you have to pick one near the root.</p>
+<p>If asked to find approximation for a root, convert to equation first. eg: <span>$\sqrt[3]{7}$</span> becomes <span>$x^3 - 7 = 0$</span></p>
+<h3 class="header"><i>1.5</i>P-Series<a class="headerlink" href="#p-series" name="p-series">&para;</a></h3>
+<p>The p-series <span>$\sum^{\infty}_{n=1}\frac{1}{n^p}$</span> is convergent if <span>$p \gt 1$</span> and divergent if <span>$p \leq 1$</span></p>
+<h2 class="header"><i>2</i>Partial Derivatives<a class="headerlink" href="#partial-derivatives" name="partial-derivatives">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Equations of Tangent Planes to a Surface<a class="headerlink" href="#equations-of-tangent-planes-to-a-surface" name="equations-of-tangent-planes-to-a-surface">&para;</a></h3>
+<p>If <span>$z = f(x,y)$</span> and <span>$f$</span> has continuous partial derivatives. The equation at point <span>$P(x_0, y_0, z_0)$</span> is <span>$z - z_0 = f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)$</span></p>
+<h3 class="header"><i>2.2</i>Linearization<a class="headerlink" href="#linearization" name="linearization">&para;</a></h3>
+<p>The linearization <span>$L(x,y)$</span> of <span>$f(x,y)$</span> at the point <span>$(a,b)$</span> is:</p>
+<p><span>$L(x,y) = f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)$</span></p>
+<h3 class="header"><i>2.3</i>Parametric Derivatives<a class="headerlink" href="#parametric-derivatives" name="parametric-derivatives">&para;</a></h3>
+<p>The first derivative of a parametric equation that corresponds to displacement is the velocity. The second derivative corresponds to the acceleration.</p>
+<p><img alt="" src="http://i.imgur.com/rAewP.png" /></p>
+<h3 class="header"><i>2.4</i>Gradient of $f$<a class="headerlink" href="#gradient-of-f" name="gradient-of-f">&para;</a></h3>
+<p><span>$\nabla{f}(x,y) = \langle f_x(x,y),f_y(x,y) \rangle = \frac{\partial f}{\partial x}i + \frac{\partial f}{\partial y}j$</span></p>
+<h3 class="header"><i>2.5</i>Directional Derivative<a class="headerlink" href="#directional-derivative" name="directional-derivative">&para;</a></h3>
+<p><span>$D_u f(x,y) = \nabla{f}(x,y)\cdot u$</span> where <span>$u$</span> is the unit vector indicating direction and x,y represent the point at which the vector is from.</p>
+<h3 class="header"><i>2.6</i>Maximizing Directional Derivatives<a class="headerlink" href="#maximizing-directional-derivatives" name="maximizing-directional-derivatives">&para;</a></h3>
+<p>This occurs when <span>$u$</span> has the same direction as the gradient vector and it's value is <span>$|\nabla{f}(x)|$</span></p>
+<h3 class="header"><i>2.7</i>Maximum and Minimum Points<a class="headerlink" href="#maximum-and-minimum-points" name="maximum-and-minimum-points">&para;</a></h3>
+<p>Critical values occur when <span>$\nabla{f}$</span> is 0, That is <span>$F_x$</span> and <span>$F_y$</span> are 0. This is similar to the first derivative test. Determine the type of point they are with the equivalent of the second derivative test</p>
+<p><span>$D = f_{xx}(a,b)f_{yy}(a.b) - [f_{xy}(a,b)]^2$</span></p>
+<ol>
+<li>If <span>$D \gt 0$</span> and <span>$f_{xx}(a,b) \gt 0$</span>, then <span>$f(a,b)$</span> is a local minimum</li>
+<li>If <span>$D \gt 0$</span> and <span>$f_{xx}(a,b) \lt 0$</span>, then <span>$f(a,b)$</span> is a local maximum</li>
+<li>If <span>$D \lt 0$</span> then <span>$f(a,b)$</span> is a saddle point</li>
+</ol>
+<h3 class="header"><i>2.8</i>Implicit Differentiation<a class="headerlink" href="#implicit-differentiation" name="implicit-differentiation">&para;</a></h3>
+<p>If a function <span>$F$</span> is defined implicitly in terms of <span>$z$</span> then the partial derivatives are <span>$\frac{\partial z}{\partial x} = - \frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial z}}$</span> and <span>$\frac{\partial z}{\partial y} = - \frac{\frac{\partial F}{\partial y}}{\frac{\partial F}{\partial z}}$</span></p>
+<h2 class="header"><i>3</i>Vectors<a class="headerlink" href="#vectors" name="vectors">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Perpendicular Vectors<a class="headerlink" href="#perpendicular-vectors" name="perpendicular-vectors">&para;</a></h3>
+<p><span>$a$</span> and <span>$b$</span> are perpendicular/ orthogonal iff <span>$a \cdot b = 0$</span> </p>
+<h3 class="header"><i>3.2</i>Cross Product Rules<a class="headerlink" href="#cross-product-rules" name="cross-product-rules">&para;</a></h3>
+<ol>
+<li><span>$a \times b = -b \times a$</span></li>
+<li><span>$(ca) \times b = c(a \times b) = a \times (cb)$</span> where <span>$c is a scalar$</span></li>
+<li><span>$a \times (b + c) = a \times b + a \times c$</span></li>
+<li><span>$(a + b) \times c = a \times c + b \times c$</span></li>
+<li><span>$a \cdot (b \times c) = (a \times b) \cdot c)$</span></li>
+<li><span>$a \times (b \times c) = (a \cdot c)b - (a \cdot b)c$</span></li>
+</ol>
+<h3 class="header"><i>3.3</i>Unit Tangent, Normal, Binormal, Curvature and Torsion<a class="headerlink" href="#unit-tangent-normal-binormal-curvature-and-torsion" name="unit-tangent-normal-binormal-curvature-and-torsion">&para;</a></h3>
+<p><img alt="alt" src="http://i.imgur.com/7Yqca.png" title="Title" /></p>
+<h2 class="header"><i>4</i>Multiple Integrals<a class="headerlink" href="#multiple-integrals" name="multiple-integrals">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Changing the Order of Integration<a class="headerlink" href="#changing-the-order-of-integration" name="changing-the-order-of-integration">&para;</a></h3>
+<p>Given an integral over a region D, you have to sketch that region and figure out how to change the direction. </p>
+<p><img alt="" src="http://i.imgur.com/dFnVxl.jpg" /></p>
+<p>Eg: if we have an integral over the region <span>$D \{x,y; 0 \leq x \leq 1; x^2 \leq y \leq 1\}$</span> we can draw a picture and write <span>$D$</span> as <span>$\{x,y; 0 \leq x \leq \sqrt{y}; 0 \leq y \leq 1\}$</span></p>
+<h3 class="header"><i>4.2</i>Polar Coordinates<a class="headerlink" href="#polar-coordinates" name="polar-coordinates">&para;</a></h3>
+<ul>
+<li><span>$r^2 = x^2 + y^2$</span></li>
+<li><span>$x = r \cos \theta$</span></li>
+<li><span>$y = r \sin \theta$</span></li>
+</ul>
+<p><span>$\int \int_R f(x,y)dA = \int^{\beta}_\alpha \int^{b}_a f(r \cos \theta, r \sin \theta)r drd\theta$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

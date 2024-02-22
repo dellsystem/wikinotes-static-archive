@@ -1,0 +1,1693 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/BIOL_215/">
+                BIOL 215
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course summary
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course summary
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-origin-of-earth-and-life">1 The Origin of Earth and Life</a><ul>
+<li><a href="#big-bang-theory">1.1 Big Bang Theory</a></li>
+<li><a href="#formation-of-earth">1.2 Formation of Earth</a></li>
+<li><a href="#earths-early-atmosphere">1.3 Earth's Early Atmosphere</a></li>
+<li><a href="#earths-ocean">1.4 Earth's Ocean</a><ul>
+<li><a href="#sea-salt">1.4.1 Sea Salt</a></li>
+</ul>
+</li>
+<li><a href="#biomarker-and-fossil-evidence-for-life-at-38-bya">1.5 Biomarker and Fossil Evidence for life at 3.8 bya</a></li>
+<li><a href="#life-definition">1.6 Life - definition</a></li>
+<li><a href="#the-origin-of-life">1.7 The Origin of Life</a><ul>
+<li><a href="#making-the-building-blocks-simple-organic-compounds">1.7.1 Making the building blocks: Simple Organic Compounds</a></li>
+</ul>
+</li>
+<li><a href="#miller-urey-experiment-1953">1.8 Miller-Urey Experiment 1953</a></li>
+<li><a href="#alternative-hypothesis">1.9 Alternative hypothesis</a></li>
+<li><a href="#building-blocks-assembly-into-polymers">1.10 Building Blocks - Assembly into Polymers</a></li>
+<li><a href="#a-paradox">1.11 A paradox</a><ul>
+<li><a href="#solution">1.11.1 Solution</a></li>
+<li><a href="#a-discovery">1.11.2 A Discovery</a></li>
+</ul>
+</li>
+<li><a href="#origin-of-rna-polymers">1.12 Origin of RNA polymers?</a></li>
+<li><a href="#crepe-model">1.13 Crepe model</a></li>
+<li><a href="#rna-world">1.14 RNA World</a></li>
+<li><a href="#ribozymes">1.15 Ribozymes</a></li>
+<li><a href="#evolution-of-rnas-with-new-function">1.16 Evolution of RNAs with new function</a></li>
+<li><a href="#rna-protein-dna">1.17 RNA -&gt; Protein &amp; DNA</a></li>
+<li><a href="#compartmentalization">1.18 Compartmentalization</a></li>
+<li><a href="#hypothesis-for-the-origin-of-metabolism">1.19 Hypothesis for the origin of metabolism</a></li>
+</ul>
+</li>
+<li><a href="#the-nature-of-early-life">2 The Nature of Early Life</a><ul>
+<li><a href="#where-on-earth-did-life-first-evo">2.1 Where on earth did life first evo?</a></li>
+<li><a href="#requirements-of-organisms">2.2 Requirements of organisms</a></li>
+<li><a href="#trophic-classification-of-organisms">2.3 Trophic classification of organisms</a></li>
+<li><a href="#why-is-energy-so-important">2.4 Why is energy so important?</a></li>
+<li><a href="#general-principles-of-consumption">2.5 General principles of consumption</a><ul>
+<li><a href="#elements">2.5.1 Elements</a></li>
+<li><a href="#adaption-to-nutrient-availability">2.5.2 Adaption to Nutrient Availability</a></li>
+</ul>
+</li>
+<li><a href="#what-were-the-earliest-organisms-like">2.6 What were the earliest organisms like?</a></li>
+<li><a href="#evidence-for-early-chemoautotrophy-on-earth">2.7 Evidence for early chemoautotrophy on Earth</a></li>
+<li><a href="#metabolic-diversification-among-bacteria-and-archaea">2.8 Metabolic diversification among Bacteria and Archaea</a></li>
+<li><a href="#extant-biofilm">2.9 Extant biofilm</a></li>
+<li><a href="#appearance-of-photosynthetic-organisms">2.10 Appearance of Photosynthetic Organisms</a></li>
+<li><a href="#oxygen-evolving-photosynthesis">2.11 Oxygen evolving photosynthesis</a></li>
+<li><a href="#consequences-of-o2-production">2.12 Consequences of O2 production</a></li>
+<li><a href="#origin-of-eukaryotes">2.13 Origin of Eukaryotes</a></li>
+<li><a href="#endosymbiotic-theory-of-origin-of-eukaryotes">2.14 Endosymbiotic Theory of Origin of Eukaryotes</a></li>
+<li><a href="#evidence-for-endosymbiotic-theory">2.15 Evidence for endosymbiotic theory</a></li>
+<li><a href="#secondary-endosymbiosis">2.16 Secondary Endosymbiosis</a></li>
+</ul>
+</li>
+<li><a href="#biodiversity">3 Biodiversity</a><ul>
+<li><a href="#classification">3.1 Classification</a></li>
+<li><a href="#kingdoms-of-organisms">3.2 Kingdoms of Organisms</a><ul>
+<li><a href="#two-kingdom-approach">3.2.1 Two kingdom approach</a></li>
+<li><a href="#five-kingdom-approach">3.2.2 Five kingdom approach</a></li>
+</ul>
+</li>
+<li><a href="#difficulty-in-classifying-microoganisms">3.3 Difficulty in classifying microoganisms</a></li>
+<li><a href="#molecular-phylogeny">3.4 Molecular phylogeny</a></li>
+<li><a href="#horizontal-gene-transfer-and-the-tree-of-life">3.5 Horizontal Gene Transfer and the Tree of Life</a></li>
+<li><a href="#five-became-three">3.6 Five became Three</a></li>
+<li><a href="#archaea">3.7 Archaea</a><ul>
+<li><a href="#archaea-euryarchaeota">3.7.1 Archaea: Euryarchaeota</a></li>
+</ul>
+</li>
+<li><a href="#bacteria">3.8 Bacteria</a><ul>
+<li><a href="#proteobacteria">3.8.1 Proteobacteria</a></li>
+<li><a href="#cyanobacteria">3.8.2 Cyanobacteria</a></li>
+</ul>
+</li>
+<li><a href="#eukarya">3.9 Eukarya</a><ul>
+<li><a href="#excavates">3.9.1 Excavates</a></li>
+<li><a href="#chromalveolates">3.9.2 Chromalveolates</a></li>
+</ul>
+</li>
+<li><a href="#rhizaria">3.10 Rhizaria</a></li>
+<li><a href="#plantae-archaeplastida">3.11 Plantae (archaeplastida)</a><ul>
+<li><a href="#chlorophyta">3.11.1 Chlorophyta</a></li>
+</ul>
+</li>
+<li><a href="#unikonts">3.12 Unikonts</a></li>
+</ul>
+</li>
+<li><a href="#evolution">4 Evolution</a><ul>
+<li><a href="#what-is-biological-evolution">4.1 What is biological evolution?</a></li>
+<li><a href="#phylogeny-and-transition-to-multi-cellular-organisms">4.2 Phylogeny and Transition to Multi-cellular organisms</a></li>
+<li><a href="#inferring-evolutionary-history">4.3 Inferring Evolutionary History</a></li>
+<li><a href="#counting-trees">4.4 Counting trees</a></li>
+<li><a href="#independent-evolution-principle-of-convergence">4.5 Independent evolution - Principle of Convergence</a></li>
+<li><a href="#how-do-we-build-phylogenetic-trees">4.6 How do we build phylogenetic trees?</a></li>
+<li><a href="#major-evolutionary-transitions-and-lifestyles">4.7 Major evolutionary transitions and lifestyles</a><ul>
+<li><a href="#fungi-multicellularity">4.7.1 Fungi multicellularity</a></li>
+<li><a href="#algae-multicellularity">4.7.2 Algae multicellularity</a></li>
+<li><a href="#other-examples">4.7.3 Other examples</a></li>
+<li><a href="#general-features-of-multicellular-inventions-in-evolution">4.7.4 General Features of Multicellular inventions in evolution</a></li>
+<li><a href="#timeline">4.7.5 Timeline</a></li>
+</ul>
+</li>
+<li><a href="#advantages-of-multicelluarity">4.8 Advantages of multicelluarity</a></li>
+</ul>
+</li>
+<li><a href="#what-are-the-consequences-of-independent-evolution">5 What are the consequences of independent evolution?</a><ul>
+<li><a href="#howwhy-adaptive-radiation-occur">5.1 How/Why adaptive radiation occur</a></li>
+<li><a href="#geological-time-scale">5.2 Geological time scale</a><ul>
+<li><a href="#acanthostega">5.2.1 Acanthostega</a></li>
+</ul>
+</li>
+<li><a href="#angiosperm-radiation-a-story-of-collaboration">5.3 Angiosperm Radiation, A story of Collaboration</a></li>
+</ul>
+</li>
+<li><a href="#the-cambrian-explosion">6 The Cambrian Explosion</a><ul>
+<li><a href="#burgess-shale">6.1 Burgess Shale</a><ul>
+<li><a href="#hallucigenia">6.1.1 Hallucigenia</a></li>
+<li><a href="#anomalocaris">6.1.2 Anomalocaris</a></li>
+<li><a href="#opabinia">6.1.3 Opabinia</a></li>
+<li><a href="#wiwaxia">6.1.4 Wiwaxia</a></li>
+<li><a href="#pikaia">6.1.5 Pikaia</a></li>
+</ul>
+</li>
+<li><a href="#two-controversies">6.2 Two controversies</a></li>
+<li><a href="#is-the-cambrian-explosion-really-a-big-bang">6.3 Is the cambrian explosion really a big bang?</a></li>
+<li><a href="#what-caused-the-cambrian-explosion">6.4 What caused the cambrian explosion?</a></li>
+</ul>
+</li>
+<li><a href="#evo-devo">7 Evo Devo</a><ul>
+<li><a href="#pax6eyeless-gene">7.1 Pax6/eyeless gene</a><ul>
+<li><a href="#homeoboxhox-genes">7.1.1 Homeobox(hox) genes</a></li>
+</ul>
+</li>
+<li><a href="#developmental-change-and-evolution">7.2 Developmental change and evolution</a></li>
+</ul>
+</li>
+<li><a href="#animals-a-story-of-ingestion">8 Animals: A story of ingestion</a></li>
+<li><a href="#plants">9 Plants</a><ul>
+<li><a href="#an-algal-ancestry">9.1 An algal ancestry</a></li>
+<li><a href="#how-did-unicellular-green-algae-multicellular-plants">9.2 How did unicellular green algae -&gt; multicellular plants</a></li>
+<li><a href="#time-scale-of-plants">9.3 Time scale of plants</a></li>
+<li><a href="#major-features-of-bryophytes">9.4 Major features of bryophytes:</a></li>
+<li><a href="#major-features-of-seedless-vascular-plants">9.5 Major features of seedless vascular plants</a><ul>
+<li><a href="#early-vascular-plants">9.5.1 Early vascular plants</a></li>
+</ul>
+</li>
+<li><a href="#moving-away-from-water">9.6 Moving away from water</a></li>
+<li><a href="#major-features-of-gymnosperms">9.7 Major features of gymnosperms</a></li>
+<li><a href="#major-features-of-angiosperms">9.8 Major features of angiosperms:</a></li>
+</ul>
+</li>
+<li><a href="#fungi">10 Fungi</a></li>
+<li><a href="#summary">11 Summary</a></li>
+<li><a href="#variation">12 Variation</a><ul>
+<li><a href="#variation-central-question">12.1 Variation: Central question</a></li>
+<li><a href="#variation-in-chromosome-number">12.2 Variation in chromosome number</a></li>
+<li><a href="#structural-chromosomal-changes">12.3 Structural chromosomal changes:</a></li>
+<li><a href="#variation-continued">12.4 Variation, continued</a></li>
+<li><a href="#gene-regulation">12.5 Gene Regulation</a><ul>
+<li><a href="#hox-genes">12.5.1 Hox Genes</a></li>
+</ul>
+</li>
+<li><a href="#gene-regulation-and-evolution">12.6 Gene regulation and evolution</a></li>
+<li><a href="#transposons">12.7 Transposons</a></li>
+<li><a href="#phenotypic-variation">12.8 Phenotypic Variation</a></li>
+<li><a href="#environment-and-phenotypic-variation">12.9 Environment and Phenotypic Variation</a></li>
+<li><a href="#what-types-of-mutations-are-most-likely-to-fuel-evolution">12.10 What types of mutations are most likely to fuel evolution?</a></li>
+</ul>
+</li>
+<li><a href="#selection">13 Selection</a><ul>
+<li><a href="#conditions-of-selection">13.1 Conditions of selection</a></li>
+<li><a href="#what-is-fitness">13.2 What is fitness?</a></li>
+<li><a href="#methods-of-selection">13.3 Methods of selection</a><ul>
+<li><a href="#example-cepaea-snails">13.3.1 Example: cepaea snails</a></li>
+</ul>
+</li>
+<li><a href="#sexual-selection">13.4 Sexual selection</a></li>
+<li><a href="#experiment-barn-swallows">13.5 Experiment: Barn swallows</a></li>
+<li><a href="#experiment-different-life-history-characteristics-induced-by-prsence-or-absence-of-predators">13.6 Experiment: different life-history characteristics induced by prsence or absence of predators</a></li>
+<li><a href="#levels-of-selection">13.7 Levels of Selection</a></li>
+</ul>
+</li>
+<li><a href="#speciation">14 Speciation</a><ul>
+<li><a href="#phenetic-species-concept-morphospecies">14.1 Phenetic Species concept (Morphospecies)</a></li>
+<li><a href="#biological-species-concept">14.2 Biological Species Concept</a></li>
+<li><a href="#evolutionary-species-concept">14.3 Evolutionary Species Concept</a></li>
+<li><a href="#phylogenetic-species-concept">14.4 Phylogenetic Species Concept</a></li>
+<li><a href="#mechanism-of-speciation">14.5 Mechanism of speciation</a><ul>
+<li><a href="#speciation-without-geographical-isolation">14.5.1 Speciation without geographical isolation</a></li>
+</ul>
+</li>
+<li><a href="#reproductive-isolating-mechanisms">14.6 Reproductive Isolating Mechanisms</a></li>
+</ul>
+</li>
+<li><a href="#extinction">15 Extinction</a><ul>
+<li><a href="#two-types-of-extinction">15.1 Two types of extinction</a><ul>
+<li><a href="#uniform-extinctions">15.1.1 Uniform extinctions</a></li>
+<li><a href="#the-red-queen-hypothesis">15.1.2 The "Red Queen" hypothesis</a></li>
+<li><a href="#mass-extinctions">15.1.3 Mass extinctions</a></li>
+</ul>
+</li>
+<li><a href="#neodarwinism">15.2 Neodarwinism</a></li>
+<li><a href="#micro-vs-macro-evolution">15.3 Micro vs macro evolution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The Origin of Earth and Life<a class="headerlink" href="#the-origin-of-earth-and-life" name="the-origin-of-earth-and-life">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Big Bang Theory<a class="headerlink" href="#big-bang-theory" name="big-bang-theory">&para;</a></h3>
+<ul>
+<li>Between 10-15 bya</li>
+<li>Quarks form protons and neutrons = <sup>1</sup>H and <sup>4</sup>He (<span>$\alpha$</span> and <span>$\beta$</span> emission)</li>
+<li>Expansion, condensation, formation of protostars</li>
+<li>Protostars burn producing heavier elements (up to <sup>26</sup>Fe)</li>
+<li>Protostar explodes as supernova - forms our solar system (4.6 bya) - sun is created</li>
+<li>Condensation of nebular material starts forming planets. Planets around the sun form from the matter called "planetisimals"</li>
+</ul>
+<h3 class="header"><i>1.2</i>Formation of Earth<a class="headerlink" href="#formation-of-earth" name="formation-of-earth">&para;</a></h3>
+<ul>
+<li>Earth was initially molten and composed largely of: Fe, Mg, Si, O</li>
+<li>Formed 4.6 bya</li>
+<li>Crust forms 4.2 - 4.1 bya as Earth cools</li>
+<li>First traces of biochemicals found from 3.85 bya</li>
+<li>Oldest fossils found at 3.7 bya</li>
+</ul>
+<h3 class="header"><i>1.3</i>Earth's Early Atmosphere<a class="headerlink" href="#earths-early-atmosphere" name="earths-early-atmosphere">&para;</a></h3>
+<ul>
+<li>Meteors and comets bombard Earth from 4.5 - 3.8 bya, supplying lighter elements and frozen gases</li>
+<li>Atmosphere generated by volcanic out-gassing (80%) and impact bodies (20%)</li>
+</ul>
+<p>Composition:</p>
+<ul>
+<li>CO<sub>2</sub> at 100 - 1000 times greater than present atmosphere levels, N<sub>2</sub>, H<sub>2</sub>O plus trace amounts of H<sub>2</sub>, S gases, NH<sub>3</sub>, CH<sub>4</sub></li>
+<li>Mostly reducing compounds (no oxidation)</li>
+<li>No free O<sub>2</sub>, because O<sub>2</sub> breaks down organic molecules</li>
+<li>About 12 times the air pressure as present day</li>
+</ul>
+<h3 class="header"><i>1.4</i>Earth's Ocean<a class="headerlink" href="#earths-ocean" name="earths-ocean">&para;</a></h3>
+<ul>
+<li>All volatile compounds remained in the atmosphere when the Earth was hot</li>
+<li>When Earth cools below 100 deg, water condensed and formed oceans</li>
+<li>Large impact bodies would have vaporized the entire ocean, destroying any life</li>
+<li>Earth had liquid water on surface by 3.9 bya, evidenced by sedimentary rocks</li>
+</ul>
+<h4 class="header"><i>1.4.1</i>Sea Salt<a class="headerlink" href="#sea-salt" name="sea-salt">&para;</a></h4>
+<ul>
+<li>Gases dissolve quickly in water<blockquote>
+<p>CO<sub>2</sub> + H<sub>2</sub>O = HCO<sub>3</sub><sup>-</sup> + H<sup>+</sup><br />
+HCl + H<sub>2</sub>O = H<sub>3</sub>O<sup>+</sup> + Cl<sup>-</sup><br />
+SO<sub>2</sub> + H<sub>2</sub>O = H<sub>2</sub>SO<sub>3</sub></p>
+</blockquote>
+</li>
+<li>These acids then dissolved rocks on land, and the river carried these salts to the ocean, making it salty</li>
+</ul>
+<h3 class="header"><i>1.5</i>Biomarker and Fossil Evidence for life at 3.8 bya<a class="headerlink" href="#biomarker-and-fossil-evidence-for-life-at-38-bya" name="biomarker-and-fossil-evidence-for-life-at-38-bya">&para;</a></h3>
+<ul>
+<li>Graphite in quartz crystals at 3.85 bya (carbon)</li>
+<li>Bacteria-like fossils at 3.5 bya</li>
+</ul>
+<h3 class="header"><i>1.6</i>Life - definition<a class="headerlink" href="#life-definition" name="life-definition">&para;</a></h3>
+<p>What is life?</p>
+<ol>
+<li>Organization</li>
+<li>Energy use and metabolism</li>
+<li>Homeostasis</li>
+<li>Replication/reproduction</li>
+<li>Response to environment/stimulus</li>
+</ol>
+<h3 class="header"><i>1.7</i>The Origin of Life<a class="headerlink" href="#the-origin-of-life" name="the-origin-of-life">&para;</a></h3>
+<ul>
+<li>Research on the origin of life mostly consists of recreating chemical reactions that may have taken place on earth 4 bya</li>
+</ul>
+<h4 class="header"><i>1.7.1</i>Making the building blocks: Simple Organic Compounds<a class="headerlink" href="#making-the-building-blocks-simple-organic-compounds" name="making-the-building-blocks-simple-organic-compounds">&para;</a></h4>
+<ul>
+<li>Organic Compounds are C-rich compounds with C-C bonded together. Amino acids, hydroxy acids, sugars, nuclear bases, fatty acids</li>
+<li>Early experiments attempted to replicate the chemical environment of early Earth</li>
+</ul>
+<h3 class="header"><i>1.8</i>Miller-Urey Experiment 1953<a class="headerlink" href="#miller-urey-experiment-1953" name="miller-urey-experiment-1953">&para;</a></h3>
+<ul>
+<li>Mix gas thought to compose the Earth's early atmosphere</li>
+<li>17/20 amino acids, all purines/pyrimidines were formed in a week, and otehr types of organic compounds were produced in other experiments</li>
+</ul>
+<h3 class="header"><i>1.9</i>Alternative hypothesis<a class="headerlink" href="#alternative-hypothesis" name="alternative-hypothesis">&para;</a></h3>
+<ul>
+<li>Another hypothesis of the origin of organic matter that is supported by data</li>
+<li><strong>Panspermia</strong> is the hypothesis that it was brought from outer space</li>
+</ul>
+<p>3 lines of evidence to support this hypothesis:</p>
+<ol>
+<li>The <strong>Murchison meteorite</strong> was found to contain a variety of carbon compounds: purines/pyrimidines, polyols, amino acids</li>
+<li>The ALH84001 meteorite from Mars contained some evidence of microorganisms (PAHs and fossils). This is refuted by some scientists</li>
+<li>A variety of organic molecules in interstellar space have been identified using infrared spectroscopy:<ul>
+<li>Methane</li>
+<li>Methanol</li>
+<li>Formaldehyde</li>
+<li>Cyanoacetylene</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.10</i>Building Blocks - Assembly into Polymers<a class="headerlink" href="#building-blocks-assembly-into-polymers" name="building-blocks-assembly-into-polymers">&para;</a></h3>
+<ul>
+<li>Simple organic molecules that were formed were subsequently linked together into large macromolecules that had some properties of life - replication</li>
+<li>What are the important macromolecules?</li>
+</ul>
+<h3 class="header"><i>1.11</i>A paradox<a class="headerlink" href="#a-paradox" name="a-paradox">&para;</a></h3>
+<ul>
+<li>All life that is know to exist on Earth today seems to be of the same form - one based on DNA genomes and protein enzymes:</li>
+</ul>
+<p>DNA ---(via protein)---&gt; RNA -&gt; ---(via protein)---&gt; Protein -&gt; DNA</p>
+<ul>
+<li>What came first?</li>
+<li>Proteins cannot be made with nucleic acids and nucleic acids cannot be made without proteins</li>
+</ul>
+<h4 class="header"><i>1.11.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h4>
+<ul>
+<li>It is hypothesized that RNA had the capacity to self replicate and self catalyze chemical reactions. This is referred to as the "RNA world" which is hypothesized to have preceded the first DNA/protein life</li>
+<li>How did the RNA polymers originate?</li>
+</ul>
+<h4 class="header"><i>1.11.2</i>A Discovery<a class="headerlink" href="#a-discovery" name="a-discovery">&para;</a></h4>
+<p><strong>Thomas Cech</strong> and <strong>Sidney Altman</strong> (Nobel Prize) discovered first known ribyzyme(RNA with enyzymatic properties), which splices pre-existing RNA molecule in two</p>
+<h3 class="header"><i>1.12</i>Origin of RNA polymers?<a class="headerlink" href="#origin-of-rna-polymers" name="origin-of-rna-polymers">&para;</a></h3>
+<p>A number of hypotheses:</p>
+<ul>
+<li>Clay catalyzed RNA synthesis (most popular)</li>
+</ul>
+<p>Early models envisaged that life evolved in a temperate pond, however, in dilute aqueous environments, hydrolysis occurs more likely than polymerization</p>
+<h3 class="header"><i>1.13</i>Crepe model<a class="headerlink" href="#crepe-model" name="crepe-model">&para;</a></h3>
+<p><img alt="" src="http://i.imgur.com/zOXCD.jpg" title="god i could kill for crepes" /></p>
+<h3 class="header"><i>1.14</i>RNA World<a class="headerlink" href="#rna-world" name="rna-world">&para;</a></h3>
+<p>"One can contemplate an RNA world, containing only RNA molecules that serve to catalyze the synthesis of themselves" - Gilbert, W., 1986 - Nature 319, 618</p>
+<p><strong>Ribosomes which assemble proteins are ribozymes</strong></p>
+<ul>
+<li>The model proposes that some RNA molecules that were randomly ssembled on clay would acquire enzymatic properties and replicate, creating many copies.</li>
+<li>Errors in copy would create mutations which would might increase its rate of production</li>
+</ul>
+<h3 class="header"><i>1.15</i>Ribozymes<a class="headerlink" href="#ribozymes" name="ribozymes">&para;</a></h3>
+<p>Certain RNA molecules incorporate both features required of life:</p>
+<ul>
+<li>Store information</li>
+<li>Act as catalysts</li>
+</ul>
+<p>No RNA molecules that direct the replication of different RNA molecules have yet been identified in nature, but it has been made to evolve to perform many functions (Joyce, 2002)</p>
+<h3 class="header"><i>1.16</i>Evolution of RNAs with new function<a class="headerlink" href="#evolution-of-rnas-with-new-function" name="evolution-of-rnas-with-new-function">&para;</a></h3>
+<p><strong>Joyce</strong>, 1992 - isolated an RNA from <em>Tetrahymena</em> that could cut a different RNA and attach part of the substrate to itself (required Mg<sup>2+</sup> ions). He designed a system in which variants of the ribozyme that were active with Ca<sup>2+</sup> were able to replicate and the Mg<sup>2+</sup> form was not. (Artificial selection)</p>
+<p>At the end of 12 rounds of synthesis the ribozyme population was dominated by the variant forms that were active with Ca<sub>2+</sub></p>
+<h3 class="header"><i>1.17</i>RNA -&gt; Protein &amp; DNA<a class="headerlink" href="#rna-protein-dna" name="rna-protein-dna">&para;</a></h3>
+<p>RNA may have eventually begun encoding proteins with catalytic properties, one of these enzymes could have been reverse transcriptase, which copies RNA into DNA. DNA is more chemically stable, thus allowing larger genomes. DNA -&gt; RNA -&gt; protein sequence established.</p>
+<h3 class="header"><i>1.18</i>Compartmentalization<a class="headerlink" href="#compartmentalization" name="compartmentalization">&para;</a></h3>
+<p>Liposomes (micelles) grow on solid supports and can bud off once they increase in size - forming a sealed sphere. Micelles fuse to form vesicles.</p>
+<p>How might the association between nucleic acids and membranes lead to the formation of a stable entity that displays cellular behavior?</p>
+<ul>
+<li>Osmotic stress</li>
+<li>Creation of an electrochemical gradient (energy)</li>
+</ul>
+<h3 class="header"><i>1.19</i>Hypothesis for the origin of metabolism<a class="headerlink" href="#hypothesis-for-the-origin-of-metabolism" name="hypothesis-for-the-origin-of-metabolism">&para;</a></h3>
+<ul>
+<li>Precursor cells (Progenotes) use A as energy source</li>
+<li>As A is depleted, those cells that evolve an enzyme to convert B into A thrive</li>
+<li>Those progenotes that use various substrates would survive</li>
+</ul>
+<h2 class="header"><i>2</i>The Nature of Early Life<a class="headerlink" href="#the-nature-of-early-life" name="the-nature-of-early-life">&para;</a></h2>
+<p>Question: Do we have any idea of what the early energy sources are?</p>
+<p>Yes, very likely it used hydrogen and other energy rich compounds</p>
+<p>The environment favors those organisms that can use a variety of energy sources, and thus metabolism is created.</p>
+<p>At this point we have covered a billion years in the history of the Earth</p>
+<p>In a short period of time, 10 million years, the origin of life has been established.</p>
+<h3 class="header"><i>2.1</i>Where on earth did life first evo?<a class="headerlink" href="#where-on-earth-did-life-first-evo" name="where-on-earth-did-life-first-evo">&para;</a></h3>
+<p>the most popular view is that it evolved in the deep sea, near hydro thermal vents. These hydro thermal vents are like little mini volcanoes in the sense that down in the sea floor where molten rock or magma is in close proximty to the sea bed. Sea water percolates in to the sediment gets heated and boils and rises up through the hydrothermal vents.<br />
+There's lots of clays present, there's lots of metal present(metal catalysts), important in polymerization of rna on the clay template. Potential energy sources, hydrogen, sulphide, hydrogen gas that may be used. These conditions existed else where on the earth, but UV radiation was very high because there's no oxygen in the atmosphere(no ozone). Any living organism on the surface of the land will be fried by UV radiation</p>
+<p>Question: What temperature is the deep sea vs temperature on the surface?</p>
+<p>Who the fuck knows</p>
+<h3 class="header"><i>2.2</i>Requirements of organisms<a class="headerlink" href="#requirements-of-organisms" name="requirements-of-organisms">&para;</a></h3>
+<p>Liquid water:<br />
+Ideal medium for energy reactions, polar molecule capable of H bond and stabilizing. All of our own metabolism occurs in the aqueous medium of the cytoplasm.</p>
+<p>Energy:<br />
+Energy is used to assemble of elements into complex molecules, replication, motility, acquire other resources</p>
+<p>Organisms use one of 3 main sources of energy:<br />
+Light, Organic molecules, Inorganic molecules(Chemosynthesis)</p>
+<h3 class="header"><i>2.3</i>Trophic classification of organisms<a class="headerlink" href="#trophic-classification-of-organisms" name="trophic-classification-of-organisms">&para;</a></h3>
+<p>Organisms can be classified by how they obtain energy and carbon - C is one of the most important elements for growth</p>
+<ul>
+<li>Autotroph - Inorganic C - CO<sub>2</sub><ul>
+<li>Photosynthetic (light - electromagnetic energy) PAR 400-700 nm (photoautotroph)</li>
+<li>Chemosynthetic (inorganic molecules - chemical bond energy) H<sub>2</sub>, H<sub>2</sub>S, NH<sub>4</sub><sup>+</sup>, FE(II), etc, less abundant</li>
+</ul>
+</li>
+</ul>
+<p>Chemosynthesis in deep sea bacteria</p>
+<p>No sunlight, so they need energy from hydrothermal vents. Tubeworms can grow to 2 meters in length. They rely on bacteria as food source, and the bacteria uses chemosynthesis.</p>
+<p>Bacteria: HS<sup>-</sup> + 2O<sub>2</sub> -&gt; SO<sub>4</sub>2- coupled with CO2 + R -&gt; organic molecule</p>
+<p>Heterotrophs - organic molecules for energy and C - carbohydrates, proteins, fats</p>
+<ul>
+<li>Herbivores</li>
+<li>Carnivores</li>
+<li>Omnivores</li>
+<li>Detritivores</li>
+<li>Saprovores -&gt; Dissolved organic matter</li>
+</ul>
+<h3 class="header"><i>2.4</i>Why is energy so important?<a class="headerlink" href="#why-is-energy-so-important" name="why-is-energy-so-important">&para;</a></h3>
+<p>The rate at which organisms can take in energy is limited</p>
+<ul>
+<li>
+<p>The limitation may be caused by external constraints:</p>
+<ul>
+<li>Shortage of food in the environment(sunlight, prey)</li>
+<li>Food quality: Shitty food, like secondary metabolites which inhibits metabolisms</li>
+</ul>
+</li>
+<li>
+<p>Limitation may be caused by internal constraints</p>
+<ul>
+<li>Not enough enzymes to capture the excess of energy(Not enough photosynthetic units to capture an excess of sunlight)</li>
+</ul>
+</li>
+</ul>
+<p>P<sub>max</sub> is the maximum rate of photosynthesis, despite an increase in photon flux density.<br />
+In carnivores, there's a maximum rate in which food can be digested.</p>
+<p><img alt="" src="http://i.imgur.com/z2aYD.jpg" title="fatties gonna fat" /></p>
+<h3 class="header"><i>2.5</i>General principles of consumption<a class="headerlink" href="#general-principles-of-consumption" name="general-principles-of-consumption">&para;</a></h3>
+<ul>
+<li>Energy is generally limited</li>
+<li>Organisms can respond in a way to maximize their intake, a consumer can move in a way that maximize prey coverage</li>
+<li>Organisms have to make tradeoffs because the energy is finite. The organism has to allocated for different priorities, such as reproduction.</li>
+</ul>
+<h4 class="header"><i>2.5.1</i>Elements<a class="headerlink" href="#elements" name="elements">&para;</a></h4>
+<p>Elements are used to construct cellular constituents and in biochemical reactions that are necessary for survival. They are used for structures and catalysis</p>
+<p>Examples: Cellulose, hydroxy apatite(Ca, P), cytochromes(Fe, N)</p>
+<p>Organisms don't use every element which exists</p>
+<p>There are about 28 elements which are needed, 6 of which make up the bulk: C, H, O, P, N, S. Without these the organisms will suffer in its life<br />
+e.g. deficiency in copper = wilson's disease.</p>
+<p>If we plot the log of element concentration in the environment vs the log of element concentration in tissue, it appears to be positively correlated. Somewhat. Most elements fall above the 1:1 line, which makes sense, since they must be more concentrated in the organism.</p>
+<p><img alt="" src="http://i.imgur.com/tga7I.jpg" title="dat Fe" /></p>
+<p>Organisms concentrate and extract elements from their environment. The concentrations of essential elements varies among different environments and over geological time. The change in concentration influenced the requirements of the elements required in elements.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Element</th>
+<th>Ocean</th>
+<th>Lake</th>
+<th>Soil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N</td>
+<td>420</td>
+<td>420</td>
+<td>45000</td>
+</tr>
+<tr>
+<td>P</td>
+<td>60</td>
+<td>20</td>
+<td>24000</td>
+</tr>
+<tr>
+<td>S</td>
+<td>900000</td>
+<td>11000</td>
+<td>480000</td>
+</tr>
+<tr>
+<td>Ca</td>
+<td>410000</td>
+<td>Variable</td>
+<td>100000</td>
+</tr>
+<tr>
+<td>K</td>
+<td>400000</td>
+<td>3000</td>
+<td>100000</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Some elements may be limiting to growth</p>
+</blockquote>
+<p>Sometimes the concentration is so low that the organism can't do anything to obtain more, the organism will <strong>Acclimate</strong>. The organism will change its developmental process to accomodate the lack of resources</p>
+<h4 class="header"><i>2.5.2</i>Adaption to Nutrient Availability<a class="headerlink" href="#adaption-to-nutrient-availability" name="adaption-to-nutrient-availability">&para;</a></h4>
+<p>An organism can also adapt to nutrient availability.</p>
+<p>The amount of iron was very high during archaean eon(&gt;2.5 bya), but virtually disappeared by the end of the Phanerozoic(&lt;0.54)<br />
+Green algae evolved during archaean requires a lot of iron while the amount of iron required by the red algae, which evolved in the Phanerozoic, is half as much.</p>
+<p>Given the general requirements of organisms that we have just discussed and the environmental conditions that were thought to exist on earth 4 bya, we can hypothesize what the earliest life was like.</p>
+<p>H<sub>2</sub>, CO<sub>2</sub>, N<sub>2</sub>, S gases - anaerobic, hot</p>
+<h3 class="header"><i>2.6</i>What were the earliest organisms like?<a class="headerlink" href="#what-were-the-earliest-organisms-like" name="what-were-the-earliest-organisms-like">&para;</a></h3>
+<p>First hypothesis: Chemoautotroph</p>
+<p>H2 + 2Fe(III) &lt;=&gt; 2Fe(II) + 2H+<br />
+H2 + CO2 &lt;=&gt; CH4 + H2O<br />
+H2 + SO &lt;=&gt; HS- + H+</p>
+<p>Uses hydrogen gas as energy and CO2 as carbon source. Produced methane. Evidence of the existance of methane which supports this hypothesis.</p>
+<p>Second hypothesis(Fallen out of favor): Heterotroph that used organic matter that was synthesized abiotically. Oparin(1924)</p>
+<ul>
+<li>Dilute pond model(Problem). Very very low concentration</li>
+<li>Organic matter absorbs to clays, lived in proximity to clays and ate clay(lol)</li>
+<li>Generally not favoured.</li>
+</ul>
+<p>Other characteristic of the first organism</p>
+<ul>
+<li>Anaerobic</li>
+<li>Hyperthermophilic and halophilic(salt-loving)</li>
+<li>Prokaryotic</li>
+</ul>
+<p>First organisms may have been similar to Methanococcus(Archaea, anaerobe, lives in hydrothermal vents, uses H2, CO2, produces methane)</p>
+<h3 class="header"><i>2.7</i>Evidence for early chemoautotrophy on Earth<a class="headerlink" href="#evidence-for-early-chemoautotrophy-on-earth" name="evidence-for-early-chemoautotrophy-on-earth">&para;</a></h3>
+<ul>
+<li>All extant organisms near the origin of the phylogenetic tree are hyperthermophiles that are found in hot springs and hydrothermal environments</li>
+<li>These environments are likely similar to those of early earth</li>
+<li>These organisms all use H2 as energy source and Fe or S as electron acceptors</li>
+<li>Massive magnetite accumulations (Fe<sub>3</sub>O<sub>4</sub>) during the archaean era provide geological evidence for Fe(III) reduction</li>
+</ul>
+<h3 class="header"><i>2.8</i>Metabolic diversification among Bacteria and Archaea<a class="headerlink" href="#metabolic-diversification-among-bacteria-and-archaea" name="metabolic-diversification-among-bacteria-and-archaea">&para;</a></h3>
+<ul>
+<li>New species exploited other energy sources - some using the products from the metabolism of other organisms as substrates. Populations of organisms layered one on top of the other - biofilm. Sharing of resources, diversification of metabolic capabilities</li>
+<li>Organic compounds accumulated and allowed heterotrophic organisms to thrive</li>
+<li>Bacteria and Archaea are the most metabolically diverse groups of organisms</li>
+</ul>
+<h3 class="header"><i>2.9</i>Extant biofilm<a class="headerlink" href="#extant-biofilm" name="extant-biofilm">&para;</a></h3>
+<ul>
+<li>Each layer of sediment is colonized by microbes that use different energy and C sources for growth. The products from the metabolism of one organism are used by the population of organisms adjacent to it.</li>
+</ul>
+<h3 class="header"><i>2.10</i>Appearance of Photosynthetic Organisms<a class="headerlink" href="#appearance-of-photosynthetic-organisms" name="appearance-of-photosynthetic-organisms">&para;</a></h3>
+<ul>
+<li>Organisms develop pigments(bacteriochlorophyll) that are used to capture light energy (much more plentiful than geochemical energy).</li>
+<li>Earliest form of photosynthesis was based on sulfur (S): it was anoxygenic (non O2 evolving) carried out by S bacteria</li>
+<li>CO2 + 2H2S = Ch2O + 2S + H2O. H2S was the electron donor</li>
+</ul>
+<h3 class="header"><i>2.11</i>Oxygen evolving photosynthesis<a class="headerlink" href="#oxygen-evolving-photosynthesis" name="oxygen-evolving-photosynthesis">&para;</a></h3>
+<ul>
+<li>Fossil evidence suggests that photosynthetic cyanobacteria appeared around 3.2-2.4 bya</li>
+<li>CO2 + H2O - CH2O + O2</li>
+<li>H2O was an inexhaustible resource</li>
+<li>O2 only accumulated slowly in the atmosphere because it reacted first with Fe in the sea<br />
+This is oxygenic photosynthesis</li>
+</ul>
+<p>The earth atmosphere went from anoxic to oxic sometime between 2.5 and 2.0 bya. Oxygen reacted with all the iron in the ocean, causing it to precipitate, effectively stripping it from the ocean.</p>
+<h3 class="header"><i>2.12</i>Consequences of O2 production<a class="headerlink" href="#consequences-of-o2-production" name="consequences-of-o2-production">&para;</a></h3>
+<ul>
+<li>Allowed for the evolution of a new type of metabolism - aerobic metabolism: greater energy yield per mol of C substrate consumed. Glycolysis, fermentation pretty bad at generating energy</li>
+<li>Changed ocean chemistry: S and N oxidation(SO4 2- collects in ocean). Organisms which can break down sulphate can evolve</li>
+<li>Allowed for the formation of the ozone layer - O3 - protection from UV. </li>
+<li>Poisoned environment - anaerobic organisms became confined to refuge habitats</li>
+</ul>
+<p>Organisms had to evolve mechanisms to detoxify the noxious by-products of O2 - Superoxide, hydrogen peroxide</p>
+<p><strong>The release of O2 by photosynthesis is perhaps the single most significant effect of life on the geochemistry of the earth</strong></p>
+<h3 class="header"><i>2.13</i>Origin of Eukaryotes<a class="headerlink" href="#origin-of-eukaryotes" name="origin-of-eukaryotes">&para;</a></h3>
+<ul>
+<li>Cells existing prior to 1.8(2.7) bya were all prokaryotes: bacteria and archaea</li>
+<li>Eukaryotes appear in the fossil record ca. 1.8 bya.</li>
+<li>Chemical markers (steranes) produced only by eukaryotes are detected in rocks ~2.7 bya</li>
+<li>How did eukaryotes differ?</li>
+</ul>
+<p>Prokaryotes vs Eukaryotes, rehashed for the 293872938572 time.</p>
+<p><img alt="" src="http://i.imgur.com/eIrUC.jpg" title="grape flavored DNA" /><br />
+<img alt="" src="http://i.imgur.com/mVvg4.jpg" title="THIS IS COMPLETELY NEW INFORMATION" /></p>
+<h3 class="header"><i>2.14</i>Endosymbiotic Theory of Origin of Eukaryotes<a class="headerlink" href="#endosymbiotic-theory-of-origin-of-eukaryotes" name="endosymbiotic-theory-of-origin-of-eukaryotes">&para;</a></h3>
+<ul>
+<li>Theory proposed by <strong>Lynn Margulis</strong></li>
+<li>Mitochondria and chloroplasts of eukaryotes were at one time free-living bacteria that were engulfed by an Archaea and evolved an obligatory symbiosis</li>
+<li>Mitochondria - proteobacterium</li>
+<li>Chloroplast - cyanobacterium</li>
+<li>Theory very strongly supported by data</li>
+</ul>
+<p>Conceptually: </p>
+<p><img alt="" src="http://i.imgur.com/uUoaf.jpg" title="ugly ass cells" /></p>
+<p>archaea engulfed the photosynthetic bacterium and an aerobic bacterium to form a chloroplast and a mitochondria. The archaea didn't digest the bacterium it had ingested, so there was a stable relationship between the host and the prey(symbiosis), eventually integrated into the host organism.</p>
+<p>The outer membrane of eukaryotes are similar to the outer membrane of archaea, and the internal membrane of mitochondria are similar to the membrane of bacteria. The ciliate ingests chloroplasts, and it doesn't digest it, it instead uses it to make food.</p>
+<p>Rickettsia prowazekii makes energy in the same pathways as mitochondria</p>
+<p>Reclinomonas americana has unique DNA of its mitochondria</p>
+<h3 class="header"><i>2.15</i>Evidence for endosymbiotic theory<a class="headerlink" href="#evidence-for-endosymbiotic-theory" name="evidence-for-endosymbiotic-theory">&para;</a></h3>
+<p>Organelles (chloroplasts and mitochondria): <br />
+1. contain own DNA, similar to bacterial DNA, no histones, circular.<br />
+2. surrounded by a double membrane - the inner one looks like a bacterial membrane<br />
+3. show antibiotic sensitivity, these drugs affect the metabolism of mitochondria(inhibited)<br />
+4. have ribosomes (70S) like bacteria</p>
+<h3 class="header"><i>2.16</i>Secondary Endosymbiosis<a class="headerlink" href="#secondary-endosymbiosis" name="secondary-endosymbiosis">&para;</a></h3>
+<p>In 2 groups of protists we can still see the evidence of a second endosymbiotic event. THE NUCLEOMORPH: a remnant of the nucleus of the endosymbiont in the chloroplast</p>
+<p>Eukaryote engulfs another eukaryote which was photosynthetic, and incorporates it.</p>
+<p>Cryptomonad, cells which have a symbiotic relationship with a photosynthetic eukaryote. The cell inside undergoes nucleomorph(degradation of nucleus)</p>
+<h2 class="header"><i>3</i>Biodiversity<a class="headerlink" href="#biodiversity" name="biodiversity">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Classification<a class="headerlink" href="#classification" name="classification">&para;</a></h3>
+<p>Method for organizing information<br />
+<em> Grouping similar organisms together<br />
+</em> Historically, it involved grouping organisms into different categories based on their physical characteristics (hard for microbes, convergent evolution is an issue)</p>
+<p>Ideally it should reflect the evolutionary distances and relationships among organisms<br />
+<em> Predict characteristics of newly described organisms<br />
+</em> Understand the history of life</p>
+<h3 class="header"><i>3.2</i>Kingdoms of Organisms<a class="headerlink" href="#kingdoms-of-organisms" name="kingdoms-of-organisms">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>Two kingdom approach<a class="headerlink" href="#two-kingdom-approach" name="two-kingdom-approach">&para;</a></h4>
+<ul>
+<li>
+<p>Aristotle</p>
+<ul>
+<li>Plantae (L. planta, plant) and Animalia(L. anima, breath, life)</li>
+<li>Structure, function, metabolism, movement</li>
+</ul>
+</li>
+<li>
+<p>20<sup>th</sup> century</p>
+<ul>
+<li>Single-celled organisms (prokaryotes) and single and multicelluar organisms (eukaryotes)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.2.2</i>Five kingdom approach<a class="headerlink" href="#five-kingdom-approach" name="five-kingdom-approach">&para;</a></h4>
+<ul>
+<li>prokaryotes, protists, fungi, plants, animals.</li>
+<li>Proposed by Whittaker</li>
+</ul>
+<h3 class="header"><i>3.3</i>Difficulty in classifying microoganisms<a class="headerlink" href="#difficulty-in-classifying-microoganisms" name="difficulty-in-classifying-microoganisms">&para;</a></h3>
+<ul>
+<li>Morphologically simple - they have fewer obvious features that can be used to measure relatedness of species<ul>
+<li>RNA proposed because it is found in all organisms</li>
+<li>Transmission of genetic information captures ancestral relationships</li>
+<li>The nucleotide sequence of the RNA change from organism to organism, record evolutionary progression</li>
+<li>Large enough to record useful info. on evolutionary change</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.4</i>Molecular phylogeny<a class="headerlink" href="#molecular-phylogeny" name="molecular-phylogeny">&para;</a></h3>
+<ul>
+<li>RNA sequence analysis identifies 3 major lineages(Called domains)(Carl Woese 1977)</li>
+<li>Bacteria (Prokaryote)</li>
+<li>Archaea (Prokaryote)</li>
+<li>Eucarya (Eukaryote)</li>
+</ul>
+<p>Classification within each domain is based on <strong>rRNA</strong> or more recently using a number of different genes</p>
+<ul>
+<li>Prokaryotes are NOT monophyletic branches of the tree of life; they are two seperate lineages that evolved similar character states (polyphyletic).</li>
+</ul>
+<p>Bigger difference in genetic sequence, more apart from each other. We can use the genetic distance to generate phylogenetic tree.</p>
+<h3 class="header"><i>3.5</i>Horizontal Gene Transfer and the Tree of Life<a class="headerlink" href="#horizontal-gene-transfer-and-the-tree-of-life" name="horizontal-gene-transfer-and-the-tree-of-life">&para;</a></h3>
+<ul>
+<li>What if genes were not only transferred vertically from parent to offspring (ancestor to descendent)? It would obscure the prediction of a phylogenetic tree</li>
+<li>During endosymbiosis genes were transferred from the endosymbiont to the host genome(Endosymbiotic gene transfer). Obscures the tree of life</li>
+<li>Horizontal gene transfer is also effected by a virus or plasmids that contains a foreign gene that can be transferred.<ul>
+<li>20% of ecoli genome can be traced to HGT</li>
+<li>1/3 of the genome of some prokaryotic organisms has been acquired through HGT</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.6</i>Five became Three<a class="headerlink" href="#five-became-three" name="five-became-three">&para;</a></h3>
+<p>The current tree of life has 3 accepted domains</p>
+<p><img alt="" src="http://i.imgur.com/FjP9L.jpg" title="Purple bacteria" /> </p>
+<h3 class="header"><i>3.7</i>Archaea<a class="headerlink" href="#archaea" name="archaea">&para;</a></h3>
+<p>Hypothesized to be hosts that engulfed symbionts</p>
+<p>Three groups are identified:</p>
+<ul>
+<li>Euryarchaeota</li>
+<li>Crenarcheota</li>
+<li>Korarcheota (Known only from rRNA sequences obtained from Obsidian Pool at Yellow Nat. Park)</li>
+</ul>
+<h4 class="header"><i>3.7.1</i>Archaea: Euryarchaeota<a class="headerlink" href="#archaea-euryarchaeota" name="archaea-euryarchaeota">&para;</a></h4>
+<ul>
+<li>Contains methanogens and halophils</li>
+<li>The methanogens release methane (CH<sub>4</sub>) as a waste product. In rice paddies</li>
+<li>The halophils grow in salt water up to 23% NaCL</li>
+<li>Extremophiles, inhabit extreme environments, hot, salty environments</li>
+<li>Halophils have a unique light-mediated pathway of ATP production using bacteriorhodopsin (a pigment)</li>
+</ul>
+<h3 class="header"><i>3.8</i>Bacteria<a class="headerlink" href="#bacteria" name="bacteria">&para;</a></h3>
+<ul>
+<li>Divided into 12 major lineages acording to rRNA sequence analysis</li>
+<li>The most ancient bacteria are hyperthermophilic chemoautotrophs (uses H<sub>2</sub> or reduced S as energy source) - Aquifex-Hydrogenobacteria group</li>
+</ul>
+<h4 class="header"><i>3.8.1</i>Proteobacteria<a class="headerlink" href="#proteobacteria" name="proteobacteria">&para;</a></h4>
+<ul>
+<li>Largest group of bacteria contains heterotrophic and phototrophic genera</li>
+<li>Purple and green sulfur bacteria, they have an anoxygenic photosynthesis, don't use hydrogen. One green sulfur bacteria that has been found in hot vents near oceans near mexico. Photoautotroph, down in 2500 m in the sea, using the dimlight produced near hydrothermal vents as energy source</li>
+<li>Most metabolically divers group: oxic, micro oxic, anoxic, conditions.</li>
+</ul>
+<p>Common proteobacteria: Ecoli, purple photosynthetic bacterium</p>
+<h4 class="header"><i>3.8.2</i>Cyanobacteria<a class="headerlink" href="#cyanobacteria" name="cyanobacteria">&para;</a></h4>
+<ul>
+<li>Large group of phototrophic bacteria that use oxygenic photosynthesis (generate O<sub>2</sub>)</li>
+<li>Some form specialized structures called heterocysts and are capable of using nitrogen gas(N<sub>2</sub>) fixation, converting it to NH<sub>3</sub>. Involves a great deal of energy, sensitive to oxygen, oxygen is toxic, which is why heterocysts are needed.</li>
+<li>Among the most important primary producers in lakes and oceans.</li>
+</ul>
+<h3 class="header"><i>3.9</i>Eukarya<a class="headerlink" href="#eukarya" name="eukarya">&para;</a></h3>
+<p><img alt="" src="http://i.imgur.com/LxJgB.jpg" title="i know some of these words" /></p>
+<ul>
+<li>Contains plants, animals, fungi, protists.</li>
+<li>Protists<ul>
+<li>Mostly unicellular eucaryotes</li>
+<li>Include parasitic, photosynthetic, heterotrophic forms</li>
+<li>Between 12-32 phyla are described</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.9.1</i>Excavates<a class="headerlink" href="#excavates" name="excavates">&para;</a></h4>
+<ul>
+<li>Parasite to humans</li>
+<li>No common morphology</li>
+<li>Ancestral to other eukaryotes, some lack mitochondria, but now known to have relic mito 0 mito proteins</li>
+<li>Flagellated, obligate anaerobes</li>
+<li>Trichonympha - a symbiotic inhabitant of termite guts, contains cellulose degrading bacteria</li>
+<li>Entamoeba hystolytica, amoebic dysentery</li>
+<li>Kinetoplastids, causes sleeping sickness. Have a unique structure known as kinetoplast(mass of mitochondrial DNA, near flagellum</li>
+<li>Leichmaniasis - human disease caused by Leichmania, also contains kinetoplast.</li>
+</ul>
+<h4 class="header"><i>3.9.2</i>Chromalveolates<a class="headerlink" href="#chromalveolates" name="chromalveolates">&para;</a></h4>
+<ul>
+<li>A supergroup that contains 23 previous groups<ul>
+<li>Algae</li>
+<li>Some non-photosynthetic groups</li>
+</ul>
+</li>
+<li>Important group ecologically - producers and consumers of planktonic communities of lakes and oceans</li>
+<li>Includes: dinoflaellates, apicomplexa, ciliates, brown algae, diatoms</li>
+</ul>
+<p>Alveolates: Dinoflagellates<br />
+<em> Symbiotic organism with invertebrates, corals.<br />
+</em> Heterotrophic and phototrophic species<br />
+<em> Many form dormant cyst stage<br />
+</em> Single living<br />
+* Produce toxins, red tide. Paralytic shellfish poisoning, amnesic shellfish poisoning</p>
+<p>Aveolates: Apicomplexa</p>
+<ul>
+<li>Obligate prasites of animals: Complex life cycles</li>
+<li>They have an apical complex of organelles(microtubules, etc) that helps them attach to or penetrate their host</li>
+<li>Malaria - Plasmodium sp.</li>
+</ul>
+<p>Stramenophiles: Diatoms</p>
+<ul>
+<li>10000 species found in all aquatic environments</li>
+<li>Responsible for roughly 25% of global primary production</li>
+<li>Produce a silica (glass) exoskeleton known as a frustule</li>
+<li>Only male gametes have flagellum</li>
+</ul>
+<p>Stramenophils: Oomycetes<br />
+<em> Water molds(formerly fungi)<br />
+</em> Filamentous growth form, but produce flagellated zoospores (asexual spores that give rise to filaments)<br />
+* Cause many agricultural diseases:<br />
+    * Downy mildew of grapes<br />
+    * Potato blight</p>
+<p>Stremenophiles: Phaeophyta<br />
+<em> Contains no unicellular representatives<br />
+</em> Macroscopic</p>
+<h3 class="header"><i>3.10</i>Rhizaria<a class="headerlink" href="#rhizaria" name="rhizaria">&para;</a></h3>
+<p>United only by molecular data(no distinguishing morphological features).<br />
+Heterotrophic cells that consume prokaryotes and eukaryotes.<br />
+They produce rhizopods that feed on their prey.</p>
+<h3 class="header"><i>3.11</i>Plantae (archaeplastida)<a class="headerlink" href="#plantae-archaeplastida" name="plantae-archaeplastida">&para;</a></h3>
+<p>Include red and gree algae, land plants and charophytes</p>
+<p>All contain plastids that arose by primary endosymbiosis</p>
+<p>Sexual reproduction common: isogamy(equal sized gametes) and oogamy(large egg fertilized by small motile sperm). Unicellular, colonial and multicellular forms</p>
+<h4 class="header"><i>3.11.1</i>Chlorophyta<a class="headerlink" href="#chlorophyta" name="chlorophyta">&para;</a></h4>
+<ul>
+<li>Chlamydomonas - model organism for evolution studies, volvox, colonial form</li>
+<li>The most advanced form have reproductive features like those of higher plants</li>
+</ul>
+<h3 class="header"><i>3.12</i>Unikonts<a class="headerlink" href="#unikonts" name="unikonts">&para;</a></h3>
+<ul>
+<li>Contains parasitic protists, slime molds, amoebae, animals, fungi</li>
+<li>Includes choanoflagellates, previous protista. That resemble cells of sponges (among the simplest and most ancient of animals)</li>
+</ul>
+<h2 class="header"><i>4</i>Evolution<a class="headerlink" href="#evolution" name="evolution">&para;</a></h2>
+<h3 class="header"><i>4.1</i>What is biological evolution?<a class="headerlink" href="#what-is-biological-evolution" name="what-is-biological-evolution">&para;</a></h3>
+<p>Descent with modifications from a common ancestor; it is a fact, but the mechanism of it is not certain, that's why some people call it a theory, but biological evolution is an observable phenomenon.</p>
+<h3 class="header"><i>4.2</i>Phylogeny and Transition to Multi-cellular organisms<a class="headerlink" href="#phylogeny-and-transition-to-multi-cellular-organisms" name="phylogeny-and-transition-to-multi-cellular-organisms">&para;</a></h3>
+<p>3 important principles in evolution biology:</p>
+<ul>
+<li>Inferring evolutionary history: principle of phylogeny</li>
+<li>Independent evolution: principle of convergence</li>
+<li>Direction in evolution: does complexity linearly increase?</li>
+</ul>
+<h3 class="header"><i>4.3</i>Inferring Evolutionary History<a class="headerlink" href="#inferring-evolutionary-history" name="inferring-evolutionary-history">&para;</a></h3>
+<ul>
+<li>Evolutionary Biology is a historical science<ul>
+<li>We must infer history: it only happens once</li>
+<li>Darwin didn't come up with the concept of evolution, he came up with the theory of natural selection. Through natural selection Darwin believed he can connect the dots together and find the history of phylogeny</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dt>Phylogeny</dt>
+<dd>The course of evolution from past to present</dd>
+<dt>Phylogenetic tree</dt>
+<dd>A graphical representation of the course of evolution from past to present</dd>
+</dl>
+<p>The anatomy of a phylogenetic tree:</p>
+<p>Nodes, Terminal nodes, root node</p>
+<p>Branches, internal branchs, terminal branches</p>
+<h3 class="header"><i>4.4</i>Counting trees<a class="headerlink" href="#counting-trees" name="counting-trees">&para;</a></h3>
+<p>How many trees are possible for n OTU(operational taxonomical units, species, terminal nodes)</p>
+<p>2 = 1, 3 = 3, 4 = 15, 5 = 105</p>
+<p>Exponential function(figure out later)</p>
+<h3 class="header"><i>4.5</i>Independent evolution - Principle of Convergence<a class="headerlink" href="#independent-evolution-principle-of-convergence" name="independent-evolution-principle-of-convergence">&para;</a></h3>
+<p>Just because things are similar, it does not mean they are closely related to each other, rather, it means they evolved to solve a common problem.</p>
+<p>Features and behaviors can both be formed by convergence evolution.</p>
+<h3 class="header"><i>4.6</i>How do we build phylogenetic trees?<a class="headerlink" href="#how-do-we-build-phylogenetic-trees" name="how-do-we-build-phylogenetic-trees">&para;</a></h3>
+<p>Data (from fossil record and modern taxa):<br />
+<em> Morphology<br />
+</em> DNA</p>
+<p>Methods:<br />
+<em> Parsimony<br />
+</em> Maximum Likelihood<br />
+<em> Distance<br />
+</em> Bayesian methodology</p>
+<h3 class="header"><i>4.7</i>Major evolutionary transitions and lifestyles<a class="headerlink" href="#major-evolutionary-transitions-and-lifestyles" name="major-evolutionary-transitions-and-lifestyles">&para;</a></h3>
+<p><img alt="wtf only half way" src="http://i.imgur.com/zQYLP.jpg" title="" /></p>
+<p>Step-wise evolution is influenced by the way of thinking known as 'the great chain of being' (Evolutionary Bias). The idea is that there's a scale of being where you start with a simple organism, and you go up until the most complex organism.</p>
+<p><img alt="" src="http://i.imgur.com/70Qbl.jpg" title="LOL they were idiots" /></p>
+<p>Step-wise evolution is sort of false. The reality is that evolution is more like a tree.</p>
+<p>According to step-wise evolution, multicelluarity evolved once. Actually, it evolved a minimum of 13 times across different kingdoms. Thus, evolution is multidirectional.</p>
+<p>Sponges: The evolution of multicellularity in animals remains a mystery</p>
+<p>Solitary choanoflagellate -&gt; Use flagella for motility, heterotrophs, draw in food through water currents</p>
+<p>Colonial choanoflagellate -&gt; A lot of choanoflagellates formed in a cluster above a stalk, much like a sponge(choanoflagellate-like cells)</p>
+<h4 class="header"><i>4.7.1</i>Fungi multicellularity<a class="headerlink" href="#fungi-multicellularity" name="fungi-multicellularity">&para;</a></h4>
+<p>The development of fungi looks like a stepwise process from unicellularity to multicellularity.</p>
+<p>Development of the small mushroom Coprinus:</p>
+<ol>
+<li>Spores</li>
+<li>Spores start growing hyphae</li>
+<li>The hyphae start touching each other and forms a network and their nuclei get shared</li>
+<li>Mushroom forms</li>
+</ol>
+<p><img alt="kill me" src="http://i.imgur.com/FOXtz.jpg" title="" /></p>
+<h4 class="header"><i>4.7.2</i>Algae multicellularity<a class="headerlink" href="#algae-multicellularity" name="algae-multicellularity">&para;</a></h4>
+<p>Within the algae there are many ways that multicellularity might have evolved</p>
+<ol>
+<li>Start with a single cell</li>
+<li>It divides and forms a wall</li>
+<li>A large algae forms</li>
+</ol>
+<p>The theory was that walls fused between neighboring unicellular algae cells (failure to divide), and it conferred an advantage, and it was naturally selected to become multicellular</p>
+<p>Sea Lettuce <em>Ulva</em><br />
+<img alt="kill me" src="http://i.imgur.com/UCP6u.jpg" title="" /></p>
+<p>Volvox is another way multicellular might have evolved. Different volvox cells form losely together in an aggregate.</p>
+<p><img alt="kill me" src="http://i.imgur.com/reQCv.jpg" title="So fuzzy!" /></p>
+<h4 class="header"><i>4.7.3</i>Other examples<a class="headerlink" href="#other-examples" name="other-examples">&para;</a></h4>
+<p>Colonial Diatom</p>
+<p>Zoothamnium: a colonial ciliate</p>
+<p>Cellular slime mold: Dictyostelium discoideum</p>
+<p>Actinomycete - Streptomyces (produces antibiotic Streptomycin)</p>
+<h4 class="header"><i>4.7.4</i>General Features of Multicellular inventions in evolution<a class="headerlink" href="#general-features-of-multicellular-inventions-in-evolution" name="general-features-of-multicellular-inventions-in-evolution">&para;</a></h4>
+<p>Aquatic:</p>
+<ul>
+<li>Products of cell division failed to seperate</li>
+</ul>
+<p>Terrestrial:</p>
+<ul>
+<li>Formation of motile aggregation of cells</li>
+<li>Aggregation of nuclei in a multinucleate synctium</li>
+</ul>
+<h4 class="header"><i>4.7.5</i>Timeline<a class="headerlink" href="#timeline" name="timeline">&para;</a></h4>
+<p>Multicellularity evolved 1 bya, while organic matter came 3.5 bya.</p>
+<h3 class="header"><i>4.8</i>Advantages of multicelluarity<a class="headerlink" href="#advantages-of-multicelluarity" name="advantages-of-multicelluarity">&para;</a></h3>
+<p>Aquatic:</p>
+<ul>
+<li>Mutation allowed them to stick to ideal substrate</li>
+<li>Increasing in size preventing filter feeders from feeding (volvox)</li>
+<li>Faster swimming capability</li>
+</ul>
+<p>Terrestrial</p>
+<ul>
+<li>Dispersal of spores, cysts</li>
+<li>Feeding</li>
+<li>Creates an internal environment less environmental heterogeneity</li>
+</ul>
+<h2 class="header"><i>5</i>What are the consequences of independent evolution?<a class="headerlink" href="#what-are-the-consequences-of-independent-evolution" name="what-are-the-consequences-of-independent-evolution">&para;</a></h2>
+<ul>
+<li>Diversity</li>
+<li>Competition</li>
+<li>Specialization</li>
+</ul>
+<p>Evolutionary inventions can cause Adaptive Radiations</p>
+<dl>
+<dt>Adaptive Radiation</dt>
+<dd>Evolutionary divergence of members of a single phylogenetic lineage into a variety of different adaptive forms over a relatively short interval of geological time</dd>
+</dl>
+<blockquote>
+<p>Short early branches diverge into long late branches</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>How/Why adaptive radiation occur<a class="headerlink" href="#howwhy-adaptive-radiation-occur" name="howwhy-adaptive-radiation-occur">&para;</a></h3>
+<ul>
+<li>Fill previously unavailable niches</li>
+<li>Competitive release</li>
+<li>Competitive advantage</li>
+</ul>
+<h3 class="header"><i>5.2</i>Geological time scale<a class="headerlink" href="#geological-time-scale" name="geological-time-scale">&para;</a></h3>
+<p>The Cambrian explosion - the big bang of evolution. Brief 10 mil period where massive speciation occurred.</p>
+<p><strong>For midterm, memorize time scale of evolution periods</strong></p>
+<p><img alt="" src="http://i.imgur.com/LQTtK.jpg" title="replace me with actual table" /></p>
+<p><strong>IMPORTANT DATES</strong></p>
+<ul>
+<li>Proterozoic, 590 mya, ediacaran organisms, green algae</li>
+<li>Cambrian, 505 mya, cambrian explosion, ancestor of all modern animal groups appear</li>
+<li>Ordovician, 435 mya, jawless fishes, first land plants</li>
+<li>Silurian, 410 mya, first vascular plants and first fish with jaws</li>
+<li>Devonian, 360 mya, bony fishes</li>
+<li>Carboniferous, 290 mya, amphibians arise and diversify</li>
+<li>Triassic, 205 mya, first dinosaurs, first mammals</li>
+<li>Jurassic, 138 mya, first birds</li>
+<li>Cretaceous, 65 mya, first flowering plants</li>
+<li>Eocene, 38 mya, mammals and flowering plants diversify</li>
+</ul>
+<h4 class="header"><i>5.2.1</i>Acanthostega<a class="headerlink" href="#acanthostega" name="acanthostega">&para;</a></h4>
+<p>Lived most of its life on water - but could venture onto land - had eight toes. Important link for transition of life in water to life on land</p>
+<p><img alt="kill me" src="http://i.imgur.com/R5PvP.jpg" title="" /></p>
+<h3 class="header"><i>5.3</i>Angiosperm Radiation, A story of Collaboration<a class="headerlink" href="#angiosperm-radiation-a-story-of-collaboration" name="angiosperm-radiation-a-story-of-collaboration">&para;</a></h3>
+<p>Insects help angiosperms to dominate in speciation</p>
+<h2 class="header"><i>6</i>The Cambrian Explosion<a class="headerlink" href="#the-cambrian-explosion" name="the-cambrian-explosion">&para;</a></h2>
+<p>600 mya, first metazoan traces (footprints)<br />
+570 mya, first metazoan body fossils</p>
+<p><strong>For midterm, memorize name and appearance, as well as a characteristic of a fossil</strong></p>
+<p>Ediacarans: Dickinsonia</p>
+<p><img alt="" src="http://i.imgur.com/MjXyr.jpg" title="" /></p>
+<p>Possible jellyfish</p>
+<p>Ediacarans: Spriggina</p>
+<p><img alt="" src="http://i.imgur.com/Nj2dO.jpg" title="" /></p>
+<p>Not sure if plant or animal</p>
+<p><img alt="" src="http://i.imgur.com/IS8LJ.jpg" title="" /></p>
+<p>Rangeomorph frondlet (wtf??)</p>
+<p>No basic anatomical features in any Ediacaran fossils - no eyes, mouths, anuses, intestinal tracts, or locomotory appendages.</p>
+<p>An alternative (and earlier) evolutionary experiment in multicellularity</p>
+<h3 class="header"><i>6.1</i>Burgess Shale<a class="headerlink" href="#burgess-shale" name="burgess-shale">&para;</a></h3>
+<ul>
+<li>conditions were just right to fossilize softshelled, soft bodied organisms.</li>
+<li>Organisms are crown taxa that already had evolved the characters that define the phyla of living animals</li>
+<li>Morphological gaps separated these crown taxa</li>
+<li>Origination of phyla from stem taxa has to be sought in earlier forms in older deposits</li>
+</ul>
+<h4 class="header"><i>6.1.1</i>Hallucigenia<a class="headerlink" href="#hallucigenia" name="hallucigenia">&para;</a></h4>
+<p><img alt="" src="http://i.imgur.com/K7lMR.jpg" title="" /></p>
+<p>early Onychophoran.</p>
+<h4 class="header"><i>6.1.2</i>Anomalocaris<a class="headerlink" href="#anomalocaris" name="anomalocaris">&para;</a></h4>
+<p><img alt="" src="http://i.imgur.com/jnb6V.jpg" title="" /></p>
+<p>predatory arthropod</p>
+<h4 class="header"><i>6.1.3</i>Opabinia<a class="headerlink" href="#opabinia" name="opabinia">&para;</a></h4>
+<p><img alt="" src="http://i.imgur.com/I2Zvg.jpg" title="" /></p>
+<p>predatory arthropod</p>
+<h4 class="header"><i>6.1.4</i>Wiwaxia<a class="headerlink" href="#wiwaxia" name="wiwaxia">&para;</a></h4>
+<p><img alt="" src="http://i.imgur.com/6K2dA.jpg" title="" /></p>
+<p>polychaete worm</p>
+<h4 class="header"><i>6.1.5</i>Pikaia<a class="headerlink" href="#pikaia" name="pikaia">&para;</a></h4>
+<p><img alt="" src="http://i.imgur.com/TxpBa.jpg" title="" /></p>
+<p>early chordate, repeated muscular segments</p>
+<p>More and more diversity...</p>
+<p><img alt="" src="http://i.imgur.com/6yXlk.jpg" title="" /></p>
+<h3 class="header"><i>6.2</i>Two controversies<a class="headerlink" href="#two-controversies" name="two-controversies">&para;</a></h3>
+<ul>
+<li>Interpretation</li>
+<li>Timing</li>
+</ul>
+<p>The two different interpretation of the burgess shale:</p>
+<p>Gould - some of them died, those that survived, radiated</p>
+<p><img alt="" src="http://i.imgur.com/2AVJp.jpg" title="" /></p>
+<p>Conway Morris - one species remained, gave birth to the big radiation</p>
+<p><img alt="" src="http://i.imgur.com/4fxMk.jpg" title="" /></p>
+<h3 class="header"><i>6.3</i>Is the cambrian explosion really a big bang?<a class="headerlink" href="#is-the-cambrian-explosion-really-a-big-bang" name="is-the-cambrian-explosion-really-a-big-bang">&para;</a></h3>
+<p>Molecular clock estimates show much deeper divergence. </p>
+<p>Number of AA substitutions is linearly correlated with time to common ancestor</p>
+<p><img alt="" src="http://i.imgur.com/eesbG.jpg" title="Fucking platypus" /></p>
+<h3 class="header"><i>6.4</i>What caused the cambrian explosion?<a class="headerlink" href="#what-caused-the-cambrian-explosion" name="what-caused-the-cambrian-explosion">&para;</a></h3>
+<ul>
+<li>Geological conditions</li>
+<li>Rising oxygen levels</li>
+<li>Predator-prey relationships - fairly absent</li>
+</ul>
+<p>Questions:</p>
+<ul>
+<li>How did so many body plans arise and why have so few, if any, arisen since the Early Cambrian?</li>
+<li>Adaptive radiation? Is it a big bang or a long slow diffusion</li>
+<li>Too specialized upon appearance in the fossil record to have originated in the cambrian?</li>
+</ul>
+<p>It's accepted that burgess shale fauna is a stem group from which modern species are derived - conway morris is corrected. </p>
+<p>Of 1.2 billion yrs of animal evolution, modern humans have been on the planet for 200k years.</p>
+<p><strong> For midterm understand molecular clocks and do molecular clock &lt;-&gt; tree conversion </strong></p>
+<p>There are only 35 phyla of animals - Why only 35? It is a mystery.</p>
+<p>If the cambrian explosion is a true explosion, the animals must've originated and diversified into 35 phyla in that short period of time.<br />
+If we believe in the molecular clock, originated first, then during cambrian explosion it radiated. It's possible that they could not have fossilized before the evolution of skeletons, availability of CaCO<sub>3</sub> caused skeletons to form. Large body size also evolved during cambrian, maybe when they were small, it's hard to be fossilized/discovered.<br />
+It could be a larger body sized allowed animals to diversify more, as it's able to occupy previously undiscovered niches.</p>
+<p>Radiation facilitated by highly conserved developmental genes - they are already in place during the cambrian.</p>
+<h2 class="header"><i>7</i>Evo Devo<a class="headerlink" href="#evo-devo" name="evo-devo">&para;</a></h2>
+<p>Discovery of genes that control development. These genes are highly conserved across all animals.</p>
+<p>Exampled: engrailed gene, a gene that codes for segment polarity. It is highly conserved in all animals.</p>
+<h4 class="header"><i>7.1</i>Pax6/eyeless gene<a class="headerlink" href="#pax6eyeless-gene" name="pax6eyeless-gene">&para;</a></h4>
+<p>It is genes that code for eye development.</p>
+<p>In 3 organisms, fly, human, squid, all of their eyes have evolved independently. Even though all of them have different structures, they all use the same pax6 gene.<br />
+Human pax6 can be substituted in flies. You can activate it on the wings to grow eyes on the wings, on the legs, on the antennae, to grow eyes there (why the hell are biologists growing eyes everywhere)</p>
+<h4 class="header"><i>7.1.1</i>Homeobox(hox) genes<a class="headerlink" href="#homeoboxhox-genes" name="homeoboxhox-genes">&para;</a></h4>
+<p>They are used to polarize animal developments (which side is anterior/posterior). It differentiates each segments to develop specialized features.<br />
+Hox genes have homologs across all phyla of animals. Hox genes are aligned in the chromosomes in the same order they are expressed along the body. Various hox genes are often duplicated, and the entire cluster have been duplicated in vertebrates. 4 clusters in mice, with many copies of a gene in cluster. Their regulation also get changed, to create diversity.</p>
+<h3 class="header"><i>7.2</i>Developmental change and evolution<a class="headerlink" href="#developmental-change-and-evolution" name="developmental-change-and-evolution">&para;</a></h3>
+<p>The idea that you can take a conserved set of genes, and duplicate it, change its regulation, to create variation, is called <strong>bricolage</strong>(tinkering), a term that places the emphasis on modification of existing genes. Termed by <strong>Francois Jacob</strong> (Operon dude)</p>
+<p>Pro tip: animals has the most number of species of all the kingdoms, and insects have the most number of species within animals.</p>
+<h2 class="header"><i>8</i>Animals: A story of ingestion<a class="headerlink" href="#animals-a-story-of-ingestion" name="animals-a-story-of-ingestion">&para;</a></h2>
+<ul>
+<li>Hypothesized to have evolved from colonial choanoflagellates</li>
+<li>Animals obtain their energy from eating other organisms</li>
+<li>No cell walls, secrete extracellular matrix that consists of collagen, integrins, glycoproteins, proteoglycans</li>
+<li>Divided into parazoa (Sponges), eumetazoa</li>
+<li>Eumetazoa divided into radiata and bilateria</li>
+<li>Bilateria divided into protostomia, deuterostomia</li>
+<li>Protostomes divided into lophotochozoa and ecdysozoa</li>
+</ul>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Branch</th>
+<th>Defining features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>choanoflagellate</td>
+<td>flagella, heterotrophs, draw in food through water currents</td>
+</tr>
+<tr>
+<td>Sponges (Parazoa)</td>
+<td>pseudoanimal, chanocytes, marine, asymmetrical, no true tissues</td>
+</tr>
+<tr>
+<td>Eumetazoa</td>
+<td>Has tissues, symmetry</td>
+</tr>
+<tr>
+<td>Radiata</td>
+<td>Jellyfish and hydra, radially symmetrical, nematocysts, marine, diploblastic(ecto and endoderm, no mesoderm)</td>
+</tr>
+<tr>
+<td>Bilateria</td>
+<td>Bilateral</td>
+</tr>
+<tr>
+<td>Protostomia</td>
+<td>Blastopore becomes the mouth</td>
+</tr>
+<tr>
+<td>Deuterostomia</td>
+<td>Blastopore becomes the anus</td>
+</tr>
+<tr>
+<td>Lophotrochozoa</td>
+<td>Trochozoa + lophophorates, some have the lophophore, some have ring of tentacles around their larvae</td>
+</tr>
+<tr>
+<td>Ecdysozoa</td>
+<td>Shedding of the skin</td>
+</tr>
+<tr>
+<td>Flatworms</td>
+<td>Free-living and parasitic, bilaterally symmetric, triploblastic</td>
+</tr>
+<tr>
+<td>Molluscs</td>
+<td>Shell, bilaterally symmetric, triploblastic</td>
+</tr>
+<tr>
+<td>Annelids</td>
+<td>Earthworm, bilateral, triploblastic</td>
+</tr>
+<tr>
+<td>Nematodes</td>
+<td>Roundworms, bilateral, triploblastic</td>
+</tr>
+<tr>
+<td>Arthropod</td>
+<td>Joint limbs, marine and aquatic</td>
+</tr>
+<tr>
+<td>Echinodermata</td>
+<td>Sea stars, bilaterally symmetrical larva, radially symmetrical adult, deuterostomes</td>
+</tr>
+<tr>
+<td>Chordates</td>
+<td>Notochord</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>9</i>Plants<a class="headerlink" href="#plants" name="plants">&para;</a></h2>
+<p>Darwin always found plants hard to explain - "The rapid development as far as we can judge of all the higher plants within recent geological times is an abominable mystery."</p>
+<p>Origination from green algae, a long-standing hypothesis, has received support.</p>
+<p>They evolved from green algae, plants are multicellular eukaryotes, cellulose rich cell walls, photoautotrophic, alternation of generations.</p>
+<p>There are 24 families of plants, 4 groups - seedless non vascular, seedless vascular, gymnosperms, angiosperms.</p>
+<h3 class="header"><i>9.1</i>An algal ancestry<a class="headerlink" href="#an-algal-ancestry" name="an-algal-ancestry">&para;</a></h3>
+<p>Unicellular green algae that had incorporated new genes through horizontal gene transfer and gained organelles by endosymbiosis, transformed into multicellular photosynthetic organisms.</p>
+<p>Green algae and land plants share various similarities reflecting their common origins:</p>
+<ul>
+<li>Green algae store their carbohydrate reserves as starch</li>
+<li>Many species of algae have rigid, cellulose reinforced cell walls, as do all land plants</li>
+<li>Green algae and vascular plants use similar types of pigments in metabolic pathways, both green chlorophyll (a and b) and yellow-orange carotenoids (<span>$\alpha$</span> and <span>$\beta$</span>).</li>
+</ul>
+<h3 class="header"><i>9.2</i>How did unicellular green algae -&gt; multicellular plants<a class="headerlink" href="#how-did-unicellular-green-algae-multicellular-plants" name="how-did-unicellular-green-algae-multicellular-plants">&para;</a></h3>
+<ul>
+<li>Failure of division in cells</li>
+<li>New genes from horizontal gene transfer (endosymbiosis, gave photosynthetic ability of land plants)</li>
+</ul>
+<p>All plants have have alternation of gametophyte and sporophyte generations:</p>
+<p>Gametophyte(n) -&gt; sperm -&gt; syngamy -&gt; sporophyte(2n) -&gt; spores </p>
+<h3 class="header"><i>9.3</i>Time scale of plants<a class="headerlink" href="#time-scale-of-plants" name="time-scale-of-plants">&para;</a></h3>
+<p><img alt="" src="http://i.imgur.com/oAUqs.jpg" title="" /></p>
+<p>Origin of plants (Silurian 430 mya)</p>
+<p>Vascular lineage (Early devonian 390 mya)</p>
+<p>Seed (Late dev 360 mya)</p>
+<p>Flower (Early cretaceous 130 mya)</p>
+<h3 class="header"><i>9.4</i>Major features of bryophytes:<a class="headerlink" href="#major-features-of-bryophytes" name="major-features-of-bryophytes">&para;</a></h3>
+<p><strong>KNOW THIS FOR MIDTERM</strong></p>
+<ul>
+<li>Some of the earliest land plants</li>
+<li>Lack vascular tissue &amp; True roots to transport water &amp; nutrients</li>
+<li>Thrive in damp places, cannot withstand drought</li>
+<li>Lack lignan to strengthen cell walls: Stay close to ground</li>
+</ul>
+<p>Simplest of land plants: Paraphyletic group liverworts, mosses, club mosses, and hornworts</p>
+<p>Bryophytes were important in two major transitions</p>
+<ul>
+<li>Water to land</li>
+<li>Haploid gametophyte dominated life cycle to a diploid sporophyte dominated life cycle.</li>
+</ul>
+<p>Bryophytes have large gametophytes that dominate the life cycle to a parasite sporophyte</p>
+<p><img alt="" src="http://i.imgur.com/9L3Ad.jpg" title="REPLACE ME WITH AN ACTUAL GRAPH" /></p>
+<h3 class="header"><i>9.5</i>Major features of seedless vascular plants<a class="headerlink" href="#major-features-of-seedless-vascular-plants" name="major-features-of-seedless-vascular-plants">&para;</a></h3>
+<ul>
+<li>Possess vascular tissue</li>
+<li>Live in drier habitat</li>
+<li>Withstand drought</li>
+<li>Well developed cuticle and stomata</li>
+<li>Ferns are abundant plants</li>
+</ul>
+<h4 class="header"><i>9.5.1</i>Early vascular plants<a class="headerlink" href="#early-vascular-plants" name="early-vascular-plants">&para;</a></h4>
+<p>Vascular: Presence of conductive tissue:</p>
+<ul>
+<li>Xylem enables water to reach the erect plants</li>
+<li>Phloem enables nutrients to reach different parts of the plant</li>
+</ul>
+<p><em>Cooksonia</em> is the earliest plant fossil vascular plants</p>
+<p><img alt="" src="http://i.imgur.com/ZII9a.jpg" title="" /></p>
+<p>There are 3-4 major divisions of pteridophytes</p>
+<p><img alt="WHY DO YOU HATE REAL GRAPHS" src="http://i.imgur.com/5OUt5.jpg" title="" /></p>
+<p>Club mosses, horse tails, ferns</p>
+<p>Now sporophyte dominated.</p>
+<h3 class="header"><i>9.6</i>Moving away from water<a class="headerlink" href="#moving-away-from-water" name="moving-away-from-water">&para;</a></h3>
+<ul>
+<li>reduce size of gametophyte</li>
+<li>Evolution of easily dispersible pollen</li>
+<li>Encasement of seeds</li>
+</ul>
+<p>Characteristics of gymnosperms and angiosperms</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Gymnosperms</th>
+<th>Angiosperms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Naked seed plants</td>
+</tr>
+<tr>
+<td>Non flowering</td>
+<td>flowering</td>
+</tr>
+<tr>
+<td>seed hidden in cones</td>
+</tr>
+<tr>
+<td>Seed not enclosed in ovary</td>
+<td>seed enclosed in ovary</td>
+</tr>
+<tr>
+<td>Seed not enclosed in protective fruit</td>
+<td>Seed enclosed in protective fruit</td>
+</tr>
+<tr>
+<td>double fertilization</td>
+<td>Double fertilization</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>9.7</i>Major features of gymnosperms<a class="headerlink" href="#major-features-of-gymnosperms" name="major-features-of-gymnosperms">&para;</a></h3>
+<ul>
+<li>Seed is invented, small capsule composed of a protective seed coat, the plant embryo, and nutrients</li>
+<li>Pollen is invented, sperm doesn't have to travel by water</li>
+<li>Sporophyte, woody tree like</li>
+<li>Gametophyte, reduced and living in cones</li>
+</ul>
+<p>Major groups of gymnosperms:</p>
+<p>Gnetophytes - Cycads, Ginkos, Conifers</p>
+<p><img alt="" src="http://i.imgur.com/DKQkn.jpg" title="this graph isn't centered" /></p>
+<h3 class="header"><i>9.8</i>Major features of angiosperms:<a class="headerlink" href="#major-features-of-angiosperms" name="major-features-of-angiosperms">&para;</a></h3>
+<ul>
+<li>Advertise sex organs for all to see</li>
+<li>95% of modern plants are angiosperms</li>
+<li>Major evolutionary invention is the flower - allows coevolution with insects and other animals</li>
+</ul>
+<p>Rapid evolution of angiosperms caused by:</p>
+<ul>
+<li>evolution and elaboration of flowers as sex organs</li>
+<li>Enabling insects and birds to pollinate them and to disperse their seed</li>
+</ul>
+<h2 class="header"><i>10</i>Fungi<a class="headerlink" href="#fungi" name="fungi">&para;</a></h2>
+<p>A sister group of animals</p>
+<ul>
+<li>Not plants, no chlorophyl, no photosynthesis</li>
+<li>Cell wall of fungi are built of chitin</li>
+<li>Fungi absorb nutrients from substrate</li>
+<li>Release digestive enzymes then soak up organic molecules released</li>
+<li>Principle decomposers in forests</li>
+</ul>
+<p>First appeared along with first vascular plants in silurian 440 mya</p>
+<p>They share a chanoflagellate ancestor with animals, thus more related (sister group) to animals than plants</p>
+<p>Three major phyla:</p>
+<ul>
+<li>Ascomycota - antibiotic</li>
+<li>Zygomycota - molds</li>
+<li>Basidiomycota - mushrooms</li>
+</ul>
+<p><img alt="" src="http://i.imgur.com/qFdZO.jpg" title="" /></p>
+<h2 class="header"><i>11</i>Summary<a class="headerlink" href="#summary" name="summary">&para;</a></h2>
+<p><img alt="" src="http://i.imgur.com/G5w5D.jpg" title="Cute lizard" /></p>
+<h2 class="header"><i>12</i>Variation<a class="headerlink" href="#variation" name="variation">&para;</a></h2>
+<p>Why do we need variation?</p>
+<p>First order process of evolution is variation, second order processes can happen upon the variation, such as selection, and thus lead to evolution.</p>
+<h3 class="header"><i>12.1</i>Variation: Central question<a class="headerlink" href="#variation-central-question" name="variation-central-question">&para;</a></h3>
+<p>What is the relationship between the genetic variation of the genotype and variation of the phenotype?<br />
+What are the mechanisms by which mutations and modifications of gene regulation serve as sources of variation?<br />
+What other sources of variation are available to populations?<br />
+What are the ecological and developmental determinants of phenotypic variation?</p>
+<h3 class="header"><i>12.2</i>Variation in chromosome number<a class="headerlink" href="#variation-in-chromosome-number" name="variation-in-chromosome-number">&para;</a></h3>
+<p>Two major kinds of changes:</p>
+<ul>
+<li>Number of entire sets of chromosomes</li>
+<li>Numbers of single chromosomes within a set</li>
+</ul>
+<p>Repetitive doubling = polyploidy<br />
+Example:</p>
+<p>Evolution of wheat, </p>
+<p>Breeding the evil wheat in the lab: N tabacum (n = 24) + N glutinosa (n = 12) -&gt; Sterile hybrid (2n = 36) -&gt; Chromosome doubling -&gt; N digluta ( 2n = 72, fertile)<br />
+The phenotype doesn't change that much.</p>
+<p>One type of variation is the whole duplication of the entire set of chromosomes, it can be deleterious or beneficial.</p>
+<h3 class="header"><i>12.3</i>Structural chromosomal changes:<a class="headerlink" href="#structural-chromosomal-changes" name="structural-chromosomal-changes">&para;</a></h3>
+<ul>
+<li>Deletions</li>
+<li>Duplications</li>
+<li>Paracentric inversion</li>
+<li>Pericentric inversion</li>
+<li>Reciprocal translocation</li>
+</ul>
+<h3 class="header"><i>12.4</i>Variation, continued<a class="headerlink" href="#variation-continued" name="variation-continued">&para;</a></h3>
+<p>The chinese and indian muntjac dear look very similar, but one has 23 pairs of chromosomes while the other has 3 pairs of genes.</p>
+<p>Point mutations/base substitutions in protein coding region is another way to create variation; case study: sickle cell anemia</p>
+<h3 class="header"><i>12.5</i>Gene Regulation<a class="headerlink" href="#gene-regulation" name="gene-regulation">&para;</a></h3>
+<p>Some mutation happens in the gene regulation region.</p>
+<p>Gene regulation in eukaryotic cells:</p>
+<ul>
+<li>A mutation in the cis-regulatory region, it will change the binding type/strength of transcription factors that will bind to the regulatory region.</li>
+<li>A mutation in the trans-regulatory region, it will change the actual protein of the transcription factor. It will change how the gene will be expressed</li>
+<li>RNAi</li>
+<li>Transposons</li>
+<li>Posttranscriptional modification</li>
+</ul>
+<h4 class="header"><i>12.5.1</i>Hox Genes<a class="headerlink" href="#hox-genes" name="hox-genes">&para;</a></h4>
+<p>Regulatory genes that act during to impart identity to regions along the body axis.</p>
+<p>They determine:</p>
+<ul>
+<li>Where paired wings form</li>
+<li>Where legs develop</li>
+<li>how flower parts are arranged</li>
+</ul>
+<p>Conserved across the animal kingdom</p>
+<dl>
+<dt>Homeotic mutation</dt>
+<dd>Transform the identity of one body part into another. E.g. antp, 4 winged flies</dd>
+</dl>
+<h3 class="header"><i>12.6</i>Gene regulation and evolution<a class="headerlink" href="#gene-regulation-and-evolution" name="gene-regulation-and-evolution">&para;</a></h3>
+<p>ubx is expressed to give an elongated legs, whichever legs it's expressed, will be elongated. Variations in ubx expression will give variation in mobility<br />
+In waterstriders, expression of ubx in the third pair of legs, it will make it shorter while the expression of ubx in the second pair of legs. Alternative splicing</p>
+<h3 class="header"><i>12.7</i>Transposons<a class="headerlink" href="#transposons" name="transposons">&para;</a></h3>
+<ul>
+<li>Produce special transposase enzymes that allow it to insert copies of itself into various target sites in an organisms's nuclear genome</li>
+<li>In primates, an Alu sequence is present in more than 1 mil copies in each diploid human cell</li>
+</ul>
+<h3 class="header"><i>12.8</i>Phenotypic Variation<a class="headerlink" href="#phenotypic-variation" name="phenotypic-variation">&para;</a></h3>
+<p>Variation in one species:</p>
+<p>Queen ant and worker ants look very different, same genome. Three white dots on the head of the queen ant helps them mate.</p>
+<p><img alt="" src="http://i.imgur.com/B5rRA.jpg" title="" /></p>
+<p>The same species of lasius alienus in California, Florida, Netherlands, and they all look different.<br />
+There's great amount of variation across the same genus of Lasius.<br />
+Variation within the same colony -&gt; variation within the same species -&gt; variation within the same genus</p>
+<p>Across different species, worker ants don't have wings, although they all don't have wings, the way wings are disabled are quite different. No variation in phenotype, but large variation in genotype.</p>
+<p><strong>Genotypic and phenotypic evolution are often not concordant.</strong></p>
+<h3 class="header"><i>12.9</i>Environment and Phenotypic Variation<a class="headerlink" href="#environment-and-phenotypic-variation" name="environment-and-phenotypic-variation">&para;</a></h3>
+<p>Environment can also induce phenotypic variation. Butterflies in different seasons look very different, they even look like different species.</p>
+<p>Environmental differences can be induced, implies the environment can be a selective force, and it can induce variation.</p>
+<h3 class="header"><i>12.10</i>What types of mutations are most likely to fuel evolution?<a class="headerlink" href="#what-types-of-mutations-are-most-likely-to-fuel-evolution" name="what-types-of-mutations-are-most-likely-to-fuel-evolution">&para;</a></h3>
+<p>Point mutations, duplication of chromosomes. Most mutations are deleterious </p>
+<dl>
+<dt>Variation equation</dt>
+<dd>Different types of mutation in different gene regions and different types of genes can lead to different types of genetic and phenotypic evolution</dd>
+</dl>
+<p>Mutations (Point mutations, chromosomal rearrangements, transpositions)<br />
+X<br />
+Gene regions (protein coding, regulatory, posttranscriptional modifications)<br />
+X<br />
+Genes (house keeping, regulatory, upstream, downstream)<br />
+X<br />
+Environment (phenotypic plasticity)<br />
+=<br />
+Different combinations of phenotypic variation</p>
+<p>Variation proposes - selection disposes</p>
+<h2 class="header"><i>13</i>Selection<a class="headerlink" href="#selection" name="selection">&para;</a></h2>
+<p>Selection acts on populations in four ways:</p>
+<ul>
+<li>Stabilizing selection</li>
+<li>Directional selection</li>
+<li>Disruptive selection</li>
+<li>Sexual selection</li>
+</ul>
+<p>Selection acts on variation, constrained by genetic and developmental pathways</p>
+<h3 class="header"><i>13.1</i>Conditions of selection<a class="headerlink" href="#conditions-of-selection" name="conditions-of-selection">&para;</a></h3>
+<ul>
+<li>Intrinsic increase in the number of individuals within a species</li>
+<li>Competition of limited resources</li>
+<li>Survival of the few</li>
+</ul>
+<p>Those with more favorable features would on average, fare better than competitors and survive, passing on to their offspring those advantageous characteristics.<br />
+"Struggle for existence or survival of the fittest"</p>
+<ul>
+<li>Surviving against biotic (competition, species interactions) and abiotic (climate changes, changes in the environment) factors</li>
+</ul>
+<h3 class="header"><i>13.2</i>What is fitness?<a class="headerlink" href="#what-is-fitness" name="what-is-fitness">&para;</a></h3>
+<ul>
+<li>The relative reproductive success of individuals, within a population, in leaving offspring for the next generation</li>
+<li>Need both survival and reproductive success</li>
+</ul>
+<h3 class="header"><i>13.3</i>Methods of selection<a class="headerlink" href="#methods-of-selection" name="methods-of-selection">&para;</a></h3>
+<p>Natural selection directly acts on the phenotype, and indirectly affects the genotype through the phenotype.</p>
+<p>Artificial selection is something that is directed by humans - fancy pigeons breeds. In artificial selection, the breeder selects the parents deemed desirable and culls the undesirable types.</p>
+<p>Animal and plant breeders, who select for extremes of yield, productivity, or resistance to disease.</p>
+<p>Stabilizing selection: Lowering the <span>$\sigma$</span> of the normal curve, only those with the average trait will survive<br />
+Directional selection: Shifting the horizontal location of the normal curve, only either the high extreme or the low extreme will survive<br />
+Disruptive selection: Dividing the normal curve into two parts, both the high extreme and the low extreme will survive</p>
+<p><img alt="" src="http://i.imgur.com/ITk8J.jpg" title="very good at cropping pixels" /></p>
+<h4 class="header"><i>13.3.1</i>Example: cepaea snails<a class="headerlink" href="#example-cepaea-snails" name="example-cepaea-snails">&para;</a></h4>
+<p><strong> For midterm, memorize this example! </strong></p>
+<p>Directional selection in the wild, color polymorphism in cepaea snails.</p>
+<ul>
+<li>Study by Cain and Shepard</li>
+<li>Collected snails and found different colors vary in abundance in different habitats</li>
+<li>At anvil rocks found shards of rare morph</li>
+<li>The frequencies of each morph change by season in deciduous forests</li>
+</ul>
+<p>The birds hunts snails pick them up, and drop them on anvil rocks, and eat them. Those snails that camouflaged the best survive.</p>
+<p>In beechwoodland, brown and pink snails survive the best, green are rare.<br />
+In meadows, brown and pink snails are rare, and green are common<br />
+In deciduous woodland in the spring, brown and pink are common and the green are rare, in the summer, the reverse is true</p>
+<h3 class="header"><i>13.4</i>Sexual selection<a class="headerlink" href="#sexual-selection" name="sexual-selection">&para;</a></h3>
+<ul>
+<li>Why do we find major differences between individuals, males and females within populations?</li>
+<li>Sexual dimorphism widespread throughout the animal kingdom: Horns in dung beetles, fur seals' sizes, male antlers are much bigger, longer tail feathers</li>
+<li>Evolutionary success = reproductive sucess, survival is not enough</li>
+</ul>
+<p>Sexual selection is not survival from biotic or abiotic conditions, but members of one sex compete for the opportunity for preferential mating with members of the opposite sex.</p>
+<p>Mating systems:</p>
+<ul>
+<li>Monogamous - one male to one female</li>
+<li>Polygynous - one male to many females<ul>
+<li>Harems &amp; alpha males</li>
+</ul>
+</li>
+<li>Polyandrous - one female to many males<ul>
+<li>Female choice and sperm competition</li>
+<li>Fruitflies - sperm of 2nd dislodges and poisons sperm of first</li>
+<li>Swamp by volume other male's sperm</li>
+<li>Spiders, black widow</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>13.5</i>Experiment: Barn swallows<a class="headerlink" href="#experiment-barn-swallows" name="experiment-barn-swallows">&para;</a></h3>
+<p>Barn swallows are sexually dimorphic. Males have longer tails than females</p>
+<ul>
+<li>Experiment 1, shorten tails by cutting</li>
+<li>Experiement 2, lengthen tails by gluing</li>
+<li>Controls, cutting tails and regluing, but no lengthening.</li>
+</ul>
+<p>Results:</p>
+<p><img alt="" src="http://i.imgur.com/Kp5Sf.jpg" title="dat tail" /></p>
+<p>tl;dr, long tailed males are studs.</p>
+<p>Even though sexual selection is a special case of natural selection, natural and sexual selection can be in direct conflict. </p>
+<h3 class="header"><i>13.6</i>Experiment: different life-history characteristics induced by prsence or absence of predators<a class="headerlink" href="#experiment-different-life-history-characteristics-induced-by-prsence-or-absence-of-predators" name="experiment-different-life-history-characteristics-induced-by-prsence-or-absence-of-predators">&para;</a></h3>
+<p>Pools without predators, the colouration is much intense to attract females, while pools with predators, the colours are much more mild.</p>
+<p>Experiment #1: Lab - simulate natural conditions and added predators<br />
+Experiment #2: Wild - swap populations of guppies</p>
+<p>Experiment 1:</p>
+<p><img alt="" src="http://i.imgur.com/4zW5e.jpg" title="Their eyes are void of emotion" /></p>
+<p>Within a year, low predation evolves more spots and high predation evolves less spots</p>
+<p>Experiment 2:</p>
+<p>Within 2 years, drab guppies that were transplanted to predator free pools became colorful</p>
+<h3 class="header"><i>13.7</i>Levels of Selection<a class="headerlink" href="#levels-of-selection" name="levels-of-selection">&para;</a></h3>
+<p>At what level does natural selection operate?</p>
+<ul>
+<li>DNA?</li>
+<li>Individual?</li>
+<li>Groups?</li>
+<li>Species?</li>
+<li>Lineages?</li>
+</ul>
+<p>Altruistic behavior which suggests natural selection operating on a group basis, can be explained by the need to pass on genes of relatives to indirectly pass on your own genes (inclusive fitness).</p>
+<p>Most levels of selection happen in the individual level, but some also happen with groups, species, and lineages</p>
+<h2 class="header"><i>14</i>Speciation<a class="headerlink" href="#speciation" name="speciation">&para;</a></h2>
+<p>Speciation: The process by which new species arise. The evolution of reproductive isolation within an ancestral species, resulting in two or more descendant species</p>
+<p>Species: a complex concept with various definitions, a fundamental taxonomic category to which individual specimens are assigned.</p>
+<ul>
+<li>Biological species concept</li>
+<li>Evolutionary species concept</li>
+<li>Phenetic species concept</li>
+<li>Phylogenetic species concept</li>
+</ul>
+<p>The particular concept one uses expresses their view of role of species in nature or the method used to delineate it as a matter of convenience<br />
+Species document diversity at a fundamental unit - higher level taxa are arbitrary designations, species are not</p>
+<p>The pattern of speciation say something about the pattern of natural selection<br />
+e.g. more species in the tropics than in temperate, therefore, does this mean that natural selection acts differently in these two regions?</p>
+<h3 class="header"><i>14.1</i>Phenetic Species concept (Morphospecies)<a class="headerlink" href="#phenetic-species-concept-morphospecies" name="phenetic-species-concept-morphospecies">&para;</a></h3>
+<ul>
+<li>Species under the PSC are composed of individuals that are phenotypically similar, distinguished from other species by phenotypic differences.</li>
+</ul>
+<p>You look for "natural breaks", similarities and differences.</p>
+<p>People use comparative anatomy to unite or divide different species.</p>
+<p>Advantages:</p>
+<ul>
+<li>Applied easily</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Requires some arbitrary decisions</li>
+<li>Convergence of features are difficult to detect</li>
+</ul>
+<h3 class="header"><i>14.2</i>Biological Species Concept<a class="headerlink" href="#biological-species-concept" name="biological-species-concept">&para;</a></h3>
+<ul>
+<li>Most popular species concept applied to sexually reproducing organisms</li>
+<li>Defined as a reproductively isolated community in which all individuals potentially or actually interbreed amongst themselves, but genetically isolated from other groups.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Defines species on the basis of criteria important to their evolution - reproductive isolation</li>
+<li>Members of the species self-define the boundaries of their own species</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Exceptions exist, different species sometimes do interbreed</li>
+<li>Takes too much time to test, not always feasible</li>
+</ul>
+<h3 class="header"><i>14.3</i>Evolutionary Species Concept<a class="headerlink" href="#evolutionary-species-concept" name="evolutionary-species-concept">&para;</a></h3>
+<ul>
+<li>Defined as an ancestral-descendant sequence of populations evolving separately from others and with its own evolutionary role and tendencies</li>
+<li>Includes paleospecies, which are the chronological series of similar forms</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Applicable to living and extinct groups and sexual and asexual organisms</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>Not operation - what does "evolutionary role and tendency" mean?</li>
+<li>Uses morphological criteria in the end</li>
+<li>Fossil forms aren't always reliable</li>
+</ul>
+<h3 class="header"><i>14.4</i>Phylogenetic Species Concept<a class="headerlink" href="#phylogenetic-species-concept" name="phylogenetic-species-concept">&para;</a></h3>
+<ul>
+<li>Defined as a monophyletic group composed of the smallest diagnosable cluster of individual organisms within which there is a parental pattern of ancestry and descent</li>
+<li>Includes Agamospecies - based on genetic similarity</li>
+<li>Monophyletic groups (clusters) are defined by unique characters (in most cases variation in DNA sequences), that no other clusters possess.</li>
+</ul>
+<p>Advantages:</p>
+<ul>
+<li>Focuses on operationally defining species</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>The method used for reconstructing those clusters will have big effect on outcome</li>
+<li>History of different genes can give different results</li>
+</ul>
+<h3 class="header"><i>14.5</i>Mechanism of speciation<a class="headerlink" href="#mechanism-of-speciation" name="mechanism-of-speciation">&para;</a></h3>
+<ul>
+<li>Process of species formation is random</li>
+<li>One single ancestral species gives rise to new descendant species, an occur in two principle ways:<ul>
+<li>Allopatric</li>
+<li>Sympatric</li>
+</ul>
+</li>
+</ul>
+<p>Usually follwed by ecological isolation</p>
+<p>Allopatric speciation(Geographic isolation): A physical barrier forms that split a population, and differences accumulates in the subpopulations, eventually leading into speciation.</p>
+<p>Peripatric: A type of allopatric where a small colony is split off, into an island or whatever</p>
+<p>Parapatric: Different adapations between two subpopulations, but there is still gene flow (No speciation)</p>
+<p>Genetic drift: Bottleneck effect, in theory</p>
+<h4 class="header"><i>14.5.1</i>Speciation without geographical isolation<a class="headerlink" href="#speciation-without-geographical-isolation" name="speciation-without-geographical-isolation">&para;</a></h4>
+<p>An important debate in evolutionary biology has been whether speciation can be initiated sympatrically by mechanisms that reduce gene flow within a population in the absence of initiation geographical isolation - sympatric speciation</p>
+<p>This means that a biological barrier to gene exchange has to arise within the confines of a randomly mating population without any spatial segregation of the species.  This is very controversial with many theoretical difficulties. E.g. cichlid fishes (sexual selection leading to speciation), polyploidy in plants.</p>
+<h3 class="header"><i>14.6</i>Reproductive Isolating Mechanisms<a class="headerlink" href="#reproductive-isolating-mechanisms" name="reproductive-isolating-mechanisms">&para;</a></h3>
+<p>There are two types of reproductive isolation mechanisms:</p>
+<ul>
+<li>Those that act before fertilization of the egg - prezygotic</li>
+<li>Those that act after fertilization of the egg - postzygotic</li>
+</ul>
+<p>Prezygotic Mechanisms:</p>
+<ul>
+<li>Spatial (Geographical) isolation</li>
+<li>Ecological isolation, species use different resources</li>
+<li>Behavioral isolation, different mating rituals</li>
+<li>Temporal isolation, mating season differs, or being active at different times during the day</li>
+</ul>
+<p>After mating:</p>
+<ul>
+<li>Mechanical separation, the key doesn't fit the lock</li>
+<li>Prevention of gamete fusion, egg and sperm fail to attract each other</li>
+</ul>
+<p>After fertilization:</p>
+<ul>
+<li>Hybrid embryo does not develop properly</li>
+<li>Hybrid adults do not survive in nature</li>
+<li>Hybrid adults are sterile or have reduced fertility</li>
+</ul>
+<p><strong> KNOW THIS FOR THE MIDTERM </strong></p>
+<p>Sexual isolation in sympatric and allopatric populations</p>
+<p>Higher the sexual isolation index, the more difficult it is to form hybrids. Sympatric species have a much higher sexual isolation index</p>
+<p><img alt="" src="http://i.imgur.com/Tkk8y.jpg" title="" /></p>
+<p>This is because for sympatric populations, after mating and post-zygotic mechanisms must be used to prevent gene flow, thus strong sexual isolation must exist. Allopatric populations have a very strong prezygotic mechanism that separates the subpopulations before any sexual isolation have to occur.</p>
+<h2 class="header"><i>15</i>Extinction<a class="headerlink" href="#extinction" name="extinction">&para;</a></h2>
+<p>Evolution and diversity is driven by both <strong>speciation</strong> and <strong>extinction</strong></p>
+<p>G.G. Simpson estimated that of all the species of plants and animals to evolve since the Cambrian 544 million years ago:</p>
+<p>99% are extinct today!</p>
+<p>Only a few exceptions to this rule called "living fossils": lingula, horseshoe crabs</p>
+<p>Extinction can be considered at levels of increasing severity and impact:</p>
+<ul>
+<li>Extinction may be local and specific</li>
+<li>Extinction may eliminate an entire species</li>
+<li>Extinction may eliminate an entire ecosystem</li>
+</ul>
+<h3 class="header"><i>15.1</i>Two types of extinction<a class="headerlink" href="#two-types-of-extinction" name="two-types-of-extinction">&para;</a></h3>
+<ul>
+<li>Uniform or background extinctions</li>
+<li>Catastrophic or mass extinctions</li>
+</ul>
+<h4 class="header"><i>15.1.1</i>Uniform extinctions<a class="headerlink" href="#uniform-extinctions" name="uniform-extinctions">&para;</a></h4>
+<p>Members of taxonomic groups are lost gradually over time without abrupt loss of large numbers. Most extinct species are now extinct through this fashion. It has many ecological causes.</p>
+<h4 class="header"><i>15.1.2</i>The "Red Queen" hypothesis<a class="headerlink" href="#the-red-queen-hypothesis" name="the-red-queen-hypothesis">&para;</a></h4>
+<ul>
+<li>Leigh Van Valen (1973) in his paper "a new evolutionary law" showed that extinction rate is constant.</li>
+<li>Species must evolve quickly to keep up with competitors and change in environments, when a species falls behind, it risks becoming extinct.</li>
+</ul>
+<p>Real data:</p>
+<p><img alt="" src="http://i.imgur.com/IBt4b.jpg" title="" /></p>
+<h4 class="header"><i>15.1.3</i>Mass extinctions<a class="headerlink" href="#mass-extinctions" name="mass-extinctions">&para;</a></h4>
+<p>The loss of species from many different groups - it takes large numbers of species. <br />
+They occur infrequently and abruptly over short periods of geological time<br />
+There are 5 mass extinction events:</p>
+<ul>
+<li>end of ordovician -12%</li>
+<li>late devonian -14%</li>
+<li>end of permian -52%</li>
+<li>end of triassic -12%</li>
+<li>end of cretaceous -11% (dinosaurs)</li>
+</ul>
+<p>Extraterrestrial impacts</p>
+<ul>
+<li>Extraterrestrial impacts are known to have battered the moon and earth about 4 bya</li>
+<li>100 craters on earth<ul>
+<li>tem meteors, each one km in diameter, are estimated to have each produced 20 km wide craters at a frequency of 1/400k years</li>
+<li>50 km wide crater is produced once every 12.5 my</li>
+<li>150 km wide crater is produced once every 100 my</li>
+</ul>
+</li>
+</ul>
+<p>No land vertebrate larger than a labrador dog survived, known as the KT boundary</p>
+<p>Violent volcanic eruptions, plumes of deep mantle material also can cause this mass extinction event</p>
+<h3 class="header"><i>15.2</i>Neodarwinism<a class="headerlink" href="#neodarwinism" name="neodarwinism">&para;</a></h3>
+<p>Microevolution is happening constantly and is a long drawn process, we don't see immediate species because fossilization doesn't always occur</p>
+<p>Paleontologists, however, recognized that:</p>
+<p>1) species appear abruptly in the fossil record<br />
+2) persist for long periods of time<br />
+3) then abruptyly disappear</p>
+<p>This was first thought to be an artifact of the fossil record; however, intermediate fossils began to be discovered.</p>
+<p>Suggested that this pattern was real and not an artifact</p>
+<p>Proposed the idea of <strong>Quantum evolution</strong></p>
+<p>Species enter adaptive zones where they undergo very rapid radiation</p>
+<h3 class="header"><i>15.3</i>Micro vs macro evolution<a class="headerlink" href="#micro-vs-macro-evolution" name="micro-vs-macro-evolution">&para;</a></h3>
+<p>Microevolution: slight short term evolutionary changes within species</p>
+<p>Macroevolution: term for the evolution of great phenotypic changes</p>
+<p>Are micro and macro evolution driven by the same mechanisms?</p>
+<p>Is natural selection enough to explain the diversity we see?</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

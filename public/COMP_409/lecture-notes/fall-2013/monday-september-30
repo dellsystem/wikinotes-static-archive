@@ -1,0 +1,363 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 30, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 30, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Resource deadlocks and Expressiveness
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#termination-asynchronous-thread-control">1 Termination (asynchronous thread control)</a><ul>
+<li><a href="#pthreads-cancellation">1.1 PThreads Cancellation</a><ul>
+<li><a href="#cancellation-behavior">1.1.1 Cancellation behavior</a></li>
+</ul>
+</li>
+<li><a href="#building-cancellation-in-java">1.2 Building cancellation in Java</a></li>
+</ul>
+</li>
+<li><a href="#barriers">2 Barriers</a><ul>
+<li><a href="#simple-barrier-for-n-threads-one-shot">2.1 Simple barrier for n threads (one-shot)</a></li>
+<li><a href="#reusable-barrier-sense-reversing-barrier">2.2 Reusable Barrier (sense-reversing barrier)</a></li>
+</ul>
+</li>
+<li><a href="#priorities">3 Priorities</a><ul>
+<li><a href="#priority-inversion">3.1 Priority Inversion</a><ul>
+<li><a href="#mars-pathfinder-example">3.1.1 Mars Pathfinder example</a></li>
+<li><a href="#first-solution-priority-inheritance">3.1.2 First solution: Priority Inheritance</a></li>
+<li><a href="#second-solution-priority-ceilings">3.1.3 Second solution: Priority Ceilings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#tsd-also-known-as-tls">4 TSD (also known as TLS)</a><ul>
+<li><a href="#javas-tls-thread-local-storage">4.1 Java's TLS: Thread Local Storage</a></li>
+<li><a href="#pthreads-tsd-thread-specific-data">4.2 PThreads' TSD: Thread-Specific Data</a></li>
+<li><a href="#what-about-errno">4.3 What about errno?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Termination (asynchronous thread control)<a class="headerlink" href="#termination-asynchronous-thread-control" name="termination-asynchronous-thread-control">&para;</a></h2>
+<p>Termination is one of those interesting concepts that occasionally seem trivial (if threads terminate on their own), but issues may arise if a thread tries to terminate another.</p>
+<p>We saw before that <code>Thread.stop()</code> and <code>Thread.before()</code> were fundamentally unsafe to use (async, could run into deadlock). There are also other functions we may want to use such as the idea of <code>suspend()</code> and <code>resume()</code> another thread, but those are unsafe as well; they provide a lot of ways to end up with deadlocks (or in an inconsistent state).</p>
+<p>If we know our code is safe, a <strong>polling approach</strong> is more appropriate. That is, instead of having <strong>Thread 1</strong> suspending <strong>Thread 2</strong>, <strong>Thread 1</strong> will <em>ask</em> <strong>Thread 2</strong> to suspend, and only once <strong>Thread 2</strong> is in a suspend-able state, it suspends itself. A thread sets a flag for another to check.</p>
+<h3 class="header"><i>1.1</i>PThreads Cancellation<a class="headerlink" href="#pthreads-cancellation" name="pthreads-cancellation">&para;</a></h3>
+<p>There are a few mechanisms for termination by polling. One that is quite complete is the one seen in PThreads which has the idea of <strong>cancellation</strong>.</p>
+<p><img alt="Cancellation Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-31.png" title="" /></p>
+<p>PThreads adds further complexity to this. Coming from C, there is the idea of a <strong>cleanup handler</strong>: a stack of functions which can be pushed on a thread that execute once it terminates. At the cancellation point, if thread termination occurs, all the cleanup handlers are called.</p>
+<dl>
+<dt><code>pthread_cancel()</code></dt>
+<dd>Posts a cancellation request.</dd>
+</dl>
+<p>The cancellation points are supposed to be at known safe places. When waiting at a condition variable, or when joining a thread are such points. Some OS calls such as <code>sleep()</code>, <code>open()</code>, <code>read()</code>, <code>semaphore_wait()</code>, or some IO control, the ones that return EINTR, are also points where a cancellation check will occur.</p>
+<dl>
+<dt><code>test_cancel()</code></dt>
+<dd>Explicitly checks for cancellation.</dd>
+</dl>
+<p><strong>Nb:</strong> <code>mutex_lock</code> is <strong>not</strong> a cancellation point, despite the fact that it makes the thread wait.</p>
+<p>In PThreads, we can also enable and disable cancellation (it is enabled by default). If cancellation is disabled, cancellation requests are not ignored, they actually remain pending. The cancellation flag will actually be honored once cancellation is enabled again.</p>
+<h4 class="header"><i>1.1.1</i>Cancellation behavior<a class="headerlink" href="#cancellation-behavior" name="cancellation-behavior">&para;</a></h4>
+<p><code>PTHREAD_CANCEL_DEFERRED</code> is the default behavior that is described above. However, it may be changed to <code>PTHREAD_CANCEL_ASYNCHRONOUS</code> where we end up with something along the lines of <code>Thread.stop()</code> where threads are suspended instantly. Still, cleanup handlers <em>will</em> get executed.</p>
+<h3 class="header"><i>1.2</i>Building cancellation in Java<a class="headerlink" href="#building-cancellation-in-java" name="building-cancellation-in-java">&para;</a></h3>
+<p>The core idea of cancellation is to have a boolean flag that announces cancellation, and have the thread check for it at the appropriate moment. Java does not have a mechanism for cancellation built in, but it is trivial to implement it ourselves. However, the real complexity of cancellation is [something about wake states?].</p>
+<p>While Java does not have cancellation, it does provide <code>Thread.interrupt()</code>.</p>
+<dl>
+<dt><code>Thread.interrupt()</code></dt>
+<dd>Posts an interrupt. A flag variable is set to signal interruption.</dd>
+</dl>
+<p>Then, whenever the thread tries to enter such a function as <code>wait()</code>, <code>sleep()</code> or <code>join()</code>, it sees the flag and throws an <code>InterruptedException</code>. Just like in PThreads, it is not checked when acquiring a lock.</p>
+<dl>
+<dt><code>Thread.interrupted()</code></dt>
+<dd>Asks if interrupted (and cleans the flag if so).</dd>
+</dl>
+<p>What we do if a thread is interrupted (or when an <code>InterruptedException</code> is caught) is up to us. We could leave the program, or ignore it altogether.</p>
+<h2 class="header"><i>2</i>Barriers<a class="headerlink" href="#barriers" name="barriers">&para;</a></h2>
+<p>We may have a point in a concurrent program where all the threads, or a subset of threads, should meet before continuing.</p>
+<div class="codehilite"><pre><span class="n">computeNextFrame</span><span class="o">();</span> <span class="c1">// Compute the next animation frame using multiple threads</span>
+<span class="c1">// There should be a barrier</span>
+<span class="n">draw</span><span class="o">();</span> <span class="c1">// The drawing cannot continue until all the threads are done with their computation</span>
+</pre></div>
+
+
+<p>There is more than one way to solve this. For example, we could create new threads and join them all, and we get a barrier. However, the overhead of creating/destroying and joining threads is likely to be unacceptable.</p>
+<h3 class="header"><i>2.1</i>Simple barrier for n threads (one-shot)<a class="headerlink" href="#simple-barrier-for-n-threads-one-shot" name="simple-barrier-for-n-threads-one-shot">&para;</a></h3>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">int</span> <span class="n">numTreads</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+
+<span class="c1">// All threads</span>
+<span class="o">-&gt;</span> <span class="n">Work</span> <span class="o">&lt;-</span>
+<span class="n">fetch_and_add</span><span class="o">(</span><span class="n">numThreads</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">);</span> <span class="n">Decrement</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">threads</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">numThreads</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">Thread</span><span class="o">.</span><span class="na">yield</span><span class="o">();</span> <span class="c1">// Spin until all the threads are done</span>
+</pre></div>
+
+
+<p>This is an n-thread barrier, and it works, but it cannot be reused. We could try and fix this in a simple way:</p>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">int</span> <span class="n">numTreads</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+
+<span class="c1">// All threads</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">-&gt;</span> <span class="n">work</span> <span class="o">&lt;-</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">FA</span><span class="o">(</span><span class="n">numThreads</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span>
+        <span class="n">numThreads</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span> <span class="c1">// The last thread shall reset the barrier</span>
+    <span class="k">else</span>
+        <span class="nf">while</span> <span class="o">(</span><span class="n">numThreads</span> <span class="o">!=</span> <span class="mi">0</span><span class="o">)</span> <span class="n">Thread</span><span class="o">.</span><span class="na">yield</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This does not work however, because the thread which resets the counter may do so before all the threads have gotten out of their spin lock.</p>
+<p>In order to have a proper reusable barrier, there should be two components. Firstly, we have to see that all the threads show up, but secondly, before it is reset, all the threads should have left. One way to do it is to have two of the simple barrier seen above, but there are nicer ways.</p>
+<h3 class="header"><i>2.2</i>Reusable Barrier (sense-reversing barrier)<a class="headerlink" href="#reusable-barrier-sense-reversing-barrier" name="reusable-barrier-sense-reversing-barrier">&para;</a></h3>
+<p>There is a boolean variable that tracks of the phase (odd, or even) to essentially have two barriers in one.</p>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">phase</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span> <span class="c1">// odd or even for the barrier</span>
+<span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">phases</span><span class="o">[</span><span class="n">n</span><span class="o">];</span> <span class="c1">// odd or even for the threads -&gt; defaults to false</span>
+<span class="kd">volatile</span> <span class="kt">int</span> <span class="n">numThreads</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+
+<span class="c1">// All threads</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">-&gt;</span> <span class="n">Work</span> <span class="o">&lt;-</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">FA</span><span class="o">(</span><span class="n">numThreads</span><span class="o">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// The last thread switches the phase</span>
+        <span class="n">numThreads</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+        <span class="n">phase</span> <span class="o">=</span> <span class="n">phases</span><span class="o">[</span><span class="n">id</span><span class="o">];</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">phase</span> <span class="o">!=</span> <span class="n">phases</span><span class="o">[</span><span class="n">id</span><span class="o">])</span> <span class="n">Thread</span><span class="o">.</span><span class="na">yield</span><span class="o">();</span> <span class="c1">// Spin on the phase</span>
+    <span class="o">}</span>
+    <span class="n">phases</span><span class="o">[</span><span class="n">id</span><span class="o">]</span> <span class="o">=</span> <span class="o">!</span><span class="n">phases</span><span class="o">[</span><span class="n">id</span><span class="o">];</span> <span class="c1">// Now waiting for the next phase</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Nb:</strong> There is special case of a reusable barrier which involves only two processes/threads (seen a few lectures ago) implemented with semaphores.</p>
+<p><img alt="Rendez-vous Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-32.png" title="" /></p>
+<p>When there is only two processes/threads, it is known as a <strong>rendez-vous</strong> point. </p>
+<h2 class="header"><i>3</i>Priorities<a class="headerlink" href="#priorities" name="priorities">&para;</a></h2>
+<p><img alt="Priorities Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-33.png" title="" /></p>
+<p>We know about the priority preemptive model. We have a list of lists of threads, going from high to low priority, scheduling things in round-robin favor. However, it is really to find ourselves in a bad situation using this scheme when we force a high priority on some thread or process.</p>
+<p>Also, different contexts have different priorities, and how we map different priority scheme to each other is completely arbitrary.</p>
+<p>PThreads has FIFO and RR, both of which can guarantee to have at least 32 priorities (even 127 or more in practice) and OTHER (which has whatever number of priorities it may have). The priority model inside of these priority schemes are local; they may overlap, but comparing between models is not defined.</p>
+<p>Java properly defines priorities between 1 and 10, which we can rely on. However, virtual machines are implemented using system-specific mechanisms. That is, it will still use PThreads under the cover on a Unix system, using whatever scheme is available. There may be more priorities available (in which case there will be leftover priorities in-between), or there may not be enough. As a matter of facts, Windows NT merely has 7 priorities.</p>
+<h3 class="header"><i>3.1</i>Priority Inversion<a class="headerlink" href="#priority-inversion" name="priority-inversion">&para;</a></h3>
+<p><strong>Priority inversion</strong> is a well-known and classic problem. The idea is that lower priority executing threads may be executed in favor of higher priority executing threads, despite the fact it should be the other way around. It is not a flaw of the priority system itself, it actually shows up due to locking.</p>
+<p><img alt="Priority Inversion Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-34.png" title="" /></p>
+<p>L starts executing and acquires a lock. Then, H starts, taking priority over L, and tries to acquire the lock, but L still has it, so it blocks. Then, M starts executing, taking priority over L again. For as long as M is executing, L cannot continue to execute and release its lock which in turn prevents H from executing.</p>
+<h4 class="header"><i>3.1.1</i>Mars Pathfinder example<a class="headerlink" href="#mars-pathfinder-example" name="mars-pathfinder-example">&para;</a></h4>
+<p>There was a problem with the rover in that it kept resetting all the time for obscure reasons. The problem turned out to be due to priority inversion.</p>
+<p>There was an info bus in the rover that had to be locked to be used properly.</p>
+<p><strong>H</strong>: Bus-manager<br />
+<strong>M</strong>: Communication with Earth<br />
+<strong>L</strong>: Gather data</p>
+<p><img alt="Mars Pathfinder Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-35.png" title="" /></p>
+<p>The exact same problem as above was happening. When L was done gathering data and had to lock the bus to store it, H had to wait for it to be unlocked, but M would initiate a lengthy communication back to Earth, preventing L from releasing the lock, which in turn prevented H from executing.</p>
+<h4 class="header"><i>3.1.2</i>First solution: Priority Inheritance<a class="headerlink" href="#first-solution-priority-inheritance" name="first-solution-priority-inheritance">&para;</a></h4>
+<p>There are two ways to try and fix the problem of priority inversion.</p>
+<p>When a low priority threads acquires a lock, it could temporarily be given the priority of the highest priority thread waiting on it. In effect, the highest priority ends up being associated with a lock.</p>
+<p><img alt="Priority Inheritance Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-36.png" title="" /></p>
+<p>That is what they used in Pathfinder.</p>
+<h4 class="header"><i>3.1.3</i>Second solution: Priority Ceilings<a class="headerlink" href="#second-solution-priority-ceilings" name="second-solution-priority-ceilings">&para;</a></h4>
+<p>A priority is statically associated with a lock. Then, when a thread acquires a lock, it gets raised to the priority associated with that lock.</p>
+<p><img alt="Priority Ceiling Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-37.png" title="" /></p>
+<h2 class="header"><i>4</i>TSD (also known as TLS)<a class="headerlink" href="#tsd-also-known-as-tls" name="tsd-also-known-as-tls">&para;</a></h2>
+<p><strong>TSD</strong> and <strong>TLS</strong> are two different acronyms for the same idea.</p>
+<p>Inside a concurrent program, local variables (stack or registers variables) are also local to threads; they are thread-specific. That is, each thread has its own copy. If a <code>Thread</code> has a local variable <code>x</code>, then each instance will read and write its own copy.</p>
+<p>Global variables, are shared; a thread can see the reads and writes of another. Sometimes, however, it would be convenient if those global variables could be thread-specific as well, in the sense that, through the same syntax, threads could access global variables that are actually (somehow) thread-specific. Aka, <br />
+one global shared symbol name, but thread specific values.</p>
+<p>For example, in C, there is a global variable called <code>errno</code>. This variable gives access to the last error code that occurred after a system call.</p>
+<div class="codehilite"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">read</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">// Something went wrong, what was it?</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">errno</span><span class="p">);</span>
+</pre></div>
+
+
+<p>This works fine in a single threaded context. In a multi threaded context, however, the issue that a global variable holds a thread-specific value arises. For example, if <strong>Thread<sub>0</sub></strong> does the above and <strong>Thread<sub>1</sub></strong> does similarly (<code>y = read()</code>, but with a different file), it is possible for <strong>Thread<sub>0</sub></strong>'s <code>read</code> to fail while <strong>Thread<sub>1</sub></strong>'s succeeds. Depending on the interleaving, it is possible for <code>errno</code> to hold no error code at all for <strong>Thread<sub>0</sub></strong> to inspect because of <strong>Thread<sub>1</sub></strong>'s success.</p>
+<h3 class="header"><i>4.1</i>Java's TLS: Thread Local Storage<a class="headerlink" href="#javas-tls-thread-local-storage" name="javas-tls-thread-local-storage">&para;</a></h3>
+<p>What we need is a global variable amongst threads that does not confuse thread-specific values. Java gives the <strong>Thread Local Storage</strong> (TLS). To use it, we must create a TLS instance which becomes the global variable. All the threads can access (read and write) the same object, but they all have distinct storage in the object.</p>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">foo</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ThreadLocalStorage</span><span class="o">();</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>After that, <strong>Thread<sub>0</sub></strong> could set something (<code>x.set(7)</code>) while <strong>Thread<sub>1</sub></strong> sets something else (<code>x.set(8)</code>), but as expected, each threads will retrieve their own respective values using <code>x.get()</code>.</p>
+<p>We can also implement TLS by ourselves:</p>
+<div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * This is not the way Java does it, but it works</span>
+<span class="cm"> */</span>
+<span class="kd">class</span> <span class="nc">ThreadLocalStorage</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">HashTable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">ht</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashTable</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;();</span>
+
+    <span class="kd">public</span> <span class="nf">void</span> <span class="o">(</span><span class="n">Object</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ht</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">(),</span> <span class="n">x</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">get</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">ht</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">Thread</span><span class="o">.</span><span class="na">currentThread</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>4.2</i>PThreads' TSD: Thread-Specific Data<a class="headerlink" href="#pthreads-tsd-thread-specific-data" name="pthreads-tsd-thread-specific-data">&para;</a></h3>
+<p>PThreads has something similar to TLS: <strong>Thread-Specific Data</strong> (TSD). The idea is the same (key, value pair), but the key is not the thread id. Rather, data is stored by indices, but each thread has its own copy for the same key:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Table</th>
+<th>k<sub>1</sub></th>
+<th>k<sub>2</sub></th>
+<th>k<sub>3</sub></th>
+<th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T<sub>0</sub></td>
+<td><code>0</code></td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>T<sub>1</sub></td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>T<sub>2</sub></td>
+<td><code>1</code></td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p>If <strong>Thread<sub>0</sub></strong> accesses <strong>k<sub>1</sub></strong>, it gets <code>0</code>, but if <strong>Thread<sub>2</sub></strong> accesses <strong>k<sub>1</sub></strong>, it gets <code>1</code> instead.</p>
+<dl>
+<dt><code>pthread_key_create(&amp;key, destructor);</code></dt>
+<dd><code>&amp;key</code> is a pointer to the variable the key will be stored in.</dd>
+<dd><code>destructor</code> is a destructor function that will be called once the thread is terminated in order to clean up all the non-null TSD data.</dd>
+</dl>
+<p><em>Nb</em>: The <code>destructor</code> might create more TSD (it is a pointer to a function which could do anything, really). We still want to clean it up, so the destructor is iterated until no data is left. <code>PTHREAD_DESTRUCTOR_ITERATIONX_MAX</code> holds the value of the maximum number of iterations.</p>
+<h3 class="header"><i>4.3</i>What about errno?<a class="headerlink" href="#what-about-errno" name="what-about-errno">&para;</a></h3>
+<p>This is a special case. It can be accessed like any global variable, despite the fact it is actually TSD.</p>
+<div class="codehilite"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">read</span><span class="o">()</span> <span class="o">-&gt;</span> <span class="k">if</span> <span class="n">error</span><span class="o">,</span> <span class="n">set</span> <span class="n">global</span> <span class="n">variable</span> <span class="n">errno</span> <span class="n">to</span> <span class="n">the</span> <span class="n">error</span>
+
+<span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="n">print</span> <span class="n">errno</span>
+</pre></div>
+
+
+<p>if multithreaded</p>
+<div class="codehilite"><pre><span class="nl">T0:</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">read</span>
+<span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span>
+  <span class="n">print</span> <span class="n">errno</span>
+
+<span class="nl">T1:</span>
+<span class="k">if</span><span class="o">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span>
+  <span class="n">print</span> <span class="n">errno</span>
+</pre></div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

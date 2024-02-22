@@ -1,0 +1,286 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 9, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 9, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Propositional arguments and normal forms
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>(Propositional logic continued)</p>
+<h2 class="header"><i>1</i>Propositional arguments continued<a class="headerlink" href="#propositional-arguments-continued" name="propositional-arguments-continued">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Relating consistency and validity<a class="headerlink" href="#relating-consistency-and-validity" name="relating-consistency-and-validity">&para;</a></h3>
+<p>A propositional argument is <strong>valid</strong> if the conclusion is true <em>every</em> time the premises are all true.</p>
+<p>It is <strong>consistent</strong> if there <em>is</em> such a valuation <span>$V$</span>.</p>
+<blockquote>
+<p>Proposition: <span>$\Phi_1, ... \Phi_n \vdash \Psi$</span> is valid <span>$\iff$</span> <span>$\{ \Phi_1, ... \Phi_n, \neg \Psi \}$</span> is inconsistent.</p>
+<p>Proof: Suppose the left side is true. Then, for any valuation <span>$V$</span>, the left side 9A) implies the right side (B) if <span>$V(\Phi_1) = ... = V(\Phi_n) = \top$</span>. So <span>$V(\neg \Psi) = \bot$</span>. So yeah, inconsistent.</p>
+<p>Now show that B implies A. Suppose B and <span>$V(\Phi_1) = ... = V(\Phi_n) = \top$</span>. By B, <span>$V(\neg \Phi) = \bot$</span> so <span>$V(\Phi) = \top$</span>. So A is correct, and so <span>$A \iff B$</span>. No idea what this proof is doing.</p>
+</blockquote>
+<h2 class="header"><i>2</i>Disjuncts and conjuncts<a class="headerlink" href="#disjuncts-and-conjuncts" name="disjuncts-and-conjuncts">&para;</a></h2>
+<blockquote>
+<p><strong>Disjunctive normal form</strong>: conjunctive clauses<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="A conjunction of literals. For example: $p \land q...">1</a></sup> joined by <span>$\lor$</span> (<span>$\Phi_1 \lor \Phi_2 \lor ... \lor \Phi_m$</span>)<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="$m$ can be 1.">2</a></sup><br />
+<strong>Conjunctive normal form</strong>: disjunctive clauses<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="A disjunction of literals. For example: $p \lor q$...">3</a></sup> joined by <span>$\land$</span> (<span>$\Phi_1 \land \Phi_2 \land ... \land \Phi_m$</span>)<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="$m$ can be 1.">2</a></sup></p>
+</blockquote>
+<p>A basic disjunct is sort of the opposite of what you'd expect - <span>$\alpha_1 \land \alpha_2 \land \alpha_k$</span> where <span>$\alpha$</span> is either <span>$\top$</span> or <span>$\bot$</span> or <span>$p$</span> or <span>$\neg p$</span> for some variable <span>$p$</span><sup>confirm</sup>. A basic conjunct is the above with the <span>$\land$</span>s replaced with <span>$\lor$</span>s.</p>
+<h3 class="header"><i>2.1</i>From truth tables to disjunctive normal forms<a class="headerlink" href="#from-truth-tables-to-disjunctive-normal-forms" name="from-truth-tables-to-disjunctive-normal-forms">&para;</a></h3>
+<p>Given the following truth table for an unknown formula in conjunctive normal form<sup>confirm</sup> involving the variables <span>$(p, q, r)$</span>, it is possible to write out the formula in both disjunctive and conjunctive normal form:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$r$</span></th>
+<th><span>$\Phi(p, q, r)$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+</tbody>
+</table>
+<p>To find the disjunctive normal form, first identify the rows of the truth table that come out <span>$\top$</span>. For each row, find a basic disjunct that represents it. Then, join them together with <span>$\lor$</span>s. I can't really articulate it, so here's an example using the truth table above:</p>
+<p><span>$$(p \land q \land r) \lor (p \land \neg q \land r) \lor (p \land \neg q \land \neg r) \lor (\neg p \land q \land r) \lor (\neg p \land \neg q \land r)$$</span></p>
+<p>Another example:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$r$</span></th>
+<th><span>$\Phi(p, q, r)$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+</tbody>
+</table>
+<p>In this case, there are three rows that come out <span>$\top$</span> and so there are three basic disjuncts, resulting in the following formula in d.n.f:</p>
+<p><span>$$(p \land q \land \neg r) \lor (p \land \neg q \land \neg r) \lor (\neg p \land q \land r)$$</span></p>
+<h3 class="header"><i>2.2</i>Simplifying formulas in normal form<a class="headerlink" href="#simplifying-formulas-in-normal-form" name="simplifying-formulas-in-normal-form">&para;</a></h3>
+<p>We can simplify formulas in disjunctive normal form by finding equivalent formulas. For example, we can simplify <span>$(p \land q \land \neg r) \lor (p \land \neg q \land \neg r)$</span> as <span>$(p \land \neg r)$</span>, which is a basic disjunct and which has the same truth table (the <span>$q$</span>s in the expanded form have merely been dropped, since we have both <span>$q$</span> and <span>$\neg q$</span>). I don't think we can simplify this example any more, so let's return to the first example:</p>
+<p><span>$$[ (p \land \neg q \land r) \lor (p \land q \land r) ] \lor (p \land \neg q \land r) \lor (p \land \neg q \land \neg r) \lor (\neg p \land q \land r) \lor (\neg p \land \neg q \land r)$$</span></p>
+<p><span>$$\therefore (p \land r) \lor (\neg p \land r) \lor (p \land \neg q)$$</span></p>
+<p><span>$$\therefore r \lor (p \land \neg q)$$</span></p>
+<p>(magic)</p>
+<h3 class="header"><i>2.3</i>From disjunctive to conjunctive<a class="headerlink" href="#from-disjunctive-to-conjunctive" name="from-disjunctive-to-conjunctive">&para;</a></h3>
+<p>Now let's turn the above into conjunctive normal form. We can use the distribute law for this, as follows:</p>
+<p><span>$$r \lor (p \land \neg q) \iff (r \lor p) \land (r \lor \neg q)$$</span></p>
+<p>which is in conjunctive normal form.</p>
+<p>Now, consider <span>$(p \land q \land \neg r) \lor (\neg p \land q \land \neg r) \lor (\neg p \land \neg q \land \neg r)$</span> which is equivalent to <span>$(\neg p \land \neg r) \lor (q \land \neg r)$</span> which is equivalent to the negation of the first example<sup>confirm</sup>.</p>
+<p>Using the de Morgan laws<sup id="fnref:4"><a href="#fn:4" rel="footnote" title="According to the de Morgan laws, the following two...">4</a></sup> we see that this is equivalent to <span>$\neg (p \land q \land \neg r) \land \neg (\neg p \land q \land \neg r) \land \neg (\neg p \land \neg q \land \neg r)$</span> (de Morgan laws used twice). This was found by applying the de Morgan laws to the ones that come out <span>$\bot$</span> in the truth table, and resulted in a conjunctive normal form, but the other way, with the distributive law, resulted in a shorter one. There's probably a simpler way using the truth table but I don't remember it right now<sup>later?</sup>.</p>
+<h3 class="header"><i>2.4</i>The universality of disjunctive and conjunctive normal forms<a class="headerlink" href="#the-universality-of-disjunctive-and-conjunctive-normal-forms" name="the-universality-of-disjunctive-and-conjunctive-normal-forms">&para;</a></h3>
+<p>So we reach the following conclusion: any conceivable formula in any number of variables is equivalent to a formula in cnf as well as to a (different) formula in dnf. In particular, any formula is equivalent to a formula using only the connectives <span>$\land, \lor$</span> and <span>$\neg$</span>. In fact, we could even disperse with one of the binary connectives if we wanted, using the de Morgan laws.</p>
+<p>This brings us to a more general conclusion. If any formula is equivalent to a formula using only <span>$\land$</span> and <span>$\neg$</span>, then the set <span>$\{ \land, \neg\}$</span> is functionally complete. We can even get rid of the propositional constants of <span>$\top$</span> and <span>$\bot$</span> if we liked, replacing them with <span>$p \lor \neg p$</span> and <span>$p \land \neg p$</span>, respectively. But the set <span>$\{ \land, \lor \}$</span> is <em>not</em> functionally complete, because no matter how many <span>$\land$</span>s and <span>$\lor$</span>s you use, if <span>$V(p) = \top$</span>, the whole thing comes out <span>$\top$</span>, no matter what.</p>
+<p>But do we need two connectives to make a functionally complete set? Isn't there a connective that is functionally complete just by itself? In fact, there are several. One particular such connective is discussed in detail next lecture.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>A conjunction of literals. For example: <span>$p \land q$</span> or <span>$p$</span> or <span>$p \land q \land r$</span>.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><span>$m$</span> can be 1.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>A disjunction of literals. For example: <span>$p \lor q$</span> or <span>$p$</span> or <span>$p \lor q \lor r$</span>.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>According to the de Morgan laws, the following two are equivalent: <span>$\neg (p \lor q)$</span> and <span>$(\neg p) \land (\neg q)$</span>&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

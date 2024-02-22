@@ -1,0 +1,152 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Answers to homework set #2
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Answers to homework set #2
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided answers to homework set #2, due date unspecified (not to be handed in and thus not marked). The content on this page is solely intended to function as a study aid for students and should constitute fair dealing under Canadian copyright law.</p>
+<p>Problems to complete: all problems in (4.1), (4.2), (4.3) (but 4.3 is not emphasized).</p>
+<p>If you notice any errors, please <a href="/register">register</a> or <a href="#login-bar">log in</a> and edit this page, or contact <a href="/users/dellsystem">@dellsystem</a> about it.</p>
+<div class="toc">
+<ul>
+<li><a href="#section-41">1 Section 4.1</a><ul>
+<li><a href="#question-1">1.1 Question 1</a></li>
+</ul>
+</li>
+<li><a href="#section-42">2 Section 4.2</a><ul>
+<li><a href="#question-1_1">2.1 Question 1</a></li>
+<li><a href="#question-2">2.2 Question 2</a></li>
+</ul>
+</li>
+<li><a href="#section-43">3 Section 4.3</a><ul>
+<li><a href="#question-1_2">3.1 Question 1</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Section 4.1<a class="headerlink" href="#section-41" name="section-41">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<blockquote>
+<p>Determine a condition on <span>$|x-1|$</span> that will ensure that<br />
+(a) <span>$|x^2-1| &lt; 1/2$</span></p>
+</blockquote>
+<p><span>$|x^2-1| = |x-1||x+1|$</span>. If <span>$|x-1| &lt; 1$</span>, then <span>$|x| \leq 2$</span> so <span>$|x+1| \leq |x| + 1 \leq 3$</span>. Then <span>$|x^2-1| \leq 3|x-c|$</span>. Let <span>$\epsilon = 1/2$</span>. Then if <span>$|x-c| &lt; \epsilon/3$</span>, <span>$|x^2-1| \leq \epsilon = 1/2$</span>.</p>
+<blockquote>
+<p>(b) <span>$|x^2-1| &lt; 1/10^3$</span> (I think there's a typo in my version - it says <span>$1/10^{-3}$</span> but that is strange notation)</p>
+</blockquote>
+<p>TBC</p>
+<blockquote>
+<p>(c) <span>$|x^2-1| &lt; 1/n$</span><br />
+(d) <span>$|x^3-1| &lt; 1/n$</span></p>
+</blockquote>
+<h2 class="header"><i>2</i>Section 4.2<a class="headerlink" href="#section-42" name="section-42">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<p>Trivial, not worth it</p>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<p>Soon</p>
+<h2 class="header"><i>3</i>Section 4.3<a class="headerlink" href="#section-43" name="section-43">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question 1<a class="headerlink" href="#question-1_2" name="question-1_2">&para;</a></h3>
+<blockquote>
+<p>Prove Theorem 4.3.2</p>
+</blockquote>
+<p>No thanks</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

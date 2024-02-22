@@ -1,0 +1,232 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_424/">
+                COMP 424
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Cheat sheet
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Cheat sheet
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><a href="http://www.cs.mcgill.ca/~yzhou53/stuff/comp424cheatsheet.pdf">Download the PDF</a></p>
+<div class="codehilite"><pre><span class="k">\documentclass</span><span class="na">[landscape]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsthm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>multicol<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>soul<span class="nb">}</span>
+<span class="k">\setlength</span><span class="nb">{</span><span class="k">\parindent</span><span class="nb">}{</span>0in<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\thispagestyle</span><span class="nb">{</span>empty<span class="nb">}</span>
+<span class="k">\pagestyle</span><span class="nb">{</span>empty<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>multicols<span class="nb">}{</span>3<span class="nb">}</span>
+
+<span class="nb">{</span><span class="k">\bf</span> State space<span class="nb">}</span>: all possible configurations of the domain of interest<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> A start state<span class="nb">}</span>: <span class="s">$</span><span class="nb">s_</span><span class="m">0</span><span class="nb"> </span><span class="nv">\in</span><span class="nb"> S</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Goal States<span class="nb">}</span>: The set of end states<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Operators A<span class="nb">}</span>: Actions available , defined in terms of a mapping from a state to its successor<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Path<span class="nb">}</span>: a sequence of states and operators<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Path cost<span class="nb">}</span>: number associated with each path<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Solution<span class="nb">}</span>: a path from <span class="s">$</span><span class="nb">s_</span><span class="m">0</span><span class="s">$</span> to a goal state<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Optimal solutions<span class="nb">}</span>: a solution with minimum cost<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Search node<span class="nb">}</span>: a state, the parent state and the operator used to generate it, the cost of the path, the depth of the node<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Candidate nodes<span class="nb">}</span>: a set of nodes to be expanded<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Expanding a node<span class="nb">}</span>: Applying all legal operators to the state in the node and generating all successor states<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Uninformed (Blind) search<span class="nb">}</span>: when we don&#39;t know how far a state is to the goal. Has exponential worst case complexity<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Informed (heuristic) search<span class="nb">}</span>: a heuristic is used to guess how far the state is to the goal<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Breadth-first search<span class="nb">}</span>: all nodes at level i get expanded before all nodes at level i+1, complete, <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">b^d</span><span class="o">)</span><span class="s">$</span> time and space complexity<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Branching factor<span class="nb">}</span>: how many operators at most can be applied to a state<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Solution depth<span class="nb">}</span>: how long is the path to the shallowest solution<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Uniform cost search<span class="nb">}</span>: When you enqueue the nodes in a priority queue, ordered by increasing cost of the path. Guaranteed to find an optimal solution<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Depth-first search<span class="nb">}</span>: Nodes at the deepest level get searched first, <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">bd</span><span class="o">)</span><span class="s">$</span> space comp, <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">b^d</span><span class="o">)</span><span class="s">$</span> time comp, not optimal, not complete.
+<span class="nb">{</span><span class="k">\bf</span> Depth-limited search<span class="nb">}</span>: DFS, but cut off at a max depth. It always terminates, but still may not complete.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Iterative Deepening<span class="nb">}</span>: It&#39;s like depth-limited search but you increase the depth successively. It is complete, and has linear space requirements.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Heuristic<span class="nb">}</span>: Intuition about the distance from a state to the goal.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Best-First Search<span class="nb">}</span>: Nodes are enqueued in the order of most promising to least promising. <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">b^d</span><span class="o">)</span><span class="s">$</span> time complexity, not complete or optimal, greedy.
+<span class="nb">{</span><span class="k">\bf</span> Heuristic Search Algorithm<span class="nb">}</span>: Enqueue nodes by the cost of the path and heuristic estimate of the node. <span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Admissible Heuristic<span class="nb">}</span>: if <span class="s">$</span><span class="nb">h</span><span class="o">*(</span><span class="nb">n</span><span class="o">)</span><span class="s">$</span> is the cost of the shortest path from <span class="s">$</span><span class="nb">n</span><span class="s">$</span> to any goal, then <span class="s">$</span><span class="nb">h</span><span class="o">(</span><span class="nb">n</span><span class="o">)</span><span class="s">$</span> is admissible iff <span class="s">$</span><span class="nb">h</span><span class="o">(</span><span class="nb">n</span><span class="o">)</span><span class="nb"> </span><span class="nv">\leq</span><span class="nb"> h</span><span class="o">*(</span><span class="nb">n</span><span class="o">)</span><span class="s">$</span> <span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> A* search<span class="nb">}</span>: Heuristic search with an admissible heuristic, it is complete and optimal<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Consistent<span class="nb">}</span>: An admissible heuristic is consistent if <span class="s">$</span><span class="nb">h</span><span class="o">(</span><span class="nb">s</span><span class="o">)</span><span class="nb"> </span><span class="nv">\leq</span><span class="nb"> cost</span><span class="o">(</span><span class="nb">s,s&#39;</span><span class="o">)</span><span class="nb"> </span><span class="o">+</span><span class="nb"> h</span><span class="o">(</span><span class="nb">s&#39;</span><span class="o">)</span><span class="s">$</span> for every state <span class="s">$</span><span class="nb">s</span><span class="s">$</span> and its successors <span class="s">$</span><span class="nb">s&#39;</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Iterative Deepening A*<span class="nb">}</span>: Basically DFS, instead of max depth, we use max <span class="s">$</span><span class="nb">f</span><span class="s">$</span> (<span class="s">$</span><span class="nb">h </span><span class="o">+</span><span class="nb"> c</span><span class="s">$</span>), we expand all nodes up to <span class="s">$</span><span class="nb">f</span><span class="s">$</span>, then we increase <span class="s">$</span><span class="nb">f</span><span class="s">$</span>. Uses less memory than A*.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Real-Time search<span class="nb">}</span>: instead of looking for a path to the goal, we just move in the direction of the best path.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Real-Time A*<span class="nb">}</span>: Do A* but with the g function equal to cost from current state rather than from the start<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span>-pruning<span class="nb">}</span>: Maintain a value <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> that has the lowest f-value of any node in the current search horizon, and a node costing more than <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> will never be expanded.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Optimization Problems<span class="nb">}</span>: described by a set of states and an evaluation function, we are only interested in the best solution, and not the path.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Types of search methods<span class="nb">}</span>:
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Constructive<span class="nb">}</span>: start from scratch, build a solution
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Iterative improvement/repair<span class="nb">}</span>: start with a suboptimal solution, and improve it
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Global search<span class="nb">}</span>: start from multiple states far apart, and go around the serch space
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="nb">{</span><span class="k">\bf</span> Hill climbing<span class="nb">}</span>: greedy local search. Start at a configuration, go to its best successor, repeat until the best successor is worst than the current state. Can get stuck in local extrema, can get stuck on a plateau.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Simulated annealing<span class="nb">}</span>: if a new value <span class="s">$</span><span class="nb">E_i</span><span class="s">$</span> is better than old value <span class="s">$</span><span class="nb">E</span><span class="s">$</span>, move to <span class="s">$</span><span class="nb">X_i</span><span class="s">$</span>, if it&#39;s worse, move to <span class="s">$</span><span class="nb">X_i</span><span class="s">$</span> with probability <span class="s">$</span><span class="nb">e^{</span><span class="o">-</span><span class="nv">\frac</span><span class="nb">{E</span><span class="o">-</span><span class="nb">E_i}{T}}</span><span class="s">$</span>. T decreases with time. When T is high it&#39;s in exploratory phase, when T is low it&#39;s in exploitation phase. Simulated annealing is a randomized search or Monte Carlo search.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Genetic algorithms<span class="nb">}</span>: A solution is called an individual, each individual has a fitness, a set of individuals is a population. Populations change over generations by selection/mutation/crossover.<span class="err">\</span>
+<span class="nb">{</span><span class="k">\bf</span> Ways of selection<span class="nb">}</span>:
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Fitness proportionate selection<span class="nb">}</span>: <span class="s">$</span><span class="nb">Pr</span><span class="o">(</span><span class="nb">i</span><span class="o">)=</span><span class="nb">Fitness</span><span class="o">(</span><span class="nb">i</span><span class="o">)/</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{p}Fitness</span><span class="o">(</span><span class="nb">j</span><span class="o">)</span><span class="s">$</span>
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Tournament selection<span class="nb">}</span>: pick 2 random individuals, compare them, the superior one is picked.
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Rank selection<span class="nb">}</span>: sort hypothesis by fitness, probability is proportional to rank
+    <span class="k">\item</span> <span class="nb">{</span><span class="k">\bf</span> Boltzman selection<span class="nb">}</span>: <span class="s">$</span><span class="nb">Pr</span><span class="o">(</span><span class="nb">i</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{exp</span><span class="o">(</span><span class="nb">Fitness</span><span class="o">(</span><span class="nb">i</span><span class="o">)/</span><span class="nb">T</span><span class="o">)</span><span class="nb">}{</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^p exp</span><span class="o">(</span><span class="nb">Fitness</span><span class="o">(</span><span class="nb">j</span><span class="o">)/</span><span class="nb">T</span><span class="o">)</span><span class="nb">}</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="nb">{</span><span class="k">\bf</span> Elitism<span class="nb">}</span>: Best solution ever encountered in hill climbing/simulated annealing/genetic algorithms are saved.
+<span class="nb">{</span><span class="k">\bf</span> Constraint satisfaction problem<span class="nb">}</span>: a solution that satisfies a set of contraints, basically a cost function with minimum value at the solution, and max value somewhere else. It is defined by:
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> A set of variables that can take values from a domain
+    <span class="k">\item</span> A set of constraints specifying what combination of values are allowed, they can be explicit (<span class="s">$</span><span class="nb">A </span><span class="nv">\neg</span><span class="nb"> </span><span class="m">3</span><span class="s">$</span>) or implicit (<span class="s">$</span><span class="nb">A </span><span class="nv">\neg</span><span class="nb"> B</span><span class="s">$</span>)
+    <span class="k">\item</span> A CSP solution is an assignment of values to the variables such that all constraints are satisfied.
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="nb">{</span><span class="k">\bf</span> Binary CSP<span class="nb">}</span>: each constraint relates at most two variables<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Constraint Graph<span class="nb">}</span>: Nodes are variables, arcs are constraints<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Preferences(Soft constraints)<span class="nb">}</span>: represented using costs, lead to constrained optimization problems<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Backtracking search<span class="nb">}</span>: Basically like DFS.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Forward checking<span class="nb">}</span>: Assign value to X, look at each unassigned Y connected to X and delete from Y&#39;s domain those values which are inconsistent with X&#39;s assignment<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Complexity of CSP<span class="nb">}</span>:
+<span class="k">\begin</span><span class="nb">{</span>itemize<span class="nb">}</span>
+    <span class="k">\item</span> Worst-case is <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">d^n</span><span class="o">)</span><span class="s">$</span>, <span class="s">$</span><span class="nb">d</span><span class="s">$</span> is number of possible values and <span class="s">$</span><span class="nb">n</span><span class="s">$</span> is the number of variables
+    <span class="k">\item</span> Tree constraint graphs are <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">nd^</span><span class="m">2</span><span class="o">)</span><span class="s">$</span>
+    <span class="k">\item</span> Nearly-tree structured graphs are <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">d^c</span><span class="o">(</span><span class="nb">n</span><span class="o">-</span><span class="nb">c</span><span class="o">)</span><span class="nb">d^</span><span class="m">2</span><span class="o">)</span><span class="s">$</span> where <span class="s">$</span><span class="nb">c</span><span class="s">$</span> is the number of variables which when removed turns the graph into a tree.
+<span class="k">\end</span><span class="nb">{</span>itemize<span class="nb">}</span>
+<span class="nb">{</span><span class="k">\bf</span> Iterative improvement algorithm<span class="nb">}</span>: Start with a broken assignment, reassign conflicted variables until less conflicts occur<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Min-conflicts heuristic<span class="nb">}</span>: choose value that violates the fewest constraints. It solves CSP in almost linear time except for a very small subset of problems<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Minimax search<span class="nb">}</span>: Expand a complete search tree, then go back up picking the worst value at min levels and best value at max levels. Complete if game tree is finite, optimal against optimal opponent. Time complexity <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">b^m</span><span class="o">)</span><span class="s">$</span>, space complexity <span class="s">$</span><span class="nb">O</span><span class="o">(</span><span class="nb">bm</span><span class="o">)</span><span class="s">$</span>. Cope with resource limitation by cutting off, and use heuristic to estimate values at cutoff.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> <span class="s">$</span><span class="nv">\alpha</span><span class="o">-</span><span class="nv">\beta</span><span class="s">$</span> pruning<span class="nb">}</span>: We keep the best possible value for max as <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> and the best possible value for min as <span class="s">$</span><span class="nv">\beta</span><span class="s">$</span> and if any node is lower we don&#39;t expand it. It does not affect the final result.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Monte Carlo tree search<span class="nb">}</span>: Play the game randomly according to some random policy for each player, then the value of each node is the average of the evaluations after the simulation. usually you have a minimax proportion and a monte carlo portion.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Rapid Action-Value Estimate<span class="nb">}</span>: Assume the value of the move is the same no matter when it is played.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Plan<span class="nb">}</span>: A collection of actions for performing some task with forms of knowledge representation to describe sets of states.
+<span class="nb">{</span><span class="k">\bf</span> Declarative approach<span class="nb">}</span>: Build agents with two parts. A knowledge base which contains a set of facts expressed in formal/standard lang. An inference engine with general rules for deducing new facts<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Logic<span class="nb">}</span>: Formal language for representing information. Syntax defines sentences in the language, semantics define the ``meaning&#39;&#39; of sentences<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Ontological Commitment<span class="nb">}</span>: What exists in the language: facts/objects/relations/time<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Epistemological Commitment<span class="nb">}</span>: What states of knowledge are in the language: true/false/etc<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Interpretation<span class="nb">}</span>: A way of matching objects in the world with symbols in the sentence: a truth assignment: A sentence is valid if it&#39;s true in 1 interpretation, satisfiable if in all, unsatisfiable if in none.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Entailment(KB <span class="s">$</span><span class="nv">\vDash</span><span class="nb"> </span><span class="nv">\alpha</span><span class="s">$</span>)<span class="nb">}</span>: KB entails <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> iff <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> is true in all worlds where KB is true.
+<span class="nb">{</span><span class="k">\bf</span> Inference(KB <span class="s">$</span><span class="nv">\vdash</span><span class="nb">_i </span><span class="nv">\alpha</span><span class="s">$</span>)<span class="nb">}</span>: <span class="s">$</span><span class="nv">\alpha</span><span class="s">$</span> can be derived from KB by inference procedure <span class="s">$</span><span class="nb">i</span><span class="s">$</span>. <span class="s">$</span><span class="nb">i</span><span class="s">$</span> is sound if when KB <span class="s">$</span><span class="nv">\vdash</span><span class="nb">_i </span><span class="nv">\alpha</span><span class="s">$</span>, KB <span class="s">$</span><span class="nv">\vDash</span><span class="nb"> </span><span class="nv">\alpha</span><span class="s">$</span>. <span class="s">$</span><span class="nb">i</span><span class="s">$</span> is complete if when KB <span class="s">$</span><span class="nv">\vDash</span><span class="nb"> </span><span class="nv">\alpha</span><span class="s">$</span>, KB <span class="s">$</span><span class="nv">\vdash</span><span class="nb">_i </span><span class="nv">\alpha</span><span class="s">$</span>.<span class="err">\</span>
+<span class="nb">{</span><span class="k">\bf</span> Model checking<span class="nb">}</span>: an inference proof method by enumerating a truth table.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Conjunctive normal form<span class="nb">}</span>: conjunction of disjunction of literals: OR clauses connected by ANDs<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Disjunctive normal form<span class="nb">}</span>: disjunction of conjunction of literals: And clauses connected by ORs<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Horn form<span class="nb">}</span>: Clauses with <span class="s">$</span><span class="nv">\leq</span><span class="s">$</span> 1 positive literal, implications connected by ANDs<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Resolution (for CNF)<span class="nb">}</span>: <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">, </span><span class="nv">\neg</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\gamma</span><span class="nb">}{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\gamma</span><span class="nb">}</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Modus Ponens (Horn form)<span class="nb">}</span>: <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb">_</span><span class="m">1</span><span class="nb">,</span><span class="nv">\ldots</span><span class="nb">,</span><span class="nv">\alpha</span><span class="nb">_n, </span><span class="nv">\alpha</span><span class="nb">_</span><span class="m">1</span><span class="nv">\lor\ldots\lor\alpha</span><span class="nb">_n</span><span class="nv">\rightarrow\beta</span><span class="nb">}{</span><span class="nv">\beta</span><span class="nb">}</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Forward chaining<span class="nb">}</span>: when a new sentence is added to KB, resolution happens, new sentences are added to KB. Data driven, eager.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Backward chaining<span class="nb">}</span>: when query q is asked, if q is in KB, return true, else resolve q with other sentences in KB and continue. Goal driven, lazy<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Implication elimination<span class="nb">}</span>: <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\rightarrow</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">}{</span><span class="nv">\neg</span><span class="nb"> </span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">}</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Planning graph<span class="nb">}</span>: Proposition and Action nodes arranged in levels in which they alternate. Lines between levels indicate pre/post conditions, lines within levels indicate mutual exclusions.
+<span class="nb">{</span><span class="k">\bf</span> Predicates<span class="nb">}</span>: used to describe objects, properties, and relationships between objects.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Quantifier<span class="nb">}</span>: <span class="s">$</span><span class="nv">\forall</span><span class="s">$</span> or <span class="s">$</span><span class="nv">\exists</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Atomic sentences<span class="nb">}</span>: predicate(<span class="s">$</span><span class="nb">term_</span><span class="m">1</span><span class="nb">,</span><span class="nv">\ldots</span><span class="nb">,term_n</span><span class="s">$</span>) or <span class="s">$</span><span class="nb">term_</span><span class="m">1</span><span class="nb"> </span><span class="o">=</span><span class="nb"> term_</span><span class="m">2</span><span class="s">$</span>, Term = function(<span class="s">$</span><span class="nb">term_</span><span class="m">1</span><span class="nb">,</span><span class="nv">\ldots</span><span class="nb">,term_n</span><span class="s">$</span>) or constant or variable<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Complex sentences<span class="nb">}</span>: made from atomic sentences using connectives<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Universal quantification<span class="nb">}</span>: <span class="s">$</span><span class="nv">\forall</span><span class="nb"> x Taking</span><span class="o">(</span><span class="nb">x,AI</span><span class="o">)</span><span class="nb"> </span><span class="nv">\rightarrow</span><span class="nb"> Smart</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span>, <span class="nb">{</span><span class="k">\bf</span> Existential quantification<span class="nb">}</span>: <span class="s">$</span><span class="nv">\exists</span><span class="nb"> x Taking</span><span class="o">(</span><span class="nb">x,AI</span><span class="o">)</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb"> Smart</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span>
+<span class="nb">{</span><span class="k">\bf</span> Quantifier properties<span class="nb">}</span>: <span class="s">$</span><span class="nv">\forall</span><span class="nb"> x</span><span class="nv">\forall</span><span class="nb"> y </span><span class="nv">\leftrightarrow</span><span class="nb"> </span><span class="nv">\forall</span><span class="nb"> y </span><span class="nv">\forall</span><span class="nb"> x</span><span class="s">$</span>, <span class="s">$</span><span class="nv">\exists</span><span class="nb"> x</span><span class="nv">\exists</span><span class="nb"> y </span><span class="nv">\leftrightarrow</span><span class="nb"> </span><span class="nv">\exists</span><span class="nb"> y </span><span class="nv">\exists</span><span class="nb"> x</span><span class="s">$</span>,  <span class="s">$</span><span class="nv">\forall</span><span class="nb"> x</span><span class="nv">\exists</span><span class="nb"> y </span><span class="nv">\nleftrightarrow</span><span class="nb"> </span><span class="nv">\exists</span><span class="nb"> y </span><span class="nv">\forall</span><span class="nb"> x</span><span class="s">$</span>
+<span class="s">$</span><span class="nv">\forall</span><span class="nb"> x f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\leftrightarrow</span><span class="nb"> </span><span class="nv">\neg</span><span class="nb"> </span><span class="nv">\exists</span><span class="nb"> x </span><span class="nv">\neg</span><span class="nb"> f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span>, same with exists.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Proofs<span class="nb">}</span>: Modus Ponens <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb">, </span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\rightarrow</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">}{</span><span class="nv">\beta</span><span class="nb">}</span><span class="s">$</span>, And Introduction <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\,</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">}{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">}</span><span class="s">$</span>, Universal elimination <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\forall</span><span class="nb"> x</span><span class="nv">\alpha</span><span class="nb">}{</span><span class="nv">\alpha\{</span><span class="nb">x</span><span class="o">/</span><span class="nv">\tau\}</span><span class="nb">}</span><span class="s">$</span>, Resolution <span class="s">$</span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">, </span><span class="nv">\neg</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> </span><span class="nv">\gamma</span><span class="nb">}{</span><span class="nv">\alpha</span><span class="nb"> </span><span class="nv">\lor</span><span class="nb"> gamma}</span><span class="s">$</span><span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Skolemization<span class="nb">}</span>: <span class="s">$</span><span class="nv">\exists</span><span class="nb"> f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> Rich</span><span class="o">(</span><span class="nb">G</span><span class="m">1</span><span class="o">)</span><span class="s">$</span>, if <span class="s">$</span><span class="nv">\exists</span><span class="s">$</span> is inside <span class="s">$</span><span class="nv">\forall</span><span class="s">$</span>: <span class="s">$</span><span class="nv">\forall</span><span class="nb"> x f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\leftarrow</span><span class="nb"> </span><span class="nv">\exists</span><span class="nb"> y g</span><span class="o">(</span><span class="nb">y</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\forall</span><span class="nb"> x f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> </span><span class="nv">\leftarrow</span><span class="nb"> g</span><span class="o">(</span><span class="nb">H</span><span class="o">(</span><span class="nb">x</span><span class="o">))</span><span class="s">$</span>. <span class="s">$</span><span class="nb">H</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="s">$</span> is a skolem function.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> STRIPS<span class="nb">}</span>: Domain: a set of typed objects, states: first-order predicates over objects in conjunction, operators/actions defined in terms of preconditions and effects, goals: conjunction of literals.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> STRIPS Operator<span class="nb">}</span>: preconditions are conjunctions of positive literals, postconditions are in terms of an Add-list and a Delete-list.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> State-space planning<span class="nb">}</span>: finding a plan by looking through state space looking for a path from start to goal. Progression planners start from start, regression planners start from goal.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Progression (Forward) Planning<span class="nb">}</span>: Determine all applicable operators in the start state, apply operator, determine new content of knowledge base, repeat until goal is reached.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Goal Regression<span class="nb">}</span>: Pick action that satisfy (some of) the goal&#39;s propositions, make a new goal by removing conditions satisfied by this condition, adding the preconditions of this action, repeat until goal state is satisfied by the start state.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Variations of Goal Regression<span class="nb">}</span>: linear planning is a stack of goals, not complete. non-linear (set of goals) is complete but expensive.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Total vs Partial Order<span class="nb">}</span>: total: plan is always a strict sequence of actions, partial: plan steps may be unordered<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Bayes rule<span class="nb">}</span>: P(H|e) = P(e|H)P(H)/P(e), P(e) = P (e|H)P (H) + P (e|<span class="s">$</span><span class="nv">\neg</span><span class="s">$</span>H)P(<span class="s">$</span><span class="nv">\neg</span><span class="s">$</span>H). P(H|e) is posterior probability, P(H) is prior probability, P(e|H) is likelihood, P(e) is normalizing constant.<span class="k">\\</span>
+<span class="nb">{</span><span class="k">\bf</span> Conditional Independence<span class="nb">}</span>: <span class="s">$</span><span class="nb">P</span><span class="o">(</span><span class="nb">x | y,z</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> P</span><span class="o">(</span><span class="nb">x | z</span><span class="o">)</span><span class="nb">, </span><span class="nv">\forall</span><span class="nb"> x,y,z</span><span class="s">$</span>, Knowing the value of y does not change the probability of x if z is known. If <span class="s">$</span><span class="nb">C</span><span class="s">$</span> and <span class="s">$</span><span class="nb">F</span><span class="s">$</span> are conditionally independent, <span class="s">$</span><span class="nb">P</span><span class="o">(</span><span class="nb">C,F,B</span><span class="o">)</span><span class="s">$</span> decomposes to <span class="s">$</span><span class="nb">P</span><span class="o">(</span><span class="nb">C|B</span><span class="o">)</span><span class="nb">P</span><span class="o">(</span><span class="nb">F|B</span><span class="o">)</span><span class="nb">P</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>multicols<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>How to solve every problem.</p>
+<p>Examples are listed at the end of each section. If one list item has multiple examples, it means the questions are identical.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#newtons-method">1 Newton's method</a><ul>
+<li><a href="#using-taylor-expansions">1.1 Using Taylor expansions</a></li>
+<li><a href="#as-a-fixed-point-iteration">1.2 As a fixed-point iteration</a></li>
+<li><a href="#derivative-of-the-iteration-function">1.3 Derivative of the iteration function</a></li>
+<li><a href="#computing-x_n">1.4 Computing $x_n$</a></li>
+<li><a href="#finding-the-rate-of-convergence">1.5 Finding the rate of convergence</a></li>
+</ul>
+</li>
+<li><a href="#fixed-point-theorem">2 Fixed-point theorem</a><ul>
+<li><a href="#proving-a-variation-of-it">2.1 Proving a variation of it</a></li>
+<li><a href="#stating-it">2.2 Stating it</a></li>
+<li><a href="#proving-a-specific-fixed-point">2.3 Proving a specific fixed point</a></li>
+<li><a href="#satisfying-conditions">2.4 Satisfying conditions</a></li>
+<li><a href="#order-of-convergence">2.5 Order of convergence</a></li>
+<li><a href="#computing-x_n_1">2.6 Computing $x_n$</a></li>
+<li><a href="#relative-error">2.7 Relative error</a></li>
+<li><a href="#finding-an-interval-and-starting-point">2.8 Finding an interval and starting point</a></li>
+</ul>
+</li>
+<li><a href="#divided-differences">3 Divided differences</a><ul>
+<li><a href="#zeroth-divided-differences">3.1 Zeroth divided differences</a></li>
+<li><a href="#interpolating-polynomial-newton-form">3.2 Interpolating polynomial (Newton form)</a></li>
+<li><a href="#existence-of-xi">3.3 Existence of $\xi$</a></li>
+<li><a href="#table-of-divided-differences">3.4 Table of divided differences</a></li>
+</ul>
+</li>
+<li><a href="#forward-differences">4 Forward differences</a><ul>
+<li><a href="#approximating-the-derivative">4.1 Approximating the derivative</a></li>
+<li><a href="#finding-the-error-term">4.2 Finding the error term</a></li>
+<li><a href="#richardson-extrapolation">4.3 Richardson extrapolation</a></li>
+<li><a href="#approximating-the-second-derivative">4.4 Approximating the second derivative</a></li>
+</ul>
+</li>
+<li><a href="#quadrature">5 Quadrature</a><ul>
+<li><a href="#defining-the-degree-of-accuracy">5.1 Defining the degree of accuracy</a></li>
+<li><a href="#finding-the-degree-of-accuracy">5.2 Finding the degree of accuracy</a></li>
+<li><a href="#maximising-the-degree-of-accuracy">5.3 Maximising the degree of accuracy</a></li>
+<li><a href="#finding-some-error-constant">5.4 Finding some error constant</a></li>
+<li><a href="#approximating-something">5.5 Approximating something</a></li>
+</ul>
+</li>
+<li><a href="#simpsons-rule">6 Simpson's rule</a><ul>
+<li><a href="#the-composite-rule">6.1 The composite rule</a></li>
+<li><a href="#proving-a-property-of-the-composite-rule">6.2 Proving a property of the composite rule</a></li>
+<li><a href="#finding-an-upper-bound-for-the-error">6.3 Finding an upper bound for the error</a></li>
+<li><a href="#using-the-rule">6.4 Using the rule</a></li>
+</ul>
+</li>
+<li><a href="#runge-kutta">7 Runge-Kutta</a><ul>
+<li><a href="#proving-an-identity-for-yt_i1">7.1 Proving an identity for $y(t_{i+1})$</a></li>
+<li><a href="#proving-an-identity-for-w_i1">7.2 Proving an identity for $w_{i+1}$</a></li>
+<li><a href="#conditions-for-the-limit-to-approach-0">7.3 Conditions for the limit to approach 0</a></li>
+<li><a href="#defining-local-truncation-error">7.4 Defining local truncation error</a></li>
+<li><a href="#a-formula-for-local-truncation-error">7.5 A formula for local truncation error</a></li>
+<li><a href="#determining-the-order">7.6 Determining the order</a></li>
+</ul>
+</li>
+<li><a href="#lagrange-interpolation">8 Lagrange interpolation</a><ul>
+<li><a href="#defining-lagrange-polynomials">8.1 Defining Lagrange polynomials</a></li>
+<li><a href="#uniqueness">8.2 Uniqueness</a></li>
+<li><a href="#finding-the-polynomial">8.3 Finding the polynomial</a></li>
+<li><a href="#error-bounds">8.4 Error bounds</a></li>
+</ul>
+</li>
+<li><a href="#splines-etc">9 Splines, etc</a><ul>
+<li><a href="#differences-between-methods">9.1 Differences between methods</a></li>
+<li><a href="#finding-constants-for-a-cubic-spline">9.2 Finding constants for a cubic spline</a></li>
+<li><a href="#bezier-curve-stuff">9.3 Bezier curve stuff</a></li>
+</ul>
+</li>
+<li><a href="#trapezoidal-rule">10 Trapezoidal rule</a><ul>
+<li><a href="#applying-the-composite-rule">10.1 Applying the composite rule</a></li>
+<li><a href="#deriving-an-error-bound">10.2 Deriving an error bound</a></li>
+<li><a href="#applying-the-error-bound">10.3 Applying the error bound</a></li>
+<li><a href="#using-richardson-extrapolation">10.4 Using Richardson extrapolation</a></li>
+<li><a href="#computing-relative-error">10.5 Computing relative error</a></li>
+</ul>
+</li>
+<li><a href="#linear-shooting-method">11 Linear shooting method</a></li>
+<li><a href="#root-approximation-and-stuff">12 Root approximation and stuff</a><ul>
+<li><a href="#exactly-one-zero">12.1 Exactly one zero</a></li>
+<li><a href="#the-bisection-method">12.2 The bisection method</a></li>
+<li><a href="#comparing-iterative-methods">12.3 Comparing iterative methods</a></li>
+<li><a href="#using-the-quadratic-formula">12.4 Using the quadratic formula</a></li>
+</ul>
+</li>
+<li><a href="#finite-difference">13 Finite difference</a><ul>
+<li><a href="#the-second-derivative">13.1 The second derivative</a></li>
+<li><a href="#minimising-a-bound">13.2 Minimising a bound</a></li>
+</ul>
+</li>
+<li><a href="#aitkens-method">14 Aitken's method</a></li>
+<li><a href="#matrix-stuff">15 Matrix stuff</a><ul>
+<li><a href="#computing-decompositions">15.1 Computing decompositions</a></li>
+<li><a href="#solving-systems">15.2 Solving systems</a></li>
+</ul>
+</li>
+<li><a href="#computing-and-precision">16 Computing and precision</a><ul>
+<li><a href="#computing-something-to-a-certain-precision">16.1 Computing something to a certain precision</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Newton's method<a class="headerlink" href="#newtons-method" name="newtons-method">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Using Taylor expansions<a class="headerlink" href="#using-taylor-expansions" name="using-taylor-expansions">&para;</a></h3>
+<blockquote>
+<p>Use a Taylor expansion to derive Newton's method.</p>
+</blockquote>
+<p>The Taylor expansion should be given. Let <span>$x = x_n$</span> and <span>$x^* = x_{n+1}$</span>, substitute those into the Taylor expansion (ignoring the error term) and solve for <span>$x_{n+1}$</span>.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a">2004 final question 1 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a_4">Final exercises question 6 (a)</a></li>
+</ul>
+<h3 class="header"><i>1.2</i>As a fixed-point iteration<a class="headerlink" href="#as-a-fixed-point-iteration" name="as-a-fixed-point-iteration">&para;</a></h3>
+<blockquote>
+<p>Write Newton's method as a fixed point iteration.</p>
+</blockquote>
+<p>Just let <span>$g$</span> be the expression for <span>$x_{n+1}$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b">2004 final question 1 (b)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b_3">Final exercises question 6 (b)</a></li>
+</ul>
+<h3 class="header"><i>1.3</i>Derivative of the iteration function<a class="headerlink" href="#derivative-of-the-iteration-function" name="derivative-of-the-iteration-function">&para;</a></h3>
+<blockquote>
+<p>Show that <span>$g'(x^*) = 0$</span> when <span>$f'(x^*) \neq 0$</span>, and find the limit when <span>$f'(x^*) = 0$</span> but <span>$f''(x^*) \neq 0$</span>.</p>
+</blockquote>
+<p>Take the deriv of <span>$g$</span>, show that the numerator is 0 so it's 0 when the denom is not zero.</p>
+<p>Finding the limit is a bit weird. Given the values for the first and second derivs, figure out the general form of <span>$f$</span> (with some unknown function), and calculate <span>$f'$</span> and <span>$f''$</span> based on that. Then take the limit.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c">2004 final question 1 (c)</a>, <a href="/MATH_317/past-exam/fall-2004/final#part-d">(d)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-c_2">Final exercises question 6 (c)</a>, <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-d">(d)</a></li>
+</ul>
+<h3 class="header"><i>1.4</i>Computing $x_n$<a class="headerlink" href="#computing-x_n" name="computing-x_n">&para;</a></h3>
+<blockquote>
+<p>Use Newton's method to compute <span>$x_n$</span> for some <span>$n$</span>.</p>
+</blockquote>
+<p>Just follow the iterations, starting with the given <span>$x_0$</span>. Not hard.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-e-i">2004 final question 1 (e) (i)</a></li>
+</ul>
+<h3 class="header"><i>1.5</i>Finding the rate of convergence<a class="headerlink" href="#finding-the-rate-of-convergence" name="finding-the-rate-of-convergence">&para;</a></h3>
+<blockquote>
+<p>What's the apparent rate of convergence?</p>
+</blockquote>
+<p>Order of convergence is quadratic if the root is simple (i.e., multiplicity of 1), linear otherwise (since then the error would be decreased by a constant factor for each step). Take the first and second derivs - if the first deriv is zero and the second deriv exists, then it's linear. If the first deriv is non-zero and the second deriv is non-zero, it's quadratic. If the first deriv is non-zero and the second deriv is zero, it's faster than quadratic (cubic? quartic? depends).</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-e-ii">2004 final question 1 (e) (ii)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-e">Final exercises question 6 (e)</a></li>
+</ul>
+<h2 class="header"><i>2</i>Fixed-point theorem<a class="headerlink" href="#fixed-point-theorem" name="fixed-point-theorem">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Proving a variation of it<a class="headerlink" href="#proving-a-variation-of-it" name="proving-a-variation-of-it">&para;</a></h3>
+<blockquote>
+<p>Prove a variant of the fixed point theorem, from first principles. Given a continuous function <span>$g(x)$</span> such that <span>$\forall x \in [a, b]$</span>, <span>$g(x) \in [a, b]$</span>, prove that there exists a <span>$x^* \in [a, b]$</span> such that <span>$g(x^*) = x^*$</span>.</p>
+</blockquote>
+<p>I thought this was impossible but it actually isn't that hard once you know what tools to use. First, note that if <span>$g(a) = a$</span> or <span>$g(b) = b$</span>, then we are done - <span>$x^*$</span> is either <span>$a$</span> or <span>$b$</span>, respectively. So we assume that <span>$g(a) \neq a$</span> and <span>$g(b) \neq b$</span>. In fact, it must be that <span>$g(a) &gt; a$</span> and <span>$g(b) &lt; b$</span> (due to the <span>$\forall x \in [a, b]$</span>, <span>$g(x) \in [a, b]$</span> thing).</p>
+<p>Now we create a new function <span>$f(x) = g(x) - x$</span>, which is clearly continuous. Consider <span>$f(a)$</span> and <span>$f(b)$</span>. Well, <span>$f(a) = g(a) - a &gt; 0$</span> since <span>$g(a) &gt; 0$</span>. Similarly, <span>$f(b) = g(b) - b &lt; 0$</span> since <span>$g(b) &lt; b$</span>. By the intermediate value theorem, there must be at one point in the interval <span>$[a, b]$</span>, which we'll call <span>$x^*$</span>, such that <span>$f(x^*) = 0$</span>. But if <span>$f(x^*) = 0$</span>, then <span>$f(x^*) = g(x^*) - x^* = 0$</span> which means that <span>$g(x^*) = x^*$</span>. So this <span>$x^*$</span> is what we're looking for.</p>
+<blockquote>
+<p>Show that this <span>$x^*$</span> is unique.</p>
+</blockquote>
+<p>To show that this <span>$x^*$</span> is unique, we use a proof by contradiction. Suppose that <span>$x_0$</span> and <span>$x_1$</span> are both fixed points of <span>$g(x)$</span> such that <span>$x_0 \neq x_1$</span>. Then <span>$|g(x_0) - g(x_1)| \leq \gamma|x_0 - x_1|$</span> . But <span>$g(x_0) = x_0$</span> and <span>$g(x_1) = x_1$</span>. So this statement says that <span>$|x_0 - x_1| \leq \gamma |x_0 - x_1|$</span>, which is not possible if <span>$\gamma &lt; 1$</span>. Contradiction. Thus there is only one fixed point, <span>$x^*$</span>.</p>
+<blockquote>
+<p>Consider the sequence generated iteratively via <span>$x_{n+1} = g(x_n)$</span>. Show that <span>$|x_{j+1} - x^*| \leq \gamma|x_j-x^*|$</span>, and deduce that <span>$\displaystyle x^* = \lim_{n\to \infty}x_n$</span>.</p>
+</blockquote>
+<p><span>$x_{j+1} = g(x_j)$</span> by definition. So <span>$|x_{j+1} - x^*| = |g(x_j) - x^*| = |g(x_j) - g(x^*)| \leq \gamma |x_j-x^*|$</span>. </p>
+<p>This tells us that the difference between a term in the sequence and the root gets smaller for each subsequent term. I don't know if this is really what we should be doing, since this method is really just analysis 1 stuff, but:</p>
+<p><span>$$|x_{j+1} - x^*| \leq \gamma |x_j-x^*| \leq \gamma^2|x_{j-1} - x^*| \leq \gamma^3|x_{j-2} - x^*| \leq \cdots \gamma^{j+1} |x_0 - x^*|$$</span></p>
+<p>Thus <span>$\displaystyle \lim_{n \to \infty} |x_{n}- x^*| \leq \gamma^{n} |x_0 - x^*|$</span> and since <span>$0 \leq \gamma &lt; 1$</span> (it's <span>$\geq 0$</span> because of the absolute-value-having condition involving it), the RHS goes to 0 and so <span>$\lim_{n \to \infty} |x_n - x^*| = 0$</span> and thus <span>$\lim_{n\to \infty} x_n = x^*$</span>.</p>
+<blockquote>
+<p>What additional assumption does the usual fixed-point theorem make that this does not? Given an example of a function that we can't use the standard FPT for but that we can use this for.</p>
+</blockquote>
+<p>The standard FPT assumes differentiability of <span>$g$</span>. Example: <span>$f(x) = |x/2|$</span>. This is not differentiable at <span>$x = 0$</span> but it satisfies all the other conditions of the theorem.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#question-2">2004 final question 2</a></li>
+</ul>
+<h3 class="header"><i>2.2</i>Stating it<a class="headerlink" href="#stating-it" name="stating-it">&para;</a></h3>
+<blockquote>
+<p>State it</p>
+</blockquote>
+<p>Let <span>$g$</span> be a continuous, differentiable function over the interval <span>$[a, b]$</span> such that <span>$g(x) \in [a, b]$</span> for all <span>$x \in [a, b]$</span>. Also suppose that there is a constant <span>$k$</span>, <span>$0 &lt; k &lt; 1$</span>, such that <span>$|g'(x)| \leq k &lt; 1$</span> for all <span>$x \in (a, b)$</span>. Then, for any <span>$x_0 \in [a, b]$</span>, the sequence defined by <span>$x_{n+1} = g(x_n)$</span> converges to a unique fixed point in <span>$[a, b]$</span>.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a">2005 final question 1 (a)</a>; <a href="/MATH_317/past-exam/fall-2008/final#part-a">2008 final question 1 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a">Final exercises question 1 (a)</a></li>
+</ul>
+<h3 class="header"><i>2.3</i>Proving a specific fixed point<a class="headerlink" href="#proving-a-specific-fixed-point" name="proving-a-specific-fixed-point">&para;</a></h3>
+<blockquote>
+<p>Show that there is a specific fixed point at <span>$x = \alpha$</span>.</p>
+</blockquote>
+<p>Plug in <span>$\alpha$</span> for <span>$x$</span> in <span>$g$</span>. Not hard.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-i">2008 final question 1 (b) (i)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b-i">Final exercises question 1 (b) (i)</a></li>
+</ul>
+<h3 class="header"><i>2.4</i>Satisfying conditions<a class="headerlink" href="#satisfying-conditions" name="satisfying-conditions">&para;</a></h3>
+<p>Show that <span>$g(x) \in [a, b]$</span> <span>$\forall x \in [a, b]$</span> and that there is a constant <span>$k$</span> between 0 and 1 that is the upper bound for the magnitude of the derivative. Pretty straightforward.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-ii">2008 final question 1 (b) (ii)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b-ii">Final exercises question 1 (b) (ii)</a></li>
+</ul>
+<h3 class="header"><i>2.5</i>Order of convergence<a class="headerlink" href="#order-of-convergence" name="order-of-convergence">&para;</a></h3>
+<p>Look at the first and second derivs. If the first is 0, it's linear. If the first isn't 0 and the second isn't either, it's quadratic. If the second is 0, it's faster than quadratic.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-iii">2008 final question 1 (b) (iii)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b-iii">Final exercises question 1 (b) (iii)</a></li>
+</ul>
+<h3 class="header"><i>2.6</i>Computing $x_n$<a class="headerlink" href="#computing-x_n_1" name="computing-x_n_1">&para;</a></h3>
+<blockquote>
+<p>Compute <span>$x_n$</span></p>
+</blockquote>
+<p>Do the iterations, etc</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-iv">2008 final question 1 (b) (iv)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b-iv">Final exercises question 1 (b) (iv)</a></li>
+</ul>
+<h3 class="header"><i>2.7</i>Relative error<a class="headerlink" href="#relative-error" name="relative-error">&para;</a></h3>
+<blockquote>
+<p>Find the relative error</p>
+</blockquote>
+<p>Find the absolute error, divide by the true value.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-v">2008 final question 1 (b) (v)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b-v">Final exercises question 1 (b) (v)</a></li>
+</ul>
+<h3 class="header"><i>2.8</i>Finding an interval and starting point<a class="headerlink" href="#finding-an-interval-and-starting-point" name="finding-an-interval-and-starting-point">&para;</a></h3>
+<blockquote>
+<p>Find an interval and starting point on which some iterative scheme for finding something satisfies the conditions of the theorem, and find the rate of convergence.</p>
+</blockquote>
+<p>To find the interval: guess and check? Remember the conditions of the theorem. If it's an appropriate interval, any starting point in the interval should work.</p>
+<p>For the rate of convergence, see the <a href="#order-of-convergence">order of convergence</a> section above.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b">2005 final question 1 (b)</a></li>
+</ul>
+<h2 class="header"><i>3</i>Divided differences<a class="headerlink" href="#divided-differences" name="divided-differences">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Zeroth divided differences<a class="headerlink" href="#zeroth-divided-differences" name="zeroth-divided-differences">&para;</a></h3>
+<blockquote>
+<p>Define <span>$f[x_j]$</span>.</p>
+</blockquote>
+<p><span>$f[x_j] = f(x_j)$</span> lol</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a_1">2004 final question 3 (a)</a>; <a href="/MATH_317/past-exam/fall-2008/final#part-a_1">2008 final question 2 (a)</a></li>
+</ul>
+<h3 class="header"><i>3.2</i>Interpolating polynomial (Newton form)<a class="headerlink" href="#interpolating-polynomial-newton-form" name="interpolating-polynomial-newton-form">&para;</a></h3>
+<blockquote>
+<p>Define <span>$w_j$</span> and <span>$c_j$</span> in the interpolating polynomial (in Newton form).</p>
+</blockquote>
+<p><span>$w_0 = 1$</span>; <span>$\displaystyle w_j = \prod_{i=0}^{j-1} (x-x_i)$</span> for <span>$j = 1, \ldots, n$</span>; <span>$c_j = f[x_0, \ldots, x_j]$</span> for <span>$j=0, \ldots, n$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b_1">2004 final question 3 (b)</a>; <a href="/MATH_317/past-exam/fall-2004/final#part-b">2008 final question 2 (b)</a></li>
+</ul>
+<h3 class="header"><i>3.3</i>Existence of $\xi$<a class="headerlink" href="#existence-of-xi" name="existence-of-xi">&para;</a></h3>
+<blockquote>
+<p>Prove that there is some <span>$\xi$</span> such that <span>$f[x_0, \ldots, x_n]$</span> satisfies some formula involving <span>$\xi$</span>.</p>
+</blockquote>
+<p>Define a new function <span>$g(x) = f(x) - p_n(x)$</span>. Since <span>$f(x) = p_n(x)$</span> for <span>$x= x_0, \ldots, x_n$</span>, we know that <span>$g$</span> has <span>$n+1$</span> zeroes (at least). By the generalised version of Rolle's theorem, then, <span>$g^{(n)}$</span> has at least one zero, which we'll call <span>$\xi$</span>. So there is a <span>$\xi \in [x_0, x_n]$</span> such that <span>$g^{(n)} = f^{(n)}(\xi) - p^{(n)}(\xi) = 0$</span>.</p>
+<p>Now, <span>$p^{(n)}(x)$</span> looks like <span>$n!f[x_0, \ldots, x_n]$</span> since the highest-order term has a coeff of <span>$f[x_0, \ldots, x_n]$</span> and all the lower-order terms vanish once we take the <span>$n$</span><sup>th</sup> deriv. Substitute this into the formula and we get</p>
+<p><span>$$g^{(n)} = f^{(n)}(\xi) - n!f[x_0, \ldots, x_n] = 0$$</span></p>
+<p>And if you rearrange this, the formula we want pops right out.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c_1">2004 final question 3 (c)</a>; <a href="/MATH_317/past-exam/fall-2008/final#part-c">2008 final question 2 (c)</a></li>
+</ul>
+<h3 class="header"><i>3.4</i>Table of divided differences<a class="headerlink" href="#table-of-divided-differences" name="table-of-divided-differences">&para;</a></h3>
+<blockquote>
+<p>Given some values, construct the table of divided diffs and state some polynomials of some degree which interpolate at some points.</p>
+</blockquote>
+<p>The rows are <span>$x_i$</span>'s, starting from <span>$x_0$</span>. The columns are <span>$f[x_i]$</span>, <span>$f[x_{i-1}, x_i]$</span>, etc (so the first entry goes down). Filling in the table is pretty straightforward - you only need to fill in everything on and under the diagonal.</p>
+<p>To find the polynomial of degree <span>$k$</span> which interpolates at <span>$x_i, x_{i+1}, \ldots, x_{i+j}$</span>, take the coefficients from the diagonal (if <span>$k = n$</span> where <span>$x_n$</span> is the last point) or <span>$n-k$</span> levels below the diagonal. Each coefficient gets a term <span>$(x-x_i)(x-x_{i-1})\cdots$</span> where <span>$i$</span> depends on the row the coefficient is in. To confirm that your answer is right, evaluate the polynomial at the interpolating points and make sure it matches the <span>$f$</span>-values given.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-d_1">2004 final question 3 (d)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-d">2008 final question 2 (d)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#solution_1">Final exercises question 2</a></li>
+</ul>
+<h2 class="header"><i>4</i>Forward differences<a class="headerlink" href="#forward-differences" name="forward-differences">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Approximating the derivative<a class="headerlink" href="#approximating-the-derivative" name="approximating-the-derivative">&para;</a></h3>
+<blockquote>
+<p>Use the forward difference formula with given values of <span>$h$</span> to obtain approximations for <span>$f'(x_0)$</span> at some point <span>$x_0$</span>.</p>
+</blockquote>
+<p>free points</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a_2">2004 final question 4 (a)</a></li>
+</ul>
+<h3 class="header"><i>4.2</i>Finding the error term<a class="headerlink" href="#finding-the-error-term" name="finding-the-error-term">&para;</a></h3>
+<blockquote>
+<p>Use Taylor series to find the error term.</p>
+</blockquote>
+<p>Write out Taylor expansion, rearrange to solve for <span>$f'(x_0)$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b_2">2004 final question 4 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-a_2">2008 final question 3 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a_1">Final exercises question 3 (a)</a>. Slightly different phrasing, but same concept, mostly.</li>
+</ul>
+<h3 class="header"><i>4.3</i>Richardson extrapolation<a class="headerlink" href="#richardson-extrapolation" name="richardson-extrapolation">&para;</a></h3>
+<blockquote>
+<p>Use Richardson extrapolation to get a better approximation.</p>
+</blockquote>
+<p>Given some formula for <span>$f'(x_0)$</span> that uses <span>$h$</span>, replace all the <span>$h$</span>'s by <span>$h/2$</span>, and do some algebra with the two equations for <span>$f'(x_0)$</span> (one with <span>$h$</span>, one with <span>$h/2$</span>) to get another formula for <span>$f'(x_0)$</span>. Then apply this new formula to obtain a better approximation.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c_2">2004 final question 4 (c)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b_1">2008 final question 4 (b)</a>, <a href="/MATH_317/past-exam/fall-2008/final#part-c_1">(c)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b">Final exercises question 3 (b)</a>, <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-c">(c)</a>. Slightly different phrasing, but same concept, mostly.</li>
+</ul>
+<h3 class="header"><i>4.4</i>Approximating the second derivative<a class="headerlink" href="#approximating-the-second-derivative" name="approximating-the-second-derivative">&para;</a></h3>
+<blockquote>
+<p>State a formula for approximating the second derivative and use it.</p>
+</blockquote>
+<p>Here's the centered diff formula</p>
+<p><span>$$f''(x) \approx \frac{f(x+h) -2f(x)+f(x-h)}{h^2}$$</span></p>
+<p>To derive this, find the Taylor expansions for <span>$f(x + h)$</span> and <span>$f(x-h)$</span>, add them together, and rearrange to solve for <span>$f''(x)$</span>.</p>
+<p>Not sure how to derive the forward and backward diff formulas for the second derivative but I'm sure it's possible.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-d_2">2004 final question 4 (d)</a></li>
+</ul>
+<h2 class="header"><i>5</i>Quadrature<a class="headerlink" href="#quadrature" name="quadrature">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Defining the degree of accuracy<a class="headerlink" href="#defining-the-degree-of-accuracy" name="defining-the-degree-of-accuracy">&para;</a></h3>
+<blockquote>
+<p>Define the degree of accuracy for a quadrature</p>
+</blockquote>
+<p>The degree of accuracy is the largest positive integer <span>$n$</span> such that <span>$I(p) = I_h(p)$</span> for all polynomials <span>$p$</span> of degree <span>$\leq n$</span>.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a_3">2004 final question 5 (a)</a>; <a href="/MATH_317/past-exam/fall-2005/final#part-a_4">2005 final question 5 (a)</a>; <a href="/MATH_317/past-exam/fall-2008/final#part-a_3">2008 final question 4 (a)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-a_4">2009 final question 5 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a_2">Final exercises question 4 (a)</a></li>
+</ul>
+<h3 class="header"><i>5.2</i>Finding the degree of accuracy<a class="headerlink" href="#finding-the-degree-of-accuracy" name="finding-the-degree-of-accuracy">&para;</a></h3>
+<blockquote>
+<p>Given some <span>$I_h$</span>, find the degree of accuracy.</p>
+</blockquote>
+<p>Consider <span>$x^n$</span>, and see what <span>$I_h$</span> and <span>$I$</span> do to it. (Could use <span>$[0, 1]$</span> as the interval for the definite integral, or just keep <span>$b$</span> and <span>$a$</span> the way they are.) The largest <span>$n$</span> for which <span>$I_h$</span> and <span>$I$</span> give the same result is the degree.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b_3">2004 final question 5 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_3">2005 final question 5 (c)</a>. First part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b_2">2008 final question 4 (b)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b_1">Final exercises question 4 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-b_4">2009 final question 5 (b)</a></li>
+</ul>
+<h3 class="header"><i>5.3</i>Maximising the degree of accuracy<a class="headerlink" href="#maximising-the-degree-of-accuracy" name="maximising-the-degree-of-accuracy">&para;</a></h3>
+<blockquote>
+<p>Find constants <span>$\alpha$</span>, <span>$\beta$</span>, and <span>$\gamma$</span> to maximise the degree of accuracy of some quadrature formula.</p>
+</blockquote>
+<p>There are 3 constants, so try <span>$1, x, x^2$</span> and evaluate <span>$I$</span> and <span>$I_h$</span> for each of those. Equate to get a system of 3 equations and solve it for the constants.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b_4">2005 final question 5 (b)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-c_1">Final exercises question 4 (c)</a></li>
+</ul>
+<h3 class="header"><i>5.4</i>Finding some error constant<a class="headerlink" href="#finding-some-error-constant" name="finding-some-error-constant">&para;</a></h3>
+<blockquote>
+<p>Find some constant <span>$k$</span> in some error term etc.</p>
+</blockquote>
+<p>Just simple algebraic manipulations. Use <span>$f(x) = x^n$</span> where <span>$n$</span> is the degree of accuracy.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c_3">2004 final question 5 (c)</a>; 2008 final question 4 (c); 2009 final question 5 (c)</li>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_3">2005 final question 5 (c)</a>. Second part of the question.</li>
+</ul>
+<h3 class="header"><i>5.5</i>Approximating something<a class="headerlink" href="#approximating-something" name="approximating-something">&para;</a></h3>
+<blockquote>
+<p>Approximate something (using an integral), and find an upper bound for the error</p>
+</blockquote>
+<p>Approximating is easy; just plug in values, and use the given <span>$f$</span>. To find the error bound, plug in values for the error formula given previously.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-d_3">2004 final question 5 (d)</a>; 2008 final question 4 (d)</li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-d_2">2009 final question 5 (d)</a>. No upper bound required.</li>
+</ul>
+<h2 class="header"><i>6</i>Simpson's rule<a class="headerlink" href="#simpsons-rule" name="simpsons-rule">&para;</a></h2>
+<h3 class="header"><i>6.1</i>The composite rule<a class="headerlink" href="#the-composite-rule" name="the-composite-rule">&para;</a></h3>
+<blockquote>
+<p>Derive the composite rule.</p>
+</blockquote>
+<p>Just apply it to every pair of subintervals: <span>$x_0, x_1, x_2$</span>, then <span>$x_2, x_3, x_4$</span>, then <span>$x_4, x_5, x_6$</span>, etc. Pretty easy to derive from the regular rule (which should be given, though it's also easy to remember):</p>
+<p><span>$$I_h(f) = \frac{h}{3} \sum_{j=0}^{n/2-1} [f_{2j} + 4f_{2j+1} + f_{2j+2}] = \frac{h}{3} \left ([f_0 + f_n] + 2\sum_{j=1}^{n/2-1} f_{2j} + 4\sum_{j=0}^{n/2-1} f_{2j+1} \right )$$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a_4">2004 final question 6 (a)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-a_4">2008 final question 5 (a)</a></li>
+</ul>
+<h3 class="header"><i>6.2</i>Proving a property of the composite rule<a class="headerlink" href="#proving-a-property-of-the-composite-rule" name="proving-a-property-of-the-composite-rule">&para;</a></h3>
+<blockquote>
+<p>Show that the composite rule satisfies some error formula.</p>
+</blockquote>
+<p>We're given the error bound for Simpson's rule. Sum that over the subintervals to get the error bound for the composite rule:</p>
+<p><span>$$\sum_{j=0}^{n/2-1} \left [ \frac{-h^5}{90} f^{(4)} (\zeta_j) \right ] = -\frac{h^5}{90} \sum_{j=0}^{n/2-1} f^{(4)}(\zeta_j) \tag{where $\zeta_j \in [x_{2j}, x_{2j+2}]$}$$</span></p>
+<p>Assume that <span>$f^{(4)}$</span> is continuous on the interval <span>$[a, b]$</span>. Then there is a max and min value that <span>$f^{(4)}$</span> attains over the interval, and by the intermediate value theorem, <span>$f$</span> also attains every intermediate value. Most notably, it must evaluate to the following value at some point:</p>
+<p><span>$$\frac{2}{n} \sum_{j=0}^{n/2-1} f^{(4)}(\zeta_j)$$</span></p>
+<p>(Basically we just evaluate <span>$f$</span> at a few points, take the sum, divide it accordingly; this value can't be greater than the max or less than the min of <span>$f$</span> along the interval.)</p>
+<p>Let's call this point <span>$\xi \in [a, b]$</span>. So then we have</p>
+<p><span>$$f^{(4)}(\xi) = \frac{2}{n} \sum_{j=0}^{n/2-1} f^{(4)}(\zeta_j)$$</span></p>
+<p>We can rearrange this to solve for <span>$\displaystyle \sum_{j=0}^{n/2-1} f^{(4)}(\zeta_j)$</span>:</p>
+<p><span>$$\sum_{j=0}^{n/2-1} f^{(4)}(\zeta_j) = \frac{n}{2}f^{(4)}(\xi)$$</span></p>
+<p>Then, substituting this into the error bound equation, and using the fact that <span>$nh = b-a$</span>, we get:</p>
+<p><span>$$I(f) - I_h(f) = -\frac{h^5}{90} \cdot \frac{n}{2} f^{(4)}(\xi) = -\frac{h^4(hn)}{180} f^{(4)}(\zeta) = \frac{-(b-a)h^4}{90}f{(4)}(\xi) \; \blacksquare$$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b_4">2004 final question 6 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b_3">2008 final question 5 (b)</a></li>
+</ul>
+<h3 class="header"><i>6.3</i>Finding an upper bound for the error<a class="headerlink" href="#finding-an-upper-bound-for-the-error" name="finding-an-upper-bound-for-the-error">&para;</a></h3>
+<blockquote>
+<p>Find an upper bound for the error.</p>
+</blockquote>
+<p>sooo easy. Plug and chug. See example.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c_4">2004 final question 6 (c)</a></li>
+</ul>
+<h3 class="header"><i>6.4</i>Using the rule<a class="headerlink" href="#using-the-rule" name="using-the-rule">&para;</a></h3>
+<blockquote>
+<p>Evaluate it somewhere, and find the value of <span>$h$</span> required to ensure some degree of precision.</p>
+</blockquote>
+<p>even easier. see example.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-c-i">2008 final question 5 (c) (i), (ii)</a></li>
+</ul>
+<h2 class="header"><i>7</i>Runge-Kutta<a class="headerlink" href="#runge-kutta" name="runge-kutta">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Proving an identity for $y(t_{i+1})$<a class="headerlink" href="#proving-an-identity-for-yt_i1" name="proving-an-identity-for-yt_i1">&para;</a></h3>
+<blockquote>
+<p>Show that <span>$y(t_{i+1}) = $</span> something.</p>
+</blockquote>
+<p>use common sense</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-a_5">2004 final question 7 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a_5">Final exercises question 7 (a)</a></li>
+</ul>
+<h3 class="header"><i>7.2</i>Proving an identity for $w_{i+1}$<a class="headerlink" href="#proving-an-identity-for-w_i1" name="proving-an-identity-for-w_i1">&para;</a></h3>
+<blockquote>
+<p>Some identity.</p>
+</blockquote>
+<p>see above</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-b_5">2004 final question 7 (b)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b_4">Final exercises question 7 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b-i">2005 final question 7 (b) (i)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-i_1">2008 final question 6 (b) (i)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-b-i">2009 final question 7 (b) (i)</a></li>
+</ul>
+<h3 class="header"><i>7.3</i>Conditions for the limit to approach 0<a class="headerlink" href="#conditions-for-the-limit-to-approach-0" name="conditions-for-the-limit-to-approach-0">&para;</a></h3>
+<blockquote>
+<p>Under what conditions on <span>$h$</span> does <span>$\displaystyle \lim_{i \to \infty} w_i = 0$</span>?</p>
+</blockquote>
+<p><span>$y_{i+1}$</span> is probably defined as <span>$y_i$</span> multiplied by something. If that something <span>$&lt;1$</span> (absolute-value-wise), it will converge to 0. So solve that inequality.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-c_5">2004 final question 7 (c)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-c_3">Final exercises question 7 (c)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b-ii">2005 final question 7 (b) (ii)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-b-ii_1">2008 final question 6 (b) (ii)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-b-ii">2009 final question 7 (b) (ii)</a></li>
+</ul>
+<h3 class="header"><i>7.4</i>Defining local truncation error<a class="headerlink" href="#defining-local-truncation-error" name="defining-local-truncation-error">&para;</a></h3>
+<blockquote>
+<p>Define it</p>
+</blockquote>
+<p><span>$\tau_{i+1}(h) = y(t_{i+1}) - w_{i+1}$</span> where <span>$y(t)$</span> solves <span>$y' = f(y)$</span> and <span>$y(t_i) = w_i$</span>.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-d_4">2004 final question 7 (d)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-d_1">Final exercises question 7 (d)</a>. First part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_6">2005 final question 7 (a)</a>. First part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-a_5">2008 final question 6 (a)</a>. First part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-a_6">2009 final question 7 (a)</a>. First part of the question.</li>
+</ul>
+<h3 class="header"><i>7.5</i>A formula for local truncation error<a class="headerlink" href="#a-formula-for-local-truncation-error" name="a-formula-for-local-truncation-error">&para;</a></h3>
+<blockquote>
+<p>Prove that a given formula for the location truncation error holds.</p>
+</blockquote>
+<p>Remember the definition for LTE. Recall that <span>$t_{i+1} = t_i+h$</span>, so you can do a Taylor expansion of <span>$y(t_{i+1})$</span> which might help with simplifying the expression for LTE.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2004/final#part-d_4">2004 final question 7 (d)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-d_1">Final exercises question 7 (d)</a>. Second part of the question.</li>
+</ul>
+<h3 class="header"><i>7.6</i>Determining the order<a class="headerlink" href="#determining-the-order" name="determining-the-order">&para;</a></h3>
+<blockquote>
+<p>Determine the order of the method.</p>
+</blockquote>
+<p>If the error is <span>$O(h^n)$</span> then the method is of order <span>$n-1$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_6">2005 final question 7 (a)</a>. Second part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#part-a_5">2008 final question 6 (a)</a>. Second part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-a_6">2009 final question 7 (a)</a>. Second part of the question.</li>
+</ul>
+<h2 class="header"><i>8</i>Lagrange interpolation<a class="headerlink" href="#lagrange-interpolation" name="lagrange-interpolation">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Defining Lagrange polynomials<a class="headerlink" href="#defining-lagrange-polynomials" name="defining-lagrange-polynomials">&para;</a></h3>
+<blockquote>
+<p>Define the fundamental Lagrange polys for the interpolation points and show that <span>$p_n(x)$</span> interpolates <span>$f$</span> at each of the points.</p>
+</blockquote>
+<p><span>$$l_j = \frac{x-x_0}{x_j-x_0} \cdots \frac{x-x_{j-1}}{x_j-x_{j-1}} \cdot \frac{x-x_{j+1}}{x_j-x_{j+1}} \cdots \frac{x-x_n}{x_j-x_n}$$</span></p>
+<p>To show that it interpolates <span>$f$</span> at all of the points, we just need to show that <span>$p_n(x_j) = f(x_j)$</span> for <span>$j=0, \ldots, n$</span>. Well, in the expression for <span>$p_n(x_j)$</span>, all of the terms <span>$l_k$</span> where <span>$j \neq k$</span> vanish, because we have <span>$x_j - x_j$</span> in the numerator of one of the terms in the product. So only <span>$l_j$</span> remains, and <span>$l_j$</span> looks like</p>
+<p><span>$$l_j(x_j) = \frac{x_j-x_0}{x_j-x_10} \cdots \frac{x_j-x_{j-1}}{x_j - x_{j-1}} \cdot \frac{x_j - x_{j+1}}{x_j-x_{j+1}} \cdots \frac{x_j-x_n}{x_j-x_n} = 1$$</span></p>
+<p>and so <span>$p_n(x_j) = f(x_j)$</span> QED.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_1">2005 final question 2 (a)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-a_1">2009 final question 2 (a)</a></li>
+</ul>
+<h3 class="header"><i>8.2</i>Uniqueness<a class="headerlink" href="#uniqueness" name="uniqueness">&para;</a></h3>
+<blockquote>
+<p>Show that <span>$p_n(x)$</span> is the unique interpolating polynomial of degree <span>$n$</span>.</p>
+</blockquote>
+<p>Suppose there's another poly, <span>$q(x)$</span>. Define <span>$r(x) = p_n(x) - q(x)$</span>. This is a poly of deg <span>$\leq n$</span>. At each of the data points, <span>$x_i$</span>, <span>$r(x_i) = p_n(x_i) - q(x_i) = 0$</span> because both interpolate. Thus <span>$r(x)$</span> has <span>$n+1$</span> roots. But <span>$r$</span> can't have <span>$n+1$</span> roots if its degree is bounded above by <span>$n$</span> ... unless <span>$r(x) = 0$</span>. So it must be that <span>$r(x) = 0$</span> <span>$\forall x$</span> which means that <span>$p_n(x) = q(x)$</span> and so <span>$p_n(x)$</span> is the unique interpolating polynomial.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b_1">2005 final question 2 (b)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-b_1">2009 final question 2 (b)</a></li>
+</ul>
+<h3 class="header"><i>8.3</i>Finding the polynomial<a class="headerlink" href="#finding-the-polynomial" name="finding-the-polynomial">&para;</a></h3>
+<blockquote>
+<p>Given some values, find <span>$p_n$</span> for some <span>$n$</span>.</p>
+</blockquote>
+<p>Construct the table of divided differences (REMEMBER TO DIVIDE, AND DIVIDE BY THE RIGHT THING) and build the Lagrange poly from there.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_1">2005 final question 2 (c)</a>. First part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-c_1">2009 final question 2 (c)</a></li>
+</ul>
+<h3 class="header"><i>8.4</i>Error bounds<a class="headerlink" href="#error-bounds" name="error-bounds">&para;</a></h3>
+<blockquote>
+<p>Find a bound for the error in this approximation, using some given error formula.</p>
+</blockquote>
+<p>Use the formula. Remember that <span>$x$</span> is the point we're evaluating at.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_1">2005 final question 2 (c)</a>. Second part of the question.</li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-d_1">2009 final question 2 (d)</a>.</li>
+</ul>
+<h2 class="header"><i>9</i>Splines, etc<a class="headerlink" href="#splines-etc" name="splines-etc">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Differences between methods<a class="headerlink" href="#differences-between-methods" name="differences-between-methods">&para;</a></h3>
+<blockquote>
+<p>Difference between Lagrange and Hermite? Clamped and natural cubic splines?</p>
+</blockquote>
+<p>Hermite tries to match the first deriv at the nodes as well, Lagrange doesn't care about that shit</p>
+<p>Clamped: matching the first derivs at the endpoints. Natural: the second derivs at the endpoints are 0.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_2">2005 final question 3 (a)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-a_2">2009 final question 3 (a)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-a_3">Final exercises question 5 (a)</a></li>
+</ul>
+<h3 class="header"><i>9.2</i>Finding constants for a cubic spline<a class="headerlink" href="#finding-constants-for-a-cubic-spline" name="finding-constants-for-a-cubic-spline">&para;</a></h3>
+<blockquote>
+<p>Given the formula for a natural cubic spline, find some constants in it.</p>
+</blockquote>
+<p>Find the first and second derivs, match the piecewise functions at the midpoints, etc</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b_2">2005 final question 3 (b)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-b_2">2009 final question 3 (b)</a>; <a href="/MATH_317/summary/fall-2013/final-exam-review-exercises#part-b_2">Final exercises question 5 (b)</a></li>
+</ul>
+<h3 class="header"><i>9.3</i>Bezier curve stuff<a class="headerlink" href="#bezier-curve-stuff" name="bezier-curve-stuff">&para;</a></h3>
+<blockquote>
+<p>Some q about Bezier curves</p>
+</blockquote>
+<p>not gonna</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_2">2005 final question 3 (c)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-c_2">2009 final question 3 (c)</a></li>
+</ul>
+<h2 class="header"><i>10</i>Trapezoidal rule<a class="headerlink" href="#trapezoidal-rule" name="trapezoidal-rule">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Applying the composite rule<a class="headerlink" href="#applying-the-composite-rule" name="applying-the-composite-rule">&para;</a></h3>
+<blockquote>
+<p>Apply the composite rule</p>
+</blockquote>
+<p>Literally trapezoids. Not hard.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_5">2005 final question 6 (a)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#solution_5">2009 final question 6 (a)</a></li>
+</ul>
+<h3 class="header"><i>10.2</i>Deriving an error bound<a class="headerlink" href="#deriving-an-error-bound" name="deriving-an-error-bound">&para;</a></h3>
+<blockquote>
+<p>Derive some error bound</p>
+</blockquote>
+<p>The error bound for the trapezoidal rule is</p>
+<p><span>$$\frac{(b-a)^3}{12}f''(\xi)$$</span></p>
+<p>To apply it to the composite rule, replace <span>$b$</span> by <span>$a+h$</span> for each segment (where <span>$a$</span> is the first endpoint) and take the sum.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b_5">2005 final question 6 (b)</a>; <a href="/MATH_317/past-exam/fall-2009/final#part-b_5">2009 final question 6 (b)</a></li>
+</ul>
+<h3 class="header"><i>10.3</i>Applying the error bound<a class="headerlink" href="#applying-the-error-bound" name="applying-the-error-bound">&para;</a></h3>
+<blockquote>
+<p>Use the error bound you found to obtain upper bounds on the error for a specific approximation.</p>
+</blockquote>
+<p>Use the formula.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c_4">2005 final question 6 (c)</a></li>
+</ul>
+<h3 class="header"><i>10.4</i>Using Richardson extrapolation<a class="headerlink" href="#using-richardson-extrapolation" name="using-richardson-extrapolation">&para;</a></h3>
+<blockquote>
+<p>Use it to improve the approximation</p>
+</blockquote>
+<p>think about it</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-d">2005 final question 6 (d)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-c_5">2009 final question 6 (c)</a></li>
+</ul>
+<h3 class="header"><i>10.5</i>Computing relative error<a class="headerlink" href="#computing-relative-error" name="computing-relative-error">&para;</a></h3>
+<blockquote>
+<p>Compute it</p>
+</blockquote>
+<p>easy</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-d_3">2009 final question 6 (d)</a></li>
+</ul>
+<h2 class="header"><i>11</i>Linear shooting method<a class="headerlink" href="#linear-shooting-method" name="linear-shooting-method">&para;</a></h2>
+<p>Not covered this semester.</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#question-8">2005 final question 8</a></li>
+<li><a href="/MATH_317/past-exam/fall-2008/final#question-7">2008 final question 7</a></li>
+</ul>
+<h2 class="header"><i>12</i>Root approximation and stuff<a class="headerlink" href="#root-approximation-and-stuff" name="root-approximation-and-stuff">&para;</a></h2>
+<h3 class="header"><i>12.1</i>Exactly one zero<a class="headerlink" href="#exactly-one-zero" name="exactly-one-zero">&para;</a></h3>
+<blockquote>
+<p>Show that some function has exactly one zero in an interval.</p>
+</blockquote>
+<p>could look at the derivative, find the stationary points, and look at values at the endpoints</p>
+<p>or, if it's like <span>$f(x) = x^3-3$</span>, use the fact that there's only a zero when <span>$x^3 = 3$</span> and <span>$\sqrt{3}[3]$</span> lies between 1 and 2?</p>
+<p>Whatever, don't really care if I get this wrong</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-a">2009 final question 1 (a)</a></li>
+</ul>
+<h3 class="header"><i>12.2</i>The bisection method<a class="headerlink" href="#the-bisection-method" name="the-bisection-method">&para;</a></h3>
+<blockquote>
+<p>Use it to obtain an approximation. How many steps are required to ensure a certain degree of precision?</p>
+</blockquote>
+<p>Actually pretty easy to compute ... Just keep bisecting the interval and figure out which section the root must be in. Convergence is governed by <span>$2^n$</span>, so to figure out the number of steps needed to ensure a certain degree of precision just do</p>
+<p><span>$$\text{number of steps} = \log_2\left ( \frac{b-a}{\text{error}} \right )$$</span></p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-b">2009 final question 1 (b)</a>, <a href="/MATH_317/past-exam/fall-2009/final#part-c">(c)</a></li>
+</ul>
+<h3 class="header"><i>12.3</i>Comparing iterative methods<a class="headerlink" href="#comparing-iterative-methods" name="comparing-iterative-methods">&para;</a></h3>
+<blockquote>
+<p>Rank given iterative methods based on order of convergence in a neighbourhood of the positive root</p>
+</blockquote>
+<p>Look at the derivs I guess</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-d">2009 final question 1 (d)</a></li>
+</ul>
+<h3 class="header"><i>12.4</i>Using the quadratic formula<a class="headerlink" href="#using-the-quadratic-formula" name="using-the-quadratic-formula">&para;</a></h3>
+<blockquote>
+<p>Using the quadratic formula, compute approximations to the roots of some formula</p>
+</blockquote>
+<p>exactly what it says on the tin I would assume</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-a_3">2005 final question 4 (a)</a></li>
+</ul>
+<h2 class="header"><i>13</i>Finite difference<a class="headerlink" href="#finite-difference" name="finite-difference">&para;</a></h2>
+<h3 class="header"><i>13.1</i>The second derivative<a class="headerlink" href="#the-second-derivative" name="the-second-derivative">&para;</a></h3>
+<blockquote>
+<p>Show that some formula holds for the second deriv and use this formula to approximate it at some point.</p>
+</blockquote>
+<p>Use Taylor, apply the formula</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-a_3">2009 final question 4 (a)</a>, <a href="/MATH_317/past-exam/fall-2009/final#part-b_3">(b)</a></li>
+</ul>
+<h3 class="header"><i>13.2</i>Minimising a bound<a class="headerlink" href="#minimising-a-bound" name="minimising-a-bound">&para;</a></h3>
+<blockquote>
+<p>Some really long question asking you to find the value of <span>$h$</span> to minimise some bound</p>
+</blockquote>
+<p>the usual</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-b_3">2005 final question 4 (b)</a></li>
+<li><a href="/MATH_317/past-exam/fall-2009/final#part-c_3">2009 final question 4 (c)</a></li>
+</ul>
+<h2 class="header"><i>14</i>Aitken's method<a class="headerlink" href="#aitkens-method" name="aitkens-method">&para;</a></h2>
+<p>Hopefully not covered but I'm not sure</p>
+<ul>
+<li><a href="/MATH_317/past-exam/fall-2005/final#part-c">2005 final question 1 (c)</a></li>
+</ul>
+<h2 class="header"><i>15</i>Matrix stuff<a class="headerlink" href="#matrix-stuff" name="matrix-stuff">&para;</a></h2>
+<h3 class="header"><i>15.1</i>Computing decompositions<a class="headerlink" href="#computing-decompositions" name="computing-decompositions">&para;</a></h3>
+<blockquote>
+<p><span>$LDL^T$</span> and Cholesky decomps. Is this even possible without a computer?</p>
+</blockquote>
+<p>TODO</p>
+<ul>
+<li>Assignment 4 question 1 (a), (b)</li>
+</ul>
+<h3 class="header"><i>15.2</i>Solving systems<a class="headerlink" href="#solving-systems" name="solving-systems">&para;</a></h3>
+<blockquote>
+<p>Jacobi and Gauss-Seidel. Which is faster?</p>
+</blockquote>
+<p>TODO</p>
+<ul>
+<li>Assignment 4 question 2</li>
+</ul>
+<h2 class="header"><i>16</i>Computing and precision<a class="headerlink" href="#computing-and-precision" name="computing-and-precision">&para;</a></h2>
+<h3 class="header"><i>16.1</i>Computing something to a certain precision<a class="headerlink" href="#computing-something-to-a-certain-precision" name="computing-something-to-a-certain-precision">&para;</a></h3>
+<blockquote>
+<p>How accurately do we need to know something to compute it with a certain precision</p>
+</blockquote>
+<p>Use Taylor series.</p>
+<ul>
+<li>Midterm exercises question 2</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

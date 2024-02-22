@@ -1,0 +1,144 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_141/">
+                MATH 141
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Calculus
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Calculus
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><em>This is by no means complete</em></p>
+<h2 class="header"><i>1</i>Odd and Even Functions<a class="headerlink" href="#odd-and-even-functions" name="odd-and-even-functions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Even Functions<a class="headerlink" href="#even-functions" name="even-functions">&para;</a></h3>
+<ul>
+<li>An even function is such that <span>$f(-x) = f(x)$</span>. </li>
+<li>An example is <span>$\cos{x}$</span>.</li>
+<li>Even functions are symmetric over the y-axis.</li>
+<li>For an even function, <span>$\inf_{-a}^{a} f(x) dx = 2\int_{0}^{a} f(x) dx$</span></li>
+</ul>
+<h3 class="header"><i>1.2</i>Odd Functions<a class="headerlink" href="#odd-functions" name="odd-functions">&para;</a></h3>
+<ul>
+<li>An odd function is such that <span>$f(-x) = -f(x)$</span>.</li>
+<li>An example is <span>$\sin{x}$</span>. </li>
+<li>For an odd function, <span>$\int_{-a}^{a} f(x) dx = 0$</span></li>
+</ul>
+<h2 class="header"><i>2</i>Surface Area:<a class="headerlink" href="#surface-area" name="surface-area">&para;</a></h2>
+<p><span>$A=∫2πx~ds $</span><br />
+(rotated about y-axis)<br />
+<span>$A=∫2πy~ds$</span><br />
+(rotated about x-axis)</p>
+<h2 class="header"><i>3</i>Arc Length:<a class="headerlink" href="#arc-length" name="arc-length">&para;</a></h2>
+<p><span>$ds=\sqrt{1+\frac{dx}{dy}^2}~dy$</span><br />
+<span>$ds=\sqrt{1+\frac{dy}{dx}^2}~dx$</span></p>
+<h4 class="header"><i>3.1</i>For parametric:<a class="headerlink" href="#for-parametric" name="for-parametric">&para;</a></h4>
+<p>(Use the same initial equations)<br />
+<span>$ds=\sqrt{\frac{dy}{dt}^2+\frac{dx}{dt}^2}~dt$</span></p>
+<h4 class="header"><i>3.1.1</i>Horizontal and vertical tangents:<a class="headerlink" href="#horizontal-and-vertical-tangents" name="horizontal-and-vertical-tangents">&para;</a></h4>
+<p>if <span>$\frac{dx}{dt}=0$</span> and <span>$\frac{dy}{dt}\neq0$</span> it is a vertical tangent<br />
+if <span>$\frac{dy}{dt}=0$</span> and <span>$\frac{dx}{dt}\neq0$</span> it is a horizontal tangent<br />
+the <span>$t$</span> value you get from the equation must be substituted in the respective parametric equation to get the tangent at that point.</p>
+<h2 class="header"><i>4</i>Polar Curves:<a class="headerlink" href="#polar-curves" name="polar-curves">&para;</a></h2>
+<p><span>$r=f(θ)$</span><br />
+<span>$x=f(θ) cos⁡(θ)$</span><br />
+<span>$y=f(θ) sin⁡(θ)$</span><br />
+<span>$0≤θ≤2π$</span></p>
+<h3 class="header"><i>4.1</i>for area:<a class="headerlink" href="#for-area" name="for-area">&para;</a></h3>
+<p><span>$A=\frac{1}{2}\int{(f(θ))^2 dθ}_{\theta_1}^{\theta_2}$</span><br />
+<span>$(A=1/2 ∫▒〖r^2 dθ)$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

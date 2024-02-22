@@ -1,0 +1,270 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, October 7, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, October 7, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Max flow-Min Cut &amp; Bipartite Matching
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h3 class="header"><i>1</i>Max-Flow Min-Cut Theorem<a class="headerlink" href="#max-flow-min-cut-theorem" name="max-flow-min-cut-theorem">&para;</a></h3>
+<ul>
+<li>Definition of a <code>Cut</code>: a partition of the vertices of a graph into two disjoint subsets. (Wikipedia)<ul>
+<li>Capacity/Size of a cut is Sum of capacity of edges in the cut-set (edges whose endpoints are in different set)<ul>
+<li>Minimum cut is thus the set of edges that sum up to the smallest capacity.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Claim</strong>: Suppose <em>f</em>* is the output of Ford-Fulkerson Max-Flow Algorithm<ul>
+<li>There exists a <em>Cut</em> (A<em> , B</em> ) = V(f*).</li>
+</ul>
+</li>
+<li>
+<p><strong>Proof</strong>: Let A* be the set of all vertices that can be reached from <strong>s</strong> (source) in the residual graph.   </p>
+<ul>
+<li>Consider that edges from <strong>s</strong> to <strong>t</strong> in a residual graph represent <em>left-over capacity at that edges</em>. Edges from <strong>t</strong> to <strong>s</strong> in residual graph may represent flow from <strong>s</strong> to <strong>t</strong>. </li>
+<li>Graph Gf* :<br />
+<img alt="Cut (A*,B*)" src="https://lh6.googleusercontent.com/-jwablRCJKzg/UHCyeOMKoFI/AAAAAAAAARc/05SEklsWwX0/s554/Cut%28A%2CB%29.jpg&quot;Cut(A*,B*" />")</li>
+<li>Since the algorithm terminated, we know <strong>t</strong> cannot be in A* . Otherwise, there will be a path from <strong>s</strong> to <strong>t</strong> to augment, thus continue the algorithm.</li>
+<li><strong>Note</strong>: No edge should be going from A<em> to B</em> in Gf*.</li>
+<li>For every edge <strong>e</strong> from <strong>A</strong> to <strong>B</strong> , we have <strong>f(e)=Ce</strong>: otherwise, an edge would exist connecting endpoints in  Gf *. i.e: path from A to B must be use in its full capacity, or there will be left over to produce reverse  in residual graph.</li>
+<li>
+<p>For every edge <strong>e</strong> from <strong>B</strong> to <strong>A</strong>, we have f(e)=0 : otherwise, an edge would exist connecting endpoints in Gf *. i.e: edge from B to A become residual edge from A to B if flow &gt; 0, thus must have zero flow.</p>
+<div class="codehilite"><pre>V(f*) = Sum of flow of edges from A* to B* - Sum of flow of edges from B* to A*
+     = Sum of capacity of edges from A* to B* - 0 
+     = Cap. ( A*, B*)
+
+V(f*) &lt;= max flow &lt;= min cut &lt;= Cap(A*, B*)
+    and  V(f*) = Cap(A*, B*)
+    then V(f*) = max flow = min cut = Cap(A*, B*)
+</pre></div>
+
+
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Random Question</strong>: Is it true that every max flow assigns integer values to all edges?</p>
+<ul>
+<li><strong>No</strong>, by counter example:<br />
+<img alt="no-integer flow" src="http://i.imgur.com/c9WvX.png&quot;no-integer" title="flow&quot;" /></li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>1.1</i>Choosing a good path to augment?<a class="headerlink" href="#choosing-a-good-path-to-augment" name="choosing-a-good-path-to-augment">&para;</a></h4>
+<ul>
+<li>want the largest augment path to be picked ==&gt; slow, poly time</li>
+<li>instead, start with a large value <strong>delta</strong>, and keep augmenting path with bottleneck &gt;= <strong>delta</strong> until no such a path remain. Then set <strong>delta</strong> = <strong>delta/2</strong> and continue.</li>
+</ul>
+<h5 class="header"><i>1.1.1</i>Scaling Max-Flow Algorithm<a class="headerlink" href="#scaling-max-flow-algorithm" name="scaling-max-flow-algorithm">&para;</a></h5>
+<div class="codehilite"><pre>    initially, f(e)=0 for all e in E,
+    set _delta_ = smallest power of 2 &gt;= max capacity of any edge
+
+    while _delta_ &gt;= 1:
+        while exists s-t path &quot;p&quot; in Gf(delta):
+            augment p.
+            update Gf(delta).
+        end while
+        _delta_= _delta_/2
+    end while
+
+    let Gf(**delta**) be the subgraph of Gf with only edges with residual capacity &gt;= _delta_
+</pre></div>
+
+
+<ul>
+<li><strong>Proof of Correctness :</strong>  when algorithm terminates, there won't be any <strong>s-t</strong> path in Gf.(same as Ford-Fulkerson)</li>
+<li>
+<p><strong>Runtime</strong>: </p>
+<div class="codehilite"><pre>Let C = Max (e in E) Ce. initial _delta_ &lt;= 2C
+    The outer while loop iterations = log(initial _delta_) &lt;= O(log C)
+    The runtime of inner loop is bit tough (case dependent)
+</pre></div>
+
+
+<ul>
+<li><strong>Claim</strong>: let <strong>f</strong> be a flow at the end of the <strong>delta</strong> phase (i.e no s-t path left in <strong>Gf(delta)</strong> )</li>
+<li>exits a Cut(A,B) in G such that Cap(A,B) &lt;= V(f) + M * <strong>delta</strong> where <strong>M</strong> = # of edges in G</li>
+<li><strong>Proof</strong>: Let A be the set of vertices that can be reach from s in Gf(<strong>delta</strong>) </li>
+<li>
+<p><strong>Observation</strong>: </p>
+<p>there is no residual edges from A -&gt; B in Gf(<em>delta</em>).<br />
+ so for every edge e in G from A-&gt;B, Ce-f(e) &lt; <em>delta</em>, Ce -<em>delta</em> &lt; f(e) <br />
+    i.e cannot be augmented anymore.</p>
+<p>V(f) = f out (A) - f in (A)<br />
+      = Sum of f(e) for e from A-&gt;B - Sum of f(e) for e from B-&gt;A<br />
+      &gt; Sum (Ce - delta) for e from A-&gt;B  - Sum of delta for e from B -&gt; A<br />
+                 |-------&gt;at most M<em>delta<br />
+ V(f) &gt; Cap(A,B) - M * delta <br />
+      =&gt; Cap(A,B) &lt; V(f) + M</em>delta</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Claim</strong>: the number of augmentation on the <strong>delta</strong> - phase is at most 2M</p>
+</li>
+<li>
+<p><strong>Proof</strong>: Let <strong>f</strong>^prev denotes the flow at the end of the previous phase. (2<strong>delta</strong> phase)</p>
+<ul>
+<li>V(f) &lt;= Cap(A,B) &lt;= V(fprev) + 2M</li>
+</ul>
+</li>
+<li>
+<p><strong>Observation</strong>: every augmentation in the <strong>delta</strong>-phase adds at least <strong>delta</strong> to V(f). so we  can do at most 2M augmentation:  V(f) - V (f prev) &lt;= 2<strong>delta</strong>M.</p>
+</li>
+<li>
+<p>total running time is: </p>
+<p>O(Log C     * M     *  M ) = O(M^2 log C) ---&gt; Polytime<br />
+            |--augment |--do augmentation</p>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Bipartite Matching Problem<a class="headerlink" href="#bipartite-matching-problem" name="bipartite-matching-problem">&para;</a></h3>
+<ul>
+<li><strong>Definition</strong>: A matching in a graph G is a set of edges with no intersection.</li>
+<li>A prefect matching is a matching including all vertices.</li>
+<li>
+<p><strong>The Problem</strong>:  </p>
+<ul>
+<li><strong>input</strong>: bipartite graph G, find a largest possible matching in G.</li>
+<li>convert G to a flow network G', s.t the max-flow in G' corresponds to a max match in G.</li>
+<li>construct G' like this ( G partions to (X,Y)):<ul>
+<li>direct every edge in G from X to Y and add capacity of 1</li>
+<li>add a node "s" and direct edges from s to every edge iin X with Cap=1.</li>
+<li>add a node "t" and direct edges from every edges in Y to "t" with Cap=1.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Prop</strong>: Max-Flow of G' = Max Matching in G.</p>
+</li>
+<li><strong>Claim</strong>: Max-Flow in G' &gt;= Max matching in G</li>
+<li>
+<p><strong>Proof</strong>: Let M be a max matching in G,</p>
+<ul>
+<li>assign flow of 1 to every edge in M</li>
+<li>assign flow of 1 to every edge from s to a vertex in M, and from every vertex in "?" involved in M to t.</li>
+<li>all other edges get a flow of zero.</li>
+<li>note that V(f) = M, so max flow &gt;= f = M </li>
+</ul>
+</li>
+<li>
+<p><strong>Claim</strong>: Max-Flow &lt;= Max Matching.</p>
+</li>
+<li><strong>Proof</strong>: let f be a max flow with integer values.<ul>
+<li>the edges that get a flow of 1 from X -&gt; Y will form a matching</li>
+<li>since:<br />
+<img alt="Max-Matching" src="http://i.imgur.com/R61yR.png&quot;Max-Matching&quot;" /></li>
+<li>there can only be 1 such X-&gt;Y edge incident to any one vertex in X (or in Y).</li>
+<li>so there is a matching M of size &gt;= max-flow <ul>
+<li>Max-Matching &gt;= M &gt;= Max-Flow</li>
+<li>thus: Max-Matching &gt;= Max Flow. Max-Flow &gt;= Max-Matching==&gt; Max Flow = Max Matching</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4></h4>
+<p>Note incomplete:under development</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

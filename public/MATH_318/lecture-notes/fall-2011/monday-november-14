@@ -1,0 +1,135 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, November 14, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, November 14, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Couldn&#x27;t make it to class
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h3 class="header"><i>1</i>There is no set that is onto its power set<a class="headerlink" href="#there-is-no-set-that-is-onto-its-power-set" name="there-is-no-set-that-is-onto-its-power-set">&para;</a></h3>
+<p>Claim: For any <span>$A$</span>, there is no function <span>$f: A \rightarrow P(A)$</span> which is onto <span>$P(A)$</span>. N.B. <span>$a \mapsto \{a\}$</span> is an injection from <span>$A$</span> onto <span>$P(A)$</span>.</p>
+<p>Proof: Suppose <span>$f:A \rightarrow P(A)$</span> ( So <span>$f(a) \subseteq A$</span> for each <span>$a \in A$</span>. Let <span>$S_f = \{a \in A: a \notin f(a)\}$</span>. I claim that <span>$S_f \notin ran(f)$</span>. If it were, then it is <span>$F(a)$</span> for some <span>$a \in A$</span>. But then <span>$a \in S_f$</span>, which is a contradiction.</p>
+<h3 class="header"><i>1.1</i>More about $\omega$<a class="headerlink" href="#more-about-omega" name="more-about-omega">&para;</a></h3>
+<p>Assuming that <span>$\omega$</span> exists, it is infinite. <span>$P(\omega)$</span> is a larger infinite set, and <span>$P(P(\omega))$</span> is even larger. Generally, for <span>$n \in \omega$</span>, we define <span>$P^n(\omega)$</span> recursively. Given <span>$P^n(\omega)$</span>, let <span>$P^{n+1}(\omega) = P(P^n(\omega))$</span>. Consider <span>$\{P^n(\omega):n \in \omega\}$</span>. Let <span>$P^{\omega}(\omega) = \bigcup \{P^n(\omega): n\in \omega \}$</span>. (Very informally, <span>$P^{\omega}(\omega)$</span> is <span>$\omega \cup P(\omega) \cup P(P(\omega)) \cup ...$</span>) This is bigger than any <span>$P^n(\omega)$</span>.</p>
+<p>Let <span>$P^{s \omega}(\omega) = P(P^{\omega}(\omega))$</span>, etc, etc.</p>
+<h3 class="header"><i>1.2</i>$P(\omega) \sim R$<a class="headerlink" href="#pomega-sim-r" name="pomega-sim-r">&para;</a></h3>
+<p>Given a set <span>$A$</span> and <span>$B \subseteq A$</span>, let <span>$X_B \in \{0,1\}$</span> be defined by <span>$X_B(a) = 1$</span> if <span>$a \in B$</span> and <span>$X_B(a) = 0$</span> if <span>$a \notin B$</span>. The function <span>$\Phi : P(A) \mapsto 2^A$</span> given by <span>$\Phi(B) = X_B$</span> is a bijection (N.B. T show that <span>$\Phi$</span> is onto, let <span>$f:A \mapsto \{0,1\}$</span> and <span>$B = \{a \in A: F(a) =1\}$</span>. Then <span>$f = X_B$</span>.</p>
+<h3 class="header"><i>1.3</i>If $\omega$ exists, it is an ordinal<a class="headerlink" href="#if-omega-exists-it-is-an-ordinal" name="if-omega-exists-it-is-an-ordinal">&para;</a></h3>
+<ul>
+<li>To see it's transitive, let <span>$y \in x \in \omega$</span>. <span>$x$</span> is a natural number. So <span>$y$</span> is a natural number, and hence <span>$y \in \omega$</span>.</li>
+<li>If <span>$x \in \omega$</span>, <span>$x \notin x$</span> (since <span>$x \in Sx$</span> is an ordinal).</li>
+<li>If <span>$x, y \in \omega$</span>, we can't have <span>$x \in y \land y \in x$</span></li>
+<li>If <span>$x, y, z \in \omega$</span>, <span>$x \in y \land y \in z$</span>, then <span>$x, y, z$</span> are natural numbers, hence transitive. So <span>$x \in z$</span>.</li>
+<li>If <span>$x, y \in \omega$</span>, then they are ordinals, so <span>$x\in y \lor x = y \lor y \in x$</span></li>
+<li>Finally, suppose <span>$B \neq \varnothing$</span> and <span>$B \subseteq \omega$</span>. Let <span>$x \in B$</span>, where <span>$x$</span> is an ordinall. Possibly, <span>$x \cap B = \varnothing$</span>; if so, <span>$x$</span> is the smallest element of <span>$B$</span>. If not, <span>$x \cap B$</span> is a nonempty subset of <span>$x$</span>, and has a smallest element <span>$y$</span>. Uf there is <span>$z \in B, z \in y$</span>, then by transitivity, <span>$z \in x$</span>; so <span>$\in x\cap B$</span>. //</li>
+</ul>
+<h3 class="header"><i>1.4</i>$S\omega$ is not a cardinal<a class="headerlink" href="#somega-is-not-a-cardinal" name="somega-is-not-a-cardinal">&para;</a></h3>
+<p><span>$S\omega$</span> is an ordinal, and so is <span>$SS\omega$</span>. I will define a bijection <span>$f: S\omega \mapsto \omega$</span>, thus showing that <span>$S\omega$</span> is not a cardinal.</p>
+<p>Let <span>$f(\omega)=0$</span>. Any <span>$n \in S\omega$</span> that isn't <span>$\omega$</span> is a natural number; let <span>$f(n) = S(n)$</span>.</p>
+<p><span>$\omega$</span> itself <em>is</em> a cardinal. Why?</p>
+<p>Consider the set <span>$A = \{x \in \omega : x \not \sim \omega\}$</span>. <span>$0 \in A$</span> since 0 doesn't have elements byt <span>$\omega$</span> does. Now suppose <span>$x \in A$</span>. I claim that <span>$Sx \in A$</span>. If so, <span>$A$</span> is inductive and <span>$w \subseteq A$</span>. Since <span>$A \subseteq \omega$</span>, <span>$A = \omega$</span>.</p>
+<p>We'll prove this by contradiction. Suppose <span>$x \in A$</span>, <span>$Sx \notin A$</span>. let <span>$f:\omega \mapsto Sx$</span> be a bijection. There must be <span>$n \in \omega$</span> such that <span>$f(n) = x$</span>. The restriction <span>$g=f:\omega \setminus \{n\} \mapsto x$</span> is a bijection between <span>$\omega \setminus \{n\}$</span> and <span>$x$</span> (<span>$g(m) = f(m)$</span> if <span>$m \neq n$</span>).</p>
+<p>But <span>$w \setminus \{n\} \sim \omega$</span>. To see this, let <span>$h: \omega \mapsto \omega \setminus \{n\}$</span> be given by <span>$h(m) = m$</span> if <span>$m &lt; n$</span> and <span>$h(m) = Sm$</span> if <span>$m &gt; n$</span>.</p>
+<p><span>$g \circ h: \omega \mapsto x$</span> is a bijection. That's a contradiction. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

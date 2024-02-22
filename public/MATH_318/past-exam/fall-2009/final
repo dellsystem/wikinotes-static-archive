@@ -1,0 +1,323 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2009 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2009 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#question">1.1 Question</a></li>
+<li><a href="#answer">1.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion">1.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#question_1">2.1 Question</a></li>
+<li><a href="#answer_1">2.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_1">2.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#question_2">3.1 Question</a></li>
+<li><a href="#answer_2">3.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_2">3.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#question_3">4.1 Question</a></li>
+<li><a href="#answer_3">4.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_3">4.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#question_4">5.1 Question</a></li>
+<li><a href="#answer_4">5.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_4">5.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#question_5">6.1 Question</a></li>
+<li><a href="#answer_5">6.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_5">6.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#question_6">7.1 Question</a></li>
+<li><a href="#answer_6">7.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_6">7.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#question_7">8.1 Question</a></li>
+<li><a href="#answer_7">8.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_7">8.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question<a class="headerlink" href="#question" name="question">&para;</a></h3>
+<p>Translate into propositional formulas and determine consistency.</p>
+<p>(a) If pistachios are perfect and quizzes are quiet, then ragweed is riotous. If pistachios are perfect, then either quizzes are quiet or ragweed is riotous. Pistachios are perfect and ragweed is not riotous. <em>(5 marks)</em><br />
+(b) If pistachios are perfect and quizzes are quiet, then ragweed is riotous. If pistachios are perfect, then either quizzes are quiet or ragweed is riotous. Pistachios are not perfect and ragweed is riotous. <em>(5 marks)</em></p>
+<h3 class="header"><i>1.2</i>Answer<a class="headerlink" href="#answer" name="answer">&para;</a></h3>
+<p>(a) <span>$(p \land q) \to r,\, p \to (q \lor r), \, p \land \neg r$</span>. Not consistent; for the third statement to hold, we must have <span>$V(p) = \top$</span> and <span>$V(r) = \bot$</span>. For the second one to hold, we must have <span>$V(q) = \top$</span>, but for the first one to hold, we must have <span>$V(q) = \bot$</span>.<br />
+(b) <span>$(p \land q) \to r,\,p \to (q \lor r),\,\neg p \land r$</span>. Consistent - if we have <span>$V(p) = \bot$</span>, <span>$V(r) = \top$</span>, and <span>$V(q) = $</span> either <span>$\top$</span> or <span>$\bot$</span>, then all three statements hold.</p>
+<h3 class="header"><i>1.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<blockquote>
+<p>Meh</p>
+</blockquote>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question<a class="headerlink" href="#question_1" name="question_1">&para;</a></h3>
+<p>Suppose that the binary relation <span>$R$</span> on the nonempty set <span>$A$</span> is reflexive and transitive (no assumptions about symmetry/antisymmetry made).</p>
+<p>(a) <span>$E$</span> on <span>$A$</span> is defined by <span>$aEb$</span> if and only if <span>$aRb$</span> and <span>$bRa$</span>. Show that <span>$E$</span> is an equivalence relation on <span>$A$</span>. <em>(5 marks)</em><br />
+(b) Prove that, if <span>$a'Ea$</span> and <span>$b'Eb$</span>, then <span>$aRb$</span> if and only if <span>$a'Rb'$</span>. <em>(5 marks)</em><br />
+(c) Set of equivalence classes: <span>$A / E$</span>; the class containing <span>$a \in A$</span>: <span>$[a]$</span>. We define a relation <span>$\bar R$</span> of <span>$A / E$</span> by <span>$[b]\bar R[b]$</span> if and only if <span>$aRb$</span>. Prove that <span>$\bar R$</span> is a partial order of <span>$A / E$</span>. <em>(5 marks)</em></p>
+<h3 class="header"><i>2.2</i>Answer<a class="headerlink" href="#answer_1" name="answer_1">&para;</a></h3>
+<p>(a) Any relation that is reflexive, symmetric, and transitive is an equivalence relation. That the relation is reflexive is obvious, as <span>$R$</span> is reflexive - <span>$aRa$</span> for all <span>$a \in A$</span>, and so <span>$aEa$</span> as well. That the relation is symmetric is clear from the definition of <span>$E$</span>, as for all <span>$a \in A$</span>, <span>$aEb$</span> if and only if <span>$aRb$</span> and <span>$bRa$</span>, meaning that both <span>$aEb$</span> and <span>$bEa$</span> are true. That the relation is transitive is due to the fact that <span>$R$</span> is transitive - if <span>$aRb$</span> and <span>$bRc$</span>, then <span>$aRc$</span>, and so if <span>$bRa$</span> and <span>$cRb$</span>, then <span>$aEb$</span> and <span>$bEc$</span>. But since <span>$cRb$</span> and <span>$bRa$</span>, then <span>$cRa$</span>, due to the transitivity of <span>$R$</span>, and since <span>$cRa$</span> and <span>$aRc$</span>, then <span>$aEc$</span>. So <span>$E$</span> is transitive, reflexive, and symmetric, and thus an equivalence relation.<br />
+(b) First, we prove that if <span>$aRb$</span>, then <span>$a'Rb'$</span>. Since <span>$a'Ea$</span>, then <span>$a'Ra$</span> and <span>$aRa'$</span>, and since <span>$b'Eb$</span>, then <span>$b'Rb$</span> and <span>$bRb'$</span>. If <span>$aRb$</span>, then we must also have that <span>$a'Rb'$</span> by the transitivity of <span>$R$</span>, as <span>$a'Ra$</span> and <span>$aRb$</span> entails that <span>$a'Rb$</span>, and <span>$a'Rb$</span> and <span>$bRb'$</span> entails that <span>$a'Rb'$</span>. Then, we prove that if <span>$a'Rb'$</span>, then <span>$aRb$</span>. Using transitivity again, we have that <span>$aRb'$</span> (from <span>$aRa'$</span> and <span>$a'Rb'$</span>), and so we have that <span>$aRb$</span> (from <span>$aRb'$</span> and <span>$b'Rb$</span>). Therefore, we have that <span>$aRb$</span> if and only if <span>$a'Rb'$</span>.<br />
+(c) For this relation to be a partial order, it must be reflexive (or irreflexive for strict, but this specific relation is not), antisymmetric, and transitive. Reflexivity: <span>$[a]\bar R[a]$</span> is true, because <span>$aRa$</span> due to the reflexivity of <span>$R$</span>. Antisymmetry: if <span>$[a]R[b]$</span> and <span>$[b]R[a]$</span>, then <span>$[a] = [b]$</span>, because if <span>$aRb$</span> and <span>$bRa$</span>, then <span>$a$</span> and <span>$b$</span> would be in the same equivalence class<sup>confirm?</sup>. Transitivity: if <span>$[a]R[b]$</span> and <span>$[b]R[c]$</span>, then <span>$[a]R[c]$</span>, due to the transitivity of <span>$R$</span> (as <span>$aRb$</span> and <span>$bRc$</span> entail <span>$aRc$</span>). So <span>$\bar R$</span> is a partial order of <span>$A / E$</span>.</p>
+<h3 class="header"><i>2.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<blockquote>
+<p>Not sure about justification of antisymmetry and transitivity for (c).</p>
+</blockquote>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question<a class="headerlink" href="#question_2" name="question_2">&para;</a></h3>
+<p><span>$(L_1; \leq_1)$</span> and <span>$(L_2; \leq_2)$</span> are lattices not containing <span>$\top$</span> or <span>$\bot$</span>, with <span>$L_1 \cap L_2 = \varnothing$</span>. Let <span>$L = L_1 \cup L_2 \cup \{\top, \bot \}$</span>. Define <span>$\leq$</span> on <span>$L$</span> by <span>$a \leq b$</span> if any only if either: <span>$a \bot$</span>, or <span>$b = \top$</span>, or <span>$a, b \in L_1$</span> and <span>$a \leq_1 b$</span>, or <span>$a \in L_2$</span> and <span>$a \leq_2 b$</span>. Show that if <span>$L_1$</span> or <span>$L_2$</span> (or both) has at least two elements, then <span>$L$</span> is not modular. <em>(10 marks)</em></p>
+<h3 class="header"><i>3.2</i>Answer<a class="headerlink" href="#answer_2" name="answer_2">&para;</a></h3>
+<p>Show that there is a copy of <span>$N_5$</span> ("five"), the smallest non-modular lattice. Use <span>$\alpha, \beta, \gamma$</span> somehow.</p>
+<h3 class="header"><i>3.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<blockquote>
+<p>If only one of <span>$L_1$</span> and <span>$L_2$</span> has two elements, then doesn't the other have to have at least one element? Otherwise, we don't have enough elements to make up a five? Finish this.</p>
+</blockquote>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Question<a class="headerlink" href="#question_3" name="question_3">&para;</a></h3>
+<p>One of the following statements is a logical theorem and the other is not. Identify which is which, and give a quasi-formal proof of the logical theorem; give a structure verifying that the other is not a logical theorem. <span>$f$</span> and <span>$g$</span> are unary function symbols. <em>(20 marks)</em></p>
+<p><span>$$\forall x \forall y (fgx = fgy \to x = y) \to \forall x \forall y (fx = fy \to x = y)$$</span></p>
+<p><span>$$\forall x \forall y(fgy = fgy \to x = y) \to \forall x \forall y(gx=gy \to x = y)$$</span></p>
+<h3 class="header"><i>4.2</i>Answer<a class="headerlink" href="#answer_3" name="answer_3">&para;</a></h3>
+<p>The second one is a logical theorem; the first is false.</p>
+<p>Proof of the logical theorem:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$gx = gy \vdash fgx = fgy$</span></td>
+<td>Substitution rule 1</td>
+</tr>
+<tr>
+<td>(2) <span>$fgx = fgy \to x = y, fgx = fgy \vdash x = y$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(3) <span>$fgx = fgy \to x = y, gx = gy \vdash x = y$</span></td>
+<td>Transitivity using (1) and (2)</td>
+</tr>
+<tr>
+<td>(4) <span>$fgy = fgy \to x = y \vdash gx = gy \to x = y$</span></td>
+<td>Deduction from (3)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x \forall y (fgx = fgy \to x = y) \vdash fgx = fgy \to x = y$</span></td>
+<td><span>$\forall$</span>-elimination twice</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x \forall y (fgx = fgy \to x = y) \vdash gx = gy \to x = y$</span></td>
+<td>Transitivity using (4) and (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x \forall y (fgx = fgy \to x = y) \vdash \forall x \forall y (gx = gy \to x = y)$</span></td>
+<td><span>$\forall$</span>-introduction twice</td>
+</tr>
+</tbody>
+</table>
+<p>Counterexample to the first statement: let the set be the natural numbers. Say <span>$g: \mathbb{N} \to \mathbb{N}$</span> is given by <span>$g(x) = 2x$</span>, and let <span>$\displaystyle f(x) = \left \lfloor \frac{x}{2} \right \rfloor$</span>. <span>$f(x)$</span> is clearly not one-to-one, but the composition is.</p>
+<h3 class="header"><i>4.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<blockquote>
+<p>Identification of the logical theorem was done in class, as was the counterexample. The proof was student-made and its correctness is debatable. <a href="/users/dellsystem">@dellsystem</a></p>
+<p>Can you just do a substitution right off the bat? Don't you need to start with a tautology? <a href="https://en.wikipedia.org/wiki/Substitution_%28logic%29">wikipedia link</a> <a href="/users/tahnok">@tahnok</a></p>
+</blockquote>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Question<a class="headerlink" href="#question_4" name="question_4">&para;</a></h3>
+<p>We invent a structure <span>$\mathcal{M} = (M; f^{\mathcal{M}}, P^{\mathcal{M}})$</span>, where <span>$f$</span> is a unary function symbol and <span>$P$</span> is a binary relation symbol as follows: <span>$M = \{\alpha, \beta, \gamma\}, f^{\mathcal{M}}(\alpha) = f^{\mathcal{M}}(\beta) = \gamma, f^{\mathcal{M}}(\gamma) = \alpha$</span>, and <span>$P^{\mathcal{M}} = \{(\alpha, \alpha), (\alpha, \gamma), (\beta, \gamma), (\gamma, \gamma)\}$</span>. Decide whether or not</p>
+<p><span>$$\mathcal{M} \models \forall x \exists y (Pxfy \land \neg Pfxy)$$</span></p>
+<p>and justify your answer. <em>(10 marks)</em></p>
+<h3 class="header"><i>5.2</i>Answer<a class="headerlink" href="#answer_4" name="answer_4">&para;</a></h3>
+<p>Yes. For <span>$x = \alpha$</span>, <span>$y = \alpha$</span> satisfies the formula, as <span>$P\alpha f\alpha = P\alpha \gamma$</span> is true and <span>$P\gamma \alpha$</span> is false. For <span>$x = \beta$</span>, <span>$y = \alpha$</span> again satisfies the formula, as <span>$P\beta f \alpha = P \beta \gamma$</span> is true and <span>$P \gamma \alpha$</span> is false. For <span>$x = \gamma$</span>, <span>$y = \beta$</span> satisfies the formula, as <span>$P\gamma f \beta = P\gamma \gamma$</span> is true and <span>$P \alpha \beta$</span> is false.</p>
+<h3 class="header"><i>5.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<blockquote>
+<p>Accurate I think</p>
+</blockquote>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Question<a class="headerlink" href="#question_5" name="question_5">&para;</a></h3>
+<p>Give an informal proof from Peano arithmetic of the following. You may use anything done in class or on the assignments, but not for instance the fundamental theorem of arithmetic, since we did not prove that. Recall we use the abbreviation <span>$\Pi(x)$</span> for "<span>$x$</span> is a prime number" and <span>$x \mid y$</span> for "x divides y". <em>(15 marks)</em></p>
+<p><span>$$\forall x \forall y \forall x ((\Pi(x) \land \Pi(y) \land \Pi(z) \land x \neq y) \to \neg ((x \cdot y) \mid (z \cdot z \cdot z))$$</span></p>
+<h3 class="header"><i>6.2</i>Answer<a class="headerlink" href="#answer_5" name="answer_5">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>6.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Question<a class="headerlink" href="#question_6" name="question_6">&para;</a></h3>
+<p>Prove that if <span>$\alpha$</span> is a limit ordinal, then for any ordinal <span>$\beta$</span>, <span>$\beta + \alpha$</span> is a limit ordinal. (The addition is of course ordinal addition.) <em>(10 marks)</em></p>
+<h3 class="header"><i>7.2</i>Answer<a class="headerlink" href="#answer_6" name="answer_6">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>7.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Question<a class="headerlink" href="#question_7" name="question_7">&para;</a></h3>
+<p>Give a formula in prenex normal form which is equivalent to the formula</p>
+<p><span>$$\forall y (Py \to Qxy) \land \neg \forall x (Px \land \exists y Qxy)$$</span></p>
+<p>Here of course P is a unary predicate symbol and Q is a binary predicate symbol. <em>(10 marks)</em></p>
+<h3 class="header"><i>8.2</i>Answer<a class="headerlink" href="#answer_7" name="answer_7">&para;</a></h3>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\forall y (Py \to Qxy) \land \neg \forall x (\exists y(Px \land Qxy)$</span></td>
+<td>Move the exists outside one</td>
+</tr>
+<tr>
+<td><span>$\forall y (Py \to Qxy) \land \exists x \forall y (\neg (Px \land Qxy))$</span></td>
+<td>Change the <span>$\exists y$</span> to <span>$\neg \forall y \neg$</span>, double negatives cancel</td>
+</tr>
+<tr>
+<td><span>$\forall z (Pz \to Qxz) \land \exists x \forall y (\neg (Px \land Qxy))$</span></td>
+<td>Change of bound variable, from y to z</td>
+</tr>
+<tr>
+<td><span>$\forall z ((Pz \to Qxz) \land \exists x \forall y (\neg (Px \land Qxy)))$</span></td>
+<td>Move the forall around both</td>
+</tr>
+<tr>
+<td><span>$\forall z((Pz \to Qxz) \land \exists w \forall y(\neg(Pw \land Qwy)))$</span></td>
+<td>Change of bound variable, from x to w</td>
+</tr>
+<tr>
+<td><span>$\forall z \exists w ((Pz \to Qxz) \land \forall y (\neg (Pw \land Qwy)))$</span></td>
+<td>Move the exists outside one</td>
+</tr>
+<tr>
+<td><span>$\forall z \exists w \forall y ((Pz \to Qxz) \land \neg (Pw \land Qwy))$</span></td>
+<td>Move the forall outside one</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>8.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<blockquote>
+<p>Done in class on <a href="/MATH_318/lecture-notes/fall-2011/wednesday-november-23">Wednesday, November 23</a></p>
+</blockquote>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

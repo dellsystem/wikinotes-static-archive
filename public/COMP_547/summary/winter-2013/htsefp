@@ -1,0 +1,303 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_547/">
+                COMP 547
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#pseudorandom-functions">1 Pseudorandom functions</a><ul>
+<li><a href="#examples">1.1 Examples</a><ul>
+<li><a href="#winter-2011-question-1">1.1.1 Winter 2011, question 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#extracting-square-roots">2 Extracting square roots</a><ul>
+<li><a href="#examples_1">2.1 Examples</a><ul>
+<li><a href="#winter-2011-question-2">2.1.1 Winter 2011, question 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#calculate-a-modular-exponent">3 Calculate a modular exponent</a><ul>
+<li><a href="#examples_2">3.1 Examples</a><ul>
+<li><a href="#winter-2010-question-3">3.1.1 Winter 2010, question 3</a></li>
+<li><a href="#winter-2009-question-3">3.1.2 Winter 2009, question 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#negligible-functions">4 Negligible functions</a><ul>
+<li><a href="#examples_3">4.1 Examples</a><ul>
+<li><a href="#winter-2011-question-3">4.1.1 Winter 2011, question 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#enigma">5 Enigma</a><ul>
+<li><a href="#examples_4">5.1 Examples</a><ul>
+<li><a href="#winter-2000-question-2">5.1.1 Winter 2000, question 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#double-rsa">6 Double RSA</a><ul>
+<li><a href="#examples_5">6.1 Examples</a><ul>
+<li><a href="#winter-1999-question-3">6.1.1 Winter 1999, question 3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#short-and-sweet">7 Short and sweet</a><ul>
+<li><a href="#examples_6">7.1 Examples</a><ul>
+<li><a href="#winter-1999-question-5">7.1.1 Winter 1999, question 5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#computational-hardness">8 Computational hardness</a><ul>
+<li><a href="#examples_7">8.1 Examples</a><ul>
+<li><a href="#winter-1999-question-2">8.1.1 Winter 1999, question 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#three-way-diffie-hellman">9 Three-way Diffie-Hellman</a><ul>
+<li><a href="#examples_8">9.1 Examples</a><ul>
+<li><a href="#winter-1999-question-6">9.1.1 Winter 1999, question 6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#macs-and-signatures">10 MACs and signatures</a><ul>
+<li><a href="#examples_9">10.1 Examples</a><ul>
+<li><a href="#winter-2011-question-4">10.1.1 Winter 2011, question 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Pseudorandom functions<a class="headerlink" href="#pseudorandom-functions" name="pseudorandom-functions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Winter 2011, question 1<a class="headerlink" href="#winter-2011-question-1" name="winter-2011-question-1">&para;</a></h4>
+<blockquote>
+<p>Is it a PRF</p>
+<p>i) <span>$f_k$</span> and <span>$f_{\overline k}$</span> are always the same<br />
+ii) <span>$f_k(0^n) = 0^n$</span> for all <span>$k$</span><br />
+iii) <span>$f_k(0^n) = k$</span> for all <span>$k$</span><br />
+iv) <span>$f_k(k) = k$</span> for all <span>$k$</span></p>
+</blockquote>
+<p>i) no<br />
+ii) no<br />
+iii) no, you can figure out <span>$k$</span> from <span>$f_k(0^n)$</span> and then just check <span>$f_k(0^n)$</span>...<br />
+iv) yes, because you would have to check a superpoly number of inputs <span>$n$</span> to figure that out</p>
+<h2 class="header"><i>2</i>Extracting square roots<a class="headerlink" href="#extracting-square-roots" name="extracting-square-roots">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Winter 2011, question 2<a class="headerlink" href="#winter-2011-question-2" name="winter-2011-question-2">&para;</a></h4>
+<blockquote>
+<p>Calculate the square roots of 1 mod 143.</p>
+</blockquote>
+<p>1 and -1, obviously. Also, 12 cuz 144, yeah. So -12 too. No others, though I'm not sure how to know that for certain. Then <span>$r_0 = 1$</span>, <span>$r_1 = 12$</span>, and <span>$\gcd(11, 143) = 11$</span> and <span>$\gcd(13, 143) =13$</span> (so <span>$r_0 \pm r_1$</span> gives us the factors of <span>$N$</span>).</p>
+<h2 class="header"><i>3</i>Calculate a modular exponent<a class="headerlink" href="#calculate-a-modular-exponent" name="calculate-a-modular-exponent">&para;</a></h2>
+<p>Compute <span>$a^x \pmod N$</span> by hand.</p>
+<h3 class="header"><i>3.1</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Winter 2010, question 3<a class="headerlink" href="#winter-2010-question-3" name="winter-2010-question-3">&para;</a></h4>
+<blockquote>
+<p>Compute <span>$3^{1000} \pmod{100}$</span> (last two digits)</p>
+</blockquote>
+<p><span>$\varphi(100) = (2^2-2^1)(5^2-5^1) = 2\cdot 20 = 40$</span>. Euler's theorem tells us that <span>$a^{\varphi(N)} \pmod N = 1$</span>, so <span>$3^{40} = 1 \pmod{100}$</span>. But <span>$3^{1000} = (3^{40})^{25} = 1^{25} = 1 \pmod 100$</span>. So the last two digits are 01.</p>
+<p>Source: Exercise 7.5.</p>
+<h4 class="header"><i>3.1.2</i>Winter 2009, question 3<a class="headerlink" href="#winter-2009-question-3" name="winter-2009-question-3">&para;</a></h4>
+<blockquote>
+<p>Compute <span>$101^{4,800,000,023} \pmod 35$</span></p>
+</blockquote>
+<p><span>$\varphi(35) = (7-1)(5-1) = 6\cdot 4 = 24$</span>. Now, <span>$4,800,000,023 = 4,800,000,000 + 24 - 1 = 24 \cdot 200,000,001 - 1$</span>. Thus <span>$101^{4,800,000,023} = 101^{24\cdot 200,000,001 - 1} = 101^{-1} \cdot (101^{24})^{200,000,000} = 101^{-1} \cdot 1 = 101^{-1}$</span>. Now, <span>$101 \pmod 35 = 31$</span>. The inverse of 31 in <span>$\pmod 35$</span> is 26 (determined through brute force; is there a better way?) so that is the answer.</p>
+<p>Source: Exercise 7.6.</p>
+<h2 class="header"><i>4</i>Negligible functions<a class="headerlink" href="#negligible-functions" name="negligible-functions">&para;</a></h2>
+<p>Definition page 56.</p>
+<h3 class="header"><i>4.1</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Winter 2011, question 3<a class="headerlink" href="#winter-2011-question-3" name="winter-2011-question-3">&para;</a></h4>
+<p>A: <span>$n^{-\log n}$</span>. Proof: Show that <span>$n^{\log n} &gt; p(n)$</span>. Etc<br />
+B: <span>$2^n$</span>?<br />
+C: <span>$f(n) = 1$</span>? Not sure</p>
+<h2 class="header"><i>5</i>Enigma<a class="headerlink" href="#enigma" name="enigma">&para;</a></h2>
+<p>Doubt there will be any questions about it this year</p>
+<h3 class="header"><i>5.1</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>Winter 2000, question 2<a class="headerlink" href="#winter-2000-question-2" name="winter-2000-question-2">&para;</a></h4>
+<p>Enigma can't encrypt any letters to the same place. I think the OCR got messed up though, it looks weird.</p>
+<h2 class="header"><i>6</i>Double RSA<a class="headerlink" href="#double-rsa" name="double-rsa">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Winter 1999, question 3<a class="headerlink" href="#winter-1999-question-3" name="winter-1999-question-3">&para;</a></h4>
+<blockquote>
+<p>Why double-encryption is a bad idea</p>
+</blockquote>
+<p>So there are two main ways to break RSA. Either you factor <span>$N$</span>, or bruteforce <span>$d_1$</span> and <span>$d_2$</span>. This change does NOT make it harder to factor <span>$N$</span> (in fact it might make it easier since you're supplying more information). Also, instead of bruteforcing <span>$d_1$</span> or <span>$d_2$</span>, you have to bruteforce <span>$d_1\cdot d_2$</span> (so find an <span>$e$</span> that is an inverse). Or, you can compute the inverse of <span>$d_1$</span>, which lets you factor <span>$N$</span>, which lets you compute <span>$d_2$</span>. So it's useless.</p>
+<h2 class="header"><i>7</i>Short and sweet<a class="headerlink" href="#short-and-sweet" name="short-and-sweet">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Winter 1999, question 5<a class="headerlink" href="#winter-1999-question-5" name="winter-1999-question-5">&para;</a></h4>
+<blockquote>
+<p>a) Properties of Enigma that made it vulnerable to KPA?<br />
+b) Entropy and authentication codes?<br />
+c) Weakly/strongly collision free</p>
+</blockquote>
+<p>a) Property as in, techniques? Either gardening (e.g., planting mines), or just guessing (eins catalogue, WETTER, ANX). If mechanical property, then, idk, the fact that cillies could be guessed, or a letter can't be encrypted to itself, a whole bunch of things<br />
+b)<br />
+c) Weak = second pre-image resistance, strong = collision-resistance<br />
+d) Get a function, compute <span>$f(0^n)$</span>, return the first bit<br />
+e) EG: based on hardness of DDH; DSS: based on hardness of discrete log</p>
+<h2 class="header"><i>8</i>Computational hardness<a class="headerlink" href="#computational-hardness" name="computational-hardness">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<h4 class="header"><i>8.1.1</i>Winter 1999, question 2<a class="headerlink" href="#winter-1999-question-2" name="winter-1999-question-2">&para;</a></h4>
+<blockquote>
+<p>What things are hard/easy</p>
+<p>a) factoring a product of two primes<br />
+b) deciding quad res mod a prime<br />
+c) quad res mod <span>$pq$</span><br />
+d) sqrts mod a prime<br />
+e) sqrts mod <span>$pq$</span><br />
+f) discrete log mod prime<br />
+g) discrete log mod <span>$pq$</span><br />
+h) legendre symbols<br />
+i) jacobi symbols</p>
+</blockquote>
+<p>a) is hard (and if this is easy, RSA is easy to break), f) is hard (and if this is easy DSS is easy to break), g) is hard (and if this is easy DH is easy to break).</p>
+<h2 class="header"><i>9</i>Three-way Diffie-Hellman<a class="headerlink" href="#three-way-diffie-hellman" name="three-way-diffie-hellman">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<h4 class="header"><i>9.1.1</i>Winter 1999, question 6<a class="headerlink" href="#winter-1999-question-6" name="winter-1999-question-6">&para;</a></h4>
+<blockquote>
+<p>How do you do 3-way Diffie-Hellman</p>
+</blockquote>
+<p>Answer from <a href="http://crypto.stackexchange.com/questions/1025/can-one-generalize-the-diffie-hellman-key-exchange-to-three-or-more-parties">StackExchange</a>:</p>
+<p>The standard Diffie-Hellman key exchange algorithm (or family of algorithms) works in an cyclic group with generator <span>$g$</span>, and relies on</p>
+<p><span>$$ {y_A}^{x_B} = (g^{x_A})^{x_B} = (g^{x_B})^{x_A} = {y_B}^{x_A}, $$</span></p>
+<p>where <span>$y_A$</span> and <span>$y_B$</span> are publicly transmitted, while <span>$x_A$</span> and <span>$x_B$</span> remain private.</p>
+<p>With three parties, we still have </p>
+<p><span>$$((g^{x_A})^{x_B})^{x_C} = ((g^{x_A})^{x_C})^{x_B} = ((g^{x_B})^{x_A})^{x_C} = ((g^{x_B})^{x_C})^{x_A} = ((g^{x_C})^{x_B})^{x_A} = ((g^{x_C})^{x_A})^{x_B}. $$</span></p>
+<p>As each party wants to let its own key private, each exponentiation needs to be done at different locations, which means some parties have to send their second-step results to the other parties.</p>
+<p>One possible protocol could be the following:</p>
+<ol>
+<li>A, B, C each generate their private keys <span>$x_A$</span>, <span>$x_B$</span>, <span>$x_C$</span>.</li>
+<li>A, B, C each calculate <span>$y_A = g^{x_A}$</span>, <span>$y_B = g^{x_B}$</span>, <span>$y_C = g^{x_C}$</span>.</li>
+<li>A sends <span>$y_A$</span> to B, B sends <span>$y_B$</span> to C, C sends <span>$y_C$</span> to A.</li>
+<li>A calculates <span>$z_{CA} = {y_C}^{x_A}$</span>, B calculates <span>$z_{AB} = {y_A}^{x_B}$</span>, C calculates <span>$z_{BC} = {y_B}^{x_C}$</span>.</li>
+<li>A sends <span>$z_{CA}$</span> to B, B sends <span>$z_{AB}$</span> to C, C sends <span>$z_{BC}$</span> to A.</li>
+<li>A calculates <span>$k_{BCA} = {z_{BC}}^{x_A}$</span>, B calculates <span>$k_{CAB} = {z_{CA}}^{x_B}$</span>, C calculates <span>$k_{ABC} = {z_{AB}}^{x_C}$</span>.</li>
+</ol>
+<p>The above equality means that the three parties now know a common secret <span>$k_{ABC} = k_{CAB} = k_{BCA}$</span>.</p>
+<p>This obviously generalizes to more than three parties, but it needs one additional group exponentiation per participant more for each additional participant (i.e. in total <span>$n^2$</span> exponentiations).</p>
+<p>All of this works in all groups, so also in the elliptic curve groups (where this is usually written as point multiplication instead of exponentiation).</p>
+<p>In practice it might be easier to exchange secret keys with some "hub" node, which then creates a common secret and sends it to each participant, like Dennis proposed in his answer.</p>
+<h2 class="header"><i>10</i>MACs and signatures<a class="headerlink" href="#macs-and-signatures" name="macs-and-signatures">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<h4 class="header"><i>10.1.1</i>Winter 2011, question 4<a class="headerlink" href="#winter-2011-question-4" name="winter-2011-question-4">&para;</a></h4>
+<blockquote>
+<p>1) Why is the term signature only used for public keys<br />
+2) Why is textbook RSA shitty<br />
+3) Why do signatures need assumptions</p>
+</blockquote>
+<p>1) Because with MACs, you can't really tell who signed it because of the shared key, plus it's not publicly verifiable<br />
+2) No-message and arbitrary-message attacks<br />
+3) Because public keys, thus one-way functions</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

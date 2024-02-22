@@ -1,0 +1,156 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/CHEM_212/">
+                CHEM 212
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Acids
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Acids
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>What do we mean by an "acid"?<a class="headerlink" href="#what-do-we-mean-by-an-acid" name="what-do-we-mean-by-an-acid">&para;</a></h2>
+<p>There are in fact two definitions of an acid.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Brønsted–Lowry Definition</th>
+<th>Lewis Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An acid loses a proton</td>
+<td>An acid accepts an electron pair and is electron deficient, it has an empty valence orbital</td>
+</tr>
+<tr>
+<td>A base accepts a proton</td>
+<td>A base is an electron pair donor, it is electron rich and has a lone pair in its valence orbital</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>2</i>How do we measure acids?<a class="headerlink" href="#how-do-we-measure-acids" name="how-do-we-measure-acids">&para;</a></h2>
+<ul>
+<li>Acids are measured by their ease of forming H<sub>3</sub>O+</li>
+<li>We use the pka of an acid to be able to compare it to others.</li>
+</ul>
+<p><span>$$k_a = \frac{[H_3O^+][A^-]}{[HA]} \quad pka = -log_{10} K_a$$</span></p>
+<ul>
+<li>A weak acid has a pka of between 0 and 10 (Their conjugate bases are weak acids)</li>
+<li>A non-acid has a pka &gt; 14 (Their conjugate bases are strong)</li>
+<li>A strong acid has a pka &lt; 0 (Their conjugate bases are non-bases)</li>
+</ul>
+<p>We can determine acid strength by evaluating (1) Resonance Effects, (2) Inductive Effects, (3) Electronegativity and (4) Bond Strength</p>
+<dl>
+<dt>Resonance Effects</dt>
+<dd>Stability from contributing structures, If the conjugate base has a resonance stabilized structure it is more likely to dissociate and has a lower pka (stronger acid)</dd>
+<dt>Inductive effects</dt>
+<dd>Polarization of a C-C bond to a nearby polarizing group withdraws electrons, the same way, if the electrons from a C-H bond are withdrawn with more strength we are more likely to dissociate and the compound has a lower pka (stronger acid)</dd>
+<dt>Bond Strength</dt>
+<dd>Larger atoms (X) in a X-H bond are more likely to dissociate and thus results in a lower pka (stronger acid)</dd>
+<dt>Electronegativity</dt>
+<dd>A more electronegative element (X) in a X-H bond is more likely to dissociate and thus results in a lower pka</dd>
+<dt>Hybridization</dt>
+<dd>The more "S" character the atom has the stronger the acid is. This is because incoming electrons are held closer to the nucleus</dd>
+</dl>
+<h2 class="header"><i>3</i>How does this link to organic chemistry?<a class="headerlink" href="#how-does-this-link-to-organic-chemistry" name="how-does-this-link-to-organic-chemistry">&para;</a></h2>
+<ul>
+<li>Carbocations are electron-deficient and thus act as a Lewis acid</li>
+<li>Carboanions are electron-rich and thus act as a Lewis base</li>
+</ul>
+<p>A table of pkas of acids is linked</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

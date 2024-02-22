@@ -1,0 +1,169 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, April 3, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, April 3, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Comparison tests, absolute and conditional convergence
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Comparison test<a class="headerlink" href="#comparison-test" name="comparison-test">&para;</a></h2>
+<p><strong>Comparison test:</strong> Let <span>$(x_n), (y_n)$</span> be sequences of real numbers and suppose <span>$\exists k in \mathbb N$</span> such that <span>$0 \leq x_n \leq y_n$</span> for <span>$n \geq k$</span>.<br />
+i) if <span>$\sum y_n$</span> converges then <span>$\sum x_n$</span> converges<br />
+ii) if <span>$\sum x_n$</span> diverges then <span>$\sum y_n$</span> diverges</p>
+<p><strong>Proof:</strong> i) Suppose <span>$\sum y_n$</span> converges, then for any <span>$\epsilon &gt; 0$</span> <span>$\exists N \in \mathbb N$</span> such that if <span>$m &gt; n \geq N$</span> then <span>$|y_{n+1} + y_{n+2} + \ldots + y_m| &lt; \epsilon$</span> but <span>$|y_{n+1} + \ldots + y_m| = y_{n+1} + \ldots + y_m$</span> if <span>$n+1 \geq k$</span>. Thus for <span>$m &gt; n &gt; \sup\{N, k\}$</span>, <span>$|x_{n+1} + x_{n+2} + \ldots + x_m| = x_{n+1} + x_{n+2} + \ldots + x_m \leq y_n+1 + \ldots + y_m &lt; \epsilon$</span>. </p>
+<p>Thus <span>$\sum x_n$</span> converges by Cauchy Criterion. ii) is simply the contrapositive of i). </p>
+<p>Establishing the inequality needed for the comparison test can be hard; the following test is often more useful:</p>
+<h2 class="header"><i>2</i>Limit Comparison test<a class="headerlink" href="#limit-comparison-test" name="limit-comparison-test">&para;</a></h2>
+<p><strong>Limit Comparison test:</strong> Let <span>$(x_n), (y_n)$</span> be sequences of strictly positive numbers and suppose <span>$\lim x_n / y_n = R \in \mathbb R$</span> (i.e. exists and is finite). <br />
+i) if <span>$R \neq 0$</span>, <span>$\sum x_n$</span> converges <span>$\iff$</span> <span>$\sum y_n$</span> converges<br />
+ii) if <span>$R = 0$</span> and <span>$\sum y_n$</span> converges then <span>$\sum x_n$</span> converges.</p>
+<p><strong>Proof:</strong> i) if <span>$R \neq 0$</span> let <span>$\epsilon = R / 2$</span>. Then there exists <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span>,</p>
+<p><span>$$ \left| \frac{x_n}{y_n} - R \right| &lt; \frac{R}{2} $$</span></p>
+<p>i.e.</p>
+<p><span>$$ \frac{R}{2} &lt; \frac{x_n}{y_n} &lt; \frac{3R}{2} \quad\text{for } n \geq N $$</span></p>
+<p>i.e. if <span>$n \geq N$</span>, <span>$0 \leq x_n \leq \frac{3R}{2}y_n$</span>. If <span>$\sum y_n$</span> converges, then <span>$\sum \frac{3R}{2}y_n = \frac{3R}{2}\sum y_n$</span> also converges <span>$\implies$</span> <span>$\sum x_n$</span> converges by comparison test. Similarly, if <span>$n \geq N$</span>, <span>$\frac{R}{2}y_n \leq x_n$</span> or <span>$0 \leq y_n \leq \frac{2}{R}x_n$</span>. If <span>$\sum x_n$</span> converges, so does <span>$\sum\frac{2}{R}x_n = \frac{2}{R}\sum x_n$</span> and thus <span>$\sum y_n$</span> converges by comparison test</p>
+<p>ii) if <span>$R = 0$</span>, let <span>$\epsilon = 1$</span>, then <span>$\exists K \in \mathbb N$</span> such that if <span>$n \geq k$</span>,</p>
+<p><span>$$ \left| \frac{x_n}{y_n} - 0 \right| &lt; 1 $$</span></p>
+<p>i.e. <span>$x_n / y_n &lt; 1$</span> so <span>$0 \leq x_n \leq y_n$</span> since <span>$x_n, y_n \geq 0$</span>. And thus if <span>$\sum y_n$</span> converges, <span>$\sum x_n$</span> will also converge by comparison test.</p>
+<h2 class="header"><i>3</i>Absolute and Conditional convergence<a class="headerlink" href="#absolute-and-conditional-convergence" name="absolute-and-conditional-convergence">&para;</a></h2>
+<p><strong>Definition:</strong> The series <span>$\sum a_n$</span> is said to be absolutely convergent (or to converge absolutely) if <span>$\sum |a_n|$</span> converges.</p>
+<p><strong>Theorem:</strong> if <span>$\sum a_n$</span> converges absolutely, then <span>$\sum a_n$</span> converges</p>
+<p><strong>Proof:</strong> For <span>$\epsilon &gt; 0$</span> given, <span>$\exists N \in \mathbb N$</span> such that if <span>$m &gt; n \geq N$</span>, </p>
+<p><span>$$ \big| |a_{n+1}| + |a_{n+2}| + \ldots + |a_m| \big| &lt; \epsilon $$</span></p>
+<p>thus if <span>$m &gt; n \geq N$</span> then</p>
+<p><span>$$ |a_{n+1} + a_{n+2} + \ldots + a_m| \leq |a_{n+1}| + |a_{n+2}| + \ldots + |a_m| = \big| |a_{n+1}| + |a_{n+2}| + \ldots + |a_m| \big| &lt; \epsilon $$</span></p>
+<p><strong>Definition:</strong> If <span>$\sum a_n$</span> is a series where <span>$\sum|a_n|$</span> diverges but <span>$\sum a_n$</span> still converges, <span>$\sum a_n$</span> is said to conditionally converge.</p>
+<p>As an example, take the sequence</p>
+<p><span>$$ \sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} $$</span></p>
+<p>which is not absolutely convergent as the absolute value gives the series <span>$\sum \frac{1}{n}$</span> which we know diverges. Let <span>$S_n$</span> be the sequence of partial sums of <span>$\sum \frac{(-1)^{k+1}}{k}$</span></p>
+<p>$$<br />
+\begin{align*}</p>
+<p>S_{2n} &amp;= \left(1 - \frac{1}{2}\right) + \left(\frac{1}{3} - \frac{1}{4}\right) + \ldots + \left(\frac{1}{2n-1} - \frac{1}{2n}\right) \geq 0 \<br />
+S_{2n+1} &amp;= 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \ldots - \frac{1}{2n} + \frac{1}{2n+1} \leq 1 \<br />
+&amp;= S_{2n} + \frac{1}{2n+1}<br />
+\end{align*}<br />
+$$</p>
+<p>so <span>$0 \leq \underbrace{S_{2n}}_\text{increasing} \leq \underbrace{S_{2n+1}}_\text{decreasing} \leq 1$</span>. <span>$S_{2n+1} = S_{2n} + \underbrace{\frac{1}{2n+1}}_{\to 0}$</span>. So <span>$S_{2n} \to L$</span> and <span>$S_{2n+1} \to L$</span> thus <span>$S_k \to L$</span> and our series converges conditionally.</p>
+<p>Page 269 in the book: <br />
+2. Show that if a series is conditionally convergent, then the series obtained from adding its positive terms is divergent (negative similarly).</p>
+<p><strong>Proof:</strong> Let <span>$\sum a_n$</span> be a conditionally convergent series. Let <span>$\sum a_n^+$</span> be the series of positive terms. Consider </p>
+<p><span>$$ \frac{a_n + |a_n|}{2} $$</span></p>
+<p>if <span>$a_n \leq 0$</span>. Then </p>
+<p><span>$$ \frac{a_n + |a_n|}{2} = \frac{a_n + a_n}{2} = a_n $$</span></p>
+<p>If <span>$a_n &lt; 0$</span>, <span>$|a_n| = -a_n$</span>, and </p>
+<p><span>$$ \frac{a_n + |a_n|}{2} = 0 $$</span></p>
+<p>So if we define </p>
+<p><span>$$ a_n^+ = \frac{a_n + |a_n|}{2} $$</span></p>
+<p>then </p>
+<p><span>$$
+a_n^+ = \begin{cases}
+a_n &amp; a_n \geq 0\\
+0 &amp; a_n &lt; 0
+\end{cases}
+$$</span></p>
+<p>Thus <span>$\sum a_n^+$</span> is the series of positive terms. Does <span>$\sum a_n^+$</span> converge? If so, since <span>$\sum a_n$</span> converges then <span>$\sum a_n / 2$</span> converges and</p>
+<p><span>$$ \sum\left( \frac{a_n + |a_n|}{2} - \frac{a_n}{2} \right) = \sum \frac{|a_n|}{2} = \frac{1}{2}\sum|a_n| $$</span></p>
+<p>giving us a contradiction. We can do this similarly for the negative terms with </p>
+<p><span>$$ a_n^- = \frac{a_n - |a_n|}{2} $$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

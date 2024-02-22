@@ -1,0 +1,176 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, January 10, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, January 10, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Subspaces and direct sums
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes from lecture #3 of <a class="wikilink" href="/MATH_236/">MATH 236</a>. Material covered: some properties of vector spaces, subspaces, sums and direct sums.</p>
+<div class="toc">
+<ul>
+<li><a href="#properties-of-vector-spaces">1 Properties of vector spaces</a></li>
+<li><a href="#subspaces">2 Subspaces</a></li>
+<li><a href="#sums">3 Sums</a><ul>
+<li><a href="#direct-sums">3.1 Direct sums</a><ul>
+<li><a href="#verifying-direct-sums">3.1.1 Verifying direct sums</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Properties of vector spaces<a class="headerlink" href="#properties-of-vector-spaces" name="properties-of-vector-spaces">&para;</a></h2>
+<ol>
+<li>A vector space <span>$V$</span> has a unique additive identity element, the zero vector (<span>$\vec 0 \in V$</span>).</li>
+<li>Any element in <span>$V$</span> has a unique additive inverse.</li>
+<li><span>$0\vec v = 0$</span> for any <span>$\vec v \in V$</span>.</li>
+<li><span>$a \vec 0 = \vec 0$</span> for any <span>$a \in \mathbb F$</span>.</li>
+<li><span>$(-1)\vec v = -\vec v$</span> for any <span>$\vec v \in V$</span>.</li>
+</ol>
+<p>Proof of 4:</p>
+<p><span>$$\begin{align} a\cdot \vec 0 &amp; = a \cdot (\vec 0 + \vec 0) \tag{by property 1} \\
+&amp; = a \cdot \vec 0 + a \cdot \vec 0 \tag{by distributivity} \\
+\therefore &amp; a\cdot \vec 0 = \vec 0 \tag{by property 1}\end{align}$$</span></p>
+<p>The proofs for the others are left as exercises.</p>
+<h2 class="header"><i>2</i>Subspaces<a class="headerlink" href="#subspaces" name="subspaces">&para;</a></h2>
+<p>A <strong>subspace</strong> of a vector space <span>$V$</span> is a subset <span>$U$</span> of <span>$V$</span> that is in itself a vector space.</p>
+<p>Properties of a subspace <span>$U$</span>:</p>
+<ol>
+<li>Contains the zero vector</li>
+<li>Closed under vector addition</li>
+<li>Closed under scalar multiplication</li>
+</ol>
+<p>An example of something that is not a subspace is <span>$\{(x_1, x_2, 1) \in \mathbb R^3 \mid x, y \in \mathbb R\}$</span>. This is clearly not a subspace of <span>$\mathbb R^3$</span> since neither property above is satisfied.</p>
+<p>Example: <span>$U = \{(x, 3x) \mid x \in \mathbb F^2\}$</span>. Verifying that this is a subspace is trivial and is left as an exercise for the reader.</p>
+<p>Note that any non-trivial vector space <span>$V$</span> (i.e., a vector space that is not <span>$\{0\}$</span>) has at least two (distinct) subspaces: the set consisting of only the zero vector (<span>$\{0\}$</span>), and <span>$V$</span> itself. The trivial vector space <span>$\{0\}$</span> has only one distinct subspace. The empty set is of course not a subspace.</p>
+<h2 class="header"><i>3</i>Sums<a class="headerlink" href="#sums" name="sums">&para;</a></h2>
+<p>Let <span>$U_1, \ldots, U_m$</span> be subspaces of <span>$V$</span>. Their <strong>sum</strong>, <span>$U_1 + \ldots U_m$</span>, is the set of all possible linear combinations (since subspaces are closed under scalar multiplication): <span>$\{u_1 + \ldots + u_m \mid u_i \in U_i\}$</span>. The sum of subspaces is a subspace of <span>$V$</span> in itself.</p>
+<p>If any element in <span>$V$</span> can be written as a combination of vectors in <span>$U_i$</span> (so <span>$v = u_1 + \ldots + v_m$</span> for any <span>$v \in V$</span>), then we say that <span>$V = U_1 + \ldots + u_m$</span>.</p>
+<p>Example: <span>$U_1 = \{(x, y, 0) \mid x, y \in \mathbb R\}$</span>, <span>$U_2 = \{(0, 0, z) \mid z\in \mathbb R\}$</span>, <span>$U_3 = \{(0, y, y) \mid y \in \mathbb R\}$</span>. Clearly, <span>$U_1 + U_2 + U_3 = V$</span>. We can write the zero vector in more than one way: either as the sum of zero vectors, or as <span>$(0, a, 0) + (0, 0, a) + (0, -a, -a)$</span> (for any <span>$a \in \mathbb R$</span>). From this, we deduce that one of the subspaces is superfluous. We'll look into this more in the next section.</p>
+<h3 class="header"><i>3.1</i>Direct sums<a class="headerlink" href="#direct-sums" name="direct-sums">&para;</a></h3>
+<p>If any element <span>$v \in V$</span> can be written <em>uniquely</em> as a sum of vectors in <span>$U_1, \ldots, U_m$</span>, then we say that <span>$V$</span> is the <strong>direct sum</strong> of <span>$U_1, \ldots, U_m$</span>, which we write as <span>$V = U_1 \oplus \ldots \oplus U_m$</span>.</p>
+<p>Examples:</p>
+<ul>
+<li><span>$U_1 = \{(x, y, 0)\}$</span>, <span>$U_2 = \{(0, 0, z)\}$</span>; then <span>$U_1 \oplus U_2 = \mathbb F^3$</span>.</li>
+<li><span>$U_e(\mathbb F) = a_0 + a_2x^2 + \ldots + a_{2m} + x^{2m}$</span> (even polynomials), <span>$U_o(\mathbb F) = a_1 + a_3x^3 + \ldots + a_{2m+1} x^{2m+1}$</span> (odd polynomials); then <span>$U_e(\mathbb F) \oplus U_o(\mathbb F) \mathbb P(\mathbb F)$</span> (the polynomial vector space).</li>
+</ul>
+<h4 class="header"><i>3.1.1</i>Verifying direct sums<a class="headerlink" href="#verifying-direct-sums" name="verifying-direct-sums">&para;</a></h4>
+<p>Proposition 1.8: To check that a vector space <span>$V$</span> is the direct sum of subspaces <span>$U_1, \ldots, U_m$</span>, we need to check that the following conditions are satisfied:</p>
+<ol>
+<li><span>$V$</span> is the sum (i.e. any vector in <span>$V$</span> can be written as a sum of vectors in the <span>$U$</span>s etc)</li>
+<li>The zero element can be written uniquely as a sum of vectors in the <span>$U$</span>s (<span>$0 + \ldots + 0$</span>)</li>
+</ol>
+<p>This proposition will be useful for homework questions.</p>
+<p>Proof: (<span>$\to$</span>) Assume <span>$V$</span> is the direct sum. Then 1) comes for free. 2) is also kind of free.<br />
+(<span>$\leftarrow$</span>) Assume that 1) and 2) hold. Then we need to prove that <span>$V$</span> is the direct sum (such that there is a unique decomposition for any element <span>$v \in V$</span>). We can prove this by contradiction. Assume that there are two distinct ways of writing an element <span>$v \in V$</span>, as <span>$v = u_1 + \ldots + u_m$</span> and <span>$v = v_1 + \ldots + v_m$</span>, where <span>$u_i \neq v_i$</span> for at least one <span>$i$</span>. Consider <span>$-v$</span> (which we know is an element of <span>$V$</span>, by <a href="#properties-of-vector-spaces">property 5 of vector spaces</a>). <span>$-v + v = 0$</span>, since the zero vector is the additive identity. So then we have two distinct decompositions for the zero vector: <span>$0 = -v + u_1 + \ldots + u_m$</span>, and <span>$0 = -v + v_1 + \ldots + v_m$</span>. This contradicts condition 2) above. <span>$\blacksquare$</span><sup id="fnref:proof"><a href="#fn:proof" rel="footnote" title="This differs somewhat from the proof shown in clas...">1</a></sup></p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:proof">
+<p>This differs somewhat from the proof shown in class, which I believe was not a proof by contradiction. I don't think he finished the proof though so who knows.&#160;<a href="#fnref:proof" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

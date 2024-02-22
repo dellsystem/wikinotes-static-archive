@@ -1,0 +1,235 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, October 26, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, October 26, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to Peano arithmetic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Peano Arithmetic<a class="headerlink" href="#peano-arithmetic" name="peano-arithmetic">&para;</a></h2>
+<p>Signature: <span>$\mathbb{N}:\{+, \cdot, S, &lt;, 0\}$</span> where <span>$+$</span> and <span>$\cdot$</span> are binary function symbols, <span>$S$</span> is a unary function symbol (the "successor" function), <span>$&lt;$</span> is a binary predicate symbol, and <span>$0$</span> is a constant symbol.</p>
+<p>You can express pretty much anything in this signature, even Fermat's last theorem (although that might take a while).</p>
+<h3 class="header"><i>1.1</i>The Peano axioms<a class="headerlink" href="#the-peano-axioms" name="the-peano-axioms">&para;</a></h3>
+<ul>
+<li>(A1) <span>$\forall x(x + 0 = x)$</span><sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Not strictly logical axioms; only true for $\mathb...">1</a></sup></li>
+<li>(A2) <span>$\forall x \forall y (x + Sy = S(x+y))$</span><sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Not strictly logical axioms; only true for $\mathb...">1</a></sup></li>
+<li>(M1) <span>$\forall x(x\cdot 0 = 0)$</span></li>
+<li>(M2) <span>$\forall x \forall y (x \cdot Sy = xy +x)$</span></li>
+<li>(L) <span>$\forall x \forall y (x &lt; y \iff \exists z (x + z = y \land z \neq 0))$</span></li>
+<li>(S1) <span>$\forall x (Sx \neq 0)$</span></li>
+<li>(S2) <span>$\forall x \forall y (Sx = Sy \to x = y)$</span></li>
+</ul>
+<h3 class="header"><i>1.2</i>Induction<a class="headerlink" href="#induction" name="induction">&para;</a></h3>
+<p>Those were the seven basic axioms. We also have in PA the schema of mathematical induction. For each formula <span>$\varphi(x_1, y_1, \ldots y_n)$</span> we have the following induction axiom:</p>
+<blockquote>
+<p>Let <span>$\bar{y} = (y_1, \ldots, y_n)$</span>. Then <span>$\forall \bar{y} [ (\varphi(0, \bar{y}) \land (\forall x[\varphi(x, \bar{y}) \to \varphi(Sx, \bar{y})]) \to \forall x \varphi(x, \bar{y})]$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.3</i>Proofs<a class="headerlink" href="#proofs" name="proofs">&para;</a></h3>
+<p>We will be saying things like <span>$PA \vdash \sigma$</span>. This will mean <span>$\Gamma \vdash \sigma$</span> for some finite <span>$\Gamma \subseteq PA$</span>.</p>
+<h4 class="header"><i>1.3.1</i>Proving that 2 + 2 = 4<a class="headerlink" href="#proving-that-2-2-4" name="proving-that-2-2-4">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Line</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$SS0 + SS0 = S(SS0 + S0)$</span></td>
+<td>By A2</td>
+</tr>
+<tr>
+<td>(2) <span>$SS0 + S0 = S(SS0 + 0)$</span></td>
+<td>By A2</td>
+</tr>
+<tr>
+<td>(3) <span>$SS0 + 0 = SS0$</span></td>
+<td>By A1</td>
+</tr>
+<tr>
+<td>(4) <span>$S(SS0 + 0) = SSS0$</span></td>
+<td>By (3), and substitution</td>
+</tr>
+<tr>
+<td>(5) <span>$SSS0 + 0 = SSS0$</span></td>
+<td>By A1</td>
+</tr>
+<tr>
+<td>(6) <span>$S(SSS0 + 0) = SSSS0$</span></td>
+<td>By (5), and substitution</td>
+</tr>
+<tr>
+<td>(7) <span>$SS0 + S0 = SSS0$</span></td>
+<td>Transitivity using (2) and (4)</td>
+</tr>
+<tr>
+<td>(8) <span>$S(SS0 + S0) = SSSS0$</span></td>
+<td>By (7), and substitution</td>
+</tr>
+<tr>
+<td>(9) <span>$SS0 + SS0 = SSSS0$</span></td>
+<td>Transitivity using (1) and (8)</td>
+</tr>
+</tbody>
+</table>
+<p>Incidentally, here's another way to define the even numbers: <span>$\exists x_2(SS0 \cdot x_2 = x)$</span> (using <span>$SS0$</span> since 2 is not an object in this language, lol (except as a subscript)).</p>
+<h3 class="header"><i>1.4</i>A proof using the induction axiom<a class="headerlink" href="#a-proof-using-the-induction-axiom" name="a-proof-using-the-induction-axiom">&para;</a></h3>
+<blockquote>
+<p>Proposition: <span>$\forall x (x = 0 \lor \exists y (x = Sy))$</span></p>
+</blockquote>
+<p>To show this, we use the induction axiom <span>$[\varphi(0) \land \forall x (\varphi(x) \to \varphi(Sx))] \to \forall x \varphi(x)$</span>.</p>
+<p>We have to show <span>$\varphi(0)$</span> and <span>$\forall (\varphi(x) \to \varphi(Sx))$</span></p>
+<p>Basis step:</p>
+<blockquote>
+<p><span>$0 = 0 \lor \exists y (0 = Sy)$</span></p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Now suppose <span>$\varphi(x)$</span>; we have to show <span>$\varphi(Sx)$</span>. i.e <span>$Sx = 0 \lor \exists y (Sx = Sy)$</span>. This is true since <span>$Sx = Sy$</span></p>
+</blockquote>
+<p>This shows:</p>
+<blockquote>
+<p><span>$PA \vdash \varphi(x) \rightarrow \varphi(Sx)$</span><br />
+<span>$PA \vdash \forall x(\varphi(x) \rightarrow \varphi(Sx))$</span><br />
+So <span>$PA \vdash \forall x \varphi(x)$</span></p>
+</blockquote>
+<h3 class="header"><i>1.5</i>Another proof by induction<a class="headerlink" href="#another-proof-by-induction" name="another-proof-by-induction">&para;</a></h3>
+<p>Prove that <span>$\forall x \forall y \forall z [x + (y + z) = (x + y) + z]$</span> by induction on <span>$z$</span>.</p>
+<p>Induction axiom to use:</p>
+<blockquote>
+<p><span>$\forall y_1 \forall y_2 [y_1 + (y_2 +0) = (y_1 + y_2) + 0 \land \forall x(y_1 + (y_2 +x) = (y_1 + y_2) + x \rightarrow y_1 + (y_2 +Sx) = (y_1 + y_2) + Sx \land \forall x(y_1 + (y_2 +x) = (y_1 + y_2) + x]$</span></p>
+</blockquote>
+<p>Basis step:</p>
+<blockquote>
+<ol>
+<li><span>$y_2 + 0 = y_2$</span> by A1</li>
+<li><span>$y_1 + (y_2 + 0) = y_1 + y_2$</span> by subst. on 1</li>
+<li><span>$(y_1 + y_2) + 0 = y_1 + y_2$</span> by A1</li>
+<li><span>$y_1 + (y_2 + 0) = (y_1 + y_2) + 0$</span> by trans 2,3</li>
+</ol>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>5. <span>$y_1 + (y_2 + x) = (y_1 + y_2) + x$</span> by IH<br />
+6. <span>$y_2 + Sx = S(y_2 + x)$</span> by A1<br />
+7. <span>$y-1 = (y-2 + Sx) = y_1 + S(y_2 = x)$</span> by subst.<br />
+8. <span>$y_1 + S(y_2 + x) = S(y_1 + (y_2 +x))$</span> by A2<br />
+9. <span>$S(y_1+(y_2+x)) = S((y_1+y_2) + x)$</span> by IH and subst.<br />
+10. <span>$S((y_1+y_2)+x) = (y_1+y_2)+Sx$</span> by A2<br />
+11. <span>$y_1 + (y_2 + Sx) = (y_1 + y_2) + Sx$</span> by trans<br />
+12. <span>$PA \vdash IH \rightarrow 11$</span> by deduction<br />
+13. <span>$PA \vdash \forall x(IH \rightarrow 11)$</span> <span>$\forall$</span>-intro<br />
+14. <span>$PA \vdash \forall x(y_1+ (y_2 + x) = (y_1 + y_2) + x)$</span> by induction<br />
+15. <span>$PA \vdash \forall y_1, \forall y_2, \forall x(y_1+ (y_2 + x) = (y_1 + y_2) + x)$</span></p>
+</blockquote>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Not strictly logical axioms; only true for <span>$\mathbb{N}$</span>.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

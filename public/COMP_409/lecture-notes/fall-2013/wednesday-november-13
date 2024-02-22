@@ -1,0 +1,459 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 13, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 13, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                OpenMP memory model, Java OpenMP and Flynn&#x27;s taxonomy
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#openmp-memory-model">1 OpenMP memory model</a><ul>
+<li><a href="#example">1.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#java-openmp">2 Java OpenMP</a><ul>
+<li><a href="#private-first-objects">2.1 Private-first objects</a></li>
+<li><a href="#flush">2.2 Flush</a></li>
+<li><a href="#existing-threads">2.3 Existing threads</a></li>
+</ul>
+</li>
+<li><a href="#flynns-taxonomy">3 Flynn's Taxonomy</a></li>
+<li><a href="#pgas-languages">4 PGAS languages</a><ul>
+<li><a href="#private-and-shared">4.1 Private and shared</a><ul>
+<li><a href="#arrays">4.1.1 Arrays</a></li>
+<li><a href="#pointers">4.1.2 Pointers</a></li>
+</ul>
+</li>
+<li><a href="#the-titanium-language">4.2 The Titanium language</a><ul>
+<li><a href="#features-added">4.2.1 Features added</a></li>
+<li><a href="#global-barrier">4.2.2 Global barrier</a></li>
+<li><a href="#single-annotation">4.2.3 Single annotation</a></li>
+<li><a href="#other-features">4.2.4 Other features</a></li>
+</ul>
+</li>
+<li><a href="#the-x10-language">4.3 The X10 language</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>OpenMP memory model<a class="headerlink" href="#openmp-memory-model" name="openmp-memory-model">&para;</a></h2>
+<p>OpenMP uses a <strong>weak</strong> memory model. Nothing is necessarily sequentially consistent unless we use the previously discussed synchronization constructs.</p>
+<p><img alt="OpenMP memory" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-48.png" title="" /></p>
+<p>There is some idea of main memory, but each thread have their own cached copy of things, and communicate with main memory. They have a temporary (cached) view of main memory.</p>
+<p>When <code>x</code> is read by a thread, if <code>x</code> is not in the cache, it loads it from main memory. If it is cached, it grabs the cached copy.</p>
+<p>When <code>x</code> is written. The cached copy is updated, but it is commited at some undetermined time in the future. Lazily and non-determistically, <code>x</code> is written to memory.</p>
+<p>That is to say, if the use of a variable is not atomic, there is no atomic gurantee at all. The use of <code>flush(a, b, c)</code> allows to invalidate any local cached copy of <code>a</code>, <code>b</code> and <code>c</code>. Any pending write to <code>a</code>, <code>b</code> and <code>c</code> is thus commited.</p>
+<dl>
+<dt>3 rules of flush</dt>
+<dd><strong>1)</strong> If the intersection of the flush sets (a, b, c) is non-empty, then the flushes must be seen in (some) sequential order by all threads.</dd>
+<dd><strong>2)</strong> If it is empty, there is no guarantee; the threads may observe these flush in different orders.</dd>
+<dd><strong>3)</strong> If a thread access/modifies a variable in a flush set, the access/modify and the flush must respect program order.</dd>
+</dl>
+<p>Atomic operations have an implicit flush set of the associated variables.</p>
+<h3 class="header"><i>1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h3>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = some local;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>some local = x;</code></td>
+</tr>
+</tbody>
+</table>
+<p>There is no guarantee on the order.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = some local;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>flush(x);</code></td>
+<td><code>some local = x;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Now we know that <code>x</code> is going off to main memory, and there is some ordering. Still, no specific ordering.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = some local;</code></td>
+<td><code>flush(x);</code></td>
+</tr>
+<tr>
+<td><code>flush(x);</code></td>
+<td><code>some local = x;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Now, <code>x</code> is surely read from main memory. However, it does not guarantee that <strong>Thread 1</strong> reads what <strong>Thread 0</strong> wrote. It's a bit like having the <code>volatile</code> keyword on <code>x</code>.</p>
+<div class="codehilite"><pre><span class="c1">// Crude  critical section algorithm</span>
+<span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">turn</span><span class="p">[(</span><span class="n">id</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">CS</span><span class="p">();</span>
+<span class="c1">// It&#39;s possible that both thread manage to set their turn variable at the same time</span>
+
+<span class="c1">// Here&#39;s what it looks like in OpenMP</span>
+<span class="c1">// Thread 0                           // Thread 1</span>
+<span class="n">atomic</span> <span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span><span class="p">);</span>                         <span class="n">atomic</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">flush</span><span class="p">(</span><span class="n">b</span><span class="p">);</span> <span class="cm">/* Commit b */</span>              <span class="n">flush</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<span class="n">flush</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="cm">/* Invalidate cache of a */</span> <span class="n">flush</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<span class="n">atomic</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">);</span> <span class="cm">/* Read a */</span>        <span class="n">atomic</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">b</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>                         <span class="k">if</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">CS</span><span class="p">();</span>                                 <span class="n">CS</span><span class="p">();</span>
+</pre></div>
+
+
+<p>This is not guaranteed to work. There is guarantee of program order: the compiler/hardware/runtime can reorder things and take the first three lines of each thread and put it at the end. Despite the well-ordering of the three lines, both threads will end up in the critical section.</p>
+<div class="codehilite"><pre><span class="c1">// Correct way</span>
+
+<span class="c1">// Thread 0        // Thread 1</span>
+<span class="n">atomic</span> <span class="p">(</span><span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>    <span class="n">atomic</span> <span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">);</span>
+<span class="n">flush</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>      <span class="n">flush</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span>
+<span class="n">atomic</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">a</span><span class="p">);</span>  <span class="n">atomic</span><span class="p">(</span><span class="n">tmp</span> <span class="o">=</span> <span class="n">b</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>      <span class="k">if</span> <span class="p">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="n">CS</span><span class="p">();</span>              <span class="n">CS</span><span class="p">();</span>
+</pre></div>
+
+
+<p>Now that the flushes include both <code>a</code> and <code>b</code>, the flush sets intersect. We get full ordering in each thread. But it is also still possible that neither thread enters the critical section (won't ensure progress).</p>
+<h2 class="header"><i>2</i>Java OpenMP<a class="headerlink" href="#java-openmp" name="java-openmp">&para;</a></h2>
+<p>We can put OpenMP directives into Java, but Java introduces some weird behaviour. At the research level, there exists JOMP and JAMP. Neither of them gives a full OpenMP, and they both have a peculiar bahaviour.</p>
+<h3 class="header"><i>2.1</i>Private-first objects<a class="headerlink" href="#private-first-objects" name="private-first-objects">&para;</a></h3>
+<p>Java is an object oriented language, and gives a lot of abstraction over low-level programming.</p>
+<p>In OOP, the first-private property of objects (their reference, really) does not hold. If we have an object <code>x</code> and declare it first-private, while we want each thread to have their own copy, they actually end up merely having their own copy of a reference to the same object.</p>
+<p>In C++, there are copy constructors, which define exactly how the copy is instantiated. In Java, there is the <code>clone()</code> method which any object that implements <code>Cloneable</code> must have. We still end up with the idea of a deep vs shallow copy. By default, the copy is shallow, but it can be customized to be deep instead.</p>
+<h3 class="header"><i>2.2</i>Flush<a class="headerlink" href="#flush" name="flush">&para;</a></h3>
+<p>Java does not have flush. There already is some kind of flush in Java with <code>volatile</code> and <code>synchronized</code> blocks. We know with the Java specs that it implies well-ordering of the threads. However, <code>flush(a, b, c);</code> implies ordering with the intersection. By merely declaring <code>a</code>, <code>b</code> and <code>c</code>, there is no such ordering.</p>
+<h3 class="header"><i>2.3</i>Existing threads<a class="headerlink" href="#existing-threads" name="existing-threads">&para;</a></h3>
+<p>How do Java threads interract with OpenMP threads? Can OpenMP threads create Java threads and vice-versa? Exceptions are not part of OpenMP, yet they are an integral part of Java. What happens when an OpenMP thread throws an exception?</p>
+<h2 class="header"><i>3</i>Flynn's Taxonomy<a class="headerlink" href="#flynns-taxonomy" name="flynns-taxonomy">&para;</a></h2>
+<blockquote>
+<p>1966, a standard way of thinking about concurrent programs; a way to organize different concurrent systems</p>
+</blockquote>
+<p>Flynn's taxonomy. separates the instructions from the data. In a sequential program, we have a single instruction stream, and a single data volume. It's <strong>SISD</strong>.</p>
+<dl>
+<dt>SISD</dt>
+<dd>Single instructions, single data; Sequential programs</dd>
+<dt>MIMD</dt>
+<dd>Multiple instructions, multiple data</dd>
+<dt>SIMD</dt>
+<dd>Single instructions, multiple data; GPUs and vector processing</dd>
+<dt>MISD</dt>
+<dd>Multiple instructions, single data; not used much, but good for fault-tolerance (redundancy)</dd>
+<dt>SPMD</dt>
+<dd>Single program, multiple data</dd>
+<dt>MPMD</dt>
+<dd>Multiple programs, multiple data</dd>
+</dl>
+<p>In the case of SPMD and MPMD, the instructions are executed at different rates. This is closer to what we have nowadays.</p>
+<div class="codehilite"><pre>#pragma omp parallel for
+for ( ... ) {
+    // Same program
+    // Different data for each thread
+}
+// SPMD execution model
+</pre></div>
+
+
+<p>There are languages that exclusively based on the idea of <strong>SPMD</strong>.</p>
+<h2 class="header"><i>4</i>PGAS languages<a class="headerlink" href="#pgas-languages" name="pgas-languages">&para;</a></h2>
+<p>PGAS languages are also based on a uniform paradigm defining how memory is organized. PGAS stands for "Partitioned Global Address Space". We end up with something between the flexibility of Java and the rigidity of SPMD.</p>
+<p>The goal is to take advantage of locality.</p>
+<p>Many PGAS lanagues make use of the SPMD paradigm, but not all of them. The basic idea is to divide memory:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>CPU<sub>0</sub></th>
+<th>CPU<sub>1</sub></th>
+<th>CPU<sub>2</sub></th>
+<th>CPU<sub>3</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared</td>
+<td>Shared</td>
+<td>Shared</td>
+<td>Shared</td>
+</tr>
+<tr>
+<td>------</td>
+<td>------</td>
+<td>------</td>
+<td>------</td>
+</tr>
+<tr>
+<td>Private</td>
+<td>Private</td>
+<td>Private</td>
+<td>Private</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>4.1</i>Private and shared<a class="headerlink" href="#private-and-shared" name="private-and-shared">&para;</a></h3>
+<p>There is some private data for each CPU, but there is also some shared data with some light boundaries between things. The idea is to make use of locality as a performance boost. The shared data is accessible by any CPU, but it's still proper to one particular CPU. The principle is also called <em>affinity</em>.</p>
+<div class="codehilite"><pre>private int x; // (many)
+x = Thread.id; // Each thread puts their own thread id in their own x
+
+shared int y;  // (one)
+y = Thread.id; // Whichever thread writes last will have its value in y
+</pre></div>
+
+
+<h4 class="header"><i>4.1.1</i>Arrays<a class="headerlink" href="#arrays" name="arrays">&para;</a></h4>
+<p>Since there is only one copy of <code>y</code>, where does it live? Different languages do it differently. For some kind of data it even becomes really important. For example, with arrays, we can control where the shared data live:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Scheme</th>
+<th>CPU<sub>0</sub></th>
+<th>CPU<sub>1</sub></th>
+<th>CPU<sub>2</sub></th>
+<th>CPU<sub>3</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block</td>
+<td><code>a[0];</code></td>
+<td><code>a[2];</code></td>
+<td><code>a[4];</code></td>
+<td><code>a[6];</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>a[1];</code></td>
+<td><code>a[3];</code></td>
+<td><code>a[5];</code></td>
+<td><code>a[7];</code></td>
+</tr>
+<tr>
+<td>Cyclic</td>
+<td><code>a[0];</code></td>
+<td><code>a[1];</code></td>
+<td><code>a[2];</code></td>
+<td><code>a[3];</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>a[4];</code></td>
+<td><code>a[5];</code></td>
+<td><code>a[6];</code></td>
+<td><code>a[7];</code></td>
+</tr>
+</tbody>
+</table>
+<p>For different algorithms, some scheme will make more sense. There is also an hybrid scheme where blocks and cyclic. Whichever scheme is chosen, the algorithms will still work. However, to get the best performance, the right affinity has to be chosen. That is, every thread can access everything in the shared data, but anybody can access anything at the same speed.</p>
+<h4 class="header"><i>4.1.2</i>Pointers<a class="headerlink" href="#pointers" name="pointers">&para;</a></h4>
+<p>There are different rules as to what pointers can point that. For example, a private pointer can point to private data, which is trivial and usually allowed. There can also be a shared pointer to shared data which makes sense too.</p>
+<p>There can also be private pointers that point to share data and even have them point to the same area. However, a shared pointer to some private data does not make much sense and is usually disallowed.</p>
+<h3 class="header"><i>4.2</i>The Titanium language<a class="headerlink" href="#the-titanium-language" name="the-titanium-language">&para;</a></h3>
+<blockquote>
+<p>Katherine Yelick et al</p>
+</blockquote>
+<p>The languages is syntactically based on Java, but compiles down to C, and so machine code. Basically, it does not use a virtual machine.</p>
+<p>It uses the SPMD memory model and does not give access to Java threads the same way OpenMP on Java does.</p>
+<h4 class="header"><i>4.2.1</i>Features added<a class="headerlink" href="#features-added" name="features-added">&para;</a></h4>
+<p>There is a rich API with multidimensional arrays, iterators and sub-arrays. There is the concept of an immutable object in which case sharing is easy. There is a templating system, and operators can be overloaded.</p>
+<h4 class="header"><i>4.2.2</i>Global barrier<a class="headerlink" href="#global-barrier" name="global-barrier">&para;</a></h4>
+<p>Since Titatinum has an SPMD paradigm, a chunk of code can be declared parallel in which case all the threads end up executing the same code. In such a section, a barrier can be introduced to make all the threads must get there before any can leave.</p>
+<p>However, this has some interesting complications (that can happen in OpenMP as well). The barrier may be accessed conditionally:</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="o">(</span><span class="n">Ti</span><span class="o">.</span><span class="na">numProc</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>In this case, the barrier is partial, and all the threads catching it end up stuck.</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="o">(</span><span class="n">Ti</span><span class="o">.</span><span class="na">numProc</span><span class="o">()</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span> <span class="c1">// Some barrier</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span> <span class="c1">// Some barrier (not the same)</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Should this work, or not? In this case, all the thread end up reaching <em>some</em> barrier. Let's say this is okay.</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="o">(</span><span class="n">Ti</span><span class="o">.</span><span class="na">numProc</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span> <span class="c1">// Called twice</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+       <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">%</span> <span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span>
+           <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>What we have in this case, is half of the threads are getting two barriers. The other half gets two barriers as well, but in a less obvious way. Is this equivalent?</p>
+<p>If we want all these things to work, we can make it very difficult to understand by blurring the definition of a barrier.</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="c1">// private variable x</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+</pre></div>
+
+
+<p>In Titanium, if all the threads see the same value of <code>x</code>, they all hit the same barrier. One way to guarantee that is the <code>single</code> keyword.</p>
+<h4 class="header"><i>4.2.3</i>Single annotation<a class="headerlink" href="#single-annotation" name="single-annotation">&para;</a></h4>
+<div class="codehilite"><pre>single int x; // Every thread has the same value in `x`
+</pre></div>
+
+
+<p>We can also annotate methods <code>single</code> meaning that every thread is guaranteed to execute a method. </p>
+<div class="codehilite"><pre>if (exp)
+    x = exp;
+</pre></div>
+
+
+<p><code>x</code> is <code>single</code> value if <code>exp</code> is a constant. <code>exp</code> can also be a <strong>broadcast</strong>, or a function of <code>single</code> value.</p>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">single</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">single</span> <span class="n">max</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">step</span> <span class="o">&lt;</span> <span class="n">max</span><span class="o">,</span> <span class="n">step</span> <span class="o">++)</span>
+    <span class="c1">// Some calculation</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+    <span class="c1">// Update the whole array</span>
+    <span class="n">Ti</span><span class="o">.</span><span class="na">barrier</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>We end up with a program with epochs of calculation. We need to be sure that <code>step</code> and <code>max</code> are the same across the threads, or the number of iteration would not be the same. The <code>single</code> keyword enforces that</p>
+<h4 class="header"><i>4.2.4</i>Other features<a class="headerlink" href="#other-features" name="other-features">&para;</a></h4>
+<dl>
+<dt><code>Point&lt;N&gt;</code></dt>
+<dd>An n-dimensional vector of integers. Meant to represent an index in a n-dimensional array. E.g. <code>Point&lt;2&gt; a = [1, 2];</code></dd>
+<dt><code>Domain&lt;N&gt;</code></dt>
+<dd>Set of <code>Point&lt;N&gt;</code> Usually used to define grouping of array elements.</dd>
+</dl>
+<h3 class="header"><i>4.3</i>The X10 language<a class="headerlink" href="#the-x10-language" name="the-x10-language">&para;</a></h3>
+<p>Has APGAS: Asynchronous Partitioned Global Address Space.<br />
+X10 follows the model a bit differently.</p>
+<p><img alt="X10 memory" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-49.png" title="" /></p>
+<p>Access is possible amongst different places. Inside the places, there are threads and objects. The activities of a certain place can only update the objects of their own place. In the shared area, there is immutable data.</p>
+<p>Activities can access local data, as well as distant data, through copying. To update remotely, a new activity is started at the remote place. There is also a mechanism allowing to migrate objects.</p>
+<p>There is a version of X10 that compiles basically to C++, and then to binary, but there is also a version compiling to Java, and thus running in a JVM.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

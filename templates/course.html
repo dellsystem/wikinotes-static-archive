@@ -1,0 +1,81 @@
+{% extends "default.html" %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui stackable grid">
+        <div class="stretched row">
+            <div class="twelve wide column">
+                <h1 class="ui header">
+                    {{ course }} <span>{{ course.name }}</span>
+                </h1>
+                <div class="ui list">
+                    <div class="item">
+                        <div class="header">Description</div>
+                        {{ course.description }}
+                    </div>
+                    <div class="item">
+                        <div class="header">Credits</div>
+                        {{ course.credits }}
+                    </div>
+                </div>
+            </div>
+            <div class="four wide center aligned column">
+                <div class="ui secondary segment">
+                    <div class="ui header">
+                        {{ course.department.long_name }}
+                    </div>
+                    <img src="{{ course.department.get_large_image }}"
+                        class="ui centered tiny image" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="sixteen wide column">
+		{% if course.department.pk == 'MATH' and course.number == '325' %}
+		<div class="ui error message">
+		These notes have been removed at the request of Professor Tony
+		Humphries. Please contact him for more information.
+		</div>
+		{% else %}
+                {% for category, category_pages in pages %}
+                <h2 class="ui header">{{ category }}</h2>
+                <table class="ui celled padded table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Subject
+                            </th>
+                            <th class="collapsing">Semester</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for page in category_pages %}
+                        <tr>
+                            <td>
+                                <h4 class="ui header">
+                                    <a href="{{ page.get_absolute_url }}">
+                                        {% if page.title %}
+                                        {{ page.title }}
+                                        {% else %}
+                                        {{ page.subject }}
+                                        {% endif %}
+                                    </a>
+                                </h4>
+                                {% if page.title and page.subject %}
+                                <p>{{ page.subject }}</p>
+                                {% endif %}
+                            </td>
+                            <td>
+                                {{ page.semester|capfirst }} {{ page.year }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endfor %}
+		{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

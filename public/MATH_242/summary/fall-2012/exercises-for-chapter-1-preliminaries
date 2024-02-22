@@ -1,0 +1,304 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Exercises for Chapter 1: Preliminaries
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Exercises for Chapter 1: Preliminaries
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided answers to the exercises found in Chapter 1: Preliminaries of <em>Introduction to Real Analysis</em> by Robert G. Bartle and Donald R. Sherbert, third edition (not to be handed in and thus not marked). The material covered in this chapter (along with the material covered in Appendix A) is assumed to be familiar to the student. It is recommended that you attempt these exercises on your own before viewing the proposed solutions below. The content on this page is solely intended to function as a study aid for students and should constitute fair dealing under Canadian copyright law.</p>
+<p>If you notice any errors, please <a href="/register">register</a> or <a href="#login-bar">log in</a> and edit this page, or contact <a href="/users/dellsystem">@dellsystem</a> about it.</p>
+<div class="toc">
+<ul>
+<li><a href="#section-11">1 Section 1.1</a><ul>
+<li><a href="#question-1">1.1 Question 1</a></li>
+<li><a href="#question-2">1.2 Question 2</a></li>
+<li><a href="#question-3">1.3 Question 3</a></li>
+<li><a href="#question-4">1.4 Question 4</a></li>
+<li><a href="#question-5">1.5 Question 5</a></li>
+<li><a href="#question-6">1.6 Question 6</a></li>
+<li><a href="#question-7">1.7 Question 7</a></li>
+<li><a href="#question-8">1.8 Question 8</a></li>
+<li><a href="#question-9">1.9 Question 9</a></li>
+<li><a href="#question-10">1.10 Question 10</a></li>
+<li><a href="#question-11">1.11 Question 11</a></li>
+<li><a href="#question-12">1.12 Question 12</a></li>
+<li><a href="#question-13">1.13 Question 13</a></li>
+<li><a href="#question-14">1.14 Question 14</a></li>
+</ul>
+</li>
+<li><a href="#section-12">2 Section 1.2</a><ul>
+<li><a href="#question-1_1">2.1 Question 1</a></li>
+<li><a href="#question-2_1">2.2 Question 2</a></li>
+<li><a href="#question-3_1">2.3 Question 3</a></li>
+<li><a href="#question-6_1">2.4 Question 6</a></li>
+<li><a href="#question-10_1">2.5 Question 10</a></li>
+<li><a href="#question-11_1">2.6 Question 11</a></li>
+</ul>
+</li>
+<li><a href="#section-13">3 Section 1.3</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Section 1.1<a class="headerlink" href="#section-11" name="section-11">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<blockquote>
+<p>If <span>$A$</span> and <span>$B$</span> are sets, show that <span>$A \subseteq B$</span> if and only if <span>$A \cap B = A$</span>.</p>
+</blockquote>
+<p>First, we show that if <span>$A \subseteq B$</span>, then <span>$A \cap B = A$</span>. Well, if <span>$a \in A$</span>, then <span>$a \in B$</span> by virtue of the fact that <span>$A$</span> is a subset of <span>$B$</span>. So every element in <span>$A$</span> is also in <span>$B$</span>. Recall that the intersection of <span>$A$</span> and <span>$B$</span> contains all elements that are contained in both <span>$A$</span> and <span>$B$</span>. An element <span>$b \in B$</span> that is not an element of <span>$A$</span> would also not be in their intersection. So the intersection <span>$A \cap B$</span> would only contain elements in <span>$A$</span>, and so <span>$A cap B \subseteq A$</span>. Since every element in <span>$A$</span> is also an element of <span>$A \cap B$</span> (as <span>$A \subseteq B$</span>) then we also have that <span>$A \subseteq A \cap B$</span> and so <span>$A \cap B = A$</span>.</p>
+<p>Next, we prove the statement in the other direction: if <span>$A \cap B = A$</span>, then <span>$A \subseteq B$</span>. <span>$A \cap B = A$</span> tells is that for any <span>$a \in A$</span>, <span>$a \in A \cap B$</span> as well. So all the elements that are in <span>$A$</span> are also part of the intersection of <span>$A$</span> and <span>$B$</span>. But this can only happen if all the elements in <span>$A$</span> are also in <span>$B$</span>, and so it must be that <span>$A \subseteq B$</span>.</p>
+<p>Since <span>$A \subseteq B$</span> and <span>$B \subseteq$</span>, <span>$A = B$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<blockquote>
+<p>Prove the second De Morgan Law: <span>$A \setminus (B \cap C) = (A \setminus B) \cup (A \setminus C)$</span>.</p>
+</blockquote>
+<p>First, we show that <span>$(A \setminus (B \cap C)) \subseteq ((A \setminus B) \cup (A \setminus C))$</span>. Let <span>$d \in (A \setminus (B \cap C))$</span> represent an arbitrary element in that set. <span>$d$</span> must be in <span>$A$</span>, but must not be in the intersection of <span>$B$</span> and <span>$C$</span>, meaning that it can be at most one of <span>$B$</span> or <span>$C$</span>. If it is in <span>$B$</span> but not in <span>$C$</span>, then it is in <span>$A \setminus C$</span> but not <span>$A \setminus B$</span>; if it is <span>$C$</span> but not in <span>$B$</span>, then it is in <span>$A \setminus B$</span> but not <span>$A \setminus C$</span>; and if it is in neither <span>$B$</span> nor <span>$C$</span> then it is in both <span>$A \setminus B$</span> and <span>$A \setminus C$</span>. In all three cases, <span>$d$</span> must be in the union of <span>$A \setminus B$</span> and <span>$A \setminus C$</span>, and so any element in <span>$A \setminus (B \cap C)$</span> must also be in <span>$(A \setminus B) \cup (A \setminus C)$</span>. This tells us that <span>$(A \setminus (B \cap C)) \subseteq ((A \setminus B) \cup (A \setminus C))$</span>, which completes the first part of the proof.</p>
+<p>Next, we show that <span>$((A \setminus B) \cup (A \setminus C)) \subseteq (A \setminus (B \cap C))$</span>. Let <span>$e \in ((A \setminus B) \cup (A \setminus C))$</span>. <span>$e$</span> must be in <span>$A$</span>, and at most one of <span>$B$</span> or <span>$C$</span> (for if it were in both, then neither <span>$A \setminus B$</span> nor <span>$A \setminus C$</span> would contain it and so it would not be in the union). Consequently, <span>$e \notin B \cap C$</span>, as it cannot be in both <span>$B$</span> and <span>$C$</span>. Therefore, <span>$e \in (A \setminus (B \cap C))$</span>, and so <span>$((A \setminus B) \cup (A \setminus C)) \subseteq (A \setminus (B \cap C))$</span>.</p>
+<p><span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<blockquote>
+<p>Prove the distributive laws:<br />
+(a) <span>$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$</span><br />
+(b) <span>$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$</span></p>
+</blockquote>
+<p>(a) Let <span>$d \ in A \cap (B \cup C)$</span>. So <span>$d$</span> must be in <span>$A$</span>, and it must also be in <span>$B \cup C$</span>, i.e., either <span>$B$</span> or <span>$C$</span> or both. If it is in <span>$B$</span>, and not <span>$C$</span>, it is in <span>$A \cap B$</span>, but not <span>$A \cap C$</span>; consequently, it would be in <span>$(A \cap B) \cup (A \cap C)$</span>. Similarly, if <span>$d \in C$</span> and <span>$d \notin B$</span>, then it is in <span>$A \cap C$</span> but not <span>$A \cap B$</span> and so it would again be in their union. If it is in both <span>$B$</span> and <span>$C$</span>, then it would be in both <span>$A \cap B$</span> and <span>$A \cap C$</span> and so would again be in their union. Consequently, for any <span>$d \in A \cap (B \cup C)$</span>, <span>$d \in (A \cap B) \cup (A \cap C)$</span>, and so <span>$A \cap (B \cup C) \subseteq (A \cap B) \cup (A \cap C)$</span>.</p>
+<p>Now we prove the other direction. Let <span>$e \in (A \cap B) \cup (A \cap C)$</span>. <span>$e$</span> must be in either <span>$A \cap B$</span> or <span>$A \cap C$</span>, or both. If it is the first case, then it's in <span>$A \cap B$</span> and so in both <span>$A$</span> and <span>$B$</span>, but not <span>$C$</span>. In this case it would be in <span>$A$</span>, and in the union of <span>$B \cup C$</span>, and consequently it would be in <span>$A \cap (B \cup C)$</span>. The argument is pretty similar for the other cases. Consequently, for any <span>$e \in (A \cap B) \cup (A \cap C)$</span>, <span>$e \in A \cap (B \cup C)$</span>, and so <span>$(A \cap B) \cup (A \cap C) \subseteq A \cap (B \cup C)$</span>.</p>
+<p>By the previous parts, we conclude that <span>$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$</span></p>
+<p>(b) This proof is pretty similar to the above.</p>
+<h3 class="header"><i>1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h3>
+<blockquote>
+<p>(a) Show that the symmetric difference (can also be thought of as XOR), <span>$D$</span>, of <span>$A$</span> and <span>$B$</span> is equivalent to <span>$(A \setminus B) \cup (B\setminus A)$</span>.<br />
+(b) Show that <span>$D$</span> is also given by <span>$(A \cup B) \setminus (A \cap B)$</span>.</p>
+</blockquote>
+<p>(a) Let <span>$d \in D$</span>. From the definition, we know that <span>$d$</span> is in exactly one of <span>$A$</span> and <span>$B$</span>. If <span>$d \in A$</span>, then <span>$d \notin B$</span>, and so it would be in <span>$A \setminus B$</span>. Otherwise, if <span>$d \in B$</span>, then <span>$d \notin A$</span>, and so <span>$d \in (B \setminus A)$</span>. Either way, it would be in the unions of <span>$A \setminus B$</span> and <span>$B \setminus A$</span>. Consequently, for any <span>$d \in D$</span>, <span>$d \in (A \setminus B) \cup (B \setminus A)$</span>, and so <span>$D \subseteq (A \setminus B) \cup (B \setminus A)$</span>.</p>
+<p>Now we prove the other direction. Let <span>$e \in (A \setminus B) \cup (B \setminus A)$</span>. So it must be in <span>$(A \setminus B)$</span>, or <span>$(B \setminus A)$</span>, or both. If it is in only <span>$(A \setminus B)$</span>, then it is in <span>$A$</span> and not <span>$B$</span>, so it is in <span>$D$</span> by definition. Similarly if it is in <span>$B \setminus A$</span>. It can't actually be in both, for then it would have to be in <span>$A$</span> and not in <span>$B$</span>, and also in <span>$B$</span> but not in <span>$A$</span>, which is a contradiction. So it must be that <span>$e \in D$</span>. Consequently, for any <span>$e \in (A \setminus B) \cup (B \setminus A)$</span>, <span>$e \in D$</span>, and so <span>$(A \setminus B) \cup (B \setminus A) \subseteq D$</span>.</p>
+<p>By the previous parts, we conclude that <span>$(A \setminus B) \cup (B \setminus A) = D$</span>.</p>
+<p>(b) If <span>$d \in D$</span>, then it could be in <span>$A$</span> but not <span>$B$</span> or <span>$B$</span> but not <span>$A$</span>. If it's in the former, then it's in <span>$A \cup B$</span> but not in <span>$A \cap B$</span>, so it would be in <span>$(A \cup B) \setminus (A \cap B)$</span>. Similarly, if it's in the latter, it would also be in <span>$(A \cup B) \setminus (A \cap B)$</span>. Consequently, for any <span>$d \in D$</span>, <span>$d \in (A \cup B) / (A \cap B)$</span> and so <span>$D \subseteq (A \cup B) / (A \cap B)$</span>.</p>
+<p>Now we prove the other direction. Let <span>$e \in (A \cup B) / (B \cup A)$</span>. So <span>$e$</span> must be in at least one of <span>$A$</span> and <span>$B$</span>, to be in their union, but it cannot be in their intersection, so it cannot be in both <span>$A$</span> and <span>$B$</span>. Consequently, it must be in exactly one of <span>$A$</span> or <span>$B$</span>, which is in fact the definition of <span>$D$</span>. So <span>$(A \cup B) / (A \cap B) \subseteq D$</span>.</p>
+<p>By the previous parts, we conclude that <span>$D = (A \cup B) / (A \cap B)$</span>.</p>
+<h3 class="header"><i>1.5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h3>
+<blockquote>
+<p>For each <span>$n \in \mathbb{N}$</span>, let <span>$A_n = \{(n + 1)k : k \in \mathbb{N}\}$</span>.</p>
+<p>(a) What is <span>$A_1 \cap A_2$</span>?<br />
+(b) Determine the sets <span>$\bigcup \{A_n:n\in \mathbb{N}\}$</span> and <span>$\bigcap \{A_n : n \in \mathbb{N}\}$</span>.</p>
+</blockquote>
+<p>(a) <span>$A_1 = \{2, 4, 6, 8, \ldots \}$</span>. <span>$A_2 = \{3, 6, 9, 12, \ldots \}$</span>. Their intersection is given by <span>$\{6, 12, 18, 24, \ldots \}$</span>, i.e., <span>$\{6k: k \in \mathbb{N}\}$</span>. So, all numbers that are divisible by the product of <span>$(1 + 1)$</span> and <span>$(2 + 1)$</span>, which is 6.</p>
+<p>(b) The union is <span>$\{n: n \in \mathbb{N} / \{1\}\}$</span> (so <span>$\{2, 3, 4, 5, \ldots \}$</span>). The intersection is empty.</p>
+<h3 class="header"><i>1.6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h3>
+<p>Just diagrams. Easy enough. Skipping.</p>
+<h3 class="header"><i>1.7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h3>
+<blockquote>
+<p>Let <span>$A = B = \{x \in\mathbb{R}: -1 \leq x \leq 1\}$</span> and consider the subset <span>$C = \{(x, y): x^2 + y^2 = 1\}$</span> of <span>$A \times B$</span>. Is <span>$C$</span> a function?</p>
+</blockquote>
+<p>No. There would have to be a unique <span>$y$</span> for each <span>$x$</span>. But for <span>$x = 0$</span>, for example, both <span>$y = 1$</span> and <span>$y = -1$</span> satisfy the equation, and so we have <span>$(0, 1)$</span> and <span>$(0, -1)$</span> in the subset. But that violates one of the defining properties of a function (specifically, the "vertical line test").</p>
+<h3 class="header"><i>1.8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h3>
+<blockquote>
+<p>Let <span>$f(x) = \frac{1}{x^2}$</span>, <span>$x \neq 0$</span>, <span>$x \in \mathbb{R}$</span>.</p>
+<p>(a) Determine the direct image <span>$f(E)$</span> where <span>$E = \{x \in \mathbb{R}: 1 \leq x \leq 2\}$</span>.<br />
+(b) Determine the inverse image <span>$f^{-1}(G)$</span> where <span>$G = \{x \in \mathbb{R}: 1 \leq x \leq 4\}$</span>.</p>
+</blockquote>
+<p>(a) <span>$f(E) = \{x \in \mathbb{R}: \frac{1}{4} \leq x \leq 1\}$</span><br />
+(b) The singleton <span>$\{1\}$</span>.</p>
+<h3 class="header"><i>1.9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h3>
+<blockquote>
+<p>Let <span>$g(x) = x^2$</span> and <span>$f(x) = x+2$</span> for <span>$x \in \mathbb{R}$</span>, and let <span>$h$</span> be the composite function <span>$h = g \circ f$</span>.</p>
+<p>(a) Find the direct image <span>$h(E)$</span> of <span>$E = \{ x \in \mathbb{R}: 0 \leq x \leq 1\}$</span>.<br />
+(b) Find the inverse image <span>$h^{-1}(G)$</span> of <span>$G = \{x \in \mathbb{R}: 0 \leq x \leq 4\}$</span>.</p>
+</blockquote>
+<p><span>$h(x) = (x+2)^2$</span>.</p>
+<p>(a) <span>$\{4 \leq x \leq 9\}$</span></p>
+<p>(b) <span>$\{-2 \leq x \leq 0\}$</span></p>
+<h3 class="header"><i>1.10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h3>
+<blockquote>
+<p>Really long question for which I don't have a valid answer, so, skipped for now. Basically <span>$E \cap F = \varnothing$</span>? Is that important?</p>
+</blockquote>
+<h3 class="header"><i>1.11</i>Question 11<a class="headerlink" href="#question-11" name="question-11">&para;</a></h3>
+<blockquote>
+<p>Skipped for now</p>
+</blockquote>
+<h3 class="header"><i>1.12</i>Question 12<a class="headerlink" href="#question-12" name="question-12">&para;</a></h3>
+<blockquote>
+<p>Show that if <span>$f: A \to B$</span> and <span>$E, F$</span> and subsets of <span>$A$</span>, then <span>$f(E \cup F) = F(E) \cup f(F)$</span> and f(E \cap F) \subseteq f(E) \cap f(F)$.</p>
+</blockquote>
+<p>Later</p>
+<h3 class="header"><i>1.13</i>Question 13<a class="headerlink" href="#question-13" name="question-13">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>1.14</i>Question 14<a class="headerlink" href="#question-14" name="question-14">&para;</a></h3>
+<blockquote>
+<p>Show that the function <span>$f$</span> defined by <span>$f(x) = x / \sqrt{x^2+1}, x\in \mathbb{R}$</span>, is a bijection of <span>$R$</span> onto <span>$\{y : -1 &lt; y &lt; 1\}$</span>.</p>
+</blockquote>
+<p>To show that it is injective: Assume that <span>$f(x_1) = f(x_2)$</span>, somehow prove that <span>$x_1 = x_2$</span>.</p>
+<p>To show that it is surjective: Show that the range is indeed <span>$-1 &lt; y &lt; 1$</span>.</p>
+<p>To be continued</p>
+<h2 class="header"><i>2</i>Section 1.2<a class="headerlink" href="#section-12" name="section-12">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<blockquote>
+<p>Prove that that the following holds for all <span>$n \in \mathbb N$</span>.<br />
+<span>$$\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{n(n+1)} = \frac{n}{n+1}$$</span></p>
+</blockquote>
+<p>Proof by induction. Base case, <span>$n=1$</span>:</p>
+<p><span>$$\frac{1}{1\cdot 2} = \frac{1}{2} \, \checkmark$$</span></p>
+<p>Assume that it holds for <span>$n=k$</span>. Then:</p>
+<p><span>$$\begin{align}\frac{1}{1 \cdot 2} + \frac{1}{2 \cdot 3} + \ldots + \frac{1}{k(k+1)} + \frac{1}{(k+1)(k+2)} &amp; = \frac{k}{k+1} + \frac{1}{(k+1)(k+2)} \tag{by IH} \\
+&amp; = \frac{k(k+2) + 1}{(k+1)(k+2)} \\
+&amp; = \frac{k^2+2k + 1}{(k+1)(k+2)} \\
+&amp; = \frac{(k+1)^2}{(k+1)(k+2)} = \frac{k+1}{k+2} \\
+&amp; = \frac{k+1}{(k+1) +1} \, \checkmark \end{align}$$</span></p>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h3>
+<blockquote>
+<p>Prove that that the following holds for all <span>$n \in \mathbb N$</span>.<br />
+<span>$$1^3+2^3+\ldots + n^3 = \left ( \frac{1}{2} n(n+1) \right )^2$$</span></p>
+</blockquote>
+<p>Base case: <span>$1^3 = 1 = 1^2$</span> <span>$\checkmark$</span></p>
+<p>IH: assume that it holds for <span>$n=k$</span>. Then:</p>
+<p><span>$$\begin{align}1^3+3^3+\ldots+k^3+(k+1)^3 &amp; = \left ( \frac{1}{2} k(k+1) \right )^2 + (k+1)^3 \tag{by IH} \\
+&amp; = \left( \frac{1}{2} \right )^2 k^2 (k+1)^2 + k^3 + 3k^2 + 3k + 1 \\
+&amp; = \frac{1}{4}(k^2(k^2+2k+1)) + \frac{1}{4}(4k^3+12k^2+12k + 4) \\
+&amp; = \frac{1}{4}(k^4+2k^3+k^2 + 4k^3+12k^2+12k + 4) \\
+&amp; = \frac{1}{4}(k^4+6k^3 + 13k^2+12k + 4) \\
+&amp; = \frac{1}{4} (k^2+3k+2)^2 = \frac{1}{4}((k+1)(k+2))^2 \\
+&amp; = \left ( \frac{1}{2}(k+1)(k+2) \right )^2 \,\checkmark
+\end{align}$$</span></p>
+<h3 class="header"><i>2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h3>
+<blockquote>
+<p>Prove that the following holds for all <span>$n \in \mathbb N$</span>:<br />
+<span>$$3 + 11 + \ldots + (8n-5) = 4n^2-n$$</span></p>
+</blockquote>
+<p>Base case: <span>$3 = 4 -1$</span> <span>$\checkmark$</span></p>
+<p>IH: assume it holds for <span>$n=k$</span>. Then:</p>
+<p><span>$$\begin{align} 3+11+(8k-5) + (8(k+1)-5) &amp; = 4k^2-k + (8(k+1) - 5 \tag{by IH} \\
+&amp; = 4k^2-k + (8k+3) = 4k^2-k+8k + 3 \\
+&amp; = (4k^2 + 8k + 4) -k - 1 = 4(k^2+2k+1) - (k+1) \\
+&amp; = 4(k+1)^2 - (k+1) \,\checkmark\end{align}$$</span></p>
+<h3 class="header"><i>2.4</i>Question 6<a class="headerlink" href="#question-6_1" name="question-6_1">&para;</a></h3>
+<p>(Skipped 4-5 because they're pretty the same as the previous ones.)</p>
+<blockquote>
+<p>Prove that <span>$n^3+5n$</span> is divisible by 6 for all <span>$n \in \mathbb N$</span>.</p>
+</blockquote>
+<p>Base case: <span>$1^3+5(1) = 6$</span> which 6 does divide <span>$\checkmark$</span></p>
+<p>Assume <span>$6 \mid k^3 + 5k$</span>. Then:</p>
+<p><span>$$\begin{align} (k+1)^3 + 5(k+1) &amp; = k^3+3k^2+3k + 1 + 5k + 5 \\
+&amp; =  (k^3 + 5k) + (3k^2+3k+6) = (k^3+5k) + 3(k^2+k+2) \end{align}$$</span></p>
+<p>Incomplete</p>
+<h3 class="header"><i>2.5</i>Question 10<a class="headerlink" href="#question-10_1" name="question-10_1">&para;</a></h3>
+<blockquote>
+<p>Conjecture and prove a formula for the sum<br />
+<span>$$\frac{1}{1\cdot 3} + \frac{1}{3\cdot 5} + \ldots + \frac{1}{(2n-1)(2n+1)}$$</span></p>
+</blockquote>
+<p>Conjectured formula: <span>$\displaystyle \frac{n}{2n+1}$</span></p>
+<p>Base case, <span>$n=1$</span>: <span>$\displaystyle \frac{1}{1\cdot 3} = \frac{1}{3} \checkmark$</span></p>
+<p>Assume IH for <span>$n=k$</span>. Then:</p>
+<p><span>$$\begin{align} \frac{1}{1\cdot 3} + \ldots + \frac{1}{(2n-1)(2n+1)} + \frac{1}{2(n+1)-1)(2(n+1)+1)} &amp; = \frac{n}{2n+1} + \frac{1}{2(n+1)-1)(2(n+1)+1)} \tag{by IH} \\
+&amp; = \frac{n}{2n+1} + \frac{1}{(2n+1)(2n+3)} = \frac{n(2n+3)}{(2n+1)(2n+3)} \\
+&amp; = \frac{n(2n+3) + 1}{(2n+1)(2n+3)} = \frac{2n^2+3n+1}{(2n+1)(2n+3)} \\
+&amp; = \frac{(2n+1)(n+1)}{(2n+1)(2n+3)} = \frac{n+1}{2n+3} \\
+&amp; = \frac{n+1}{2(n+1)+1} \,\checkmark
+\end{align}$$</span></p>
+<h3 class="header"><i>2.6</i>Question 11<a class="headerlink" href="#question-11_1" name="question-11_1">&para;</a></h3>
+<blockquote>
+<p>Conjecture and prove a formula for the sum of the first odd natural numbers:<br />
+<span>$$1+3+\ldots+(2n-1)$$</span></p>
+</blockquote>
+<p>Conjectured formula: <span>$n^2$</span>.</p>
+<p>Base case, <span>$n=1$</span>: <span>$1 = 1^2 \checkmark$</span> lol</p>
+<p>Assume IH for <span>$n=k$</span>. Then:</p>
+<p><span>$$\begin{align} 1 + 3 + \ldots(2n-1) + (2(n+1) -1) &amp; = n^2 + (2(n+1) -1) \tag{by IH} \\
+&amp; = n^2+(2n+1) = (n+1)^2\, ♥ \,\checkmark \tag{that was easy} \end{align}$$</span></p>
+<h2 class="header"><i>3</i>Section 1.3<a class="headerlink" href="#section-13" name="section-13">&para;</a></h2>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

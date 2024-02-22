@@ -1,0 +1,133 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Implicit functions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Implicit functions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#solving-an-ode-and-more">1 Solving an ODE, and more</a><ul>
+<li><a href="#examples">1.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-partial-derivatives-at-a-point">2 Finding partial derivatives at a point</a><ul>
+<li><a href="#examples_1">2.1 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Solving an ODE, and more<a class="headerlink" href="#solving-an-ode-and-more" name="solving-an-ode-and-more">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 3</li>
+</ul>
+<h2 class="header"><i>2</i>Finding partial derivatives at a point<a class="headerlink" href="#finding-partial-derivatives-at-a-point" name="finding-partial-derivatives-at-a-point">&para;</a></h2>
+<blockquote>
+<p>If given the point, show that the equations are satisfied at the point, then show that the equations determine certain variables as functions of certain others, then find the partial derivatives at that point. Alternatively, if not given the point, show what points for which the equations can be solved for the independent variables.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 4, questions 4 and 5</li>
+<li><a href="/MATH_314/past-exam/winter-2006/final#question-1">Winter 2006 final, question 1</a></li>
+<li><a href="/MATH_314/past-exam/winter-2011/final#question-1">Winter 2011 final, question 1</a></li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

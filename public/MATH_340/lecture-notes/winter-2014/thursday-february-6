@@ -1,0 +1,141 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, February 6, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, February 6, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Fáry&#x27;s theorem and graph connectivity
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#farys-theorem">1 Fáry's theorem</a></li>
+<li><a href="#graph-connectivity">2 Graph connectivity</a><ul>
+<li><a href="#mengers-theorem">2.1 Menger's theorem</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Fáry's theorem<a class="headerlink" href="#farys-theorem" name="farys-theorem">&para;</a></h2>
+<blockquote>
+<p>Any planar graph has a planar drawing in which all the lines are straight.</p>
+</blockquote>
+<p>Proof: First, we assume that <span>$\delta(G) \geq 3$</span>. Here's why: If <span>$G$</span> is disconnected, then we can consider each component as a separate graph; thus, we assume that <span>$G$</span> is connected, in which case <span>$\delta(G) \geq 1$</span>. Suppose there exists a vertex <span>$v \in V$</span> such that <span>$\deg(v) = 1$</span>. Then you can just draw an infinitely small straight line from <span>$v$</span> to its only neighbour. Formally, if we induct on the size of <span>$G$</span>, then <span>$G-v$</span> must have a straight planar drawing, and we can just attach <span>$v$</span> to its neighbour with a short straight line.</p>
+<p>Alternatively, suppose there exists a <span>$v \in V$</span> such that <span>$\deg(v) = 2$</span>. Let <span>$v$</span>'s neighbours be <span>$a$</span> and <span>$b$</span>. Remove <span>$v$</span>, and add an edge between <span>$a$</span> and <span>$b$</span> (if there isn't one already), and call this new graph <span>$G'$</span>. By induction, <span>$G'$</span> has a straight line drawing. Then we just add back <span>$v$</span>, either in the middle of the straight line between <span>$a$</span> and <span>$b$</span>, or like right next to it if <span>$a-b$</span> is already connected.</p>
+<p>So that covers the cases there <span>$\delta G &lt; 3$</span>. Let's now work under the assumption that <span>$\deg(G) \geq 3$</span>, and induct on the number of vertices, <span>$n$</span>, in <span>$G$</span>.</p>
+<p><strong>Base case</strong>: <span>$n \leq 5$</span>. We can assume that <span>$G$</span> is triangulated, i.e., every face has 3 edges. If this is not the case, then we can just add dummy edges to <span>$G$</span> and remove them from the straight line drawing we found. <em>(Why? And what about faces with more than 3 edges?)</em></p>
+<p>Next, we show by induction that for any face <span>$\{x, y, z\}$</span> of <span>$G$</span>, there exists a straight line drawing where <span>$\{x, y, z\}$</span> is the outer face.</p>
+<p>(This is actually a stronger conjecture than the one we are seeking to prove; this sometimes occurs in inductive proofs, because it makes the induction step easier. In other words, this gives us a stronger induction hypothesis.)</p>
+<p>Nvm I don't care</p>
+<h2 class="header"><i>2</i>Graph connectivity<a class="headerlink" href="#graph-connectivity" name="graph-connectivity">&para;</a></h2>
+<p>Vertices <span>$i$</span> and <span>$j$</span> and <span>$k$</span>-connected if there exist <span>$k$</span> vertex-disjoint paths from <span>$i$</span> to <span>$j$</span>.</p>
+<p>An entire graph is <span>$k$</span>-connected if every pair of vertices is <span>$k$</span>-connected.</p>
+<p>A set <span>$U \subseteq V$</span> is an <span>$i-j$</span> separator if <span>$i$</span> and <span>$j$</span> are in different components of <span>$G-U$</span>. So if you try to get from <span>$i$</span> to <span>$j$</span>, you need to use a vertex in <span>$U$</span> at some point. Another way of thinking about it: if you remove <span>$U$</span> from <span>$G$</span>, there's no way to get from <span>$i$</span> to <span>$j$</span>.</p>
+<h3 class="header"><i>2.1</i>Menger's theorem<a class="headerlink" href="#mengers-theorem" name="mengers-theorem">&para;</a></h3>
+<blockquote>
+<p>Given <span>$G = (V, E)$</span> and <span>$s, t \in V$</span>, the maximum number of disjoint <span>$s-t$</span> paths is equal to the minimum size of an <span>$s-t$</span> separator.</p>
+</blockquote>
+<p>(This is a simple case of max-flow min-cut.)</p>
+<p>Proof: (<span>$\max \leq \min$</span>) If <span>$U$</span> is an <span>$s-t$</span> separator then every <span>$s-t$</span> path uses <span>$\geq 1$</span> vertex in <span>$U$</span>. So the maximum number of disjoint paths is <span>$\leq |U|$</span>.</p>
+<p>(<span>$\max \geq \min$</span>) Let the max be <span>$k$</span>. The trick is to take <span>$G$</span> and draw an auxiliary bipartite graph <span>$H$</span>, fuck it, this proof is too long</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 12, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 12, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to relations
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>The Sheffer stroke<a class="headerlink" href="#the-sheffer-stroke" name="the-sheffer-stroke">&para;</a></h2>
+<p>Continued from last class: the Sheffer stroke is a binary connective with the following truth table<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Wikipedia gives a different truth table, but Lovey...">1</a></sup>:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$p \mid q$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+</tbody>
+</table>
+<p>This is a functionally complete connective, if that's a term, meaning that you can define every other connective using just this one.</p>
+<h2 class="header"><i>2</i>The basics of relations<a class="headerlink" href="#the-basics-of-relations" name="the-basics-of-relations">&para;</a></h2>
+<p>We start with some basic set notation. Let <span>$A$</span> and <span>$B$</span> be sets (possibly different, possibly the same). <span>$A \times B = \{ (a, b) : a \in A, \, b\in B\}$</span>. For example, <span>$\mathbb{R} \times \mathbb{R} = \mathbb{R}^2$</span> which is 2-dimensional Euclidean space and which consists of all points <span>$(x, y)$</span> ... well, yeah. Anyways.</p>
+<p>A relation <span>$R$</span> from <span>$A$</span> to <span>$B$</span> is just a subset of <span>$A\times B$</span>. As <span>$R \subseteq A \times B$</span>, we can write <span>$aRb$</span> (where R means, "is related to") for <span>$(a, b) \in R$</span>.</p>
+<p>We have <span>$&lt; \in \mathbb{R} \times \mathbb{R}$</span> so technically <span>$(1, 2) \in &lt;$</span> since we have <span>$1 &lt; 2$</span>.</p>
+<p>The domain of <span>$R$</span> is <span>$\{ a \in A: aRb \text{ for some } b \in B\}$</span> (i.e. the set of all things that are, in the first place, related to something<sup>huh?</sup>). The range is <span>$\{ b \in B: aRb \text{ for some } a \in A\}$</span>. Note that you can't figure out the specific intended domain/range<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="Also known or codomain, or image. Not really relev...">2</a></sup> just from the relation itself, as there are many possibilities.</p>
+<blockquote>
+<p>N.B. if <span>$R$</span> is a relation from <span>$A$</span> to <span>$B$</span> (note: not symmetric) and <span>$A \subseteq A'$</span> and <span>$B \subseteq B'$</span>, then the same <span>$R$</span> is also a relation from <span>$A'$</span> to <span>$B'$</span>. This is a convention.</p>
+</blockquote>
+<p>In the case where <span>$A = B$</span> (i.e. <span>$R \subseteq A \times A$</span>), we say <span>$R$</span> is a (binary) <em>relation on</em> <span>$A$</span>.</p>
+<h3 class="header"><i>2.1</i>Relations as functions<a class="headerlink" href="#relations-as-functions" name="relations-as-functions">&para;</a></h3>
+<p>A relation <span>$R: A \to B$</span> is a function from <span>$A$</span> to <span>$B$</span> if, for each <span>$a \in A$</span>, there is a unique <span>$b \in B$</span> such that <span>$aRb$</span> (although several <span>$a$</span>'s can be related to the same <span>$b$</span>). The domain of the function is all of <span>$A$</span> and the range is a subset<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="Not necessarily a proper subset; it could be all o...">3</a></sup> of <span>$B$</span>. For example, if <span>$A = B = \mathbb{R}$</span> and <span>$R = \{ (x, x^2) : x \in \mathbb{R} \}$</span>, then the domain is <span>$\mathbb{R}$</span>, and the range is only the positive real numbers.</p>
+<h4 class="header"><i>2.1.1</i>Injective function<a class="headerlink" href="#injective-function" name="injective-function">&para;</a></h4>
+<p>A function from <span>$A$</span> to <span>$B$</span> is <strong>injective</strong> if, whenever <span>$a \neq a'$</span> in <span>$A$</span>, then <span>$f(a) \neq f(a')$</span> - meaning everything in the domain maps to something unique. Such a function is considered one-to-one.</p>
+<h4 class="header"><i>2.1.2</i>Surjective functions<a class="headerlink" href="#surjective-functions" name="surjective-functions">&para;</a></h4>
+<p>A function is <strong>surjective</strong> if there is at least one <span>$a \in A$</span> such that <span>$f(a) = b$</span> for every <span>$b \in B$</span>. In other words, everything in <span>$B$</span> is accounted for. Also known as "onto"<sup id="fnref:4"><a href="#fn:4" rel="footnote" title="Note that every function is clearly onto its own r...">4</a></sup>.</p>
+<p>Although injectiveness is an intrinsic property, surjectiveness is not, as you can only say that a function is onto <em>something</em>.</p>
+<h4 class="header"><i>2.1.3</i>Bijective functions<a class="headerlink" href="#bijective-functions" name="bijective-functions">&para;</a></h4>
+<p>A function that is both injective and surjective is bijective. So there is a one-to-one correspondence or perfect matching of <span>$A$</span> and <span>$B$</span>. The notation for this is <span>$A \sim B$</span>, but we won't be using it much. Obviously any one-to-one function is a bijection onto its own range. Beyond that, we have that if <span>$A$</span> is finite, and <span>$A \sim B$</span>, then <span>$A$</span> and <span>$B$</span> have the same number of elements (same cardinality<sup id="fnref:5"><a href="#fn:5" rel="footnote" title="The notion of cardinality is much more complex for...">5</a></sup>, i.e. equinumerous)</p>
+<blockquote>
+<p>Fact: <span>$\mathbb{N} \sim \mathbb{Z} \sim \mathbb{Q}$</span> but <span>$\mathbb{N} \nsim \mathbb{R}$</span> because they're infinite<sup>wat</sup>.</p>
+</blockquote>
+<p>Example: <span>$A \sim A$</span> for all <span>$A$</span>: <span>$\iota_A$</span><sup id="fnref:6"><a href="#fn:6" rel="footnote" title="The identity function. There's not much more to it...">6</a></sup>: <span>$\{ (a, a): a \in A \}$</span> is a bijection</p>
+<h4 class="header"><i>2.1.4</i>Inverse relations<a class="headerlink" href="#inverse-relations" name="inverse-relations">&para;</a></h4>
+<p>If <span>$R \subseteq A \times B$</span>, then inverse of <span>$R$</span>, denoted <span>$R^{-1}$</span>, is <span>$\{ (b, a): a Rb\}$</span>. The inverse of a function is not always a function (although it is always a relation) - it's only a function if the original function is a bijection. If that is true, then the inverse is also a bijection, i.e. <span>$A \sim B \iff B \sim A$</span>.</p>
+<h4 class="header"><i>2.1.5</i>Composition of relations<a class="headerlink" href="#composition-of-relations" name="composition-of-relations">&para;</a></h4>
+<p>If <span>$R \subseteq A \times B$</span> and <span>$S \subseteq B \times C$</span>, then the composition <span>$S \circ R$</span><sup id="fnref:7"><a href="#fn:7" rel="footnote" title="Function composition goes right-to-left, as per Eu...">7</a></sup> <span>$= R \times S = \{ (a, c) \text{ for some } b \in B, aRb \text{ and } bSc \}$</span>.</p>
+<p>Functionally speaking, <span>$f: A \to B$</span>, <span>$g: B \to C$</span>, so <span>$g \circ f: A \to C$</span>. The chain rule in differentiation is an example of this or something.</p>
+<p>For example: say <span>$A = B = C$</span> are all sets, of people, and <span>$R=S$</span>. <span>$aRb$</span> means that <span>$a$</span> is the parent of <span>$b$</span>. So when is <span>$a(R \times R)c$</span> true? When <span>$a$</span> is a grandparent of <span>$c$</span> I guess.</p>
+<blockquote>
+<p>Fact: If <span>$f: A \to B$</span> and <span>$g: B \to C$</span> are both bijections, so is <span>$g \circ f$</span>. Same with injections and surjections. Hence if <span>$A \sim B$</span> and <span>$B \sim C$</span>, then <span>$A \sim C$</span>.</p>
+</blockquote>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Wikipedia gives a different truth table, but Loveys seems to prefer this definition, which shows up again in assignment 2, question 2 c). It doesn't really matter though, it's the same idea.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Also known or codomain, or image. Not really relevant.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Not necessarily a proper subset; it could be all of <span>$B$</span>, in which case the function would be <strong>onto</strong>.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Note that every function is clearly onto its own range. For example, the function in the <span>$x, x^2$</span> example is onto the non-negative reals, though not <span>$\mathbb{R}$</span> as a whole.&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>The notion of cardinality is much more complex for infinite sets. Not really relevant at the moment but included as a footnote because it was mentioned in class.&#160;<a href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>The identity function. There's not much more to it than what is defined above. I don't know.&#160;<a href="#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p>Function composition goes right-to-left, as per Euler's convention.&#160;<a href="#fnref:7" rev="footnote" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

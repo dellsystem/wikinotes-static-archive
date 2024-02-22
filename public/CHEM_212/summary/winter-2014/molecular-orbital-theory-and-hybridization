@@ -1,0 +1,206 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/CHEM_212/">
+                CHEM 212
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Molecular Orbital Theory and Hybridization
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Molecular Orbital Theory and Hybridization
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>As you bring two atoms together, there is an attraction between them.<br />
+However, too close and you will get a repulsion</p>
+<p><strong>RECALL:</strong> 1s, 2s and 2p atomic orbitals exist. When two orbitals overlap we get a sigma bond and a sigma* bond (antibond)<br />
+<strong>RECALL:</strong> Orbitals do not exist in real life, they are mathematical results which predict the probabilty of finding the electron.</p>
+<p><em>To read and understand this article, you should be familliar with atomic orbitals</em></p>
+<h2 class="header"><i>1</i>Molecular Orbital Theory<a class="headerlink" href="#molecular-orbital-theory" name="molecular-orbital-theory">&para;</a></h2>
+<ul>
+<li>In phase overlap results in a constructive bond</li>
+<li>out of phase overlap results in a destructive bond (anti bond)</li>
+<li>If you start with two orbitals you must end up with 2 molecular orbitals!</li>
+<li>The terms "inphase" and "out of phase" correspond to how we overlap the orbitals. If the two molecules have the same probability curve and we overlap them it is known as in phase and vice versa.</li>
+<li>Overlapping out of phase orbitals will result in a nodal plane/surface</li>
+</ul>
+<h2 class="header"><i>2</i>Hybridization<a class="headerlink" href="#hybridization" name="hybridization">&para;</a></h2>
+<ul>
+<li>Bonds want to reorganize themselves so that they are as far apart from each other as possible.</li>
+<li>Carbon has a completed 1s and 2s orbital and a 2p paritally filled in the first two orbitals</li>
+<li>They can rehybridize to form a 4sp3 hybridized orbitals where there are now 4 orbitals of the same energy level each with one electron</li>
+<li>They could also rehybridize to form a 3sp2 orbital and a 2pz orbital. (note: the 2pz orbital is of higher energy than the combined hybridized orbitals)</li>
+</ul>
+<h2 class="header"><i>3</i>Multiple Bonds<a class="headerlink" href="#multiple-bonds" name="multiple-bonds">&para;</a></h2>
+<ul>
+<li>When two orbitals overlap and there is another orbital with a single electron, it is possible to overlap once again to form a pi and pi* bond</li>
+</ul>
+<h2 class="header"><i>4</i>Table<a class="headerlink" href="#table" name="table">&para;</a></h2>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Type</th>
+<th>MO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 groups</td>
+<td>4sp3</td>
+</tr>
+<tr>
+<td>4 single bonds</td>
+<td>4sp3</td>
+</tr>
+<tr>
+<td>3 single bonds and a double bond</td>
+<td>3sp2</td>
+</tr>
+<tr>
+<td>3 groups</td>
+<td>3sp2</td>
+</tr>
+<tr>
+<td>2 bonds and a triple bond</td>
+<td>sp</td>
+</tr>
+<tr>
+<td>2 bonds</td>
+<td>sp</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The number in front of <em>sp</em> corresponds to the total number of hybrid orbitals. The number after the <em>sp</em> refers to how much <em>p</em> character the orbitals have. The less <em>p</em> character, the more <em>s</em> character, the closer the electrons in the orbital will be to the nucleus.</li>
+<li>Electron <em>pairs</em> count as substituent groups</li>
+</ul>
+<h2 class="header"><i>5</i>Shapes<a class="headerlink" href="#shapes" name="shapes">&para;</a></h2>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Hybridization</th>
+<th>Shape</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4sp3</td>
+<td>Tetrahaedral</td>
+<td>Long bond lengths and all sigma bonds (eg: Ethane)</td>
+</tr>
+<tr>
+<td>3sp2+1p</td>
+<td>Trigonal Planar</td>
+<td>intermediate bond lengths, a sigma and a pi bond exist (eg: Ethene)</td>
+</tr>
+<tr>
+<td>sp + 2p</td>
+<td>Linear</td>
+<td>Short bond lengths, a sigma and two pi bonds (eg: Ethyne)</td>
+</tr>
+</tbody>
+</table>
+<h4 class="header"><i>5.1</i>More examples<a class="headerlink" href="#more-examples" name="more-examples">&para;</a></h4>
+<ul>
+<li>H2O, 4 groups around Oxygen (2 electron pairs and 2 bonds) --&gt; 4sp3 orbitals</li>
+<li>
+<p>BF3, 3 groups around boron (3 bonds) --&gt; 3sp2 orbitals</p>
+</li>
+<li>
+<p>Note, boron has an empty p orbital around it (this means it can gain 2 more electrons from somewhere)</p>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/PHYS_232/">
+                PHYS 232
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Waves review: chapter 1
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Waves review: chapter 1
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>This is an overview of the waves portion of the course. The content of this review, like the class itself, draws heavily from the book "Vibrations and Waves" by A.P. French (the person, not the class). In order to get the best understanding of the subject, I'd recommend reading through the book as well.</p>
+<h2 class="header"><i>1</i>Periodic Motions<a class="headerlink" href="#periodic-motions" name="periodic-motions">&para;</a></h2>
+<p>The concepts in this chapter are pretty basic, so I'm just going to breeze through a few of them. First of all, it is important that you know that for an object of mass <span>$m$</span> attached to a spring of Hooke constant <span>$k$</span>, the restoring force that results is given by <span>$F = ma = -kx$</span> where <span>$x$</span> is the displacement from equilibrium. What's also very important is understanding how to put this in the form of a differential equation. Remembering that acceleration is the second time derivative of position, we can rewrite our spring equation as <span>$m\ddot x = -kx$</span>, where <span>$\ddot x$</span> represents the second time derivative of <span>$x$</span>. Get used to this dot notation as it shows up everywhere in physics<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="It was also Newton's way of writing derivatives. T...">1</a></sup>.</p>
+<p>Our equation <span>$m\ddot x = -kx$</span> is a <strong>second order</strong> ordinary differential equation, which means that it contains a second order derivative, and is only concerned with derivatives of a single variable. You don't need extensive knowledge of ODES for this course, but you do need to recognize the following: an ODE of this form can be satisfied with a solution of the form <span>$x = A \cos (\omega t + \alpha)$</span> where <span>$\omega = \sqrt{k / m}$</span>. To check this, just find <span>$\ddot x = -A\omega^2\cos(\omega t + \alpha)$</span>, plug it in and be amazed<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="You may have noticed that a solution of the form $...">2</a></sup>.</p>
+<p>In fact, any differential equation of the form <span>$\ddot x = -\omega^2 x$</span> is an <a href="http://en.wikipedia.org/wiki/Equations_of_motion"><strong>equation of motion</strong></a> for a simple harmonic oscillator with angular frequency <span>$\omega$</span>. As you'll see, it pops up everywhere in physics, so it's handy to remember.</p>
+<h3 class="header"><i>1.1</i>Properties of simple harmonic motion<a class="headerlink" href="#properties-of-simple-harmonic-motion" name="properties-of-simple-harmonic-motion">&para;</a></h3>
+<p>I'm going to assume everyone reading this has seen a sinusoid before, so I'll be brief: the position of an object undergoing simple harmonic motion can be described by a sinusoid: <span>$x = A\cos(\omega t + \alpha)$</span>. The distance from equilibrium never exceeds the amplitude <span>$A$</span>. After a certain period of time, the motion repeats itself (maybe that's why they call it <strong>periodic</strong>...). This period is denoted as <span>$T$</span>, and <span>$T = 2\pi / \omega$</span>. Hopefully you've seen this all before.</p>
+<h3 class="header"><i>1.2</i>Rotating vector approach<a class="headerlink" href="#rotating-vector-approach" name="rotating-vector-approach">&para;</a></h3>
+<p>I'm not sure if you've seen this before but the book really likes this approach so I'm going to mention it too: one intuitive way to view simple harmonic motion is as the projection of a rotating vector (in 2 dimensions) onto a single dimension. What this is saying is pretty much covered in this animation:</p>
+<p><img alt="whoa" src="http://i.imgur.com/5fpYND4.gif" title="math is cool" /></p>
+<p>Okay so why is this important? Besides giving us a nice intuitive way to view sine waves, it helps us introduce the next part of the chapter:</p>
+<h3 class="header"><i>1.3</i>The complex exponential (i.e. the coolest thing in this class)<a class="headerlink" href="#the-complex-exponential-ie-the-coolest-thing-in-this-class" name="the-complex-exponential-ie-the-coolest-thing-in-this-class">&para;</a></h3>
+<p>Alright so I'm just gonna put this out there first without really explaining a thing just because it's so cool:</p>
+<p><span>$$ e^{i\theta} = \cos\theta + i\sin\theta $$</span></p>
+<p>Where <span>$i$</span> is the imaginary unit such that <span>$i^2 = -1$</span>.<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="Note I did not define it as $i = \sqrt{-1}$ for [r...">3</a></sup> Except actually in this class we're gonna use <span>$j$</span> instead of <span>$i$</span>, so I should actually say </p>
+<p><span>$$ e^{j\theta} = \cos\theta + j\sin\theta $$</span></p>
+<p>This beautiful piece of math is called <strong>Euler's formula</strong> (you may have seen the special case <span>$e^{\pi i} + 1 = 0$</span>) and it just rocks my world. In order to understand why exactly why this is so cool, it's important to understand the geometric interpretation of complex numbers. A complex number <span>$a + jb$</span> can be viewed as a pair of real numbers <span>$a$</span> and <span>$b$</span>, sort of like how a point in a 2D plane can be represented by a pair of real numbers <span>$(x,y)$</span>. So we do this: we construct a 2D plane with two orthogonal axes: the real axis, and the imaginary axis. The <span>$a$</span> in our complex number represents the position along the real axis, and <span>$b$</span> is the position along the imaginary axis. </p>
+<p>Now remember, like we saw in the animation above, a vector of unit length, based at the origin and rotating around it, can be projected onto one of the axes, forming a sinusoid. Also, for a triangle in the unit circle at an angle <span>$\theta$</span> with the x-axis, <span>$x = \cos\theta$</span> and <span>$y = \sin\theta$</span>. Combining all this, we see that <span>$\cos\theta + j\sin\theta$</span> describes a unit vector in the complex plane, at an angle of <span>$\theta$</span> with with real axis. So what Euler's formula lets us do is describe this vector in a really simple form - all we gotta write is <span>$e^{j\theta}$</span>, and we've described a vector. And if we write it as <span>$e^{j\omega t}$</span>, we've got a rotating vector with angular frequency <span>$\omega$</span>.</p>
+<p><img alt="alt" src="http://i.imgur.com/ufSdScx.gif" title="Lol math is kewl" /></p>
+<p>How does this help us with waves? Well, remember, if we project this vector onto the x/real axis (which we can do by only taking the real part of the complex number that represents it) we get a cosine wave. Additionally, notice that <span>$z = Ae^{j\omega t}$</span> satisfies our differential equation <span>$\ddot z = -\omega^2 z$</span> too (I use <span>$z$</span> to denote that it's a complex number) - so we can do our analysis with complex exponentials, then simply take the real part when we're done with the algebra - that is, <span>$x = \text{Re}(z)$</span>.</p>
+<p>As a side note, I should point out that since we can represent vectors in 2D with complex numbers, we can naturally perform vector operations on them with complex numbers. If we have two complex numbers <span>$u$</span> and <span>$v$</span>, then <span>$u + v$</span> will represent the same vector that we get if we added the vectors <span>$u$</span> and <span>$v$</span> describe. If we multiply <span>$u$</span> by <span>$j$</span>, it's the same as rotating the vector described by <span>$u$</span> 90 degrees counterclockwise. Finally, if we multiply <span>$u$</span> by <span>$e^{j\theta}$</span>, we effectively rotate <span>$u$</span> by the angle <span>$\theta$</span>. This knowledge can help make seemingly complicated complex expressions intuitive<sup id="fnref:4"><a href="#fn:4" rel="footnote" title="If you like this complex numbers stuff (and even i...">4</a></sup>.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>It was also Newton's way of writing derivatives. The notations <span>$\frac{dy}{dx}$</span> and <span>$y'(x)$</span> both originate from Leibniz.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>You may have noticed that a solution of the form <span>$x = A\sin(\omega t + \alpha)$</span> also satisfies the ODE (which makes sense as <span>$\alpha$</span> is arbitrary, so if we just add <span>$\pi / 2$</span> to it we change from <span>$\cos$</span> to <span>$\sin$</span>). We choose to use <span>$\cos$</span> for reasons that will soon make sense.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Note I did not define it as <span>$i = \sqrt{-1}$</span> for <a href="http://math.stackexchange.com/questions/144364/is-the-square-root-of-a-negative-number-defined/144404#144404">reasons, only some of which I understand</a>.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>If you like this complex numbers stuff (and even if you don't) you'll probably like <a href="http://acko.net/blog/how-to-fold-a-julia-fractal/">this</a>.&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

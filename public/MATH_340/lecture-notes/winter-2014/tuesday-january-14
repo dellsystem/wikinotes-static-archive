@@ -1,0 +1,171 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 14, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 14, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Applications of Hall&#x27;s theorem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#regular-bipartite-graphs">1 Regular bipartite graphs</a></li>
+<li><a href="#latin-rectangles-and-squares">2 Latin rectangles and squares</a></li>
+<li><a href="#graph-colouring">3 Graph-colouring</a><ul>
+<li><a href="#in-bipartite-graphs">3.1 In bipartite graphs</a></li>
+<li><a href="#in-non-bipartite-graphs">3.2 In non-bipartite graphs</a></li>
+<li><a href="#applications">3.3 Applications</a></li>
+</ul>
+</li>
+<li><a href="#systems-of-distinct-representatives">4 Systems of distinct representatives</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Regular bipartite graphs<a class="headerlink" href="#regular-bipartite-graphs" name="regular-bipartite-graphs">&para;</a></h2>
+<p>A bipartite graph is <strong><span>$d$</span>-regular</strong> if <span>$\deg(v) = d$</span> for any <span>$v \in V$</span> (so all the vertices have the same degree, <span>$d$</span>).</p>
+<blockquote>
+<p>Theorem: a <span>$d$</span>-regular, bipartite graph can be decomposed into <span>$d$</span> edge-disjoint perfect matchings.</p>
+</blockquote>
+<p>Proof: by induction on <span>$d$</span>. In the base case, let <span>$d=1$</span>. Then each vertex is adjacent to exactly one edge. So if we just take all the edges, we have a perfect matching. Done.</p>
+<p>Now, consider some arbitrary <span>$d$</span>-regular, bipartite graph <span>$G$</span>. Suppose it has a perfect matching <span>$M$</span>. (We'll justify this assumption later.) Then, <span>$G \setminus M$</span> is a <span>$(d-1)$</span>-regular graph (since <span>$M$</span> has a degree of 1 for each vertex). By the induction hypothesis, <span>$G\setminus M$</span> can be decomposed into <span>$d-1$</span> edge-disjoint perfect matchings. Then, we just take these <span>$d-1$</span> matchings and throw in <span>$M$</span>, and we get <span>$d$</span> edge-disjoint perfect matchings for <span>$G$</span>.</p>
+<p>Now we just need to show that an arbitrary <span>$d$</span>-regular, bipartite graph has a perfect matching. We can do this by proving that Hall's condition holds. First, we need to show that <span>$|X| = |Y|$</span>. Well, since <span>$G$</span> is bipartite, we have that</p>
+<p><span>$$\sum_{x \in X} \deg(x) = \sum_{y \in Y} \deg(y) = |E| \tag{the number of edges}$$</span></p>
+<p>since edge contributes once to <span>$X$</span>, and once to <span>$Y$</span>. But since <span>$G$</span> is <span>$d$</span>-regular, all vertices have the same degree, so <span>$d|X| = d|Y|$</span> and thus <span>$|X| = |Y|$</span>.</p>
+<p>Next, we need to show Hall's condition. Take any subset <span>$A \subseteq X$</span>, and consider <span>$|\Gamma(A)|$</span>, i.e., the size of its neighbourhood. Now, the total number of edges leaving <span>$A$</span> is <span>$d|A|$</span>. The same number of edges enters <span>$\Gamma(A)$</span>. Since all the vertices have the same degree, it must be that <span>$|\Gamma(A)| = |A|$</span>. Thus Hall's condition is satisfied. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Latin rectangles and squares<a class="headerlink" href="#latin-rectangles-and-squares" name="latin-rectangles-and-squares">&para;</a></h2>
+<p>A <strong>Latin rectangle</strong> is a <span>$r \times n$</span> grid (with <span>$n &gt; r$</span>) containing some subset of the numbers <span>$1, \ldots, n$</span> such that each number only appears at most once in each row and column.</p>
+<blockquote>
+<p>Theorem: every Latin rectangle can be extended to get a <span>$n \times n$</span> Latin square.</p>
+</blockquote>
+<p>Proof: Consider a bipartite graph with a vertex in <span>$X$</span> for each column and a vertex in <span>$Y$</span> for each number. We create an edge between a column and a number if the number is <em>not</em> in the column.</p>
+<p>The resulting graph is bipartite and 2-regular (in general, the graph is <span>$(n-r)$</span>-regular). Thus, by the theorem in the previous section, it decomposes into 2 disjoint perfect matchings. We can make these matchings the new rows in the table to get our Latin square, as desired. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>3</i>Graph-colouring<a class="headerlink" href="#graph-colouring" name="graph-colouring">&para;</a></h2>
+<p>An <strong>edge-colouring</strong> is a function <span>$c: E \mapsto \mathbb N$</span> such that <span>$c(e_1) \neq c(e_2)$</span> for any <span>$e_1, e_2$</span> that share a vertex.</p>
+<p>The <strong>edge-chromatic number</strong> <span>$\chi^E(G)$</span> for a graph <span>$G$</span> is the minimum number of colours needed to fully edge-colour that graph.</p>
+<p>The edges <span>$E_i$</span> of colour <span>$i$</span> form a matching (not necessarily perfect).</p>
+<p>Note that <span>$\displaystyle \chi^E(G) \geq \max_{v\in V} \deg(v) = \Delta(G)$</span> (where <span>$\Delta$</span> is defined as the max degree in the graph, and <span>$\delta$</span> is defined as the minimum degree in the graph).</p>
+<h3 class="header"><i>3.1</i>In bipartite graphs<a class="headerlink" href="#in-bipartite-graphs" name="in-bipartite-graphs">&para;</a></h3>
+<blockquote>
+<p>Theorem: in a bipartite graph, <span>$\chi^E(G) = \Delta(G)$</span>.</p>
+</blockquote>
+<p>Proof: Add dummy edges and nodes until we get a <span>$d$</span>-regular graph where <span>$d=\Delta(G)$</span>. Then, we decompose it into <span>$d$</span> perfect matchings, and we can just ignore the dummy nodes/edges.</p>
+<p>How do we add the dummy edges? First, we repeatedly add edges between vertices of degree <span>$&lt; \Delta(G)$</span>, until we get those to <span>$\Delta(G)$</span>. If <span>$|X| = |Y|$</span>, and we get to a point where every vertex in <span>$X$</span> has degree <span>$\Delta(G)$</span>, then so does every vertex in <span>$Y$</span>. On the other hand, if <span>$|X| &lt; |Y|$</span>, we can just add new dummy nodes in <span>$X$</span> and connect the new edges to those. It's pretty straightforward, so I'm not going to formalise this. <span>$\blacksquare$</span></p>
+<p>Corollary of proof: If <span>$|Y| &gt; |X|$</span> and <span>$|\Gamma(A)| \geq |A|$</span> for all <span>$A \subseteq X$</span>, then there exists a matching <span>$M$</span> that touches every vertex in <span>$X$</span>.</p>
+<h3 class="header"><i>3.2</i>In non-bipartite graphs<a class="headerlink" href="#in-non-bipartite-graphs" name="in-non-bipartite-graphs">&para;</a></h3>
+<blockquote>
+<p>Theorem (Vizing, 1964): In a non-bipartite graph, <span>$\Delta(G) \leq \chi^E(G) \leq \Delta(G) + 1$</span>.</p>
+</blockquote>
+<p>The proof is outside the scope of this course, but it uses the augmenting path technique that we saw earlier in an earlier lecture.</p>
+<h3 class="header"><i>3.3</i>Applications<a class="headerlink" href="#applications" name="applications">&para;</a></h3>
+<ul>
+<li>Assigning lectures to rooms</li>
+<li>Scheduling games</li>
+<li>Assigning pilots to planes</li>
+<li>Assigning things to other things, in general</li>
+</ul>
+<h2 class="header"><i>4</i>Systems of distinct representatives<a class="headerlink" href="#systems-of-distinct-representatives" name="systems-of-distinct-representatives">&para;</a></h2>
+<p>Suppose <span>$Y$</span> is a set, and <span>$S_1, \ldots, S_n$</span> are subsets of <span>$Y$</span>. A set <span>$D = \{y_1, \ldots, y_n\}$</span> is a <strong>system of distinct representatives (SDR)</strong> if <span>$y_i \in S_i$</span> for all <span>$1 \leq i \leq n$</span> and <span>$y_i \neq y_j$</span> for <span>$i \neq j$</span>. In other words, each <span>$S_i$</span> is uniquely represented by one of its members, and nothing can represent more than one set.</p>
+<blockquote>
+<p>Theorem: An SDR exists <span>$\iff$</span> for all sets of size <span>$k$</span> in <span>$S_1, \ldots, S_n$</span>, their union has size <span>$\geq k$</span>.</p>
+</blockquote>
+<p>Proof: Create a bipartite graph. Let <span>$x_i \in X$</span> have a neighbourhood <span>$\Gamma(x_i) = S_i \subseteq Y$</span>. There is an SDR if and only if <span>$X$</span> is matchable. (So <span>$Y$</span> is people, <span>$X$</span> is groups.) There is an edge between a group and every person in that group. We need each vertex in <span>$X$</span> to be matched. This occurs when <span>$|\Gamma(A)| \geq |A|$</span> for all <span>$A \subseteq X$</span>, by Hall's condition, which is exactly when the union condition is matched. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

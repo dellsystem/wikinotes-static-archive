@@ -1,0 +1,248 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, April 1, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, April 1, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Synaptic plasticity part 2
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>LTP : Long term synaptic plasticity<a class="headerlink" href="#ltp-long-term-synaptic-plasticity" name="ltp-long-term-synaptic-plasticity">&para;</a></h2>
+<ul>
+<li>required for memory and learning </li>
+<li>
+<p>forming stable neural connection</p>
+</li>
+<li>
+<p>Hebb synapse: cells fire together are wired together </p>
+<ul>
+<li>cell A firing to cell B : both are strenghten </li>
+</ul>
+</li>
+<li>
+<p>often use hippocampus to do research since it's the basis for memory and learning</p>
+<ul>
+<li>guy with hippocampus removed: can't formed more declarative memory </li>
+<li>mossy fiber from dentate gyrus projects to CA3 pyramidal cells, which project to CA1 cells<ul>
+<li>this wiring allows sticking electrode into the brain and track the responses</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LTP not only causes bigger response in strenghten neurons, but also decrease failure rate (i.e. neurons more likely to release vesicles when stimulated) </p>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>LTP requirements<a class="headerlink" href="#ltp-requirements" name="ltp-requirements">&para;</a></h3>
+<ul>
+<li>strong stimulation of an input leads to LTP of that input </li>
+<li>LTP is specific : while one synapse strengthens, the other one doesn't </li>
+<li>
+<p>associative : synapses that fire at the same time get strengthened together </p>
+<ul>
+<li>pairing presynaptic activity with post-syanptic depolarization also induces LTP <ul>
+<li>i.e. you depolarize the postsynaptic cell while stimulating it, it can help induce LTP </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LTP requires NMDA receptor</p>
+<ul>
+<li>blocking it leads to no LTP </li>
+<li>NMDA receptor is blocked by Mg2+, </li>
+<li>gutamate from presynaptic terminal binds to it</li>
+<li>however, really need depolarization to unplug the magnesium, the channel opens, and then Ca2+ enter the cell, this leads to LTP<ul>
+<li>evidences: activating calcium buffer "photolabile" with flash photolysis reduces LTP<ul>
+<li>i.e. if you take away calcium right after stimulation you don't get LTP </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LTP requires CamKII</p>
+<ul>
+<li>CamKII, a 5 unit molecule, autophosphorylate itself when Ca+ binds</li>
+<li>so at high Calcium concentration, it's constitutively active (completely phosphorylated) </li>
+<li>it then phosphorylates AMPA receptor and increase their conductance <ul>
+<li>however, not the major reason for LTP because the increas is too small </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>LTP require increase AMPA-Rs responses</p>
+<ul>
+<li>this is mediated through NMDA</li>
+<li>NMDA signal downstream to increase number of AMPA at the synapse <ul>
+<li>therefore it can "unsilent" the silent synapses (don't have AMPA-Rs and only have NMDA-Rs</li>
+<li>silent synapses are common in early development </li>
+</ul>
+</li>
+<li>Mechanism of how NMDA receptors increase AMPA receptors <ul>
+<li>activate calcium-dependent kinases: CamKII, PKC</li>
+<li>AMPAR phosphorylation</li>
+<li>increase AMPA receptor numbers <ul>
+<li>experiment : auditory fear conditioning </li>
+<li>resutlt and evidence with electrophysiological tagging <ul>
+<li>using viral expression of GluA , a subunit of AMPA receptor, to show that new AMPA receptors are synthesized </li>
+<li>new AMPA receptors with viral GluA1 exhibit inward rectification</li>
+<li>measuring inward current tells us there are new AMPA receptors </li>
+</ul>
+</li>
+<li>evidence with carboxy-terminal fragment of gluA1 <ul>
+<li>this is a fragment of the unit, generating non-functional AMPA</li>
+<li>result: animal can't form LTP (no fear-conditioning)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Late phase LTP (L-LTP)<a class="headerlink" href="#late-phase-ltp-l-ltp" name="late-phase-ltp-l-ltp">&para;</a></h2>
+<ul>
+<li>LTP : lasts 1-2 hours </li>
+<li>L-LTP : last for days <ul>
+<li>requires protein synthesis (because it doesn't happen when you use inhibitor of protein synthesis) </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.1</i>Mechanism of LLTP formation<a class="headerlink" href="#mechanism-of-lltp-formation" name="mechanism-of-lltp-formation">&para;</a></h3>
+<ul>
+<li>
+<p>CREB activation </p>
+<ul>
+<li>Ca2+ from NMDA -&gt; calmodulin -&gt; protein kinases -&gt; PKA -&gt; CREB -&gt; transcription and synapse growth proteins </li>
+<li>CREB is always in nucleus and it's activated by phosphorylation and forms a dimer</li>
+<li>once activated, it drives transcription of plasticity-associated genes </li>
+</ul>
+</li>
+<li>
+<p>synaptic tagging </p>
+<ul>
+<li>first stimulation leads to production of "goodies" (the stuff required for the strenghtened synapse, such as AMPA-receptor subunits) </li>
+<li>second stimulation leads to tagging (which we don't know what) <ul>
+<li>"goodies" are sent to the synapses with the tags</li>
+</ul>
+</li>
+<li>how do we know this<ul>
+<li>blocking protein synthesis after the first stimulation allows LLTP to forms, but not before </li>
+</ul>
+</li>
+<li>the tags persist for about 2 hrs, after 4 hrs it's all gone </li>
+</ul>
+</li>
+<li>
+<p>a second weak simulation which would normally leads to E-LTP can be converted to LLTP if the first one is a strong stimulation  </p>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Structural changes<a class="headerlink" href="#structural-changes" name="structural-changes">&para;</a></h3>
+<ul>
+<li>synaptic spines get bigger</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

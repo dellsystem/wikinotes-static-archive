@@ -1,0 +1,286 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2012 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2012 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>You can find the exam <a href="http://www.cs.mcgill.ca/~hatami/comp360-2012/final%202.pdf">here</a>. Instructor-provided solutions have not been made available, so these student-created solutions will have to suffice.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#accuracy-and-discussion">1.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#accuracy-and-discussion_7">8.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9">9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_8">9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">10 Question 10</a><ul>
+<li><a href="#accuracy-and-discussion_9">10.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>Consider a flow network (<span>$G, s, t, {c_e}$</span>).</p>
+<blockquote>
+<p>(a) Prove or Disprove: There always exists a minimum cut which contains the edge with smallest capacity.</p>
+</blockquote>
+<p>Disprove. Counterexample:</p>
+<p><img alt="From my assignment lol" src="http://cs.mcgill.ca/~wliu65/media/comp360/fall2012q1a.png" /></p>
+<p>The minimum cut is the edge with a capacity of 5.</p>
+<blockquote>
+<p>(b) Prove or Disprove: For every flow network with at most <span>$m$</span> edges, there always exists a sequence of at most <span>$m$</span> augmentations that leads to a maximum flow?</p>
+</blockquote>
+<p>Using Ford-Fulkerson, choose an augmenting path from <span>$s$</span> to <span>$t$</span>.<br />
+Push the bottleneck capacity of the path to each edge.<br />
+At each iteration, at least one edge will reach its maximum flow value.<br />
+Thus, after at most <span>$m$</span> iterations, all <span>$m$</span> edges will have reached their optimal values and we will have reached the maximum flow.</p>
+<h3 class="header"><i>1.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>(a) Accurate and discussed.</p>
+<p>(b) Question 2 on assignment 1. See the <a href="http://www.cs.mcgill.ca/~hatami/comp360-2012/hw1sol.pdf">solutions</a>.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Write the dual of the following linear program: </p>
+<p>(omitted, see the <a href="http://www.cs.mcgill.ca/~hatami/comp360-2012/final%202.pdf">exam</a>)</p>
+</blockquote>
+<p>Min: <span>$$8y_1 + 4y_2$$</span><br />
+s.t.: <span>$$\begin{align}
+y_1+y_2 &amp;\geq 1\\
+y_1+2y_2&amp;\geq 1\\
+y_1 &amp;\geq 4\\
+y_1,y_2 &amp;\geq 0
+\end{align}$$</span></p>
+<h3 class="header"><i>2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>very unsure - <a href="/users/hc6">@hc6</a></p>
+<blockquote>
+<p>I got the same thing - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>State the strong duality theorem for linear programs.</p>
+</blockquote>
+<p>For a maximisation problem: any feasible solution of primal <span>$\leq$</span> optimal solution of primal = optimal solution of dual <span>$\leq$</span> feasible solution of dual.</p>
+<p>(Change it to <span>$\geq$</span> for minimisation problems.)</p>
+<p>To be more precise, the strong duality theorem states that if either the primal or the corresponding dual has a finite optimal value, then so does the other; what's more, these values are equal.</p>
+<h3 class="header"><i>3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>10 marks for this??? wtf - <a href="/users/hc6">@hc6</a></p>
+<blockquote>
+<p>I don't recall the exact definition he used in class, and I can't find it in the notes. See <a href="http://www.math.washington.edu/~burke/crs/407/notes/section4.pdf">these random notes</a> to see what someone else says about the issue.</p>
+</blockquote>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Show that the following problem belongs to P:<br />
+<span>$$ X = \{\langle G \rangle : \text{G has an independent set of size } n - 10\} $$</span></p>
+<p>(Here <span>$n$</span> is the number of vertices of <span>$G$</span>, and an independent set is a set of vertices, no two of which are adjacent).</p>
+</blockquote>
+<p>There are a total of <span>$\displaystyle \binom{n}{n-10}$</span> ways of picking <span>$n-10$</span> vertices from a set of <span>$n$</span>, which is <span>$O(n^{10})$</span>. Checking if a set is independent takes <span>$O(n)$</span> time, so the algorithm will be <span>$O(n^{11})$</span> and thus will run in polynomial time.</p>
+<h3 class="header"><i>4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Looks legit. Pretty similar to question 4 on the sample final, and the <a href="http://www.cs.mcgill.ca/~hatami/comp360-2012/sampleFinalSol.pdf">answer provided for that</a> follows the same idea. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<blockquote>
+<p>Write a linear program for solving the following problem: Given an <span>$n \times n$</span> matrix <span>$A$</span> and an <span>$n$</span>-dimensional vector <span>$b$</span>, we want to find a vector <span>$x$</span> such that <span>$Ax = b$</span> and that <span>$(\min^n_{i=1} x_i)$</span> is maximized.</p>
+</blockquote>
+<p>We add an extra variable <span>$x_{n+1}$</span>. Then we formulate the linear program as follows:</p>
+<p><span>$$
+\begin{align}
+\text{Max: }&amp;x_{n+1}\\
+\text{s.t.: }x_{n+1} &amp;\leq x_i \tag{For all x}\\
+Ax &amp;= b 
+\end{align}
+$$</span></p>
+<h3 class="header"><i>5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>should be correct - <a href="/users/hc6">@hc6</a></p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<blockquote>
+<p>Show that the following problem is NP-complete:</p>
+<p><span>$$X = \{\langle G \rangle: G\text{ has a cycle length of at least } n-1\}$$</span></p>
+</blockquote>
+<p>It is in NP: a cycle of n-1 vertices is an example of a YES instance of the certificate.</p>
+<p>If <span>$n$</span> is the number of vertices in <span>$G$</span>, we can poly reduce Hamiltonian cycle to this by adding a terminal or disconnected vertex to any vertex in <span>$G$</span>, then run this algorithm on the new <span>$G'$</span>. If yes, then <span>$G$</span> has a Hamiltonian cycle</p>
+<h3 class="header"><i>6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>ok - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<blockquote>
+<p>Show that the following problem is NP-complete:</p>
+<p><strong>Input:</strong> An integer and a graph <span>$G = (V,E)$</span> where every vertex <span>$v$</span> has a cost <span>$c_v \geq$</span> 0<br />
+<strong>Question:</strong> Does <span>$G$</span> have an independent set whose total cost is exactly <span>$m$</span>?</p>
+</blockquote>
+<p>Proof that it's in NP: a certificate consists of a possible independent set and a cost <span>$m$</span>. To check a certificate, we add up the cost of the set, and see if it equals <span>$m$</span>. Yes if it is, No if it is not. This can be done in polynomial time.</p>
+<p>Proof that it's NP-hard: We reduce maximum independent set to this. For any graph <span>$G$</span> with <span>$n$</span> vertices we set the cost of each vertex to 1, and call this algorithm with <span>$G$</span> and <span>$n$</span>. If it fails we call it with <span>$G$</span>, <span>$n-1$</span>, and so on, until we get to 0. This will take a maximum of <span>$n$</span> iterations, so this reduction can be done in polynomial time. Whenever it succeeds, the <span>$m$</span> of that iteration will be size of the maximum independent set.</p>
+<h3 class="header"><i>7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>Proof given by <a href="/users/hc6">@hc6</a>. I cleaned up the explanation (and grammar) a bit but didn't really read it, to be honest - <a href="/users/dellsystem">@dellsystem</a></p>
+<blockquote>
+<p>Okay I read it. Looks good. - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<blockquote>
+<p>Consider the MAX-CUT problem: Given a graph <span>$G$</span>, we want to partition its vertices into two sets <span>$A$</span> and <span>$B$</span> such that the number of edges between <span>$A$</span> and <span>$B$</span> is maximized. Show that the following is a <span>$\frac{1}{2}$</span> factor approximation algorithm for MAX-CUT</p>
+<ul>
+<li>Let <span>$v_1, \ldots, v_n$</span> be the vertices of <span>$G$</span>.</li>
+<li>Set <span>$A:=\{\}$</span> and <span>$B:=\{\}$</span>.</li>
+<li>For <span>$i = 1, \ldots, n$</span>:<ul>
+<li>if <span>$v_i$</span> has more neighbors in A than in B, add it to B, otherwise add it to A</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>Consider an arbitrary edge <span>$e$</span> in the graph. Now, <span>$e$</span> has two vertices, <span>$v_i$</span> and <span>$v_j$</span>; let <span>$v_i$</span> be the vertex that comes first in the ordering (so <span>$i &lt; j$</span>). We'll refer to this vertex being <em>responsible</em> for edge <span>$e$</span>. We will then denote the number of edges that <span>$v_i$</span> is responsible for by <span>$r_i$</span>. Note that since there is exactly one vertex responsible for every edge, <span>$\sum r_i = $</span> the number of edges in the graph, which we'll call <span>$m$</span>.</p>
+<p>Now let's consider what happens when we're deciding where to place <span>$v_i$</span>. The algorithm ensures that if <span>$v_i$</span> has more neighbours in - and thus more edges connected to - <span>$A$</span>, then we place it in <span>$B$</span>, and vice-versa. Then, all those edges connected to <span>$A$</span> (or <span>$B$</span>) will become part of the <span>$A$</span>-<span>$B$</span> cut. Clearly, this will constitute at <em>least</em> <span>$\frac{1}{2}r_i$</span> edges; otherwise, there would be more edges connected to the set that we've placed <span>$v_i$</span> in, in which case the algorithm would place <span>$v_i$</span> in the other set. </p>
+<p>The number of edges in the cut upon the termination of the algorithm is then given by the sum of the number of edges added by each responsible vertex. If we call this APPROX, we have: APPROX <span>$\geq \sum \frac{1}{2} r_i = \frac{1}{2} \sum r_i = \frac{m}{2}$</span>.  Since <span>$m$</span> is the upper bound for the optimal solution (as the cut cannot contain more edges than there are in the graph), we have that <span>$m \geq $</span> OPT and so APPROX <span>$\geq \frac{m}{2} \geq$</span> OPT/2, which tells us that this is a <span>$\frac{1}{2}$</span>-factor algorithm. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>8.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>Proof taken from <a href="http://www.cs.cmu.edu/afs/cs/academic/class/15854-f05/www/scribe/lec02.ps">this random PostScript file</a>.</p>
+<h2 class="header"><i>9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h2>
+<blockquote>
+<p>Formulate the maximum independent set problem as an Integer Linear Program. (In the maximum independent set problem, given a graph <span>$G = (V, E)$</span>, we want to find the largest set <span>$S$</span> of vertices in <span>$G$</span> such that no two vertices in <span>$S$</span> are adjacent.)</p>
+</blockquote>
+<p>We assign <span>$x_i$</span> to each vertex.<br />
+Max:</p>
+<p><span>$$\begin{align}
+\sum_{i \in V} x_i\\
+\text{such that} \quad x_u + x_v \leq 1\tag{For each edge $uv \in E$} \\
+x_i \in \{1,0\} \tag{For each vertex $i \in V$}
+\end{align}$$</span></p>
+<h3 class="header"><i>9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>Proof by <a href="/users/hc6">@hc6</a>. I'll read it later - <a href="/users/dellsystem">@dellsystem</a></p>
+<blockquote>
+<p>Read. Looks good - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h2>
+<blockquote>
+<p>Let G be the complete graph on <span>$n$</span> vertices. We want to color the <em>edges</em> of <span>$G$</span> with two colors Red and Blue such that the number of monochromatic triangles (i.e. triangles which are colored all red or all blue) is minimized. If we color the edge at random, then what is the expected number of monochromatic triangles?</p>
+</blockquote>
+<p>There are <span>$\binom{n}{3}$</span> triangles in a complete graph with <span>$n$</span> vertices, and each triangle has a <span>$\frac{1}{4}$</span> chance of being monochromatic (<span>$\frac{1}{2}^3$</span> chance of being all blue, <span>$\frac{1}{2}^3$</span> of being all red, so <span>$\frac{1}{4}$</span> total). The linearity of expectation tells us that the total expected number of monochromatic triangles will be <span>$\frac{1}{4}\binom{n}{3}$</span>.</p>
+<h3 class="header"><i>10.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p>Should be correct! Verified by bruteforce program <a href="https://gist.github.com/4248610">https://gist.github.com/4248610</a> - <a href="/users/hc6">@hc6</a></p>
+<blockquote>
+<p>k - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,236 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_302/">
+                COMP 302
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The final examination will take place on Tuesday, April 24, at 9am, in the arts building (next to Leacock). The room number depends on your last name - see the <a href="http://www.mcgill.ca/files/students/Tuesday_April_24_2012_final_exam_sched_with_room_locations.pdf">schedule</a> for details.</p>
+<p>The exam will consist of 10 long- or short-answer questions and will last three hours. All the course material except dependent types and OOP in Java is examinable. For a list of the main topics, see the table of contents below<sup id="fnref:topics"><a href="#fn:topics" rel="footnote" title="This was posted by Professor Pientka on the WebCT ...">1</a></sup>.</p>
+<p>This page was created to provide a brief overview of all the examinable material covered this year. For other, complementary resources that may be of help in preparing for the final, see the following pages:</p>
+<ul>
+<li><a href="/COMP_302/summary/winter-2012/lecture-notes">Student-written lecture notes</a></li>
+<li><a href="/COMP_302/summary/winter-2012/practice-questions">Student-written practice questions</a> - <strong>under construction</strong></li>
+<li><a href="/COMP_302/summary/winter-2012/crib-sheet">A student-written crib sheet</a> - <strong>under construction</strong></li>
+<li><a href="http://cs.mcgill.ca/~cs302/">The official course website</a>, which contains links to Professor Pientka's own notes</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#datatypes">1 Datatypes</a></li>
+<li><a href="#recursive-functions">2 Recursive functions</a></li>
+<li><a href="#pattern-matching">3 Pattern matching</a></li>
+<li><a href="#higher-order-functions">4 Higher-order functions</a><ul>
+<li><a href="#standard-library-functions">4.1 Standard library functions</a></li>
+<li><a href="#continuations">4.2 Continuations</a></li>
+<li><a href="#staging-and-partial-evaluation">4.3 Staging and partial evaluation</a></li>
+</ul>
+</li>
+<li><a href="#lazy-programming">5 Lazy programming</a></li>
+<li><a href="#exceptions">6 Exceptions</a></li>
+<li><a href="#closures-as-objects">7 Closures as objects</a></li>
+<li><a href="#references">8 References</a></li>
+<li><a href="#proof-by-induction">9 Proof by induction</a></li>
+<li><a href="#environment-diagrams">10 Environment diagrams</a></li>
+<li><a href="#theoretical-aspects">11 Theoretical aspects</a></li>
+<li><a href="#miscellaneous">12 Miscellaneous</a><ul>
+<li><a href="#function-application">12.1 Function application</a></li>
+<li><a href="#function-types">12.2 Function types</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Datatypes<a class="headerlink" href="#datatypes" name="datatypes">&para;</a></h2>
+<h2 class="header"><i>2</i>Recursive functions<a class="headerlink" href="#recursive-functions" name="recursive-functions">&para;</a></h2>
+<h2 class="header"><i>3</i>Pattern matching<a class="headerlink" href="#pattern-matching" name="pattern-matching">&para;</a></h2>
+<p>You can pattern match on tuples, constructors, lists, records - anything, really:</p>
+<div class="codehilite"><pre><span class="kr">datatype</span> <span class="kt">tree</span> <span class="p">=</span> <span class="nc">Leaf</span> <span class="p">|</span> <span class="nc">Node</span> <span class="kr">of</span> <span class="n">int</span> <span class="n">*</span> <span class="n">tree</span> <span class="n">*</span> <span class="n">tree</span>
+
+<span class="kr">val</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="cm">(* list *)</span>
+<span class="kr">val</span> <span class="nv">h</span><span class="n">::t</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="cm">(* list, using :: *)</span>
+<span class="kr">val</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="nv">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="cm">(* tuple *)</span>
+<span class="kr">val</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="nv">=</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="cm">(* tuple of tuples - a and b are both now (1, 2) *)</span>
+<span class="kr">val</span> <span class="nv">Node</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">=</span> <span class="n">Node</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Leaf</span><span class="p">,</span> <span class="n">Leaf</span><span class="p">)</span> <span class="cm">(* constructors *)</span>
+<span class="kr">val</span> <span class="p">{</span><span class="n">first</span><span class="p">,</span> <span class="n">last</span><span class="p">}</span> <span class="p">=</span> <span class="p">{</span><span class="n">first</span><span class="p">=</span><span class="s2">&quot;Ash&quot;</span><span class="p">,</span> <span class="n">last</span><span class="p">=</span><span class="s2">&quot;Ketchum&quot;</span><span class="p">}</span> <span class="cm">(* records, I don&#39;t remember covering this though *)</span>
+</pre></div>
+
+
+<p><em>Cannot</em> pattern-match on: non-constructor functions (e.g. <code>!</code>, <code>str</code>)</p>
+<h2 class="header"><i>4</i>Higher-order functions<a class="headerlink" href="#higher-order-functions" name="higher-order-functions">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Standard library functions<a class="headerlink" href="#standard-library-functions" name="standard-library-functions">&para;</a></h3>
+<p>We're expected to know the functionality and types of the following standard library functions:</p>
+<ul>
+<li><code>List.concat</code> (<code>@</code>) - <code>fn : 'a list list -&gt; 'a list</code><br />
+  Example: <code>List.concat [[1,2],[3,4],[5]]</code>, which is equivalent to <code>[1,2] @ [3,4] @ [5]</code>, returns <code>[1,2,3,4,5]</code></li>
+<li><code>List.map</code> (<code>map</code>) - <code>fn : ('a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code><br />
+  Example: <code>List.map (fn x =&gt; ~x) [1,2,3,4,5,~10]</code> returns <code>[~1,~2,~3,~4,~5,10]</code></li>
+<li><code>List.filter</code> - <code>fn : ('a -&gt; bool) -&gt; 'a list -&gt; 'a list</code><br />
+  Example: <code>List.filter (fn x =&gt; x mod 2 = 0) [1,2,3,4,5]</code> returns <code>[2, 4]</code></li>
+<li><code>List.foldl</code> - <code>fn : ('a * 'b -&gt; 'b) -&gt; 'b -&gt; 'a list -&gt; 'b list</code><br />
+  Starts from the left; the initial value is passed after the function, and is used as the second element in the tuple of the function's input</li>
+<li><code>List.foldr</code> - <code>fn : ('a * 'b -&gt; 'b) -&gt; 'b -&gt; 'a list -&gt; 'b list</code><br />
+  Starts from the right</li>
+<li><code>List.exists</code> - <code>fn : ('a -&gt; bool) -&gt; 'a list -&gt; bool</code></li>
+<li><code>List.all</code> - <code>fn : ('a -&gt; bool) -&gt; 'a list -&gt; bool</code></li>
+</ul>
+<h3 class="header"><i>4.2</i>Continuations<a class="headerlink" href="#continuations" name="continuations">&para;</a></h3>
+<h3 class="header"><i>4.3</i>Staging and partial evaluation<a class="headerlink" href="#staging-and-partial-evaluation" name="staging-and-partial-evaluation">&para;</a></h3>
+<p>Recall the <code>List.filter</code> example. If we didn't pass in the list at the same time as we passed in the function, we would be <em>staging</em> it, resulting in a function of type <code>fn : int list -&gt; int list</code>:</p>
+<div class="codehilite"><pre><span class="kr">val</span> <span class="nv">remove_odds</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="n">mod</span> <span class="mi">2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We could do a similar thing with the <code>List.all</code> function:</p>
+<div class="codehilite"><pre><span class="kr">val</span> <span class="nv">is_even</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">all</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="n">mod</span> <span class="mi">2</span> <span class="p">=</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<p>This would result in a function of type <code>fn : int list -&gt; bool</code>.</p>
+<h2 class="header"><i>5</i>Lazy programming<a class="headerlink" href="#lazy-programming" name="lazy-programming">&para;</a></h2>
+<h2 class="header"><i>6</i>Exceptions<a class="headerlink" href="#exceptions" name="exceptions">&para;</a></h2>
+<h2 class="header"><i>7</i>Closures as objects<a class="headerlink" href="#closures-as-objects" name="closures-as-objects">&para;</a></h2>
+<h2 class="header"><i>8</i>References<a class="headerlink" href="#references" name="references">&para;</a></h2>
+<h2 class="header"><i>9</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h2>
+<h2 class="header"><i>10</i>Environment diagrams<a class="headerlink" href="#environment-diagrams" name="environment-diagrams">&para;</a></h2>
+<h2 class="header"><i>11</i>Theoretical aspects<a class="headerlink" href="#theoretical-aspects" name="theoretical-aspects">&para;</a></h2>
+<h2 class="header"><i>12</i>Miscellaneous<a class="headerlink" href="#miscellaneous" name="miscellaneous">&para;</a></h2>
+<h3 class="header"><i>12.1</i>Function application<a class="headerlink" href="#function-application" name="function-application">&para;</a></h3>
+<p>Function application is left-associative. <code>(map (fn x =&gt; x)) [1,2,3]</code> is the same thing as <code>map (fn x =&gt; x) [1,2,3]</code> but NOT the same thing as <code>map ((fn x =&gt; x) [1,2,3])</code> (the latter would generate a tycon mismatch error). Another example: if <code>f</code> were the successor function, then <code>f 1 * 2</code> would <em>not</em> be the same as <code>f (1 * 2)</code> - the former would result in 4, the latter in 3. </p>
+<h3 class="header"><i>12.2</i>Function types<a class="headerlink" href="#function-types" name="function-types">&para;</a></h3>
+<p><em>Types</em>, on the other hand, are right-associative. So <code>int list -&gt; int -&gt; bool</code> is the same as <code>int list -&gt; (int -&gt; bool</code>), meaning that the function takes in an int list and returns a function that takes in an int and returns a bool. It is not, however, the same as <code>(int list -&gt; int) -&gt; bool</code>, which is a function that takes in a function from <code>int list</code> to <code>int</code> and returns a bool.</p>
+<p>Example of the former:</p>
+<div class="codehilite"><pre><span class="cm">(* Pass it a list and a number, and it will return a boolean indicating whether or not that number is greater than all the other elements in the list *)</span>
+<span class="kr">fun</span> <span class="nf">is_greater_than_max</span> <span class="n">l</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">all</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">i</span> <span class="p">=&gt;</span> <span class="n">i</span> <span class="n">&lt;</span> <span class="n">n</span><span class="p">)</span> <span class="n">l</span>
+
+<span class="n">is_greater_than_max</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="mi">5</span> <span class="cm">(* returns false *)</span>
+<span class="n">is_greater_than_max</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="mi">25</span> <span class="cm">(* returns true *)</span>
+</pre></div>
+
+
+<p>Example of the latter:</p>
+<div class="codehilite"><pre><span class="cm">(* Pass it a function from int list to int, and it will tell you whether or not passing it a list containing one 0 returns 0 *)</span>
+<span class="kr">fun</span> <span class="nf">test_on_0_list</span> <span class="n">f</span> <span class="p">=</span> <span class="p">(</span><span class="n">f</span> <span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">=</span> <span class="mi">0</span>
+
+<span class="n">test_on_0_list</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="cm">(* returns false *)</span>
+<span class="n">test_on_0_list</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="cm">(* returns true *)</span>
+<span class="n">test_on_0_list</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="kr">op</span> <span class="n">+</span> <span class="mi">0</span><span class="p">)</span> <span class="cm">(* return true *)</span>
+<span class="n">test_on_0_list</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="kr">op</span> <span class="n">+</span> <span class="mi">1</span><span class="p">)</span> <span class="cm">(* return false *)</span>
+</pre></div>
+
+
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:topics">
+<p>This was posted by Professor Pientka on the WebCT discussion board:</p>
+<blockquote>
+<p>In general, the final will cover all the course material except dependent types and the discussion regarding Java in the end.</p>
+<p>In particular it will cover: datatypes, recursive functions, pattern matching, higher-order functions, lazy programming, exceptions, closures as objects, references, induction, environment diagrams.</p>
+<p>Concerning the more theoretical part in March, you will be expected to show an understanding of the concepts such as for example: when is a variable free/bound, how to read a grammar/inference rules and turn them into code, subtyping, inferring the most general type of a given expressions, difference between overloading and polymorphism, etc.</p>
+<p>There are a total of 10 questions on the exam and they will be a mix of programming and theory.</p>
+<p>Andrew has done an excellent job answering all your questions regarding what is relevant for the final exam.</p>
+<p>Good luck with the exam,</p>
+<p>Brigitte</p>
+</blockquote>
+<p><a href="#fnref:topics" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

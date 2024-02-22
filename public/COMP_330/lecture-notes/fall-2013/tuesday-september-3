@@ -1,0 +1,198 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, September 3, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, September 3, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to the course
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#about-the-course">1 About the course</a></li>
+<li><a href="#finite-automata">2 Finite automata</a><ul>
+<li><a href="#introduction-to-finite-automata">2.1 Introduction to finite automata</a></li>
+<li><a href="#the-limits-of-computability">2.2 The limits of computability</a></li>
+</ul>
+</li>
+<li><a href="#presumed-knowledge">3 Presumed knowledge</a></li>
+<li><a href="#well-founded-induction">4 Well-founded induction</a><ul>
+<li><a href="#equivalence-relations">4.1 Equivalence relations</a></li>
+<li><a href="#partial-orders">4.2 Partial orders</a></li>
+<li><a href="#induction">4.3 Induction</a><ul>
+<li><a href="#equivalence-of-inductive-orders-and-well-founded-sets">4.3.1 Equivalence of inductive orders and well-founded sets</a></li>
+</ul>
+</li>
+<li><a href="#supplemental-notes">4.4 Supplemental Notes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>About the course<a class="headerlink" href="#about-the-course" name="about-the-course">&para;</a></h2>
+<p>The homework questions will be harder than exam questions. The exam will be open book. The midterm will take place on October 10, in class. For more information, refer to the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Admin/outline.pdf">syllabus</a>.</p>
+<p>Important note for office hours: if you come to them, don't just wait outside the office, even if there's someone in there; feel free to barge right in.</p>
+<h2 class="header"><i>2</i>Finite automata<a class="headerlink" href="#finite-automata" name="finite-automata">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Introduction to finite automata<a class="headerlink" href="#introduction-to-finite-automata" name="introduction-to-finite-automata">&para;</a></h3>
+<p>The first thing we'll study in this course is the concept of <strong>finite automata</strong>. While the origins of this field lie in the theory of neurons, its current incarnation is quite removed from these origins, being more mathematical than anything else.</p>
+<p>What exactly is a finite automaton? One way of describing it is as a <strong>finite state machine</strong> (FSM). You can do quite a bit with these machines, but not everything -- they're not as powerful as Turing machines, for example. On the other hand, there is a nice algebra underlying these machines, and so we'll cover this topic until the midterm; after the midterm, we'll look at pushdown automata, a kind of rich finite automata that uses a stack for memory that are more powerful than FSMs but still less powerful than Turing machines. Later, we'll study the <strong>pumping lemma</strong>, which will define what things can and cannot be done via pushdown automata.</p>
+<p>Incidentally, all programming languages are context-free languages.</p>
+<h3 class="header"><i>2.2</i>The limits of computability<a class="headerlink" href="#the-limits-of-computability" name="the-limits-of-computability">&para;</a></h3>
+<p>Are there limits to what can be computed, even with a general (Turing) machine? Indeed, there are. Alan Turing and Alonzo Church both showed the existence of unsolvable problems. For a telling illustration, recall the quote on the back of the sweater the professor was wearing:</p>
+<blockquote>
+<p>I DON'T KNOW IF I HALT OR NOT</p>
+</blockquote>
+<h2 class="header"><i>3</i>Presumed knowledge<a class="headerlink" href="#presumed-knowledge" name="presumed-knowledge">&para;</a></h2>
+<ul>
+<li>Set notation: membership (<span>$\in$</span>), containment (<span>$\subseteq$</span>)</li>
+<li>Binary relations and functions</li>
+<li><span>$\forall$</span>, <span>$\exists$</span>, and the Abelard-Heloise game (theorem: a statement is true if Heloise always has a winning strategy)</li>
+</ul>
+<h2 class="header"><i>4</i>Well-founded induction<a class="headerlink" href="#well-founded-induction" name="well-founded-induction">&para;</a></h2>
+<p><em>This section is covered fairly quickly, with some of the details omitted; I assume that it's because much of it is presumed knowledge.</em></p>
+<h3 class="header"><i>4.1</i>Equivalence relations<a class="headerlink" href="#equivalence-relations" name="equivalence-relations">&para;</a></h3>
+<p>We'll build up the definition of induction from scratch. Let's start from the basics: an equivalence relation, on a set <span>$S$</span>, is a binary relation (denoted by <span>$\sim$</span>, or <span>$\equiv$</span>, or <span>$\simeq$</span>), that has the following properties:</p>
+<dl>
+<dt>Reflexivity</dt>
+<dd><span>$\forall a \in S, \,a \sim a$</span></dd>
+<dt>Symmetry</dt>
+<dd><span>$\forall a, b \in S,\, a \sim b \to b \sim a$</span></dd>
+<dt>Transitivity</dt>
+<dd><span>$\forall a, b, c \in S, \, a \sim b \land b \sim c \to a \sim c$</span></dd>
+</dl>
+<p>Next we define the concept of an equivalence class: if <span>$\sim \subseteq S \times S$</span>, and <span>$t \in S$</span>, then we define <span>$[t]$</span> to be</p>
+<p><span>$$[t] = \{ s \in S \,|\, s \sim t\}$$</span></p>
+<p>i.e., the set of all things related to <span>$t$</span>. This is called the <strong>equivalence class of <span>$t$</span></strong>. Incidentally, any two equivalence classes are either disjoint or equal; in other words, an equivalence relation is a <strong>partition</strong>. The proof follows from transitivity.</p>
+<p><span>$S/\sim$</span> is the collection of equivalence classes resulting from the equivalence relation <span>$\sim$</span>.</p>
+<h3 class="header"><i>4.2</i>Partial orders<a class="headerlink" href="#partial-orders" name="partial-orders">&para;</a></h3>
+<p>A <strong>partial order</strong>, <span>$\leq \subseteq S \times S$</span>, is a relation with the following properties:</p>
+<dl>
+<dt>Reflexivity</dt>
+<dd><span>$\forall a \in S, \,a \sim a$</span></dd>
+<dt>Antisymmetry</dt>
+<dd><span>$\forall a, b \in S,\, a \sim b \land b \sim a \to a = b$</span></dd>
+<dt>Transitivity</dt>
+<dd><span>$\forall a, b, c \in S, \, a \sim b \land b \sim c \to a \sim c$</span></dd>
+</dl>
+<p>The standard example of a partial order is <span>$\mathbb N$</span> when ordered by the usual <span>$\leq$</span> ordering. This also happens to be a total order (aka linear order), since every element in <span>$\mathbb N$</span> is related to every other element (mathematically, we have that <span>$\forall a, b \in S$</span>, either <span>$a \leq b$</span> or <span>$b \leq a$</span>).</p>
+<p>Another, more powerful example, is that of the subsets of a set of 3 elements, ordered by inclusion. If <span>$A = \{a, b, c\}$</span>, and we look at the power set of <span>$A$</span>, we have 8 elements. The element <span>$\{\}$</span>, for instance, is a subset of every other subset of <span>$A$</span>, so that's the minimal element. Some elements cannot be compared, however, making this not a total order; for instance, neither of <span>$\{a\}$</span> and <span>$\{b\}$</span> is contained within the other. The lattice for this partial order is shown as follows (taken from my <a href="http://wikinotes.ca/MATH_318/lecture-notes/fall-2011/friday-september-16">MATH 318</a> lecture notes):</p>
+<p><img alt="Power set Hasse diagram" src="http://cs.mcgill.ca/~wliu65/media/math318/img/power_set_hasse_diagram.png" /></p>
+<p>Food for thought: how would we create a partial order for <span>$\mathbb C$</span>? If we were to just order by magnitude, that certainly woldn't result in a partial order, as antisymmetry would be violated. On the other hand, if we were to incorporate the angle as well, we would probably get somewhere. My guess is that we could view it as ever-expanding concentric circles in the complex plane: first we order by magnitude, then, among numbers of the same magnitude, we order by the angle, starting at 0 degrees and moving counterclockwise. Another option would be to order first by the <span>$a$</span> in <span>$a + bi$</span>, then by the <span>$b$</span> (so <span>$7 + 3i \leq 7 + 4i \leq 8 - 10i$</span>, etc). But this is all conjecture.</p>
+<h3 class="header"><i>4.3</i>Induction<a class="headerlink" href="#induction" name="induction">&para;</a></h3>
+<p>Now we finally get to the concept of induction. This is a technique of proof that can be used on any set with a <strong>well-ordering</strong>. First, we define <strong>well-foundedness</strong>:</p>
+<p>A set <span>$S$</span> is well-founded if every non-empty subset of <span>$S$</span> has a minimal element, such that there is nothing strictly smaller than it in the set. (Note that "minimal", as used here, is not quite the same as "least"; "least" implies that it is actually less than every else, which is not a requirement. This clarification ensures that non-total orders can be considered.)</p>
+<p>Next, we define an <strong>inductive order</strong>: a poset (partially ordered set) <span>$(S, \leq)$</span> is inductive if for any predicate<sup id="fnref:pred"><a href="#fn:pred" rel="footnote" title="Just a way of defining a subset of $S$. Can be tho...">1</a></sup> <span>$P$</span>, we have that <span>$\forall x \in S$</span>, if <span>$(\forall y &lt; P(y)) \to P(x)$</span>, then <span>$P$</span> holds for everything in the set. Note that not every order has this property! Furthermore, this is all that we require to define an inductive set - no discussion of "base cases" is required.</p>
+<h4 class="header"><i>4.3.1</i>Equivalence of inductive orders and well-founded sets<a class="headerlink" href="#equivalence-of-inductive-orders-and-well-founded-sets" name="equivalence-of-inductive-orders-and-well-founded-sets">&para;</a></h4>
+<p>Now we get to the crux of this section. An order is inductive if and only if the underlying set is well-founded. We prove this as follows:</p>
+<p>(<span>$\Leftarrow$</span>) Assume that <span>$\forall x \in S$</span>, <span>$(\forall y &lt; x\, Py) \to Px$</span> holds true. Let <span>$U = \{x \,|\, \neg Px\}$</span>, i.e., the set of things that don't satisfy <span>$P$</span>. This set must have a minimal element since it's a well-founded order (by assumption). Then we get a standard (but nice) proof by contradiction: if <span>$u$</span> is the minimal element, then <span>$\forall y &lt; u$</span>, <span>$y \notin U$</span> thus <span>$Py$</span> holds. But then we have that <span>$Pu$</span> holds true as well! This is a contradiction, as <span>$u$</span> is supposed to be in the set of elements that <em>don't</em> satisfy <span>$P$</span>. There is no <span>$u \in U$</span>. Thus <span>$U$</span> is empty. <span>$\blacksquare$</span></p>
+<p>(<span>$\Rightarrow$</span>) Assume that induction holds. We need to prove that the set is well-founded. Suppose <span>$U$</span> is a subset of <span>$S$</span> such that <span>$U$</span> does not have a minimal element. We define a predicate <span>$P$</span> as follows: <span>$Px$</span> holds true for any <span>$x \notin U$</span>. For all <span>$y &lt; x$</span>, <span>$Py \to Px$</span> for all <span>$x$</span>. Why? If this is not true, then <span>$x$</span> would have to be minimal. Then by induction, there is nothing in <span>$U$</span>, so <span>$U = \varnothing$</span>, etc. So only the empty set has no minimal element. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>4.4</i>Supplemental Notes<a class="headerlink" href="#supplemental-notes" name="supplemental-notes">&para;</a></h3>
+<p>Prakash Panangaden provides supplemental notes on <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/well.pdf">well-foundedness and induction</a>, available on <a href="http://www.cs.mcgill.ca/~prakash">his website</a>. </p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:pred">
+<p>Just a way of defining a subset of <span>$S$</span>. Can be thought of as a property that members of <span>$S$</span> may possess, which can also be defined by the applicable members themselves.&#160;<a href="#fnref:pred" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

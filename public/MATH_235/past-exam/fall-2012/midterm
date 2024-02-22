@@ -1,0 +1,184 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2012 Midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2012 Midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided solutions to the in-class midterm on Wednesday, October 24, 2012. Written up because Professor Darmon indicated that he might not post solutions for it. All the answers should be 100% correct, barring typos and things like that.</p>
+<p>I don't have the actual question sheet on me right now so the questions have been reconstructed from memory and from my solutions.</p>
+<div class="toc">
+<ul>
+<li><a href="#grade-distribution">1 Grade distribution</a></li>
+<li><a href="#question-1">2 Question 1</a></li>
+<li><a href="#question-2">3 Question 2</a></li>
+<li><a href="#question-3">4 Question 3</a></li>
+<li><a href="#question-4">5 Question 4</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Grade distribution<a class="headerlink" href="#grade-distribution" name="grade-distribution">&para;</a></h2>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Grade range</th>
+<th>0-39</th>
+<th>40-49</th>
+<th>50-59</th>
+<th>60-69</th>
+<th>70-79</th>
+<th>80-89</th>
+<th>90-99</th>
+<th>100</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of students</td>
+<td>11</td>
+<td>19</td>
+<td>15</td>
+<td>25</td>
+<td>40</td>
+<td>19</td>
+<td>13</td>
+<td>23</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>2</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<blockquote>
+<p>Evaluate <span>$(1 + i)^{100}$</span>.</p>
+</blockquote>
+<p>Let <span>$z = 1 + i$</span>. First, we find <span>$z$</span>'s polar representation. <span>$r = \sqrt{1^2+1^2} = \sqrt{2}$</span> and <span>$\theta = \frac{\pi}{4}$</span> (just draw the triangle to confirm). So <span>$z = r \cos(\theta) + ri\sin(\theta) = \sqrt{2}\cos(\pi/4) + \sqrt{2} \sin (\pi/4) i = \sqrt{e^{i\pi/4}}$</span> by Euler's identity (<span>$e^{i\theta} = \cos \theta + i\sin\theta$</span>).</p>
+<p>So, <span>$z^{100} = (\sqrt{2}e^{i\pi/4})^{100} = \sqrt{2}^{100} e^{100i\pi/4} = 2^{50} e^{25\pi i}$</span>.</p>
+<p>Using Euler's identity again, we have that <span>$e^{25\pi i} = \cos(25\pi) + i\sin(25\pi)$</span>. But <span>$25\pi \equiv \pi \pmod{2\pi}$</span> so <span>$\sin(25\pi) = \sin(\pi) = 0$</span>, who would have guessed. So <span>$e^{25\pi i} = \cos(25\pi) = \cos(\pi) = -1$</span>.</p>
+<p>So <span>$(1 + i)^{100} = z^{100} = 2^{50}e^{25\pi i} = -2^{50}$</span>. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>3</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Let <span>$L$</span> be the set of all <strong>positive</strong> linear combinations of two integers <span>$a$</span> and <span>$b$</span>. Using only the basic properties of the <span>$\gcd$</span> (<em>not</em> the fundamental theorem of arithmetic or anything fancy like that), prove that:</p>
+<p>(a) the least element in <span>$L$</span> divides both <span>$a$</span> and <span>$b$</span>;<br />
+(b) the least element in <span>$L$</span> is equivalent to <span>$\gcd(a, b)$</span>.</p>
+</blockquote>
+<p>This is pretty much exactly the same as <a href="/MATH_235/summary/fall-2012/midterm-review#bezouts-identity">this</a>, but I'll write it up again anyway.</p>
+<p>(a) First of all, we note that <span>$L$</span> is clearly not empty - for example, <span>$a\cdot a + b \cdot b \in L$</span>. So by the well-ordering principle, <span>$L$</span> has a least element. We denote that least element by <span>$d = ua + vb$</span> for some integers <span>$u$</span> and <span>$v$</span>.</p>
+<p>Now, we can write <span>$a = qd + r$</span> for some integer <span>$q$</span> and some <span>$0 \leq r &lt; d$</span>. Substituting <span>$d = ua + vb$</span> in there, we get <span>$a = q(ua + vb) + r = qua + qvb + r$</span>. So <span>$r = a - qua - qvb = a(1-qu) - (qv)b$</span>. Clearly, <span>$r$</span> is a linear combination of <span>$a$</span> and <span>$b$</span>. Is <span>$r \in L$</span>? Well, since it's positive, it has to be either in <span>$L$</span> or 0. But it can't be in <span>$L$</span>, as it's less than <span>$d$</span> - if it were, it would contradict the minimality of <span>$d$</span>. So it must be 0. But this just means that <span>$a = qd + 0 = qd$</span> which means that <span>$d \mid a$</span>. By similar reasoning, we can show that <span>$d \mid b$</span>. So <span>$d \mid a$</span> and <span>$d \mid b$</span> which is exactly what we needed to show. <span>$\blacksquare$</span></p>
+<p>(b) Consider any common divisor of <span>$a$</span> and <span>$b$</span>, which we will denote by <span>$d'$</span>. But by the properties of divisors, <span>$d'$</span> must also divide any linear combination of <span>$a$</span> and <span>$b$</span>. Most notably, <span>$d'$</span> must divide <span>$d$</span>. This means that <span>$d' \leq d$</span> since no number <em>greater</em> than <span>$d$</span> can divide <span>$d$</span> for <span>$d &gt; 0$</span>. But this is true for any arbitrary common divisor <span>$d'$</span>, and so we conclude that the largest <span>$d'$</span> which divides both <span>$a$</span> and <span>$b$</span> has to be equal to <span>$d$</span> itself. Consequently, <span>$\min(L) = \gcd(a, b)$</span>. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>4</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>Let <span>$a = 7^b$</span> where <span>$b$</span> is some large number that looks like <span>$13198\ldots 4531$</span>.</p>
+<p>(a) Calculate <span>$a \pmod 5$</span>.<br />
+(b) Calculate <span>$a \pmod{11}$</span>.<br />
+(c) Calculate <span>$a \pmod{55}$</span>.</p>
+</blockquote>
+<p>(a) We know that <span>$4 \mid b + 1$</span> since <span>$4 \mid 100$</span> and <span>$4 \mid 32$</span> (so it divides any linear combination of 100 and 32, notably <span>$b + 1 = 13198\ldots 4532$</span>. So <span>$b + 1 = 4k$</span> where <span>$k \in \mathbb{N}$</span>. So <span>$b = 4k-1$</span>. So <span>$a = 7^b = 7^{4k-1} = 7^{4k}7^{-1} = (7^4)^k 7^{-1}$</span>. By Fermat's little theorem, since <span>$\gcd(4, 7) = 1$</span>, then <span>$a^4 \equiv 1\pmod 5$</span> for all <span>$a$</span>. So <span>$7^4 \equiv 1 \pmod 5$</span>. So <span>$a = 1^k 7^{-1} = 7^{-1}$</span>. Multiplying both sides by <span>$7^4 = 1$</span>, we get <span>$7^4 a = 1 \cdot a = 7^{-1}7^4 = 7^3$</span> (working mod 5 of course). So <span>$a \equiv 7^3 \equiv 243 \equiv 3 \pmod 5$</span>. <span>$\blacksquare$</span></p>
+<p>(b) We know that <span>$10 \equiv 0 \pmod{b - 1}$</span> since <span>$b - 1$</span> is clearly a multiple of 10. Then, <span>$b-1 = 10k$</span> where <span>$k \in \mathbb{N}$</span>. So <span>$b = 10k+1$</span>. So <span>$a = 7^{10k+1} = (7^{10})^k \cdot 7^1$</span>. By Fermat's little theorem, since <span>$\gcd(7, 10) = 1$</span>, <span>$a^{10} \equiv 1 \pmod{11}$</span> for all <span>$a$</span>, then <span>$7^{10} \equiv 1$</span>. So <span>$(7^{10})^k \equiv 1$</span>. So <span>$a \equiv 7 \pmod{11}$</span>. <span>$\blacksquare$</span>.</p>
+<p>(c) 55's prime divisors are 11 and 5. By the Chinese remainder theorem, if <span>$x$</span> solves the congruence relations <span>$x = 1 \pmod 5$</span> and <span>$x = a \pmod{11}$</span>, then <span>$x \equiv a \pmod{55}$</span>. Now, from parts (a) and (b), we have that <span>$x \equiv 3 \pmod 5$</span> and <span>$x\equiv 7\pmod{11}$</span>. So <span>$x = 5\alpha + 3 = 11\beta + 7 \pmod{55}$</span>, where <span>$\alpha, \beta \in \mathbb{Z}$</span>. If <span>$\alpha = 3$</span> and <span>$\beta = 1$</span> (determined through trial and error), then <span>$x \equiv 18 \pmod{55}$</span>. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>5</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Solve the following congruence relations.</p>
+<p>(a) <span>$5x \equiv 2 \pmod{11}$</span><br />
+(b) <span>$10x \equiv 4 \pmod{22}$</span><br />
+(c) <span>$10x \equiv 3 \pmod{22}$</span></p>
+</blockquote>
+<p>(a) Possibilities for <span>$5x$</span>, based on the fact that it has to be in the form <span>$11k + 2$</span> where <span>$k \in \mathbb{Z}: \{2, 13, 24, 35, 46, 57, 68, 79, 90, \ldots\}$</span>. 35 is divisible by 5, with <span>$x = 7$</span>. Also, 90 is divisible by 5, with <span>$x = 18$</span> but that is just 7 in mod 11. So <span>$x = [7]$</span>. <span>$\blacksquare$</span></p>
+<p>(b) Possibilities for <span>$10x: \{ 4, 26, 48, 70, 92, 114, 136, 158, 180, 202, 224 \ldots \}$</span>. 70 is divisible by 10, with <span>$x = 7$</span>, as is 180, with <span>$x = 18$</span>. So <span>$x = [7], [18]$</span>. <span>$\blacksquare$</span></p>
+<p>(c) Possibilities for <span>$10x: \{ 3, 25, 47, 69, \ldots\}$</span>. Not solvable because <span>$22\alpha + 3$</span> for some <span>$\alpha \in \mathbb{Z}$</span> will always be odd but <span>$10x$</span> must be even, so <span>$22 \alpha + 3 = 10x$</span> has no solutions for <span>$x \in \mathbb{Z} /22\mathbb{Z}$</span>. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,342 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_424/">
+                COMP 424
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Solutions for the Winter 2010 final. If you wish to add or correct an answer, feel free to edit the page. If you wish to comment on an answer, add your comment to the "Accuracy and discussion" section and sign it with your username (like this: <a href="/users/dellsystem">@dellsystem</a>).</p>
+<p>The questions are paraphrased. Some of them have been completely reinvented to make things interesting, but the idea should be the same.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#question-1-search-algorithms">1 Question 1: Search algorithms</a><ul>
+<li><a href="#question">1.1 Question</a></li>
+<li><a href="#solution">1.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2-constraint-satisfaction">2 Question 2: Constraint satisfaction</a><ul>
+<li><a href="#question_1">2.1 Question</a></li>
+<li><a href="#solution_1">2.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3-logic">3 Question 3: Logic</a><ul>
+<li><a href="#question_2">3.1 Question</a></li>
+<li><a href="#solution_2">3.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4-neural-networks-and-decision-trees">4 Question 4: Neural networks and decision trees</a><ul>
+<li><a href="#question_3">4.1 Question</a></li>
+<li><a href="#solution_3">4.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5-gradient-descent-for-learning">5 Question 5: Gradient descent for learning</a><ul>
+<li><a href="#question_4">5.1 Question</a></li>
+<li><a href="#solution_4">5.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6-overfitting">6 Question 6: Overfitting</a><ul>
+<li><a href="#question_5">6.1 Question</a></li>
+<li><a href="#solution_5">6.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7-probabilities">7 Question 7: Probabilities</a><ul>
+<li><a href="#question_6">7.1 Question</a></li>
+<li><a href="#solution_6">7.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_6">7.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8-bayes-nets">8 Question 8: Bayes nets</a><ul>
+<li><a href="#question_7">8.1 Question</a></li>
+<li><a href="#solution_7">8.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_7">8.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9-mdps-and-reinforcement-learning">9 Question 9: MDPs and reinforcement learning</a><ul>
+<li><a href="#question_8">9.1 Question</a></li>
+<li><a href="#solution_8">9.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_8">9.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10-problem-formulation">10 Question 10: Problem formulation</a><ul>
+<li><a href="#question_9">10.1 Question</a></li>
+<li><a href="#solution_9">10.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_9">10.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1: Search algorithms<a class="headerlink" href="#question-1-search-algorithms" name="question-1-search-algorithms">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question<a class="headerlink" href="#question" name="question">&para;</a></h3>
+<ul>
+<li>(a) If <span>$h$</span> is admissible, for what numbers <span>$a$</span> is <span>$a\cdot h$</span> admissible? Also, If we know nothing about <span>$h$</span>, is there a value of <span>$a$</span> that would make <span>$a\cdot h$</span> a better heuristic for A*?</li>
+<li>(b) If we can do alpha-beta search for a game-player to depth <span>$k$</span>, do we get a better player by doing it up to depth <span>$k+1$</span>?</li>
+<li>(c) Beam search: for every node, we only queue the <span>$k$</span> best successors, according to <span>$f = g+h$</span>. If the heuristic is admissible, will we always find the optimal solution?</li>
+</ul>
+<h3 class="header"><i>1.2</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>(a) We need <span>$0 \leq a \leq 1$</span> (remember that costs can't be negative). And, no, <span>$a\cdot h$</span> is not better than <span>$h$</span> for any <span>$a &lt; 1$</span>, and if <span>$a=1$</span> then <span>$a\cdot h = h$</span> so it's the same.<br />
+(b) No, because you'll end up on the opponent's move, according to Doina's solutions. I have a problem with this answer because how do you know that you don't end up on the opponent's move for depth <span>$k$</span>? I think my original answer - that it depends on the heuristic - is more accurate.<br />
+(c) No. After all, the trivial heuristic is admissible. If we can only enqueue the first <span>$k$</span>, there's no guarantee that we'll find the optimal solution, unless <span>$k$</span> happens to be <span>$\geq$</span> the maximum number of successors of a node.</p>
+<h3 class="header"><i>1.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Checked against the posted solutions. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>2</i>Question 2: Constraint satisfaction<a class="headerlink" href="#question-2-constraint-satisfaction" name="question-2-constraint-satisfaction">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question<a class="headerlink" href="#question_1" name="question_1">&para;</a></h3>
+<p>Model minesweeper as a constraint satisfaction problem. (You have a square board; each square has a number from 0-8 indicating how many neighbours have bombs, or no number at all; given a board, how do you find a safe square?) What are the variables, their domains, and the constraints?</p>
+<h3 class="header"><i>2.2</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<dl>
+<dt>Variables</dt>
+<dd><span>$M_{i,j}$</span> indicating whether or not there is a bomb at that square, <span>$N_{i, j}$</span> indicating the number of bombs in neighbouring squares</dd>
+<dt>Domains</dt>
+<dd><span>$M_{i, j} \in \{\text{true}, \text{false}, \text{unknown}\}$</span>; <span>$N_{i, j} \in \{0, 1, 2, 3, 4, 5, 6, 7, 8, \text{unknown} \}$</span> (not sure if the unknowns are necessary)</dd>
+<dt>Constraints</dt>
+<dd>I spent some time trying to find a nice, mathematical way to formulate this I can't think of one. <span>$N_{i, j}$</span> is the number of squares <span>$x, y$</span> adjacent to square <span>$i, j$</span> for which <span>$M_{x,y} = \text{true}$</span>.</dd>
+</dl>
+<p>To find a safe square, choose something that can't have a bomb.</p>
+<h3 class="header"><i>2.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>In Doina's solutions, there is only one variable, with 12 possible values (0-8 bomb-having neighbours, unknown, bomb, clear) but I don't really think that makes sense. Isn't "clear" the same as having 0 bomb-possessing neighbours? There's an assignment from an AI class at Berkeley which has a similar question, and the <a href="http://www-inst.eecs.berkeley.edu/~cs188/fa08/w2solution.pdf">solutions</a> suggest 2 variables. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>3</i>Question 3: Logic<a class="headerlink" href="#question-3-logic" name="question-3-logic">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question<a class="headerlink" href="#question_2" name="question_2">&para;</a></h3>
+<ul>
+<li>(a) Translate into first-order logic:<ul>
+<li>i. All robots are smart</li>
+<li>ii. Some robots are smart</li>
+<li>iii. Robbie is a robot</li>
+<li>iv. All robots are nice to their owner</li>
+<li>v. Bob is Robbie's owner</li>
+<li>vi. Some people who own robots are smart</li>
+</ul>
+</li>
+<li>(b) Prove that Robbie is nice to Bob</li>
+<li>(c) Given this KB, either prove that Bob is smart or explain why you can't.</li>
+</ul>
+<h3 class="header"><i>3.2</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<ul>
+<li>(a) <span>$\DeclareMathOperator{\robot}{isRobot} \DeclareMathOperator{\smart}{isSmart} \DeclareMathOperator{\nice}{isNiceTo} \DeclareMathOperator{\owner}{isOwnedBy} \DeclareMathOperator{\robbie}{Robbie} \DeclareMathOperator{\bob}{Bob}$</span><ul>
+<li>i. <span>$\forall x \; \robot(x) \to \smart(x)$</span></li>
+<li>ii. <span>$\exists x \; \robot(x) \land \smart(x)$</span></li>
+<li>iii. <span>$\robot(\robbie)$</span></li>
+<li>iv. <span>$\forall x \;(\robot(x) \land \owner(x, y) ) \to \nice(x, y))$</span></li>
+<li>v. <span>$\owner(\robbie, \bob)$</span></li>
+<li>vi. <span>$\exists x \; \exists y \robot(x) \land \owner(x, y) \land \smart(y)$</span></li>
+</ul>
+</li>
+<li>(b) <span>$\robot(\robbie) \land \owner(\robbie, \bob) \to \nice(\robbie, \bob)$</span>. I think she calls this unification.</li>
+<li>(c) Can't, because we only know that some people who own robots are smart, and there's no way of knowing if Bob is one of those people.</li>
+</ul>
+<h3 class="header"><i>3.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Matches the official solutions, which means that the official solutions are correct - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>4</i>Question 4: Neural networks and decision trees<a class="headerlink" href="#question-4-neural-networks-and-decision-trees" name="question-4-neural-networks-and-decision-trees">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Question<a class="headerlink" href="#question_3" name="question_3">&para;</a></h3>
+<p>Want to predict if customers will buy products, based on customer attributes. There are 5 predictors already.</p>
+<p>(a) If you want to take a majority vote among the existing predictors, can you use a perceptron? Explain<br />
+(b) Suppose there are <span>$n$</span> predictors, not 5. How does that change your answer to (a)?<br />
+(c) What about using a decision tree to take the majority over the 5 predictors? Good idea, y/n?<br />
+(d) Suppose 3 of the predictors are identical. Is the majority vote better than the single predictors etc</p>
+<h3 class="header"><i>4.2</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>(a) Yeah. Assuming the predictors output <span>$\pm 1$</span>, just make the weights 1 and set the threshold to 0.<br />
+(b) It doesn't<br />
+(c) No, that would be silly<br />
+(d) No, because the taking majority vote is the same as just using the duplicated predictor. So it wouldn't give you any more information.</p>
+<h3 class="header"><i>4.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>I was going to wait until after I learned neural networks to do this question but this question is easy so I did it anyway (checked against official solutions) - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>5</i>Question 5: Gradient descent for learning<a class="headerlink" href="#question-5-gradient-descent-for-learning" name="question-5-gradient-descent-for-learning">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Question<a class="headerlink" href="#question_4" name="question_4">&para;</a></h3>
+<p>(I don't know enough about gradient descent to change this.)</p>
+<blockquote>
+<p>Suppose that you want to train a hypothesis of the form:</p>
+<p><span>$$h(x) = w_0 + w_1 \cos(w_2x)$$</span></p>
+<p>Give update rules for <span>$w_0$</span>, <span>$w_1$</span> and <span>$w_2$</span>, assuming you do incremental gradient descent using the squared error as an error function. Explain if in this case local minima are a problem or not.</p>
+</blockquote>
+<h3 class="header"><i>5.2</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<h3 class="header"><i>5.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<h2 class="header"><i>6</i>Question 6: Overfitting<a class="headerlink" href="#question-6-overfitting" name="question-6-overfitting">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Question<a class="headerlink" href="#question_5" name="question_5">&para;</a></h3>
+<p>Suppose Doina has information on various binary attributes of all her students ("is graduating this semester", "started studying for the exam the night before", "learned how to play Odd", etc). For random subset of <span>$n$</span> students, she has decided whether the student will get an A or a D in the course. She then creates a program that takes care of the tedious task of assigning grades to students so she won't have to actually grade any of our exams or assignments. The program works like this: given a student, if that student's grade has been pre-decided, then that grade is outputted; otherwise, a grade (A or D) is chosen randomly.</p>
+<p>(a) What's the training error?<br />
+(b) Suppose the random subset of students whose grades have been pre-decided is of size <span>$k$</span>. What's the expected error for testing against a randomly-chosen student from the class? What happens to this error as <span>$k$</span> increases?<br />
+(c) What's the expected error for testing against a randomly-chosen student the algorithm has <em>not</em> seen, as a function of <span>$k$</span>?<br />
+(d) Would cross-validation evaluate the error of this algorithm correctly?<br />
+(e) Did you learn how to play Odd?</p>
+<h3 class="header"><i>6.2</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>(a) 0 because you just memorise shit (so any output will be correct for anything in the training set)<br />
+(b) <span>$n-k$</span> students are not in the training set. Since this is a binary classifier, there is a 1/2 chance that any student not in the training set will be classified incorrectly. So the error is</p>
+<p><span>$$\frac{n-k}{2n} = \frac{1}{2} \left (1 - \frac{k}{n}\right)$$</span></p>
+<p>As <span>$k \to n$</span>, this error tends towards 0.</p>
+<p>(c) <span>$1/2$</span> (independent of <span>$k$</span> lol)<br />
+(d) Yes, because you don't test on items in your training set for cross-validation, so the evaluated error will be <span>$1/2$</span>, as it should be.<br />
+(e) I'm an amazing Odd progamer, you should watch my stream sometime</p>
+<h3 class="header"><i>6.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Checked against the official solutions - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>7</i>Question 7: Probabilities<a class="headerlink" href="#question-7-probabilities" name="question-7-probabilities">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Question<a class="headerlink" href="#question_6" name="question_6">&para;</a></h3>
+<p><span>$A$</span> and <span>$B$</span> are independent binary random variables. <span>$P[A=1] = 0.1$</span>, <span>$P[B=1] =0.5$</span>.</p>
+<p>(a) What's the probability that at least one variable is 1?<br />
+(b) Exactly one variable is 1?</p>
+<h3 class="header"><i>7.2</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<p>(a) The probability that no variable is 1 is <span>$0.9 * 0.5 = 0.45$</span>, so the probability that at least one is one is <span>$1-0.45 = 0.55$</span><br />
+(b) The probability that <span>$A$</span> is one but <span>$B$</span> is not is <span>$0.1 * 0.5 = 0.05$</span>. The probability that <span>$B$</span> is 1 but <span>$A$</span> is not is <span>$0.5 * 0.9 = 0.45$</span>. So the total probability is <span>$0.5$</span>.</p>
+<h3 class="header"><i>7.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>If <span>$A$</span> is the event that this solution is correct, then <span>$P(A) = 1$</span>. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>8</i>Question 8: Bayes nets<a class="headerlink" href="#question-8-bayes-nets" name="question-8-bayes-nets">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Question<a class="headerlink" href="#question_7" name="question_7">&para;</a></h3>
+<p>If this exam were held in the cineplex, then we would all be able to watch a movie afterwards. Consider a student in this class, John Doe, who plans to watch a movie after every exam. If John does well on an exam, then he'll like the movie with probability 0.8. If he fails, then he'll like sci-fi movies with probability 0.8, and non-sci-fi movies with probability 0.5. There's a 0.6 chance that John will do well on any given exam. There's a 0.5 chance that the cineplex is showing a sci-fi film. Presumably the cinema only shows one film at a time.</p>
+<p>(a) Draw the Bayes net (specify graph structures, parameters)<br />
+(b) What's the probability that John likes the movie he sees after the AI exam?<br />
+(c) If John has 10 exams in the cineplex (poor guy), and watches exactly one movie after every single one of them, what is the expected number of movies that he'll like?<br />
+(d) John buys popcorn 70% of the time when watching a sci-fi movie and 50% of the time when watching other movies. Does this change the Bayes net structure? How often should the cineplex show sci-fi movies? (Remember that John is not the only person in the world.)</p>
+<h3 class="header"><i>8.2</i>Solution<a class="headerlink" href="#solution_7" name="solution_7">&para;</a></h3>
+<p>(a)<br />
+<img alt="shitty bayes net drawing" src="http://i.imgur.com/HdGpBMC.png" title="jk, this drawing sucks" /></p>
+<p>Let <span>$S$</span> stand for "a sci-fi movie plays", let <span>$H$</span> stand for "John is happy because his exam wasn't as bad as the AI one undoubtedly will be" and let <span>$M$</span> stand for "John enjoys the movie". Then <span>$P(H) = 0.6$</span>, <span>$P(S) = 0.5$</span>, <span>$P(M|H, S) = P(M|\neg H, S) = P(M|H, \neg S)= 0.8$</span>, <span>$P(M|\neg H, \neg S) = 0.5$</span>.</p>
+<p>(b) <span>$(0.6 * 0.8) + (0.4 * (0.5 * 0.8 + 0.5 * 0.5)) = 0.74$</span><br />
+(c) 7<br />
+(d)</p>
+<p><img alt="another shitty bayes net drawing" src="http://i.imgur.com/5o4kKXl.png" title="im gonna fail" /></p>
+<p>There's no way of knowing, since it could be that other students are more likely to buy popcorn during other movies. </p>
+<h3 class="header"><i>8.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>This question is equivalent to the one in the actual exam. I just changed the premise to one that's equally irrelevant to what's being asked. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>9</i>Question 9: MDPs and reinforcement learning<a class="headerlink" href="#question-9-mdps-and-reinforcement-learning" name="question-9-mdps-and-reinforcement-learning">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Question<a class="headerlink" href="#question_8" name="question_8">&para;</a></h3>
+<p>There is a robot, in a house with two lonely rooms. If the robot goes to the right room, it gets a reward of +1. If it goes to the left room, the reward is 0. The robot's actions are: staying (which always succeeds), or moving to the other room (which fails 1/4 of the time).</p>
+<p>(a) Describe as an MDP, including the states, actions, transition probabilities and rewards.<br />
+(b) Optimal policy?<br />
+(c) If the discount factor is <span>$\lambda = 1/2$</span>, compute the optimal value function by solving the linear system of equations for the optimal policy.<br />
+(d) The robot has: stayed in the left room 3 times, moved to the right room, stayed in the right room, moved to the left room. If it has been doing temporal difference learning at a rate of 0.1, what are its estimates for the values of the two rooms at this point?<br />
+(e) If you use a policy that never explores, and all values start at -1, will you be able to find the optimal policy?</p>
+<h3 class="header"><i>9.2</i>Solution<a class="headerlink" href="#solution_8" name="solution_8">&para;</a></h3>
+<p>(a) States: the rooms (left and right), and the start position.<br />
+Actions: Staying, and moving.<br />
+Transition probabilities: 1/4 between the rooms, 1 between the start position and the rooms.<br />
+Rewards: +1 in the right room, 0 in the other room, 0 in the start position.<br />
+Note: rewards are on actions, not states, so you reward every action from the right room with +1.</p>
+<p>(b) If you're in the right room, stay there. If you're in the left room, continue to try to move to the right room until successful, and then stay there.</p>
+<p>(c) V(R) = 1 + discount * V(R)<br />
+    V(L) = 0 + discount * (3/4 * V(R) + 1/4 * V(L)<br />
+    solving this system of equations leads to:<br />
+    V(R) = 2<br />
+    V(L) = 6/7</p>
+<p>(d) TD equation is V(S) &lt;- V(S) + a [r(t+1) + discount * V(S+1) - V(S) ]<br />
+    Start value estimations at V(R) = 0 and V(L) = 0<br />
+    Since these estimates are 0 and you get 0 reward from the left room, V(L) will stay at zero through the time that you move to R, and V(R) will be at zero until you move to R. Then you stay in R.<br />
+    V(R) = 0 + 0.1 [1 + 1/2 * 0 - 0] = 0.1<br />
+    Then you move from R to L<br />
+    V(R) = 0.1 + 0.1 [1 + 1/2 * 0 - 0.1] = 0.19<br />
+    and now you're in L, but don't take any action from here and thus can't update V(L), so V(L) = 0.</p>
+<p>(e)</p>
+<h3 class="header"><i>9.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>idk - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>10</i>Question 10: Problem formulation<a class="headerlink" href="#question-10-problem-formulation" name="question-10-problem-formulation">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Question<a class="headerlink" href="#question_9" name="question_9">&para;</a></h3>
+<p>Too long, going to quote directly</p>
+<blockquote>
+<p>You got a summer job at a sandwich shop downtown. The shop sells different kinds of sandwiches, each consisting of a type of bread, a type of meat (or substitute), a type of cheese (if the customer wants some) and a type of vegetable. Each day, you have to go to the grocery store and buy supplies for the day’s sandwiches. Bread has to be discarded at the end of the day. Meat and cheese have to be discarded after a week. Vegetables are discarded after 3 days. You know that customers come in randomly. If a customer cannot have the desired sandwich, she will leave and there is a 0.5 probability that she will never come to the shop again. Of course, customers pay different amounts for different sandwiches, and you have to pay for the groceries. Having taken AI, you want to optimize, in a principled way, the amount of purchases you are making. Describe this problem using any AI technique of your choice. Explain all the components of your model. What algorithms could you use to solve this problem?</p>
+</blockquote>
+<h3 class="header"><i>10.2</i>Solution<a class="headerlink" href="#solution_9" name="solution_9">&para;</a></h3>
+<p>Find a better job.</p>
+<h3 class="header"><i>10.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p>100% accurate - <a href="/users/dellsystem">@dellsystem</a></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

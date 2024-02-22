@@ -1,0 +1,213 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, April 1, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, April 1, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Generating functions continued
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#generating-functions-continued">1 Generating functions continued</a><ul>
+<li><a href="#making-change">1.1 Making change</a></li>
+<li><a href="#compositions">1.2 Compositions</a></li>
+<li><a href="#manipulating-generating-functions">1.3 Manipulating generating functions</a><ul>
+<li><a href="#multiplication-by-xk">1.3.1 Multiplication by $x^k$</a></li>
+<li><a href="#shifting-by-k">1.3.2 Shifting by $k$</a></li>
+<li><a href="#differentiation">1.3.3 Differentiation</a></li>
+<li><a href="#products-of-generating-functions">1.3.4 Products of generating functions</a></li>
+</ul>
+</li>
+<li><a href="#catalan-numbers-example">1.4 Catalan numbers example</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Generating functions continued<a class="headerlink" href="#generating-functions-continued" name="generating-functions-continued">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Making change<a class="headerlink" href="#making-change" name="making-change">&para;</a></h3>
+<p>What is the number of ways to change \$<span>$n$</span> into bills of the following denominations: \$1, \$5 and \$10?</p>
+<p>The generating function is</p>
+<p><span>$$\begin{align}
+B(x) &amp; = \sum_{n \geq 0} b(n) \cdot x^n \\
+&amp; = \underbrace{(1+x + x^2 + x^3 + \cdots)}_{\text{\$1 bills}} \cdot \underbrace{(1+x^5 + x^{10} + x^{15} + \cdots)}_{\text{\$5 bills}} \cdot \underbrace{(1+x^{10} + x^{20} + x^{30} + \cdots)}_{\text{\$10 bills}} \\
+&amp; = \left ( \frac{1}{1-x} \right ) \cdot \left ( \frac{1}{1-x^5} \right ) \cdot \left ( \frac{1}{1-x^{10}} \right )
+\end{align}$$</span></p>
+<p>It's not trivial to get <span>$b(n)$</span> from here. We need to rewrite <span>$B(x)$</span> so that all the terms have a denominator of <span>$(1-x^{10})$</span>.</p>
+<p>For the first term, we use the fact that <span>$(1-x^{10}) = (1+x+x^2 + \cdots + x^9)(1-x)$</span>, and so</p>
+<p><span>$$\frac{1}{1-x} = \frac{1+x+x^2+\cdots+x^9}{1-x^{10}}$$</span></p>
+<p>For the second term, we can use the fact that <span>$(1-y)(1+y) = 1-y^2$</span> and so <span>$\displaystyle \frac{1+y}{1-y^2} = \frac{1}{1-y}$</span>. If we let <span>$y=x^5$</span>, we have that</p>
+<p><span>$$\frac{1+x^5}{1-x^{10}} = \frac{1}{1-x^5}$$</span></p>
+<p>Thus:</p>
+<p><span>$$B(x) = \left ( \frac{1+x+x^2+\cdots+x^9}{1-x^{10}} \right ) \cdot \left ( \frac{1+x^5}{1-x^{10}} \right ) \cdot \left ( \frac{1}{1-x^{10}} \right ) = \frac{(1+x+x^2+\cdots+x^9)(1+x^5)}{(1-x^{10})^3}$$</span></p>
+<p>Consequently, <span>$b(n)$</span> is simply the coefficient of <span>$x^n$</span> in <span>$B(x)$</span>:</p>
+<p><span>$$b(n) = [x^n]\frac{(1+x+x^2+\cdots+x^9)(1+x^5)}{(1-x^{10})^3}$$</span></p>
+<p>It gets a bit messy from here so we're not going to simplify it any further.</p>
+<h3 class="header"><i>1.2</i>Compositions<a class="headerlink" href="#compositions" name="compositions">&para;</a></h3>
+<p>Suppose we want to pick <span>$k$</span> numbers, <span>$a_1, a_2, \ldots, a_k$</span>, from the set <span>$A$</span>, such that <span>$a_1 + a_2 + \cdots + a_k = n$</span>. Note that repeating numbers are allowed - for example, if <span>$A = \{1, 2\}$</span>, then we could make the number 3 using <span>$1 + 1+ 1$</span> or <span>$1 + 2$</span> - and <span>$k$</span> is not fixed. How many distinct ways of making this sum are there?</p>
+<p>Let <span>$g(n)$</span> be the number of ways of making this sum. The ordinary generating function is then</p>
+<p><span>$$G(x) = \sum_{n \geq 0} g(n) \cdot x^n = \sum_{n \geq 0} \left ( \sum_{k \geq 0} c_k^A(n) \right ) \cdot x^n = \sum_{k \geq 0 } \left ( \sum_{n \geq 0} c_k^A(n) \cdot x^n \right )$$</span></p>
+<p>where <span>$c_k^A$</span> is the number of compositions with <span>$k$</span> points using <span>$A$</span> as our alphabet (i.e., the set from which we can choose numbers).</p>
+<p>Note that</p>
+<p><span>$$\sum_{k \geq 0} \underbrace{(x+x^2) \cdots (x+x^2)}_{k \, \text{times}} = \sum_{k \geq 0} (x+x^2)^k = \frac{1}{1-(x+x^2)^k} = \frac{1}{1-x-x^2} \tag{what?}$$</span></p>
+<p>is the generating function for the Fibonacci numbers, shifted by <span>$1+x$</span><sup>what? how?</sup>. So <span>$g(n) = g(n-1) + g(n-2)$</span>.</p>
+<p>More generally:</p>
+<p><span>$$G^A(x) = \sum_{k \geq 0} \left ( \sum_{i \in A} x^i \right )^k = \frac{1}{1-\sum_{i \in A} x^i}$$</span></p>
+<p>For example, if <span>$A = \{z \in \mathbb Z | z \geq 2\}$</span>, then</p>
+<p><span>$$G^A(x) = \frac{1}{1-\sum_{i \geq 2} x^i} = \frac{1}{1-x^2 \cdot \sum_{i \geq 0} x^i} = \frac{1}{1-x^2\cdot \frac{1}{1-x}} = \frac{1-x}{1-x-x^2}$$</span></p>
+<p>which is the Fibonacci numbers again!</p>
+<p><em>Explanations need improvement</em></p>
+<h3 class="header"><i>1.3</i>Manipulating generating functions<a class="headerlink" href="#manipulating-generating-functions" name="manipulating-generating-functions">&para;</a></h3>
+<p>Let <span>$F(x) = \sum_{n \geq 0} f(n) \cdot x^n$</span> be an ogf. Here are some possible manipulations:</p>
+<h4 class="header"><i>1.3.1</i>Multiplication by $x^k$<a class="headerlink" href="#multiplication-by-xk" name="multiplication-by-xk">&para;</a></h4>
+<p><span>$$\sum_{n\geq 0}f(n)\cdot x^{n+k} = x^k\sum_{n \geq 0} f(n) \cdot x^n = x^k F(x)$$</span></p>
+<h4 class="header"><i>1.3.2</i>Shifting by $k$<a class="headerlink" href="#shifting-by-k" name="shifting-by-k">&para;</a></h4>
+<p><span>$$\sum_{n \geq 0}f(n + k) x^n = \frac{F(x) - f(0) - f(1)x - f(k-1)x^{k-1}}{x^k}$$</span></p>
+<h4 class="header"><i>1.3.3</i>Differentiation<a class="headerlink" href="#differentiation" name="differentiation">&para;</a></h4>
+<p>Let <span>$xD$</span> be shorthand for <span>$\displaystyle x \cdot \frac{d}{dx}$</span>. Then:</p>
+<p><span>$$xD F(x) = \sum_{n \geq 0} nf(n)x^n$$</span></p>
+<p><span>$$(xD)^k F(x) = \sum_{n \geq 0} n^k f(n)x^n$$</span></p>
+<p>For example, if <span>$f(n) = 1 \, \forall n$</span>, then <span>$\displaystyle F(x) = \frac{1}{1-x}$</span>. Then, suppose we have some function <span>$H(x)$</span> which is defined in terms of <span>$f(n)$</span>:</p>
+<p><span>$$H(x) = \sum_{n \geq 0} n^2 \cdot x^n \cdot f(n) = \sum_{n \geq 0} n^2 \cdot x^n \cdot (xD)^2 F(x)$$</span></p>
+<p>To find an explicit expression for <span>$(xD)^2F(x)$</span>, we simply differentiate:</p>
+<p><span>$$\begin{align}
+(xD) F(x) &amp; = x\frac{d}{dx} (1-x^{-1}) = x(1-x)^{-2} \tag{for the first derivative} \\ 
+\therefore \; (xD)^2 F(x) &amp; = xD \left ( \frac{x}{(1-x)^2} \right ) = \frac{x(1+x)}{(1-x)^3} \tag{for the second derivative}
+\end{align}$$</span></p>
+<h4 class="header"><i>1.3.4</i>Products of generating functions<a class="headerlink" href="#products-of-generating-functions" name="products-of-generating-functions">&para;</a></h4>
+<p><span>$$H(x) \cdot G(x) = \sum_{n \geq 0} \left ( \sum_{k =0}^n h(k) \cdot g(n-k) \right ) x^n$$</span></p>
+<p>For example, if <span>$g(n) = 1 \; \forall n$</span>, then <span>$\displaystyle G(x) = \frac{1}{1-x}$</span>, and so</p>
+<p><span>$$H(x) \cdot G(x) = \sum_{n \geq 0} \left ( \sum_{k =0}^n h(k) \right ) x^n$$</span></p>
+<p>We can use this to calculate <span>$\displaystyle \sum_{k=0}^n k^2$</span>. Let <span>$h(k) = k^2$</span>. Then:</p>
+<p><span>$$H(x) \cdot \frac{1}{1-x} = \sum_{n \geq 0} \left ( \sum_{k=0}^n k^2 \right )x^n$$</span></p>
+<p>If we solve for <span>$H(x)$</span>, we get:</p>
+<p><span>$$H(x) = \sum_{n \geq 0} k^2 x^k = \frac{x(1+x)}{(1-x)^3} \tag{somehow. what?}$$</span></p>
+<p>Now let's try to find the coefficient of <span>$x^n$</span> in <span>$H(x) \cdot G(x)$</span>:</p>
+<p><span>$$[x^n] H(x) \cdot G(x) = [x^n] \left ( \frac{x(1+x)}{(1-x)^3} \right ) \cdot \left ( \frac{1}{1-x} \right ) = [x^n] \left ( \frac{x(1+x)}{(1-x)^4} \right ) = \binom{n+3}{3}$$</span></p>
+<p>using the fact that the coefficient of <span>$\displaystyle \frac{1}{(1-x)^k}$</span> is <span>$\displaystyle \binom{n+k-1}{k-1}$</span> for some reason. Thus:</p>
+<p><span>$$\begin{align}
+[x^n] \frac{x+x^2}{(1-x)^4} &amp; = [x^n] \frac{x}{(1-x)^4} + [x^n] \frac{x^2}{(1-x)^4}\\
+&amp; = [x^{n-1}] \frac{1}{(1-x)^4} + [x^{n-2}] \frac{1}{(1-x)^4} \\
+&amp; = \binom{n+2}{3} + \binom{n+1}{3} \tag{using the binomial thing shown earlier} \\
+&amp; = \frac{n(n+1)(2n+1)}{6}
+\end{align}
+$$</span></p>
+<h3 class="header"><i>1.4</i>Catalan numbers example<a class="headerlink" href="#catalan-numbers-example" name="catalan-numbers-example">&para;</a></h3>
+<p>Let <span>$c(n)$</span> be the number of distinct Catalan numbers of length <span>$n$</span>. The recurrence relation is given by</p>
+<p><span>$$c(n+1) = \sum_{j=0}^n c(j) \cdot c(n-j)$$</span></p>
+<p>due to the fact that if we look at the first time we hit the <span>$y$</span>-axis (<span>$x=2j+2$</span>), we have a Dyck walk of length <span>$2j$</span> on the left side and another of length <span>$2(n-j)$</span> on the other side. <em>(Expound? Diagram?)</em></p>
+<p>Let <span>$c(n)$</span> be the number of distinct Catalan numbers of length <span>$n$</span>. The recurrence relation is given by</p>
+<p><span>$$c(n+1) = \sum_{j=0}^n c(j) \cdot c(n-j)$$</span></p>
+<p>due to the fact that if we look at the first time we hit the <span>$y$</span>-axis (<span>$x=2j+2$</span>), we have a Dyck walk of length <span>$2j$</span> on the left side and another of length <span>$2(n-j)$</span> on the other side. <em>(Expound? Diagram?)</em></p>
+<p>Thus we have:</p>
+<p><span>$$\begin{align}
+C(x) &amp; = \sum_{n \geq 0} c(n) \cdot x^n = c(0) + \sum_{n \geq 1} c(n) \cdot x^n \\
+&amp; = 1 + \sum_{n \geq 0} c(n+1) \cdot x^{n+1} = 1 + x \cdot \sum_{n \geq 0} c(n+1) \cdot x^n \\
+&amp; = 1 + x\cdot \sum_{n \geq 0} \left ( \sum_{j=0}^n C(j) \cdot c(n-j) \right ) x^n \\
+&amp; = 1 + x\cdot C(x)^2
+\end{align}$$</span></p>
+<p>Using the quadratic formula, we can solve for <span>$C(x)$</span>:</p>
+<p><span>$$C(x) = \frac{1\pm\sqrt{1-4x}}{2x}$$</span></p>
+<p>But wait, there's a <span>$\pm$</span> there, and there can be only one expression for <span>$C(x)$</span>. Clearly we have to get rid of one of the possibilities. Apparently we can use the base case of <span>$C(0) = 1$</span> (though I'm not sure where we got this base case from?) to eliminate the <span>$+$</span> option, so we just have</p>
+<p><span>$$C(x) = \frac{1-\sqrt{1-4x}}{2x}$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

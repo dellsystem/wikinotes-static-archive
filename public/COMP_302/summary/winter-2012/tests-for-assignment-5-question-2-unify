@@ -1,0 +1,242 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_302/">
+                COMP 302
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tests for assignment 5, question 2 (unify)
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tests for assignment 5, question 2 (unify)
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Some tests for question 2 on assignment 5. Save the file as <code>tests.sml</code><sup id="fnref:highlight"><a href="#fn:highlight" rel="footnote" title="The syntax highlighting is a bit off because there...">1</a></sup> and follow the instructions in the comments near the top of the file.</p>
+<p>Please direct any questions or concerns to the thread on WebCT.</p>
+<div class="codehilite"><pre><span class="n">use</span> <span class="s2">&quot;hw5-q2.sml&quot;</span><span class="p">;</span>
+
+<span class="cm">(* ------------------------------------------------------------</span>
+<span class="cm">   Place this file in the same directory as hw5-q2.sml, and run &quot;sml tests.sml&quot;.</span>
+<span class="cm">   You must have a function called &quot;occurs&quot; (typ option ref -&gt; typ -&gt; bool) and</span>
+<span class="cm">   a function called unify (typ * typ -&gt; unit).</span>
+<span class="cm">   If you don&#39;t have a function called &quot;occurs&quot;, or if it&#39;s a different type,</span>
+<span class="cm">   set the flag testOccurs below to false.</span>
+<span class="cm">   ------------------------------------------------------------*)</span>
+
+<span class="nn">Control</span><span class="p">.</span><span class="nn">Print</span><span class="p">.</span><span class="n">printDepth</span> <span class="n">:=</span> <span class="mi">100</span><span class="p">;</span>
+
+<span class="cm">(* Define some type variables *)</span>
+<span class="kr">val</span> <span class="nv">a1</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a2</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">a3</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a4</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">a5</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a6</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">a7</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a8</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">a9</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a10</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">a11</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">a12</span> <span class="p">:</span> <span class="p">(</span><span class="n">typ</span> <span class="n">option</span><span class="p">)</span> <span class="n">ref</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="n">NONE</span><span class="p">);</span>
+
+<span class="cm">(* Define some types *)</span>
+<span class="kr">val</span> <span class="nv">t1</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">Product</span><span class="p">(</span><span class="n">TVar</span><span class="p">(</span><span class="n">a1</span><span class="p">),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a1</span><span class="p">)),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a2</span><span class="p">));</span>
+<span class="kr">val</span> <span class="nv">t2</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">Product</span><span class="p">(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Int</span><span class="p">),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a1</span><span class="p">));</span>
+
+<span class="kr">val</span> <span class="nv">t3</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">Product</span><span class="p">(</span><span class="n">TVar</span><span class="p">(</span><span class="n">a3</span><span class="p">),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a4</span><span class="p">)),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a4</span><span class="p">));</span>
+<span class="kr">val</span> <span class="nv">t4</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">Product</span><span class="p">(</span><span class="n">TVar</span><span class="p">(</span><span class="n">a4</span><span class="p">),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a3</span><span class="p">)),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a3</span><span class="p">));</span>
+
+<span class="kr">val</span> <span class="nv">t5</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">Product</span><span class="p">(</span><span class="n">TVar</span><span class="p">(</span><span class="n">a5</span><span class="p">),</span><span class="n">TVar</span><span class="p">(</span><span class="n">a6</span><span class="p">)),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a6</span><span class="p">));</span>
+<span class="kr">val</span> <span class="nv">t6</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">TVar</span><span class="p">(</span><span class="n">a6</span><span class="p">),</span> <span class="n">TVar</span><span class="p">(</span><span class="n">a5</span><span class="p">));</span>
+
+<span class="kr">val</span> <span class="nv">t7</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">TVar</span> <span class="n">a7</span><span class="p">,</span> <span class="n">TVar</span> <span class="n">a8</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">t8</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">TVar</span> <span class="n">a8</span><span class="p">,</span> <span class="n">TVar</span> <span class="n">a7</span><span class="p">);</span>
+
+<span class="kr">val</span> <span class="nv">t9</span> <span class="p">=</span> <span class="n">Arrow</span><span class="p">(</span><span class="n">TVar</span> <span class="n">a9</span><span class="p">,</span> <span class="n">Int</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">t10</span> <span class="p">=</span> <span class="n">TVar</span> <span class="n">a10</span><span class="p">;</span>
+
+<span class="kr">val</span> <span class="nv">t11</span> <span class="p">=</span> <span class="n">Product</span><span class="p">(</span><span class="n">Arrow</span><span class="p">(</span><span class="n">TVar</span> <span class="n">a11</span><span class="p">,</span> <span class="n">Bool</span><span class="p">),</span> <span class="n">Int</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">t12</span> <span class="p">=</span> <span class="n">TVar</span> <span class="n">a11</span><span class="p">;</span>
+
+<span class="cm">(* Define the internal functions for testing *)</span>
+<span class="kr">val</span> <span class="nv">num_pass</span> <span class="p">=</span> <span class="n">ref</span> <span class="mi">0</span>
+<span class="kr">val</span> <span class="nv">num_fail</span> <span class="p">=</span> <span class="n">ref</span> <span class="mi">0</span>
+
+<span class="kr">fun</span> <span class="nf">assert</span> <span class="n">statement</span> <span class="n">desc</span> <span class="p">=</span> <span class="kr">let</span>
+      <span class="kr">val</span> <span class="nv">test_num</span> <span class="p">=</span> <span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">!num_pass</span> <span class="n">+</span> <span class="n">!num_fail</span> <span class="n">+</span> <span class="mi">1</span><span class="p">);</span>
+      <span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="n">print</span> <span class="p">(</span><span class="s2">&quot;Test &quot;</span> <span class="n">^</span> <span class="n">test_num</span> <span class="n">^</span> <span class="s2">&quot; (&quot;</span> <span class="n">^</span> <span class="n">desc</span> <span class="n">^</span> <span class="s2">&quot;): &quot;</span><span class="p">)</span>
+    <span class="kr">in</span>
+      <span class="kr">if</span> <span class="n">statement</span> <span class="kr">then</span>
+          <span class="p">(</span><span class="n">num_pass</span> <span class="n">:=</span> <span class="n">!num_pass</span> <span class="n">+</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">print</span> <span class="s2">&quot;OK</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="kr">else</span>
+          <span class="p">(</span><span class="n">num_fail</span> <span class="n">:=</span> <span class="n">!num_fail</span> <span class="n">+</span> <span class="mi">1</span><span class="p">;</span>
+          <span class="n">print</span> <span class="s2">&quot;FAIL ###############################</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+<span class="cm">(* Define the callable testing functions *)</span>
+<span class="kr">fun</span> <span class="nf">assertCanUnify</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">unify</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="n">assert</span> <span class="p">(</span><span class="n">equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> <span class="s2">&quot;assertCanUnify&quot;</span><span class="p">)</span> <span class="kr">handle</span> <span class="n">UnifyError</span> <span class="n">s</span> <span class="p">=&gt;</span> <span class="n">assert</span> <span class="n">false</span> <span class="s2">&quot;assertCanUnify&quot;</span>
+
+<span class="kr">fun</span> <span class="nf">assertNotUnified</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="n">assert</span> <span class="p">(</span><span class="n">not</span> <span class="p">(</span><span class="n">equal</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)))</span> <span class="s2">&quot;assertNotUnified&quot;</span>
+
+<span class="kr">fun</span> <span class="nf">assertCannotUnify</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">unify</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">);</span> <span class="n">assert</span> <span class="n">false</span> <span class="s2">&quot;assertCannotUnify&quot;</span><span class="p">)</span> <span class="kr">handle</span> <span class="n">UnifyError</span> <span class="n">s</span> <span class="p">=&gt;</span> <span class="n">assert</span> <span class="n">true</span> <span class="s2">&quot;assertCannotUnify&quot;</span>
+
+<span class="kr">fun</span> <span class="nf">printStats</span> <span class="p">()</span> <span class="p">=</span> <span class="kr">let</span>
+    <span class="kr">val</span> <span class="nv">num_passed</span> <span class="p">=</span> <span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">!num_pass</span><span class="p">)</span>
+    <span class="kr">val</span> <span class="nv">num_total</span> <span class="p">=</span> <span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="p">(</span><span class="n">!num_pass</span> <span class="n">+</span> <span class="n">!num_fail</span><span class="p">)</span>
+    <span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="n">print</span> <span class="p">(</span><span class="s2">&quot;*******************************************************************************</span><span class="se">\n</span><span class="s2">Passed: &quot;</span> <span class="n">^</span> <span class="n">num_passed</span> <span class="n">^</span> <span class="s2">&quot; out of &quot;</span> <span class="n">^</span> <span class="n">num_total</span> <span class="n">^</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+  <span class="kr">in</span>
+      <span class="kr">if</span> <span class="n">!num_fail</span> <span class="n">&gt;</span> <span class="mi">0</span> <span class="kr">then</span>
+          <span class="n">print</span> <span class="s2">&quot;Not all the tests passed. Check the failures above.</span><span class="se">\n</span><span class="s2">&quot;</span>
+      <span class="kr">else</span>
+          <span class="p">()</span>
+  <span class="kr">end</span><span class="p">;</span>
+
+<span class="cm">(* If your occurs function is not defined, or has a different signature, then</span>
+<span class="cm">   comment out the section below!</span>
+
+<span class="cm">   Beginning of section =====================================================*)</span>
+<span class="kr">fun</span> <span class="nf">assertOccurs</span> <span class="n">r</span> <span class="n">thing</span> <span class="p">=</span> <span class="n">assert</span> <span class="p">(</span><span class="n">occurs</span> <span class="n">r</span> <span class="n">thing</span><span class="p">)</span> <span class="s2">&quot;assertOccurs&quot;</span><span class="p">;</span>
+<span class="kr">fun</span> <span class="nf">assertNotOccurs</span> <span class="n">r</span> <span class="n">thing</span> <span class="p">=</span> <span class="n">assert</span> <span class="p">(</span><span class="n">not</span> <span class="p">(</span><span class="n">occurs</span> <span class="n">r</span> <span class="n">thing</span><span class="p">))</span> <span class="s2">&quot;assertNotOccurs&quot;</span><span class="p">;</span>
+
+<span class="n">assertOccurs</span> <span class="n">a1</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">assertOccurs</span> <span class="n">a2</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">assertNotOccurs</span> <span class="n">a3</span> <span class="n">t1</span><span class="p">;</span>
+
+<span class="n">assertOccurs</span> <span class="n">a1</span> <span class="n">t1</span><span class="p">;</span>
+<span class="n">assertNotOccurs</span> <span class="n">a2</span> <span class="n">t2</span><span class="p">;</span>
+
+<span class="n">assertOccurs</span> <span class="n">a3</span> <span class="n">t3</span><span class="p">;</span>
+<span class="n">assertOccurs</span> <span class="n">a4</span> <span class="n">t3</span><span class="p">;</span>
+
+<span class="n">assertOccurs</span> <span class="n">a3</span> <span class="n">t4</span><span class="p">;</span>
+<span class="n">assertOccurs</span> <span class="n">a4</span> <span class="n">t4</span><span class="p">;</span>
+<span class="n">assertNotOccurs</span> <span class="n">a1</span> <span class="n">t4</span><span class="p">;</span>
+
+<span class="cm">(* End of section ===========================================================*)</span>
+
+<span class="n">assertNotUnified</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">);</span>
+<span class="n">assertCanUnify</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">);</span>
+
+<span class="n">assertNotUnified</span> <span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">);</span>
+<span class="n">assertCanUnify</span> <span class="p">(</span><span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">);</span>
+
+<span class="n">assertNotUnified</span> <span class="p">(</span><span class="n">t5</span><span class="p">,</span> <span class="n">t6</span><span class="p">);</span>
+<span class="n">assertCannotUnify</span> <span class="p">(</span><span class="n">t5</span><span class="p">,</span> <span class="n">t6</span><span class="p">);</span>
+
+<span class="n">assertCanUnify</span> <span class="p">(</span><span class="n">t7</span><span class="p">,</span> <span class="n">t8</span><span class="p">);</span>
+
+<span class="n">assertCanUnify</span> <span class="p">(</span><span class="n">t9</span><span class="p">,</span> <span class="n">t10</span><span class="p">);</span>
+
+<span class="n">assertCannotUnify</span> <span class="p">(</span><span class="n">t11</span><span class="p">,</span> <span class="n">t12</span><span class="p">);</span>
+
+<span class="n">printStats</span><span class="p">();</span>
+</pre></div>
+
+
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:highlight">
+<p>The syntax highlighting is a bit off because there's no lexer for SML, so I used the lexer for OCaml instead.&#160;<a href="#fnref:highlight" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

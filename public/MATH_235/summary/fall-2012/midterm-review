@@ -1,0 +1,230 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm will take place on Wednesday, October 24, during class (in the regular room). Sections covered: everything up until (and partially including) polynomials.</p>
+<div class="toc">
+<ul>
+<li><a href="#proof-techniques">1 Proof techniques</a></li>
+<li><a href="#concepts-seen-in-class">2 Concepts seen in class</a></li>
+<li><a href="#theorems-seen-in-class">3 Theorems seen in class</a><ul>
+<li><a href="#fermats-little-theorem">3.1 Fermat's little theorem</a></li>
+<li><a href="#wilsons-theorem">3.2 Wilson's theorem</a></li>
+<li><a href="#the-fundamental-theorem-of-arithmetic">3.3 The fundamental theorem of arithmetic</a></li>
+<li><a href="#euclids-lemma">3.4 Euclid's lemma</a></li>
+<li><a href="#infinitely-many-primes">3.5 Infinitely many primes</a></li>
+<li><a href="#chinese-remainder-theorem">3.6 Chinese remainder theorem</a></li>
+<li><a href="#miller-rabin">3.7 Miller-Rabin</a></li>
+<li><a href="#bezouts-identity">3.8 Bézout's identity</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Proof techniques<a class="headerlink" href="#proof-techniques" name="proof-techniques">&para;</a></h2>
+<p>Multiple techniques can be used in one proof.</p>
+<ul>
+<li>Induction (can use the successor function)</li>
+<li>Proving the contrapositive (to show <code>A -&gt; B</code>, just show <code>not B -&gt; not A</code></li>
+<li>Proof by contradiction (assume the opposite of the statement you're trying to prove, then reach a contradiction)</li>
+<li>When proving an equality, manipulate the expression on the left until it looks like the right (similar for inequalities)</li>
+<li>Proving both directions for if and only if statements</li>
+<li>Using properties of addition, multiplication, etc (the defining properties)<ul>
+<li>Also: well-ordering principle</li>
+<li>For gcd: bezout's identity (linear combination)</li>
+</ul>
+</li>
+<li>When proving set equality or inequality, focus on the elements of the sets (also applies to functions, relations)</li>
+</ul>
+<h2 class="header"><i>2</i>Concepts seen in class<a class="headerlink" href="#concepts-seen-in-class" name="concepts-seen-in-class">&para;</a></h2>
+<ul>
+<li>Cardinality<ul>
+<li>The pigeonhole principle</li>
+<li>Cantor's diagonal argument<ul>
+<li>Proves that there is no bijection from <span>$\mathbb{N}$</span> to <span>$\mathbb{R}$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Euclidean algorithm</li>
+<li><code>gcd</code></li>
+<li>Complex numbers<ul>
+<li>Polar representation: <span>$r\sin(z)/ + r\cos(z)$</span> where <span>$z = ab + i$</span> and <span>$r = |z|$</span></li>
+<li>Exponentation function: <span>$e^{i\theta} = \cos\theta + i\sin\theta$</span></li>
+</ul>
+</li>
+<li>Rings<ul>
+<li>Addition (commutative, associative, neutral, inverse), multiplication (associative, neutral), distributivity</li>
+<li>Commutative ring: also has multiplicative commutativity</li>
+<li>field: every element has a multiplicative inverse in the field</li>
+</ul>
+</li>
+<li>Power sets<ul>
+<li>Prove that a function mapping a set to its power set is not bijective (even for the empty set!)</li>
+</ul>
+</li>
+<li>Irrationality of <span>$\sqrt{2}$</span></li>
+<li>Congruence relations<ul>
+<li>Properties of equivalence relations: r (reflexive), s (symmetric), t (transitive)</li>
+<li>set of equivalence classes is a field iff <span>$n$</span> is prime</li>
+</ul>
+</li>
+<li>Fermat's little theorem<ul>
+<li>Carmichael numbers (pseudoprimes)</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Theorems seen in class<a class="headerlink" href="#theorems-seen-in-class" name="theorems-seen-in-class">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Fermat's little theorem<a class="headerlink" href="#fermats-little-theorem" name="fermats-little-theorem">&para;</a></h3>
+<blockquote>
+<p><span>$a^p \equiv a \pmod p$</span>. If <span>$a \not \equiv 0 \pmod p$</span>, then this is equivalent to <span>$a^{p-1} \equiv 1 \pmod p$</span>.</p>
+</blockquote>
+<p>First, we prove the lemma that if <span>$p$</span> is prime, then it divides the binomial coefficient <span>$\displaystyle \binom{p}{k}$</span> for all <span>$k = 1, \ldots p-1$</span>. To prove <em>that</em>, expand it out to</p>
+<p><span>$$\frac{p!}{k!(p-k)!} = \frac{p \cdot (p-1) \cdot \ldots \cdot (p - k + 1)}{k!}$$</span></p>
+<p>Since the binomial coefficient is always an integer, the denominator must divide the numerator. Since <span>$k &lt; p$</span>, the factorial of <span>$k$</span> does not divide <span>$p$</span>. So it must divide the other part. But this means that the binomial coefficient is a multiple of <span>$p$</span>, since that is not cancelled out by the denominator. So <span>$p$</span> must divide it, which proves the lemma.</p>
+<p>Now we can prove FLT using induction on <span>$a$</span>. The induction step involves using the binomial theorem.</p>
+<h3 class="header"><i>3.2</i>Wilson's theorem<a class="headerlink" href="#wilsons-theorem" name="wilsons-theorem">&para;</a></h3>
+<blockquote>
+<p><span>$p$</span> is prime <span>$\iff$</span> <span>$p \mid (p-1)! + 1$</span></p>
+</blockquote>
+<p>The proof for this is really quite pretty. First, the <span>$\leftarrow$</span> direction, using multiple contradictions and proving the contrapositive. First, we assume that <span>$p \mid (p-1)! + 1$</span> where <span>$p$</span> is not prime. Since <span>$p$</span> is not prime, then <span>$a \mid p$</span> for some <span>$a$</span> less than <span>$p$</span> and greater than 1 (factor). So <span>$a$</span> divides <span>$(p-1)!$</span> because <span>$a$</span> is in there somewhere. If it also divides <span>$(p-1)! + 1$</span> then it must divide the difference between that and <span>$(p-1)!$</span>, which is just 1. So that tells us that <span>$a = 1$</span>. But we chose <span>$a &gt; 1$</span>. So we reach a contradiction, meaning that <span>$a \nmid (p-1)! + 1$</span>. But since <span>$a \mid p$</span> and <span>$p \mid (p-1)! + 1$</span>, then, by the transitivity of <span>$\mid$</span>, we must have that <span>$a \nmid (p-1)! +1$</span>. But we just showed that that is impossible, which means that our assumption - that <span>$p$</span> is prime - is not true. Consequently, this doesn't hold for composite <span>$p$</span>, which proves the contrapositive.</p>
+<p>For the <span>$\rightarrow$</span> direction: suppose <span>$p$</span> is prime. Then <span>$x^2 \equiv 1 \pmod p$</span> has two sollutions, 1 and -1 (proved in assignment 2, question 7, using Euclid's lemma). So 1 and -1 are their own inverses. Now we look at the product <span>$1 \cdot 2 \cdot \ldots \cdot (p-2) \cdot (p-1)$</span>. Basically, everything has an inverse except <span>$p-1$</span>, which doesn't cancel out. So <span>$(p-1)! \equiv -1 \pmod p$</span> and so if we add one to it we get what we're trying to prove in congruence relation notation.</p>
+<h3 class="header"><i>3.3</i>The fundamental theorem of arithmetic<a class="headerlink" href="#the-fundamental-theorem-of-arithmetic" name="the-fundamental-theorem-of-arithmetic">&para;</a></h3>
+<blockquote>
+<p>Every non-zero number can be uniquely represented as a product of primes.</p>
+</blockquote>
+<p>First, prove the existence property using the well-ordering principle and proof by contradiction. Assume there is a non-empty set of numbers that can't be written as a product of primes. The least element must be a product of two numbers. You reach a contradiction very quickly, for these two numbers can't be in the set or else the minimality of the least element would be contradicted; however, if they're not in the set, they can be written as a product of primes, and consequently so can their product.</p>
+<p>Uniqueness uses Euclid's lemma and proof by induction. Not really that interesting.</p>
+<h3 class="header"><i>3.4</i>Euclid's lemma<a class="headerlink" href="#euclids-lemma" name="euclids-lemma">&para;</a></h3>
+<p>One formulation is:</p>
+<blockquote>
+<p>Using only the basic properties of the gcd proved in class, (and <em>not</em> the fundamental theorem of arithmetic) show that if a <span>$p$</span> is a prime and <span>$p$</span> divides a product <span>$ab$</span> of two integers, then <span>$p$</span> necessarily divides either <span>$a$</span> or <span>$b$</span>.</p>
+</blockquote>
+<p>Proof:</p>
+<p>Since <span>$p\mid ab$</span> and <span>$p \mid p$</span> (by the reflexivity of <span>$\mid$</span>), then <span>$\gcd(p, ab) = p$</span> (since nothing <em>greater</em> than <span>$p$</span> can divide <span>$p$</span>). We assume that <span>$p \nmid a$</span> and <span>$p \nmid b$</span>. So <span>$\gcd(p, a) = 1$</span> and <span>$\gcd(p, b) = 1$</span>. By theorem 9.1.2 in the notes (also known as Bézout's identity), there exist integers <span>$x$</span> and <span>$y$</span> such that <span>$xp + xa = 1$</span> (from the fact that <span>$\gcd(p, a) = 1$</span>). If we multiply both sides of the identity by <span>$b$</span>, we get:</p>
+<p><span>$$xbp + xab = b$$</span></p>
+<p>Well, we know that <span>$p \mid ab$</span>, by a premise of this argument. From the definition of a <span>$\gcd$</span> (definition 9.0.5 (2) in the notes), we know that <span>$p \mid xab$</span>. We also know that <span>$p \mid xbp$</span>, since that's just a multiple of <span>$p$</span> (definition 9.0.5 (2) again). Then, by definition 9.0.5 (3), we know that <span>$p \mid xbp + xab$</span>, and by the identity above then <span>$p \mid b$</span>. Since this contradicts the premise that <span>$p \nmid b$</span>, then our assumption that <span>$p\nmid a$</span> and <span>$p\nmid b$</span> must be wrong, and so <span>$p$</span> must divide either <span>$a$</span> or <span>$b$</span> (or both).</p>
+<p>Alternatively, we could just assume, without loss of generality, that <span>$p \nmid a$</span> and from that conclude that <span>$p \mid b$</span>. Whichever.</p>
+<p>Taken from the <a href="/MATH_235/summary/fall-2012/practice-midterm/">practice midterm</a>, question 4.</p>
+<h3 class="header"><i>3.5</i>Infinitely many primes<a class="headerlink" href="#infinitely-many-primes" name="infinitely-many-primes">&para;</a></h3>
+<blockquote>
+<p>There are infinitely many primes</p>
+</blockquote>
+<p>Assume that the set of all the primes <em>in the entire world</em> is finite, represented in an ordered set as <span>$P = \{p_1, \ldots, p_n\}$</span> (where <span>$p_n$</span> is the largest prime number). Now consider the number <span>$N = p_1\ldots p_n + 1$</span>. This number can't be a prime number, because it is greater than the largest prime number <span>$p_n$</span> by at least one, and so is not in <span>$P$</span>. And yet it <em>is</em> a prime number, because the gcd of <span>$N$</span> and any <span>$p \in P$</span> (i.e. any prime) is 1, as dividing <span>$N$</span> by <span>$p$</span> will always leave a remainder of 1. So we reach a contradiction, which implies that the set of all the primes is <em>not</em> finite.</p>
+<p>From <a href="/MATH_235/lecture-notes/fall-2012/monday-september-24/">Monday, September 24 lecture notes</a>.</p>
+<h3 class="header"><i>3.6</i>Chinese remainder theorem<a class="headerlink" href="#chinese-remainder-theorem" name="chinese-remainder-theorem">&para;</a></h3>
+<p>Hope we don't have to prove this</p>
+<h3 class="header"><i>3.7</i>Miller-Rabin<a class="headerlink" href="#miller-rabin" name="miller-rabin">&para;</a></h3>
+<blockquote>
+<p>Take the sequence <span>$a^{(p-1)}, a^{(p-1)/2}, \ldots$</span>. Should be all 1's, until you get a -1, for all <span>$a$</span>.</p>
+</blockquote>
+<p>Prove that if <span>$p$</span> is prime then <span>$x^2-1 \equiv \pmod p$</span> then <span>$x$</span> can be only 1 or -1 in the field. This is not generally (ever?) true when <span>$p$</span> is composite. Then we just apply that recursively to each term in the sequence, since the first term in the sequence is congruent to 1 by FLT.</p>
+<h3 class="header"><i>3.8</i>Bézout's identity<a class="headerlink" href="#bezouts-identity" name="bezouts-identity">&para;</a></h3>
+<blockquote>
+<p><span>$a$</span> and <span>$b$</span> are non-zero integers. Then there exist integers <span>$x$</span> and <span>$y$</span> such that <span>$ax + by = \gcd(a, b)$</span>. Also, <span>$\gcd(a, b)$</span> is the smallest number that can be written in this form (as a linear combination of <span>$a$</span> and <span>$b$</span>).</p>
+</blockquote>
+<p>Let <span>$L$</span> be the set of all positive linear combinations of <span>$a$</span> and <span>$b$</span>. <span>$L$</span> is clearly not empty - for example, <span>$a^2 + b^2$</span> is positive and is thus in the set. By the well-ordering principle, <span>$L$</span> must have a smallest element. We denote that element by <span>$m = ua + vb$</span> for some <span>$u, v \in \mathbb{Z}$</span>.</p>
+<p>Now, we show that <span>$m \mid a$</span> and <span>$m \mid b$</span>. We can write <span>$a$</span> as <span>$a = qm + r$</span> where <span>$q \in \mathbb{Z}$</span> and <span>$0 \leq r &lt; m$</span>. We can rewrite <span>$r$</span> as <span>$a - qm = a -q(ua + vb) = a - qua + qvb = (1-qu)a + qvb$</span>. <span>$r$</span> is clearly a linear combination of <span>$a$</span> and <span>$b$</span>. If it's greater than zero, then it is an element of <span>$L$</span>. However, since we selected <span>$r$</span> to be strictly <em>less</em> than <span>$m$</span>, then <span>$r$</span> being in <span>$L$</span> would contradict the minimality of <span>$m$</span>. So we must have that <span>$r = 0$</span> to avoid that contradiction. But then we have that <span>$a = qm + 0= qm$</span> and so <span>$m \mid a$</span>. In the same way, we get that <span>$m \mid b$</span>.</p>
+<p>This shows that <span>$m$</span> is a common divisor of <span>$a$</span> and <span>$b$</span>. Now we have to show that <span>$m$</span> is the <em>greatest</em> common divisor of <span>$a$</span> and <span>$b$</span>. Let <span>$e$</span> be any common divisor of <span>$a$</span> and <span>$b$</span>. Then <span>$e$</span> also divides any linear combination of <span>$a$</span> and <span>$b$</span>, including <span>$m$</span>, and so <span>$e \mid m$</span>. The largest <span>$e$</span> that divides <span>$b$</span> can only be <span>$m$</span> itself (since no number larger than <span>$a$</span> can divide <span>$a$</span> for any <span>$a \in \mathbb{Z} \setminus \{0\}$</span>). So the greatest common divisor of <span>$a$</span> and <span>$b$</span> has to be equal to the least element in <span>$S$</span>. This concludes the proof.</p>
+<p>Sidenote: a question on the midterm asked for a proof of something closely related to this. If only I knew this then.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

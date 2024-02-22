@@ -1,0 +1,208 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 14, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 14, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Operators on inner product spaces
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Today, we'll begin chapter 7: operators on inner product spaces. It's a long chapter, but we won't cover everything - we'll only look at self-adjoint/normal operators and the spectral theorems. And possibly something else that I didn't write down properly.</p>
+<div class="toc">
+<ul>
+<li><a href="#operators-on-inner-product-spaces">1 Operators on inner product spaces</a><ul>
+<li><a href="#self-adjoint-operators">1.1 Self-adjoint operators</a></li>
+<li><a href="#proposition-71-real-eigenvalues">1.2 Proposition 7.1: Real eigenvalues</a></li>
+<li><a href="#proposition-72-zero-operators">1.3 Proposition 7.2: Zero operators</a><ul>
+<li><a href="#corollary-73-real-numbers-and-self-adjoint-operators">1.3.1 Corollary 7.3: Real numbers and self-adjoint operators</a></li>
+<li><a href="#proposition-74-zero-inner-products-and-self-adjoint-operators">1.3.2 Proposition 7.4: Zero inner-products and self-adjoint operators</a></li>
+</ul>
+</li>
+<li><a href="#normal-operators">1.4 Normal operators</a></li>
+<li><a href="#proposition-76-norms-and-normal-operators">1.5 Proposition 7.6: Norms and normal operators</a><ul>
+<li><a href="#corollary-77-eigenvalues-for-adjoints-of-normal-operators">1.5.1 Corollary 7.7: Eigenvalues for adjoints of normal operators</a></li>
+<li><a href="#corollary-orthogonality-of-eigenvectors">1.5.2 Corollary: Orthogonality of eigenvectors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Operators on inner product spaces<a class="headerlink" href="#operators-on-inner-product-spaces" name="operators-on-inner-product-spaces">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Self-adjoint operators<a class="headerlink" href="#self-adjoint-operators" name="self-adjoint-operators">&para;</a></h3>
+<p>An operator <span>$T \in \mathcal L(V)$</span> is called <strong>self-adjoint</strong> or <strong>Hermitian</strong> if <span>$T = T^*$</span> (i.e., it is equal to its own adjoint). As we will see, the concept of a self-adjoint operator can be considered to be loosely analogous to that of a number that is equal to its own conjugate (that is, a real number).</p>
+<h3 class="header"><i>1.2</i>Proposition 7.1: Real eigenvalues<a class="headerlink" href="#proposition-71-real-eigenvalues" name="proposition-71-real-eigenvalues">&para;</a></h3>
+<blockquote>
+<p>Every eigenvalue of a self-adjoint operator is real in any vector space.</p>
+</blockquote>
+<p>Proof: Suppose <span>$T = T^*$</span>, and <span>$\lambda$</span> is an eigenvalue of <span>$T$</span> with associated eigenvector <span>$v$</span>. Thus <span>$Tv = \lambda v$</span> for some non-zero <span>$v$</span>. Then</p>
+<p><span>$$\begin{align}
+\langle v, T^*v \rangle &amp; = \langle Tv, v \rangle \tag{by the definition of adjoint} \\
+&amp; = \langle \lambda v, v \rangle \tag{since $\lambda$ is an eigenvalue and $v$ is an eigenvector} \\
+&amp; = \lambda \langle v, v \rangle \tag{by homogeneity in the first argument} \\
+&amp; = \lambda \lVert v \rVert^2 \tag{by the definition of norm} \\
+&amp;  \text{also:} \\
+\langle v, T^*v \rangle &amp; = \langle v, Tv \rangle \tag{since $T$ is self-adjoint} \\
+&amp; = \langle v, \lambda v \rangle \tag{eigenvalue} \\
+&amp; = \overline{\lambda} \langle v, v \rangle \tag{by homogeneity and conjugate symmetry} \\
+&amp; = \overline{\lambda} \lVert v \rVert^2 \tag{by the definition of norm}
+\end{align}$$</span></p>
+<p>Thus we have that <span>$\lambda \lVert v \rVert^2 = \overline{\lambda} \lVert v \rVert^2$</span>, which tells us that <span>$\lambda = \overline{\lambda}$</span> and so every eigenvalue must be real. So a self-adjoint operator is not only analogous to a number that is equal to its own conjugate, it in fact ensures that all of its eigenvalues have that properly. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Proposition 7.2: Zero operators<a class="headerlink" href="#proposition-72-zero-operators" name="proposition-72-zero-operators">&para;</a></h3>
+<blockquote>
+<p>If <span>$V$</span> is a complex (and not real)<sup id="fnref:not real"><a href="#fn:not real" rel="footnote" title="Since the real numbers are a subset of the complex...">1</a></sup> inner product space, and <span>$T \in \mathcal L(V)$</span> such that <span>$\langle Tv, v \rangle = 0$</span> for all <span>$v \in V$</span>, then <span>$T = 0$</span>.</p>
+</blockquote>
+<p>Remark: This is only true if <span>$V$</span> is not real. For example, if we're working on <span>$\mathbb R^2$</span>, with <span>$T(x, y) = (-y, x)$</span>, then <span>$\langle Tv, v \rangle = \langle (-y, x), (x, y) \rangle = -yx + xy = 0$</span>, and yet <span>$T \neq 0$</span>. Of course, arises from the fact that the eigenvalues are not real, and thus not part of the field we're working over. In a complex vector space, all the eigenvalues are indeed part of the field we're working over (i.e., <span>$\mathbb C$</span>), and so if <span>$\langle Tv, v \rangle = 0$</span>, then it must be that the operator is the zero operator. The proof for this proposition is left as an exercise (it's probably in the textbook).</p>
+<h4 class="header"><i>1.3.1</i>Corollary 7.3: Real numbers and self-adjoint operators<a class="headerlink" href="#corollary-73-real-numbers-and-self-adjoint-operators" name="corollary-73-real-numbers-and-self-adjoint-operators">&para;</a></h4>
+<blockquote>
+<p>If <span>$V$</span> is a complex (and not real) inner product space, and <span>$T \in \mathcal L(V)$</span>, then <span>$T = T^*$</span> if and only if <span>$\langle Tv, v \rangle \in \mathbb R$</span>.</p>
+</blockquote>
+<p>Proof: (<span>$\Rightarrow$</span>) First, we do a bit of simplifying:</p>
+<p><span>$$\begin{align}
+\langle Tv, v \rangle - \overline{\langle Tv, v \rangle} &amp; = \langle Tv, v \rangle - \langle v, Tv \rangle \tag{by conjugate symmetry} \\
+&amp; = \langle Tv, v \rangle - \langle T^*v, v \rangle \tag{cuz, self-adjoint} \\
+&amp; = \langle Tv - T^*v, v \rangle \tag{by additivity in the first place}
+\end{align}$$</span></p>
+<p>Now, assume that <span>$T = T^*$</span>. Then <span>$Tv-T^*v = Tv - Tv = 0$</span>. Thus we have <span>$\langle Tv, v \rangle - \overline{\langle Tv, v \rangle} = \langle 0, v \rangle = 0$</span>. So <span>$\langle Tv, v \rangle = \overline{\langle Tv, v \rangle}$</span> which means that <span>$\langle Tv, v \rangle$</span> is real (since it's equal to its own conjugate).</p>
+<p>(<span>$\Leftarrow$</span>): Now for the other direction. Assume that <span>$\langle Tv, v \rangle \in \mathbb R$</span>. Then, <span>$\langle Tv, v \rangle - \overline{\langle Tv, v \rangle} = 0$</span>. By the simplifying above, this means that <span>$\langle (T - T^*)v, v \rangle = 0$</span>. By proposition 7.2, this implies that <span>$T-T^* = 0$</span>, and so <span>$T = T^*$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.3.2</i>Proposition 7.4: Zero inner-products and self-adjoint operators<a class="headerlink" href="#proposition-74-zero-inner-products-and-self-adjoint-operators" name="proposition-74-zero-inner-products-and-self-adjoint-operators">&para;</a></h4>
+<blockquote>
+<p>If <span>$T$</span> is self-adjoint on <span>$V$</span> such that <span>$\langle Tv, v \rangle = 0$</span> for all <span>$v \in V$</span>, then <span>$T = 0$</span>.</p>
+</blockquote>
+<p>Proof: left as an exercise. Probably in the textbook</p>
+<h3 class="header"><i>1.4</i>Normal operators<a class="headerlink" href="#normal-operators" name="normal-operators">&para;</a></h3>
+<p><span>$T \in \mathcal L(V)$</span> is a <strong>normal operator</strong> if <span>$TT^* = T^*T$</span> (i.e., multiplication is commutative).</p>
+<p>Self-adjoint operators are trivially normal. However, there are some operators that are normal but not self-adjoint. So normal operators are a superset of self-adjoint operators.</p>
+<p>Example: <span>$T \in \mathcal L(F^2)$</span> such that</p>
+<p><span>$$\mathcal M(T) = \begin{pmatrix} 2 &amp; -3 \\ 3 &amp; 2 \end{pmatrix} \tag{with respect to the standard basis}$$</span></p>
+<p>To find <span>$\mathcal M(T^*)$</span>, we just take the complex conjugate of <span>$\mathcal M(T)$</span> and transpose it:</p>
+<p><span>$$\mathcal M(T^*) = \begin{pmatrix} 2 &amp; 3 \\ -3 &amp; 2 \end{pmatrix}$$</span></p>
+<p>Clearly, <span>$\mathcal M(T) \neq \mathcal M(T^*)$</span>, so <span>$T$</span> is not self-adjoint. But the matrix multiplication is indeed commutative (not going to write it out, but it's easy to check this yourself if you aren't convinced). Thus <span>$T$</span> is normal but not self-adjoint.</p>
+<h3 class="header"><i>1.5</i>Proposition 7.6: Norms and normal operators<a class="headerlink" href="#proposition-76-norms-and-normal-operators" name="proposition-76-norms-and-normal-operators">&para;</a></h3>
+<blockquote>
+<p><span>$T \in \mathcal L(V)$</span> is normal <span>$\iff$</span> <span>$\lVert Tv \rVert = \lVert T^* v \rVert$</span> for all <span>$v \in V$</span></p>
+</blockquote>
+<p>Proof: <span>$T$</span> is normal <span>$\iff$</span> <span>$TT^* - T^*T = 0$</span> <span>$\iff$</span> <span>$\langle (TT^* - T^*T)v, v \rangle = 0$</span><sup id="fnref:backwards"><a href="#fn:backwards" rel="footnote" title="The backwards direction follows from the fact that...">2</a></sup> <span>$\iff$</span> <span>$\langle TT^* v, v \rangle - \langle T^*Tv, v \rangle = 0$</span> <span>$\iff$</span> <span>$\langle T^*v, T^*v \rangle - \langle Tv, Tv \rangle = 0$</span> (by the definition of adjoints) <span>$\iff$</span> <span>$\lVert T^*v \rVert^2 - \lVert Tv \rVert^2 = 0$</span> <span>$\iff$</span> <span>$\lVert T^*v \rVert^2 = \lVert Tv \rVert^2$</span> <span>$\iff$</span> <span>$\lVert T^*v \rVert = \lVert Tv \rVert$</span> as desired. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.5.1</i>Corollary 7.7: Eigenvalues for adjoints of normal operators<a class="headerlink" href="#corollary-77-eigenvalues-for-adjoints-of-normal-operators" name="corollary-77-eigenvalues-for-adjoints-of-normal-operators">&para;</a></h4>
+<blockquote>
+<p>Suppose <span>$T \in \mathcal L(V)$</span> is normal. If <span>$v \in V$</span> is an eigenvector of <span>$T$</span> with eigenvalue <span>$\lambda \in \mathbb F$</span>, then <span>$v$</span> is also an eigenvector of <span>$T^*$</span> with eigenvalue <span>$\overline{\lambda}$</span>.</p>
+</blockquote>
+<p>Proof: Assume <span>$T$</span> is normal. Since <span>$v$</span> is an eigenvector, <span>$Tv = \lambda v$</span>. Then <span>$(T-\lambda I)v = 0$</span>. Note that <span>$(T-\lambda I)(T - \lambda I)^* = (T - \lambda I)(T^* - \lambda I^*) = (T-\lambda I)(T^* - \overline{\lambda} I)$</span> (since <span>$I$</span> is of course self-adjoint). Then, by distributivity, this is equal to <span>$TT^* - \overline{\lambda}T - \lambda T^* + \lambda\overline{\lambda}I = TT^* - \overline{\lambda}T - \lambda T^* - \overline{\lambda}\lambda I = (T-\lambda I)^*(T - \lambda I)$</span>. Thus <span>$T - \lambda I$</span> is normal.</p>
+<p>Now, <span>$\lVert (T-\lambda I) v\rVert = 0$</span>. By proposition 7.6, then <span>$\lVert (T-\lambda I)v \rVert = (T-\lambda I)^*v \rVert = \lVert (T^* -\overline{\lambda}I)v\rVert = 0$</span>. Thus <span>$(T-\overline{\lambda}I)v = 0$</span>, and so <span>$Tv =\overline{\lambda}I$</span>. This shows that <span>$v$</span> is an eigenvector of <span>$T^*$</span> with corresponding eigenvalue <span>$\overline{\lambda}$</span>, as desired.</p>
+<h4 class="header"><i>1.5.2</i>Corollary: Orthogonality of eigenvectors<a class="headerlink" href="#corollary-orthogonality-of-eigenvectors" name="corollary-orthogonality-of-eigenvectors">&para;</a></h4>
+<blockquote>
+<p>If <span>$T \in \mathcal L(V)$</span> is normal, then eigenvectors of <span>$T$</span> corresponding to distinct eigenvalues are orthogonal.</p>
+</blockquote>
+<p>Pretty cool. I'll put the proof in later because I couldn't really follow along with what was written on the board. It's also probably in the textbook.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:not real">
+<p>Since the real numbers are a subset of the complex numbers, a real inner product space is technically also a complex inner product space, which is why we have to explicitly specify that this does not apply to real inner product spaces, only complex vector spaces that are not real. If only there was a specific term for this&#160;<a href="#fnref:not real" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:backwards">
+<p>The backwards direction follows from the fact that <span>$TT^* - T^*T$</span> is self-adjoint, since <span>$(TT^*-T^*T)^* = (TT^*)^* - (T^*T)^* = TT^* - T^*T$</span>; then, we can just use proposition 7.4.&#160;<a href="#fnref:backwards" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

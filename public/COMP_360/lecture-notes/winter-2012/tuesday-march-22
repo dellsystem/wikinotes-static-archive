@@ -1,0 +1,163 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, March 22, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, March 22, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Approximation Algorithm
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Set Cover<a class="headerlink" href="#set-cover" name="set-cover">&para;</a></h2>
+<p>Given n elements <span>$V= \{v_1, \ldots, v_n\}$</span> and m sets <span>$S_1, \ldots, S_m \subset V$</span> with cost<span>$(S_i) = c_i$</span></p>
+<p><strong>Set cover</strong>: Find a min cost collection of sets that cover <em>every</em> element.</p>
+<p>Unusual one: Computer Virus. Elements are known virus (5000 or so). Set are "bad" substrings that are found in viruses but not in normal code. You want to use as few strings as possible but cover all the viruses.</p>
+<h3 class="header"><i>1.1</i>Greedy Solution<a class="headerlink" href="#greedy-solution" name="greedy-solution">&para;</a></h3>
+<ul>
+<li><span>$\mathcal{G} = \emptyset$</span></li>
+<li>Pick the set <span>$S_i$</span> that covers uncovered elements at the lowest average cost</li>
+<li>Set <span>$\mathcal{G} = \mathcal{G} \cup S_i$</span></li>
+<li>Repeat until $\mathcal{G} covers all elements</li>
+</ul>
+<p>So want to pick <span>$\min_{S_i} c_i$</span>/uncovered at time t <span>$\cap S_i$</span></p>
+<p><strong>Theorem</strong>: Greedy is <span>$O(\log n)$</span> - approximation algorithm</p>
+<p><strong>Proof</strong>: Let Optimal solution be <span>$\{S*_1 , \ldots, S*_i \}$</span> and Greedy solution be <span>$\{S_1 , \ldots, S_n\}$</span></p>
+<p>Label the elements <span>$v_1, \ldots, v_n$</span> according to the order they were covered by the greedy algorithm.</p>
+<p>Consider <span>$v_i$</span> At the time it was covered there were at least n-i+1 be uncovered elements. The optimal solution covers <span>$\{v_i, \ldots, v_n\}$</span>. The optimal solution has cost = OPT = <span>$\sum^n_{i=1} c(S*_i)$</span></p>
+<p>So one of <span>$S*_1 \ldots S*_i$</span> can be used at an average cost at most <span>$\frac{opt}{n-i+1}$</span></p>
+<p>The cost(Greedy) = <span>$\sum^n_{j=1} c(S_j) = \sum^n_{i=1}(\mathrm{average cost to cover element v_i} \leq \sum^n_{i=1} \frac{opt}{n-i+1} = OPT \sum^n_{i=1} \frac{1}{i} = opt(1 + 1/2 + 1/3 + \ldots + 1/n) = opt * Hn$</span> (harmonic number)</p>
+<p>Now <span>$\ln n \leq Hn \leq 1 + \ln n$</span> QEDB</p>
+<p>This analysis is basically tight.</p>
+<p>Theorem: Unless P = NP, no approximation algorithm for set cover can do better than <span>$\alpha = c \log n$</span> for some constant <span>$c$</span>.</p>
+<h2 class="header"><i>2</i>Knapsack Problem<a class="headerlink" href="#knapsack-problem" name="knapsack-problem">&para;</a></h2>
+<p>We have <span>$n$</span> objects with values <span>$v_1 \ldots v_n$</span>, weights <span>$w_1 \ldots w_n$</span> with bag of capacity <span>$W$</span>. Objective: maximize the value of what we can carry</p>
+<p>Optimization version is NP-hard but it has a <span>$O(nW)$</span> pseudo-polytime Dynamic Programming algorithm. In fact, Knapsack is one of the easiest NP-Hard problems to approximate</p>
+<h3 class="header"><i>2.1</i>Approximation Schemes<a class="headerlink" href="#approximation-schemes" name="approximation-schemes">&para;</a></h3>
+<p>An algorithm <span>$\mathcal{A}$</span> is polytime approximation scheme PTAS for a problem if for any instance <span>$I$</span> and for any fixed <span>$\Sigma &gt; 0$</span></p>
+<ul>
+<li><span>$\mathcal{A}$</span> gives at least <span>$(1 - \Sigma)$</span> of optimal</li>
+<li><span>$\mathcal{A}$</span> runs in time polynomial in <span>$|I|$</span></li>
+</ul>
+<p>An algorithm <span>$\mathcal{A}$</span> is ''fully'' polytime approximation scheme FPTAS for a problem if for any instance <span>$I$</span> and for any fixed <span>$\Sigma &gt; 0$</span></p>
+<ul>
+<li><span>$\mathcal{A}$</span> gives at least <span>$(1 - \Sigma)$</span> of optimal</li>
+<li><span>$\mathcal{A}$</span> runs in time polynomial in <span>$|I|$</span> and poly in <span>$\frac{1}{\Sigma}$</span></li>
+</ul>
+<p>There is a FPTAS for Knapsack. TO do this we use a different Dynamic Program</p>
+<p>Let <span>$w(i,V)$</span> = minimum of weight of a subset of items <span>$\{1, \ldots, i\}$</span> that give value <span>$\geq V$</span> If no subset exists than <span>$= \infty$</span>. These are recursively calculated <span>$w(i,V) = \min [w(i-1, V),  w_i + w(i-1, V-v_i)] with base case $</span>w(i,V) = 0$</p>
+<p>Runtime is <span>$O(n^2 V_{max}$</span> where <span>$V_{max}$</span> = max <span>$V_i$</span>. That is <span>$V \leq n * V_{max}$</span></p>
+<p>How does this Dynamic Program help? If the <span>$v_i$</span> are small it is polytime. If the <span>$v_i$</span> are big maybe we can scale them down without losing too much accuracy. So we set <span>$\hat{v}_i = \lfloor \frac{v_i}{k} \rfloor$</span></p>
+<p>Approximation algorithm: scale them!. Output the solution S to this "new" dynamic program. </p>
+<ol>
+<li>This is a feasible solution as the weights are the same as before.</li>
+<li>We set <span>$k = \frac{\Sigma * V_{max}}{n}$</span>. This is polytime. <span>$\mathcal{A} in time $</span>O(n<sup>2 \hat{V}<em>{max} = O(n^2 \frac{V_max}{\frac{\Sigma V</em>{max}}{n}}) = O(n</sup>3 \frac{1}{\Sigma}$</li>
+</ol>
+<p>Why does it get within <span>$\Sigma$</span> of OPT? ie: <span>$v(S) \geq (1- \Sigma) v(S*)$</span> where <span>$S* \leq [n] = \{1, \ldots n\}$</span> was OPT for original DP</p>
+<p>S is optimal for <span>$\hat{V}$</span></p>
+<ol>
+<li><span>$\hat{v}(S) \geq \hat{V}(S*)$</span> or S optimal for DP with <span>$\hat{V}$</span></li>
+<li><span>$\hat{V*} = \sum_{i \in S*} \hat{v_i} = \sum_{i \in S*} \lfloor \frac{v_i}{\frac{\Sigma V_{max}}{n}} \rfloor = \sum_{i \in S*} \lfloor \frac{n v_i}{\Sigma V_{max}} \geq \sum_{i \in S*} (\frac{n v_i}{\Sigma v_{max}} -1) = \frac{n}{\Sigma V_{max}} * \sum_{i \in S*} v_i 0 \sum_{i \in S*} 1 = \frac{n}{\Sigma V_{max}} OPT - \sum_{i \in S*} 1 \geq \frac{n}{\Sigma V_{max}} OPT - n$</span>$</li>
+<li>So <span>$\hat{V}(S) \geq \frac{n}{\Sigma V_{max}} * OPT - n$</span> </li>
+<li><span>$v(S) = \sum_{i \in S} v_i \geq \sum_{i \in S} \hat{v}_i \frac{\Sigma V_{max}}{n} = \frac{\Sigma V_{max}}{n} \sum_{i \in S} \hat{v}_i = \frac{\Sigma V_{max}}{n} \hat{v}(S) \geq \frac{\Sigma V_{max}}{n}(\frac{n}{\Sigma V_{max} v(S*)} -n) = OPT - \Sigma*V_{max} \geq OPT - \Sigma* OPT = (1- \Sigma) OPT$</span></li>
+</ol>
+<p>QEDB</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

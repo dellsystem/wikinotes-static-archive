@@ -1,0 +1,285 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, November 4, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, November 4, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Finalization in the JMM, the ABA Problem and LL/SC
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#elimination-stack">1 Elimination Stack</a><ul>
+<li><a href="#exchanger-data-structure">1.1 Exchanger Data Structure</a></li>
+<li><a href="#process">1.2 Process</a></li>
+<li><a href="#example">1.3 Example</a></li>
+<li><a href="#making-an-elimination-stack-with-an-exchanger">1.4 Making an elimination stack with an exchanger</a></li>
+</ul>
+</li>
+<li><a href="#general-approach-to-a-lock-free-data-structure">2 General approach to a lock-free data structure</a><ul>
+<li><a href="#stack-example">2.1 Stack example</a></li>
+<li><a href="#approach">2.2 Approach</a></li>
+</ul>
+</li>
+<li><a href="#finalization-in-the-jmm">3 Finalization in the JMM</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Elimination Stack<a class="headerlink" href="#elimination-stack" name="elimination-stack">&para;</a></h2>
+<p>Essentially, the lock-free stack is still a sequential data structure. We can however build a concurrent stack, one where <code>push</code> and <code>pop</code> can cancel each other by having the two threads trade values instead.</p>
+<p>In the case of a stack, the exchange is one-sided (the "pusher" gives the value to the "popper"), but the "popper" still needs to indicate to the "pusher" that a <code>pop</code> is occurring. Furthermore, <code>push(); push()</code> and <code>pop(); pop();</code> need to be avoided. Only a <code>push(); pop();</code> should be allowed.</p>
+<p>The exchange occurs by having <strong>Thread<sub>0</sub></strong> push a value by sending to <strong>Thread<sub>1</sub></strong> after which <strong>Thread<sub>1</sub></strong> responds with a <code>null</code> to indicate it has popped the value. We need a general exchanger which lets threads exchange values, based on a lock-free design.</p>
+<h3 class="header"><i>1.1</i>Exchanger Data Structure<a class="headerlink" href="#exchanger-data-structure" name="exchanger-data-structure">&para;</a></h3>
+<p>We will store the <strong>values</strong> to be exchanged and a <strong>state</strong>. The state shall indicate whether one thread is in the exchanger (trying to do the exchange), the other thread has shown, or two threads are busy doing it. In the latter, if a third thread shows up, then it cannot use the exchanger.</p>
+<dl>
+<dt>Empty state</dt>
+<dd>Ready to do an exchange</dd>
+<dt>Waiting state</dt>
+<dd>First thread has shown up, waiting for the second</dd>
+<dt>Busy</dt>
+<dd>Second thread has shown up, and the exchange can occur</dd>
+</dl>
+<h3 class="header"><i>1.2</i>Process<a class="headerlink" href="#process" name="process">&para;</a></h3>
+<p><strong>0.</strong> We start with the empty state. <br />
+<strong>1.</strong> The first thread shows up and wants to verify that the exchanger is either empty or waiting.<br />
+<strong>2.</strong> It needs to do a <code>CAS</code> to change the state to waiting: <code>CAS(state, empty, waiting);</code>.<br />
+<strong>3.</strong> Just changing the state is not enough. The value should be changed as well with a double-wide <code>CAS</code>, or in Java, an atomic staged reference. <code>CAS((state, slot), (empty, slot), (waiting, myDate));</code><br />
+<strong>4.</strong> If that succeeds, the thread is indeed the first to enter. As the first thread, it must wait for another to come in (changing from waiting to busy). It does so with a spin-loop. <br />
+<strong>5.</strong> If the thread waits too long, the thread should give up. With a <code>CAS</code>, the state should be changed back to empty. If that succeeds, no other thread has shown up.<br />
+<strong>6.</strong> If the <code>CAS</code> failed, it means another thread came in. In this case, the exchange should rather continue. To complete the exchange, the other thread should take the data in the slot, and change the state should be changed to empty. <strong>Nb:</strong> No <code>CAS</code> is needed here because only one thread can change from busy to empty.</p>
+<p><strong>4a.1.</strong> If that fails, there are two possibilities. Either the exchanger is already waiting, or it is already busy. If the latter, 2 threads are already in the exchanger, and the thread should give up.<br />
+<strong>4a.2.</strong> Otherwise, it means the thread is the second thread to show up. The thread must grab the first thread's data from the slot. To make sure only thread complete the exchange, <code>CAS</code> to change the swap data to our data and the state from waiting to busy.</p>
+<p>This was just a textual description of a reusable exchanger. The full code is in the textbook.</p>
+<h3 class="header"><i>1.3</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h3>
+<p>Starting up with <code>&lt;null, empty&gt;</code>.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread<sub>0</sub></th>
+<th>Thread<sub>1</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CAS(&lt;null, empty&gt;, &lt;A, waiting&gt;);</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Spin and wait for the state to be <strong>busy</strong>.</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>CAS</code> fails</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Get <code>A</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>CAS(&lt;A, waiting&gt;, &lt;B, busy&gt;);</code></td>
+</tr>
+<tr>
+<td>Get <code>B</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Set state to empty</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.4</i>Making an elimination stack with an exchanger<a class="headerlink" href="#making-an-elimination-stack-with-an-exchanger" name="making-an-elimination-stack-with-an-exchanger">&para;</a></h3>
+<p>Two thread show up and they try to exchange. They should not try forever (there are many failure scenarios where the exchanger ends up not being used).</p>
+<p>If the exchange succeeds, <code>push(x)</code> expects a <code>null</code> while <code>pop()</code> expects a non-null value. In this case, the <code>push</code> and <code>pop</code> never changed the stack, as intended. If it fails, a regular <code>push</code> and <code>pop</code> should be done instead.</p>
+<p>However, we can make this even more parallel. At the moment, there is only one exchanger and as such, only two threads at a time can do an exchange. Using an array of exchangers, this restriction can be lifted. When a thread shows up, it shall use one of the exchangers at random to try to do the exchange.</p>
+<p>Hopefully, with enough exchangers the chance to collide with a busy exchanger should be little. With few enough exchangers, it would be more likely to find a matching thread.</p>
+<h2 class="header"><i>2</i>General approach to a lock-free data structure<a class="headerlink" href="#general-approach-to-a-lock-free-data-structure" name="general-approach-to-a-lock-free-data-structure">&para;</a></h2>
+<p>Can we make every data structure lock-free? In theory, yes, at least for a very large class of data structures. Should every data structure require some carefully crafted design tailored to this specific data structure? No, not necessarily.</p>
+<p>There is a <strong>universal construction</strong> to use when making a data structure lock-free:</p>
+<div class="codehilite"><pre><span class="c1">// Every data structure should implement this interface</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">SeqObject</span> <span class="o">{</span>
+    <span class="c1">// The response is what the operation expects back</span>
+    <span class="c1">// The operation is encoded as an Invocation object</span>
+    <span class="kd">public</span> <span class="n">Response</span> <span class="nf">apply</span><span class="o">(</span><span class="n">Invocation</span> <span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>2.1</i>Stack example<a class="headerlink" href="#stack-example" name="stack-example">&para;</a></h3>
+<dl>
+<dt><code>push</code> operation</dt>
+<dd>Invocation: <code>&lt;"push", x&gt;</code></dd>
+<dt><code>pop</code> operation</dt>
+<dd>Invocation: <code>&lt;"pop"&gt;</code></dd>
+</dl>
+<h3 class="header"><i>2.2</i>Approach<a class="headerlink" href="#approach" name="approach">&para;</a></h3>
+<p>The approach is to actually not do things on the data structure; we will maintain a log of all the operations and sequentialize them. To find out in what state the data structure should be, the log should be traversed from the initial state. This is inefficient practically, but lock-free theoretically.</p>
+<p>Since multiple threads are calling <code>apply</code>, an order needs to be agreed upon. Whenever <code>apply</code> is called, a new node to represent the invocation is created in the log. n threads are competing to add their invocation to the end of the log list. Agreement must occur in a lock-free manner.</p>
+<p>As such, the threads must do a n-threads consensus operation to agree on which node is added next. The winner adds its node, but all the losers left must compete again.</p>
+<div class="codehilite"><pre><span class="c1">// ith thread</span>
+<span class="n">Invocation</span> <span class="n">i</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Invocation</span><span class="o">(...)</span>
+<span class="k">do</span> <span class="o">{</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">consensus</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">j</span> <span class="o">!=</span> <span class="n">i</span><span class="o">);</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">tail</span><span class="o">;</span> <span class="c1">// Start at the tail of the log</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">tail</span><span class="o">.</span><span class="na">state</span> <span class="c1">// initial state</span>
+<span class="k">do</span> <span class="o">{</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">s</span> <span class="o">!=</span> <span class="n">i</span><span class="o">);</span>
+<span class="k">return</span> <span class="n">r</span><span class="o">;</span>
+</pre></div>
+
+
+<p><strong>Nb:</strong> We need a <strong>reusable</strong> consensus (not trivial at all). The solution is not to reuse the consensus at all. We will store the consensus objects with each node of the log list, doing consensus once for each node in the log.</p>
+<p><img alt="Log linked list" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-38.png" title="" /></p>
+<p>Each consensus object is used by n-threads at most once.</p>
+<h2 class="header"><i>3</i>Finalization in the JMM<a class="headerlink" href="#finalization-in-the-jmm" name="finalization-in-the-jmm">&para;</a></h2>
+<p>One last thing about the Java Memory Model. One of the interesting things that ended up being an issue with the new memory model is the concept of finalization. Finalization is usually (wrongly) recommended to be used to insure certain things are done after an object has been garbage collected. Before using it, we should be aware of the concurrency issues.</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">finalize</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// code here is run after the object is garbage collected,</span>
+    <span class="c1">// but before the memory is reused</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Nb:</strong> The method is not actually guaranteed to run at all! Nothing in the Java specs says that <code>finalize()</code> is guaranteed to run. It is merely some code that will <strong>probably</strong> run, but not necessarily.</p>
+<p>The finalizer is run in some thread, but not necessarily the current one. As such, <code>finalize()</code> is a concurrent method. In theory, it should be thread-safe because it is happening after the object is garbage collected and no one can access it at all.</p>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">Foo</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">File</span> <span class="n">f</span><span class="o">;</span>
+
+    <span class="kd">public</span> <span class="nf">Foo</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">(...);</span> <span class="c1">// Initialize the file here</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">x</span><span class="o">);</span> <span class="c1">// Write a number</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">finalize</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">f</span><span class="o">.</span><span class="na">close</span><span class="o">();</span> <span class="c1">// Close the file upon garbage collection</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The idea of this code is to have the file opened by a <code>Foo</code> object to be closed automatically when it is garbage collected.</p>
+<div class="codehilite"><pre><span class="n">File</span> <span class="n">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">();</span>
+<span class="n">f</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
+<span class="n">f</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// Not useful, actually</span>
+</pre></div>
+
+
+<p><code>f</code> is garbage collectable as soon as it can be proven to not be referenced at all anymore. Also, the Java compiler might perform some optimizations to speed up execution. One such optimization is inlining the constructor to avoid the overhead of calling a function:</p>
+<div class="codehilite"><pre><span class="n">File</span> <span class="n">f</span> <span class="o">=</span> <span class="o">[</span><span class="n">allocate</span> <span class="n">some</span> <span class="n">space</span><span class="o">]</span>
+<span class="n">f</span><span class="o">.</span><span class="na">f</span> <span class="o">=</span> <span class="k">new</span> <span class="n">File</span><span class="o">();</span> <span class="c1">// inline constructor</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="na">f</span><span class="o">;</span> <span class="c1">// Hold on f.f in a register because it will be accessed soon</span>
+<span class="n">r1</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>
+</pre></div>
+
+
+<p>The above code is equivalent to the code above it. However, when is <code>f</code> no longer referenced here? The intention of the programmer is for garbage collection to occur after the <code>write(42);</code>. However, the last point <code>f</code> is referenced is at <code>r1 = f.f;</code>. This means that the finalizer can be run at that point. This would cause the file to be closed, as intended, but the next line wants to write to it!</p>
+<p><code>finalize()</code> should be treated as a concurrent method as problems even start to appear before considering concurrency at all. Practically, it should avoided altogether.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

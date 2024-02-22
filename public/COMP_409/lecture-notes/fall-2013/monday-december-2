@@ -1,0 +1,339 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, December 2, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, December 2, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Static dataflow
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#message-passing">1 Message passing</a><ul>
+<li><a href="#java-example">1.1 Java example</a></li>
+<li><a href="#synchronous-vs-asynchronous">1.2 Synchronous vs asynchronous</a></li>
+<li><a href="#common-knowledge">1.3 Common knowledge</a><ul>
+<li><a href="#the-2-army-problem">1.3.1 The 2-army Problem</a></li>
+<li><a href="#muddy-children">1.3.2 Muddy Children</a></li>
+</ul>
+</li>
+<li><a href="#distributed-knowledge">1.4 Distributed Knowledge</a></li>
+</ul>
+</li>
+<li><a href="#dataflow">2 Dataflow</a><ul>
+<li><a href="#static-dataflow">2.1 Static dataflow</a><ul>
+<li><a href="#how-to-do-a-condition">2.1.1 How to do a condition</a></li>
+<li><a href="#how-to-do-a-loop">2.1.2 How to do a loop</a></li>
+<li><a href="#calculating-channel-bounds">2.1.3 Calculating channel bounds</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Message passing<a class="headerlink" href="#message-passing" name="message-passing">&para;</a></h2>
+<p>We have been using shared memory as our main paradigm for doing concurrent programming. However, we could have used processes and communication channels. This is the basic idea behind message passing.</p>
+<p>There are two main branches.</p>
+<dl>
+<dt>Asynchronous message passing</dt>
+<dd>Like snail mail</dd>
+<dd>receiver blocks until the message arrives.</dd>
+<dd>sender does not wait. The send operation immediately returns.</dd>
+<dd>Variations: Bounded capacity channel, Message ordering (FIFO?), Reliability (100%?)</dd>
+<dt>Synchronous message passing</dt>
+<dd>Like a telephone call</dd>
+<dd>receiver blocks as with asynchronous</dd>
+<dd>sender does not return until the receiver receives the message</dd>
+</dl>
+<h3 class="header"><i>1.1</i>Java example<a class="headerlink" href="#java-example" name="java-example">&para;</a></h3>
+<p>Message passing is actually easy to implement in a language like Java.</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SyncChannel</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">send</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="n">o</span><span class="o">;</span>
+    <span class="n">notify</span><span class="o">();</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">msg</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">wait</span><span class="o">();</span>  <span class="c1">// not needed for async</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kd">synchronized</span> <span class="n">Object</span> <span class="nf">receive</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">msg</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span>
+      <span class="n">wait</span><span class="o">();</span>
+    <span class="n">Object</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">msg</span><span class="o">;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// Indicate it has been consumed</span>
+    <span class="n">notfy</span><span class="o">();</span>  <span class="c1">// not needed for async</span>
+    <span class="k">return</span> <span class="n">ret</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">AsyncChannel</span> <span class="o">{</span>
+  <span class="c1">// Left as an exercise</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.2</i>Synchronous vs asynchronous<a class="headerlink" href="#synchronous-vs-asynchronous" name="synchronous-vs-asynchronous">&para;</a></h3>
+<p>There are tradeoffs for both synchronous vs asynchronous. However, in a more theoretical sense, synchronous is better because it allows more flexibility in the design.</p>
+<p>Consider the following example:</p>
+<div class="codehilite"><pre>// Process P
+send(Q, 23);
+
+// Process Q
+x = 0;
+x = receive(P);
+</pre></div>
+
+
+<p>What does <code>P</code>  know about <code>Q</code>?</p>
+<p>In asynchronous, <code>P</code>  does not know whether <code>Q</code> received the message or not. <code>x == 0 | x == 23</code>.</p>
+<p>In synchronous, it knows that <code>Q.x == 23</code> after send. More knowledge!</p>
+<h3 class="header"><i>1.3</i>Common knowledge<a class="headerlink" href="#common-knowledge" name="common-knowledge">&para;</a></h3>
+<p>In asynchronous, when <code>A</code> sens a message <code>m</code> to <code>B</code>, the only way for <code>A</code> to know if <code>B</code> received <code>m</code>, is to receive back an acknowledgement. Yet, <code>B</code> does not know if <code>A</code> received the acknowledgement either.</p>
+<p>We cannot gain common knowledge with asynchronous, but is implied with synchronous.</p>
+<h4 class="header"><i>1.3.1</i>The 2-army Problem<a class="headerlink" href="#the-2-army-problem" name="the-2-army-problem">&para;</a></h4>
+<blockquote>
+<p>Jim Gray, 1978<br />
+<img alt="2-army" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-51.png" title="Can't unsee the saggy boobs." /></p>
+</blockquote>
+<p>If both red halves attack at the same time, red wins.<br />
+However, if only one half of the army does, blue wins.</p>
+<p>In order to communicate, they use messengers who must pass through the blue territory. This, obviously, results in unreliable communication. However, in order for both armies to agree on a plan, they must gain common knowledge.</p>
+<p><strong>1)</strong> red 1 sends "attack at dawn"<br />
+<strong>2)</strong> red 2 sends acknowledgement<br />
+<strong>3)</strong> red 1 sends acknowledgement of acknowledgement<br />
+<strong>4)</strong> ...</p>
+<p>After which dawn may pass. In an asynchronous system, common knowledge cannot be either gained or lost.</p>
+<h4 class="header"><i>1.3.2</i>Muddy Children<a class="headerlink" href="#muddy-children" name="muddy-children">&para;</a></h4>
+<blockquote>
+<p>G Barnise, 1981</p>
+</blockquote>
+<p>There are <span>$n$</span> children, playing outside. <span>$1 &lt;= k &lt; n$</span> children get mud on their foreheads, but they cannot see it themselves. Once they get back inside, their guardian announces that <em>"at least one of you has mud on your forehead. Do you know if you do?"</em></p>
+<p>The children all answer truthfully and collectively "No!" <span>$k - 1$</span> times. The <span>$k$</span>th time, <span>$k$</span> children say yes.</p>
+<p>The children are building up knowledge incrementally. Each time the question is asked, the children are getting some extra piece of information; that none of the other children say "yes".</p>
+<p>If <span>$k=1$</span>, the lone child with mud notices that no one else responds and has mud. So it must be him/her.</p>
+<p>If <span>$k=2$</span>, <span>$C_1$</span> and <span>$C_2$</span> have mud. <span>$C_1$</span> sees <span>$C_2$</span> and vice-versa, but neither say yes in round 1. The other child knows <span>$k \neq 1$</span>, so again, "it must be me."</p>
+<p>Assume true for <span>$k-1$</span>. The <span>$k$</span>th time, <span>$C_1$</span> sees <span>$k-1$</span> muddy children, but they all say no. The <span>$k$</span>th time, if none of the <span>$k-1$</span> children said yes, and there are only k-1 other muddy children, "the last must be me." The same applies for the other muddy children.</p>
+<h3 class="header"><i>1.4</i>Distributed Knowledge<a class="headerlink" href="#distributed-knowledge" name="distributed-knowledge">&para;</a></h3>
+<blockquote>
+<p>Helper &amp; Moss, 1990</p>
+</blockquote>
+<p>We can think about knowledge in distributed way.</p>
+<dl>
+<dt><span>$k_i \Phi$</span></dt>
+<dd>Agent <span>$k_i$</span> knows information <span>$\Phi$</span>.</dd>
+<dt><span>$D_G \Phi$</span></dt>
+<dd>The group <span>$G$</span> has distributed knowledge of <span>$\Phi$</span></dd>
+<dd>E.g. if <span>$k_1 \alpha$</span> and <span>$k_2 \alpha$</span>, then <span>$D_G \beta$</span></dd>
+<dt><span>$E_G \Phi$</span></dt>
+<dd>Everyone in <span>$G$</span> knows <span>$\Phi$</span></dd>
+<dd>intersection of <span>$k_i$</span>'s knowledges for <span>$k_i \in G$</span></dd>
+<dt><span>$S_G \Phi$</span></dt>
+<dd>Someone in <span>$G$</span> knows <span>$\Phi$</span></dd>
+<dd>Union of <span>$k_i$</span>'s knowledges for <span>$k_i \in G$</span></dd>
+<dt><span>$E^k_G \Phi$</span>, <span>$k &gt;= 1$</span></dt>
+<dd><span>$E_G^1 \Phi = E_G \Phi$</span></dd>
+<dd><span>$E_G^{k+1} \Phi = E_G E_G^k \Phi$</span></dd>
+<dt><span>$C_G \Phi$</span></dt>
+<dd><span>$E_G^1 \Phi \land E_G^2 \Phi \land ...$</span></dd>
+</dl>
+<p>For the 2-army problem, we need <span>$C_G \Phi$</span>.<br />
+For <span>$k$</span> Muddy children, we need <span>$E_G^k \Phi$</span></p>
+<p>In message passing, consistency is different; data transfer is explicit.</p>
+<h2 class="header"><i>2</i>Dataflow<a class="headerlink" href="#dataflow" name="dataflow">&para;</a></h2>
+<p><img alt="Basic idea of dataflow" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-66.png" title="" /></p>
+<p>The idea of <strong>Dataflow</strong> originates from functional programming. When we think of a functional programming language, each of the boxes are functions, where the state is encapsulated. There are two flavors of dataflow: <strong>static dataflow</strong> (strict), and <strong>dynamic dataflow</strong>.</p>
+<div class="codehilite"><pre><span class="nf">h</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If we have a <em>functional</em> computation like the above, we can think of it in a graphical model:</p>
+<p><img alt="Functional" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-67.png" title="" /></p>
+<p>We have some box which computes <code>f</code>, a function which receives 2 inputs, <code>y</code> and <code>x</code>. There is also a box for <code>g</code> which receives two inputs, <code>x</code> and <code>z</code>. <code>y</code>, the result of <code>f</code> and the result of <code>g</code> get get into <code>h</code>.</p>
+<p>This suggests a strategy where we think of all the boxes as <strong>agents</strong>. On the edges (wires) there is some kind of data floating around, <strong>tokens</strong> that are passed around. An agent waits for available tokens to be input. When it receives enough, it can <strong>fire</strong>: consume the input(s), compute something, and produce one or more output.</p>
+<h3 class="header"><i>2.1</i>Static dataflow<a class="headerlink" href="#static-dataflow" name="static-dataflow">&para;</a></h3>
+<p>The straight-forward way of doing things, <strong>static dataflow</strong> puts some constraints. The agents necessarily block (or wait) until all the inputs are available, after which it can fire.</p>
+<p><img alt="FIFO channels" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-68.png" title="" /></p>
+<p>The channels (edges between agents), in static dataflow, are <strong>FIFO</strong>, <strong>lossless</strong>, but have bounded capacity (<code>g</code> cannot wait for an infinite amount of tokens). </p>
+<p><img alt="Sum" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-69" title="" /></p>
+<p>This actor has 2 inputs and outputs their sum. In static dataflow, agents consume 1 token on each input, and produce 1 on each output. There might be multiple inputs and/or multiple outputs. This is a strong constraint that we could relax a little bit.</p>
+<p><img alt="Doubler" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-70.png" title="" /></p>
+<p>The doubler agent has 1 input, but produces 2 outputs. This is still a regular actor.</p>
+<p><img alt="Doubler" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-71.png" title="" /></p>
+<dl>
+<dt>Regular actor</dt>
+<dd>Consumes <em>k_i</em> tokens on input <em>i</em> and produces <em>n_j</em> tokens on output line <em>j</em> for constants <em>k_i</em>, <em>n_j</em> for all <em>i</em>, <em>j</em>.</dd>
+</dl>
+<p><img alt="Regular" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-72.png" title="Over 9000!" /></p>
+<dl>
+<dt>Homogeneous actor</dt>
+<dd><em>k_i</em> = 1, <em>n_j</em> = 1 for all <em>i</em>, <em>j</em>.</dd>
+</dl>
+<p>Even with regular actors, there is some things we cannot do. There are 3 properties that programming languages need to have to be fully expressive:</p>
+<ol>
+<li>Sequence things</li>
+<li>Repeat things</li>
+<li>Produce conditions</li>
+</ol>
+<p>1 and 2 are doable, but not 3.</p>
+<h4 class="header"><i>2.1.1</i>How to do a condition<a class="headerlink" href="#how-to-do-a-condition" name="how-to-do-a-condition">&para;</a></h4>
+<p><img alt="Switch" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-73.png" title="" /></p>
+<p>Some input comes in, and there is 1 of 2 possible outputs, a true and a false branch. This is not a regular actor. It always consume a token on input, but on the output, it only sends data on one of either branch.</p>
+<p>Maybe all we have to do is give ourselves two special actors that are not regular, but still allow regularity to be enforced as a whole: <strong>switch</strong> and <strong>merge</strong>.</p>
+<p><img alt="Switch and merge" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-74.png" title="" /></p>
+<p>There is also a boolean control input which decides which output line is used.</p>
+<p>With these two actors, we can can create a template, an <strong>if-schema</strong>:</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="n">g</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>With this, we can do different things, depending on the boolean control.</p>
+<p><img alt="If-schema" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-75.png" title="" /></p>
+<p>We can draw a box around the whole thing and consider as an agent. It consumes one boolean input, and 1 <code>x</code>, to produce either <code>f(x)</code> or <code>g(x)</code>. From the outside, this looks regular, even homogeneous.</p>
+<h4 class="header"><i>2.1.2</i>How to do a loop<a class="headerlink" href="#how-to-do-a-loop" name="how-to-do-a-loop">&para;</a></h4>
+<p><img alt="Loop" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-76.png" title="" /></p>
+<p>The boolean input of the merge is initialized to <code>false</code>, or else, it does not work.</p>
+<p>From the outside, this looks like an homogeneous actor as well. There is an input (the start value of the loop), and an output (the end value of the loop). Also, it is reusable: the boolean input of merge goes back to <code>false</code> at the end of the loop.</p>
+<p>To do turn this into something that can iterate a function, we end up with something a bit more complex:</p>
+<div class="codehilite"><pre><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><img alt="Loop with body" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-77.png" title="" /></p>
+<p>From the outside, it looks homogeneous. In order to destroy the iteration value, we can use <code>sink</code> actor which has 1 input and does nothing.</p>
+<p>It is left as an exercise to create a graph which computes <code>f^n(x)</code>, given <code>n</code> and <code>x</code> (instead of having <code>n</code> fixed to 10).</p>
+<h4 class="header"><i>2.1.3</i>Calculating channel bounds<a class="headerlink" href="#calculating-channel-bounds" name="calculating-channel-bounds">&para;</a></h4>
+<p>The nice thing about homogeneity/regularity, is that things are bounded. We do not want an actor with no input at all, but an uncontrollable output which spews out values. If we do have that, we have to make sure there is an actor which consumes it at a reasonable rate. </p>
+<p>Assuming regular actors (in the case switch and merge, consider it as a whole)...</p>
+<p><img alt="Small graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-78.png" title="" /></p>
+<p>We end up with a system of equations (one equation for each arrow). The number of times a node fires has to match the number of times another node consumes it.</p>
+<div class="codehilite"><pre>(I)   a = c
+(II)  3b = 2c
+(III) 2a = 3b
+(IV)  3b = 2a
+
+// a = c
+3b = 2c
+2a = 3b
+3b = 2a
+
+// They are all symmetric
+2a = 3b
+</pre></div>
+
+
+<p>We have to come up with values that make the equations true. Of course, there is the trivial <code>(0, 0, 0)</code>, but there is also <code>(3, 2, 3)</code>. As a matter of fact, any multiple of <code>(3, 2, 3)</code> works, but the smallest positive value integer is what we are interested in.</p>
+<p>So if <code>a</code> fires 3 times, <code>b</code> 2, and c <code>3</code>, we get a stable state in that the sum of tokens is 0. From that, we can figure out the exact capacity we would need for each edge:</p>
+<p><img alt="Non-trivial graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-79.png" title="" /></p>
+<p>If there is no solution, then the system does not work.</p>
+<p>Here is a non-trivial example:<br />
+[Insert]</p>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_12-02" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

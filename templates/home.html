@@ -1,0 +1,68 @@
+{% extends "default.html" %}
+
+{% block header %}
+<div id="masthead">
+    <div class="ui container">
+        <div class="ui grid">
+            <div class="centered row">
+                <div class="fourteen wide center aligned column">
+                    <p>
+                        <img src="/static/img/logo-large.png"
+                             class="ui centered image" />
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+<h1>Popular courses</h1>
+<div class="ui eight column doubling grid">
+    {% for course in popular_courses %}
+    <div class="center aligned column">
+        <a href="{{ course.get_absolute_url }}">
+            <img src="{{ course.department.get_large_image }}" 
+                 class="ui centered image" />
+            <h3>{{ course }}</h3>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+<br />
+<div class="ui huge message" id="redesign-info">
+    <div class="content">
+        <div class="header">
+            Confused about the new look?
+        </div>
+        <p>
+            The old site was taken down because I didn't want to
+            have to maintain it anymore*. Based on popular demand,
+            I've decided to get a read-only version up and running
+            again, with a simpler, more responsive design. I'll slowly
+            be adding back functionality (like registration, editing,
+            viewing history, etc) as time permits.
+        </p>
+        <p>
+            I originally built this site as a place for McGill
+            students (especially myself) to help each other by
+            sharing lecture notes and other student-created course
+            material. I've since graduated from McGill, so I no
+            longer use Wikinotes myself, and my free time is
+            limited. Contact me if you're interested in helping
+            out 
+            (<a href="https://twitter.com/dellsystem">@dellsystem
+            </a> on Twitter; ilostwaldo at gmail).
+        </p>
+        <p>
+            <em>*
+                It was initially built with Django 1.2 and Bootstrap
+                1.2, neither of which is supported anymore, and
+                updating the codebase for the current versions would
+                not have been worth the effort.
+            </em>
+        </p>
+    </div>
+</div>
+{% endblock content %}

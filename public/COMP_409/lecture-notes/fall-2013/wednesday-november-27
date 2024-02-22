@@ -1,0 +1,312 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 27, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 27, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Process algebra and Graphical view
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#process-algebra">1 Process Algebra</a><ul>
+<li><a href="#csp-communicating-sequential-processes">1.1 CSP (Communicating Sequential Processes)</a><ul>
+<li><a href="#communication">1.1.1 Communication</a></li>
+<li><a href="#execution">1.1.2 Execution</a></li>
+<li><a href="#choices">1.1.3 Choices</a></li>
+<li><a href="#distinctions-between-processes">1.1.4 Distinctions between processes</a></li>
+<li><a href="#iterated-guarded-choice-pattern">1.1.5 Iterated guarded choice pattern</a></li>
+</ul>
+</li>
+<li><a href="#java-csp-and-the-graphical-view">1.2 Java CSP and the graphical view</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Process Algebra<a class="headerlink" href="#process-algebra" name="process-algebra">&para;</a></h2>
+<p>Very high level abstract algebraic structures trying to represent concurrent programing. The idea behind this is to get to the core of what is happening in concurrent programming.</p>
+<p>It deals with interleaving, uses message passing with either synchronous (or asynchronous) messages</p>
+<dl>
+<dt>Process equivalence</dt>
+<dd>Are two processes doing the same thing or not?</dd>
+</dl>
+<h3 class="header"><i>1.1</i>CSP (Communicating Sequential Processes)<a class="headerlink" href="#csp-communicating-sequential-processes" name="csp-communicating-sequential-processes">&para;</a></h3>
+<p>It has been out for a while, with a variety of different syntactic styles. The idea is to build process expression.</p>
+<p>The processes are usually represented by letters. E.g.: <span>$P$</span> and <span>$Q$</span>.</p>
+<h4 class="header"><i>1.1.1</i>Communication<a class="headerlink" href="#communication" name="communication">&para;</a></h4>
+<dl>
+<dt><span>$P:: Q!e$</span></dt>
+<dd>P sends e to Q</dd>
+<dt><span>$Q:: P?e$</span></dt>
+<dd>Q receives a message from P, stores it in e</dd>
+</dl>
+<p><span>$e$</span> can be a variable, or a constant. The types must match.</p>
+<p>The communication is synchronous; both <span>$P$</span> and <span>$Q$</span> block.</p>
+<p>In order for the communication to happen, since <span>$P$</span> and <span>$Q$</span> are independent processes and both end up blocking, they must execute in parallel.</p>
+<h4 class="header"><i>1.1.2</i>Execution<a class="headerlink" href="#execution" name="execution">&para;</a></h4>
+<p><img alt="Parallel" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-52.png" title="" /></p>
+<dl>
+<dt><span>$P \parallel Q$</span></dt>
+<dd>Parallel composition operator</dd>
+<dd>Now, P and Q can do their communication</dd>
+<dt><span>$P::Q!e; x++;$</span></dt>
+<dd>Sequential composition with the semi-colon.</dd>
+<dd><span>$P$</span> sends <span>$e$</span> to <span>$Q$</span> and then increments <span>$x$</span>.</dd>
+</dl>
+<p><img alt="Guarded command" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-53.png" title="" /></p>
+<dl>
+<dt><span>$G \rightarrow C$</span></dt>
+<dd>Guarded command</dd>
+<dd><span>$C$</span> executes if <span>$G$</span> is true, or if <span>$G$</span> is a communication, then <span>$C$</span> executes if <span>$G$</span> can happen.</dd>
+</dl>
+<p><img alt="Producer consumer" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-54.png" title="" /><br />
+<strong>One-shot Producer/consumer example</strong><br />
+<span>$$ 
+\begin{equation}
+    A::B!e \\
+    B::A?e \\
+    A || B
+\end{equation}
+$$</span></p>
+<p>We can also put a single cell buffer in between <span>$A$</span> and <span>$B$</span>:<br />
+<img alt="Single buffer" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-55.png" title="" /></p>
+<p><span>$$ 
+\begin{equation}
+    A::C!e \\
+    B::C?e \\
+    C::A?e \rightarrow B!e
+\end{equation}
+$$</span></p>
+<p>Here, guard and sequential composition are equivalent.</p>
+<dl>
+<dt><span>$*[  X  ]$</span></dt>
+<dd>Iteration operator</dd>
+<dd>Iterate <span>$X$</span> for as long as possible</dd>
+<dd>Until <span>$X$</span> deadlocks (kind of like a while loop)</dd>
+</dl>
+<h4 class="header"><i>1.1.3</i>Choices<a class="headerlink" href="#choices" name="choices">&para;</a></h4>
+<p>We would like some way to do some kind of <code>if</code> statements based on the behavior of the concurrency. In order to receive from possibly two different things, there has to be a selection.</p>
+<p><img alt="External choice" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-56.png" title="" /></p>
+<dl>
+<dt><span>$A \Box B$</span></dt>
+<dd>External choice operator</dd>
+<dd>External choice between <span>$A$</span> and <span>$B$</span> (determined by the environment)</dd>
+<dd>Actually a thin vertical box</dd>
+</dl>
+<p>"do x or y, depending on some external condition"<br />
+<span>$A \Box B \parallel somethingParallelWithA$</span> &lt;- probably will do A</p>
+<p><strong>Vending machine exemple</strong><br />
+<span>$$ 
+\begin{equation}
+    V:: *\left[ \text{inslot}?1.00 \rightarrow \text{makeTea()} \Box \text{inslot}?2.00 \rightarrow \text{makeCoffee()} \right] \\
+    V \parallel inslot
+\end{equation}
+$$</span></p>
+<p>If 1.00 dollar is inserted, the vending machine makes tea. If it is 2.00 dollars, it makes coffee. After that, it loops back for a new iteration.</p>
+<p><span>$$ 
+\begin{equation}
+    V:: *\left[ \text{inslot}?1.00 \rightarrow \text{makeTea()} \Box \text{inslot}?1.00 \rightarrow \text{makeCoffee()} \right] \\
+    V \parallel inslot
+\end{equation}
+$$</span></p>
+<p>Now, if we put <span>$V \parallel inslot$</span>, the choice is arbitrary and non deterministic; we get either tea or coffee.<br />
+So this isn't really an external choice anymore. More like internal. Typically not used since we have an internal symbol (below).</p>
+<p><img alt="Internal choice" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-57.png" title="" /></p>
+<dl>
+<dt><span>$A \sqcap B$</span></dt>
+<dd>Internal choice operator</dd>
+<dd>The process internally decides on one branch or the other</dd>
+<dd>Actually a thin box with an opening at the bottom.</dd>
+</dl>
+<p><span>$$ 
+\begin{equation}
+    V:: *\left[ \text{inslot}?1.00 \rightarrow \text{makeTea()} \sqcap \text{inslot}?2.00 \rightarrow \text{makeCoffee()} \right] \\
+\end{equation}
+$$</span></p>
+<p>Internally and arbitrarily commits to one side or the other.<br />
+If the machine chose to listen to tea only, <span>$V || inslot$</span> might make tea or it might end up stuck.</p>
+<h4 class="header"><i>1.1.4</i>Distinctions between processes<a class="headerlink" href="#distinctions-between-processes" name="distinctions-between-processes">&para;</a></h4>
+<p><span>$$ 
+\begin{equation}
+    X::(A?i \rightarrow halt \sqcap B?i \rightarrow halt) \parallel A::(X!42)
+\end{equation}
+$$</span></p>
+<p>This may actually use a communication, or it might not. It may end up sitting there, waiting at a communication, or it may reach a halt.</p>
+<p><span>$$ 
+\begin{equation}
+    Y::(A?i \rightarrow halt \Box B?i \rightarrow halt) \parallel A::Y!42
+\end{equation}
+$$</span></p>
+<p>This, on the other hand, will necessarily work.</p>
+<p>We can actually look at graph traces:<br />
+<img alt="Traces" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-58.png" title="" /></p>
+<p>Back to the buffer: <strong>Producer/Consumer</strong></p>
+<p><span>$$ 
+\begin{equation}
+    (P) \rightarrow (B) \rightarrow (C) \\
+    P::*\left[int x; x = produce(); B!x\right] \\
+    C::*\left[int x; B?x \rightarrow consume(x)\right] \\
+    B::*\left[int x; P?x \rightarrow C!x\right]
+\end{equation}
+$$</span></p>
+<p>We may have multiple consumers:</p>
+<p><img alt="Multiple consumers" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-59.png" title="" /></p>
+<p><span>$$ 
+\begin{equation}
+    C_1::*\left[int x; B?x \rightarrow consume(x)\right] \\
+    C_2::*\left[int x; B?x \rightarrow consume(x)\right] \\
+    B::*\left[int x, P?x \rightarrow (C_1!x \Box C_2!x)\right]
+\end{equation}
+$$</span></p>
+<p>The external event concerns whether <span>$C_1$</span> or <span>$C_2$</span> is ready. If both are, then the choice is arbitrary.</p>
+<p><span>$B$</span> can be seen as a channel between <span>$P$</span> and <span>$C$</span>. Could it hold more than 1 value? Yes, as a FIFO queue:</p>
+<p><span>$$ 
+\begin{equation}
+    (P) \rightarrow (B_1) \rightarrow (B_2) \rightarrow (B_3) \rightarrow (C) \\
+    B_1::*\left[int x; P?x \rightarrow B_2!x\right] \\
+    B_2::*\left[int x; B_1?x \rightarrow B_3!x\right] \\
+    ...
+\end{equation}
+$$</span></p>
+<p>Rather, we might not care about the order:<br />
+<img alt="Unordered" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-60.png" title="" /></p>
+<p><span>$$ 
+\begin{equation}
+    B_1::*\left[int x; P?x \rightarrow (B_2!x \Box B_3!x \Box B_4!x)\right] \\
+    B_5::*\left[int x; B_2?x \rightarrow C!x \Box B_3?x \rightarrow C!x \Box B_4?x \rightarrow C!x \right]
+\end{equation}
+$$</span></p>
+<h4 class="header"><i>1.1.5</i>Iterated guarded choice pattern<a class="headerlink" href="#iterated-guarded-choice-pattern" name="iterated-guarded-choice-pattern">&para;</a></h4>
+<p><strong>Elevator example</strong><br />
+<code>int floor = 1; target = 0;</code></p>
+<p><span>$$ 
+\begin{equation}
+    E::*\left[b_1?pressed \&amp;\&amp; target==0 \rightarrow target = 1 \Box \\
+    b_2?pressed \&amp;\&amp; target==0 \rightarrow target = 2 \Box \\
+    \vdots \\
+    target!=0 \&amp;\&amp; target&gt;floor \rightarrow floor = floor + 1 \Box \\
+    target!=0 \&amp;\&amp; target&lt;floor \rightarrow floor = floor - 1 \Box \\
+    target==floor \rightarrow door!open \rightarrow door?closed \rightarrow target=0\right] \\
+    door::\left[E?open \rightarrow \dots \right]
+\end{equation}
+$$</span></p>
+<p>Iteration has an ugly syntax. Rather, we should use recursion instead. e.g. <span>$P::int x; x=produce(); B!x \rightarrow P$</span> and <span>$C::int x; B?x \rightarrow consume(x); C$</span></p>
+<h3 class="header"><i>1.2</i>Java CSP and the graphical view<a class="headerlink" href="#java-csp-and-the-graphical-view" name="java-csp-and-the-graphical-view">&para;</a></h3>
+<p>Processes become objects. They run in separate threads. They listen for messages coming in; processes communicate via channels. The processes are then parametrized by the channels. Rather than saying that we have a process <span>$P$</span>, we have process <span>$P(B)$</span>.</p>
+<p>For example: P(B)::... where B is the channel name.</p>
+<p>The channels can be FIFO, bounded, etc...</p>
+<p>In the end, this lets us build up a graphical view of concurrency.</p>
+<p><img alt="Identity" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-61.png" title="" /></p>
+<p><span>$Identity(in, out)::in?x \rightarrow out!x \rightarrow Identity(in, out)$</span></p>
+<p><img alt="Inc" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-62.png" title="" /></p>
+<p><span>$inc(in, out)::in?x \rightarrow out!(x+1) \rightarrow inc(in, out)$</span></p>
+<p><img alt="Plus" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-63.png" title="" /></p>
+<p><span>$plus(in1, in2, out):: in1?x \rightarrow in2?y \rightarrow out!(x+y) \rightarrow plus(in1, in2, out)$</span></p>
+<p><img alt="Split" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-64.png" title="" /></p>
+<p><span>$split(in, out1, out2)::in?x \rightarrow out2!x \rightarrow out1!x \rightarrow split(in, out1, out2)$</span></p>
+<p><img alt="Parallel" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-64.png" title="" /></p>
+<p>Send in parallel instead<br />
+<span>$split(in, out1, out2)::in?x \rightarrow (out1!x || out2!x) \rightarrow split(in, out1, out2)$</span></p>
+<p><strong>Nb:</strong> Java CSP has external choice only! Still, choices can be prioritized, be truly randomized, have a fairness property imposed, or have timer guards.</p>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_11-27" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

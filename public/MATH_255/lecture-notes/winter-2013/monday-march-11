@@ -1,0 +1,149 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, March 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, March 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Antiderivatives and Integration by Parts
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><span>$\DeclareMathOperator*{\sgn}{sgn}$</span></p>
+<p>A few classes back the prof posed the following theorem, asking for a proof. Here is one:</p>
+<p><strong>Theorem:</strong> If <span>$f : [0,1] \to \mathbb{R}$</span> is Riemann integrable and <span>$f &gt; 0$</span> then <span>$\int_a^b f &gt; 0$</span>.</p>
+<p><strong>Proof:</strong> We know that <span>$\int_a^b f \geq 0$</span>. If <span>$\int_a^b f = 0$</span> then <span>$L(f) = 0$</span> and <span>$L_f(P) = 0$</span> for any partition <span>$P$</span>. Thus if <span>$P = \{ x_0, x_1, \ldots, x_n \}$</span> then <span>$m_k = \inf\{ f(x) : x \in [x_{k-1}, x_k] \} = 0$</span>. <span>$L_f(P) \leq L(f)$</span>. Thus if <span>$f$</span> is continuous at a point <span>$c$</span> since <span>$f(c) &gt; 0$</span> then there exists a <span>$\delta$</span> neighborhood of <span>$c$</span> such that <span>$f(x) &gt; 0$</span> in that neighborhood. Then <span>$L_f(P) &gt; 0$</span>. Consequently, if <span>$\int_a^b f = 0$</span> then <span>$f$</span> must be discontinuous at every point. Consider <span>$c = 1 / 2$</span>. <span>$f$</span> much be discontinuous at <span>$1/2$</span>. THus there exists <span>$\epsilon_0 &gt; 0$</span> such that for <span>$\delta = 1$</span>, <span>$\exists x_0$</span> such that <span>$|x_0 - 1/2| &lt; \delta = 1$</span> but <span>$|f(x_0) - f(1/2)| \geq \epsilon_0$</span>. Thus on <span>$[0,1]$</span>, <span>$M_1 = \sup\{f(x) : x \in [0,1]\}$</span> and <span>$m_1 = \inf\{f(x) : x \in [0,1]\}$</span></p>
+<p>At this point we get lost. We'll come back to this Wednesday.</p>
+<h2 class="header"><i>1</i>Antiderivatives<a class="headerlink" href="#antiderivatives" name="antiderivatives">&para;</a></h2>
+<p><strong>Definition:</strong> Let <span>$I = [a,b]$</span> be a closed and bounded interval. If <span>$f : I \to \mathbb{R}$</span> is a function then an antiderivative of <span>$f$</span> is a function <span>$F : I \to \mathbb{R}$</span> such that <span>$F'(x) = f(x)$</span> for all <span>$x \in I$</span>. Also, if <span>$f : I \to \mathbb{R}$</span> is integrable, than the function <span>$F : I \to \mathbb{R}$</span> such that <span>$F(x) = \int_a^x f$</span> is called the indefinite integral of <span>$f$</span>.</p>
+<p>Recap: if <span>$f$</span> is integrable on <span>$I$</span> then the indefinite integral <span>$F(x) = \int_a^x f$</span> is continuous on <span>$I$</span>. Also, if <span>$f$</span> is continuous on <span>$I$</span> then the indefinite integral is an antiderivative of <span>$f$</span>, and furthermore</p>
+<p><span>$$ \int_a^b f = F(b) - F(a) $$</span></p>
+<p>i.e. continuous functions have antiderivatives.</p>
+<p>Claim: An integrable function may not have an antiderivative.</p>
+<p><strong>Proof:</strong> </p>
+<p><span>$$
+\sgn(x) = \left\{
+     \begin{array}{lr}
+       -1 &amp; : x &lt; 0 \\
+       0 &amp; : x = 0 \\
+       1 &amp; : x &gt; 0
+     \end{array}
+   \right.
+$$</span></p>
+<p>is integrable on <span>$[-1,1]$</span> as it is monotone increasing. For a given <span>$\epsilon &gt; 0$</span>, take WLOG <span>$\epsilon &lt; 1$</span>. Consider</p>
+<p><span>$$ P = \{ -1, -\frac{\epsilon}{4}, \frac{\epsilon}{4}, 1 \} $$</span></p>
+<p><span>$M_1 = \sup\{\sgn(x) : x \in [-1, -\epsilon / 4]\} = -1 = m_1$</span> so <span>$M_1 - m_1 = 0$</span>. Similarly <span>$M_3 - m_3 = 0$</span>, and we can show <span>$M_2 - m_2 &lt; \epsilon$</span>, so it follows that the function is indeed integrable. However, there does not exist a function <span>$F$</span> such that <span>$F'(x) = \sgn(x)$</span>, as by Darboux's theorem <span>$F'(-1/2) = -1$</span>, <span>$F'(0) = 0$</span>, so there must exists some <span>$c$</span> such that <span>$F'(c) = \sgn(c) = -1/2$</span>, which is impossible.</p>
+<p>Claim: A function may have an antiderivative but not be integrable. Consider</p>
+<p><span>$$
+F(x) = \left\{
+     \begin{array}{lr}
+       x^2\sin\left(\frac{\pi}{x^2}\right) &amp; : x \neq 0 \\
+       0 &amp; : x = 0
+     \end{array}
+   \right.
+$$</span></p>
+<p><span>$F'$</span> is not integrable.</p>
+<h2 class="header"><i>2</i>Integration by parts<a class="headerlink" href="#integration-by-parts" name="integration-by-parts">&para;</a></h2>
+<p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span>, <span>$f, g : I \to \mathbb{R}$</span> integrable on <span>$I$</span> and let <span>$F, G$</span> be antiderivatives of <span>$f$</span> and <span>$g$</span> respectively. Then:</p>
+<p><span>$$ \int_a^b F(x)g(x) dx = F(b)G(b) - F(a)G(a) - \int_a^b f(x)G(x) dx $$</span></p>
+<p><strong>Proof:</strong> Let <span>$H(x) = F(x)G(x)$</span>. <span>$H$</span> is continuous (and thus integrable) on <span>$I$</span> as <span>$F$</span> and <span>$G$</span> must be continuous. <span>$H$</span> is also differentiable for the same reasoning. <span>$H'(x) = F'(x)G(x) + F(x)G'(x) = f(x)G(x) + F(x)g(x)$</span> which is also integrable. By the FTC, <span>$\int_a^b H' = H(b) - H(a)$</span></p>
+<p>i.e. <span>$\int_a^b F(x)g(x) + f(x)G(x) dx = F(b)G(b) - F(a)G(a)$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

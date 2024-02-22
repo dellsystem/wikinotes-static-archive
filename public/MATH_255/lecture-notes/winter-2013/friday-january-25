@@ -1,0 +1,145 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, January 25, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, January 25, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Differentiability and combinations of differentiable functions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Today we finally discuss differentiability and the definition of the derivative. Recall from introduction to calculus that</p>
+<p><span>$$
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+$$</span></p>
+<p>The equivalent formulation that we'll use is:</p>
+<p><span>$$
+f'(c) = \lim_{x \to c} \frac{f(x) - f(c)}{x - c}
+$$</span></p>
+<p><strong>Definition:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be an interval, <span>$f : I \to \mathbb{R}$</span> and <span>$c \in I$</span>. We say <span>$L \in \mathbb{R}$</span> is the derivative of <span>$f$</span> at <span>$c$</span> if for a given <span>$\epsilon &gt; 0$</span>, there exists a <span>$\delta &gt; 0$</span> such that if <span>$0 &lt; |x-c| &lt; \delta$</span> then:</p>
+<p><span>$$
+\left| \frac{f(x)-f(c)}{x-c} - L \right| &lt; \epsilon
+$$</span> <br />
+In this case we say <span>$f$</span> is <em>differentiable</em> at <span>$c$</span> and denote <span>$L = f'(c)$</span>.</p>
+<p>As you must remember, the derivative of <span>$f$</span> is only defined at <span>$c$</span> if <span>$f$</span> is continuous at <span>$c$</span>. Thus it's a pretty simple proposition that:</p>
+<p><strong>Theorem:</strong> Let <span>$I$</span> be an interval, <span>$f : I \to \mathbb{R}$</span> be a function on <span>$I$</span>, and <span>$c \in I$</span>. If <span>$f$</span> is differentiable at <span>$c$</span> then <span>$f$</span> is continuous at <span>$c$</span>.</p>
+<p><strong>Proof:</strong> Let <span>$\epsilon &gt; 0$</span> be given - WLOG, take <span>$\epsilon &lt; 1$</span>. As <span>$f$</span> is differentiable, there exists some <span>$L \in \mathbb{R}$</span> and <span>$\delta_1 &gt; 0$</span> such that if <span>$0 &lt; |x-c| &lt; \delta_1$</span>, then <span>$\left|\frac{f(x)-f(c)}{x-c} - L\right| &lt; \epsilon$</span>. Let <span>$\delta = \inf\{\delta_1, \frac{\epsilon}{1+|L|}\}$</span>. Then if <span>$0 &lt; |x-c| &lt; \delta$</span>, it follows that </p>
+<p><span>$$
+|f(x) - f(c)| = \left|\frac{f(x)-f(c)}{x-c}(x-c)\right| \\
+= \left|\left[\frac{f(x)-f(c)}{x-c}-L+L\right](x-c)\right| \\
+= \left|\left[\frac{f(x)-f(c)}{x-c}-L\right](x-c) + L(x-c)\right| \\
+\leq \left|\frac{f(x)-f(c)}{x-c}-L\right|\left|x-c\right| + |L|\left|x-c\right| \\
+&lt; |x-c| + |L||x-c| = (1 + |L|)|x-c| \\
+&lt; \frac{\epsilon (1 + |L|)}{1+|L|} = \epsilon \qquad \blacksquare
+$$</span> </p>
+<p>Note that this is only a one-way implication - continuity does not guarantee differentiability. Consider <span>$f(x) = |x|$</span>, for example - continuous but not differentiable at <span>$x=0$</span>.</p>
+<p>Now we come to the theorems we know and love:</p>
+<p><strong>Theorem:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be an interval, <span>$c \in I$</span>, <span>$f, g : I \to \mathbb{R}$</span> be functions that are differentiable at <span>$c \in I$</span>. Then:<br />
+(i) if <span>$k \in \mathbb{R}$</span>, <span>$kf$</span> is differentiable at <span>$c$</span> and <span>$(kf)'(c) = kf'(c)$</span><br />
+(ii) <span>$f + g$</span> is differentiable at <span>$c$</span> and <span>$(f + g)'(c) = f'(c) + g'(c)$</span><br />
+(iii) <span>$fg$</span> is differentiable at <span>$c$</span> and <span>$(fg)'(c) = f(c)g'(c) + g'(c)f(c)$</span><br />
+(iv) if <span>$g(c) \neq 0$</span> then <span>$\frac{f}{g}$</span> is differentiable at <span>$c$</span> and </p>
+<p><span>$$
+\left(\frac{f}{g}\right)'(c) = \frac{g(c)f'(c) - f(c)g'(c)}{g^2(c)}
+$$</span></p>
+<p>The proofs of these statements can be found in the book, Section 6.1. (i) and (ii) in particular are almost trivial.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

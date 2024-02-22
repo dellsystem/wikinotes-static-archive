@@ -1,0 +1,422 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Review for quiz 2
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Review for quiz 2
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Review for quiz #2, to be held during class on Tuesday, October 16. Sections covered: up until the end of chapter 10 (approximately), omitting chapter 5.</p>
+<p>Under construction</p>
+<h2 class="header"><i>1</i>Chapter 3: Processes<a class="headerlink" href="#chapter-3-processes" name="chapter-3-processes">&para;</a></h2>
+<p>Starting from slide 3.37</p>
+<ul>
+<li>inter-process communication<ul>
+<li>mailbox sharing solutions<ul>
+<li>link: only two processes?</li>
+<li>only one process can execute receive operation at a time?</li>
+<li>round-robin scheme - sender throws it out randomly, some receiver gets it, sender gets notified as to who</li>
+</ul>
+</li>
+<li>message passing: blocking or not, on part of sender or receiver</li>
+<li>queue of messages attached to link<ul>
+<li>zero capacity: sender waits for receiver (rendez-vous)</li>
+<li>bounded (finite) capacity: sender waits if queue full</li>
+<li>unbounded (infinite) capacity: sender never waits, is this even possible?</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li>POSIX shared memory<ul>
+<li>process creates shared memory segment, returns an ID</li>
+<li>processes wanting access to that segment must attach to it by ID (call returns pointer)</li>
+<li>can write to that memory segment (using the pointer)</li>
+<li>can detach it from its address space when done</li>
+</ul>
+</li>
+<li>Mach:<ul>
+<li>message-based (everything! even system calls)</li>
+<li>all tasks are created with 2 mailboxes (which are created with <code>port_allocate()</code>: kernel, and notify</li>
+<li>three system calls: <code>msg_send</code>, <code>msg_receive</code>, <code>msg_rpc</code> (remote procedure call, to execute something elsewhere)</li>
+</ul>
+</li>
+<li>Windows XP:<ul>
+<li>message-based using "local procedure call" (can only be used by local processes)</li>
+<li>communication channels established using ports (sort of like mailboxes)</li>
+<li>client opens handle to subsystem's connection port, sends a connect request</li>
+<li>server creates two private communication ports, sends one to client, keeps the other one</li>
+<li>corresponding ports are used by server and client to send/receive messages</li>
+<li>INSERT DIAGRAM LATER</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client-server communication<ul>
+<li>sockets (endpoints for communication)<ul>
+<li>IP address + port</li>
+<li>different services listen on different ports, e.g. ssh on 22, typical web servers on 80, etc</li>
+</ul>
+</li>
+<li>remote-procedure calls<ul>
+<li>allows clients to invoke a procedure on a remote host as if it were local</li>
+<li>client-side stub locates server, marshalls parameters, sends them over (underlying details abstracted)</li>
+<li>server-side stub receives messages, unmarshalls parameters, performs procedure</li>
+<li>INSERT DIAGRAM LATER (or describe it at least)</li>
+</ul>
+</li>
+<li>remote method invocation (java only)<ul>
+<li>java program on one machine can call a method on a remote java object</li>
+<li>basically the same as RMI except there are objects involved</li>
+<li>THERE IS A DIAGRAM HERE. it doesn't really say much though. look it over anyway</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Chapter 4: Threads<a class="headerlink" href="#chapter-4-threads" name="chapter-4-threads">&para;</a></h2>
+<ul>
+<li>Thread: unit of CPU utilisation, forms basis of multithreaded computers<ul>
+<li>things unique to each thread: thread ID, program counter, register set, stack</li>
+<li>things threads from the same process share: code, data (statically-created variables), OS resources (open files, signals)</li>
+<li>single-threaded process: code + data + files, then registers + stack</li>
+<li>multi-threaded: code + data + files, then each thread gets its own registers and stack</li>
+<li>Benefits of threading<ul>
+<li>Greater responsiveness (if one thread is blocked or busy, can keep going - e.g., webservers)</li>
+<li>Resource sharing (memory, other resources)</li>
+<li>Cheapter than creating new processes in terms of allocating memory and resources (context-switching is easier)</li>
+<li>Scalability: threads can run in parallel on multiple processors (I don't really see how this is best characterised as "scalability"; perhaps making full use of resources?)</li>
+</ul>
+</li>
+<li>In the client-server model: client sends request, server spawns new thread to handle request, server resumes listening for requests</li>
+</ul>
+</li>
+<li>Single vs. multicore<ul>
+<li>on a single-core system, threads are allocated in a cycle: t1, t2, t3, t4, t1, t2, t3, t4 etc (this is what is meant by concurrency apparently?)</li>
+<li>on a multicore system, concurrency means that threads are actually executed at the same time. could be t1 t3 t1 t3 on one core, t2 t4 t2 t4 on the other, etc</li>
+<li>challenges of multicore systems:<ul>
+<li>how to divide up activities? need to find parts of application that can be divided into smaller tasks that can run in parallel</li>
+<li>how to split data? must be divided to run on separate cores (? how does this make sense)</li>
+<li>data dependency: what if one task depends on the results of another?</li>
+<li>testing/debugging: many different execution paths</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>user-level thread libraries:<ul>
+<li>POSIX threads</li>
+<li>win32 threads</li>
+<li>Java threads</li>
+</ul>
+</li>
+<li>Kernel threads: handled by the kernel</li>
+<li>Multithreading models, per process (user-to-kernel):<ul>
+<li>many-to-one (many user-level, single kernel)<ul>
+<li>examples: solaris green threads library, gnu portable threads</li>
+<li>thread management done by user space thread library (efficient)</li>
+<li>but only thread can access the kernel at a time, so if any user thread makes a blocking syscall entire process will block</li>
+</ul>
+</li>
+<li>one-to-one (one kernel thread per user thread)<ul>
+<li>examples: windows nt/xp/2000, linux, solaris 9+</li>
+<li>benefits: more concurrency (syscalls are not blocking for other threads)</li>
+<li>downsides: can result in decreased performance as you have to create many kernel threads, etc</li>
+<li>also, some OSes limit the number of kernel threads possible at any given time</li>
+</ul>
+</li>
+<li>many-to-many<ul>
+<li>examples: solaris before 9, windows nt/2000 with threadfiber package (how cute)</li>
+<li>many user threads mapped to the same nubmer of or fewer kernel threads</li>
+<li>OS can create as many user threads as it needs to, since it doesn't have to create a kernel thread for each one</li>
+<li>true concurrency: corresponding kernel threads can run in parallel on a multiprocessor (what does this have to do with anything)</li>
+</ul>
+</li>
+<li>two-level model<ul>
+<li>examples: IRIX, HP-UX, Tru64 unix, solaris before 9</li>
+<li>like the many-to-many model, except user threads can be bound to kernel threads as well (so a superset of many-to-many)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread libraries<ul>
+<li>APIs for creating, managing threads</li>
+<li>can be implemented in user space<ul>
+<li>calling a function in library results in a local call (not sys call) in user space</li>
+</ul>
+</li>
+<li>or, using the kernel-level library provided by OS<ul>
+<li>code, data structures of library exist in kernel space</li>
+<li>invoking APi function usually results in sys call</li>
+</ul>
+</li>
+<li>pthreads: a POSIX standard for APIs for thread creation and sync<ul>
+<li>provided as user-level or kernel-level</li>
+<li>the behaviour is specified by this standard, but it can be implemented differently by different OSes</li>
+<li>examples: Solaris, Mac OS X, FreeBSD, Linux (there is even a windows implementation)</li>
+</ul>
+</li>
+<li>Java threads<ul>
+<li>managed by the JVM, implemented using underlying thread library provided by OS</li>
+<li>these threads can be created by extending the <code>Thread</code> class or implementing the <code>Runnable</code> interface</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>various issues (and non-issues) relating to threads<ul>
+<li>behaviour of <code>fork()</code><ul>
+<li>should it duplicate only the calling thread or all threads of that process?</li>
+<li>some unix systems thus have two versions of <code>fork()</code></li>
+<li><code>exec</code>, when invoked by a thread, will replace all the threads in that process. wait wtf? how? and why is this relevant to fork?</li>
+</ul>
+</li>
+<li>thread cancellation (premature termination)<ul>
+<li>how to deal with resource allocation, or if it's updating a data segment shared by other threads?</li>
+<li>asynchronous cancellation: terminates the thread immediately (bit of a misleading name)</li>
+<li>deferred cancellation: thread periodically checks if it should be cancelled, giving it the chance to die nobly<ul>
+<li>aside: signal handling (i think this section should count as an aside, even though it has its own slide)</li>
+<li>signal handlers used to notify processes that specific events (e.g., kill events) have occurred</li>
+<li>event generates signal, signal gets delivered to process, signal is handled</li>
+<li>many options as to whom the signal is delivered to:<ul>
+<li>only the relevant thread</li>
+<li>every thread in the process to which the relevant thread belongs</li>
+<li>certain threads in the relevant process</li>
+<li>a specific thread that receives all signals for the process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread pools<ul>
+<li>create some threads, throw them into a pool in which they wait around for work to be doled out, the poor creatures</li>
+<li>faster to make an existing thread service a request than to create a new thread</li>
+<li>number of threads in application bounded by the size of the pool</li>
+<li>of course, this has the slight disadvantage of having to create all the threads at the very beginning (slower startup maybe)</li>
+</ul>
+</li>
+<li>thread-specific data<ul>
+<li>so that each thread can have its own copy of data</li>
+<li>supported by most threading libraries</li>
+<li>e.g., transaction system (?)</li>
+</ul>
+</li>
+<li>scheduler activations<ul>
+<li>what does this even meeeeeean</li>
+<li>both the many-to-many and the two-level models require communication to ensure correct number of kernel threads</li>
+<li>the mechanism for this communication is via upcalls (like the opposite of a system call?), from the kernel to the thread library, provided by "scheduler activations" whatever those are</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>threads in different OSes<ul>
+<li>windows XP<ul>
+<li>each app runs as a separate process</li>
+<li>each can have one or more threads</li>
+<li>thread library included in win32 api, one-to-one</li>
+<li>fiber library (many-to-many) available too</li>
+<li>each thread contains thread ID, register set, separate user/kernel stacks, private data storage area (last three collectively known as context)</li>
+<li>primary data structures of a thread:<ul>
+<li>ethread: executive thread block (thread start address, pointer to parent block, pointer to kthread) - kernel space</li>
+<li>kthread: kernel thread block (scheduling and sync info, kernel stack, pointer to teb) - kernel space</li>
+<li>teb: thread environment block (thread identifier, user stack, thread-local storage) - user space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linux<ul>
+<li>called tasks not threads</li>
+<li>one-to-one</li>
+<li>threads created by calling <code>clone()</code> (allows child task to share address space of parent task, or process)</li>
+<li>amount of sharing that takes place is controlled by flags<ul>
+<li>CLONE_FS: file-system info shared</li>
+<li>CLONE_VM: same memory space</li>
+<li>CLONE_SIGHAND: share signal handlers</li>
+<li>CLONE_FILES: share open files (how does this differ from CLONE_FS?)</li>
+</ul>
+</li>
+<li>NPTL (Native POSIX Thread Library) supported by most modern distros, POSIX-compliant</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Chapter 10: Filesystem interface<a class="headerlink" href="#chapter-10-filesystem-interface" name="chapter-10-filesystem-interface">&para;</a></h2>
+<ul>
+<li>attributes (kept in dir structure, which is on disk)<ul>
+<li>name</li>
+<li>system identifier</li>
+<li>type</li>
+<li>location</li>
+<li>size</li>
+<li>protection (permissions)</li>
+<li>time, date, user identification</li>
+</ul>
+</li>
+<li>operations<ul>
+<li>create: allocate space in system, make new entry in directory</li>
+<li>write: given file name and info to be written, system searches for it, keeps a write pointer</li>
+<li>read: ^ but read pointer</li>
+<li>reposition in file: seek, pointer value changes</li>
+<li>delete: find file, release space, delete dir entry</li>
+<li>truncate: delete contents, keep attributes</li>
+</ul>
+</li>
+<li><code>open()</code> system call avoids constant searching for dir entry (saves it in memory; <code>close()</code> frees)<ul>
+<li>takes file name, copies dir entry into open file table, returns pointer</li>
+<li>per-process table (pointer, rights), system-wide (location, access dates, file size)</li>
+<li>to manage open files, need pointer, open count, location, access rights</li>
+</ul>
+</li>
+<li>access methods<ul>
+<li>sequential</li>
+<li>direct</li>
+<li>index</li>
+<li>can simulate sequential on direct</li>
+<li>direct on sequential is inefficient</li>
+</ul>
+</li>
+<li>storing files on disks<ul>
+<li>partitions</li>
+<li>raw or formatted</li>
+<li>RAID protection</li>
+<li>volume = entity with filesystem</li>
+</ul>
+</li>
+<li>directory structure<ul>
+<li>collection of nodes pointing to files</li>
+<li>operations<ul>
+<li>search for file</li>
+<li>create</li>
+<li>delete</li>
+<li>list</li>
+<li>rename</li>
+<li>traverse</li>
+</ul>
+</li>
+<li>single-level directory for all users: dumb</li>
+<li>two-level, one for each user: bad for cooperation</li>
+<li>tree-structured: each file has unique path name<ul>
+<li>acyclic graph</li>
+<li>hard links?</li>
+<li>multiple abs path names</li>
+<li>reference list: delete files when no references to it exist</li>
+<li>self-reference?</li>
+<li>check that there are no cycles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mounting</li>
+<li>sharing, etc, nothing special</li>
+<li>failure<ul>
+<li>directory corruption, disk-controller failure, etc</li>
+</ul>
+</li>
+<li>types of access (for right management):<ul>
+<li>read</li>
+<li>write</li>
+<li>execute</li>
+<li>append</li>
+<li>delete</li>
+<li>list</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

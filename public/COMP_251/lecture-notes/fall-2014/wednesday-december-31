@@ -1,0 +1,1074 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_251/">
+                COMP 251
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, December 31, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, December 31, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                COMP 251 F2014
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Stable Matching<a class="headerlink" href="#stable-matching" name="stable-matching">&para;</a></h2>
+<p>With <span>$n$</span> men and <span>$n$</span> women, find a pairing with no instabilities</p>
+<dl>
+<dt>Instability:</dt>
+<dd>Man <span>$m$</span> prefers woman <span>$w$</span> over assigned woman <span>$x$</span></dd>
+<dd><span>$w$</span> prefers man <span>$m$</span> over her assigned partner</dd>
+</dl>
+<p>Results in a male-optimal and female-pessimal solution</p>
+<h3 class="header"><i>1.1</i>Gale-Shapley Algorithm<a class="headerlink" href="#gale-shapley-algorithm" name="gale-shapley-algorithm">&para;</a></h3>
+<div class="codehilite"><pre>all people are free
+while( any man is free &amp; hasn&#39;t proposed to all women):
+    Choose such a man m
+    w = 1st on m&#39;s list who hasn&#39;t been proposed to yet
+    if (w is free):
+        assign w to m
+    else:
+        if (w prefers m over assigned partner, a):
+            assign w to m
+            make a free
+        else
+            w rejects m
+</pre></div>
+
+
+<h4 class="header"><i>1.1.1</i>Stability Proof<a class="headerlink" href="#stability-proof" name="stability-proof">&para;</a></h4>
+<ul>
+<li>Suppose <span>$A-Z$</span> is an unstable pair in the GS Matching <span>$S^*$</span></li>
+<li><span>$A$</span> is matched to <span>$B$</span>, <span>$Z$</span> is matched to <span>$X$</span></li>
+<li>Case <span>$A$</span> never proposed to <span>$Z$</span><ul>
+<li><span>$A$</span> goes down his list in order of favorites.</li>
+<li>If <span>$A$</span> never proposed to<span>$Z$</span>, he prefers <span>$B$</span> over <span>$Z$</span></li>
+</ul>
+</li>
+<li>Case <span>$A$</span> proposed to <span>$Z$</span> <ul>
+<li><span>$A$</span> and <span>$Z$</span> were matched for a time.</li>
+<li>They can only become unmatched if <span>$Z$</span> prefers some other suitor over <span>$A$</span></li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>1.1.2</i>Male-Optimality Proof<a class="headerlink" href="#male-optimality-proof" name="male-optimality-proof">&para;</a></h4>
+<ul>
+<li>Suppose man <span>$M$</span> is matched to someone other than his best stable partner in <span>$S$</span></li>
+<li>Men propose in decreasing order of preference<ul>
+<li>If <span>$M$</span> was rejected by a partner, she would have to have stably preferred someone</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Bipartiteness<a class="headerlink" href="#bipartiteness" name="bipartiteness">&para;</a></h3>
+<p>only one of the following holds for a graph <span>$G$</span> and BFS <span>$B$</span></p>
+<ul>
+<li>No edge joins two nodes inside <span>$B$</span>, <span>$G$</span> is bipartite</li>
+<li>An edge joins two nodes in the same layer <span>$\to$</span> <span>$G$</span> contains an odd length cycle <span>$\to$</span> <span>$G$</span> is not bipartite</li>
+</ul>
+<div class="ui divider"></div>
+<h2 class="header"><i>2</i>Divide and Conquer<a class="headerlink" href="#divide-and-conquer" name="divide-and-conquer">&para;</a></h2>
+<ol>
+<li>Divide problem into several parts </li>
+<li>Solve parts recursively</li>
+<li>Combine solutions from sub-problems into final answer </li>
+</ol>
+<h3 class="header"><i>2.1</i>Mergesort<a class="headerlink" href="#mergesort" name="mergesort">&para;</a></h3>
+<ol>
+<li>divide array <span>$O(1)$</span></li>
+<li>recursively sort <span>$2 \times T(\frac{n}{2})$</span></li>
+<li>merge <span>$O(n)$</span></li>
+</ol>
+<h4 class="header"><i>2.1.1</i>Merging<a class="headerlink" href="#merging" name="merging">&para;</a></h4>
+<ul>
+<li>Two pointers for each (sorted) array</li>
+<li>Compare values, and add lowest to output array</li>
+<li>left shift pointer</li>
+<li>repeat</li>
+</ul>
+<h4 class="header"><i>2.1.2</i>Pseudocode<a class="headerlink" href="#pseudocode" name="pseudocode">&para;</a></h4>
+<div class="codehilite"><pre>def mergesort( var a as array )
+     if ( n == 1 ) 
+         return a
+     var l1 as array = a[0] ... a[n/2]
+     var l2 as array = a[n/2+1] ... a[n]
+
+     l1 = mergesort( l1 )
+     l2 = mergesort( l2 )
+
+     return merge( l1, l2 )
+
+def merge( var a as array, var b as array )
+     var c as array
+
+     while ( a and b have elements )
+          if ( a[0] &gt; b[0] )
+               add b[0] to the end of c
+               remove b[0] from b
+          else
+               add a[0] to the end of c
+               remove a[0] from a
+     while ( a has elements )
+          add a[0] to the end of c
+          remove a[0] from a
+     while ( b has elements )
+          add b[0] to the end of c
+          remove b[0] from b
+     return c
+</pre></div>
+
+
+<h3 class="header"><i>2.2</i>Closest Pair of Points<a class="headerlink" href="#closest-pair-of-points" name="closest-pair-of-points">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Algorithm<a class="headerlink" href="#algorithm" name="algorithm">&para;</a></h4>
+<ol>
+<li>Draw vertical line to roughly cut points in half</li>
+<li>Recursively find closest points in each half</li>
+<li>Find any potentially closer pairs after merging halves</li>
+<li>Return closest pair of points</li>
+</ol>
+<h4 class="header"><i>2.2.2</i>Analysis<a class="headerlink" href="#analysis" name="analysis">&para;</a></h4>
+<p>This algorithm takes <span>$O(\log^2(n))$</span>, but can be improved to <span>$O(\log(n)$</span> via pre-sorting the list of points. Each recursion returns a list, with points sorted by y-coordinate, and we then merge the lists.</p>
+<h3 class="header"><i>2.3</i>Integer Multiplication<a class="headerlink" href="#integer-multiplication" name="integer-multiplication">&para;</a></h3>
+<h4 class="header"><i>2.3.1</i>Brute Force<a class="headerlink" href="#brute-force" name="brute-force">&para;</a></h4>
+<ul>
+<li>brute force requires <span>$O(n^2)$</span> operations</li>
+<li>an <span>$n$</span> digit number can be represented by 2 <span>$\frac{n}{2}$</span> digit numbers</li>
+<li><span>$x = 2^{\frac{n}{2}}x_1+x_0$</span>, <span>$y = 2^{\frac{n}{2}}y_1+y_0$</span></li>
+<li>
+<p><span>$xy = 2^n(x_1y_1)+2^{\frac{n}{2}}(x_1y_0+x_0y_1)+x_0y_0$</span></p>
+</li>
+<li>
+<p>multiply 4 <span>$\frac{n}{2}$</span> digit numbers</p>
+</li>
+<li>add two <span>$\frac{n}{2}$</span> digit integers and shift</li>
+<li><span>$T(n) = 4T(\frac{n}{2})+\Theta(n) \to T(n) \in \Theta(n^2)$</span></li>
+</ul>
+<h4 class="header"><i>2.3.2</i>Karatsuba Multiplication<a class="headerlink" href="#karatsuba-multiplication" name="karatsuba-multiplication">&para;</a></h4>
+<ul>
+<li>instead, you can add 2 <span>$\frac{n}{2}$</span> digit numbers</li>
+<li>multiply <strong>three</strong> <span>$\frac{n}{2}$</span> </li>
+<li>same as above, but:</li>
+</ul>
+<p><span>$$xy = 2^n(x_1y_1) + 2^{\frac{n}{2}}((x_1+x_0)(y_1+y_0)-x_1y_1-x_0y_0)+x_0y_0$$</span></p>
+<dl>
+<dt>Runtime</dt>
+<dd><span>$T(n)=3T(\frac{n}{2})+\Theta(n)$</span></dd>
+<dd><span>$T(n) \in O(n^{\log_2 3}) \approx n^{1.5}$</span></dd>
+</dl>
+<h3 class="header"><i>2.4</i>Matrix Multiplication<a class="headerlink" href="#matrix-multiplication" name="matrix-multiplication">&para;</a></h3>
+<h4 class="header"><i>2.4.1</i>Brute Force<a class="headerlink" href="#brute-force_1" name="brute-force_1">&para;</a></h4>
+<ul>
+<li><span>$O(n^3)$</span> time</li>
+<li><span>$n$</span> multiplications for <span>$n \times n$</span> elements</li>
+</ul>
+<h4 class="header"><i>2.4.2</i>Divide and Conquer<a class="headerlink" href="#divide-and-conquer_1" name="divide-and-conquer_1">&para;</a></h4>
+<ol>
+<li>Divide matrix into 4 <span>${\frac{n}{2}} \times {\frac{n}{2}}$</span> parts</li>
+<li>Find product of quarters, with 8 multiplications (of 2x2)</li>
+<li>Add appropriate products with 4 matrix additions</li>
+<li>Return appropriate values <br />
+<span>$T(n) = 8T(\frac{n}{2}) + \Theta(n^2)\to T(n)\in\Theta(n^3)$</span></li>
+</ol>
+<p>No improvement over naive algorithm<br />
+<strong>BUT</strong> you can multiply two 2x2 matrices with 7 multiplications<br />
+leads to <span>$T(n) \in \Theta(n^{\log_2 7})$</span></p>
+<div class="ui divider"></div>
+<h3 class="header"><i>2.5</i>Master Theorem<a class="headerlink" href="#master-theorem" name="master-theorem">&para;</a></h3>
+<p><span>$T(n) = \alpha T(\frac{n}{\beta}) + f(n), \alpha \ge 1, \beta \gt 1 $</span></p>
+<ul>
+<li><span>$n$</span> is size of problem</li>
+<li><span>$\alpha$</span> is number of sub problems</li>
+<li><span>$\frac{n}{\beta}$</span> is size of sub problems</li>
+<li><span>$f(n)$</span> is  additional work required</li>
+</ul>
+<dl>
+<dt>Case 1</dt>
+<dd><span>$f(n) \in O(n^c),\ st.\ c \lt \log_{\beta}\alpha $</span></dd>
+<dd><span>$T(n) \in \Theta(n^{\log_{\beta}\alpha})$</span></dd>
+<dt>Case 2</dt>
+<dd><span>$f(n) \in \Theta(n^c \log^k n),\ st.\ c \lt \log_{\beta}\alpha $</span></dd>
+<dd><span>$T(n) \in \Theta\left( n^{c} \log^{k+1} n \right) $</span></dd>
+<dt>Case 3</dt>
+<dd><span>$f(n) \in \Omega(n^c),\ st.\ c \lt \log_{\beta}\alpha $</span> <strong>and</strong></dd>
+<dd><span>$a f\left( \frac{n}{b} \right) \le k f(n)$</span> for some constant <span>$k &lt; 1$</span> and sufficiently large <span>$n$</span></dd>
+<dd><span>$T(n) \in \Theta(f(n))$</span></dd>
+</dl>
+<h2 class="header"><i>3</i>Graphs<a class="headerlink" href="#graphs" name="graphs">&para;</a></h2>
+<ul>
+<li>captures pairwise relationship between objects</li>
+<li>V nodes and E edges </li>
+<li>Size Parameters: <span>$n=V$</span>, <span>$m=E$</span></li>
+<li><code>degree</code> is number of neighboring edges</li>
+</ul>
+<h3 class="header"><i>3.1</i>Representations<a class="headerlink" href="#representations" name="representations">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Adjacency Matrix<a class="headerlink" href="#adjacency-matrix" name="adjacency-matrix">&para;</a></h4>
+<ul>
+<li><span>$n\times n$</span> matrix where <span>$A_{uv}$</span> is 1 if <span>$(u, v)$</span> is an edge</li>
+<li>Requires <span>$n^2$</span> space</li>
+<li>Checking if <span>$(u, v)$</span> is an edge takes <span>$\Theta(1)$</span> time</li>
+<li>Identifying all edges takes <span>$\Theta(n^2)$</span> time</li>
+</ul>
+<h4 class="header"><i>3.1.2</i>Adjacency List<a class="headerlink" href="#adjacency-list" name="adjacency-list">&para;</a></h4>
+<ul>
+<li><span>$n$</span> length array of nodes, each index is list of connected nodes</li>
+<li>requires <span>$m+n$</span> space</li>
+<li>Checking if <span>$(u, v)$</span> is an edge takes <span>$O(deg(u))$</span> time</li>
+<li>Identifying all edges takes <span>$\Theta(m+n)$</span> time</li>
+</ul>
+<h3 class="header"><i>3.2</i>Paths and Connectivity<a class="headerlink" href="#paths-and-connectivity" name="paths-and-connectivity">&para;</a></h3>
+<dl>
+<dt>Path</dt>
+<dd>a sequence of nodes <span>$\{v_1, ..., v_k\}$</span> st. any pair <span>$(v_i, v_{i+1})$</span> is connected</dd>
+<dt>Simple Path</dt>
+<dd>all nodes in path are distinct</dd>
+<dt>Connected Path</dt>
+<dd>There is a <strong>path</strong> between any pair of nodes</dd>
+<dt>Cycle</dt>
+<dd>A path <span>$\{v_1, ..., v_k\}$</span> where <span>$v_1=v_k$</span>, k &gt; 2, and the first <span>$k-1$</span> nodes are distinct</dd>
+<dt>Tree</dt>
+<dd>An undirected path which is connected and doesn't contain a cycle</dd>
+<dt>Connected Component</dt>
+<dd>all nodes reachable from s</dd>
+</dl>
+<h3 class="header"><i>3.3</i>Traversal<a class="headerlink" href="#traversal" name="traversal">&para;</a></h3>
+<ol>
+<li>Connectivity: is there a path between nodes <span>$s$</span> and <span>$t$</span></li>
+<li>Shortest Path: the length of the shortest path between nodes <span>$s$</span> and <span>$t$</span></li>
+</ol>
+<h5 class="header"><i>3.3.1</i>Breadth First Search<a class="headerlink" href="#breadth-first-search" name="breadth-first-search">&para;</a></h5>
+<p>Explore outwards from a starting node s, in all directions. Add nodes a layer at a time</p>
+<dl>
+<dt>Output</dt>
+<dd><span>$L_0 = {s}$</span></dd>
+<dd><span>$L_1 = $</span> all neighbors of <span>$L_0$</span></dd>
+<dd><span>$L_2 =$</span> all nodes that are not in <span>$L_0, L_1$</span> which have an edge to a node in <span>$L_1$</span></dd>
+</dl>
+<p>There is a path from <span>$s$</span> to a node <span>$t$</span> in <span>$L$</span> if and only if <span>$t$</span> appears in a BFS with <span>$s$</span></p>
+<div class="codehilite"><pre>Graph G
+s = some node in G
+Discovered[s] = true;
+l = 0 //layers
+Tree = null
+L[0] = s
+
+while(L[l] is not empty):
+    initialize L[l+1]
+    for each node u in L[l]:
+        for each edge e connecting u to v:
+            if Discovered[v] == false
+                Discovered[v] = true
+                add edge e to tree
+                add v to L[l+1]
+    l++
+</pre></div>
+
+
+<p>runs in <span>$O(m+n)$</span> time</p>
+<ul>
+<li>for each node, there are <code>deg(u)</code> incident edges</li>
+<li>total time processing edges if <span>$\sum_{u \in G} deg(u) = 2m$</span>, since each edge is counted twice</li>
+</ul>
+<h4 class="header"><i>3.3.2</i>Depth First Search<a class="headerlink" href="#depth-first-search" name="depth-first-search">&para;</a></h4>
+<p>A BFS checks all nodes within a certain distance of the root. Instead, a DFS goes all the way done a branch of the tree, and then goes down any visible branch, until it has explored every node. The DFS requires less memory, since you don't need to store each node's pointers at each level.<br />
+You would chose an algorithm based of the use case, for example a search for something far down the tree would be found quicker with a DFS search, while something closer would be easier to find with a BFS.</p>
+<h4 class="header"><i>3.3.3</i>Connected Component<a class="headerlink" href="#connected-component" name="connected-component">&para;</a></h4>
+<dl>
+<dt>Flood Fill</dt>
+<dd>Recolor all neighboring pixels of a color <code>l</code></dd>
+</dl>
+<p>Given a pixel of color lime, change the blob of neighboring pixels to blue</p>
+<dl>
+<dt>Definitions</dt>
+<dd>Node: Pixel<br />
+Edge: neighboring lime pixels<br />
+Blob: connected component of lime pixels</dd>
+</dl>
+<div class="codehilite"><pre>get_connected_component() {
+    R = {s}
+    while (there is an edge (u, v) st. u is in R and v is not in R )
+        add v to R
+}
+</pre></div>
+
+
+<p>For flood fill: ensure the edge <span>$(u, v)$</span> is connecting to like colored edges</p>
+<h4 class="header"><i>3.3.4</i>Bipartite Graphs<a class="headerlink" href="#bipartite-graphs" name="bipartite-graphs">&para;</a></h4>
+<dl>
+<dt>Bipartite</dt>
+<dd>an undirected graph st. nodes can be colored red and blue such that no neighboring nodes are like colored</dd>
+<dd>graph can't have an odd length cycle</dd>
+</dl>
+<p>Let G be a connected graph with L layers from a BFS</p>
+<ol>
+<li>No edge of G joins two nodes of the same layer, and G is bipartite</li>
+<li>An edge of G joins two nodes of the same layer, and G contains an odd-length cycle (and hence is not bipartite)</li>
+</ol>
+<h4 class="header"><i>3.3.5</i>Connectivity in Directed Graphs<a class="headerlink" href="#connectivity-in-directed-graphs" name="connectivity-in-directed-graphs">&para;</a></h4>
+<p>An edge <span>$(u, v)$</span> goes from node <span>$u$</span> to node <span>$v$</span> </p>
+<dl>
+<dt>Mutually Reachable</dt>
+<dd><span>$\exists$</span> a <strong>path</strong> between <span>$u$</span> and <span>$v$</span>  a path between <span>$v$</span> and <span>$u$</span></dd>
+<dt>Strong Connectivity</dt>
+<dd>Every pair of nodes is mutually reachable</dd>
+</dl>
+<h5 class="header"><i>3.3.5.1</i>Strong Connectivity<a class="headerlink" href="#strong-connectivity" name="strong-connectivity">&para;</a></h5>
+<ul>
+<li>pick a node <span>$s$</span></li>
+<li>run BFS in <span>$G$</span></li>
+<li>run BFS in <span>$G^{-1}$</span>, where every edge in <span>$G$</span> has been reversed</li>
+<li>return true if all nodes are reachable in both BFS executions</li>
+</ul>
+<h3 class="header"><i>3.4</i>Directed Acyclic Graph<a class="headerlink" href="#directed-acyclic-graph" name="directed-acyclic-graph">&para;</a></h3>
+<dl>
+<dt>DAG</dt>
+<dd>A directed graph with no cycles</dd>
+<dt>Topological Order</dt>
+<dd>Ordering of nodes as <span>$v_1, v_2,...,v_n$</span> st for every edge <span>$(v_i, v_j), i &lt; j$</span></dd>
+</dl>
+<ul>
+<li>If G has a topological order, G is a DAG.</li>
+<li>If G is a DAG, then there is a node with no incoming edges</li>
+</ul>
+<p>To computer topological order:</p>
+<div class="codehilite"><pre>def topological(G):
+    Find a node v with no incoming edges
+    G.delete(v)
+    return v + topological(G)   
+</pre></div>
+
+
+<p>&lt;div id="pagebreak"&gt;&lt;/div&gt;</p>
+<h2 class="header"><i>4</i>Greedy Algorithms<a class="headerlink" href="#greedy-algorithms" name="greedy-algorithms">&para;</a></h2>
+<ul>
+<li>make an optimal/plausible choice for current position</li>
+<li>keep making the same decision for the remaining set</li>
+</ul>
+<h3 class="header"><i>4.1</i>Strategies<a class="headerlink" href="#strategies" name="strategies">&para;</a></h3>
+<dl>
+<dt>Stays Ahead</dt>
+<dd>Show that greedy algorithm is optimal after each step</dd>
+<dt>Exchange</dt>
+<dd>Show the greedy algorithm's output is equivalent to another solution</dd>
+<dt>Structural</dt>
+<dd>Show every possible solution matches a condition, and the greedy algorithm matches this</dd>
+</dl>
+<h3 class="header"><i>4.2</i>Interval Scheduling<a class="headerlink" href="#interval-scheduling" name="interval-scheduling">&para;</a></h3>
+<ul>
+<li>sort by earliest finish time</li>
+</ul>
+<h4 class="header"><i>4.2.1</i>Proof of Optimality<a class="headerlink" href="#proof-of-optimality" name="proof-of-optimality">&para;</a></h4>
+<ol>
+<li>Assume greedy algorithm is suboptimal</li>
+<li>let <span>$\{i_1, i_2, ... , i_k\}$</span> be the greedy set</li>
+<li>let <span>$\{j_1, j_2, ..., j_m\}$</span> be the optimal set with <span>$i_a = j_a$</span> for the largest possible <span>$a$</span></li>
+<li><span>$a = m$</span> since the job <span>$j_{a+1}$</span> must start after <span>$j_a$</span> finish meaning it can be added to the set </li>
+</ol>
+<h3 class="header"><i>4.3</i>Interval Partitioning<a class="headerlink" href="#interval-partitioning" name="interval-partitioning">&para;</a></h3>
+<ul>
+<li>assign a grouping of lectures to various lecture halls, such that there is no overlap, with the minimum number of rooms</li>
+<li>A lecture <span>$l_i$</span> starts and finishes at <span>$s_i, f_i$</span></li>
+</ul>
+<h4 class="header"><i>4.3.1</i>Algorithm<a class="headerlink" href="#algorithm_1" name="algorithm_1">&para;</a></h4>
+<div class="codehilite"><pre>sort lectures by (increasing) starting time
+classrooms = {priority_queue}
+
+for lecture j in schedule:
+    if (j can be added to some room):
+        classrooms.addClass()
+    else:
+        classrooms.addRoom()
+        classrooms.addClass()
+</pre></div>
+
+
+<h4 class="header"><i>4.3.2</i>Runtime<a class="headerlink" href="#runtime" name="runtime">&para;</a></h4>
+<p>It takes <span>$O(n\log n)$</span> to sort the lectures, and then <span>$O(n)$</span> time to add them to the schedule</p>
+<h4 class="header"><i>4.3.3</i>Analysis<a class="headerlink" href="#analysis_1" name="analysis_1">&para;</a></h4>
+<p>A new classroom is only created if there is a conflict with a current lecture. Since we have sorted by starting time, any conflict starts after <span>$s_j$</span></p>
+<h3 class="header"><i>4.4</i>Minimize Lateness<a class="headerlink" href="#minimize-lateness" name="minimize-lateness">&para;</a></h3>
+<p>You want to perform a set of jobs with a known processing time and due time. They should be performed such that the maximum overdue time of any job is minimized. Use a sorting of 'earliest deadline first'</p>
+<h3 class="header"><i>4.5</i>Djikstra's Shortest Path<a class="headerlink" href="#djikstras-shortest-path" name="djikstras-shortest-path">&para;</a></h3>
+<ul>
+<li>Maintain a set of explored nodes <span>$S$</span>, which have a shortest path from <span>$s$</span> to all nodes <span>$u$</span></li>
+<li>Initialize <span>$S = \{s\}$</span></li>
+<li>Repeatedly greedily choose the shortest available path to an unexplored node, until all nodes are explored</li>
+<li><span>$O(E + V\log|V|)$</span></li>
+</ul>
+<h4 class="header"><i>4.5.1</i>Implementation<a class="headerlink" href="#implementation" name="implementation">&para;</a></h4>
+<ul>
+<li>maintain <span>$d(v) = min(d(u) + l_e)$</span>, st <span>$l_e$</span> is an edge <span>$(u, v)$</span></li>
+<li>sort new nodes by <span>$d(v)$</span></li>
+</ul>
+<h3 class="header"><i>4.6</i>Minimum Spanning Tree<a class="headerlink" href="#minimum-spanning-tree" name="minimum-spanning-tree">&para;</a></h3>
+<p>Given a connected graph with real value edge waits, the MST is the subset of edges touching all vertices such that the sum of edge weights is minimized. </p>
+<ul>
+<li>where <span>$n$</span> is the number of vertices in the <ul>
+<li>Any MST has to have <span>$n-1$</span> edges  </li>
+<li>There are <span>$n^{n-2}$</span> spanning trees</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>4.6.1</i>Kruskal's Algorithm<a class="headerlink" href="#kruskals-algorithm" name="kruskals-algorithm">&para;</a></h4>
+<h5 class="header"><i>4.6.1.1</i>Algorithm<a class="headerlink" href="#algorithm_2" name="algorithm_2">&para;</a></h5>
+<ol>
+<li>Sort edges by increasing weight, start with MST <span>$T = \{0\}$</span></li>
+<li>Try inserting edge <span>$e$</span> with lowest weight<ol>
+<li>if <span>$e$</span> creates a cycle, remove</li>
+<li>repeat until <span>$n-1$</span> edges in graph</li>
+</ol>
+</li>
+</ol>
+<h5 class="header"><i>4.6.1.2</i>Runtime<a class="headerlink" href="#runtime_1" name="runtime_1">&para;</a></h5>
+<p><span>$O(E\log E)$</span><br />
+1. Comparison Sort for edges<br />
+2. Use Union Find Data Strucutre to create tree, requires <span>$O(v)$</span> operations</p>
+<h4 class="header"><i>4.6.2</i>Reverse-Delete Algorithm<a class="headerlink" href="#reverse-delete-algorithm" name="reverse-delete-algorithm">&para;</a></h4>
+<h5 class="header"><i>4.6.2.1</i>Algorithm<a class="headerlink" href="#algorithm_3" name="algorithm_3">&para;</a></h5>
+<ol>
+<li>Sort edges by decreasing weight, Start with MST <span>$T = \{E\}$</span> (all edges)</li>
+<li>Try deleting edge <span>$e$</span> with highest weight<ol>
+<li>if removing <span>$e$</span> disconnects graph, add it back</li>
+<li>repeat until <span>$n-1$</span> edges in graph</li>
+</ol>
+</li>
+</ol>
+<h5 class="header"><i>4.6.2.2</i>Runtime<a class="headerlink" href="#runtime_2" name="runtime_2">&para;</a></h5>
+<p><span>$ O(E \log V (\log \log V)^3) $</span><br />
+<em> Comparison Sort for edges<br />
+</em> E iterations of loop<br />
+    * delete in <span>$O(1)$</span><br />
+    * connectivity takes <span>$O(\log V (\log \log V)^3) $</span></p>
+<h4 class="header"><i>4.6.3</i>Prim's Algorithm<a class="headerlink" href="#prims-algorithm" name="prims-algorithm">&para;</a></h4>
+<h5 class="header"><i>4.6.3.1</i>Algorithm<a class="headerlink" href="#algorithm_4" name="algorithm_4">&para;</a></h5>
+<ol>
+<li>Start with <span>$T = \{v\}$</span> (some random vertex)</li>
+<li>Add the edge with lowest weight which doesn't have an end point in <span>$T$</span></li>
+</ol>
+<h5 class="header"><i>4.6.3.2</i>Runtime<a class="headerlink" href="#runtime_3" name="runtime_3">&para;</a></h5>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th class="left-align">Minimum edge weight data structure</th>
+<th class="right-align">Time complexity (total)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left-align">adjacency matrix, searching</td>
+<td class="right-align">$O(</td>
+</tr>
+<tr>
+<td class="left-align">binary heap and adjacency list</td>
+<td class="right-align">$O((</td>
+</tr>
+<tr>
+<td class="left-align">Fibonacci heap and adjacency list</td>
+<td class="right-align">$O(</td>
+</tr>
+</tbody>
+</table>
+<p>Time is bottle necked by lookup time</p>
+<h3 class="header"><i>4.7</i>Union Find / Disjoint Dataset<a class="headerlink" href="#union-find-disjoint-dataset" name="union-find-disjoint-dataset">&para;</a></h3>
+<dl>
+<dt>Functions</dt>
+<dd><code>MakeSet(x)</code> creates a set with only element <code>x</code><br />
+<code>Find(x)</code> returns a number representing an elements location in the data structure<br />
+<code>Union(x, y)</code> merges the sets containing <code>x</code> and <code>y</code> into a new set with one representative number</dd>
+</dl>
+<h4 class="header"><i>4.7.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Let's start with <span>$\{ \{1\}, \{2\}, \{3\}, \{4\}, \{5\}\}$</span>. <br />
+Calling <code>union(1, 2)</code> results in <span>$\{ \{1, 2\}, \{3\}, \{4\}, \{5\}\}$</span>. In this state, <code>find(2) =&gt; 1</code> <br />
+Calling <code>union(2, 3)</code>, <code>union(4, 5)</code> results in <span>$\{ \{1, 2, 3\}, \{4, 5\}\}$</span>. </p>
+<h4 class="header"><i>4.7.2</i>Implementation<a class="headerlink" href="#implementation_1" name="implementation_1">&para;</a></h4>
+<p>Imagine an array of Linked Lists. Initially, each element is in it's own index. But as <code>union()</code> is called, an element can be moved to another linked list, and its array index will point to the new array location.</p>
+<h4 class="header"><i>4.7.3</i>Iterative Find(x)<a class="headerlink" href="#iterative-findx" name="iterative-findx">&para;</a></h4>
+<div class="codehilite"><pre>Find(x):
+r = x
+while r =! r.parent:
+    r = r.parent
+while x =! x.parent:
+    x = x.parent
+    x.parent = r.parent
+return x
+</pre></div>
+
+
+<p>&lt;div id="pagebreak"&gt;&lt;/div&gt;</p>
+<h2 class="header"><i>5</i>Dynamic Programming<a class="headerlink" href="#dynamic-programming" name="dynamic-programming">&para;</a></h2>
+<ul>
+<li>Break problem into set of overlapping subproblems</li>
+<li>Use recursive strategy with memoization</li>
+</ul>
+<p>Recipe:</p>
+<ol>
+<li>Characterize the structure of a problem</li>
+<li>Recursively determine the value of an optimal solution</li>
+<li>Compute value of optimal solution</li>
+<li>Use the value to find the solution</li>
+</ol>
+<p>Techniques</p>
+<ol>
+<li>Binary Choice (weighted interval)</li>
+<li>Multi-way choice (segmented squares)</li>
+<li>Intervals (RNA Secondary Structure)</li>
+</ol>
+<h3 class="header"><i>5.1</i>Weighted Interval Scheduling<a class="headerlink" href="#weighted-interval-scheduling" name="weighted-interval-scheduling">&para;</a></h3>
+<ul>
+<li>Maximize weight of set of jobs<ul>
+<li>Greedy algorithm has all weights equal to 1</li>
+</ul>
+</li>
+<li>sort jobs by finish time st <span>$f_1 \lt f_2 \lt ... \lt f_n$</span></li>
+<li><code>p(j)</code> = returns largest index <span>$i&lt;j$</span> st <span>$i$</span> and <span>$j$</span> are compatible <ul>
+<li><code>p(j)</code> can be done in linear time</li>
+<li>lets us know all jobs <span>$[1, i]$</span> are compatible with j</li>
+</ul>
+</li>
+<li>lets make <code>OPT(j)</code> which returns the maximum weighted schedule </li>
+</ul>
+<dl>
+<dt>Case 1</dt>
+<dd>job <span>$j$</span> is selected<br />
+jobs <span>$[p(j)+1, j-1]$</span> are not in the solution</dd>
+<dt>Case 2</dt>
+<dd>jobs <span>$j$</span> isn't selected<br />
+must include optimal solution of jobs <span>$[1, j-1]$</span>, or it's the same as <code>OPT(j-1)</code></dd>
+</dl>
+<h4 class="header"><i>5.1.1</i>Brute Force<a class="headerlink" href="#brute-force_2" name="brute-force_2">&para;</a></h4>
+<p>returns maximum weight:</p>
+<div class="codehilite"><pre>OPT(j)
+    if (j == 0)
+        return 0
+    else
+        return max(j + Opt(p(j)), Opt(j-1))
+</pre></div>
+
+
+<p>But this is <span>$O(2^n)$</span> because of redundant recursive calls</p>
+<h4 class="header"><i>5.1.2</i>Memoization<a class="headerlink" href="#memoization" name="memoization">&para;</a></h4>
+<p>instead of repeated calculation, store the result in an array</p>
+<div class="codehilite"><pre><span class="n">M</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">)]</span>
+
+<span class="n">M</span><span class="o">-</span><span class="n">OPT</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="ow">is</span> <span class="n">empty</span><span class="p">)</span> 
+        <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">M</span><span class="o">-</span><span class="n">OPT</span><span class="p">(</span><span class="n">p</span><span class="p">(</span><span class="n">j</span><span class="p">)),</span> <span class="n">M</span><span class="o">-</span><span class="n">OPT</span><span class="p">(</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> 
+    <span class="k">return</span> <span class="n">M</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+</pre></div>
+
+
+<p><code>M-OPT</code> must take <span>$n$</span> time since it either takes constant time, or recursively calls itself. If every potential recursive call is made, the algorithm will require <span>$2n$</span> calls</p>
+<p>So <span>$O(n)$</span> is jobs are presorted by start and finish times (requires <span>$O(n\log n)$</span></p>
+<p>But this only returns the maximum weight of the schedule, not the actual schedule</p>
+<p>Can also unwind the recursion, and make an iterative algorithm</p>
+<h3 class="header"><i>5.2</i>Shortest Path<a class="headerlink" href="#shortest-path" name="shortest-path">&para;</a></h3>
+<ul>
+<li>An alternative to Djikstra's Algorithm</li>
+<li>Allows for negative weighted edges<ul>
+<li>eg. profits from decisions </li>
+</ul>
+</li>
+<li>Djikstra's algorithm doesn't work with negative edges</li>
+<li>No shortest path if negative cost cycle<ul>
+<li>allows for the cost to reduced by going around cycle n times</li>
+<li>involves a cycle with a cost less than zero</li>
+</ul>
+</li>
+<li>Shortest path can't contain cycle<ul>
+<li>If positive weight, there is no point</li>
+<li>if negative weight, you would go around it repeatedly</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>5.2.1</i>Dynamic - Bellman-Ford<a class="headerlink" href="#dynamic-bellman-ford" name="dynamic-bellman-ford">&para;</a></h4>
+<p><code>OPT(i, v)</code> returns shortest path <span>$(v, t)$</span> using at most <span>$i$</span> edges</p>
+<dl>
+<dt>Case 1</dt>
+<dd>P uses at most <span>$i-1$</span> edges<br />
+<code>OPT(i, v) = OPT(i-1, v)</code></dd>
+<dt>Case 2</dt>
+<dd>P uses <span>$i$</span> edges<br />
+say <span>$(v, w)$</span> is the first edge, <code>OPT</code> uses <span>$(v,w)$</span> and selects best path from <span>$w \to t$</span></dd>
+</dl>
+<p><span>$$
+OPT(i, v) = 
+\begin{cases}
+0, i=0\\
+\min (OPT(i, v),\ OPT(i-1, w)),i\ne0
+\end{cases}
+$$</span></p>
+<h4 class="header"><i>5.2.2</i>Implementation<a class="headerlink" href="#implementation_2" name="implementation_2">&para;</a></h4>
+<div class="codehilite"><pre>Shortest-Path(G, t) {
+ foreach node v ∈ V
+ M[0,v] ← ∞
+ M[0,t] ← 0
+ for i = 1 to n-1
+     foreach node v ∈ V
+ M[i, v] ← M[i-1,v]
+     foreach edge (u, w) ∈ E
+ M[i, u] ← min { M[i,u], M[i-1,w] + cuw }
+}
+</pre></div>
+
+
+<ul>
+<li>Worst Case running time : <span>$$O(nm)$$</span> </li>
+<li>But usually is substantially faster in practice.</li>
+</ul>
+<h4 class="header"><i>5.2.3</i>Practical Improvements<a class="headerlink" href="#practical-improvements" name="practical-improvements">&para;</a></h4>
+<ul>
+<li>just use one array, maintaining shortest path from <span>$v \to t$</span></li>
+<li>only update edges if distance has changed in a previous iteration</li>
+</ul>
+<h4 class="header"><i>5.2.4</i>Detect Negative Cycles<a class="headerlink" href="#detect-negative-cycles" name="detect-negative-cycles">&para;</a></h4>
+<ul>
+<li>add a node <span>$t$</span>, connected to all nodes with weight one</li>
+<li>if a path of length <code>OPT(n) = OPT(n-1)</code>, there are no negative cycles</li>
+</ul>
+<h3 class="header"><i>5.3</i>Segmented Least Squares<a class="headerlink" href="#segmented-least-squares" name="segmented-least-squares">&para;</a></h3>
+<ul>
+<li>points roughly lie on line segments</li>
+<li>order by x st:<ul>
+<li>minimizes squared errors in line segments (<span>$e$</span>)</li>
+<li>minimize the number of lines (<span>$L$</span>)</li>
+</ul>
+</li>
+<li>must trade-off between lines and errors (<span>$c$</span>)</li>
+</ul>
+<h4 class="header"><i>5.3.1</i>Dynamic Algorithm<a class="headerlink" href="#dynamic-algorithm" name="dynamic-algorithm">&para;</a></h4>
+<p><span>$$
+OPT(j) = 
+\begin{cases}
+0, j=0\\
+\min\{e(i, j) + c + OPT(i-1)\}, j \ne 0
+\end{cases}
+$$</span></p>
+<p>min for all <span>$i\in [1, j]$</span></p>
+<h3 class="header"><i>5.4</i>String Similarity<a class="headerlink" href="#string-similarity" name="string-similarity">&para;</a></h3>
+<p>Given two strings, <code>X = [x1, ..., xn]</code> and <code>Y = [y1, ..., yn]</code>, find the allignment such that they match the most. How much they 'match' is determined by minimizing the cost.</p>
+<p>Here, an index is mismatched if <code>x[i] != y[i]</code>, and is unmatched if <code>x[i] = NULL</code></p>
+<p><span>$$\mathscr{cost} = \sum_{\mathscr{mismatched}} a_{x_i, y_i}+\sum_{\mathscr{unmatched}}x_i+\sum_{\mathscr{unmatched}}y_i$$</span></p>
+<p>Calculating the optimal matching:</p>
+<ol>
+<li>Match (<code>x[i] = y[j]</code>)<ul>
+<li>cost to align <code>x[i], y[j]</code> + min cost of remainder</li>
+</ul>
+</li>
+<li>No Match  (<code>x[i] != y[j]</code>)<ol>
+<li>Leave <code>x[i]</code> unmatched<ul>
+<li>cost of gap + min cost of remainder</li>
+</ul>
+</li>
+<li>Leave <code>y[i]</code> unmatched<ul>
+<li>cost of gap + min cost of remainder<br />
+&lt;div id="pagebreak"&gt;&lt;/div&gt;</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 class="header"><i>6</i>Network Flow<a class="headerlink" href="#network-flow" name="network-flow">&para;</a></h2>
+<p>Find maximum flow of graph<br />
+Very similar to smallest <em>cut</em> in a graph</p>
+<h3 class="header"><i>6.1</i>Min Cut and Max Flow<a class="headerlink" href="#min-cut-and-max-flow" name="min-cut-and-max-flow">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Minimum Cut<a class="headerlink" href="#minimum-cut" name="minimum-cut">&para;</a></h4>
+<dl>
+<dt>Assume</dt>
+<dd>unidirectional edges<br />
+each edge has a capacity <code>c(e)</code><br />
+nodes trying to relate <span>$s$</span> and <span>$t$</span>  </dd>
+</dl>
+<ul>
+<li>net material flowing through pipes</li>
+<li>capacity of a cut is the sum of capacities of edges exiting the cut</li>
+<li><span>$st$</span> cut, such that each one cut has <span>$s$</span> and the other has <span>$t$</span> </li>
+</ul>
+<h4 class="header"><i>6.1.2</i>Flows<a class="headerlink" href="#flows" name="flows">&para;</a></h4>
+<p>add parameters to a node such that:</p>
+<ul>
+<li><span>$0 \le f(e) \le c(e)$</span> for each edge</li>
+<li><span>$\sum_{e_{in}\in v} f(e) = \sum_{e_{out}\in v} f(e) $</span> for each node</li>
+</ul>
+<p>but how do you find a maximum flow?</p>
+<h4 class="header"><i>6.1.3</i>Relating Flow and Cut<a class="headerlink" href="#relating-flow-and-cut" name="relating-flow-and-cut">&para;</a></h4>
+<ul>
+<li>flow out of a cut equals the flow out of a node</li>
+<li>a minimum cut:<ul>
+<li>has incoming edges with flow 0</li>
+<li>and outgoing edges with a flow at full capacity</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>6.2</i>Algorithm<a class="headerlink" href="#algorithm_5" name="algorithm_5">&para;</a></h3>
+<h4 class="header"><i>6.2.1</i>Residual Graph<a class="headerlink" href="#residual-graph" name="residual-graph">&para;</a></h4>
+<p>edge <span>$ e = (u, v) \in E$</span><br />
+functions <code>Flow(e), Capacity(e)</code></p>
+<h5 class="header"><i>6.2.1.1</i>Residual Edge<a class="headerlink" href="#residual-edge" name="residual-edge">&para;</a></h5>
+<ul>
+<li>undo flow sent</li>
+<li>so <span>$e = (u, v)$</span> and <span>$e^R = (v, u)$</span><br />
+*<span>$c_f(e)$</span> is residual capacity </li>
+<li><span>$c_f(e) = \begin{cases}c(e) - f(e), if e\in E\\ f(e), if e^R \in E \end{cases}$</span></li>
+</ul>
+<p>So Residual graph is all residual edges with positive capacity</p>
+<h4 class="header"><i>6.2.2</i>Ford-Fulkerson Algorithm<a class="headerlink" href="#ford-fulkerson-algorithm" name="ford-fulkerson-algorithm">&para;</a></h4>
+<ol>
+<li>While <span>$\exists$</span> a path from <span>$s$</span> to <span>$t$</span><ol>
+<li>Find a valid path with DFS</li>
+<li>Find lowest capacity edge in the path and augemnt that path<ul>
+<li>Lower flow in the path by the lowest capacity</li>
+<li>Add residual edges going in the opposite direction</li>
+</ul>
+</li>
+<li>Add the ammount to the total flow</li>
+</ol>
+</li>
+<li>return total flow</li>
+</ol>
+<p>DFS takes <span>$O(|E|)$</span> and we have to execute it at worst case <span>$f$</span> times, so runtime of <span>$O(f|E|)$</span></p>
+<p>In each step of the iteration, the residual edge is a valid path for teh flow to take.</p>
+<h4 class="header"><i>6.2.3</i>Capacity Scaling<a class="headerlink" href="#capacity-scaling" name="capacity-scaling">&para;</a></h4>
+<p>Choosing a path with the highest bottleneck increases the flow by the maximum possible amount. However, finding the path with highest bottleneck is difficult. Instead, we use a scaling parameter <span>$\Delta$</span> and use a subgraph <span>$G_f(\Delta)$</span> which contains arcs with capacity of atleast <span>$\Delta$</span>. Then, keep adding such a path <span>$\Delta$</span>, and then update <span>$G_f$</span>. After there are no more paths, halve <span>$\Delta$</span>.</p>
+<h5 class="header"><i>6.2.3.1</i>Capacity Scaling Algorithm<a class="headerlink" href="#capacity-scaling-algorithm" name="capacity-scaling-algorithm">&para;</a></h5>
+<ol>
+<li>set flow of all edges to 0</li>
+<li>find the largest <span>$\Delta = 2^k$</span> with a existent path</li>
+<li>Make a residual graph <span>$G_f$</span></li>
+<li>while <span>$\Delta \ge 1$</span>:<ol>
+<li>Find <span>$G_f(\Delta)$</span>  </li>
+<li>while there is a path in <span>$G_f$</span><ol>
+<li>f = augment(f, k, P)</li>
+<li>update <span>$G_f$</span></li>
+</ol>
+</li>
+<li>halve <span>$\Delta$</span></li>
+</ol>
+</li>
+<li>return f</li>
+</ol>
+<h5 class="header"><i>6.2.3.2</i>Runtime<a class="headerlink" href="#runtime_4" name="runtime_4">&para;</a></h5>
+<ol>
+<li>After processing a value at <span>$\Delta$</span> , the maximum flow <span>$f$</span> is off by at most <span>$m\Delta$</span></li>
+<li>There can be at most <span>$2m$</span> augmentations per phasing</li>
+<li>The scaling max-flow algorithm finds a flow in at most <span>$O(m\log C)$</span> and the overall flow can be found in <span>$O(m^2 \log C)$</span>.</li>
+</ol>
+<h2 class="header"><i>7</i>Applications of Max Flow / Min Cut<a class="headerlink" href="#applications-of-max-flow-min-cut" name="applications-of-max-flow-min-cut">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Bipartite Matching<a class="headerlink" href="#bipartite-matching" name="bipartite-matching">&para;</a></h3>
+<p>can be done as Network Flow</p>
+<dl>
+<dt>Matching</dt>
+<dd><span>$M \subseteq E$</span> if each node appears at the end of at most one edge in <span>$M$</span></dd>
+</dl>
+<p>Bipartite Matching is matching in a Bipartite Graph</p>
+<ol>
+<li>add node <span>$s$</span> and <span>$t$</span> to a bipartite graph </li>
+<li>add edges from <span>$s$</span> to all nodes on one side of Bipartite Graph</li>
+<li>add edges from <span>$t$</span> to all nodes on the other side of the Graph</li>
+<li>Give all edges flow 1, and find max flow</li>
+</ol>
+<h3 class="header"><i>7.2</i>Edge Disjoint Paths<a class="headerlink" href="#edge-disjoint-paths" name="edge-disjoint-paths">&para;</a></h3>
+<p>Paths between <span>$s, t$</span> such that there are no shared edges<br />
+Give all edges a weight of 1<br />
+Max Edge Disjoint paths equals the maximum flow value</p>
+<h3 class="header"><i>7.3</i>Baseball Elimination<a class="headerlink" href="#baseball-elimination" name="baseball-elimination">&para;</a></h3>
+<ul>
+<li>starting node <span>$s$</span></li>
+<li>game nodes <span>$(team\ 1, team\ 2), ..., (team\ x, team\ y )$</span></li>
+<li>team nodes</li>
+<li>end node <span>$t$</span></li>
+</ul>
+<p>Can team 3 finish with the most wins?</p>
+<ol>
+<li>Assume team 3 wins all remaining games</li>
+<li>This implies all other teams have lost all games with team 3</li>
+<li>Remove all game nodes involving team 3</li>
+<li>Remove team node 3</li>
+<li>Set initial flow from <span>$s$</span> to e the number of games left between teams</li>
+</ol>
+<p>The total number of games left to be played, is the total capacity of the system. All these games must be won by <br />
+someone other than team 3. </p>
+<p>We want the max flow to equal this value, but no team has more wins than team 3 can have in the best case. So all edges leaving the source must be saturated</p>
+<h2 class="header"><i>8</i>Randomization<a class="headerlink" href="#randomization" name="randomization">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Symmetry Breaking<a class="headerlink" href="#symmetry-breaking" name="symmetry-breaking">&para;</a></h3>
+<ul>
+<li>Say we have <span>$n$</span> processes, <span>$\{P_1, ..., P_n\}$</span>, all trying to access a database</li>
+<li>Only 1 can enter the database at a time</li>
+<li>want fairness in how the database is shared</li>
+<li>Processes can't communicate</li>
+</ul>
+<h4 class="header"><i>8.1.1</i>Implementation<a class="headerlink" href="#implementation_3" name="implementation_3">&para;</a></h4>
+<ul>
+<li>Each process request access with probability <span>$\frac{1}{n}$</span></li>
+<li>Let <code>S(i, t)</code> be the probability of <span>$P_i$</span> accessing the database at time t</li>
+<li><code>Pr[S(i, t)]</code> = <span>$p \times (1-p)^{n-1} = \frac{1}{n} \times (1-\frac{1}{n})^{n-1}$</span></li>
+<li><span>$ \lim_{n \to 2} = \frac{1}{2}$</span> and <span>$\lim_{n \to \infty} = \frac{1}{e}$</span></li>
+<li>so we have the bounds of the probability</li>
+</ul>
+<p>The probability that process <span>$i$</span> fails to access the database in <span>$en$</span> rounds is at most <span>$\frac{1}{e}$</span> and after <span>$en(c\ln n)$</span> rounds the probability is at most <span>$n^{-c}$</span></p>
+<p>The probability that all process succeed within <span>$2e n \ln n$</span> rounds is at least <span>$1-\frac{1}{n}$</span>.</p>
+<h3 class="header"><i>8.2</i>Global Min Cut<a class="headerlink" href="#global-min-cut" name="global-min-cut">&para;</a></h3>
+<ul>
+<li>find the smallest Min Cut in a graph i,e.cut <span>$(A,B)$</span> (Minimum number of edges connecting <span>$A$</span> &amp; <span>$B$</span>).</li>
+<li>you'd assume it's harder than the minimum <span>$s-t$</span> but, but it isn't</li>
+</ul>
+<h4 class="header"><i>8.2.1</i>Contradiction Algorithm<a class="headerlink" href="#contradiction-algorithm" name="contradiction-algorithm">&para;</a></h4>
+<ol>
+<li>Pick an edge <span>$e =(u,v)$</span> uniformly at random</li>
+<li>Contract edge <span>$e$</span><ul>
+<li>replace <span>$u, v$</span> with a super-node <span>$w$</span></li>
+<li>preserve edges, but update endpoints to be <span>$w$</span></li>
+<li>remove internal edges, but combine parallel edges</li>
+</ul>
+</li>
+<li>Repeat until there are just two nodes, <span>$w_1, w_2$</span></li>
+<li>The cut is all the nodes contracted to form <span>$w_1$</span></li>
+</ol>
+<h4 class="header"><i>8.2.2</i>Runtime<a class="headerlink" href="#runtime_5" name="runtime_5">&para;</a></h4>
+<p>A randomized algorithm just has a high probability of returning a mincut. In this case it returns a mincut with <span>$\frac{2}{n^2}$</span>. To increase the chance of an answer, repeat the algorithm many times.<br />
+Since the probability of finding a solution is <span>$\frac{2}{n^2}$</span>, the probability of not finding it is <span>$1-\frac{2}{n^2}$</span>. This results in a failure to find the global min cut after <span>$n^2\ln n$</span> iterations of <span>$\frac{1}{n^2}$</span>.</p>
+<h3 class="header"><i>8.3</i>Linearity of Expectation<a class="headerlink" href="#linearity-of-expectation" name="linearity-of-expectation">&para;</a></h3>
+<p><strong>Useful property:</strong> if <span>$X$</span> is a <span>$0/1$</span> random variable the expectation of <span>$X$</span> is <span>$E[X] = Pr[X=1]$</span>.</p>
+<h4 class="header"><i>8.3.1</i>Guessing Cards<a class="headerlink" href="#guessing-cards" name="guessing-cards">&para;</a></h4>
+<ul>
+<li>Without memory the expected number of correct guesses is 1.</li>
+<li>With memory the the number of correct guesses is <span>$\Theta(\log n)$</span></li>
+</ul>
+<h4 class="header"><i>8.3.2</i>Coupon Collector<a class="headerlink" href="#coupon-collector" name="coupon-collector">&para;</a></h4>
+<ul>
+<li>The expected number of steps is <span>$\Theta(n \log n)$</span> for <span>$n$</span> different types of coupons and uniform distribution.</li>
+</ul>
+<h3 class="header"><i>8.4</i>Randomized Divide and Conquer (Quicksort)<a class="headerlink" href="#randomized-divide-and-conquer-quicksort" name="randomized-divide-and-conquer-quicksort">&para;</a></h3>
+<ul>
+<li>Randomization protects against worst case by choosing pivot at random.</li>
+</ul>
+<p><strong>Expected Number of Comparisons:</strong><br />
+<span>$$q_n = 2n\ln n - (4- 2(.577))n + 2\ln n + O(1)$$</span></p>
+<h3 class="header"><i>8.5</i>Hashing<a class="headerlink" href="#hashing" name="hashing">&para;</a></h3>
+<ul>
+<li>use a prime number with an order about equal to the size of the table</li>
+<li>identify each element with a number</li>
+</ul>
+<h4 class="header"><i>8.5.1</i>Universal Hashing<a class="headerlink" href="#universal-hashing" name="universal-hashing">&para;</a></h4>
+<p><span>$\newcommand{\H}{\mathscr{H}}$</span><br />
+We want to map a subset of a large universe <span>$U$</span>. It is large enough that we can't maintain an array. </p>
+<p>We want a function <span>$h: u \in U \to \{0, 1, ..., n-1\}$</span>, or a funtion which randomly maps values to an array of size <span>$n$</span>. From the birthday problem, a collision is expected fairly often. We want some degree of randomness, to prevent malicious input from harming computer.  </p>
+<p>A Universal family is defined such that a <span>$v \ne u$</span> and function <span>$h \in \H$</span> st <span>$\Pr_{h}[h(u)=h(v)]\le \frac{1}{n}$</span>. You want to compute <span>$h$</span> efficiently and select it at random efficiently. <br />
+To encode an integer, we can use:<br />
+<span>$$
+h_a(x) = \sum_{i=1}^{r} a_i x_i \mod p
+$$</span><br />
+with <span>$p$</span> being a prime, <span>$r$</span> the length of the integer, and <span>$0 \le a_i \lt p$</span>. This means we can say <span>$\H = \{h_a: a \in A\}$</span> is a universal family.</p>
+<h4 class="header"><i>8.5.2</i>K-Universal Hashing<a class="headerlink" href="#k-universal-hashing" name="k-universal-hashing">&para;</a></h4>
+<p>You want to ensure that when hashing <span>$k$</span> keys, the chances of <span>$h(x_1) = y_1, ..., h(x_k) = y_k = \frac{1}{n^k}$</span>, in addition to the qualifications for a universal hashing function. Basically, you want to ensure that two different keys have a low chance of colliding (condition 1) and repeatedly hashing to the same value (condition 2).</p>
+<p>You can try to use all <span>$h \in \H$</span> and write down the outputs. Now, you must make sure that the chances of <span>$h(x_1) = y_1, ..., h(x_k) = y_k = \frac{1}{n^k}$</span>.</p>
+<h3 class="header"><i>8.6</i>Monte Carlo vs Las Vegas Algorithms<a class="headerlink" href="#monte-carlo-vs-las-vegas-algorithms" name="monte-carlo-vs-las-vegas-algorithms">&para;</a></h3>
+<p><strong>Monte Carlo Algorithm:</strong> Guaranteed to run in poly-time, likely to find correct answer.<br />
+* Ex) Contraction Algorithm for global min cut</p>
+<p><strong>Las Vegas Algorithm:</strong><br />
+Guaranteed to find correct answer, likely yo run in poly-time.<br />
+* Ex) Randomized Quicksort</p>
+<p><strong>Note:</strong><br />
+Can always convert a Las Vegas Algo into Monte Carlo, but no known method for reverse.</p>
+<h2 class="header"><i>9</i>Linear Sorting<a class="headerlink" href="#linear-sorting" name="linear-sorting">&para;</a></h2>
+<ul>
+<li>Numbers bounded by <span>$k$</span></li>
+<li>Counting sort, <span>$O(n)$</span> if <span>$k$</span> is <span>$O(n)$</span></li>
+<li>Stable sorts -Preserve order</li>
+<li>Radix Sort, <span>$O(n)$</span> if <span>$k$</span> is <span>$O(n^c)$</span>.</li>
+</ul>
+<p><strong>Counting sort</strong>:<br />
+" Its running time is linear in the number of items and the difference between the maximum and minimum key values, so it is only suitable for direct use in situations where the variation in keys is not significantly greater than the number of items."</p>
+<div class="codehilite"><pre><span class="c"># variables:</span>
+<span class="c">#   input -- the array of items to be sorted; key(x) returns the key for item x</span>
+<span class="c">#    n -- the length of the input</span>
+<span class="c">#    k -- a number such that all keys are in the range 0..k-1</span>
+<span class="c">#    count -- an array of numbers, with indexes 0..k-1, initially all zero</span>
+<span class="c">#    output -- an array of items, with indexes 0..n-1</span>
+<span class="c">#    x -- an individual input item, used within the algorithm</span>
+<span class="c">#    total, oldCount, i -- numbers used within the algorithm</span>
+
+<span class="c"># calculate the histogram of key frequencies:</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+    <span class="n">count</span><span class="p">[</span><span class="n">key</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="c"># calculate the starting index for each key:</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>   <span class="c"># i = 0, 1, ... k-1</span>
+    <span class="n">oldCount</span> <span class="o">=</span> <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">count</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">total</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">oldCount</span>
+
+<span class="c"># copy to output array, preserving order of inputs with equal keys:</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">input</span><span class="p">:</span>
+    <span class="n">output</span><span class="p">[</span><span class="n">count</span><span class="p">[</span><span class="n">key</span><span class="p">(</span><span class="n">x</span><span class="p">)]]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">count</span><span class="p">[</span><span class="n">key</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="k">return</span> <span class="n">output</span>
+</pre></div>
+
+
+<p><strong>Radix sort:</strong> Implements a version of counting sort.</p>
+<h2 class="header"><i>10</i>Red-Black Trees<a class="headerlink" href="#red-black-trees" name="red-black-trees">&para;</a></h2>
+<ol>
+<li>A self-balancing binary search tree<ul>
+<li>Every node is either <code>red</code> or <code>black</code></li>
+<li>The root is always <code>black</code></li>
+<li>The botom row is all <code>black</code> leafs with value <code>Null</code></li>
+<li>A <code>red</code> node must have <strong>two</strong> <code>black</code> children</li>
+</ul>
+</li>
+<li>Height of a red-black tree<ul>
+<li>Height of a node is the number of edges in a longest path to a leaf.</li>
+<li>Black-height of a node <span>$x: bh(x)$</span> is the number of <code>black</code> nodes (including <code>Null</code>) on the path from <span>$x$</span> to leaf, not counting <span>$x$</span>. Black-height is well defined.</li>
+<li>Any node with height <span>$h$</span> has black-height <span>$\geq \frac{h}{2}$</span>.</li>
+<li>The subtree rooted at any node <span>$x$</span> contains <span>$\geq 2^{bh(x)} -1$</span> internal nodes.</li>
+<li>A red-black tree with <span>$n$</span> nodes has height <span>$\leq 2\lg(n+1)$</span>.</li>
+</ul>
+</li>
+<li>Insertion<ul>
+<li>on insertion you want to maintain the balance of the tree</li>
+<li>involves right and left rotation</li>
+<li>it takes <span>$O(1)$</span> time to rearrange the pointers via rotations, but <span>$O(n)$</span> time to recolor the tree</li>
+<li></li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>11</i>Overview<a class="headerlink" href="#overview" name="overview">&para;</a></h2>
+<ol>
+<li>2 Questions about Algorithms<ol>
+<li>Analyze Runtime </li>
+<li>Presumably Dynamic and Max Flow / Min Cut</li>
+</ol>
+</li>
+<li>Divide and Conquer<ol>
+<li>No Matrix Multiplication</li>
+<li>Effect of Parameters to Runtime</li>
+<li>Master Method</li>
+</ol>
+</li>
+<li>Graphs<ol>
+<li>Breadth First Search</li>
+<li>No DAG</li>
+</ol>
+</li>
+<li>Greedy Algorithms<ol>
+<li>Djikstra's Algorithm</li>
+<li>Minimum Spanning Tree</li>
+</ol>
+</li>
+<li>Dynamic<ol>
+<li>Can't use dynamic for most recursive algorithms<ol>
+<li>Often easier to iteratively solve problem</li>
+</ol>
+</li>
+<li>Expect a question</li>
+</ol>
+</li>
+<li>Flow<ol>
+<li>Ford Fulkerson</li>
+<li>Capacity Scaling</li>
+<li>Runtime and Comparison</li>
+</ol>
+</li>
+<li>Randomized Algorithm<ol>
+<li>Randomized Quicksort</li>
+<li>Hashing and Expected Collisions</li>
+</ol>
+</li>
+</ol>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Assorted notes on important concepts
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Assorted notes on important concepts
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>I'm writing these notes while going through the book (Calculus of Several Variables by Adams). I'm including some notes from class as well. These notes are a method of study for me, but hopefully others find them useful as well. I've tried to make them as clear as possible, adding some insights that have helped my intuition while working through the course. There may be a bit of extraneous information in order to give some relevant background for the material too - I'll try to point out material that isn't <em>necessary</em> for the course, but helpful nonetheless.</p>
+<p>I'm not covering the basics of partial differentiation (the principle of holding variables besides the variable of differentiation constant, etc) but the notes begin with the chain rule for multiple variables.</p>
+<p>If you see any corrections that need to be made, or anything important that I've omitted, feel free to make an account (it's easy) and edit as you feel fit. If you'd like to contact me about these notes my McGill email is matthew.wetmore.</p>
+<div class="toc">
+<ul>
+<li><a href="#the-chain-rule">1 The chain rule</a><ul>
+<li><a href="#the-chain-rule-and-function-composition-calc-1-review">1.1 The chain rule and function composition (Calc 1 review)</a></li>
+<li><a href="#multi-variable-chain-rule">1.2 Multi-variable chain rule</a></li>
+<li><a href="#function-dependency-tree">1.3 Function-dependency tree</a></li>
+</ul>
+</li>
+<li><a href="#functions-from-n-space-to-m-space">2 Functions from n-space to m-space</a><ul>
+<li><a href="#motivation">2.1 Motivation</a></li>
+<li><a href="#jacobian-matrix">2.2 Jacobian matrix</a></li>
+</ul>
+</li>
+<li><a href="#gradient-in-2-dimensions">3 Gradient in 2 dimensions</a><ul>
+<li><a href="#directional-derivative">3.1 Directional derivative</a></li>
+<li><a href="#geometric-properties-of-gradient-and-directional-derivative">3.2 Geometric properties of gradient and directional derivative</a></li>
+</ul>
+</li>
+<li><a href="#gradient-in-3-dimensions">4 Gradient in 3+ dimensions</a></li>
+<li><a href="#implicit-functions">5 Implicit functions</a><ul>
+<li><a href="#notes-on-notation">5.1 Notes on notation</a></li>
+<li><a href="#jacobian-determinant">5.2 Jacobian determinant</a></li>
+</ul>
+</li>
+<li><a href="#extreme-value-problems">6 Extreme value problems</a></li>
+<li><a href="#lagrange-multipliers">7 Lagrange multipliers</a></li>
+<li><a href="#parametric-integrals">8 Parametric integrals</a></li>
+<li><a href="#multiple-integrals">9 Multiple integrals</a><ul>
+<li><a href="#iterated-integrals">9.1 Iterated integrals</a></li>
+<li><a href="#different-coordinate-systems">9.2 Different coordinate systems</a></li>
+</ul>
+</li>
+<li><a href="#vector-and-scalar-fields">10 Vector and scalar fields</a></li>
+<li><a href="#vector-calculus">11 Vector calculus</a><ul>
+<li><a href="#gradient-divergence-curl">11.1 Gradient, divergence, curl</a></li>
+<li><a href="#useful-identities">11.2 Useful identities</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The chain rule<a class="headerlink" href="#the-chain-rule" name="the-chain-rule">&para;</a></h2>
+<h3 class="header"><i>1.1</i>The chain rule and function composition (Calc 1 review)<a class="headerlink" href="#the-chain-rule-and-function-composition-calc-1-review" name="the-chain-rule-and-function-composition-calc-1-review">&para;</a></h3>
+<p>As you almost certainly remember from your earlier adventures in calculus, there is a specific procedure for differentiating <strong>compositions</strong> of functions. If you don't recognize the term composition, or you forget the notation, here is a quick review: </p>
+<p>Say we have two functions, <span>$f$</span> and <span>$g$</span>, both of a single variable. We can <em>compose</em> these functions by making one the parameter of the other - that is, by taking <span>$f(g(x))$</span>. There is a special notation for this (because math loves having notation for everything): we can write <span>$f(g(x))$</span> as <span>$(f \circ g)(x)$</span>. In this notation, the function to the right of the <span>$\circ$</span> is always the argument of the function to the left of the <span>$\circ$</span>. When we compose two functions, we are taking the results of the inner function and passing those results to the outer function. </p>
+<p>Function composition comes up all the time - the expression <span>$\sin(x^2)$</span> is the composition of the functions <span>$\sin x$</span> and <span>$x^2$</span>, for example. If <span>$f(x) = \sin x$</span> and <span>$g(x) = x^2$</span>, we can write it as <span>$f(g(x)) = (f \circ g)(x)$</span>. So naturally, we need to know how to differentiate compositions of functions, since they occur so often. The <strong>chain rule</strong> tells us how to do this - if <span>$z = f(u)$</span> and <span>$u = g(x)$</span>, we have <span>$z(x) = (f \circ g)(x)$</span>. Thus:</p>
+<p><span>$$
+\frac{dz}{dx} = f'(u) \cdot g'(x) = \frac{dz}{du} \cdot \frac{du}{dx}
+$$</span> </p>
+<h3 class="header"><i>1.2</i>Multi-variable chain rule<a class="headerlink" href="#multi-variable-chain-rule" name="multi-variable-chain-rule">&para;</a></h3>
+<p>Now let's extend this to functions of multiple variables. What if the inner function of the composition is a function of more than one variable? For example, what if our function <span>$g$</span> above is actually a function of more than one variable? Given <span>$z = f(u)$</span> and <span>$u = g(x,y)$</span>, we have <span>$z(x,y) = (f \circ g)(x,y)$</span>. We want the rate of change of the function <span>$f$</span> with respect to the independent variables <span>$x$</span> and <span>$y$</span>, so there are two partial derivatives we want. </p>
+<p>When we take a partial derivative of a function with respect to some variable (let's say <span>$x$</span>), we just differentiate using <span>$x$</span> as our variable of differentiation, counting all other variables as constant. Therefore, in this case we can use the same principle as the chain rule with one variable. So our partial derivatives are:</p>
+<p><span>$$
+\frac{dz}{dx} = f'(u) \cdot g_x(x,y) = \frac{dz}{du} \cdot \frac{du}{dx} \\
+\frac{dz}{dy} = f'(u) \cdot g_y(x,y) = \frac{dz}{du} \cdot \frac{du}{dy}
+$$</span></p>
+<p>More generally, if <span>$g$</span> is a function of <span>$n$</span> independent variables (so <span>$u = g(x_1, \ldots, x_n)$</span>), then:</p>
+<p><span>$$
+\frac{dz}{dx_k} = f'(u) \cdot g_k(x,y) = \frac{\partial z}{\partial u} \cdot \frac{\partial u}{\partial x_k}
+$$</span></p>
+<p>Where the notation <span>$g_k(x,y)$</span> means the derivative of <span>$g$</span> with respect to the <span>$k$</span>-th variable, <span>$x_k$</span>.</p>
+<p>This is a basic transition from the single-variable to the multi-variable case, so it doesn't take much thought. However, what if our outer function <span>$f$</span> is of multiple variables, each one a function of more independent variables? For instance, consider <span>$z = f(x, y)$</span> where <span>$x = x(t)$</span> and <span>$y = y(t)$</span> (both are functions of the independent variable <span>$t$</span>). We thus have <span>$z = f(x(t), y(t))$</span>, which is a more complex composition than before.</p>
+<p>If we want to find the rate of change of <span>$z$</span> with respect to <span>$t$</span>, the chain rule will be a bit trickier, but it's still pretty easy and follows from the same logic as before. Instead of just finding <span>$f'(x)$</span>, we need <span>$f_x(x,y)$</span> and <span>$f_y(x,y)$</span>. So where before we had <span>$f'(u) \cdot g'(x)$</span>, now we have <span>$f_x(x,y) \cdot x'(t)$</span> and <span>$f_y(x,y) \cdot y'(t)$</span>. An easier notation to remember is:</p>
+<p><span>$$
+\frac{dz}{dt} = \frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial t}
+$$</span></p>
+<p>So we've covered almost all cases of function compositions, but if you're observant you've probably noticed that we're missing a procedure to differentiate a function of multiple variables, each variable itself a function of multiple independent variables. That is, we don't know how to differentiate <span>$z = f(x(s,t), y(s,t))$</span>. Using what we've learned, the missing procedure should be pretty obvious - if we want the derivative of <span>$f$</span> with respect to <span>$s$</span>, we differentiate using the method above, holding <span>$t$</span> constant (by the rules of partial differentiation). The process is similar if we want the derivative of <span>$f$</span> with respect to <span>$t$</span>.</p>
+<p>Therefore:</p>
+<p><span>$$
+\frac{dz}{dt} = \frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial t} + \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial t} \\
+\frac{dz}{ds} = \frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial s} + \frac{\partial z}{\partial y} \cdot \frac{\partial y}{\partial s}
+$$</span></p>
+<p>Note: for the chain rule to apply, the partial derivatives that it requires <strong>must exist</strong>. In our problems, this is pretty much always the case.</p>
+<h3 class="header"><i>1.3</i>Function-dependency tree<a class="headerlink" href="#function-dependency-tree" name="function-dependency-tree">&para;</a></h3>
+<p>You may have noticed a pattern when applying the chain rule to functions of multiple variables - in each case, the resulting expression for the derivative is a sum of products of derivatives. Also, even though you can't cancel the numerators and denominators like you can with normal fractions - that is:</p>
+<p><span>$$
+\text{Even though } \frac{a}{b} \cdot \frac{b}{c} = \frac{a}{c}, \quad \frac{\partial z}{\partial x} \cdot \frac{\partial x}{\partial t} \neq \frac{\partial z}{\partial t}
+$$</span></p>
+<p>you might have noticed that if you <em>could</em> do that, each term in the application of the chain rule to obtain something like <span>$\partial z / \partial t$</span> would be <span>$\partial z / \partial t$</span>.</p>
+<p>These observations can help you verify that your application of the chain rule is correct. They are also encoded, in a way, by the following visualization of a function and the variables it depends on.</p>
+<p><img alt="Tree for f(x(s,t), y(s,t))" src="http://i.imgur.com/yQ84U.png" title="Tree for f(x(s,t), y(s,t))" /></p>
+<p>The above tree represents the function we worked with before, <span>$f(x(s,t), y(s,t))$</span>. Some quick terminology for trees: an <strong>edge</strong> is a link from one variable to another. In this diagram, an edge coming out of the bottom of a variable, and pointing to some other variable means the first variable depends on the second. So it's easy to see that <span>$x$</span> and <span>$y$</span> are dependent on the independent variables <span>$s$</span> and <span>$t$</span>. </p>
+<p>In order to find the derivative of the main function <span>$f$</span> with respect to one of the independent variables, we just need to follow every possible path from <span>$f$</span> to the independent variable in question. Remember how applying the chain rule to a function like this gives us the sum of some terms? Each term represents a path to the differentiation variable.</p>
+<p>This method of visualizing a function should make understanding the chain rule easier and more intuitive. </p>
+<h2 class="header"><i>2</i>Functions from n-space to m-space<a class="headerlink" href="#functions-from-n-space-to-m-space" name="functions-from-n-space-to-m-space">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Motivation<a class="headerlink" href="#motivation" name="motivation">&para;</a></h3>
+<p>When we have a function <span>$f(x_1, \ldots, x_n) = w$</span>, we are taking a point in <span>$\mathbb{R}^n$</span> and assigning it a unique value <span>$w$</span> in <span>$\mathbb{R}$</span>. This is a simple <strong>transformation</strong>, and we know that we can find various properties about the function (such as rate of change) by taking partial derivatives <span>$f_1, \ldots f_n$</span> (where <span>$f_k$</span> refers to the partial derivative with respect to the <span>$k$</span>-th independent variable). </p>
+<p>Let's extend this a bit further. Let's say we want to make a transformation that acts on a point in <span>$\mathbb{R}^n$</span>, giving us a point in <span>$\mathbb{R}^m$</span>. If we needed one function to map <span>$\mathbb{R}^n \rightarrow \mathbb{R}$</span>, it makes sense that we need <span>$m$</span> functions to map a point in <span>$\mathbb{R}^n \rightarrow \mathbb{R}^m$</span>. So we define a vector <span>$\mathbf{f}$</span> of <span>$m$</span> functions of <span>$n$</span> variables. We can then write our transformation in a nice vector form:</p>
+<p><span>$$ \mathbf{y} = \mathbf{f}(\mathbf{x}) $$</span></p>
+<p>Where <span>$\mathbf{y}$</span> is the point in <span>$\mathbb{R}^m$</span> obtained from transforming <span>$\mathbf{x}$</span>.</p>
+<p>At this point you're probably asking "yeah, but how do we find the rate of change for this transformation?" Through partial derivatives of course! When we had a transformation from <span>$n$</span>-space to <span>$\mathbb{R}$</span>, there were <span>$n$</span> possible partials, because we had a single function of <span>$n$</span> variables. Now we have <span>$m$</span> functions of <span>$n$</span> variables, so there are <span>$n \times m$</span> partials, of the form:</p>
+<p><span>$$ \frac{\partial y_i}{\partial x_j} \text{ for } 1 \leq i \leq m, \; 1 \leq j \leq n $$</span></p>
+<p>This is where the <strong>Jacobian matrix</strong> comes in.</p>
+<h3 class="header"><i>2.2</i>Jacobian matrix<a class="headerlink" href="#jacobian-matrix" name="jacobian-matrix">&para;</a></h3>
+<p>The fact that we have partials of the form given above means that we can put them into a matrix that looks like:</p>
+<p><span>$$ \left( \begin{array}{ccc}
+\frac{\partial y_1}{\partial x_1} &amp; \cdots &amp; \frac{\partial y_1}{\partial x_n} \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial y_m}{\partial x_1} &amp; \cdots &amp; \frac{\partial y_m}{\partial x_n} \end{array} \right) $$</span></p>
+<p>We'll call this <span>$D\mathbf{f}(\mathbf{x})$</span>, or the <strong>Jacobian matrix</strong> of the function <span>$\mathbf{f}$</span>. As you might remember from linear algebra, every linear transformation can be represented with a matrix - in this case, the linear transformation represented by the Jacobian of a function <span>$\mathbf{f}$</span> is called the derivative of <span>$\mathbf{f}$</span> <sup id="fnref:1"><a href="#fn:1" rel="footnote" title="This makes sense, as a linear transformation is a ...">1</a></sup>. A nice fact about Jacobians (that I won't demonstrate here, but you can confirm it if you're that kind of person) is that the Jacobian matrix for the composition of two functions is the same as the matrix product of the Jacobians for each respective function. </p>
+<p>For a simple single-variable function <span>$y = f(x)$</span>, we can define a <strong>differential</strong> <span>$dy$</span> with <span>$dy = f'(x)dx$</span>, which approximates the change in <span>$y$</span> corresponding to some change <span>$dx$</span> in <span>$x$</span>. We can extend this to our multivariable function. As our function <span>$\mathbf{f}$</span> operates on the vector <span>$x$</span> consisting of <span>$n$</span> independent variables <span>$x_i$</span>, if we have a vector <span>$d\mathbf{x}$</span>, where <span>$dx_i$</span> corresponds to the change in <span>$x_i$</span>, then we can obtain <span>$d\mathbf{y}$</span> with <span>$d\mathbf{y} = D\mathbf{f}(\mathbf{x})d\mathbf{x}$</span>. This is a direct analogue to the single-variable case.</p>
+<h2 class="header"><i>3</i>Gradient in 2 dimensions<a class="headerlink" href="#gradient-in-2-dimensions" name="gradient-in-2-dimensions">&para;</a></h2>
+<p>When we have a function <span>$f(x,y)$</span>, the partial derivatives <span>$f_x$</span> and <span>$f_y$</span> represent the rate of change of the function in the direction of the <span>$x$</span> and <span>$y$</span> axes, respectively. Notice that these directions are in the domain. However, it's possible to find the rate of change in more than just the basic direction of the axes. Consider this one motivation for this section. </p>
+<p>To accomplish this, we first need to introduce a few new concepts. First, let's look at the <strong>del</strong> operator. Del is a vector operator:</p>
+<p><span>$$
+\nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} = \left\langle\frac{\partial}{\partial x} , \frac{\partial}{\partial y} \right\rangle
+$$</span></p>
+<p>As an operator, we can apply del to a scalar function, which, by distributivity, will give us a vector function. Observe:</p>
+<p><span>$$
+\nabla f(x,y) = \left(\frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j}\right)f = \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j}
+$$</span></p>
+<p>Applying del to a scalar function gives us the <strong>gradient</strong> of that function, <span>$\nabla f$</span>.</p>
+<p>So the gradient of some scalar function is a vector function - what does the vector it produces at some point represent? Well, if the function <span>$f$</span> is differentiable at <span>$(a,b)$</span> and <span>$\nabla f(a,b) \neq \mathbf{0}$</span>, the vector <span>$\nabla f(a,b)$</span> points in the direction of the greatest rate of change. It is also perpendicular to the <a href="http://faculty.atu.edu/mfinan/2934/cal123.pdf">level curve</a> of the surface at <span>$(a,b)$</span>.</p>
+<h3 class="header"><i>3.1</i>Directional derivative<a class="headerlink" href="#directional-derivative" name="directional-derivative">&para;</a></h3>
+<p>Now that we're equipped with the tools to do so, let's talk about finding the derivative in some direction in the domain - the aptly-named <strong>directional derivative</strong>. We started with gradient in two dimensions, which applies to a function of two variables, <span>$z=f(x,y)$</span>. This function can be pictured as producing a three-dimensional surface, with a domain in the <span>$xy$</span> plane. Consider some unit vector in this domain - it points in some direction. We can find the rate of change of the surface created by the function in this direction - just take the dot product of the directional vector and the gradient. So, if <span>$\mathbf{\hat u}$</span> is a unit vector in the domain, the directional derivative at <span>$(a,b)$</span> is given by <span>$D_{\mathbf{\hat u}}f(a,b) = \mathbf{\hat u} \cdot \nabla f(a,b)$</span>.</p>
+<h3 class="header"><i>3.2</i>Geometric properties of gradient and directional derivative<a class="headerlink" href="#geometric-properties-of-gradient-and-directional-derivative" name="geometric-properties-of-gradient-and-directional-derivative">&para;</a></h3>
+<p>At some point <span>$(a,b)$</span>:</p>
+<ul>
+<li>
+<p>The direction of <span>$\nabla f(a,b)$</span> is the direction that <span>$f$</span> <strong>increases most rapidly</strong>, at a rate of <span>$|\nabla f(a,b)|$</span></p>
+</li>
+<li>
+<p>The direction of <span>$-\nabla f(a,b)$</span> is the direction that <span>$f$</span> <strong>decreases most rapidly</strong>, at a rate of <span>$|\nabla f(a,b)|$</span></p>
+</li>
+<li>
+<p>The directions perpendicular to the direction of <span>$\nabla f(a,b)$</span> have a <strong>rate of change of 0</strong>. This follows from the fact that gradient is perpendicular to the level curve.</p>
+</li>
+</ul>
+<h2 class="header"><i>4</i>Gradient in 3+ dimensions<a class="headerlink" href="#gradient-in-3-dimensions" name="gradient-in-3-dimensions">&para;</a></h2>
+<p>The definition of gradient extends easily to more than 2 dimensions:</p>
+<p><span>$$
+\nabla = \frac{\partial}{\partial x}\mathbf{i} + \frac{\partial}{\partial y}\mathbf{j} + \frac{\partial}{\partial z}\mathbf{k} = \left\langle\frac{\partial}{\partial x} , \frac{\partial}{\partial y} , \frac{\partial}{\partial z}\right\rangle
+$$</span></p>
+<p>The calculation of the directional derivative is also the same, however the unit vector that denotes the direction is no longer in 2 dimensions. The main change that you should be cognizant of is the geometric interpretation in more than 2 dimensions.</p>
+<p>Just as a surface defined by <span>$z = f(x,y)$</span> has level curves where <span>$f(x,y) = k$</span> for some constant <span>$k$</span>, a function of the form <span>$f(x,y,z)$</span> has <strong>level surfaces</strong> defined similarly. And just as the gradient of a function with a 2D domain points perpendicular to the level curve of the function, the gradient of a function like <span>$f(x,y,z)$</span> is perpendicular to the level surface of <span>$f$</span> at whatever point we are considering. This allows us to find tangent planes easily - say we have a surface defined by an equation like <span>$x^2 + y^2 + z^2 = k$</span> (this one is a sphere). The gradient of this surface at <span>$p_0 = (a,b,c)$</span> will be a vector normal to the surface at <span>$p_0$</span>. This vector and <span>$p_0$</span> is enough to define the tangent plane to the surface at <span>$p_0$</span>. </p>
+<p>The gradient still represents the direction of greatest rate of change, as before.</p>
+<h2 class="header"><i>5</i>Implicit functions<a class="headerlink" href="#implicit-functions" name="implicit-functions">&para;</a></h2>
+<p>If the term "implicit function" is confusing to you (as it was to me), I'd recommend reading <a href="http://www.wmueller.com/precalculus/newfunc/4.html">this</a>, which is short and makes it an understandable concept.</p>
+<p>Anyway, given some equation, what we are looking to do in this chapter is find out whether or not we can implicitly define one of the variables as a function of the others. For instance, if we have the classic equation for a unit sphere, <span>$x^2 + y^2 + z^2 = 1$</span>, can we define <span>$z$</span> as a function of <span>$x$</span> and <span>$y$</span>? If so, where can we do that?</p>
+<p>Let's look at a more general case. Given the equation <span>$F(x,y,z) = 0$</span>, and a point <span>$p_0$</span> that satisfies the equation, can we define a variable, say <span>$z$</span>, as a function of the other variables? If we can, and assuming first-order partials exist (which is pretty much always the case it seems), then at <span>$p_0$</span>, we should be able to solve for <span>$z_x$</span> and <span>$z_y$</span>. The notation used for this is:</p>
+<p><span>$$
+\frac{\partial z}{\partial x}\bigg|_{p_0}
+$$</span></p>
+<p>In order to solve for such derivatives, we need to use <strong>implicit differentiation</strong>, a term you probably remember from Calc 1 or whatever you took to get into this course, but may not remember what it actually means. It's pretty simple - you assume that some variables are functions of other variables, and differentiate both sides of the equation accordingly. So in this case, we're assuming <span>$z$</span> is a function <span>$z(x,y)$</span>, so we need to use the chain rule when we differentiate it.</p>
+<p>So let's say we're looking for <span>$z_x$</span>, given our equation <span>$F(x,y,z) = 0$</span>. To do so, we first differentiate both sides with respect to <span>$x$</span>, giving us <span>$F_x(x,y,z) + F_z(x,y,z)\cdot (\partial z / \partial x) = 0$</span>. Solving for what we want, we obtain:</p>
+<p><span>$$
+\frac{\partial z}{\partial x}\bigg|_{p_0} = -\frac{F_x(p_0)}{F_z(p_0)}
+$$</span></p>
+<p>We can find <span>$(\partial z / \partial y)$</span> similarly. For these partials to exist, the denominator must of course be nonzero. What does that mean? Since the denominator is a derivative with respect to <span>$z$</span>, then the normal vector to the level surface at <span>$p_0$</span> (remember when we talked about level surfaces <a href="#gradient-in-3-dimensions">here</a>?) must be horizontal - implying the level surface itself is vertical at <span>$p_0$</span>. This, of course, makes sense - for <span>$z(x,y)$</span> to be a proper function it must pass the vertical line test, and if the level surface is vertical at some point, that means there are multiple values of <span>$z$</span> for the same <span>$x$</span> and <span>$y$</span>.</p>
+<p>Similarly, in order to define <span>$x = x(y,z)$</span> at some point <span>$p_0$</span>, it is necessary that <span>$F_x(p_0) \neq 0$</span> and for <span>$y = y(x,z)$</span>, <span>$F_y(p_0) \neq 0$</span>.</p>
+<p>One caveat when implicitly differentiating - remember to apply the chain rule! For instance, if we want to find <span>$(\partial z / \partial x)$</span> for <span>$x^2 + y^2 + z^2 = 1$</span>, we want to differentiate the equation with respect to <span>$x$</span> to start. It is <em>very important</em> that we remember that in this case, <span>$z = z(x,y)$</span>. So we get:</p>
+<p><span>$$
+2x + 2z\cdot\frac{\partial z}{\partial x} = 0
+$$</span></p>
+<p>Note the chain rule application to <span>$z^2$</span>. If we didn't do this, not only would we be wrong - we'd have no <span>$(\partial z / \partial x)$</span> to work with in the first place.</p>
+<h3 class="header"><i>5.1</i>Notes on notation<a class="headerlink" href="#notes-on-notation" name="notes-on-notation">&para;</a></h3>
+<p>When we are given a single equation like <span>$F(x,y,z) = 0$</span> and we want to find <span>$(\partial x / \partial z)$</span> we know that we can assume <span>$x$</span> is a function of the remaining variables, <span>$y$</span> and <span>$z$</span>. So when we differentiate, we know that we are differentiating with respect to <span>$z$</span> and holding the final variable <span>$y$</span> constant.</p>
+<p>But what do we do when given two equations? If we are given, say:</p>
+<p><span>$$
+F(x,y,z,w) = 0 \\
+G(x,y,z,w) = 0
+$$</span></p>
+<p>and we want to find <span>$(\partial x / \partial z)$</span>, then we know, first of all, that two of the variables are dependent variables, with the remaining two variables independent. This follows from the fact that we have two equations, so we can solve for two variables as the system is linear <sup id="fnref:2"><a href="#fn:2" rel="footnote" title="Think back to linear algebra (as much as that migh...">2</a></sup>. We know that <span>$x$</span> is one of the dependent variables, because we're looking to differentiate it with respect to <span>$z$</span>. But which of the remaining variables is independent, and which is dependent? This is important to know, since we hold the other independent constant when differentiating, and we need to differentiate the other dependent variable with respect to <span>$z$</span> as well.</p>
+<p>In order to avoid this problem, whenever such an ambiguity would arise, we use the following notation to state which variable is independent:</p>
+<p><span>$$
+\left(\frac{\partial z}{\partial x}\right)_w
+$$</span></p>
+<p>In this case, <span>$w$</span> is the independent variable, and the remaining variable <span>$y$</span> is a function <span>$y(z,w)$</span>.</p>
+<h3 class="header"><i>5.2</i>Jacobian determinant<a class="headerlink" href="#jacobian-determinant" name="jacobian-determinant">&para;</a></h3>
+<p>Alright now it's time for some magic. Remember the Jacobian matrix? Well it turns out that if you take the determinant of this matrix you obtain an interesting relation to the partial derivatives of implicit functions we're covering right now. Of course, the matrix must be square to yield a determinant. What do we <a href="#jacobian-matrix">remember</a> about the Jacobian matrix? Well, if we have <span>$n$</span> functions of <span>$m$</span> variables, we can create an <span>$n \times m$</span> matrix that holds the derivative of each function with respect to each variable.</p>
+<p>Thus if we have <span>$n$</span> functions of <span>$n$</span> variables, we can define a square matrix with those properties. Then we can take its determinant. We'll look at 2 functions of 2 variables right now so I don't need to write out a ton of stuff but the idea generalizes obviously. Anyway, we use the the following notation for this <strong>Jacobian determinant</strong>:</p>
+<p><span>$$
+\frac{\partial (F, G)}{\partial (x, y)} = \left| \begin{array}{cc}
+\frac{\partial F}{\partial x} &amp; \frac{\partial F}{\partial y} \\
+\frac{\partial G}{\partial x} &amp; \frac{\partial G}{\partial y} \end{array} \right|
+$$</span></p>
+<p>Of course, you can use the transposition of this matrix if you want, since that doesn't affect the determinant.</p>
+<p>Okay so now let's see how this relates to finding some partial derivative when working with implicit functions. In the book they simply state the following relation:</p>
+<p><span>$$
+\left(\frac{\partial z}{\partial x}\right)_w = 
+-\frac{\frac{\partial (F, G)}{\partial (z, y)}}{\frac{\partial (F, G)}{\partial (x, y)}}
+$$</span></p>
+<p>Notice that the denominator is just the Jacobian determinant from above - it's the Jacobian for the two functions <span>$F$</span> and <span>$G$</span> with respect to the two dependent variables <span>$x$</span> and <span>$y$</span>. The numerator is roughly the same - the only difference is that we replaced the dependent variable we are differentiating with the independent variable we're differentiating with respect to. That's pretty much all you need to know to make use of this useful relation.</p>
+<p>If you're wondering why we can do this, there is a pretty good explanation <a href="http://en.wikipedia.org/wiki/Cramer's_rule#Differential_geometry">here</a>. However, the final step in this explanation, where they go from the 4 equations directly to Cramer's rule, might be confusing (I don't think it's exceptionally clear myself). So I'll try to explain the step they're missing. In the example, they are trying to find <span>$(\partial x / \partial u)$</span> (they have independent variables <span>$u$</span> and <span>$v$</span> instead of <span>$z$</span> and <span>$w$</span>, but the principle is the same). So out of the 4 equations they give, we are concerned with the two that contain terms for <span>$(\partial x / \partial u)$</span>:</p>
+<p><span>$$
+\frac{\partial F}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial F}{\partial y}\frac{\partial y}{\partial u} = -\frac{\partial F}{\partial u} \\
+\frac{\partial G}{\partial x}\frac{\partial x}{\partial u} + \frac{\partial G}{\partial y}\frac{\partial y}{\partial u} = -\frac{\partial G}{\partial u}
+$$</span></p>
+<p>Now notice that we can write this in matrix form <span>$A\mathbf{x} = \mathbf{b}$</span>:</p>
+<p><span>$$
+\left( \begin{array}{cc}
+\frac{\partial F}{\partial x} &amp; \frac{\partial F}{\partial y} \\
+\frac{\partial G}{\partial x} &amp; \frac{\partial G}{\partial y} \end{array} \right)
+\left( \begin{array}{c}
+\frac{\partial x}{\partial u} \\
+\frac{\partial y}{\partial u} \end{array} \right) = 
+-\left( \begin{array}{c}
+\frac{\partial F}{\partial u} \\
+\frac{\partial G}{\partial u} \end{array} \right)
+$$</span></p>
+<p>Now the application of <a href="http://en.wikipedia.org/wiki/Cramer's_rule#General_case">Cramer's Rule</a> should be clearer. We're looking for <span>$(\partial x / \partial u)$</span> which is the first element in <span>$\mathbf{x}$</span>. So according to Cramer's rule, we evaluate a fraction where the denominator is the determinant of <span>$A$</span> (notice <span>$A$</span> is the Jacobian matrix) and the numerator is the same determinant, except the first column is replaced by <span>$\mathbf{b}$</span>. This give us:</p>
+<p><span>$$
+-\frac{\frac{\partial (F, G)}{\partial (u, y)}}{\frac{\partial (F, G)}{\partial (x, y)}}
+$$</span></p>
+<p>Just like we learned.</p>
+<h2 class="header"><i>6</i>Extreme value problems<a class="headerlink" href="#extreme-value-problems" name="extreme-value-problems">&para;</a></h2>
+<p>These are pretty straightforward so I won't spend much time on them. They're also review from Calc 3. You probably remember finding extreme values of single-variable functions from Calc 1 - you check places where <span>$f'(x) = 0$</span> (critical points), <span>$f'(x)$</span> doesn't exist (singular points), and finally you check the edges of the function's domain.</p>
+<p>The multivariable situation is similar, but instead of the derivative, we of course apply the gradient. The necessary conditions for extreme values in the two variable case are analogous to those for a function of a single variable: a critical point exists where <span>$\nabla f(x,y) = 0$</span>, a singular point exists where <span>$\nabla f(x,y)$</span> exists, and there might also be extreme values on boundary points on the edge of the function's domain.</p>
+<p>However at singular or critical points, there are 3 possibilities for the "shape" of the extreme value. The point could represent a local maximum or minimum, or a saddle point. How can we tell? In this situation we apply the second derivative test. We'll look at this for a function <span>$f$</span> of 2 variables. Suppose we have a point <span>$(a, b)$</span> and we want to tell if it is a local maximum, minimum, or a saddle point. Assuming that the second partial derivatives of <span>$f$</span> are all continuous, we define <span>$A = f_{11}(a,b), \quad B = f_{12}(a,b) = f_{21}(a,b), \quad C = f_{22}(a,b)$</span> so that:</p>
+<ul>
+<li>if <span>$B^2 - AC &lt; 0$</span>, <span>$A &gt; 0$</span> then <span>$(a,b)$</span> is a local minimum</li>
+<li>if <span>$B^2 - AC &lt; 0$</span>, <span>$A &gt; 0$</span> then <span>$(a,b)$</span> is a local maximum</li>
+<li>if <span>$B^2 - AC &lt; 0$</span>, then <span>$(a,b)$</span> is a saddle point</li>
+<li>if <span>$B^2 - AC = 0$</span>, this test is inconclusive</li>
+</ul>
+<h2 class="header"><i>7</i>Lagrange multipliers<a class="headerlink" href="#lagrange-multipliers" name="lagrange-multipliers">&para;</a></h2>
+<p>The method of applying Lagrange multipliers is also review from Calc 3, and also pretty easy. We apply this method whenever we want to find the extreme values of some function that is subject to one or more constraints. Constraints can be either equations or inequalities.</p>
+<p>I won't go into the theory behind Lagrange multipliers, the basics follow. First of all, it's important to understand that the ability to apply Lagrange multipliers to a problem does not necessarily mean that a solution to the problem exists. Anyway, let's look at the method of Lagrange multipliers for two variables first:</p>
+<p>Let's say we have some function <span>$f(x,y)$</span> we want to maximize, subject to the constraint <span>$g(x,y) = C$</span>. In order to solve this, we can solve the following system of equations:</p>
+<p><span>$$
+\nabla f(x,y) = \lambda \nabla g(x,y) \\
+g(x,y) = C
+$$</span></p>
+<p>If we expand the gradients we end up with a system of 3 equations, and given the fact that we have 3 unknowns (<span>$x, y, \lambda$</span>) this is solvable. The point(s) <span>$(x,y)$</span> that form the solution represent some extreme values of <span>$f$</span>, not necessarily the maximum. You need to figure out which point in the solution set answers whatever problem you're setting out to solve.</p>
+<p>Oh and if you were wondering what a "Lagrange multiplier" is, I'll let you in on a little secret - it's the <span>$\lambda$</span>.</p>
+<p>If we have more than one constraint, we can still solve this similarly. Consider the problem of maximizing or minimizing the function <span>$f(x,y)$</span> subject to the constraints <span>$g(x,y) = C$</span> and <span>$h(x,y) = K$</span>. Our system of equations to solve this is:</p>
+<p><span>$$
+\nabla f(x,y) = \lambda \nabla g(x,y) + \mu \nabla h(x,y) \\
+g(x,y) = C \\
+h(x,y) = K
+$$</span></p>
+<p>This can be harder though.</p>
+<p>The systems of equations above apply to functions of more than two variables in the most obvious way possible. That is, if we have a function <span>$f(x,y,z)$</span> we want to maximize/minimize subject to the constraint <span>$g(x,y,z) = C$</span> we have the following system of equations:</p>
+<p><span>$$
+\nabla f(x,y,z) = \lambda \nabla g(x,y,z) \\
+g(x,y,z) = C
+$$</span></p>
+<p>This method of solving constrained maximim/minimum problems doesn't work in situations where the gradient is undefined - that is, when one of the functions is not smooth. For instance, try minimizing <span>$f(x,y) = y$</span> subject to <span>$g(x,y) = y^3-x^2=0$</span>. Go ahead, I dare you. You'll find <a href="http://www.youtube.com/watch?v=dzm8kTIj_0M"><em>there is no solution</em></a>. This is because the constraint function is not smooth at the solution point <span>$(0,0)$</span>, so at that point <span>$\nabla g = \mathbf{0}$</span>.</p>
+<p>If you want some problems to practice on, as usual <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/LagrangeMultipliers.aspx">our friend Paul has us covered</a>.</p>
+<h2 class="header"><i>8</i>Parametric integrals<a class="headerlink" href="#parametric-integrals" name="parametric-integrals">&para;</a></h2>
+<h2 class="header"><i>9</i>Multiple integrals<a class="headerlink" href="#multiple-integrals" name="multiple-integrals">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Iterated integrals<a class="headerlink" href="#iterated-integrals" name="iterated-integrals">&para;</a></h3>
+<h3 class="header"><i>9.2</i>Different coordinate systems<a class="headerlink" href="#different-coordinate-systems" name="different-coordinate-systems">&para;</a></h3>
+<h2 class="header"><i>10</i>Vector and scalar fields<a class="headerlink" href="#vector-and-scalar-fields" name="vector-and-scalar-fields">&para;</a></h2>
+<h2 class="header"><i>11</i>Vector calculus<a class="headerlink" href="#vector-calculus" name="vector-calculus">&para;</a></h2>
+<h3 class="header"><i>11.1</i>Gradient, divergence, curl<a class="headerlink" href="#gradient-divergence-curl" name="gradient-divergence-curl">&para;</a></h3>
+<h3 class="header"><i>11.2</i>Useful identities<a class="headerlink" href="#useful-identities" name="useful-identities">&para;</a></h3>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>This makes sense, as a linear transformation is a function such that <span>$f(x+y)=f(x)+f(y)$</span> and <span>$f(\alpha x) = \alpha f(x)$</span>. The operation of differentiation obeys these conditions, so it's a linear function (well, more specifically a linear operator, but it can still be represented with a matrix)&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Think back to linear algebra (as much as that might pain you). When we have a linear system of <span>$n$</span> equations, we have enough information to find <span>$n$</span> variables. If we have more than <span>$n$</span> variables in the system, we have infinitely many solutions, so we write the <span>$n$</span> variables in terms of the remaining free variables. <a href="http://en.wikipedia.org/wiki/System_of_linear_equations#General_behavior">Here</a> is a good explanation of this.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

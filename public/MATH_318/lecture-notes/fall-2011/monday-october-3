@@ -1,0 +1,240 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, October 3, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, October 3, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Some example proofs and more quantifier rules
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>An example proof<a class="headerlink" href="#an-example-proof" name="an-example-proof">&para;</a></h2>
+<p>Suppose <span>$\Sigma$</span> has two unary predicate symbols <span>$H$</span> and <span>$M$</span>, and one constant symbol <span>$S$</span>. Let's try to prove the following:</p>
+<p><span>$$Hs,\,\forall x (Hx \to Mx) \vdash Ms$$</span></p>
+<p>(An instance of transitivity, in an everyday context; an example translation would be "Socrates is human and all humans are mortal, therefore Socrates is mortal" which is almost certainly true.)</p>
+<p><span>$$\begin{align*}
+(1) &amp; \forall x (Hx \to Mx) \vdash Hs \to Ms \\
+(2) &amp; Hs, Hs \to Ms \vdash Ms \\
+(3) &amp; Hs, \forall x (Hx \to Mx) \vdash Hs \to Ms \\
+(4) &amp; Hs, \forall x(Hx \to Mx), Hs \to Ms \vdash Ms \\
+(5) &amp; Hs, \forall x (Hx \to Mx) \vdash Ms\,\, \blacksquare \end{align*}$$</span></p>
+<p>(The last line of the proof was, of course, the sentence we wanted to prove, as it should be.)</p>
+<h3 class="header"><i>1.1</i>Justifications<a class="headerlink" href="#justifications" name="justifications">&para;</a></h3>
+<p>Note: the justification is not necessary in a completely formal proof. Neither are the line numbers. They're only included here to increase understanding etc. (Also, Loveys will often ask for justification.)</p>
+<p>(1) Straightforward use of <span>$\forall$</span>-elimination<br />
+(2) Tautology rule<br />
+(3) Added the formula <span>$Hs$</span>; monotonicity from (1)<br />
+(4) Transitivity from (3), (4) (cut the <span>$Hs \to Ms$</span>)</p>
+<p>This could have actually been done in 3 lines, using deduction.</p>
+<h2 class="header"><i>2</i>Another example proof<a class="headerlink" href="#another-example-proof" name="another-example-proof">&para;</a></h2>
+<p>Consider: Every good boy deserves fudge. Every boy is good. Therefore, every boy deserves fudge.</p>
+<p>We can translate this into predicate form using the following unary predicate symbols: <span>$G$</span> (meaning "is good"), <span>$B$</span> (meaning "is a boy"), and <span>$F$</span> (meaning "deserves fudge").</p>
+<p><span>$$\forall x((Bx \land Gx) \to Fx), \forall x (Bx \to Gx) \vdash \forall x (Bx \to Fx)$$</span></p>
+<p>Before we can use the tautology rule, we have to get rid of all the quantifiers. Here's the proof:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\forall x ((Bx \land Gx) \to Fx) \vdash (Bx \land Gx) \to Fx$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(2) <span>$\forall x (Bx \to Gx) \vdash Bx \to Gx$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(3) <span>$(Bx \land Gx) \to Fx,\,Bx \to Gx \vdash Bx \to Fx$</span><sup id="fnref:1"><a href="#fn:1" rel="footnote" title="We have to put the quantifiers back on at the end,...">1</a></sup></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x ((Bx \land Gx) \to Fx),\,Bx \to Gx \vdash (Bx \land Gx) \to Fx$</span></td>
+<td>Monotonicity from (1)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x ((Bx \land Gx) \to Fx), \, (Bx \land Gx) \to Fx, \, Bx \to Gx \vdash Bx \to Fx$</span></td>
+<td>Monotonicity from (3)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x ((Bx \land Gx) \to Fx),\, Bx \to Gx vdash Bx \to Fx$</span></td>
+<td>Transitivity using (4), (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x ((Bx \land Gx) \to Fx), \, \forall x(Bx \to Gx) \vdash Bx \to Gx$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(8) <span>$\forall x ((Bx \land Gx) \to Fx),\, \forall x (Bx \to Gx),\, Bx \to Gx \vdash Bx \to Fx$</span></td>
+<td>Monotonicity from (6)</td>
+</tr>
+<tr>
+<td>(9) <span>$\forall x ((Bx \land Gx) \to Fx),\, \forall x (Bx \to Gx) \vdash Bx \to Fx$</span></td>
+<td>Transitivity using (7), (8)</td>
+</tr>
+<tr>
+<td>(10) <span>$\forall x ((Bx \land Gx) \to Fx),\, \forall x (Bx \to Gx) \vdash \forall x (Bx \to Fx) \quad \blacksquare$</span></td>
+<td><span>$\forall$</span>-introduction<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="To be covered in the next section. Lambdek (textbo...">2</a></sup></td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>3</i>More quantifier rules<a class="headerlink" href="#more-quantifier-rules" name="more-quantifier-rules">&para;</a></h2>
+<h3 class="header"><i>3.1</i>For-all introduction<a class="headerlink" href="#for-all-introduction" name="for-all-introduction">&para;</a></h3>
+<p><span>$$\frac{\Gamma \vdash \forall(x)}{\Gamma \vdash \forall x \Phi(x)}$$</span></p>
+<p>provided <span>$x$</span> does not occur free (bound is okay) anywhere in <span>$\Gamma$</span> (in other words, take care to avoid clash of variables). If there's a free <span>$x$</span> on the left, then you'd have to bind it up first before you can do this.</p>
+<p>Here's an example of why it works. If you say "let <span>$n$</span> be a natural number" and reach a conclusion, you can generalise that conclusion for all natural numbers, since <span>$n$</span> was arbitrary.</p>
+<h3 class="header"><i>3.2</i>Exists introduction<a class="headerlink" href="#exists-introduction" name="exists-introduction">&para;</a></h3>
+<p>Or, "existential generalisation". There are two rules for <span>$\exists$</span> introduction and elimination, similar to the ones for <span>$\forall$</span>, but slightly more subtle. The rule is:</p>
+<p><span>$$\frac{\Gamma \vdash \Phi(x)}{\Gamma \vdash \exists x \Phi(x)}$$</span></p>
+<p>provided there is no clash of variables, i.e. no variables in <span>$t$</span> become bound when <span>$t$</span> is substituted for <span>$x$</span> in <span>$\Phi(x)$</span>. This is really just making a statement weaker.</p>
+<h2 class="header"><i>4</i>Yet another proof<a class="headerlink" href="#yet-another-proof" name="yet-another-proof">&para;</a></h2>
+<p>"Every boy deserves fudge. Charlie is a boy. Therefore, somebody deserves fudge."</p>
+<p><span>$$\forall x (Bx \to Fx), Bc \vdash \exists x Fx$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\forall x(Bx \to Fx( \vdash Bx \to Fc$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(2) <span>$Bc \to Fc, Bc \vdash Fc$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x (Bx \to Fx),\,Bc \to Fc, \,Bc \vdash Fc$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x (Bx \to Fx),\,Bx \vdash Bc \to Fc$</span></td>
+<td>Monotonicity from (1)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x (Bx \to Fx), \, Bc \vdash Fc$</span></td>
+<td>Transitivity using (3), (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x (Bx \to Fx),\,Bc \vdash \exists x Fx$</span></td>
+<td><span>$\exists$</span>-introduction</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>We have to put the quantifiers back on at the end, but we needed to get rid of them first to be able to invoke the tautology rule here.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>To be covered in the next section. Lambdek (textbook author) calls this "universal generalisation", and calls <span>$\forall$</span>-introduction "universal specification". Is usually only used near the end of a proof.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

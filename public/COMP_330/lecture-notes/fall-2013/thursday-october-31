@@ -1,0 +1,201 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, October 31, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, October 31, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Lambda calculus (optional material)
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>THESE NOTES HAVE NOT BEEN VERIFIED BY THE INSTRUCTOR. USE AT YOUR OWN RISK.</strong></p>
+<p>The 1930's was an active time for computing machines – we saw the invention of the Turing machine, Post's machine, random access machines, 2-stack machines, 2-counter machines ... all of which are, in fact, equivalent. Another equivalent system is that of <strong>lambda calculus</strong> (or <span>$\lambda$</span>-calculus, or the lambda calculus), invented by Alonzo Church; this is what we'll talk about today.</p>
+<p>You can find detailed notes on lambda calculus on <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/notes2013_comp330.pdf">the course website</a>.</p>
+<p>Note that this topic will not be on the final.</p>
+<div class="toc">
+<ul>
+<li><a href="#definitions">1 Definitions</a><ul>
+<li><a href="#free-and-bound-variables">1.1 Free and bound variables</a></li>
+<li><a href="#substitution-rules">1.2 Substitution rules</a></li>
+<li><a href="#reduction-rules">1.3 Reduction rules</a><ul>
+<li><a href="#examples">1.3.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#simulating-selection-ifelse">1.4 Simulating selection (if/else)</a></li>
+<li><a href="#simulating-data-structures">1.5 Simulating data structures</a></li>
+<li><a href="#simulating-numbers">1.6 Simulating numbers</a></li>
+<li><a href="#simulating-recursion">1.7 Simulating recursion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h2>
+<p>We first define a countable family of variables: <span>$x, y, z, \ldots$</span> (we'll usually use letters from the end of the alphabet to denote variables, and letters from the beginning of the alphabet to denote constants, although in the purest form of <span>$\lambda$</span> calculus there are no constants). That's all we need. The inductive definition of <span>$\lambda$</span> terms is as follows:</p>
+<ol>
+<li>A variable is a <span>$\lambda$</span> term.</li>
+<li>If <span>$M$</span> and <span>$N$</span> are <span>$\lambda$</span> terms, so is <span>$MN$</span>.</li>
+<li>If <span>$M$</span> is a <span>$\lambda$</span> term and <span>$x$</span> is a variable, then <span>$\lambda x \cdot M$</span> is too (think of this as <span>$x \mapsto M$</span>, as in, <span>$x$</span> maps to <span>$M$</span>, or <code>lambda x: M</code> in Python).</li>
+</ol>
+<p>This encodes all computable functions!</p>
+<p>For example, <span>$(\lambda x \cdot M)N$</span> can be thought of as calling the <span>$\lambda$</span>-function with <span>$N$</span> as the parameter.</p>
+<h3 class="header"><i>1.1</i>Free and bound variables<a class="headerlink" href="#free-and-bound-variables" name="free-and-bound-variables">&para;</a></h3>
+<p>Let <span>$FV$</span> be the function that takes a lambda-term as input and outputs the free variables in lambda. So, given the lambda-term <span>$M$</span>, <span>$FV(M)$</span> is a finite subset of the set of variables.</p>
+<ul>
+<li><span>$FV(x) = \{x\}$</span></li>
+<li><span>$FV(MN) = FV(M) \cup FV(N)$</span></li>
+<li><span>$FV(\lambda x\cdot M) = FV(M) \setminus \{x\}$</span> (since <span>$x$</span> is bound)</li>
+</ul>
+<p>For example, consider the following expression (where parentheses are used to limit scope):</p>
+<p><span>$$\underbrace{\lambda x \cdot \underbrace{\lambda y \cdot \underbrace{(\lambda z \cdot \underbrace{xyz}_{\text{all free}})}_{x, \,y \text{ free; } z \text{ bound}}y}_{x \text{ free; } y,\, z \text{ bound}}}_{\text{all bound}}$$</span></p>
+<h3 class="header"><i>1.2</i>Substitution rules<a class="headerlink" href="#substitution-rules" name="substitution-rules">&para;</a></h3>
+<p>Note that Prakash uses his own notation for substitution, which may differ from the standard notation. Also note that the notation used below is not actually part of lambda calculus - it's just metanotation, to explain what the rules mean.</p>
+<ol>
+<li><span>$x[x \mapsto N] = N$</span></li>
+<li><span>$y[x \mapsto N] = y$</span> when <span>$x \neq y$</span> (basically, nothing happens)</li>
+<li><span>$(MM')[x \mapsto N] = (M[x \mapsto N])(M'[x \mapsto N])$</span></li>
+<li><span>$(\lambda x \cdot M)[x \mapsto N] = (\lambda x \cdot M)$</span> (it's a no-op, because <span>$x$</span> is shadowed by the <span>$x$</span> in the lambda function)</li>
+<li><span>$(\lambda y \cdot M)[x \mapsto N] = \lambda y \cdot (M[x \mapsto N])$</span> where <span>$x \neq y$</span>, and either <span>$y$</span> does not appear free in <span>$N$</span> <strong>or</strong> <span>$x \notin FV(M)$</span> (in which case this is a no-op)</li>
+<li><span>$(\lambda y \cdot M)[x \mapsto N] = (\lambda z \cdot M[y \mapsto z])[x \mapsto N]$</span> where <span>$x \neq y$</span>, <span>$x$</span> <em>does</em> occur free in <span>$M$</span> and <span>$y$</span> does occur free in <span>$N$</span>, where <span>$z$</span> is a fresh variable (i.e., one that does not appear in <span>$M$</span>).</li>
+</ol>
+<h3 class="header"><i>1.3</i>Reduction rules<a class="headerlink" href="#reduction-rules" name="reduction-rules">&para;</a></h3>
+<p>Note that <span>$Var(M)$</span> gives the bound variables of the lambda term <span>$M$</span>.</p>
+<ul>
+<li><span>$(\alpha)$</span>: <span>$\lambda y \cdot M \to \lambda v \cdot M[y \mapsto v]$</span> where <span>$v \notin Var(M)$</span> (called <strong>alpha reduction</strong>; also known as "renaming bound variables")</li>
+<li><span>$(\beta)$</span>: <span>$(\lambda y\cdot M) N \to M[y\mapsto N]$</span></li>
+<li><span>$(\rho)$</span>: <span>$M \to M$</span></li>
+<li><span>$(\mu)$</span>: if <span>$M \to N$</span> then <span>$PM \to PN$</span> (we can also write this as <span>$\displaystyle \frac{M \to N}{PM \to PM}$</span></li>
+<li><span>$(\nu)$</span>: if <span>$M \to N$</span> then <span>$MP \to NP$</span></li>
+<li><span>$(\xi)$</span> if <span>$M \to N$</span> then <span>$\lambda x\cdot M \to \lambda x \cdot N$</span></li>
+<li><span>$(\tau)$</span>: <span>$\displaystyle \frac{M\to N, \, N \to P}{M \to P}$</span> (transitivity)</li>
+</ul>
+<p>Note: this is the untyped, pure version of lambda-calculus.</p>
+<h4 class="header"><i>1.3.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p>Note: <span>$\lambda xy\cdot M$</span> is shorthand for <span>$\lambda x\cdot\lambda y\cdot M$</span>.</p>
+<p><span>$$\underbrace{(\lambda x\cdot x)}_{\text{identity function}} M \to M \tag{called $\beta$-redex}$$</span></p>
+<div class="ui divider"></div>
+<p><span>$$\underbrace{(\lambda x\cdot y)}_{\text{constant function}}M \to y$$</span></p>
+<div class="ui divider"></div>
+<p><span>$$\underbrace{(\lambda x \cdot \lambda y \cdot x)}_{\text{constant function factory, or K combinator}} M \to \lambda y \cdot M\tag{assuming no free $y$'s in $M$}$$</span></p>
+<h3 class="header"><i>1.4</i>Simulating selection (if/else)<a class="headerlink" href="#simulating-selection-ifelse" name="simulating-selection-ifelse">&para;</a></h3>
+<p>If we want to be able to produce all computable functions using lambda calulus, we'll need a way to simulate selection (the if-then-else concept). To do that, we'll first need truth/false values. Let's use <span>$\lambda xy\cdot x$</span> as true (we'll call it <span>$T$</span>), and <span>$\lambda xy\cdot y$</span> as false (we'll call it <span>$F$</span>). We can see that <span>$T$</span> is a function that ignores its second argument, and <span>$F$</span> is a function that ignores its first argument.</p>
+<p>Consider <span>$TMN$</span> and <span>$FMN$</span>. They reduce as follows:</p>
+<p><span>$$\begin{align} TMN &amp; = (\lambda x\cdot(\lambda y\cdot x))MN \to (\lambda y\cdot M)N \\
+&amp; \to M \\
+FMN &amp; = (\lambda x \cdot (\lambda y \cdot y)) MN \to (\lambda y \cdot y) N \\
+&amp; \to N
+\end{align}$$</span></p>
+<p>This allows us to build expressions of the form <code>if x then M else N</code> where <code>x</code> is either T or F.</p>
+<h3 class="header"><i>1.5</i>Simulating data structures<a class="headerlink" href="#simulating-data-structures" name="simulating-data-structures">&para;</a></h3>
+<p>The salient property of data structures is the ability to put disparate things together and then take them apart, unscathed. We will now define some terms that will allow us to combine expressions then, later, retrieve the individual expressions, in a manner similar to that of very basic lists. We define <span>$D = \lambda yzx \cdot xyz$</span>. Then, <span>$DMN = (\lambda yzx \cdot xyz)MN = \lambda x \cdot (xM)N$</span>. Next, we define <span>$\underline{\text{fst}} = \lambda w \cdot wT$</span> (equivalent to <span>$\lambda w \cdot (wT)$</span> by precedence rules) and <span>$\underline{\text{snd}} = \lambda w \cdot wF$</span>.</p>
+<p>Then, <span>$\underline{\text{snd}}(DMN) = (\lambda w\cdot wF)(\lambda x\cdot xMN) \to (\lambda x\cdot xMN)F \to FMN \to N$</span>, which is exactly what we wanted.</p>
+<p>Similarly, <span>$\underline{\text{fst}}(DMN) = (\lambda w \cdot wT)(\lambda x \cdot xMN) \to (\lambda x\cdot xMN)T \to TMN \to M$</span>. Pretty awesome.</p>
+<h3 class="header"><i>1.6</i>Simulating numbers<a class="headerlink" href="#simulating-numbers" name="simulating-numbers">&para;</a></h3>
+<p>Next, we can build the lambda-calculus version of numbers, using Church numerals. Let <span>$\underline{n}$</span> be the Church numeral for the number <span>$n$</span> (starting from <span>$n=0$</span>). Now, the Church numeral for 0, <span>$\underline{0}$</span>, is given by <span>$\lambda f \cdot \lambda x \cdot x$</span> (this happens to be equivalent to F, our expression for false). <span>$\underline{1}$</span> is given by <span>$\lambda f \cdot \lambda x \cdot fx$</span>, and <span>$\underline{2}$</span> by <span>$\lambda f \cdot \lambda x \cdot f(fx)$</span>, etc. In shorthand, we have that <span>$\underline{n} = \lambda fx \cdot f^n(x)$</span>.</p>
+<p>We define the successor function: <span>$\underline{\text{succ}} = \lambda y \cdot \lambda f \cdot \lambda x \cdot yf(fx)$</span>. Then:</p>
+<p><span>$$\underline{\text{succ}}\underline{n} \to \lambda fx \cdot (\underline{n}f) (fx) \to \lambda fx \cdot f^n(fx) \to \lambda fx\cdot f^{(n+1)}x \to \underline{n+1}$$</span></p>
+<p>Now we define addition: <span>$\underline{\text{plus}} = \lambda uvfx\cdot uf(fvfx)$</span> since <span>$\underline{n}fx$</span> means iterate <span>$f$</span> <span>$n$</span> times on <span>$x$</span>. So <span>$\underline{\text{plus}} \underline{n} \underline{m} \to \lambda fx \cdot \underline{n} f(\underline{m} fx) \to \lambda fx \cdot \underline{n} f(f^mx) \to \lambda fx \cdot f^{n+m}x$</span>, as desired.</p>
+<p>Multiplication (<span>$\underline{\text{times}}$</span>) and exponentiation (<span>$\underline{\text{exp}}$</span>) are defined in the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/notes2013_comp330.pdf">notes</a>.</p>
+<p>If we need to encode negative integers, we can do that using a tuple: <span>$+\underline{n}$</span> can be represented by <span>$(\underline n, T)$</span> and <span>$-\underline{n}$</span> by <span>$(\underline n, F)$</span>.</p>
+<h3 class="header"><i>1.7</i>Simulating recursion<a class="headerlink" href="#simulating-recursion" name="simulating-recursion">&para;</a></h3>
+<p>We define a function <span>$\Delta = \lambda x\cdot xx$</span>. Then <span>$\delta \delta$</span>: <span>$(\lambda x \cdot xx)(\lambda x\cdot xx) \to \Delta\Delta$</span> which is just a copy of itself.</p>
+<p>Next, we define the Y combinator: <span>$Y = \lambda f\cdot (\lambda x \cdot f(xx))(\lambda x\cdot f(xx))$</span>. Then <span>$YM \to M(YM)$</span>. If <span>$Mx = x$</span> for some <span>$x$</span>, this <span>$x$</span> is called a fixed point of <span>$M$</span>. <span>$Y$</span> finds fixed points for any function. You can find more information on the Y combinator on <a href="http://en.wikipedia.org/wiki/Fixed-point_combinator#Y_combinator">wikipedia</a>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

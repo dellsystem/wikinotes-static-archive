@@ -1,0 +1,203 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, March 11, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, March 11, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Random walks, Chernoff bounds
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Random walks on graphs and Markov chains. Chernoff bounds.</p>
+<div class="toc">
+<ul>
+<li><a href="#random-walks">1 Random walks</a><ul>
+<li><a href="#markov-chain-model">1.1 Markov chain model</a><ul>
+<li><a href="#example">1.1.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#stationary-distributions">1.2 Stationary distributions</a><ul>
+<li><a href="#application-pagerank">1.2.1 Application: PageRank</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chernoff-bounds">2 Chernoff bounds</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Random walks<a class="headerlink" href="#random-walks" name="random-walks">&para;</a></h2>
+<p>A random walk on a graph <span>$G = (V, E)$</span> is a walk which, at any vertex, chooses its next edge uniformly at random. So if the degree of a vertex <span>$v$</span> is <span>$d_v$</span>, then the probability of any particular vertex adjacent to <span>$v$</span> being chosen is <span>$1/d_v$</span>.</p>
+<p>This naturally gives rise to a transition matrix, <span>$P$</span>, which has <span>$n = |V|$</span> rows and <span>$n$</span> columns, with the entry in row <span>$i$</span> and column <span>$j$</span> representing the probability of transitioning from vertex <span>$i$</span> to vertex <span>$j$</span>. If there is no edge between <span>$i$</span> and <span>$j$</span>, then the probability is 0. Otherwise, the probability depends on <span>$\deg(i)$</span>.</p>
+<h3 class="header"><i>1.1</i>Markov chain model<a class="headerlink" href="#markov-chain-model" name="markov-chain-model">&para;</a></h3>
+<p>If <span>$\underline{x}^N$</span> is a vector containing the probability of being at any state (i.e., vertex) at time <span>$N$</span>, then we can calculate the probability vector for the next time step as follows:</p>
+<p><span>$$\underline{x}^{N+1}= \underline{x}^N \cdot P \tag{it's just matrix multiplication}$$</span></p>
+<p>This is known as a Markov chain model of a random walk.</p>
+<h4 class="header"><i>1.1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Suppose we have a graph with 4 vertices, and the following transition matrix <span>$P$</span>:</p>
+<p><span>$$P = \begin{pmatrix} 0 &amp; 1 &amp; 0 &amp; 0 \\ \frac{1}{3} &amp; 0 &amp; \frac{1}{3} &amp; \frac{1}{3} \\ 0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \\ 0 &amp; \frac{1}{2} &amp; \frac{1}{2} &amp; 0 \end{pmatrix}$$</span></p>
+<p>(Incidentally, from this matrix, we can derive exactly how the graph is connected - vertex 1 is connected only to vertex 2; vertex 2 is connected to 1, 3, and 4; vertex 3 is connected to 2 and 4; and vertex 4 is connected to 2 and 3.)</p>
+<p>Suppose we start off our random walk at vertex 2. This gives us the following probability vector at time step <span>$N=0$</span>:</p>
+<p><span>$$\underline{x}^0 = \begin{pmatrix} 0 &amp; 1 &amp; 0 &amp; 0 \end{pmatrix}$$</span></p>
+<p>Then, using the formula shown above, we can calculate the next probability vector:</p>
+<p><span>$$\underline{x}^1 = \underline{x}^0 \cdot P = \begin{pmatrix} \frac{1}{3} &amp; 0 &amp; \frac{1}{3} &amp; \frac{1}{3} \end{pmatrix}$$</span></p>
+<p>Then, we could compute <span>$\underline{x}^2$</span>, <span>$\underline{x}^3$</span>, etc.</p>
+<h3 class="header"><i>1.2</i>Stationary distributions<a class="headerlink" href="#stationary-distributions" name="stationary-distributions">&para;</a></h3>
+<p>In the long run (as <span>$N \to \infty$</span>), then, under certain conditions, we reach a stationary distribution, such that</p>
+<p><span>$$\underline{x}^* = \underline{x}^* \cdot P$$</span></p>
+<p>where, as usual, the sum of the entries of the vector <span>$x^*$</span> is 1. Now, if <span>$G$</span> is connected and <em>not</em> bipartite, then <span>$\underline{x}^*$</span> is unique and satisfies</p>
+<p><span>$$\underline{x}^*_v = \frac{d_v}{2|E|} = \frac{d_v}{2m} \tag{$\star$}$$</span></p>
+<p>Note that this only applies for connected graphs; in a graph that is not connected, <span>$\underline{x}^*$</span> won't be unique - it will depend on which component you start at. Similarly, in a bipartite graph, <span>$\underline{x}^*$</span> will depend on which bipartition you start at, since you alternate bipartitions with each transition.</p>
+<p>To see that <span>$(\star)$</span> is true, let <span>$\displaystyle x_v^N = \frac{d_v}{2m}$</span> (so the <span>$v$</span><sup>th</sup> entry in the probability vector at time step <span>$N$</span>, which corresponds to the probability of being at vertex <span>$v$</span> at this time step). Then:</p>
+<p><span>$$x_v^{N+1} = \underline{x}_v^N \cdot \text{(the $v^{\text{th}}$ column of $P$)} = \sum_{u \in \Gamma(v)} \frac{d_u}{2m} \cdot \underbrace{P_{uv}}_{=1/d_u} = \frac{1}{2m} \sum_{u \in \Gamma(v)} 1 = \frac{d_v}{2m} = x_v^N \, \checkmark$$</span></p>
+<h4 class="header"><i>1.2.1</i>Application: PageRank<a class="headerlink" href="#application-pagerank" name="application-pagerank">&para;</a></h4>
+<p>Here's a standard application of random walks. Google's PageRank algorithm, in its most basic form, makes use of a random walk on a directed graph, where vertices are webpages and there is a directed edge from vertex <span>$i$</span> to vertex <span>$j$</span> if the corresponding webpage for <span>$i$</span> has a link to the webpage for <span>$j$</span>. Start crawling at a random vertex,  and find the stationary distribution; then, the score of a page is given by</p>
+<p><span>$$x_i^* = \sum_{j \in \Gamma(i)} \underline{x}_j^* \cdot \frac{1}{\text{outdegree}(j)} \tag{$\forall i \in V$}$$</span></p>
+<p>which makes it less vulnerable to malicious SEO.</p>
+<h2 class="header"><i>2</i>Chernoff bounds<a class="headerlink" href="#chernoff-bounds" name="chernoff-bounds">&para;</a></h2>
+<blockquote>
+<p>Theorem: Let <span>$X_1, x_2, \ldots, X_k$</span> be independent Bernoulli trials such that <span>$P(X_i = 1) = p_i$</span>. If <span>$\displaystyle X = \sum_i X_i$</span>, then</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \left ( \frac{e^\delta}{(1+\delta)^{(1+\delta)}} \right)^\mu$$</span></p>
+<p>where <span>$\displaystyle \mu = E(X) = \sum_i P_i$</span>.</p>
+</blockquote>
+<p><em>This proof is a bit involved, and my notes from this lecture aren't amazing, so the following proof is mostly from my answer for question 5 on the assignment (switching the <span>$&lt;$</span> for <span>$&gt;$</span>, etc, where necessary), plus a bit from my notes. Should be roughly equivalent to what was done in class.</em></p>
+<p>We define a function <span>$f(x) = e^{tx}$</span> where <span>$t$</span> is some positive constant, as of yet unknown. Then, we apply <span>$f(x)$</span> to both sides of the inequality in the probability:</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) = P(e^{Xt} &gt; e^{t(1+\delta)\mu}) \tag{1}$$</span></p>
+<p>Recall that Markov's inequality states that</p>
+<p><span>$$P[Z &gt; c\cdot E(Z)] \leq \frac{1}{c}$$</span></p>
+<p>We can apply this inequality to the RHS of (1), resulting in:</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \frac{E(e^{Xt})}{e^{t(1+\delta)\mu)}} \tag{2}$$</span></p>
+<p>Recall that <span>$X$</span> is the sum of independent random variables <span>$X_i$</span>. To find the expected value of <span>$e^{tX}$</span>, we use the fact that <span>$\displaystyle X = \sum_{i}X_i$</span><br />
+<span>$$\begin{align}
+E(e^{tX}) &amp; = E(e^{t\sum X_i}) = E\left (\prod_i e^{tX_i} \right ) \\
+&amp; = \prod_i E(e^{tX_i}) \tag{by independence, and the linearity of expectation} \\
+&amp; = \prod_i (\underbrace{p_ie^{t\cdot 1}}_{\text{success}} + \underbrace{(1-p_i)e^{t\cdot 0}}_{\text{failure}}) \tag{since they're Bernoulli trials} \\
+&amp; = \prod_i (p_ie^{t} + (1-p_i)) \\
+&amp; = \prod_i (1 + p_i(e^t - 1))
+\end{align}$$</span></p>
+<p>We can simplify this by making use of the following inequality: <span>$\forall x \in \mathbb R$</span>, we have that <span>$1+x \leq e^{x}$</span>. If we let <span>$x = p_i(e^t-1)$</span>, then we have the following inequality:</p>
+<p><span>$$\begin{align}
+E(e^{tX}) &amp; \leq \prod_i e^{p_i(e^t-1)} \\
+&amp; = e^{\sum_i p_i (e^{t}-1)} \tag{by exponential laws} \\
+&amp; = e^{(e^{t}-1)\sum_i p_i} \\
+&amp; = e^{(e^{t}-1)\mu} \tag{by the definition of $\mu$}
+\end{align}$$</span></p>
+<p>Using this upper bound for <span>$E(e^{tX})$</span>, we can simplify the inequality in (2):</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \frac{e^{(e^{t}-1)\mu}}{e^{t(1+\delta)\mu}} = e^{(e^{t}-1)\mu -t(1+\delta)\mu} = e^{\mu(e^{t}-1-t-t\delta)} \tag{3}$$</span></p>
+<p>Now we need to choose <span>$t$</span> to make the bound as tight as possible, which means minimising the RHS of (3) with respect to <span>$t$</span>. We can do this by taking the derivative of <span>$(e^{t}-1-t-t\delta)$</span> (with respect to <span>$t$</span>) and setting it equal to 0:</p>
+<p><span>$$\begin{align}
+e^t - 1 - \delta &amp;= 0 \\
+\therefore \; e^{t} &amp; = 1 + \delta \\
+\therefore \; \ln(e^{t}) &amp; = \ln(1+\delta) \\
+\therefore \; t &amp;= \ln(1+\delta)
+\end{align}$$</span></p>
+<p>Next, we substitute that into (3) and simplify:</p>
+<p><span>$$\begin{align}
+P(X &gt; (1+\delta)) &amp; \leq e^{\mu(e^{\ln(1+\delta)} - 1 - \ln(1+\delta) - \ln(1+\delta)\delta)} \\
+&amp; = e^{\mu ((1+\delta) -1 - (1+\delta)\ln(1+\delta)} \tag{as $e^{\ln(1+\delta)} = (1+\delta)$} \\
+&amp; = \left ( e^{\delta - (1+\delta)\ln(1+\delta)} \right )^\mu \tag{taking out the $\mu$} \\
+&amp; = \left ( e^{\delta} \cdot e^{-(1+\delta)\ln(1+\delta)}\right )^\mu \\
+&amp; = \left ( e^{\delta} \cdot e^{\ln(1+\delta)^{-(1+\delta)}} \right )^\mu \\
+&amp; = \left ( e^{\delta} \cdot (1+\delta)^{-(1+\delta)} \right )^\mu \\
+&amp; = \left ( \frac{e^{\delta}}{(1+\delta)^{(1+\delta)}} \right )^\mu
+\end{align}$$</span></p>
+<p>Wow. <span>$\blacksquare$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

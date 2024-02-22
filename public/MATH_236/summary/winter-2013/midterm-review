@@ -1,0 +1,314 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm will take place in class on Thursday, February 28, at 8:30, in the usual room.</p>
+<p>The structure of this document will follow the organisation of the textbook, not of the lectures (though the two should be similar).</p>
+<div class="toc">
+<ul>
+<li><a href="#chapter-1-vector-spaces">1 Chapter 1: Vector spaces</a><ul>
+<li><a href="#complex-numbers">1.1 Complex numbers</a></li>
+<li><a href="#definition-of-a-vector-space">1.2 Definition of a vector space</a></li>
+<li><a href="#properties-of-vector-spaces">1.3 Properties of vector spaces</a></li>
+<li><a href="#subspaces">1.4 Subspaces</a></li>
+<li><a href="#sums-and-direct-sums">1.5 Sums and direct sums</a><ul>
+<li><a href="#sums">1.5.1 Sums</a></li>
+<li><a href="#direct-sums">1.5.2 Direct sums</a></li>
+</ul>
+</li>
+<li><a href="#exercises">1.6 Exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-2-finite-dimensional-vector-spaces">2 Chapter 2: Finite-dimensional vector spaces</a><ul>
+<li><a href="#span-and-linear-independence">2.1 Span and linear independence</a></li>
+<li><a href="#bases">2.2 Bases</a></li>
+<li><a href="#dimension">2.3 Dimension</a><ul>
+<li><a href="#lunch-in-chinatown">2.3.1 Lunch in Chinatown</a></li>
+</ul>
+</li>
+<li><a href="#exercises_1">2.4 Exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-3-linear-maps">3 Chapter 3: Linear maps</a><ul>
+<li><a href="#definitions-and-examples">3.1 Definitions and examples</a></li>
+<li><a href="#nullspaces-and-ranges">3.2 Nullspaces and ranges</a><ul>
+<li><a href="#dimension-of-the-range-and-nullspace">3.2.1 Dimension of the range and nullspace</a></li>
+</ul>
+</li>
+<li><a href="#the-matrix-of-a-linear-map">3.3 The matrix of a linear map</a></li>
+<li><a href="#invertibility">3.4 Invertibility</a></li>
+<li><a href="#exercises_2">3.5 Exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-4-polynomials">4 Chapter 4: Polynomials</a><ul>
+<li><a href="#degree">4.1 Degree</a></li>
+<li><a href="#complex-coefficients">4.2 Complex coefficients</a><ul>
+<li><a href="#fundamental-theorem-of-algebra">4.2.1 Fundamental theorem of algebra</a></li>
+</ul>
+</li>
+<li><a href="#real-coefficients">4.3 Real coefficients</a></li>
+</ul>
+</li>
+<li><a href="#chapter-5-eigenvalues-and-eigenvectors">5 Chapter 5: Eigenvalues and eigenvectors</a><ul>
+<li><a href="#invariant-subspaces">5.1 Invariant subspaces</a></li>
+<li><a href="#polynomials-applied-to-operators">5.2 Polynomials applied to operators</a></li>
+<li><a href="#upper-triangular-matrices">5.3 Upper-triangular matrices</a></li>
+<li><a href="#diagonal-matrices">5.4 Diagonal matrices</a></li>
+<li><a href="#invariant-subspaces-on-real-vector-spaces">5.5 Invariant subspaces on real vector spaces</a></li>
+<li><a href="#exercises_3">5.6 Exercises</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chapter 1: Vector spaces<a class="headerlink" href="#chapter-1-vector-spaces" name="chapter-1-vector-spaces">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Complex numbers<a class="headerlink" href="#complex-numbers" name="complex-numbers">&para;</a></h3>
+<p>Nothing new</p>
+<h3 class="header"><i>1.2</i>Definition of a vector space<a class="headerlink" href="#definition-of-a-vector-space" name="definition-of-a-vector-space">&para;</a></h3>
+<p>A set <span>$V$</span> along with the operations of addition and scalar multiplication such that the following properties hold:</p>
+<ul>
+<li>Commutativity of addition</li>
+<li>Associativity of addition and scalar multiplication</li>
+<li>Additive identity</li>
+<li>Additive inverse</li>
+<li>Multiplicative identity (scalar)</li>
+<li>Distributivity</li>
+</ul>
+<h3 class="header"><i>1.3</i>Properties of vector spaces<a class="headerlink" href="#properties-of-vector-spaces" name="properties-of-vector-spaces">&para;</a></h3>
+<ul>
+<li>The additive identity is unique</li>
+<li>Additive inverse are unique for each element</li>
+<li><span>$0v = 0$</span> for <span>$v \in V$</span></li>
+<li><span>$a0 = 0$</span> for <span>$a \in \mathbb F$</span></li>
+<li><span>$(-1)v = -v$</span> for <span>$v \in V$</span></li>
+</ul>
+<h3 class="header"><i>1.4</i>Subspaces<a class="headerlink" href="#subspaces" name="subspaces">&para;</a></h3>
+<p>A subset <span>$U$</span> of <span>$V$</span>, which:</p>
+<ul>
+<li>Contains the zero vector <span>$0 \in V$</span></li>
+<li>Is closed under addition</li>
+<li>Is closed under scalar multiplication</li>
+</ul>
+<h3 class="header"><i>1.5</i>Sums and direct sums<a class="headerlink" href="#sums-and-direct-sums" name="sums-and-direct-sums">&para;</a></h3>
+<h4 class="header"><i>1.5.1</i>Sums<a class="headerlink" href="#sums" name="sums">&para;</a></h4>
+<p><span>$U_1 + \ldots + U_m$</span> is the set of all elements <span>$u$</span> such that <span>$u = u_1 + \ldots + u_m$</span> where <span>$u_i \in U_i$</span>.</p>
+<p>If <span>$U_1, \ldots, U_m$</span> are subspaces of <span>$V$</span>, their sum is also a subspace of <span>$V$</span>.</p>
+<p>Also, the sum is the smallest subspace of <span>$V$</span> containing all of <span>$U_1, \ldots, U_m$</span>.</p>
+<p>If <span>$V$</span> is the sum of <span>$U_1, \ldots, U_m$</span>, then any element in <span>$V$</span> can be written as the sum etc.</p>
+<h4 class="header"><i>1.5.2</i>Direct sums<a class="headerlink" href="#direct-sums" name="direct-sums">&para;</a></h4>
+<p>If each element of <span>$V$</span> can be written uniquely as a sum of <span>$u_1 + \ldots + u_m$</span>, then <span>$V$</span> is the direct sum of <span>$U_1 + \ldots + U_m$</span>.</p>
+<p>For <span>$V$</span> to be a direct sum of <span>$U_1, \ldots, U_m$</span>, then it must be the sum, and there can only be one way to write the 0 vector. The converse is true too. The proof for <span>$\Rightarrow$</span> is trivial; the proof for <span>$\Leftarrow$</span> is pretty simple too, we just set 0 to be one representation minus another, and so all the vectors must be zero, etc.</p>
+<p><span>$V = U \oplus W$</span> if and only if <span>$V = U + W$</span> and <span>$U \cap W = \{0\}$</span>. Proof for <span>$\Rightarrow$</span>: the first is from the definition; for the second, assume that <span>$v \in U \cap W$</span>. Then <span>$-v \in U$</span> and <span>$-v \in W$</span> (closure under scalar multiplication by -1). So <span>$v + (-v) = 0$</span> is a sum of a vector in <span>$U$</span> and a vector in <span>$W$</span>. We know that <span>$0 + 0 = 0$</span>. Since this representation is unique, by the fact that <span>$V$</span> is the direct sum, then <span>$v = 0$</span>. Thus 0 is the only element in the intersection. For <span>$\Leftarrow$</span>, we need to show that the zero vector can only be written one way. Suppose that <span>$0 = w + u$</span> where <span>$u\in U$</span> and <span>$w \in W$</span>. Then <span>$w = -u$</span> so <span>$w \in U$</span> and also <span>$u \in W$</span>. Thus <span>$u$</span> and <span>$w$</span> are both in the intersection. But the only such element is 0. Thus <span>$u = w = 0$</span> and so there is a unique way of writing the zero vector as a sum of elements in <span>$U$</span> and <span>$W$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.6</i>Exercises<a class="headerlink" href="#exercises" name="exercises">&para;</a></h3>
+<p>(Interesting results encountered in the exercises.)</p>
+<ul>
+<li>If <span>$V = W \oplus U_1 = W \oplus U_2$</span>, <span>$U_1$</span> and <span>$U_2$</span> can be different.</li>
+</ul>
+<h2 class="header"><i>2</i>Chapter 2: Finite-dimensional vector spaces<a class="headerlink" href="#chapter-2-finite-dimensional-vector-spaces" name="chapter-2-finite-dimensional-vector-spaces">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Span and linear independence<a class="headerlink" href="#span-and-linear-independence" name="span-and-linear-independence">&para;</a></h3>
+<dl>
+<dt>Span</dt>
+<dd>set of all linear combinations; always a subspace of whatever the ambient space is</dd>
+<dt>Finite-dimensional vector space</dt>
+<dd>There is a list of vectors (recall that lists must be finite) that spans the vector space</dd>
+<dt>Linear independence for <span>$v_1, \ldots, v_m$</span></dt>
+<dd><span>$a_1v_1 + \ldots + a_mv_m = 0$</span> only happens when all the a's are 0</dd>
+<dt>Linear dependence lemma</dt>
+<dd>If the vectors are linearly dependent, then one vector in the list can be written as a linear combination of the others (proof: at least one coefficient is non-zero so divide by it). Also, we can remove one without affecting the span (proof: use the previous bit and just replace that vector with the linear combination of the others).</dd>
+<dt>Spanning sets</dt>
+<dd>The length of any independent list <span>$\leq$</span> the length of any spanning set</dd>
+</dl>
+<h3 class="header"><i>2.2</i>Bases<a class="headerlink" href="#bases" name="bases">&para;</a></h3>
+<dl>
+<dt>Basis for <span>$V$</span></dt>
+<dd>Linearly independent spanning set. Any vector in <span>$V$</span> can be written uniquely as a linear combination of basis elements. We can reduce a spanning list to a basis by removing linearly dependent elements, and we can extend a linearly independent list to a basis by adding elements from a spanning list that are not in the span of the lin ind list.</dd>
+</dl>
+<p>For finite-dimensional <span>$V$</span>: Given that <span>$U \subseteq V$</span>, then there exists <span>$W \subseteq W$</span> such that <span>$V = U \oplus W$</span>. Proof: <span>$U$</span> has a basis due to the finite thing. We can extend the basis of <span>$U$</span> to a basis of <span>$V$</span> by adding some vectors <span>$w_1,\ldots, w_n$</span>, which we let be the basis for <span>$W$</span>. Then we just have to prove that <span>$V$</span> is their sum and their intersection is 0.</p>
+<h3 class="header"><i>2.3</i>Dimension<a class="headerlink" href="#dimension" name="dimension">&para;</a></h3>
+<p>Any two bases of a fdvs have the same length. Length of a subspace never exceeds (basis can be extended, etc). Any spanning list or linearly independent list with length <span>$\dim V$</span> is a basis for <span>$V$</span>.</p>
+<h4 class="header"><i>2.3.1</i>Lunch in Chinatown<a class="headerlink" href="#lunch-in-chinatown" name="lunch-in-chinatown">&para;</a></h4>
+<p><span>$$\dim(U_1 + U_2) + \dim U_1 + \dim U_2 -\dim(U_1 \cap U_2)$$</span></p>
+<p>Proof: construct a basis for everything, look at the number of vectors in each.</p>
+<p>If <span>$V$</span> is the sum, and <span>$\dim V$</span> is the sum of the dims, then <span>$V$</span> is the direct sum. Proof: bases.</p>
+<h3 class="header"><i>2.4</i>Exercises<a class="headerlink" href="#exercises_1" name="exercises_1">&para;</a></h3>
+<ul>
+<li><span>$w$</span> is in the span of <span>$(v_1+w, \ldots, v_n+w)$</span> if it's dep. Proof: write out the definition for lin dep, rearrange terms, divide by coefficient for <span>$w$</span> (non-zero).</li>
+</ul>
+<h2 class="header"><i>3</i>Chapter 3: Linear maps<a class="headerlink" href="#chapter-3-linear-maps" name="chapter-3-linear-maps">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Definitions and examples<a class="headerlink" href="#definitions-and-examples" name="definitions-and-examples">&para;</a></h3>
+<p>Linear map from <span>$V$</span> to <span>$W$</span>: function <span>$T: V \to W$</span> that satisfies additivity (<span>$T(u+v) = Tu + Tv$</span>) and homogeneity (<span>$T(av) = a(Tv)$</span>, aka it preserves scalar multiplication). Also, <span>$\mathcal L(V, W)$</span> is a vector space. We add a "product" operation, which is really just composition, in the expected order.</p>
+<h3 class="header"><i>3.2</i>Nullspaces and ranges<a class="headerlink" href="#nullspaces-and-ranges" name="nullspaces-and-ranges">&para;</a></h3>
+<p>Nullspace: <span>$\{ v \in V: Tv = 0\}$</span>. Always a subspace. Easy to prove. <span>$T$</span> is injective if and only if its nullspace is <span>$\{0\}$</span>.</p>
+<p>Range: <span>$\{Tv: v \in V\}$</span>. Also a subspace.</p>
+<h4 class="header"><i>3.2.1</i>Dimension of the range and nullspace<a class="headerlink" href="#dimension-of-the-range-and-nullspace" name="dimension-of-the-range-and-nullspace">&para;</a></h4>
+<p><span>$$\dim V = \dim \text{null} T  +\dim \text{range} T$$</span></p>
+<p>Proof: create bases, apply <span>$T$</span>, the nullspace parts disappear because they go to 0.</p>
+<p>Corollary: If <span>$\dim V &gt; \dim W$</span>, there are no injective maps from <span>$V$</span> to <span>$W$</span>, and there are no surjective maps from <span>$W$</span> to <span>$V$</span>.</p>
+<h3 class="header"><i>3.3</i>The matrix of a linear map<a class="headerlink" href="#the-matrix-of-a-linear-map" name="the-matrix-of-a-linear-map">&para;</a></h3>
+<p>To find: Evaluate each element of the given basis and make each result a column.</p>
+<p>The matrix of a vector with respect to some basis of length <span>$n$</span> is just the <span>$n \times 1$</span> column vector of the coefficients for the basis vectors. Then, <span>$M(Tv) = M(T)M(v)$</span>.</p>
+<h3 class="header"><i>3.4</i>Invertibility<a class="headerlink" href="#invertibility" name="invertibility">&para;</a></h3>
+<p><span>$T \in \mathcal L(V, W)$</span> is invertible if there exists <span>$S \in \mathcal L(W, V)$</span> such that <span>$ST = TS = I$</span> (obviously unique).</p>
+<p>Invertibility <span>$\Leftrightarrow$</span> injectivity and/or surjectivity.</p>
+<p><strong>Isomorphic vector spaces</strong>: there is an invertible lienar map between them. Thus there is a bijection between them, and they have the same dimension (from the nullspace-range formula)</p>
+<p><span>$$\dim \mathcal L(V, W) = \dim V \cdot \dim W$$</span></p>
+<h3 class="header"><i>3.5</i>Exercises<a class="headerlink" href="#exercises_2" name="exercises_2">&para;</a></h3>
+<ul>
+<li>We can always extend a linear map on a subspace to a linear map on the ambient space. It won't be injective, obviously, but we just ignore the part of any vector that we don't have a rule for (in terms of basis vectors, etc).</li>
+<li>If <span>$T \in \mathcal L(V, \mathbb F)$</span>, and <span>$u \notin \text{null}T$</span>, then <span>$V$</span> is the direct sum of the nullspace and <span>$\{au: a\in \mathbb F\}$</span>. Proof: show that their intersection is zero, and that their sum is <span>$V$</span> (take one vector from each such that their sum is an arbitrary <span>$v$</span>).</li>
+<li>If <span>$T \in \mathcal L(V, W)$</span> is injective, then <span>$T$</span> applied to each element of a lin ind list gives a lin ind list. Proof: by additivity of <span>$T$</span>, if some linear combination is equal to 0, then <span>$T(a_1v_1 + \ldots + a_nv_n) = 0$</span>, and by injectivity, the nullspace is 0, so this inherits the independence of the original list.</li>
+<li>A product of injective maps is injective. Proof: apply argument inductively, starting from the last.</li>
+<li><span>$ST$</span> is invertible <span>$\Leftrightarrow$</span> <span>$S$</span> and <span>$T$</span> are both invertible. Proof of <span>$\Rightarrow$</span>: <span>$T$</span> is injective (nullspace has only 0), and <span>$S$</span> is surjective (range is <span>$V$</span>). In the other direction, just multiply to get <span>$I$</span>.</li>
+</ul>
+<h2 class="header"><i>4</i>Chapter 4: Polynomials<a class="headerlink" href="#chapter-4-polynomials" name="chapter-4-polynomials">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Degree<a class="headerlink" href="#degree" name="degree">&para;</a></h3>
+<p><span>$p$</span> has degree <span>$m \geq 1$</span>. Then <span>$\lambda$</span> is a root <span>$\Leftrightarrow$</span> there exists a <span>$q$</span> with degree <span>$m-1$</span> such that</p>
+<p><span>$$p(z) = (z-\lambda)q(z)$$</span></p>
+<p>Proof of the non-trivial direction: <span>$p(z) - p(\lambda) = p(z) - 0 = p(z)$</span> but when you write it all out you can factor out <span>$(z-\lambda)$</span> from each, so yeah.</p>
+<p>Corollary: <span>$p$</span> has at most <span>$m$</span> distinct roots.</p>
+<h3 class="header"><i>4.2</i>Complex coefficients<a class="headerlink" href="#complex-coefficients" name="complex-coefficients">&para;</a></h3>
+<h4 class="header"><i>4.2.1</i>Fundamental theorem of algebra<a class="headerlink" href="#fundamental-theorem-of-algebra" name="fundamental-theorem-of-algebra">&para;</a></h4>
+<p>Every nonconstant polynomial over <span>$\mathbb C$</span> has a root <span>$\in \mathbb C$</span>.</p>
+<p>Corollary: <span>$p$</span> has a unique factorisation of the form <span>$p(z) = c(z-\lambda)\cdots(z-\lambda_m)$</span> where the lambdas are the roots.</p>
+<h3 class="header"><i>4.3</i>Real coefficients<a class="headerlink" href="#real-coefficients" name="real-coefficients">&para;</a></h3>
+<p>Complex conjugate definition: negative of the imaginary part</p>
+<p>If <span>$\lambda$</span> is a root, so is <span>$\overline{\lambda}$</span>.</p>
+<p><span>$p$</span> has a unique factorisation consisting of linear and quadratic polynomials (all irreducible).</p>
+<h2 class="header"><i>5</i>Chapter 5: Eigenvalues and eigenvectors<a class="headerlink" href="#chapter-5-eigenvalues-and-eigenvectors" name="chapter-5-eigenvalues-and-eigenvectors">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Invariant subspaces<a class="headerlink" href="#invariant-subspaces" name="invariant-subspaces">&para;</a></h3>
+<p>If <span>$u \in U$</span>, then <span>$Tu \in U$</span>.</p>
+<p>For one-dimensional <span>$V$</span>, the only invariant subspaces are the trivial ones (zero, whole space - aren't they the only subspaces?).</p>
+<p>For a self-map (operator), both the nullspace and range are invariant.</p>
+<p><strong>Eigenvalue <span>$\lambda$</span></strong>: there exists a nonzero <span>$v \in V$</span> such that <span>$Tv = \lambda v$</span>. So, <span>$T$</span> has a one-dimensional invariant subspace <span>$\Leftrightarrow$</span> <span>$T$</span> has an eigenvalue. Also, <span>$\lambda$</span> is an eigenvalue if and only if <span>$T - \lambda I$</span> is not injective (or invertible, or surjective). <span>$v$</span> is an <strong>eigenvector</strong> (found by looking at the nullspace of <span>$T-\lambda I$</span>).</p>
+<p>The eigenvectors are always linearly independent if the eigenvalues are distinct. Proof: let <span>$v \in \text{span}$</span>, write it out as a linear combo, multiply both sides by <span>$\lambda$</span>, then since they're all distinct, the coefficients must be 0.</p>
+<p>The maximum number of eigenvalues is <span>$\dim V$</span>, since the eigenvectors must be distinct (same number, etc).</p>
+<h3 class="header"><i>5.2</i>Polynomials applied to operators<a class="headerlink" href="#polynomials-applied-to-operators" name="polynomials-applied-to-operators">&para;</a></h3>
+<p><span>$T^m$</span> is <span>$T$</span> applied <span>$m$</span> times</p>
+<h3 class="header"><i>5.3</i>Upper-triangular matrices<a class="headerlink" href="#upper-triangular-matrices" name="upper-triangular-matrices">&para;</a></h3>
+<p>Every operator on a fd, non-zero complex vector space has an eigenvalue. Proof: consider the vectors <span>$(v, Tv, T^2v, \ldots, T^nv)$</span>. This is not linearly independent for <span>$\dim V = n$</span>. So we can write 0 as a linear combination of not-all-zero complex coefficients. Take the largest nonzero coefficient, and make all of them up to there the coefficients of a polynomial. We can factor that over the complex numbers! Replace <span>$z$</span> with <span>$T$</span> and we see that <span>$T-\lambda_j$</span> is not injective for at least one <span>$j$</span>, since it sends something non-zero to 0.</p>
+<p><strong>Upper triangular matrix</strong>: everything below the diagonal is 0 etc.</p>
+<p>If <span>$T \in \mathcal L(V)$</span>, then TFAE: (1) the matrix with respect to the basis is upper triangular; (2) <span>$Tv_k$</span> for any basis vector <span>$v_k$</span> is in the span of the first <span>$k$</span> basis vectors; (3) the span of the first <span>$k$</span> basis vectors is invariant under <span>$T$</span>.</p>
+<p>Any operator has an upper-triangular matrix with respect to some basis. Proof: by induction.</p>
+<p><span>$T$</span> is invertible <span>$\Leftrightarrow$</span> its upper triangular matrix has no zeros on the diagonal (eigenvalues). Proof: if one eigenvalue is 0, then <span>$Tv = 0$</span> for some nonzero <span>$v$</span>, so it's not injective, so it's not invertible. If it's not invertible, it's not injective, so there's some <span>$v$</span> such that <span>$Tv = 0$</span>. That means there's an eigenvalue of 0.</p>
+<h3 class="header"><i>5.4</i>Diagonal matrices<a class="headerlink" href="#diagonal-matrices" name="diagonal-matrices">&para;</a></h3>
+<p>An operator has a diagonal matrix with respect to some basis if the eigenvalues are distinct (and thus the eigenvectors comprise a linearly independent list, and hence, a basis). (It can also have a diagonal matrix even when the eigenvalues are not distinct, sometimes.)</p>
+<p>TFAE:</p>
+<ul>
+<li><span>$T$</span> has a diagonal</li>
+<li>Eigenvectors form a basis of <span>$V$</span></li>
+<li>The sum of one-dimensional invariant subspaces is the whole space</li>
+<li>The sum of nullspaces of <span>$T-\lambda_k I$</span> is the whole space</li>
+<li>The sum of dims of the above fits</li>
+</ul>
+<h3 class="header"><i>5.5</i>Invariant subspaces on real vector spaces<a class="headerlink" href="#invariant-subspaces-on-real-vector-spaces" name="invariant-subspaces-on-real-vector-spaces">&para;</a></h3>
+<p>Every operator has an invariant subspace of dim 1 or 2. Proof: polynomial thing again.</p>
+<p>Every operator on an odd-dimensional space has an eigenvalue.</p>
+<h3 class="header"><i>5.6</i>Exercises<a class="headerlink" href="#exercises_3" name="exercises_3">&para;</a></h3>
+<ul>
+<li><span>$T$</span> has at most <span>$(\dim \text{range} T) + 1$</span> distinct eigenvalues. Proof: dim of the nullspace has to be at most 1 (if there is a 0 eigenvalue).</li>
+<li>If <span>$\lambda$</span> is an eigenvalue of <span>$T$</span>, <span>$1/\lambda$</span> is of <span>$T^{-1}$</span>.</li>
+<li><span>$ST$</span>, <span>$TS$</span> have the same eigenvalues.</li>
+<li>If every vector is an eigenvector, then we have a scalar multiple of identity operator. Same if every subspace with one dim less is invariant.</li>
+<li>If <span>$P^2=P$</span>, then the ambient space is the direct sum of the nullspace and range. Proof: <span>$u-Pv$</span> is in the nullspace, and <span>$Pv$</span> is in the range.</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

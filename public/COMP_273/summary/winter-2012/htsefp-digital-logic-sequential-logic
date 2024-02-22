@@ -1,0 +1,288 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Digital logic - sequential logic
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Digital logic - sequential logic
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#rs-latches">1 RS latches</a><ul>
+<li><a href="#general-solution">1.1 General solution</a><ul>
+<li><a href="#truth-tables-for-rs-latches">1.1.1 Truth tables for RS latches</a></li>
+<li><a href="#timing-diagrams-for-rs-latches">1.1.2 Timing diagrams for RS latches</a></li>
+</ul>
+</li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#gate-limited-d-flip-flops">2 Gate-limited D flip-flops</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a><ul>
+<li><a href="#some-background-on-d-flip-flops">2.1.1 Some background on D flip-flops</a></li>
+<li><a href="#d-flip-flops-with-different-gates">2.1.2 D flip-flops with different gates</a></li>
+<li><a href="#replacing-a-d-latch">2.1.3 Replacing a D latch</a></li>
+</ul>
+</li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#timing-diagrams-for-registers">3 Timing diagrams for registers</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#t-flip-flops">4 T flip-flops</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#generic-circuits">5 Generic circuits</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>RS latches<a class="headerlink" href="#rs-latches" name="rs-latches">&para;</a></h2>
+<blockquote>
+<p>Given the diagram for a circuit made using a particular type of gate, determine whether or not it is an RS latch and explain why. If it is, draw out the R and S timing diagrams for a particular timing diagram of Q.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Truth tables for RS latches<a class="headerlink" href="#truth-tables-for-rs-latches" name="truth-tables-for-rs-latches">&para;</a></h4>
+<p>First, draw out the truth table for the type of gate used, and use that to draw out the truth table for the values of R and S. As an example, using the RS latch with NAND gates, we have the following situation:</p>
+<ul>
+<li>If R is 0, <span>$Q$</span> must be 1, as only two 1's can result in a 0 with a NAND gate.<ul>
+<li>If S is 0, <span>$\overline Q$</span> must be 1.</li>
+<li>If S is 1, <span>$\overline Q$</span> must be 0, as both inputs to the NAND gate (S and Q) are 1.</li>
+</ul>
+</li>
+<li>If R is 1:<ul>
+<li>If S is 0, <span>$\overline Q$</span> must be 1, and so <span>$Q$</span> must be 0, as both inputs to the NAND gate (S and <span>$\overline Q$</span>) are 1.</li>
+<li>If S is 1, then nothing happens, and we stick with the previous values of <span>$Q$</span> and <span>$\overline Q$</span>.</li>
+</ul>
+</li>
+</ul>
+<p>This results in the following truth table:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$R$</span></th>
+<th><span>$S$</span></th>
+<th><span>$Q$</span></th>
+<th><span>$\overline Q$</span></th>
+<th class="left-align">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td class="left-align">not allowed</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td class="left-align">reset</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td class="left-align">set</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td class="left-align">hold</td>
+</tr>
+</tbody>
+</table>
+<p>Any circuit that results in a truth table with the above outputs (in whatever order) can be considered an RS latch. If we consider the circuits described in question 3 of exercises 3<sup id="fnref:question 3"><a href="#fn:question 3" rel="footnote" title="For some reason, the question mentions a NAND gate...">2</a></sup>:</p>
+<p>(a) XOR gates: No, because any combination of inputs will result in a hold.<br />
+(b) OR gates: No, because if R = S = 0, then we have a hold, but for any other combination, we have <span>$Q = \overline Q = 1$</span>, which is not allowed.<br />
+(c) AND gates: No, because if R = S = 1, then we have a hold, but for any other combination, we have <span>$Q = \overline Q = 0$</span>, which is nt allowed.</p>
+<h4 class="header"><i>1.1.2</i>Timing diagrams for RS latches<a class="headerlink" href="#timing-diagrams-for-rs-latches" name="timing-diagrams-for-rs-latches">&para;</a></h4>
+<p>When drawing out a timing diagram, just refer to the truth table, and remember that Q can only change when the clock is 1 and the value is not being held. (It should change as soon as the clock becomes 1, if the conditions require it to change.) Make sure to hold the value initially and only do a set for the time when Q becomes 1.<sup id="fnref:holding initially"><a href="#fn:holding initially" rel="footnote" title="What is Q is 1 initially? Do we start off with a s...">1</a></sup> See the </p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Exercises 3, questions 1, 2 and 3</li>
+</ul>
+<h2 class="header"><i>2</i>Gate-limited D flip-flops<a class="headerlink" href="#gate-limited-d-flip-flops" name="gate-limited-d-flip-flops">&para;</a></h2>
+<blockquote>
+<p>Draw the circuit diagram of a D flip-flop using only particular types of gates. What if one of the D latches were replaced by a particular type of gate?</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Some background on D flip-flops<a class="headerlink" href="#some-background-on-d-flip-flops" name="some-background-on-d-flip-flops">&para;</a></h4>
+<p>First, a bit of background: we begin with D latches, which are essentially RS latches where instead of arbitrarily choosing Q to be 1 or 0, we set it to the value of some variable, "D" (for data). If D is 1, then we want Q to be 1, in which case we'd need to set R = 0 and S = 1. On the other hand, if D is 0, then we want Q to be 1, in which case we'd need to set R = 1 and S = 0. Consequently, <span>$S = D$</span> and <span>$R = \overline D$</span>, so we can split D into two branches, one of which is negated and one which is not. Since we also need a clock in an RS latch, we add an input variable C that splits into two branches, each of which is ANDed with a D branch. The result of ANDing C with a negated D branch is the variable R, and the result of ANDing C with the non-negated D branch is the variable S. R and S are then fed into an RS latch as is typical.</p>
+<p>The main problem with D latches is that simultaneous reads and writes can occur, resulting in nonsensical output. This can be solved using a mechanism called a <strong>D flip-flop</strong>, which is basically a pair of D latches with complementary C inputs. If the flip-flop is triggered by a falling edge, then the second D latch gets the negated branch of C; if triggered by a rising edge, the first D latch gets the negated branch of C. This results in two separate D latches, which cannot be written to simultaneously; this means that one can be used as read-only memory and the other can be used as write-only memory for a given clock cycle, elegantly solving the problem with D latches.</p>
+<p>Specifically, in the rising edge case, when C = 0, the first D latch has an output value of D, and the second D latch has an output value of Q (i.e. the previous value). When C = 1, the first D latch has an output value of its previous value, and the second D latch has the same output value as the first. Similarly, in the falling edge case, when C = 0, the first D latch has an output value of its previous value, and the second D latch has the same output value as the first; and when C = 1, the first D latch has an output value of D, and the second D latch has an output value of its previous value. Note that in order for this to work, the clock pulse interval has to be long enough for all the necessary circuit wizardry to be completed before writing back to the flip-flop is attempted.</p>
+<h4 class="header"><i>2.1.2</i>D flip-flops with different gates<a class="headerlink" href="#d-flip-flops-with-different-gates" name="d-flip-flops-with-different-gates">&para;</a></h4>
+<p>Let's say you have to draw the complete circuit diagram of a D flip-flop using only AND, OR, and NOT gates (from exercises 3, question 4). You can pretty much take the standard D flip-flop diagram - the only change you have to make is to replace the NOR gates with inverted OR gates (so OR, followed immediately by a NOT). See the solution in the exercises for the diagram.</p>
+<p>As another example: if you were only allowed to use AND and NOT gates, you could replace each NOR gate by an AND gate to which both inputs were inverted with a NOT gate. In other words, you would be converting NOR (<span>$\overline{(A + B)}$</span>) into <span>$\overline A \cdot \overline B$</span>.</p>
+<h4 class="header"><i>2.1.3</i>Replacing a D latch<a class="headerlink" href="#replacing-a-d-latch" name="replacing-a-d-latch">&para;</a></h4>
+<p>Draw out the truth table for the proposed replacement gate and work through the cases. See question 5 in exercises 3 for an example.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Exercises 3, questions 4 and 5</li>
+</ul>
+<h2 class="header"><i>3</i>Timing diagrams for registers<a class="headerlink" href="#timing-diagrams-for-registers" name="timing-diagrams-for-registers">&para;</a></h2>
+<blockquote>
+<p>Given the circuit diagram for a register and the initial values in the register, draw the timing diagram for it.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Some background: registers consist of a set of D flip-flops, which together hold the value of some variable. They're written to all at once, not individually (but of course, they can all have different values). See the lecture 6 notes for an example of a shift right register.</p>
+<p>With a more general shift register that can shift in either direction, clear its memory, and write to all its bits, we would need a 2-bit selector applied via a multiplexor for each D latch.</p>
+<p>To draw the timing diagram for each of the outputs (<span>$Q_0, Q_1, Q_2$</span> etc), just iterate through each clock cycle and follow what happens at each D latch.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>None</li>
+</ul>
+<h2 class="header"><i>4</i>T flip-flops<a class="headerlink" href="#t-flip-flops" name="t-flip-flops">&para;</a></h2>
+<blockquote>
+<p>Implement a circuit that involves a T flip-flop (e.g. a counter circuit).</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>A <strong>T flip-flop</strong> ("toggle") consists of a D latch in which the input variable D comes from the output variable <span>$\overline Q$</span>. The output <span>$Q$</span> changes switches between 0 and 1 at half the rate of the clock cycle, and whether it changes value at a falling edge or at a rising edge depends on that property of the D latch itself.</p>
+<p>These circuits can be used as counters. If we were to implement a mod <span>$n$</span> counter, we'd probably want to use a multiplexor of some sort. Not really sure how this works. See the example below.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Exercises 3, question 6</li>
+</ul>
+<h2 class="header"><i>5</i>Generic circuits<a class="headerlink" href="#generic-circuits" name="generic-circuits">&para;</a></h2>
+<blockquote>
+<p>Describe a circuit that performs a specified task.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>Usable elements:</p>
+<ul>
+<li>RS latch</li>
+<li>D latch</li>
+<li>D flip-flop</li>
+<li>T flip-flop</li>
+<li>Shift registers</li>
+<li>Registers to hold the results</li>
+<li>Selectors and multiplexors</li>
+<li>Basic logic gates</li>
+</ul>
+<p>See the example below.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Exercises 3, question 7</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:holding initially">
+<p>What is Q is 1 initially? Do we start off with a set? Does this ever happen?&#160;<a href="#fnref:holding initially" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:question 3">
+<p>For some reason, the question mentions a NAND gate, even though there are only three circuits and none of them have NAND gates. But whatever.&#160;<a href="#fnref:question 3" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

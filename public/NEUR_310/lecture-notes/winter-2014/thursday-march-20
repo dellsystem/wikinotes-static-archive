@@ -1,0 +1,254 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 20, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 20, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Transmitter Release
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Transmitter and vesicle fusion<a class="headerlink" href="#transmitter-and-vesicle-fusion" name="transmitter-and-vesicle-fusion">&para;</a></h2>
+<ul>
+<li>release is triggered by calcium and very fast, so there must be a calcium sensor linked to fusion </li>
+<li>transmitter release is quantal : number of vesicles and number of transmitters</li>
+<li>organization of active zone , where vesicles are close to clacium and positioned right across from the receptors<ul>
+<li>Bassoon and Piccolo : scaffolding proteins that might be important for this </li>
+</ul>
+</li>
+<li>
+<p>fusion of synaptic vesicle: </p>
+<ul>
+<li>related to other fusion like in ER, Golgi, TGN </li>
+<li>differences: calcium sensitivity and specificity for active zone</li>
+<li>require SNARES</li>
+</ul>
+</li>
+<li>
+<p>spontaneous release</p>
+<ul>
+<li>not evoked, just at some rate spontaenously fuse with the membrane </li>
+<li>there seem to be two groups of synaptic vesicle: evoked release and ones for spontaneous release </li>
+</ul>
+</li>
+<li>
+<p>can use a hypertonic shock (put in lots of sucrose) would cause all readily releasable vesicles to fuse</p>
+</li>
+</ul>
+<h2 class="header"><i>2</i>SNARES<a class="headerlink" href="#snares" name="snares">&para;</a></h2>
+<ul>
+<li>
+<p>Types </p>
+<ul>
+<li>VAMP (Synaptobrevin) <ul>
+<li>on vesicle, an R SNARE (with arginine) </li>
+</ul>
+</li>
+<li>Syntaxin <ul>
+<li>on acceptor membrane, a Q SNARE (with glutamine)</li>
+<li>integral plasma membrane protein </li>
+<li>can bind to synaptotagmin (a calcium sensor) on vesicle </li>
+</ul>
+</li>
+<li>SNAP25 <ul>
+<li>on acceptor membrane, a Q SNARE (with glutamine) </li>
+<li>attach to lipid on membrane (not integral membrane protein) </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>they form coil-coil complex</p>
+<ul>
+<li>1 VAMP + 1 Syntaxin + 2 SNAP25 </li>
+</ul>
+</li>
+<li>
+<p>tetanus and botulinim toxins: protease that cleave SNARE and thus block neurotransmitter release </p>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Other proteins<a class="headerlink" href="#other-proteins" name="other-proteins">&para;</a></h2>
+<ul>
+<li>priming and priming of vesicles: <ul>
+<li>need to dock close to the calcium channels <ul>
+<li>synaptotagmin binding to SNAP 25 or syntaxin </li>
+<li>tethering to calcium channels by Rim proteins </li>
+</ul>
+</li>
+<li>involves generating SNARE coiled-coil interaction</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.1</i>Regulators of SNARE complex<a class="headerlink" href="#regulators-of-snare-complex" name="regulators-of-snare-complex">&para;</a></h3>
+<ul>
+<li>
+<p>Munc18 :</p>
+<ul>
+<li>tighly associated with SNARE complex </li>
+<li>binds to synatxin in a closed conformation to prevent a full coil-coil complex</li>
+<li>also prevent unproductive syntaxin/SNAP25 heteromer (i.e. prevent them from coiling with each other when there's no need to. </li>
+<li>this is only in synaptic vesicles</li>
+</ul>
+</li>
+<li>
+<p>Munc13 </p>
+<ul>
+<li>discrupts Munc18 </li>
+<li>major point of regulation for vesicle release, such as in plasticity, for cells </li>
+</ul>
+</li>
+<li>
+<p>complexin: </p>
+<ul>
+<li>binds to late coiled-coil complex</li>
+<li>synaptotagmin in presence of calcium, removes complexin binding to allow fusion </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.2</i>Calcium sensing<a class="headerlink" href="#calcium-sensing" name="calcium-sensing">&para;</a></h3>
+<ul>
+<li>
+<p>Synaptotagmin </p>
+<ul>
+<li>a synaptic vesicle protein with two C2 domain that binds calcium </li>
+<li>knockout : changes in calcium dependence of synchronous release and no more fast calcium evoked release <ul>
+<li>slow calcium evoked release are intact </li>
+</ul>
+</li>
+<li>binds to 5 calcium and is fast</li>
+<li>important when calcium level is high </li>
+</ul>
+</li>
+<li>
+<p>"mysterious asynchronous sensor" </p>
+<ul>
+<li>we don't know what it is, could be synaptotagmin 7</li>
+<li>binds to 2 calcium and is slow</li>
+<li>important when calcium level is low </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.3</i>Recycling<a class="headerlink" href="#recycling" name="recycling">&para;</a></h3>
+<ul>
+<li>NSF : an ATPase that breaks up SNARE complex after fusion so they can be reused</li>
+<li>clatherin: clatherin-coated vesicles recycle the SNAREs <ul>
+<li>endophillin KO blocks almost all recycling. it has to do with forming clatherin-coated vesicles </li>
+</ul>
+</li>
+<li>dynamin: GTPase that buds/pinches off vesicles<ul>
+<li>Shibere: temperature-sensitive drosophila dynamin mutation</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>4</i>Synaptic vesicles and dense core<a class="headerlink" href="#synaptic-vesicles-and-dense-core" name="synaptic-vesicles-and-dense-core">&para;</a></h2>
+<ul>
+<li>synaptic vesicles do not bud off TGN ; probaby formed by endocytosis </li>
+<li>neuropeptides from dense core vesicles are not released at active zones <ul>
+<li>outside of active zones, and diffuse to receptors</li>
+<li>require high rates of stimulation and lower levels of calcium for release <ul>
+<li>not localized next to calcium channels, so levels need to increase throughout the entire presynaptic terminal before dense cores are released </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

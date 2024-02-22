@@ -1,0 +1,162 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Predicate logic
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Predicate logic
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Note: a lot of the things overlap.</p>
+<h2 class="header"><i>1</i>Starting with something<a class="headerlink" href="#starting-with-something" name="starting-with-something">&para;</a></h2>
+<blockquote>
+<p>You're given a <span>$\forall$</span> somewhere on the left side of the <span>$\vdash$</span> sign (meaning you can start your formal proof with "something" rather than nothing), and you need to prove either a specific case, an existential case, or another <span>$\forall$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 1</li>
+<li>Assignment 5, question 2</li>
+</ul>
+<h2 class="header"><i>2</i>Logical theorems with if and only if<a class="headerlink" href="#logical-theorems-with-if-and-only-if" name="logical-theorems-with-if-and-only-if">&para;</a></h2>
+<blockquote>
+<p>Given a logical theorem with a <span>$\iff$</span> somewhere in the middle ... prove it.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>Prove that the left side implies the right, then prove that the right side implies the left, then prove that if each side implies the other, the <span>$\iff$</span> thing is true.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 3</li>
+</ul>
+<h2 class="header"><i>3</i>Logical theorem or not?<a class="headerlink" href="#logical-theorem-or-not" name="logical-theorem-or-not">&para;</a></h2>
+<blockquote>
+<p>Given a statement, decide whether or not it is a logical theorem. If it is, prove it; otherwise, give a counterexample.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 4</li>
+</ul>
+<h2 class="header"><i>4</i>At most and at least<a class="headerlink" href="#at-most-and-at-least" name="at-most-and-at-least">&para;</a></h2>
+<blockquote>
+<p>Given some sort of statement involving "at most" and/or "at least", translate it into a logical theorem and prove it.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 6, question 2</li>
+</ul>
+<h2 class="header"><i>5</i>When equality is involved<a class="headerlink" href="#when-equality-is-involved" name="when-equality-is-involved">&para;</a></h2>
+<blockquote>
+<p>Given some statement that has equality in it somewhere, decide whether or not it is a logical theorem. If it is, prove it; otherwise, give a counterexample.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 6, question 1</li>
+<li>Assignment 7, question 1</li>
+<li>Assignment 7, question 2 (only requires giving a counterexample)</li>
+<li>Fall 2009 final exam, question 4</li>
+<li>Fall 2010 final exam, question 4</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

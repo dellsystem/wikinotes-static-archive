@@ -1,0 +1,242 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_251/">
+                COMP 251
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Practise for final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Practise for final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#dynamic-programming">1 Dynamic Programming</a><ul>
+<li><a href="#question-1">1.1 Question 1</a><ul>
+<li><a href="#solution">1.1.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="#question-2">1.2 Question 2</a><ul>
+<li><a href="#solution_1">1.2.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="#question-3">1.3 Question 3</a><ul>
+<li><a href="#solution_2">1.3.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="#question-4">1.4 Question 4</a><ul>
+<li><a href="#solution_3">1.4.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="#question-5">1.5 Question 5</a><ul>
+<li><a href="#solution_4">1.5.1 Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Dynamic Programming<a class="headerlink" href="#dynamic-programming" name="dynamic-programming">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h4>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">max_contiguous</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="c">#sums[i][j] means the maximum sum of the sequence with length i starting at index j</span>
+    <span class="n">sums</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)]</span>
+    <span class="n">sums</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">seq</span><span class="p">])</span>
+    <span class="c">#skipping 1 because subseq sum of length 1 is already defined - the elements themselves</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">sums</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="c">#let m(c,k) = max(seq[c:k])</span>
+        <span class="c">#m(c,k) = max(m(c,k-1),m(0,k),m(1,k),m(2,k)....m(k-1,k)</span>
+        <span class="c">#we just apply a change of coordinates from (start,end) to (length,start)</span>
+            <span class="n">terms_to_max</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">terms_to_max</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="p">]))</span>
+            <span class="n">terms_to_max</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">):</span>
+                <span class="n">terms_to_max</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="n">c</span><span class="p">])</span>
+                <span class="n">sums</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">terms_to_max</span><span class="p">))</span>
+    <span class="n">max_sum</span> <span class="o">=</span> <span class="n">sums</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">sums</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c">#backtrack to find the first subseq with the max sum</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sums</span><span class="p">)):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sums</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">sums</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">==</span><span class="n">max_sum</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">seq</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="p">]</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h4>
+<p>No clue</p>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<h4 class="header"><i>1.3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h4>
+<p>Given in class, but here it is:</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">max_profit</span><span class="p">(</span><span class="n">restaurants</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    restaurants - a sort list of tuples, where each tuple refers to (distance, profit)</span>
+<span class="sd">    k - minimum distance between two restaurants</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">profits</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">restaurants</span><span class="p">)</span>
+    <span class="n">profits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="s">&quot;profit&quot;</span><span class="p">:</span><span class="n">restaurants</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="s">&quot;restaurants&quot;</span><span class="p">:[</span><span class="mi">0</span><span class="p">]}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">profits</span><span class="p">)):</span>
+        <span class="c">#the profit not including the current restaurant</span>
+        <span class="n">prev_max</span> <span class="o">=</span> <span class="n">profits</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&quot;profit&quot;</span><span class="p">]</span>
+
+        <span class="c">#the profit including the current restaurant</span>
+        <span class="n">new_end</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">restaurants</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="n">restaurants</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">&gt;</span><span class="n">restaurants</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">k</span><span class="p">:</span>
+                <span class="k">break</span>
+
+            <span class="n">new_end</span> <span class="o">=</span> <span class="n">j</span>
+        <span class="n">include</span> <span class="o">=</span> <span class="n">profits</span><span class="p">[</span><span class="n">new_end</span><span class="p">][</span><span class="s">&#39;profit&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">restaurants</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">new_restaurants</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">profits</span><span class="p">[</span><span class="n">new_end</span><span class="p">][</span><span class="s">&#39;restaurants&#39;</span><span class="p">])</span>
+        <span class="n">new_restaurants</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prev_max</span> <span class="o">&gt;</span> <span class="n">include</span><span class="p">:</span>
+            <span class="n">profits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;profit&quot;</span><span class="p">:</span><span class="n">prev_max</span><span class="p">,</span><span class="s">&quot;restaurants&quot;</span><span class="p">:</span><span class="n">profits</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="s">&quot;restaurants&quot;</span><span class="p">]}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">profits</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;profit&quot;</span><span class="p">:</span><span class="n">include</span><span class="p">,</span><span class="s">&quot;restaurants&quot;</span><span class="p">:</span><span class="n">new_restaurants</span><span class="p">}</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">([</span><span class="n">profit</span><span class="p">[</span><span class="s">&#39;profit&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">profit</span> <span class="ow">in</span> <span class="n">profits</span><span class="p">])</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h3>
+<h4 class="header"><i>1.4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h4>
+<p>(it's constant time since a letter by itself is a valid word lol)</p>
+<p>This solution runs in n<sup>3</sup> rather than n<sup>2</sup>. not really sure how to improve it </p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">construct</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="n">validity</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">txt</span><span class="p">:</span>
+        <span class="n">validity</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="nb">dict</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">cur_str</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">dict</span><span class="p">(</span><span class="n">cur_str</span><span class="p">):</span><span class="c">#it&#39;s a word, we&#39;re done</span>
+                <span class="n">validity</span><span class="p">[</span><span class="n">cur_str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">cur_str</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c">#it&#39;s not a word, we have to see if it&#39;s a combination of valid words</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">cur_str</span><span class="p">)):</span>
+                    <span class="n">left</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">j</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="n">c</span><span class="p">]</span>
+                    <span class="n">right</span> <span class="o">=</span> <span class="n">txt</span><span class="p">[</span><span class="n">j</span><span class="o">+</span><span class="n">c</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">j</span><span class="p">]</span>
+                    <span class="n">lwords</span> <span class="o">=</span> <span class="n">validity</span><span class="p">[</span><span class="n">left</span><span class="p">]</span>
+                    <span class="n">rwords</span> <span class="o">=</span> <span class="n">validity</span><span class="p">[</span><span class="n">right</span><span class="p">]</span>
+                        <span class="c">#it&#39;s a combination of valid words</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lwords</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">rwords</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+                        <span class="n">validity</span><span class="p">[</span><span class="n">cur_str</span><span class="p">]</span><span class="o">=</span><span class="n">lwords</span><span class="o">+</span><span class="n">rwords</span>
+                        <span class="k">break</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">validity</span><span class="p">[</span><span class="n">cur_str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>                    
+    <span class="k">return</span> <span class="n">validity</span><span class="p">[</span><span class="n">txt</span><span class="p">]</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h3>
+<h4 class="header"><i>1.5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h4>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">longest_palindrome</span><span class="p">(</span><span class="n">seq</span><span class="p">):</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">seq</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">))</span>
+    <span class="n">longest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39; &#39;</span><span class="p">:</span>
+            <span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+        <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">while</span> <span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="o">&gt;=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">i</span><span class="o">+</span><span class="n">offset</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">seq</span><span class="p">)</span> <span class="ow">and</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">offset</span><span class="p">]</span><span class="o">==</span><span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">offset</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">offset</span><span class="p">]</span><span class="o">!=</span><span class="s">&#39; &#39;</span><span class="p">:</span>
+                <span class="n">longest</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="mi">2</span>
+            <span class="n">offset</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">max</span><span class="p">(</span><span class="n">longest</span><span class="p">)</span>
+</pre></div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

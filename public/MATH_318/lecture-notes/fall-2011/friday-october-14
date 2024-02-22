@@ -1,0 +1,216 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, October 14, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, October 14, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                More proofs, and some logical axioms
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Note: 10th was a holiday, 12th was the midterm so yeah works out</p>
+<h2 class="header"><i>1</i>A proof<a class="headerlink" href="#a-proof" name="a-proof">&para;</a></h2>
+<p>From last class:</p>
+<blockquote>
+<p>"All horses are animals. Therefore, all heads of horses are heads of animals."</p>
+</blockquote>
+<p><span>$$\forall x (Hx \to Ax) \vdash A (\exists x(Hx \land H^*yx) \to \exists x (Ax \land H^*yx))$$</span></p>
+<p>Where <span>$Hx$</span> means "x is a horse", <span>$H^*xy$</span> means "x is the head of y", and <span>$Ax$</span> means "x is an animal".</p>
+<p>Strategy for the proof: let's try to get <span>$\forall x ( \quad) \vdash \exists x (\quad) \to \exists x ( \quad )$</span> using a deduction<sup>?</sup>.</p>
+<p>So working up from the bottom:</p>
+<p><span>$$\forall x(\quad) \vdash \exists x (\quad) \to \exists x (\quad)$$</span><br />
+<span>$$\forall x(\quad), \exists x(\quad) \vdash \exists x (\quad)$$</span></p>
+<p>The last quantifier to be put back on: middle term.</p>
+<p>Anyways, whatever. The proof:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$Hx \to Ax,\,Hx \land H^*yx \vdash Ax \land H^*yx$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(2) <span>$Hx \to Ax,\,Hx \land H^*yx \vdash \exists x (Ax \land H^*yx)$</span></td>
+<td><span>$\exists$</span>-introduction from (1)</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x(Hx \to Ax) \vdash Hx \to Ax$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x (Hx \to Ax),\,Hx \to Ax,\,Hx \land H^*yx \vdash \exists x (Ax \land H^*yx)$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x (Hx \to Ax), \, Hx \land H^*yx \vdash Hx \to Ax$</span></td>
+<td>Monotonicity from (3)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x(Hx \to Ax),\,Hx \land H^*yx \vdash \exists x (Ax \land H^*yx)$</span></td>
+<td>Transitivity using (4), (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x (Hx \to Ax),\,\exists x (Hx \land H^*yx) \vdash \exists x(Ax \land H^*yx)$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(8) <span>$\forall x (Hx \to Ax) \vdash \exists x (Hx \land H^*yx) \to \exists x (Ax \land H^*yx)$</span></td>
+<td>Deduction from (7)</td>
+</tr>
+<tr>
+<td>(9) <span>$\forall x(Hx \to Ax) \vdash \forall y (\exists x(Hx \land H^*yx) \to \exists x(Ax \land H^*yx))$</span></td>
+<td><span>$\forall$</span>-introduction from (8)</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>2</i>Some logical axioms for equality<a class="headerlink" href="#some-logical-axioms-for-equality" name="some-logical-axioms-for-equality">&para;</a></h2>
+<ol>
+<li><span>$\forall x(x = x)$</span> (reflexivity)</li>
+<li><span>$\forall x\forall y(x = y \to y = x)$</span> (symmetry)</li>
+<li><span>$\forall x \forall y \forall z ((x =y \land y = z) \to x =z)$</span></li>
+</ol>
+<p>These are all properties of equivalence relations, and equality is, in a way, the epitome of equivalence relations.</p>
+<p>Since these are logical axioms, you can use them in any line of a proof, in the following manner:</p>
+<p><span>$$\vdash \forall x (x = x)$$</span></p>
+<h3 class="header"><i>2.1</i>Quantifying existence<a class="headerlink" href="#quantifying-existence" name="quantifying-existence">&para;</a></h3>
+<p>How do you say that there is exactly one boy? <a href="http://loveysisms.tumblr.com/post/19912844483/i-want-to-say-there-is-exactly-one-boy-or-one-buddha">(Or Buddha, or whatever.)</a> Well, you'd have to use equality. For instance:</p>
+<p><span>$$\exists x (Bx \land \forall y (By \to x = y))$$</span></p>
+<p>So there is a boy, and anything else that is also a boy is the same as our original boy. So there is only one boy.</p>
+<p>How would you say there is at most one boy?</p>
+<p><span>$$\exists x \forall y (By \to y = x)$$</span></p>
+<p>So if there are boys, they are all the same boy.</p>
+<h3 class="header"><i>2.2</i>Using the logical axioms<a class="headerlink" href="#using-the-logical-axioms" name="using-the-logical-axioms">&para;</a></h3>
+<p>Here's a proof that uses logical axiom 1 in its first line:</p>
+<p><span>$$\vdash \exists x (x = x)$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\vdash \forall x (x=x)$</span></td>
+<td>Logical axiom</td>
+</tr>
+<tr>
+<td>(2) <span>$\forall x(x=x) \vdash x = x$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(3) <span>$\vdash x = x$</span></td>
+<td>Transitivity using (1) and (2)</td>
+</tr>
+<tr>
+<td>(4) <span>$\vdash \exists x (x =x)$</span></td>
+<td><span>$\exists$</span>-introduction from (3)</td>
+</tr>
+</tbody>
+</table>
+<p>This fails in an empty universe, but don't worry about that. Loveys doesn't care about empty universes and neither should you.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

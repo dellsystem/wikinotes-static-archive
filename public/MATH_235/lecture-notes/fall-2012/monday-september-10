@@ -1,0 +1,191 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 10, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 10, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to set theory
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm has been scheduled for <strong>October 24</strong>, in class.</p>
+<div class="toc">
+<ul>
+<li><a href="#sets">1 Sets</a><ul>
+<li><a href="#operations-on-sets">1.1 Operations on sets</a></li>
+<li><a href="#functions-on-sets">1.2 Functions on sets</a><ul>
+<li><a href="#properties-of-functions">1.2.1 Properties of functions</a></li>
+<li><a href="#example-functions">1.2.2 Example functions</a></li>
+</ul>
+</li>
+<li><a href="#cardinality">1.3 Cardinality</a><ul>
+<li><a href="#infinite-sets">1.3.1 Infinite sets</a><ul>
+<li><a href="#uncountably-infinite-sets">1.3.1.1 Uncountably infinite sets</a></li>
+<li><a href="#the-set-of-all-functions">1.3.1.2 The set of all functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Sets<a class="headerlink" href="#sets" name="sets">&para;</a></h2>
+<p>A set is a simple (finite or infinite) collection of elements. Examples of sets:</p>
+<ul>
+<li><span>$\{0, 1, 2\}$</span></li>
+<li><span>$\mathbb{N}$</span></li>
+<li><span>$\mathbb{Q}$</span></li>
+<li><span>$\mathbb{Z}$</span></li>
+</ul>
+<p>Sets can be described fairly informally (e.g., <span>$\{1, 2, 3, \ldots\}$</span>) or formally (e.g., <span>$\mathbb{N}$</span>, or like <span>$\{n \in \mathbb{N}: n &lt; 4\}$</span> for <span>$\{0, 1, 2, 3\}$</span><sup id="fnref:natural"><a href="#fn:natural" rel="footnote" title="There is some debate on whether or not 0 should be...">1</a></sup>). To describe the set of all primes, for example, we can say <span>$\{2, 3, 5, 7, 11 \ldots \}$</span>, but to describe it more rigourously, we could say <span>$\{n \in \mathbb{N}: n = ab \to a = 1 \lor b = 1 \, \, \forall (a, b) \in \mathbb{N}\}$</span> (the notation is somewhat bastardised but hopefully it makes sense). To describe the rational numbers: <span>$\{a \in \mathbb{Z}, b \in \mathbb{Z} / \{0\}: \frac{a}{b}\}$</span>.</p>
+<h3 class="header"><i>1.1</i>Operations on sets<a class="headerlink" href="#operations-on-sets" name="operations-on-sets">&para;</a></h3>
+<p><strong>Union</strong> (<span>$A \cup B$</span>): <span>$\{x: x \in A \lor x \in B\}$</span></p>
+<p><strong>Intersection</strong> (<span>$A \cap B$</span>): <span>$\{x: x \in A \land x \in B\}$</span></p>
+<p><strong>Exclusion</strong> (<span>$A \setminus B$</span>): <span>$\{x: x \in A \land x \notin B\}$</span></p>
+<p><strong>Symmetric difference</strong> (<span>$A \Delta B$</span>): <span>$\{x: x \in A (A \cup B) \land x \notin (A \land B)\}$</span> (so the XOR of two sets)</p>
+<h3 class="header"><i>1.2</i>Functions on sets<a class="headerlink" href="#functions-on-sets" name="functions-on-sets">&para;</a></h3>
+<p>A function, given by the notation <span>$f: A \to B$</span>, is a deterministic mapping that returns an element <span>$b \in B$</span> (the range, or codomain) for any element <span>$a \in A$</span> (the domain). Deterministic in this context means that an element <span>$a$</span> is always mapped to the same element <span>$b$</span>.</p>
+<h4 class="header"><i>1.2.1</i>Properties of functions<a class="headerlink" href="#properties-of-functions" name="properties-of-functions">&para;</a></h4>
+<p>An <strong>injective</strong> function (known colloquially as one-to-one) never maps two elements in the domain to the same element in the range. Mathematically: if <span>$f(a) = f(a')$</span>, then <span>$a = a'$</span>.</p>
+<p>A <strong>surjective</strong> function maps something to every element in <span>$B$</span>. Mathematically: <span>$\forall b \in B$</span>, <span>$\exists a \in A$</span> such that <span>$f(a) = b$</span>.</p>
+<p>A <strong>bijective</strong> function, also called a <strong>bijection</strong>, is one that is both injective and surjective.</p>
+<h4 class="header"><i>1.2.2</i>Example functions<a class="headerlink" href="#example-functions" name="example-functions">&para;</a></h4>
+<p><span>$f(x) = x^2: \mathbb{R} \to \mathbb{R}$</span> is neither injective nor surjective. (Both <span>$a$</span> and <span>$-a$</span> map to the same number, <span>$a^2$</span>, for <span>$a \neq 0$</span>, and none of the negative numbers are in the range.)</p>
+<p>However, <span>$f(x) = x^2: \mathbb{R}^+ \to \mathbb{R}^+$</span> (so from the positive reals to the positive reals) is both injective and surjective, so it is bijective. This goes to show that the properties of a function depend on the domain and range under consideration.</p>
+<h3 class="header"><i>1.3</i>Cardinality<a class="headerlink" href="#cardinality" name="cardinality">&para;</a></h3>
+<p>Simply put, the <strong>cardinality</strong> of a set is the number of elements it contains - its size, or length.</p>
+<p>Two sets <span>$A$</span> and <span>$B$</span> have the same cardinality if there exists a bijection between <span>$A$</span> and <span>$B$</span>. For example, the sets <span>$A = \{1, 2, 3\}$</span> and <span>$B = \{0, 4, 9\}$</span> have the same cardinality; an example of a bijection between the two sets is one that maps 1 to 0, 2 to 4, and 3 to 9.</p>
+<h4 class="header"><i>1.3.1</i>Infinite sets<a class="headerlink" href="#infinite-sets" name="infinite-sets">&para;</a></h4>
+<p>Let <span>$\mathbb{N} = \{0, 1, 2, \ldots \}$</span>. <span>$\mathbb{N}^+ = \{1, 2, 3, \ldots \}$</span>. Now, is <span>$\mathbb{N}^+$</span> larger than <span>$\mathbb{N}$</span>? That is, does it have a greater cardinality?</p>
+<p>The answer is no. While it may <em>appear</em> that <span>$\mathbb{N}^+$</span> is larger, there is in fact a bijection between the two: <span>$f: x \to x + 1$</span>, <span>$\mathbb{N} \to \mathbb{N}^+$</span>. This is illustrated in <a href="http://en.wikipedia.org/wiki/Hilbert's_paradox_of_the_Grand_Hotel">Hilbert's paradox of the Grand Hotel</a>: considering a hotel with an infinite number of occupied rooms (numbered 1, 2, 3 etc), is it possible to make space for one new arrival? Indeed it is, simply by moving the guest in room 1 to room 2, the guest in room 2 to room 3, etc.</p>
+<p>Now, consider the sets <span>$\mathbb{Z}$</span> and <span>$\mathbb{N}$</span>. Do <em>these</em> sets have the same cardinality? Indeed, they do, and we can use the following bijection:</p>
+<p><span>$$f: \mathbb{Z} \to \mathbb{N}, \, x \mapsto \begin{cases} \text{ if } x &gt; 0, &amp; 2x - 1 \\ \text{ if } x \leq 0, &amp; 2| x | \end{cases}$$</span></p>
+<p>What about the the set of all Cartesian pairs involving natural numbers, <span>$\mathbb{N}^2 = \{ (a, b), a, b\in \mathbb{N} \} = \mathbb{N} \times \mathbb{N}$</span>? Again, we can find a bijection between that and <span>$\mathbb{N}$</span>, so they do have the same cardinality. (I'm not exactly sure how, but it has to do with going through <span>$\mathbb{N}^2$</span> diagonally.)</p>
+<p>We now consider <span>$\mathbb{Q}$</span>. Well, this set is actually "smaller" than <span>$\mathbb{N}^2$</span> (to see why, treat each ordered pair <span>$a, b$</span> as <span>$\frac{a}{b}$</span>, and you will see that there are some duplicates<sup id="fnref:rationals"><a href="#fn:rationals" rel="footnote" title="Also, if we consider the natural numbers to includ...">3</a></sup>). So this set does have the same cardinality as that of the natural numbers.</p>
+<p>As we can see, cardinality is not so straightforward when it comes to infinite sets.<sup id="fnref:cardinality"><a href="#fn:cardinality" rel="footnote" title="What a useless comment">2</a></sup> Sets that appear to be different in size may still have the same cardinality. However, the above sets were merely examples of <em>countably</em> infinite sets. What happens when we consider sets that are <em>uncountably</em> infinite?</p>
+<h5 class="header"><i>1.3.1.1</i>Uncountably infinite sets<a class="headerlink" href="#uncountably-infinite-sets" name="uncountably-infinite-sets">&para;</a></h5>
+<p>First of all, what is an <strong>uncountably infinite</strong> set? We can answer this with a definition for a countably infinite set: a set whose elements can be described by a finite amount of data. For example, the set of all books is countable, because any individual book is finite - that is, one only needs a finite number of words in order to express the contents of any book. The natural numbers compose a countably infinite set (as does every set that has the same cardinality as the natural numbers) .</p>
+<p>In contrast, a real number is <em>not</em> finite, as you need an infinite sequence of digits to describe it. For example, to describe the square root of 4, you really do need an infinite number of zeros after the two to properly define it, You can encode within a real number any sequence of digits of any length. In that vein, you can encode all the data associated with all the books in the world in a single real number.</p>
+<p>In a sense, this is a more profound type of infinity than that of the countably infinite sets. Not only is the set itself infinitely large, but each element within the set contains an infinite amount of data. As such, these uncountably infinite sets, of which <span>$\mathbb{R}$</span> is one example, do <em>not</em> have the same cardinality as the countably infinite sets.</p>
+<p>Next, we will look at a slightly more involved example of an uncountably infinite set, and will prove that it is uncountable.</p>
+<h5 class="header"><i>1.3.1.2</i>The set of all functions<a class="headerlink" href="#the-set-of-all-functions" name="the-set-of-all-functions">&para;</a></h5>
+<p>Let <span>$\mathcal{F}$</span> be the set of all functions from <span>$\mathbb{N}$</span> to <span>$\mathbb{N}$</span>. We now endeavour to prove that <span>$\mathcal{F}$</span> is an uncountably infinite set. We can do this with a proof by contradiction, to prove that it is <em>not</em> a countably infinite set (i.e. there does not exist a bijection between <span>$\mathcal{F}$</span> and <span>$\mathbb{N}$</span>.</p>
+<p>So first, we suppose there is a bijection from <span>$\mathbb{N}$</span> to <span>$\mathcal{F}$</span>. Recall that <span>$\mathcal{F}$</span> is the set of <em>all</em> functions from <span>$\mathbb{N} \to \mathbb{N}$</span>. Now, let's see if we can find a function <span>$f: \mathbb{N} \to \mathbb{N}$</span> not in <span>$\mathcal{F}$</span>. Well, if we let <span>$g_0: \mathbb{N} \to \mathbb{N}$</span> be the first element <span>$\in \mathcal{F}$</span>, consider the value of <span>$g_0$</span> at 0. Let's say that <span>$g_0(0) = \alpha$</span>. Well, what if we made a new function <span>$h$</span>, for which <span>$h(0) = \alpha + 1$</span>? Clearly, <span>$h \neq g_0$</span>.</p>
+<p>Of course, that's not enough to make a function that is different from every function in <span>$\mathcal{F}$</span>. To do that, we have to define <span>$h$</span> for every value in the domain, and in the process ensure that it is not the same as any other function in <span>$\mathcal{F}$</span>. Well, what if we just make it differ by one from the value of a function in <span>$\mathcal{F}$</span> for every value in the domain? Systematically, we could say: <span>$h(1) = g_1(1) + 1$</span>, and <span>$h(2) = g_2(2) + 1$</span>, etc. More generall, for <span>$g_j(j)$</span>, we have that <span>$h(j) = g_j(j) + 1$</span>.</p>
+<p>This is enough to make a function that differs from every function in <span>$\mathcal{F}$</span>. Since we've reached a contradiction, it must be that our assumption about the existence of a bijection between <span>$\mathbb{N}$</span> and <span>$\mathcal{F}$</span> is incorrect.</p>
+<p>This is essentially <a href="http://en.wikipedia.org/wiki/Cantor's_diagonal_argument">Cantor's diagonal argument</a>, but applied to functions. Since there is no surjection from <span>$\mathcal{F}$</span> to <span>$\mathbb{N}$</span>, there is no bijection either, and so the set is not countable.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:natural">
+<p>There is some debate on whether or not 0 should be considered a natural number. There is no universal agreement on this subject, so we'll just say that 0 is a natural number, as that corresponds with the class notes.&#160;<a href="#fnref:natural" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:cardinality">
+<p>What a useless comment&#160;<a href="#fnref:cardinality" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rationals">
+<p>Also, if we consider the natural numbers to include 0 (as the professor does), then we have a bunch of numbers being divided by zero, which aren't even part of <span>$\mathbb{Q}$</span>.&#160;<a href="#fnref:rationals" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

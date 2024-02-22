@@ -1,0 +1,195 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, February 21, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, February 21, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to inner product spaces
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this lecture, we started chapter 6 (inner product spaces). This topic will not be covered on the midterm, but it will be a big part of the final, so don't neglect it.</p>
+<div class="toc">
+<ul>
+<li><a href="#inner-product-spaces">1 Inner product spaces</a><ul>
+<li><a href="#examples">1.1 Examples</a></li>
+<li><a href="#inner-products-as-linear-functions">1.2 Inner products as linear functions</a></li>
+<li><a href="#norms">1.3 Norms</a><ul>
+<li><a href="#examples_1">1.3.1 Examples</a></li>
+<li><a href="#properties">1.3.2 Properties</a></li>
+<li><a href="#orthogonality">1.3.3 Orthogonality</a></li>
+<li><a href="#the-pythagorean-theorem">1.3.4 The Pythagorean theorem</a></li>
+<li><a href="#the-cauchy-schwarz-inequality">1.3.5 The Cauchy-Schwarz inequality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Inner product spaces<a class="headerlink" href="#inner-product-spaces" name="inner-product-spaces">&para;</a></h2>
+<p><strong>Definition</strong>: an inner product space on <span>$V$</span> is a function</p>
+<p><span>$$\begin{align}
+V \times V &amp; \to \mathbb F \\
+(u, v) &amp; \mapsto \langle u, v\rangle
+\end{align}$$</span></p>
+<p>such that the following conditions are satisfied:</p>
+<ol>
+<li><strong>Positive definiteness</strong>: <span>$\langle v, v \rangle \geq 0$</span> for all <span>$v \in V$</span> with equality if and only if <span>$v = 0$</span></li>
+<li><strong>Linearity in the first argument</strong>: <span>$\langle au+v, w \rangle = a\langle u, w \rangle + \langle v, w \rangle$</span></li>
+<li><strong>Conjugate symmetry</strong>: <span>$\langle v, w \rangle = \overline{\langle w, v \rangle}$</span></li>
+</ol>
+<h3 class="header"><i>1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<p>The Euclidean inner product: <span>$V = \mathbb F^n$</span>. Then <span>$\langle (v_1, \ldots, v_n), (w_1, \ldots, w_n)\rangle = v_1 \overline{w_1} + \ldots + v_n\overline{w_n}$</span> which is basically the dot product of the two vectors, but, like, conjugate. (If <span>$\mathbb F = \mathbb R$</span> then this is just the standard dot product operation that we all know and love.)</p>
+<div class="ui divider"></div>
+<p>Integration over a particular region: <span>$V = P_m(\mathbb F)$</span>. Then</p>
+<p><span>$$\langle p, q \rangle = \int_0^1 p(x)\overline{q(x)} \,dx$$</span></p>
+<p>As an exercise, verify that this satisfies the 4 conditions above.</p>
+<h3 class="header"><i>1.2</i>Inner products as linear functions<a class="headerlink" href="#inner-products-as-linear-functions" name="inner-products-as-linear-functions">&para;</a></h3>
+<p>For a fixed <span>$w \in V$</span>, we can define the function</p>
+<p><span>$$\begin{align}
+f_w: V &amp; \to \mathbb F \\
+v &amp; \mapsto \langle v, w \rangle
+\end{align}$$</span></p>
+<p>Let's show that this function is linear:</p>
+<p><span>$$f_w(au+v) = \langle au + v, w \rangle = a\langle u, w \rangle + \langle v, w \rangle = af_w(u) + f_w(u) \checkmark$$</span></p>
+<p>As an exercise, prove the following properties:</p>
+<ol>
+<li><span>$\langle v, 0 \rangle = \langle 0, v \rangle = 0$</span></li>
+<li><span>$\langle u, av + w \rangle = a\langle u, v \rangle + \langle u, w \rangle$</span></li>
+</ol>
+<p>From now on, we assume that <span>$V$</span> denotes an inner product space - i.e., a vector space equipped with some inner product.</p>
+<h3 class="header"><i>1.3</i>Norms<a class="headerlink" href="#norms" name="norms">&para;</a></h3>
+<p>For <span>$v \in V$</span>, the <strong>norm</strong> of <span>$V$</span>, denoted by <span>$\lVert v \rVert$</span>, is defined as</p>
+<p><span>$$\lVert v \rVert = \sqrt{\langle v, v \rangle}$$</span></p>
+<p>Note that the radicand is always <span>$\geq 0$</span> due to positive definiteness.</p>
+<h4 class="header"><i>1.3.1</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h4>
+<p><span>$V = \mathbb F^n$</span>, with the Euclidean inner product as defined before:</p>
+<p><span>$$\lVert (z_1, \ldots, z_n) \rVert = \sqrt{|z_1|^2 + \ldots + |z_n|^2}$$</span></p>
+<div class="ui divider"></div>
+<p><span>$V = P_3(\mathbb R)$</span>, <span>$p(x) = x^2+1$</span>:</p>
+<p><span>$$\lVert p(x) \rVert = \sqrt{\langle x^2+1, x^2+1 \rangle} = \sqrt{\int_0^1 (x^2+1)^2 \,dx}$$</span></p>
+<h4 class="header"><i>1.3.2</i>Properties<a class="headerlink" href="#properties" name="properties">&para;</a></h4>
+<p>Just one for now. Proof: left as an exercise.</p>
+<p>For any <span>$a \in \mathbb F$</span>, <span>$v \in V$</span>:</p>
+<p><span>$$\lVert av \rVert = |a| \lVert v\rVert$$</span></p>
+<h4 class="header"><i>1.3.3</i>Orthogonality<a class="headerlink" href="#orthogonality" name="orthogonality">&para;</a></h4>
+<p><span>$u, v \in V$</span> are <strong>orthogonal</strong> if <span>$\langle u, v \rangle = 0$</span>. (Note that this is a reflexive relation.)</p>
+<h4 class="header"><i>1.3.4</i>The Pythagorean theorem<a class="headerlink" href="#the-pythagorean-theorem" name="the-pythagorean-theorem">&para;</a></h4>
+<p>If <span>$\langle u, v \rangle = 0$</span>, then:</p>
+<p><span>$$\lVert u + v \rVert^2 = \lVert u \rVert^2 + \lVert v \rVert^2$$</span></p>
+<p>Proof:</p>
+<p><span>$$\lVert u+v \rVert^2 = \langle u + v, u+v \rangle = \lVert u \rVert^2 + \lVert v \rVert^2 + \underbrace{\langle u, v \rangle}_{= 0} + \underbrace{\langle v, u \rangle}_{\text{also } = 0} = \lVert u \rVert^2 + \lVert v \rVert^2 \; \checkmark$$</span></p>
+<p>which was a nice one-liner.</p>
+<p>(To see that <span>$\langle u, v \rangle = \langle v, u \rangle = 0$</span>, just use conjugate symmetry. Proof left as an exercise for the astute reader.)</p>
+<p>If we are working in <span>$\mathbb R^n$</span>, then the converse of the theorem holds true as well: <span>$\lVert u+v \rVert^2 = \lVert u\rVert^2 + \lVert v \rVert^2$</span> implies that <span>$\langle u, v \rangle = \langle v, u \rangle = 0$</span>.</p>
+<h4 class="header"><i>1.3.5</i>The Cauchy-Schwarz inequality<a class="headerlink" href="#the-cauchy-schwarz-inequality" name="the-cauchy-schwarz-inequality">&para;</a></h4>
+<p><span>$$|\langle u, v \rangle | \leq \lVert u\rVert \cdot \lVert v \rVert \tag{lol}$$</span></p>
+<p><a href="/MATH_223" title="Why am I taking this course again?">This feels familiar.</a></p>
+<p>Equality holds when <span>$u = \lambda v$</span> for some <span>$\lambda \in \mathbb F$</span> (i.e., when the two vectors are scalar multiples of each other).</p>
+<p>Proof: let <span>$u, v \in V$</span>. If <span>$v = 0$</span>, then we have 0 on both sides of the inequality and we're done; equality holds trivially. So let's assume that <span>$v \neq 0$</span>. Consider</p>
+<p><span>$$u = \frac{\langle u, v\rangle}{\lVert v\rVert^2} v + w$$</span></p>
+<p>where <span>$w$</span> is some vector orthogonal to <span>$v$</span>. By the Pythagorean theorem,</p>
+<p><span>$$\lVert u \rVert^2 = \lVert \frac{\langle u, v\rangle}{\lVert v\rVert^2} v + w \rVert^2 = \frac{|\langle u, v \rangle |^2}{\lVert v \rVert^2} + \underbrace{\lVert w \rVert^2}_{\geq 0} \geq \frac{|\langle u, v\rangle|^2}{\lVert v\rVert^2}$$</span></p>
+<p>Consequently, by multiplying both sides by the denominator, we get</p>
+<p><span>$$|\langle u, v \rangle |^2 \leq \lVert u\rVert^2\cdot \lVert u\rVert^2$$</span></p>
+<p>and if we take the square root of both sides then we get the Cauchy-Schwarz inequality.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

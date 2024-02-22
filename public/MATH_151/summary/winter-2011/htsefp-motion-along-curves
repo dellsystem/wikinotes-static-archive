@@ -1,0 +1,135 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_151/">
+                MATH 151
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Motion along curves
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Motion along curves
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-works">1 The works</a><ul>
+<li><a href="#problem">1.1 Problem</a></li>
+<li><a href="#general-solution">1.2 General solution</a></li>
+<li><a href="#examples">1.3 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The works<a class="headerlink" href="#the-works" name="the-works">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Problem<a class="headerlink" href="#problem" name="problem">&para;</a></h3>
+<p>Given parametric equations for the motion of a particle, obtain "the works"</p>
+<h3 class="header"><i>1.2</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>Velocity vector: Differentiate the position vector <span>$\vec R = x \hat i + y \hat j + z\hat k$</span></p>
+<p>Speed: magnitude of velocity (length of velocity vector)</p>
+<p>Unit tangent vector: Divide the velocity vector by its length</p>
+<p>Acceleration vector: Differentiate the velocity vector</p>
+<p>Kappa: <span>$\frac{\dot{x} \ddot{y} - \dot{y}\ddot{x}}{(\dot{x}+\dot{y})^{3/2}}$</span> or <span>$\displaystyle \frac{\lVert \vec a_N \rVert}{\lVert \vec v \rVert^2} = \frac{\sqrt{\lVert \vec a \rVert^2 - a_T^2}}{\lVert \vec v \rVert^2}$</span></p>
+<p>Radius: Inverse of kappa</p>
+<p>Tangential component of acceleration: derivative of the velocity (magnitude?)</p>
+<p>Normal component of acceleration: <span>$\vec a_N = \sqrt{\lVert \vec a \rVert^2 - \lVert a_T \rVert^2}$</span></p>
+<p>Unit normal vector: <span>$\vec a = \vec a_N \hat N + \vec a_T \hat T$</span> so get it from that</p>
+<p>Unit binormal vector: cross-product of unit normal and unit tangent</p>
+<p>Radial and circumferential components of velocity and acceleration: Convert to polar coordinates, use dot products. <span>$\mu_r = \cos\theta \hat i + \sin\theta\hat j; \,\mu_{\theta} = -\sin\theta\hat i + \cos\theta\hat j$</span></p>
+<h3 class="header"><i>1.3</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 12</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

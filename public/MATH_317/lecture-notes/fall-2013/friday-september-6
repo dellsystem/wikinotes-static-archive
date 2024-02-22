@@ -1,0 +1,180 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 6, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 6, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Sources of error
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Introduction to numerical methods. Sources of error and error quantification.</p>
+<p><strong>Announcement</strong>: Next week's tutorial will be essentially MATLAB 101, so if you already know how to to program you probably don't need to attend.</p>
+<div class="toc">
+<ul>
+<li><a href="#introduction-to-numerical-methods">1 Introduction to numerical methods</a></li>
+<li><a href="#sources-of-error">2 Sources of error</a></li>
+<li><a href="#error-quantification">3 Error quantification</a><ul>
+<li><a href="#error-propagation">3.1 Error propagation</a></li>
+<li><a href="#mean-value-theorem">3.2 Mean value theorem</a></li>
+<li><a href="#elementary-operations-and-error-propagation">3.3 Elementary operations and error propagation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Introduction to numerical methods<a class="headerlink" href="#introduction-to-numerical-methods" name="introduction-to-numerical-methods">&para;</a></h2>
+<p>Don't use numerical methods unless you need to! An analytical solution is always better, if possible.</p>
+<p>For example, let's say you're given</p>
+<p><span>$$\frac{dy}{dt} = -\alpha y$$</span></p>
+<p>If we solve this analytically, we would have a solution for <em>every</em> value of <span>$\alpha$</span>. If we attempt to solve it numerically, however, we would need to specify the value of <span>$\alpha$</span> as well as the initial value, and we would need to discretise <span>$t$</span>, resulting in only an approximate solution.</p>
+<p>However, if we <em>can't</em> get the solution analytically, then numerical methods are the next best thing. Before we attempt to find an approximate solution, however, we should learn as much as we can about it. Are there asymptotes, and if so, where? Does the function model a physical phenomenon that we know something about (which could give insight as to the upper and lower bounds, for instance)? Do we know any statistics (e.g., average value)?</p>
+<p>One thing to keep in mind is the fact that when you discretise <span>$t$</span>, you are, by definition, taking a continuous variable and sampling it at discrete intervals. Sometimes your choice of interval will be erroneous - if you have a sine wave, and you choose to plot the values at <span>$t = n\pi$</span> for <span>$n \in \mathbb N$</span>, then the resulting plot will be a  straight line along the <span>$x$</span>-axis. On the other hand, if you plot the values at <span>$t = 0.01n$</span> for <span>$n \in \mathbb N$</span>, then you'll get a pretty accurate picture, but the high quality of the resolution is a bit superfluous since you would have gotten just as good of a picture at <span>$t = 0.1n$</span> (and the computational resources involved would be fewer). So there's necessarily a trade-off between precision and resources. If our resolution is too low, we lose sight of the structure of the function; too high, and we waste computing power (and thus money).</p>
+<h2 class="header"><i>2</i>Sources of error<a class="headerlink" href="#sources-of-error" name="sources-of-error">&para;</a></h2>
+<ol>
+<li>Errors in input data (due to finite precision of measurements)</li>
+<li>Rounding errors (due to finite precision of floating-point numbers when stored in a computer - for example, to store <span>$\pi$</span> in a computer, we'd only be able to store a finite number of digits)<sup id="fnref:rounding"><a href="#fn:rounding" rel="footnote" title="This topic isn't _really_ in the scope of this cou...">1</a></sup></li>
+<li>Truncation errors (due to finiteness again - for example, if we use a Taylor series to approximate a function, we can only look at a finite number of terms even though we would need the infinite series to get a true approximation)</li>
+</ol>
+<h2 class="header"><i>3</i>Error quantification<a class="headerlink" href="#error-quantification" name="error-quantification">&para;</a></h2>
+<p>Suppose that <span>$a$</span> is the exact value of something, and <span>$\overline{a}$</span> is the numerical value that we have magically obtained (our estimate of <span>$a$</span>). The absolute error is given by <span>$|\overline{a} - a|$</span>, and the relative error is, of course, <span>$|(\overline{a}-a)/a|$</span>.</p>
+<p>For example, if <span>$a = \sqrt{2}$</span>, and <span>$\overline{a} = 1.414$</span>, then the absolute error is (roughly) <span>$2.1 \times 10^{-4}$</span>. Then we can write that <span>$a = 1.414 \pm 2.2 \times 10^{-4}$</span>, or, equivalently</p>
+<p><span>$$1.41379 \leq a \leq 1.41421$$</span></p>
+<p>For this course, both of the above are acceptable ways of stating the answer.</p>
+<h3 class="header"><i>3.1</i>Error propagation<a class="headerlink" href="#error-propagation" name="error-propagation">&para;</a></h3>
+<p>Given a certain error (uncertainty<sup id="fnref:ohgod"><a href="#fn:ohgod" rel="footnote" title="IB chem/phys flashbacks">2</a></sup>) on the input <span>$x$</span>, what is the expected error on the output?</p>
+<p>Let <span>$\Delta f$</span> be the error in the resulting output (after putting <span>$x$</span> through a function), and let <span>$\overline{x}$</span> be our approximation of <span>$x$</span>, warts and all. Then we have</p>
+<p><span>$$\Delta f = \left|f(\overline{x} - f(x)\right| \leq \max\left (\left |f(\overline x + \epsilon) - f(x)\right|, \left |f(\overline x - \epsilon) - f(\overline x) \right |\right)$$</span></p>
+<p>where <span>$\epsilon$</span> is the estimated error (and since we don't know the sign we have to look at both <span>$+\epsilon$</span> and <span>$-\epsilon$</span>). So <span>$x = \overline x \pm \epsilon$</span>.</p>
+<h3 class="header"><i>3.2</i>Mean value theorem<a class="headerlink" href="#mean-value-theorem" name="mean-value-theorem">&para;</a></h3>
+<p>Now we come to the mean value theorem. I don't think it's actually relevant to what we're talking about now, but it will be relevant later on. If <span>$f$</span> is differentiable, then there is a point, <span>$\xi$</span>, between <span>$\overline x$</span> and <span>$x$</span> such that <span>$\Delta f = \left |f(\overline x) - f(x) \right | = f'(\xi) (\overline x- x)$</span>.</p>
+<p>Proof: Assume that <span>$f(a) \neq f(b)$</span>. Then, there is a point whose derivative is equal to the slope of the straight line between <span>$a$</span> and <span>$b$</span>. We define <span>$g$</span> as follows:</p>
+<p><span>$$g(x) = f(x) - \left [ \frac{f(b) - f(a)}{b-a} (x-a) + f(a) \right ]$$</span></p>
+<p>Then, this function <span>$g$</span> has the property that <span>$g(a) = g(b)$</span>! Now use Rolle's theorem: this function is differentiable on the interval<sup id="fnref:interval"><a href="#fn:interval" rel="footnote" title="open or closed?">3</a></sup> <span>$a$</span> to <span>$b$</span>, and since <span>$g(a) = g(b)$</span>, there is at least one point between <span>$a$</span> and <span>$b$</span> when the slope is 0. If <span>$g'(x) = 0$</span>, there is a point <span>$x = c$</span> such that</p>
+<p><span>$$0 = f'(c) - \frac{f(b) - f(a)}{b-a}$$</span></p>
+<p>Thus we conclude that <span>$f'(c)(b-a) = f(b) -f(a)$</span> which is exactly what we wanted to prove. Then if we let <span>$b = \overline x$</span> and <span>$a = x$</span> then we get some result, I'm not really sure, what are we doing this for anyway?</p>
+<h3 class="header"><i>3.3</i>Elementary operations and error propagation<a class="headerlink" href="#elementary-operations-and-error-propagation" name="elementary-operations-and-error-propagation">&para;</a></h3>
+<p>Forget about the previous section for a moment. Let's talk about how various elementary operations affect uncertainty.</p>
+<p>Addition/subtraction: add the errors (the derivation uses the triangle inequality, but it's pretty obvious so I'm just going to omit the derivation)</p>
+<p>Multiplication: if <span>$y = x_1x_2$</span>, then <span>$\overline y= \overline{x_1}\overline{x_2}$</span>, and so</p>
+<p><span>$$\begin{align} \Delta y &amp; = \overline{x_1}\overline{x_2} - x_1x_2 \\
+&amp; = (x_1 \pm \Delta x_1)(x_2\pm \Delta x_2) - x_1x_2 \\
+&amp; = \pm x_1\Delta x_2 \pm x_2\Delta x_1 + \Delta x_1x_2\end{align}$$</span></p>
+<p>If the relative error on the inputs is small, with <span>$\displaystyle \frac{|\Delta x_i |}{|\Delta x_i|} \ll 1$</span>, then we can neglect the last term, and divide by <span>$y$</span> to get the relative error in the output:</p>
+<p><span>$$\frac{\Delta y}{y} = \pm \frac{\Delta x_2}{x_2} \pm \frac{\Delta x_1}{x_1}$$</span></p>
+<p>Then the absolute relative error is given by</p>
+<p><span>$$\left | \frac{\Delta y}{y} \right | \leq \left | \frac{\Delta x_1}{x_1} \right | + \left | \frac{\Delta x_2}{x_2} \right |$$</span></p>
+<p>The derivation for division is similar.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:rounding">
+<p>This topic isn't <em>really</em> in the scope of this course, since this is a MATH course, but we'll talk about it a bit more next lecture (and never again).&#160;<a href="#fnref:rounding" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:ohgod">
+<p>IB chem/phys flashbacks&#160;<a href="#fnref:ohgod" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:interval">
+<p>open or closed?&#160;<a href="#fnref:interval" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

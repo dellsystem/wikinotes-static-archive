@@ -1,0 +1,155 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, February 13, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, February 13, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Defining the integral
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Reminder:</strong> For <span>$Q$</span>, a refinement of <span>$P$</span>, <span>$L_f(P) \leq L_f(Q) \leq U_f(Q) \leq U_f(P)$</span>. </p>
+<p><strong>Lemma:</strong> Let <span>$f : I \to \mathbb{R}$</span> be a bounded function. If <span>$P_1$</span> and <span>$P_2$</span> are 2 partitions of <span>$I$</span>, then <span>$L_f(P_1) \leq L_f(P_2)$</span>.</p>
+<p><strong>Proof:</strong> If <span>$P_1$</span> and <span>$P_2$</span> are partitions of <span>$I$</span>, then <span>$P_1 \cup P_2 = Q$</span> is a refinement of both <span>$P_1$</span> and <span>$P_2$</span>. So by a previous lemma, <span>$L_f(P_1) \leq L_f(Q) \leq U_f(Q) \leq U_f(P_2)$</span>. <span>$\blacksquare$</span></p>
+<p><strong>Definition:</strong> Let <span>$f : I \to \mathbb{R}$</span> be a bounded function. We define the lower integral of <span>$f$</span> on <span>$I$</span>, denotes</p>
+<p><span>$$ L(f) = \sup\{ L_f(P_1) : P_1 \text{ is a partition of }I \} $$</span></p>
+<p>Similarly, we define the upper integral, denoted</p>
+<p><span>$$ U(f) = \inf\{ U_f(P_2) : P_2 \text{ is a partition of }I \} $$</span></p>
+<p>Since <span>$f$</span> is bounded, let <span>$m = \inf\{ f(x) : x \in I \}$</span> and <span>$M = \sup\{ f(x) : x \in I \}$</span>. Then if <span>$I = [a,b]$</span>:</p>
+<p><span>$$ m(b-a) \leq L_f(P) \leq U_f(P) \leq M(b-a) $$</span></p>
+<p><strong>Theorem:</strong> Let <span>$f : I \to \mathbb{R}$</span> be a bounded function. Then the lower integral <span>$L(f)$</span> and the upper integral <span>$U(f)$</span> exist and </p>
+<p><span>$$ L(f) \leq U(f) $$</span></p>
+<p><strong>Proof:</strong> From the previous lemma, if <span>$P_1$</span> and <span>$P_2$</span> are partitions of <span>$I$</span>, then <span>$L_f(P_1) \leq U_f(P_2)$</span>, i.e. the set <span>$\{U_f(P_1) : P_1 \text{ is a partition of } I\}$</span> is bounded above by <span>$U_f(P_2)$</span>. Thus</p>
+<p><span>$$ L(f) = \sup\{U_f(P_1) : P_1 \text{ is a partition of } I\} $$</span></p>
+<p>exists by least upper bound axiom. Note that <span>$L(f) \leq U_f(P_2)$</span> for any partition <span>$P_2$</span> of <span>$I$</span>.</p>
+<p>Again, <span>$\{U_f(P_2) : P_2 \text{ is a partition of } I\}$</span> is bounded below. Thus</p>
+<p><span>$$ U(f) = \inf\{U_f(P_2) : P_2 \text{ is a partition of } I\} $$</span></p>
+<p>exists and <span>$L(f) \leq U(f)$</span>. <span>$\blacksquare$</span></p>
+<p><strong>Definition:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be bounded on <span>$I$</span>. <span>$f$</span> is said to be Riemann integrable if <span>$L(f) = U(f)$</span>. In this case, the Riemann integral of <span>$f$</span> over <span>$I$</span> is defined to be the value <span>$L(f) = U(f)$</span> and is denoted</p>
+<p><span>$$ \int_a^b f \quad \text{or} \quad \int_a^b f(x) dx $$</span></p>
+<p>In addition, we define</p>
+<p><span>$$ \int_a^a = 0 \quad \text{and} \quad \int_a^b f = -\int_b^a f $$</span></p>
+<p>Let's look at en example:</p>
+<blockquote>
+<p><span>$f(x) = x$</span> is Riemann integrable on <span>$[0,1]$</span>.<br />
+Let <span>$P = \{0, \frac{1}{n}, \frac{2}{n}, \ldots, 1\}$</span>. The function <span>$f(x)$</span> is increasing, thus </p>
+<p><span>$$ \inf\{f(x) : x \in [x_{k-1}, x_k]\} = f(x_{k-1}) = x_{k_1} $$</span></p>
+<p>Hence </p>
+<p><span>$$ L_f(P) = \sum_{i=1}^n \frac{i-1}{n}\left(\frac{i}{n} - \frac{i-1}{n}\right) = \sum_{i=1}^n \frac{i-1}{n^2} = \frac{1}{n^2}\sum_{i=1}^n i - 1 = \sum_{i=0}^{n-1}i = \sum_{i=1}^{n-1}i = \frac{1}{n^2}\frac{(n-1)n}{2} \frac{1}{2}\frac{n-1}{n} = \frac{1}{2} - \frac{1}{2n} $$</span></p>
+<p>As <span>$1/n \to 0$</span>, <span>$1/ 2n \to 0$</span> and thus </p>
+<p><span>$$ L(f) = \sup\{L_f(P) : P \text{ is a partition of }I\} \geq \frac{1}{2} $$</span></p>
+<p>We can show in a similar way that <span>$U(f) \leq \frac{1}{2}$</span> so that <span>$\frac{1}{2} \leq L(f) \leq U(f) \leq \frac{1}{2}$</span>, and so <span>$L(f) = U(f) = \frac{1}{2}$</span>.</p>
+</blockquote>
+<p>Now let's look at a function that is <em>not</em> Riemann integrable on <span>$[0,1]$</span>. Recall Dirichlet's function, defined as </p>
+<p><span>$$
+f(x) = \left\{
+     \begin{array}{lr}
+       1 &amp;  x \in \mathbb{Q}\\
+       0 &amp;  x \notin \mathbb{Q}
+     \end{array}
+   \right.
+$$</span></p>
+<p><span>$f(x)$</span> is not integrable on <span>$[0,1]$</span>. Let <span>$P$</span> be a partition of <span>$[0,1]$</span>. Then no matter how fine the partition,</p>
+<p><span>$$ L_f(P) = \sum_{k=1}^n 0 \cdot (x_k - x_{k-1}) = 0 $$</span></p>
+<p>but </p>
+<p><span>$$ U_f(P) = \sum_{k=1}^n 1 \cdot (x_k - x_{k-1}) = 1 $$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

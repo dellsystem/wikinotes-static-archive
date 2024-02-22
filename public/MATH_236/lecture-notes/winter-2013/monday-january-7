@@ -1,0 +1,131 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 7, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 7, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to the course
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this lecture, we took a short preliminary quiz, and went over some of the motivation behind linear algebra.</p>
+<p><a href="http://thales.math.uqam.ca/~tosun/Algebra%20McGill.pdf">Link to syllabus (PDF)</a> :: <a href="http://thales.math.uqam.ca/~tosun/McGill%20Algebra.html">Link to course webpage</a></p>
+<div class="toc">
+<ul>
+<li><a href="#quiz">1 Quiz</a></li>
+<li><a href="#motivation-and-goals">2 Motivation and goals</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Quiz<a class="headerlink" href="#quiz" name="quiz">&para;</a></h2>
+<p>The quiz lasted approximately 20 minutes. There were 6 true/false questions on basic linear algebra material, which are summarised below:</p>
+<ul>
+<li>Given a 2x3 matrix A and a 2x2 matrix B, AB is defined but BA is not. <strong>Answer</strong>: False; BA is defined but AB is not.</li>
+<li>A matrix A is invertible if and only if it has a non-zero determinant. <strong>Answer</strong>: True.</li>
+<li>This particular matrix (3x3, first column is all 0's) is invertible. <strong>Answer</strong>: False, because of the first column of all 0's (its determinant is clearly 0).</li>
+<li>A 2x3 matrix is a linear transformation from <span>$\mathbb R^3$</span> to <span>$\mathbb R^2$</span>. <strong>Answer</strong>: True. (Multiply the matrix by the transpose of the vector, on the right.)</li>
+<li>4 vectors in <span>$\mathbb R^3$</span> form a basis for it. <strong>Answer</strong>: False; they are clearly not linearly independent.</li>
+<li>Any non-zero polynomial with real coefficients (for example, <span>$x^2+1$</span>) has a real root. <strong>Answer</strong>: False.</li>
+</ul>
+<p>Then, there were questions about what math courses you've taken, what your interest in the course is, and if you have any additional comments.</p>
+<h2 class="header"><i>2</i>Motivation and goals<a class="headerlink" href="#motivation-and-goals" name="motivation-and-goals">&para;</a></h2>
+<p>Linear algebra is the foundation for many topics: abstract algebra (which arises naturally from relaxing the definition of a vector space), ODEs, function analysis. It arose out of the need to solve the linear system <span>$A\vec x = \vec b$</span> which, though simple, has applications in many different fields. Our goal in this course is to study vector spaces as well as the linear maps (or operations, or transformations) between vector spaces.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

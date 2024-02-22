@@ -1,0 +1,141 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, December 3, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, December 3, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Wrap-up for group theory
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this lecture, we covered matrix permutations, simple groups, and how to enumerate the normal subgroups of a group. If you can improve these notes, please do.</p>
+<div class="toc">
+<ul>
+<li><a href="#office-hours">1 Office hours</a></li>
+<li><a href="#matrix-permutations">2 Matrix permutations</a></li>
+<li><a href="#simple-groups">3 Simple groups</a><ul>
+<li><a href="#classifying-normal-subgroups">3.1 Classifying normal subgroups</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Office hours<a class="headerlink" href="#office-hours" name="office-hours">&para;</a></h2>
+<p>Professor Darmon will be holding office hours next Monday from 10-12.</p>
+<h2 class="header"><i>2</i>Matrix permutations<a class="headerlink" href="#matrix-permutations" name="matrix-permutations">&para;</a></h2>
+<p>Last time, we saw that <span>$S_4/V \cong S_3$</span> where <span>$V$</span> is the group of 2-2 cycles (e.g. <span>$(12)(34)$</span>) plus, of course, the identity. We also started looking at an example with matrices: <span>$GL_n(\mathbb R)$</span>, the group of <span>$n\times n$</span> matrices with real entries. The permutation <span>$\delta = (12)$</span><sup id="fnref:delta"><a href="#fn:delta" rel="footnote" title="He kept saying &quot;sigma&quot; during the lecture but the ...">1</a></sup> would, in this case, indicate transposing columns 1 and 2 (the first two) while keeping the rest constant. We could also express this as a function - for instance, <span>$f: S_3 \to GL_3(\mathbb R)$</span> would be a permutation of the columns.</p>
+<p>If we then look at the determinant of the resulting permuted matrices, we get a quantitative way of seeing the effects of permutations on orientation. Reflections, for example, are orientation-reversing, while rotations preserve orientation. The function for computing the determinant is in fact a homomorphism, <span>$g: GL_n(\mathbb R) \to \mathbb R^{\times}$</span> (can't have a determinant of 0 in this case) and so the composition <span>$h=g \circ f$</span> would be a function <span>$h: S_n \to \{-1, +1\}$</span>, which we can call the sign homomorphism (incidentally, a surjective homomorphism).</p>
+<p>Consider, now, the kernel of <span>$h$</span>, which we will call <span>$A_n$</span> for now. The cardinality of <span>$S_n$</span> is <span>$n!$</span>, and the cardinality of the image of <span>$h$</span> (<span>$\{-1, +1\}) is 2, so the cardinality of $</span>A_n<span>$ is $</span>n!/2<span>$. So $</span>A_n$ (called the <strong>alternating group</strong>) consists of half the total possible permutations. Indeed, it contains only the cycles of odd length - recall from MATH 133 that flipping two columns will result in flipping the sign of the determinant. So cycles of even length result in a determinant of -1, and cycles of odd length result in a determinant of +1. The terminology gets a bit confusing now, because we refer to a permutation of even length as an "odd" permutation (because the sign is -1), and a permutation of odd length is an "even" permutation (because the sign is +1).</p>
+<p>Since we can generalise any cycle as the product of transpositions, this rule makes it easy to compute the sign of any cycle. For example, the 3-cycle <span>$(235)$</span> can be written as <span>$(23)(35)$</span> (remember that we compose from right to left) and so the determinant is <span>$(-1)(-1) = +1$</span>.</p>
+<h2 class="header"><i>3</i>Simple groups<a class="headerlink" href="#simple-groups" name="simple-groups">&para;</a></h2>
+<p>A group is <strong>simple</strong> if it has no non-trivial normal subgroups. (Recall that the trivial normal subgroups are <span>$\{e\}$</span> - the group containing only the identity - and <span>$G$</span> - the entire group.) The most basic examples are the groups of prime order, <span>$(\mathbb Z/p\mathbb Z, +)$</span> (are there others?). These groups have no non-trivial subgroups at all, much less normal subgroups, as a corollary of Lagrange's theorem (since the group order is prime).</p>
+<h3 class="header"><i>3.1</i>Classifying normal subgroups<a class="headerlink" href="#classifying-normal-subgroups" name="classifying-normal-subgroups">&para;</a></h3>
+<p>The last question on assignment 5 asked us to classify the normal subgroups of <span>$S_5$</span>. Here's how we actually do this. First we note that any normal subgroup <span>$H \subseteq G$</span> is a disjoint union of conjugacy classes of <span>$G$</span> (which are simply sets - specifically, equivalence groups - and not groups). The conjugacy classes in <span>$S_5$</span> are simply the permutations with cycle decompositions of the same length. So one class contains the 2-cycles, another the 3-cycles, another the 2-3 cycles (like <span>$(12)(345)$</span>).</p>
+<p>Why is it true that two permutations with same-length cycle decompositions are conjugate? Well, there's probably a really nice proof out there somewhere, but I don't know it. Instead, here's an example that you can use to convince yourself that it's true. Let <span>$g = (123)(45)(67)$</span>, <span>$h = (357)(24)(16)$</span> (with <span>$g, h \in S_7$</span>). To map <span>$g$</span> to <span>$h$</span>, we basically need to send <span>$1 \to 3$</span>, <span>$2 \to 5$</span>, <span>$3 \to 7$</span>, etc. Let's create a permutation <span>$a$</span> that does that: <span>$a = (1376)(254)$</span>. Now, since <span>$a(1) = 3$</span>, then <span>$a^{-1}(3) = 1$</span>. So if <span>$g' = aga^{-1}$</span>, <span>$g'(3) = 1 \to 2 \to 5$</span>, so <span>$g'(3) = 5$</span>. Also, since <span>$a(2) = 5$</span>, then <span>$a^{-1}(5) = 2$</span>. So <span>$g'(5) = 2 \to 3 \to 7$</span>, so <span>$g'(5) = 7$</span>. So far, we have the cycle <span>$(357)$</span>. Starting to look familiar?</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:delta">
+<p>He kept saying "sigma" during the lecture but the symbol he drew looked more like delta so let's assume he meant delta.&#160;<a href="#fnref:delta" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

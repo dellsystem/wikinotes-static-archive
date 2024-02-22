@@ -1,0 +1,545 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_407/">
+                MATH 407
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Because the file he posted is literally a .doc (which is pretty appalling for a math course tbh), I'm going to type up all the questions on this page (may be edited for clarity).</p>
+<p>The following formulas are provided:</p>
+<ul>
+<li>TSP: <span>$\displaystyle f_i(j, S) = \min_{k \in S} \bigg [ f_{i-1} (k, S-\{k\} + d_{kj} \bigg ]$</span> with b.c. <span>$f_0(j, -) = d_{1j}$</span> and <span>$S \subseteq N$</span></li>
+<li>MDP: <span>$\displaystyle f_n(i) = \max_k \left [ q_i^k + \sum_{j=1}^N p_{ij}^k f_{n-1}(j) \right ]$</span>, and <span>$\displaystyle g+c_i = q_i^k + \sum_{j=1}^N p_{ij}^k c_j$</span>; PIR: <span>$\displaystyle \max \left [ q_i^k + \sum_{i=1}^N p_{ij}^kc_j \right ]$</span></li>
+<li>Semi-markov decision processes: For a particular policy, <span>$\displaystyle a_i + g\overline{\tau_i} = r_i + \sum_{i=1}^n p_{ij}a_j$</span>. PIR: <span>$\displaystyle \frac{1}{\overline{\tau}^k_i} \left [ r_i + \sum_{i=1}^n p_{ij}a_j-a_i \right ]$</span></li>
+<li>Queueing theory<ul>
+<li><span>$\displaystyle P_n = C_nP_0$</span></li>
+<li><span>$\displaystyle C_n = \frac{\lambda_{n-1} \lambda_{n-2} \cdots \lambda_0}{\mu_n\mu_{n-1} \cdots \mu_0} \, n = 1, 2, \ldots$</span></li>
+<li><span>$\displaystyle L = \sum nP_n$</span></li>
+<li><span>$\displaystyle L_q = \sum(n-s)P_n$</span></li>
+<li><span>$W = L/\overline{\lambda}$</span></li>
+<li><span>$L_s = L - L_q$</span></li>
+<li><span>$W_q = L_q / \overline{\lambda}$</span></li>
+</ul>
+</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#question-1-shortest-path">1 Question 1: Shortest path</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2-integer-programming">2 Question 2: Integer programming</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3-traveling-salesman">3 Question 3: Traveling salesman</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4-markov-decision-processes">4 Question 4: Markov decision processes</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5-semi-markovian-decision-processes">5 Question 5: Semi-Markovian decision processes</a><ul>
+<li><a href="#solution_4">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6-queueing-theory">6 Question 6: Queueing theory</a><ul>
+<li><a href="#solution_5">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1: Shortest path<a class="headerlink" href="#question-1-shortest-path" name="question-1-shortest-path">&para;</a></h2>
+<p>Give the D.P. formulation with appropriate boundary conditions for finding the minimum time to go from any node <span>$i$</span> (<span>$i = 1, 2, \ldots, N-1$</span>) to the terminal node <span>$N$</span>. Assume <span>$t_{ij}$</span> is the time needed to go from node <span>$i$</span> to node <span>$j$</span>. Describe an algorithm that can be used to solve this problem.</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>Dijkstra's algorithm</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<h2 class="header"><i>2</i>Question 2: Integer programming<a class="headerlink" href="#question-2-integer-programming" name="question-2-integer-programming">&para;</a></h2>
+<p>Give the D.P. formulation for solving the following problem: maximise <span>$z = x_1x_2^2x_3^3x_4^{1/2}$</span> such that <span>$x_1 + 2x_2 + 3x_3 + x_4 \leq 10$</span>, where the <span>$x_i$</span>'s are all integers with <span>$x_i \geq 1$</span>. Using this formulation, solve the problem.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>Let's consider our options, using the fact that <span>$x_i \geq 1$</span> for all <span>$i$</span>.</p>
+<ul>
+<li>For <span>$x_1$</span>: <span>$x_1 \leq 10 - 2x_2 -3x_3 - x_4 \leq 10 - 2 - 3 - 1 = 4$</span>. Thus <span>$x_1 = 1, 2, 3, 4$</span>.</li>
+<li>For <span>$x_2$</span>: <span>$2x_2 \leq 10 - 1-3-1 = 5$</span>, so <span>$x_2 =1, 2$</span>.</li>
+<li>For <span>$x_3$</span>: <span>$3x_3 \leq 10 - 1 - 2 - 1 = 6$</span>, so <span>$x_3 = 1, 2$</span>.</li>
+<li>For <span>$x_4$</span>: <span>$x_4 \leq 10 - 1 - 2 - 3 = 4$</span>, so <span>$x_4 = 1, 2, 3, 4$</span>.</li>
+</ul>
+<p>Next, we calculate <span>$f_1(x) = x_1$</span> (attempting to maximise it) for each value of <span>$x \leq 10$</span> such that <span>$x_1 \leq x$</span>. In this question, it happens to be a very straightforward calculation. (It won't always be the case, though.)</p>
+<ul>
+<li><span>$f_1(0) = 0$</span> (<span>$x=0$</span>)</li>
+<li><span>$f_1(1) = 1$</span> (<span>$x=1$</span>)</li>
+<li><span>$f_1(2) = 2$</span> (<span>$x=2$</span>)</li>
+<li><span>$f_1(3) = 3$</span> (<span>$x=3$</span>)</li>
+<li><span>$f_1(4) = 4$</span> (<span>$x=4$</span>) (don't really need anything after this I think)</li>
+<li><span>$f_1(5) = 5$</span> (<span>$x=5$</span>)</li>
+<li><span>$f_1(6) = 6$</span> (<span>$x=6$</span>)</li>
+<li><span>$f_1(7) = 7$</span> (<span>$x=7$</span>)</li>
+<li><span>$f_1(8) = 8$</span> (<span>$x=8$</span>)</li>
+<li><span>$f_1(9) = 9$</span> (<span>$x=9$</span>)</li>
+<li><span>$f_1(10) = 10$</span> (<span>$x=10$</span>)</li>
+</ul>
+<p>Next, we calculate the values of <span>$\displaystyle f_2(x) = \max_{x_2 =1,2} \bigg [x_2^2 \cdot f_1(x-2x_2) \bigg ]$</span>.</p>
+<ul>
+<li><span>$f_2(0) = $</span> undefined<ul>
+<li>when <span>$x_2 = 1$</span>, <span>$f(x-2x_2) = f(-2)$</span> which is undefined</li>
+<li>also undefined</li>
+</ul>
+</li>
+<li><span>$f_2(1) = $</span> undefined<ul>
+<li>undefined</li>
+<li>what is this like javascript or something</li>
+</ul>
+</li>
+<li><span>$f_2(2) = 0$</span><ul>
+<li>when <span>$x_2 = 1$</span>, <span>$f_1(2-2) = f(0) = 0$</span> so it's just 0</li>
+<li>undefined</li>
+</ul>
+</li>
+<li><span>$f_2(3) = 1$</span><ul>
+<li>when <span>$x_2 = 1$</span>, <span>$f_1(3-2) = f_1(1) = 1$</span> so it's just <span>$x_2^2 \cdot 1= 1$</span></li>
+<li>when <span>$x_2=2$</span>, undefined</li>
+</ul>
+</li>
+<li><span>$f_2(4) = 2$</span><ul>
+<li>when <span>$x_2=1$</span>, <span>$f_1(4-2) = f(2) = 2$</span> so it's <span>$1^2 \cdot 2 = 2$</span></li>
+<li>when <span>$x_2 = 2$</span>, <span>$f_1(4-4) = f(0) = 0$</span> so it's just 0</li>
+</ul>
+</li>
+<li><span>$f_2(5) = 4$</span><ul>
+<li>when <span>$x_2=1$</span>, <span>$f_1(5-2) = f(3) = 3$</span> so it's just <span>$1^2 \cdot 3 = 3$</span></li>
+<li>when <span>$x_2 = 2$</span>, <span>$f_1(5-4) = f(1) = 1$</span> so it's <span>$2^2 \cdot 1 = 4$</span></li>
+</ul>
+</li>
+<li><span>$f_2(6) = 8$</span><ul>
+<li>when <span>$x_2=1$</span>, <span>$f_1(6-2) = f(4) = 4$</span> so it's 4</li>
+<li>when <span>$x_2=2$</span>, <span>$f_1(2) = 2$</span> so it's <span>$2^2 \cdot 2 = 8$</span></li>
+</ul>
+</li>
+<li><span>$f_2(7) = 12$</span><ul>
+<li>1: 5</li>
+<li>2: 12</li>
+</ul>
+</li>
+<li>probably don't need the rest</li>
+</ul>
+<p>Next, we calculate the values of <span>$\displaystyle f_3(x) = \max_{x_3 =1,2} \bigg [x_3^3 \cdot f_2(x-3x_3) \bigg ]$</span>. As before, a lot of these values will be undefined.</p>
+<ul>
+<li><span>$f_3(0) = $</span> undefined</li>
+<li><span>$f_3(1) = $</span> undefined</li>
+<li><span>$f_3(2) = $</span> undefined</li>
+<li><span>$f_3(3) = $</span> undefined<ul>
+<li>1: <span>$f_2(0) = $</span> undefined</li>
+<li>undefined</li>
+</ul>
+</li>
+<li><span>$f_3(4) = $</span> undefined<ul>
+<li>1: <span>$f_2(1) = $</span> undefined</li>
+<li>undefined</li>
+</ul>
+</li>
+<li><span>$f_3(5) = 0$</span><ul>
+<li>1: <span>$f_2(2) = 0$</span> so 0</li>
+<li>2: undefined</li>
+</ul>
+</li>
+<li><span>$f_3(6) = 1$</span><ul>
+<li>1: <span>$f_2(3) = 1$</span> so <span>$x_3^3 \cdot 1= 1^3 \cdot 1 = 1$</span></li>
+<li>2: undefined</li>
+</ul>
+</li>
+<li><span>$f_3(7) = 2$</span><ul>
+<li>1: <span>$f_2(4) = 2$</span> so <span>$x_3^3 \cdot 2 = 2$</span></li>
+<li>2: <span>$f_2(1) =$</span> undefined</li>
+</ul>
+</li>
+<li><span>$f_3(8) = 4$</span><ul>
+<li>1: <span>$f_2(5) = 4$</span> so 4</li>
+<li>2: <span>$f_2(2) = 0$</span> so 0</li>
+</ul>
+</li>
+<li><span>$f_3(9) = 8$</span><ul>
+<li>1: <span>$f_2(6) = 8$</span> so 8</li>
+<li>2: <span>$f_2(3) = 1$</span> so <span>$2^3 \cdot 1= 8$</span></li>
+</ul>
+</li>
+<li>not gonna bother</li>
+</ul>
+<p>Finally, we calculate <span>$f_4(10)$</span>:</p>
+<p><span>$$f_4(10) = \max_{x_4 = 1, 2, 3, 4} [ x_4^{1/2} \cdot f_3(10 - x_4)] =
+\begin{cases}
+x_4=1: &amp; 1 \cdot f_3(9) = 8 \, \bigstar \\
+x_4=2: &amp; \sqrt{2} \cdot f_3(8) = 4\sqrt{2} \\
+x_4=3: &amp; \sqrt{3} \cdot f_3(7) = 2\sqrt{3} \\
+x_4=4: &amp; 2 \cdot f_3(6) = 2
+\end{cases}
+$$</span></p>
+<p>So <span>$x_4=1$</span>, using <span>$f_3(9)$</span>. There, we can have either <span>$x_3 = 1$</span> (which uses <span>$f_2(6)$</span>) or <span>$x_3=2$</span> (which uses <span>$f_2(3)$</span>). For <span>$f_2(6)$</span>, we use <span>$x_2=2$</span> and <span>$f_1(2)$</span>, which has <span>$x_1=2$</span>; this gives us <span>$x_1=2, x_2=2, x_3=1, x_4=1$</span>. For <span>$f_2(3)$</span>, we use <span>$x_2=1$</span> and <span>$f_1(1)$</span>, which has <span>$x_1=1$</span>; this gives us <span>$x_1=1$</span>, <span>$x_2=1$</span>, <span>$x_3=2$</span>, <span>$x_4=1$</span>. Both assignments result in <span>$z=8$</span>.</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Accurate. Wrote a script to test it.</p>
+<h2 class="header"><i>3</i>Question 3: Traveling salesman<a class="headerlink" href="#question-3-traveling-salesman" name="question-3-traveling-salesman">&para;</a></h2>
+<p>In the traveling salesman problem, the distance from city <span>$i$</span> to city <span>$j$</span>, <span>$d_{ij}$</span>, is given by the following distance table:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$i$</span> \ <span>$j$</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>3</td>
+<td>6</td>
+<td>5</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>4</td>
+<td>0</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>2</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>(a) Find the solution if you start at node 1 and visit all the other nodes but don't need to return to node 1.<br />
+(b) Find the solution if you start at node 1 and return to node 1, but also need to visit node 2 before node 3 and node 3 before node 5.</p>
+<p>Use the standard D.P. approach to solve this.</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>(a) Just use the formula given. Do sets of size <span>$k$</span> for each <span>$f_k$</span>. At the end, you have that <span>$f_3(3, \{2, 4, 5\}) = 10$</span> is the lowest among all the <span>$f_3$</span> values. Since 3 is the first argument to <span>$f_3$</span>, 3 is the last node you visit. Now, the value of 10 is obtained using <span>$f_2(4, \{2, 5\})$</span>. So 4 is the second-to-last node. <span>$f_2(4, \{2, 5\})$</span> is obtained using <span>$f_1(5, \{2\})$</span>, so 5 is the third-to-last node. Then 2 is the first node (after 1). So the path is <span>$1-2-5-4-3$</span>.</p>
+<p>(b) There are only 4 possibilities. Use the table to find the total cost for each route. 142351 =&gt; 19, 124351 =&gt; 18, 123451 =&gt; 19, and 123541 =&gt; 15 so we use the last route.</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Accurate. I wrote a script to test it.</p>
+<h2 class="header"><i>4</i>Question 4: Markov decision processes<a class="headerlink" href="#question-4-markov-decision-processes" name="question-4-markov-decision-processes">&para;</a></h2>
+<table class="clear">
+<thead>
+<tr>
+<th>State <span>$i$</span></th>
+<th>Policy <span>$k$</span></th>
+<th><span>$p_{i1}^k$</span></th>
+<th><span>$p_{i2}^k$</span></th>
+<th><span>$q_i^k$</span> (expected reward)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0.6</td>
+<td>0.4</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>0.8</td>
+<td>0.2</td>
+<td>4</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0.4</td>
+<td>0.6</td>
+<td>-3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>0.7</td>
+<td>0.3</td>
+<td>-5</td>
+</tr>
+</tbody>
+</table>
+<p>(a) Evaluate <span>$f_n(i)$</span> and the optimal policy for <span>$n=1,2,3$</span> (i.e., finite horizon in state <span>$i$</span>).<br />
+(b) Verify if the optimal policy for <span>$n=3$</span> is also the optimal policy for <span>$n$</span> large (i.e., the infinite horizon, non-discounted case).</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>(a)</p>
+<p>Time step 1:</p>
+<ul>
+<li>State 1:<ul>
+<li>Policy 1: 6 <span>$\bigstar$</span></li>
+<li>Policy 2: 4</li>
+</ul>
+</li>
+<li>State 2:<ul>
+<li>1: -3 <span>$\bigstar$</span></li>
+<li>2: -5</li>
+</ul>
+</li>
+</ul>
+<p><span>$f_1(1) = 6$</span> (policy 1), <span>$f_1(2) = -3$</span> (policy 1).</p>
+<p>Time step 2:</p>
+<ul>
+<li>State 1:<ul>
+<li>1: <span>$6 + 0.6\cdot f_1(1) + 0.4\cdot f_1(2) = 6 + 0.6*6 + 0.4 * (-3) = 8.4$</span> <span>$\bigstar$</span></li>
+<li>2: <span>$4 + 0.8(6) - 0.2(3) = 8.2$</span></li>
+</ul>
+</li>
+<li>State 2:<ul>
+<li>1: <span>$-3 + 0.4(6) + 0.6(-3) = -2.4$</span></li>
+<li>2: <span>$-5 + 0.7(6) + 0.3(-3) = -1.7$</span> <span>$\bigstar$</span></li>
+</ul>
+</li>
+</ul>
+<p><span>$f_2(1) = 8.4$</span> (policy 1), <span>$f_2(2) = -1.7$</span> (policy 2).</p>
+<p>Time step 3:</p>
+<ul>
+<li>State 1:<ul>
+<li>1: <span>$6 + 0.6\cdot f_2(1) + 0.4\cdot f_2(2) = 6 + 0.6(8.4) + 0.4 * (-1.7) = 10.36$</span></li>
+<li>2: <span>$4 + 0.8(8.4) - 0.2(1.7) = 10.38$</span> <span>$\bigstar$</span></li>
+</ul>
+</li>
+<li>State 2:<ul>
+<li>1: <span>$-3 + 0.4(8.4) + 0.6(-1.7) = -0.66$</span></li>
+<li>2: <span>$-5 + 0.7(8.4) + 0.3(-1.7) = 0.37$</span> <span>$\bigstar$</span></li>
+</ul>
+</li>
+</ul>
+<p><span>$f_3(1) = 10.38$</span> (policy 2), <span>$f_3(2) = 0.37$</span> (policy 2).</p>
+<p>(b) At <span>$n=3$</span>, the optimal policy is to use policy 2 at either state. We have</p>
+<p><span>$$g + c_1 = 4 + 0.8c_1 + 0.2c_2 \quad \text{and} \quad
+g+ c_2 = -5 + 0.7c_1 + 0.3c_2$$</span></p>
+<p>Subtracting the two, we get</p>
+<p><span>$$c_1 - c_2 = 9 + 0.1c_1 -0.1c_2$$</span></p>
+<p>Thus <span>$0.9(c_1-c_2) = 9$</span> and so <span>$c_1 - c_2=10$</span>. Next, add the equations:</p>
+<p><span>$$2g + (c_1 + c_2) = -1 + 1.5c_1 + 0.5c_2$$</span></p>
+<p>Solving for <span>$g$</span>, we get</p>
+<p><span>$$g = \frac{-1 + 0.5(c_1-c_2)}{2} = -0.5 + 2.5 = 2$$</span></p>
+<p>At state 1, you have <span>$6 + 0.6(10) = 12$</span> for policy 1, and <span>$4 + 0.8(10) = 12$</span>. So either policy 1 or policy 2 works over an infinite horizon.</p>
+<p>At state 2, you have <span>$-3 + 0.4(10) =  1$</span> and <span>$-5 + 0.7(10) = 2$</span>. So policy 2 is best over an infinite horizon.</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Wrote a python script to confirm, as usual. All checks out, even if I'm not really sure what I'm doing when it comes to the infinite horizon part.</p>
+<h2 class="header"><i>5</i>Question 5: Semi-Markovian decision processes<a class="headerlink" href="#question-5-semi-markovian-decision-processes" name="question-5-semi-markovian-decision-processes">&para;</a></h2>
+<p>The following values are given over an finite horizon.</p>
+<table class="clear">
+<thead>
+<tr>
+<th>State <span>$i$</span></th>
+<th>Policy <span>$k$</span></th>
+<th><span>$p_{i1}^k$</span></th>
+<th><span>$p_{i2}^k$</span></th>
+<th><span>$\overline{\tau}_i^k$</span></th>
+<th><span>$r_i^k$</span> (expected reward)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0.7</td>
+<td>0.3</td>
+<td>3.4</td>
+<td>50</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>7</td>
+<td>70</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0.2</td>
+<td>0.8</td>
+<td>9</td>
+<td>60</td>
+</tr>
+<tr>
+<td>2</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>5</td>
+<td>40</td>
+</tr>
+</tbody>
+</table>
+<p>Find the optimal policy and the average gain per unit time period. <span>$\overline{\tau}_i^k$</span> is the mean time for which a car is rented in state <span>$i$</span> using policy <span>$k$</span>.</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>Suppose we used policy 1 at both states. Then:</p>
+<p>State 1: <span>$a_1 + 3.4g = 50 + 0.7a_1 + 0.3a_2$</span>. State 2: <span>$a_2 + 9g = 60 + 0.2a_1 + 0.8a_2$</span>.</p>
+<p>Adding them together, we get</p>
+<p><span>$$g = \frac{110 - 0.1(a_1-a_2)}{12.4}$$</span></p>
+<p>Multiply the first by 9, and the second by 3.4, then subtract. We get</p>
+<p><span>$$a_1 - a_2 = \frac{246}{3.38} \approx 72.78$$</span></p>
+<p>Substituting that into <span>$g$</span>, we get <span>$8.28$</span>.</p>
+<div class="ui divider"></div>
+<p>Now suppose we use policy 1 at state 1 and policy 2 at state 2. Then:</p>
+<p>State 1: <span>$a_1 + 3.4g = 50 + 0.7a_1 + 0.3a_2$</span>. State 2: <span>$a_2 + 5g = 40 + a_1$</span>.</p>
+<p>Adding them together, we get</p>
+<p><span>$$g= \frac{90 + 0.7(a_1-a_2)}{8.4}$$</span></p>
+<p>Multiply the first by 5 and the second by 3.4, then subtract. We get:</p>
+<p><span>$$a_1 - a_2 = \frac{114}{4.7} \approx 23.26$$</span></p>
+<p>Substituting that into <span>$g$</span>, we get <span>$12.74$</span>.</p>
+<div class="ui divider"></div>
+<p>Now suppose we use policy 2 at state 1 and policy 1 at state 2. Then:</p>
+<p>State 1: <span>$a_1 + 7g = 70 + a_2$</span>. State 2: <span>$a_2 + 9g = 60 + 0.2a_1 + 0.8a_2$</span>.</p>
+<p>Adding them together, we get</p>
+<p><span>$$g = \frac{130-0.8(a_1-a_2)}{16}$$</span></p>
+<p>Multiply the first by 9 and the second by 7, then subtract. We get:</p>
+<p><span>$$a_1-a_2 = \frac{210}{10.4}$$</span></p>
+<p>Substituting that into <span>$g$</span>, we get <span>$7.12$</span>.</p>
+<div class="ui divider"></div>
+<p>Lastly, suppose we use policy 2 at both states. We get:</p>
+<p>State 1: <span>$a_1 + 7g = 70 + a_2$</span>. State 2: <span>$a_2 + 5g = 40 + a_1$</span>.</p>
+<p>Adding them together, we get</p>
+<p><span>$$g = \frac{110}{12} \approx 9.17$$</span></p>
+<p>I guess we don't need to do the subtraction for this, because everything cancels out?</p>
+<div class="ui divider"></div>
+<p>Conclusion: policy 1 at state 1, policy 2 at state 2. Average gain of 12.74 per unit time period.</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>no idea but it feels right</p>
+<h2 class="header"><i>6</i>Question 6: Queueing theory<a class="headerlink" href="#question-6-queueing-theory" name="question-6-queueing-theory">&para;</a></h2>
+<p>Suppose that one repairman has been assigned the responsibility of maintaining four machines. For each machine, the probability distribution of the running time before a breakdown is exponential, with a mean of 9 hours. The repair time also has an exponential distribution, with a mean of 2 hours.</p>
+<p>(a) Calculate the steady-state probability distribution and the expected number of machines that are not running.<br />
+(b) A second repairman is available whenever more than one of the four machines requires repair. Calculate the steady-state probability distribution and the expected number of machines that are not running.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>(a) The state diagram looks like this:</p>
+<p><img alt="State diagram" src="http://i.imgur.com/RSMac9P.png" /></p>
+<p>You can figure out the rest from there. There's a lot of arithmetic involved so I'm not going to write it all out. See the <a href="/MATH_407/summary/winter-2014/queuing-theory/#machine-repair">notes</a> for the step-by-step guide.</p>
+<p>(b) The state diagram:</p>
+<p><img alt="State diagram" src="http://i.imgur.com/qp9l34q.png" /></p>
+<p>Same as above.</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>idk, there are a lot of calculations</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

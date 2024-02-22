@@ -1,0 +1,535 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Concurrent Hardware and Atomicity &amp; Independence
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#hardware">1 Hardware</a><ul>
+<li><a href="#basic-uniprocessor">1.1 Basic Uniprocessor</a><ul>
+<li><a href="#cache">1.1.1 Cache</a></li>
+</ul>
+</li>
+<li><a href="#multiprocessors">1.2 Multiprocessors</a><ul>
+<li><a href="#smp-symmetric-multiprocessors">1.2.1 SMP: Symmetric Multiprocessors</a></li>
+<li><a href="#cmp-on-chip-multiprocessor">1.2.2 CMP: On-Chip Multiprocessor</a></li>
+<li><a href="#cmtfmt-coarse-and-fine-grained-multithreading">1.2.3 CMT/FMT: Coarse and fine-grained multithreading</a><ul>
+<li><a href="#cmt">1.2.3.1 CMT</a></li>
+<li><a href="#fmt">1.2.3.2 FMT</a></li>
+<li><a href="#the-example-of-tera">1.2.3.3 The example of Tera</a></li>
+</ul>
+</li>
+<li><a href="#smt-simultaneous-multithreading">1.2.4 SMT: Simultaneous Multithreading</a></li>
+</ul>
+</li>
+<li><a href="#practical-example">1.3 Practical example</a><ul>
+<li><a href="#uniprocessor">1.3.1 Uniprocessor</a></li>
+<li><a href="#smpcmp-2-processors">1.3.2 SMP/CMP (2 processors)</a></li>
+<li><a href="#fmt_1">1.3.3 FMT</a></li>
+<li><a href="#smt">1.3.4 SMT</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#atomicity-and-independence">2 Atomicity and Independence</a><ul>
+<li><a href="#definitions">2.1 Definitions</a></li>
+<li><a href="#what-happens-when-processes-interact">2.2 What happens when processes interact?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Hardware<a class="headerlink" href="#hardware" name="hardware">&para;</a></h2>
+<p>There are lots of different kinds of concurrent hardware.</p>
+<ul>
+<li>Our desktops or laptops most likely have more that 1 processor, maybe even 8 or more.</li>
+<li>Servers might have dozens, or hundreds.</li>
+</ul>
+<h3 class="header"><i>1.1</i>Basic Uniprocessor<a class="headerlink" href="#basic-uniprocessor" name="basic-uniprocessor">&para;</a></h3>
+<p><img alt="Basic Uniprocessor Schematic" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-03.png" title="" /><br />
+Modern, pipelined and superscalar architecture (multiple functional units).</p>
+<ul>
+<li>Can issue and execute more than one instruction at a time.</li>
+<li>Low-level parallelism.</li>
+</ul>
+<p>On this, we can do multithreaded programming thanks to <strong>context switching</strong> between threads. In effect, the threads are <strong>time-sliced</strong>.</p>
+<p>Multiple threads can be useful for hiding latency. However, true parallelism is impossible with a basic uniprocessor.</p>
+<h4 class="header"><i>1.1.1</i>Cache<a class="headerlink" href="#cache" name="cache">&para;</a></h4>
+<p>Notice the cache: it is an important part of modern computer architecture due to the <strong>locality principle</strong>.</p>
+<dl>
+<dt>Locality Principle</dt>
+<dd>If a program accesses <code>x</code>, odds are that it will access <code>x</code> and nearby data soon.</dd>
+</dl>
+<p>However, multithreading interferes with locality because the data accesses of a certain thread interleave with the others'.</p>
+<h3 class="header"><i>1.2</i>Multiprocessors<a class="headerlink" href="#multiprocessors" name="multiprocessors">&para;</a></h3>
+<p>There is now more than one processor, with some kind of shared memory; there is more than one way to set these processors up.</p>
+<h4 class="header"><i>1.2.1</i>SMP: Symmetric Multiprocessors<a class="headerlink" href="#smp-symmetric-multiprocessors" name="smp-symmetric-multiprocessors">&para;</a></h4>
+<p>There are multiple separate processors, but they are all the same.</p>
+<p><img alt="SMP Schematic" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-04.png" title="" /></p>
+<ul>
+<li>Separate physical chips.</li>
+<li>Communication between them occurs over a bus.</li>
+</ul>
+<p>Communication over a bus is somewhat slow. If the CPUs are on the same physical chip (i.e. multicore), we can get faster communication.</p>
+<h4 class="header"><i>1.2.2</i>CMP: On-Chip Multiprocessor<a class="headerlink" href="#cmp-on-chip-multiprocessor" name="cmp-on-chip-multiprocessor">&para;</a></h4>
+<p><img alt="CMP Schematic" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-05.png" title="" /></p>
+<ul>
+<li>Easier to share a cache.</li>
+<li>Fast communication between cores.</li>
+<li>Still, there are disadvantages: lots of programs are single-threaded.</li>
+</ul>
+<p>If we don't have 2 active threads, half of the chip is idle. This is not an efficient use of resources!</p>
+<h4 class="header"><i>1.2.3</i>CMT/FMT: Coarse and fine-grained multithreading<a class="headerlink" href="#cmtfmt-coarse-and-fine-grained-multithreading" name="cmtfmt-coarse-and-fine-grained-multithreading">&para;</a></h4>
+<p>Not really a multiprocessor; it's really just a single CPU with special hardware support for fast context-switching.</p>
+<p>However, <strong>n-way CMT/FMT</strong> have support for <strong>n</strong> threads in hardware.</p>
+<h5 class="header"><i>1.2.3.1</i>CMT<a class="headerlink" href="#cmt" name="cmt">&para;</a></h5>
+<p><img alt="CMT Schematic" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-06.png" title="I have no idea what this is" /></p>
+<ul>
+<li>The hardware can context-switch easily (e.g. for each <span>$x$</span> cycles).</li>
+<li>There is no sacrifice to single threaded performance.</li>
+<li>It gives the illusion of multithreading.</li>
+</ul>
+<h5 class="header"><i>1.2.3.2</i>FMT<a class="headerlink" href="#fmt" name="fmt">&para;</a></h5>
+<p>There is fine grained switching on every cycle. It is also called <strong>"barrel processing"</strong>.</p>
+<p><img alt="Barrel Processing Schematic" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-07.png" title="DO A BARREL ROLL" /></p>
+<p>It works like rotating a barrel where each slat represents a thread. This method exists because regular switching is easy to understand and manage.</p>
+<h5 class="header"><i>1.2.3.3</i>The example of Tera<a class="headerlink" href="#the-example-of-tera" name="the-example-of-tera">&para;</a></h5>
+<p><strong><em>Tera</em></strong> was an early multithreaded architecture for the Cray.</p>
+<p>It followed an <strong>FMT design</strong>, but with no data cache. Notably, it took <strong>70 cycles</strong> just to access memory.</p>
+<p>One efficient way to avoid slowdowns was to have at least 70 threads to keep to CPU busy during the waits. With this many threads, access can start on the cycle of a certain thread, and once the context switching arrives to this thread again, the access has completed.</p>
+<p>It gave a good overall throughput, but the performance of each individual thread was not very high.</p>
+<h4 class="header"><i>1.2.4</i>SMT: Simultaneous Multithreading<a class="headerlink" href="#smt-simultaneous-multithreading" name="smt-simultaneous-multithreading">&para;</a></h4>
+<blockquote>
+<p>Susan Eggers et al. in 1994-95</p>
+</blockquote>
+<ul>
+<li>Supports single threaded and multithreaded programs.</li>
+<li>Allows true parallelism while also avoiding idleness.</li>
+</ul>
+<p><img alt="SMT" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-08.png" title="" /></p>
+<ul>
+<li>There is a soft boundary between CPUs: If <strong>CPU<sub>0</sub></strong> is not using its resources (i.e. its respective functional units), then <strong>CPU<sub>1</sub></strong> can use them, and vice-versa.</li>
+<li>In the case of single threaded programs, they see one big CPU with twice the resources.</li>
+<li>Yet, multithreaded programs can run in parallel.</li>
+</ul>
+<p>Theoretically, <strong>SMT</strong> (commercialized by Intel as <strong><em>Hyper-threading</em></strong>) works very well.</p>
+<ul>
+<li>However, early devices hiccups meant an hyper-threaded processor wasn't as good as 2 processors.</li>
+<li>It was also hardly even better than a single CPU.</li>
+<li>It is much improved now, but it is still not quite as good as two separate cores (maybe 1.5x).</li>
+</ul>
+<h3 class="header"><i>1.3</i>Practical example<a class="headerlink" href="#practical-example" name="practical-example">&para;</a></h3>
+<p>Suppose we have a CPU device with:</p>
+<ul>
+<li><strong>2 ALUs</strong> (Arithmetic Logic Units)</li>
+<li><strong>2 FPUs</strong> (Floating-Point Units)</li>
+<li><strong>1 LSU</strong> (Load-Store Unit)</li>
+</ul>
+<p>It can issue <strong>2 instructions per cycle</strong>.</p>
+<ul>
+<li>Integer and floating-point operations take <strong>1 cycle</strong>.</li>
+<li>Load and store operations take <strong>2 cycles</strong>.</li>
+</ul>
+<p>Three threads are running on the CPU with the following program:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 1</th>
+<th>Thread 2</th>
+<th>Thread 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Add</td>
+<td>1. Load</td>
+<td>1. Add<sub>FP</sub></td>
+</tr>
+<tr>
+<td>2. Load</td>
+<td>2. Add</td>
+<td>2. Add<sub>FP</sub></td>
+</tr>
+<tr>
+<td>3. Add</td>
+<td>3. Add</td>
+<td>3. Add<sub>FP</sub></td>
+</tr>
+</tbody>
+</table>
+<p>Where <strong>T1</strong>.3 depends on <strong>T1</strong>.2 and <strong>T2</strong>.2 depends on <strong>T2</strong>.1.</p>
+<h4 class="header"><i>1.3.1</i>Uniprocessor<a class="headerlink" href="#uniprocessor" name="uniprocessor">&para;</a></h4>
+<p>There are 2 instruction per cycle and all threads are in order.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Threads</th>
+<th>Slot 1</th>
+<th>Slot 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thread 1</strong></td>
+<td>1. Add</td>
+<td>2. Load</td>
+</tr>
+<tr>
+<td><strong>Thread 1</strong></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 1</strong></td>
+<td>3. Add</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 2</strong></td>
+<td>1. Load</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 2</strong></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 2</strong></td>
+<td>2. Add</td>
+<td>3. Add</td>
+</tr>
+<tr>
+<td><strong>Thread 3</strong></td>
+<td>1. Add<sub>FP</sub></td>
+<td>2. Add<sub>FP</sub></td>
+</tr>
+<tr>
+<td><strong>Thread 3</strong></td>
+<td>3. Add<sub>FP</sub></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There were <strong>8 cycles</strong> in total, but <strong>7 slots</strong> were wasted.</p>
+<h4 class="header"><i>1.3.2</i>SMP/CMP (2 processors)<a class="headerlink" href="#smpcmp-2-processors" name="smpcmp-2-processors">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Processor 0 Slot 0</th>
+<th>Processor 0 Slot 1</th>
+<th>Processor 1 Slot 0</th>
+<th>Processor 1 Slot 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong>: 1. Add</td>
+<td><strong>T1</strong>: 2. Load</td>
+<td><strong>T2</strong>: 1. Load</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>T1</strong>: 3. Add</td>
+<td>-</td>
+<td><strong>T2</strong>: 2. Add</td>
+<td><strong>T2</strong>: 3. Add</td>
+</tr>
+<tr>
+<td><strong>T3</strong>: 1. Add<sub>FP</sub></td>
+<td><strong>T3</strong>: 2. Add<sub>FP</sub></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>T3</strong>: 3. Add<sub>FP</sub></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There were <strong>5 cycles</strong> in total, but <strong>11 slots</strong> were wasted. It is an improvement on the number of cycles, but it is also more wasteful.</p>
+<h4 class="header"><i>1.3.3</i>FMT<a class="headerlink" href="#fmt_1" name="fmt_1">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Threads</th>
+<th>Slot 1</th>
+<th>Slot 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Thread 1</strong></td>
+<td>1. Add</td>
+<td>2. Load</td>
+</tr>
+<tr>
+<td><strong>Thread 2</strong></td>
+<td>1. Load</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 3</strong></td>
+<td>1. Add<sub>FP</sub></td>
+<td>2. Add<sub>FP</sub></td>
+</tr>
+<tr>
+<td><strong>Thread 1</strong></td>
+<td>3. Add</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>Thread 2</strong></td>
+<td>2. Add</td>
+<td>3. Add</td>
+</tr>
+<tr>
+<td><strong>Thread 3</strong></td>
+<td>3. Add<sub>FP</sub></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There were <strong>6 cycles</strong> in total, but only <strong>3 slots</strong> wasted.</p>
+<h4 class="header"><i>1.3.4</i>SMT<a class="headerlink" href="#smt" name="smt">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Processor 0 Slot 0</th>
+<th>Processor 0 Slot 1</th>
+<th>Processor 1 Slot 0</th>
+<th>Processor 1 Slot 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong>: 1. Add</td>
+<td><strong>T1</strong>: 2. Load</td>
+<td><strong>T2</strong>: 1. Load</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>T1</strong>: 3. Add</td>
+<td>-</td>
+<td><strong>T2</strong>: 2. Add</td>
+<td><strong>T2</strong>: 3. Add</td>
+</tr>
+<tr>
+<td><strong>T3</strong>: 1. FPAdd</td>
+<td><strong>T3</strong>: 2. FPAdd</td>
+<td><strong>T3</strong>: 2. FPAdd</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There were <strong>4 cycles</strong> in total, and <strong>7 slots</strong> wasted. SMT's ability to share the CPUs' resources for a single thread was only useful once (in the last line, with <strong>T3</strong>).</p>
+<h2 class="header"><i>2</i>Atomicity and Independence<a class="headerlink" href="#atomicity-and-independence" name="atomicity-and-independence">&para;</a></h2>
+<p>In concurrency, we are interested in the relations between one or more processors/threads. Still, it is possible to have 2 completely independent threads, but in such a case, concurrency is not very exciting.</p>
+<h3 class="header"><i>2.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<dl>
+<dt>Read-set</dt>
+<dd>The <strong>read-set</strong> of a program/process/thread is the set of variables it reads, but does not write.</dd>
+<dt>Write-set</dt>
+<dd>The <strong>write-set</strong> of a program/process/thread is the set of variables it writes (and may read).</dd>
+<dt>Independent threads</dt>
+<dd>2 processes/threads are <strong>independent</strong> if the write set of each is disjoint with the read and write set of the other.</dd>
+<dd>As such, 2 processes/threads are <strong>not independent</strong> if one writes data the other reads and/or also writes.</dd>
+</dl>
+<h3 class="header"><i>2.2</i>What happens when processes interact?<a class="headerlink" href="#what-happens-when-processes-interact" name="what-happens-when-processes-interact">&para;</a></h3>
+<p>For example, consider the line of code <code>x = y = z = 0;</code>.</p>
+<p>After which <strong>Thread<sub>1</sub></strong> executes <code>x = y + z;</code> and <strong>Thread<sub>2</sub></strong> executes <code>y = 1; z = 2;</code>.</p>
+<p>What is the final value of <code>x</code>? It depends on the order in which threads execute.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Scenario 1</th>
+<th>Scenario 2</th>
+<th>Scenario 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong>: <code>x = y + z;</code></td>
+<td><strong>T2</strong>: <code>y = 1;</code></td>
+<td><strong>T2</strong>: <code>y = 1;</code></td>
+</tr>
+<tr>
+<td><strong>T2</strong>: <code>y = 1;</code></td>
+<td><strong>T2</strong>: <code>z = 2;</code></td>
+<td><strong>T1</strong>: <code>x = y + z;</code></td>
+</tr>
+<tr>
+<td><strong>T2</strong>: <code>z = 2;</code></td>
+<td><strong>T1</strong>: <code>x = y + z;</code></td>
+<td><strong>T2</strong>: <code>z = 2;</code></td>
+</tr>
+<tr>
+<td><strong>Value of <code>x</code>: 0</strong></td>
+<td><strong>Value of <code>x</code>: 3</strong></td>
+<td><strong>Value of <code>x</code>: 1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>: To interleave statements, we assume they either execute, or not. They are <strong>atomic</strong>.</p>
+<dl>
+<dt>Atomic</dt>
+<dd>Indivisible. No partial state of the action is externally visible.</dd>
+</dl>
+<p>In fact, statements like <code>x = y + z;</code> are not usually atomic. They might look like a single line of code, but in fact, they decompose to a sequence of machine language instructions:</p>
+<div class="codehilite"><pre>Load     r1, [y]     # Put the value of y in Register 1
+Load     r2, [z]     # Put the value of z in Register 2
+Add      r3, r1, r2  # Add the values of Registers 1 and 2, and put the result in Register 3
+Store    r3, [x]     # Store the value of Register 3 in x
+</pre></div>
+
+
+<p>Interleaving can occur between <strong>any</strong> machine instruction.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Scenario 4</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>T1</strong> loads <code>y</code> into <code>R1</code></td>
+<td><code>R1 = 0</code></td>
+</tr>
+<tr>
+<td><strong>T2</strong> executes its instructions</td>
+<td><code>y = 1</code>, <code>z = 2</code></td>
+</tr>
+<tr>
+<td><strong>T1</strong> loads <code>z</code> into <code>R2</code></td>
+<td><code>R2 = 2</code></td>
+</tr>
+<tr>
+<td><strong>T1</strong> adds <code>R1</code> + <code>R2</code> into <code>R3</code></td>
+<td><code>R3 = 2</code></td>
+</tr>
+<tr>
+<td><strong>T1</strong> stores <code>R3</code> into <code>x</code></td>
+<td><code>x = 2</code></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_09-11" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

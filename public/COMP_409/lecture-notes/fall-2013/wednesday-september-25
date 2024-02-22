@@ -1,0 +1,497 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 25, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 25, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Scheduling, race conditions and deadlocks
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#blocking">1 Blocking</a><ul>
+<li><a href="#spin-locks">1.1 Spin-locks</a></li>
+<li><a href="#blocking-solutions">1.2 Blocking solutions</a></li>
+</ul>
+</li>
+<li><a href="#semaphores">2 Semaphores</a><ul>
+<li><a href="#examples">2.1 Examples</a><ul>
+<li><a href="#binary-semaphore-mutex">2.1.1 Binary Semaphore: Mutex</a></li>
+<li><a href="#signalling-semaphore-join">2.1.2 Signalling Semaphore: Join</a></li>
+<li><a href="#signalling-semaphores-barrier-optional">2.1.3 Signalling Semaphores: Barrier (optional)</a></li>
+<li><a href="#counting-semaphore-producerconsumer">2.1.4 Counting Semaphore: Producer/Consumer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#monitors">3 Monitors</a><ul>
+<li><a href="#spurious-false-wake-ups">3.1 Spurious (false) wake ups</a></li>
+<li><a href="#review-of-monitors">3.2 Review of Monitors</a></li>
+<li><a href="#trivial-implementation-of-a-condition-variable">3.3 Trivial implementation of a condition variable</a></li>
+</ul>
+</li>
+<li><a href="#semantics-of-condition-variables">4 Semantics of condition variables</a><ul>
+<li><a href="#signal_and_continue">4.1 SIGNAL_AND_CONTINUE</a></li>
+<li><a href="#signal_and_wait">4.2 SIGNAL_AND_WAIT</a></li>
+<li><a href="#signal_and_urgent_wait">4.3 SIGNAL_AND_URGENT_WAIT</a></li>
+<li><a href="#notes">4.4 Notes</a></li>
+</ul>
+</li>
+<li><a href="#readers-and-writers">5 Readers and Writers</a><ul>
+<li><a href="#first-solution-readers-preference">5.1 First solution: Readers' preference</a></li>
+<li><a href="#second-solution-writers-preference">5.2 Second solution: Writers' preference</a></li>
+<li><a href="#third-solution-fair-solution">5.3 Third solution: Fair solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Blocking<a class="headerlink" href="#blocking" name="blocking">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Spin-locks<a class="headerlink" href="#spin-locks" name="spin-locks">&para;</a></h3>
+<p>So far, we have used <strong>spin-locks</strong> for locking. They have the disadvantage that <strong>waiting is still active</strong>. That is, spinning (checking the variable over and over) consumes CPU time and wastes energy.</p>
+<h3 class="header"><i>1.2</i>Blocking solutions<a class="headerlink" href="#blocking-solutions" name="blocking-solutions">&para;</a></h3>
+<p><strong>Blocking solutions</strong>, on the other hand, <strong>perform much better</strong>. Rather than spinning, they work by letting a thread sleep if it is unable to enter a critical section. The thread currently in the critical section needs to wake up the sleeping thread when it is finished.</p>
+<p>This is a good solution, but it takes a little bit of effort for this to work properly. Doing blocking naively does not work well:</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">critSection</span><span class="o">.</span><span class="na">isOccupied</span><span class="o">())</span>
+    <span class="n">sleep</span><span class="o">();</span>
+
+<span class="c1">// Thread 1</span>
+<span class="o">-&gt;</span> <span class="n">In</span> <span class="n">critical</span> <span class="n">section</span>
+<span class="o">-&gt;</span> <span class="n">Finish</span>
+<span class="k">for</span> <span class="o">(</span><span class="n">Thread</span> <span class="nl">t:</span> <span class="n">sleepingThreads</span><span class="o">)</span>
+    <span class="n">t</span><span class="o">.</span><span class="na">wakeUp</span><span class="o">();</span>
+</pre></div>
+
+
+<p>This will not work as, when using this kind of solution, the <strong>"lost wake-up problem"</strong> is easy to encounter:</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="o">(</span><span class="n">isOccupied</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">unlock</span>
+  <span class="n">sleep</span> <span class="c1">// if another thread does: if (anyoneSleeping()) {wake}, it then misses the wakeup</span>
+  <span class="n">lock</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Say <strong>Thread<sub>1</sub></strong> is in the critical section. Then, <strong>Thread<sub>0</sub></strong> does the check <code>if (critSection.isOccupied())</code> and sure enough, it sees that <strong>Thread<sub>1</sub></strong> is in the critical section, but before it even goes to <code>sleep();</code>, <strong>Thread<sub>1</sub></strong> finishes its job in the critical section and goes to <code>wakeUp();</code> all the other threads, excluding <strong>Thread<sub>0</sub></strong> which has not yet inserted itself in the list. Then, <strong>Thread<sub>0</sub></strong> finally goes to sleep, risking to sleep forever.</p>
+<h2 class="header"><i>2</i>Semaphores<a class="headerlink" href="#semaphores" name="semaphores">&para;</a></h2>
+<p>To solve the problem of lost wake-ups, Dijkstra, back in the 60s, came up with <strong>semaphores</strong>, one of his major contributions.</p>
+<p><strong>Semaphores</strong> and <strong>monitors</strong> are quite important; they are the most commonly used concurrency controls. </p>
+<p>A <strong>semaphore</strong> is a <strong>positive integer counter</strong> <code>s</code>, along with two atomic operations:</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">P</span><span class="o">(</span><span class="n">Semaphore</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Also called &quot;down&quot; or &quot;wait&quot;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">s</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span>
+        <span class="n">sleep</span><span class="o">();</span>
+    <span class="n">s</span> <span class="o">-=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span> <span class="c1">// Atomic</span>
+
+<span class="kt">void</span> <span class="nf">V</span><span class="o">(</span><span class="n">Semaphore</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Also called &quot;up&quot; or &quot;signal&quot;</span>
+    <span class="n">s</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">Thread</span> <span class="nl">t:</span> <span class="n">sleepingThreads</span><span class="o">)</span>
+        <span class="n">t</span><span class="o">.</span><span class="na">wakeUp</span><span class="o">();</span>
+<span class="o">}</span> <span class="c1">// Atomic</span>
+</pre></div>
+
+
+<p><strong>Nb:</strong> <a href="https://www.youtube.com/watch?v=GD6qtc2_AQA">"P" and "V" come from "wait" and "signal" in Dijkstra's native Dutch.</a></p>
+<p>These two operations are guaranteed by the operating system to be atomic; the scheduler knows it should never interrupt any of those operations.</p>
+<p>One analogy that is often used to explain the concept is that of a <strong>bowl with tokens in it</strong>. In order for a thread to compete for a critical section, it has to take a token. If the bowl is empty, then it cannot take a token, and it cannot enter the section. However, someone else could come along and put their token back. It then wakes up any other thread sleeping to tell them there is a token, and the first to get to it in time takes it. For anyone else, the bowl will still be empty, so they will go back to sleep.</p>
+<p>If more than one thread is sleeping, deciding which one(s) to wake up is actually arbitrary. Ultimately, since <code>P</code> and <code>S</code> are atomic, only one thread can acquire a token. Any other thread will stay stuck in their <code>while (s == 0) sleep();</code> loop.</p>
+<h3 class="header"><i>2.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<p>Semaphores simplify many concurrent programs. </p>
+<h4 class="header"><i>2.1.1</i>Binary Semaphore: Mutex<a class="headerlink" href="#binary-semaphore-mutex" name="binary-semaphore-mutex">&para;</a></h4>
+<dl>
+<dt>Binary semaphore</dt>
+<dd>A semaphores where <code>s</code> is either <code>0</code> or <code>1</code>. This is commonly used in what is called a <strong>mutex</strong>.</dd>
+<dt>Mutex</dt>
+<dd>A binary semaphore where <code>s</code> starts a <code>1</code>.</dd>
+</dl>
+<p><img alt="Mutex Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-24.png" title="" /></p>
+<p>Mutexes are a convenient way to make sure that only one thread can access a critical section at once.</p>
+<p>Ownership: whoever decreases to 0 owns it and does the increasing later on.</p>
+<h4 class="header"><i>2.1.2</i>Signalling Semaphore: Join<a class="headerlink" href="#signalling-semaphore-join" name="signalling-semaphore-join">&para;</a></h4>
+<p>A binary semaphore can be used to force one thread to wait for another. If the binary semaphore starts at <code>0</code> instead of <code>1</code>, it is called a <strong>signalling semaphore</strong>.</p>
+<p>For example, a main thread could wait for an initialization thread to finish.</p>
+<p><img alt="Join Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-25.png" title="" /></p>
+<h4 class="header"><i>2.1.3</i>Signalling Semaphores: Barrier (optional)<a class="headerlink" href="#signalling-semaphores-barrier-optional" name="signalling-semaphores-barrier-optional">&para;</a></h4>
+<p>Another thing we can do is what is called a <strong>barrier</strong>, formed with two signalling semaphores. Let <code>s1 = 0; s2 = 0;</code>. When both of them signal the other, then we have a situation where both threads are waiting until the other one is there as well. That is, none will pass the barrier point until both is at their respective barrier point.</p>
+<p><img alt="Barrier Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-26.png" title="" /></p>
+<p>Two threads are waiting for each other. Neither progresses until the other gets in.</p>
+<p><strong>Nb</strong>: This kind of thing often appears on midterms/final. They are easy test questions, but tricky to get the logic right. It is therefore a good thing to understand them well.</p>
+<h4 class="header"><i>2.1.4</i>Counting Semaphore: Producer/Consumer<a class="headerlink" href="#counting-semaphore-producerconsumer" name="counting-semaphore-producerconsumer">&para;</a></h4>
+<p>The general form of a semaphore where <code>s</code> is just a positive integer is also called a <strong>"counting semaphore"</strong>. It is nice for <strong>representing resources</strong>.</p>
+<p>Why would we want more than one thing to enter a critical section at a time? There is a lot of problems where this can be used. One of them is a classic problem called the <strong>Producer/Consumer problem</strong> also known as the bounded-buffer problem.</p>
+<p>There are 2 threads. One is the <strong>producer</strong>, which produces data and stores it in an array of fixed size. The other thread, the <strong>consumer</strong>, consumes the data by removing it from the array. There are two specific problems:</p>
+<p>1) The producer should not overflow the array.<br />
+2) The consumer should not consume from an empty array (underflow).</p>
+<div class="codehilite"><pre><span class="n">Data</span> <span class="n">buffer</span><span class="o">[</span><span class="n">n</span><span class="o">];</span>
+<span class="n">Semaphore</span> <span class="n">spaces</span> <span class="o">=</span> <span class="n">n</span><span class="o">;</span>
+<span class="n">Semaphore</span> <span class="n">filled</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="kt">int</span> <span class="n">prodIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">consIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="c1">// Producer</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Data</span> <span class="n">d</span> <span class="o">=</span> <span class="n">produce</span><span class="o">();</span>
+    <span class="n">P</span><span class="o">(</span><span class="n">spaces</span><span class="o">);</span> <span class="c1">// Wait if the array is full</span>
+    <span class="n">buffer</span><span class="o">[</span><span class="n">prodIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
+    <span class="n">prodIndex</span> <span class="o">=</span> <span class="o">(</span><span class="n">prodIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">n</span><span class="o">;</span> <span class="c1">// Adding to the tail of a circular array</span>
+    <span class="n">V</span><span class="o">(</span><span class="n">filled</span><span class="o">);</span> <span class="c1">// Signal the consumer that there is data</span>
+<span class="o">}</span>
+
+<span class="c1">// Consumer</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Data</span> <span class="n">d</span><span class="o">;</span>
+    <span class="n">P</span><span class="o">(</span><span class="n">filled</span><span class="o">);</span> <span class="c1">// Wait if there is no data</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">[</span><span class="n">consIndex</span><span class="o">];</span>
+    <span class="n">consIndex</span> <span class="o">=</span> <span class="o">(</span><span class="n">consIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="n">n</span><span class="o">;</span> <span class="c1">// Popping from the head of a circular array</span>
+    <span class="n">V</span><span class="o">(</span><span class="n">spaces</span><span class="o">);</span> <span class="c1">// Signal the producer that there is space left</span>
+    <span class="n">consume</span><span class="o">(</span><span class="n">d</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>If the producer is much faster than the consumer, then it will sleep once it fills the array. Likewise, if the consumer is much faster than the producer, then it will sleep once it consumes all the data.</p>
+<h2 class="header"><i>3</i>Monitors<a class="headerlink" href="#monitors" name="monitors">&para;</a></h2>
+<p>Semaphores are not magic; they do have drawbacks. It is easy for the programmer to miss a <code>P()</code> or a <code>V()</code>. If such a function call is left out somewhere, then the whole program could fall apart, possibly in non-obvious ways. It is thus really hard to debug, making multithreaded programming of the hardest things to debug in computer science.</p>
+<p>One of the reasons why it is so hard is that semaphores may encapsulate two distinct ideas: mutual exclusion (a form of resource consumption), and signalling (for thread communication). These concepts are easy to grasp, but making a mistake makes it hard to find.</p>
+<p>To fix this, Per Brinch Hansen, another well known computer scientist, and Dijsktra both came up with the idea of <strong>monitors</strong>. They pretty much developed their idea of a monitor independently, with slightly different way to do it. We will be using Hansen's approach.</p>
+<p>(Java has pieces to make monitors).</p>
+<p>Monitors are one of the main concurrency controls. With both semaphores and monitors, we can basically solve all the concurrency problems we can come up with. It's just a question of <em>how</em> to use them to accomplish what we want to accomplish.</p>
+<p>The idea is to package shared data together with the operations. We end up with an <strong>abstract data type</strong> called a monitor. All the procedures (methods) in a monitor are mutually exclusive. Furthermore, they are all protected by the same lock.</p>
+<p>None of the shared (protected) data in a monitor should be visible outside of the monitor. Would the data be visible outside of the monitor, then no matter what the monitor did to enforce mutual exclusion, something outside could see the data and possibly corrupt it.</p>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">Monitor</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="n">Data</span> <span class="n">sharedData</span><span class="o">;</span>
+
+    <span class="kd">synchronized</span> <span class="nf">method1</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Does whatever it does</span>
+    <span class="o">}</span>
+
+    <span class="n">synchronzied</span> <span class="nf">method2</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Does whatever it does</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The <code>synchronized</code> keyword basically says that as soon as the method is called, the caller must first acquire a lock respective to the object. As such, anything that uses a method on a monitor must try to acquire the monitor's lock. If it can, it proceeds, if it cannot, then it has to wait.</p>
+<p>What about the signalling part? To do this, monitors use a special atomic construct called a <strong>condition variable</strong> (CV). CVs are always associated with monitors. A CV has 2 operations: <code>sleep()</code> (also called <code>wait()</code>) and <code>signal()</code> (also called <code>notify()</code>). They encapsulate the idea of signalling with other threads; all they do is communicate with other threads.</p>
+<p>Once a thread is inside a monitor, it means it is holding a monitor's lock. A thread may <code>wait()</code> on a CV. This means that it releases the monitor's lock and goes to sleep, even though it is inside a <code>synchronized</code> method. This allows another thread to acquire the monitor's lock and enter a monitor's method.</p>
+<p>The second thread then <code>notify()</code> the thread waiting on a CV. That thread then wakes up, but before it can continue, the notifying thread must leave the monitor, hereby releasing the lock for this thread to acquire.</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0</span>
+<span class="kd">synchronized</span> <span class="nf">method1</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Locks the monitor</span>
+    <span class="k">if</span> <span class="o">(...)</span>
+        <span class="n">x</span><span class="o">.</span><span class="na">wait</span><span class="o">();</span> <span class="c1">// Unlock the monitor, go sleep, lock, all atomically (or else someone would creep in before `sleep`, checks no one&#39;s sleeping, then bla</span>
+    <span class="c1">// ...</span>
+
+<span class="c1">// Thread 1</span>
+<span class="kd">synchronized</span> <span class="nf">method2</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// The monitor is locked, T1 cannot enter yet</span>
+    <span class="c1">// But once T0 calls wait(), it can enter</span>
+    <span class="c1">// Then, T1 acquires the lock</span>
+    <span class="c1">// At one point, it calls...</span>
+    <span class="n">x</span><span class="o">.</span><span class="na">notify</span><span class="o">();</span> <span class="c1">// which wakes thread waiting if any (hopefully T0). No control over who wakes up though</span>
+    <span class="c1">// to wake up all threads waiting on x: x.notifyAll()</span>
+    <span class="c1">// Finally, Thread 1 exits</span>
+<span class="o">}</span> <span class="c1">// thus releasing the lock</span>
+
+<span class="c1">// Thread 0</span>
+    <span class="c1">// ...</span>
+    <span class="c1">// Wakes up in the same method</span>
+    <span class="c1">// Continues</span>
+<span class="o">}</span> <span class="c1">// Finishes and releases the lock</span>
+</pre></div>
+
+
+<p>Both of these areas, inside the `synchronized methods, are critical sections, but one thread can actually pause (wait on a condition variable), and let another thread inside the monitor. Only one thread is doing something at a time, but different threads can still share critical sections. This gives much finer grain control over the critical sections than when using semaphores because signalling and mutual exclusion are now two separate things.</p>
+<p>How does it work? The monitor has a queue <code>MQ</code> of threads waiting to acquire the monitor lock. Each CV (there can be more than one) has a queue <code>CVQ</code> of sleeping threads. Say a thread <strong>T</strong> wants to use a monitor's method. If no one else is in the monitor, then <strong>T</strong> is let inside. Otherwise, <strong>T</strong> is added to MQ and is put to <code>sleep</code>.</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">enter</span><span class="o">(</span><span class="n">T</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="n">no</span> <span class="n">one</span> <span class="n">in</span> <span class="n">the</span> <span class="n">monitor</span> <span class="o">-&gt;</span> <span class="n">enter</span>
+  <span class="n">otherwise</span>  <span class="o">-&gt;</span> <span class="n">add</span> <span class="n">to</span> <span class="n">MQ</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">wait</span><span class="o">(</span><span class="n">T</span><span class="o">,</span> <span class="n">CVQ</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Adds T to CBQ</span>
+    <span class="c1">// Release the lock an put T to sleep</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">notify</span><span class="o">(</span><span class="n">CVQ</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Take a thread from the CVQ and put it into MQ</span>
+    <span class="c1">// It does not wake it up, but merely moves it</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">notifyAll</span><span class="o">(</span><span class="n">CVQ</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Move all the threads in CVQ, and put them in MQ</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">exit</span><span class="o">()</span> <span class="o">{</span>
+   <span class="n">Take</span> <span class="n">a</span> <span class="n">thread</span> <span class="n">T</span> <span class="n">out</span> <span class="n">of</span> <span class="n">MQ</span> <span class="n">and</span> <span class="n">wake</span> <span class="n">it</span> <span class="n">up</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>All of these four operations are atomic.</p>
+<p><strong>Nb</strong>: There is no guarantee of fairness. The queue may even be a set (not FIFO). How can we control which thread is woken up? We cannot; there is no easy to do it. As such, instead of doing <code>if (B) wait();</code>, we have to do <code>while (B) wait();</code>. This means that if a thread is unnecessarily woken up, it goes back to sleep.</p>
+<p>So:</p>
+<ul>
+<li>not fcfs</li>
+<li>if there are multiple threads waiting... <code>if (B) wait()</code> =&gt; <code>while (B) wait()</code></li>
+</ul>
+<h3 class="header"><i>3.1</i>Spurious (false) wake ups<a class="headerlink" href="#spurious-false-wake-ups" name="spurious-false-wake-ups">&para;</a></h3>
+<p>This is important for another reason: <strong>spurious wakeups</strong>, a sort of weird and extremely uncommon thing, but it is possible in both Java and C++ that a thread may wake up without having been notified. We cannot assume that a thread is woken up because it was necessarily notified. All the more reason to double-check whatever condition inspired a thread to sleep in the first place.</p>
+<h3 class="header"><i>3.2</i>Review of Monitors<a class="headerlink" href="#review-of-monitors" name="review-of-monitors">&para;</a></h3>
+<p>Semaphores have the disadvantage that they wrap up two separate ideas, signalling along the actual mutual exclusion. A solution to that is the idea of <strong>monitors</strong>, an abstract data type that gives mutual exclusion and a separate construct, the condition variable, which can be used for signalling.</p>
+<p>A condition variable is really just a separate waiting queue. In Java, there is a single unnamed condition variable in every object, just like any object has a single unnamed lock. The <code>Object</code> class has the <code>wait()</code> and <code>notify()</code> methods available to use the condition variable. They can only be used within a <code>synchronized</code> block or method, or they will throw an <code>Exception</code>. PThreads has a separate condition variable that must be associated with a particular mutex, so the work must be done by oneself.</p>
+<p>Normally, waiting releases the monitor lock, and puts the thread to sleep until another notifies it, after which the lock can be reacquired to continue on. However, an interesting property of any form of wait, is that it may incur spurious wakeups. That is, it is possible for a thread to wake up for no reason. As such, instead of waiting in a <code>if () {}</code> block, what <em>should</em> be done is to wait in a <code>while () {}</code>, thus allowing to retest the condition and go back to sleep upon a spurious wakeup.</p>
+<h3 class="header"><i>3.3</i>Trivial implementation of a condition variable<a class="headerlink" href="#trivial-implementation-of-a-condition-variable" name="trivial-implementation-of-a-condition-variable">&para;</a></h3>
+<p>In fact, if we allow things like spurious wakeups, we can actually implement wait and notify in a very trivial way.</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">trivial_wait</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Next two statements are not even atomic</span>
+    <span class="n">unlock</span><span class="o">();</span>
+    <span class="n">sleep</span><span class="o">(</span><span class="n">random</span><span class="o">());</span>
+    <span class="n">lock</span><span class="o">()</span>
+<span class="o">}</span>
+<span class="kt">void</span> <span class="nf">trivial_notify</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Nothing!</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This makes a waiting thread wake up eventually, anyway. As such, the problem of lost wakeups is not present and it is not required for the <code>unlock</code> and <code>sleep</code> to be atomic.</p>
+<h2 class="header"><i>4</i>Semantics of condition variables<a class="headerlink" href="#semantics-of-condition-variables" name="semantics-of-condition-variables">&para;</a></h2>
+<p>There are different ways we can implement condition variables.</p>
+<h3 class="header"><i>4.1</i>SIGNAL_AND_CONTINUE<a class="headerlink" href="#signal_and_continue" name="signal_and_continue">&para;</a></h3>
+<p>When <code>notify()</code> is called in a monitor, it tells another thread it should wake up, but the notifying threads still holds the lock and continues. This is the default in Java, PThreads, etc.</p>
+<h3 class="header"><i>4.2</i>SIGNAL_AND_WAIT<a class="headerlink" href="#signal_and_wait" name="signal_and_wait">&para;</a></h3>
+<p>The notifier gives the lock to the woken thread. Having given the lock, it does not have it anymore. It must reacquire the lock to continue.</p>
+<p><img alt="SIGNAL_AND_WAIT sequence diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-27.png" title="" /></p>
+<h3 class="header"><i>4.3</i>SIGNAL_AND_URGENT_WAIT<a class="headerlink" href="#signal_and_urgent_wait" name="signal_and_urgent_wait">&para;</a></h3>
+<p>The notifier <em>lends</em> the lock to the woken thread, expecting it back. Once the woken thread is done, it returns the lock to the notifier. This requires a recursive/stack-based implementation.</p>
+<h3 class="header"><i>4.4</i>Notes<a class="headerlink" href="#notes" name="notes">&para;</a></h3>
+<p>SIGNAL_AND_CONTINUE is easy to see, we just move things inside a queue. SIGNAL_AND_WAIT is a little bit trickier because implementing it means transferring ownership of the lock. SIGNAL_AND_URGENT_WAIT ends up being even trickier because it requires a stack to let a notified thread lend the lock to another thread.</p>
+<p>Interestingly, implementing SIGNAL_AND_WAIT given SIGNAL_AND_CONTINUE is easy. Similarly, SIGNAL_AND_URGENT can be implemented given the other two. In fact, all the semantics are equivalent. Implementing the other two semantics with SIGNAL_AND_CONTINUE is left as an exercise.</p>
+<h2 class="header"><i>5</i>Readers and Writers<a class="headerlink" href="#readers-and-writers" name="readers-and-writers">&para;</a></h2>
+<p><img alt="Readers and Writers illustration" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-30.png" title="" /><br />
+There is some database with many threads/processes coming in, trying to access the database. Most accesses are reads, which do not interfere with each other; there is no need for synchronization. A problem shows up once an access is a write. Writers need mutual exclusion, but readers do not!</p>
+<h3 class="header"><i>5.1</i>First solution: Readers' preference<a class="headerlink" href="#first-solution-readers-preference" name="first-solution-readers-preference">&para;</a></h3>
+<p>We will treat the Readers as a group rather than individual entities, contrary to the Writers. There will be mutual exclusion between individual Writers and the group of Readers.</p>
+<div class="codehilite"><pre><span class="c1">// Using semaphores</span>
+<span class="kt">int</span> <span class="n">readers</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="n">BinarySemaphore</span> <span class="n">r</span><span class="o">,</span> <span class="n">rw</span><span class="o">;</span> <span class="c1">// Init to 1</span>
+
+<span class="c1">// Readers</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">down</span><span class="o">(</span><span class="n">r</span><span class="o">);</span> <span class="c1">// Acquire the reader lock</span>
+    <span class="n">readers</span><span class="o">++;</span> <span class="c1">// Increment the count of readers</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">readers</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="n">down</span><span class="o">(</span><span class="n">rw</span><span class="o">);</span> <span class="c1">// If we are the first reader, grab the writer lock</span>
+    <span class="n">up</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+    <span class="o">-&gt;</span> <span class="n">Read</span> <span class="o">&lt;-</span>
+    <span class="n">down</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+    <span class="n">readers</span><span class="o">--;</span> <span class="c1">// Decrement the count of readers</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">readers</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="n">up</span><span class="o">(</span><span class="n">rw</span><span class="o">);</span> <span class="c1">// If we are the last reader, release the writer lock</span>
+    <span class="n">up</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// Writers</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">down</span><span class="o">(</span><span class="n">rw</span><span class="o">);</span> <span class="c1">// Grab the writer lock</span>
+    <span class="o">-&gt;</span> <span class="n">Write</span> <span class="o">&lt;-</span>
+    <span class="n">up</span><span class="o">(</span><span class="n">rw</span><span class="o">);</span> <span class="c1">// Release the writer lock</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>The problem with that solution is that readers can maintain control as long as new readers keep showing up. A writer might show up, but as long as the group of readers have the control of the database, no writer can access it. It is a weak solution.</p>
+<h3 class="header"><i>5.2</i>Second solution: Writers' preference<a class="headerlink" href="#second-solution-writers-preference" name="second-solution-writers-preference">&para;</a></h3>
+<div class="codehilite"><pre><span class="c1">// Using a monitor and condition variables</span>
+<span class="kd">class</span> <span class="nc">RW</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nr</span><span class="o">;</span> <span class="c1">// Number of readers</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">nw</span><span class="o">;</span> <span class="c1">// Number of writers</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">ww</span><span class="o">;</span> <span class="c1">// Number of waiting writers</span>
+
+    <span class="kt">void</span> <span class="nf">reader</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ww</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                <span class="n">wait</span><span class="o">();</span> <span class="c1">// Wait if there is a writer, or any writer is waiting</span>
+            <span class="n">nr</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="n">read</span><span class="o">();</span>
+        <span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">nr</span><span class="o">--;</span>
+            <span class="n">notifyAll</span><span class="o">();</span> <span class="c1">// Wake waiting writers (well, all the threads really)</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kt">void</span> <span class="nf">writer</span><span class="o">()</span> <span class="o">{</span>
+        <span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">ww</span><span class="o">++;</span>
+            <span class="k">while</span> <span class="o">(</span><span class="n">nr</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span>
+                <span class="n">wait</span><span class="o">();</span> <span class="c1">// Wait if there are some readers, or a writer</span>
+            <span class="n">ww</span><span class="o">--;</span>
+            <span class="n">nw</span><span class="o">++;</span>
+        <span class="o">}</span>
+        <span class="n">write</span><span class="o">();</span>
+        <span class="kd">synchronized</span><span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">nw</span><span class="o">--;</span>
+            <span class="n">notifyAll</span><span class="o">();</span> <span class="c1">// Wake waiting readers (well, all the threads really)</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Nb:</strong> If a writer shows up, readers must wait. If writers keep showing up, readers may starve, but considering reads are usually more common than writes, it is not necessarily much of a problem. Still, a fair solution would be really nice to have.</p>
+<h3 class="header"><i>5.3</i>Third solution: Fair solution<a class="headerlink" href="#third-solution-fair-solution" name="third-solution-fair-solution">&para;</a></h3>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">nr</span><span class="o">;</span> <span class="c1">// Number of readers</span>
+<span class="kt">int</span> <span class="n">nw</span><span class="o">;</span> <span class="c1">// Number of writers</span>
+<span class="kt">int</span> <span class="n">ww</span><span class="o">;</span> <span class="c1">// Number of waiting writers</span>
+<span class="kt">int</span> <span class="n">wr</span><span class="o">;</span> <span class="c1">// Number of waiting readers</span>
+<span class="n">mutex</span> <span class="n">e</span><span class="o">;</span>
+<span class="n">conditionVariable</span> <span class="n">okRead</span><span class="o">;</span> <span class="c1">// To signal the readers</span>
+<span class="n">ConditionVariable</span> <span class="n">okWrite</span><span class="o">;</span> <span class="c1">// To signal the writers</span>
+
+<span class="c1">// Reader</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">ww</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// This &#39;if&#39; is wrong. It is left as an exercises to fix it </span>
+    <span class="n">wr</span><span class="o">++;</span>
+    <span class="n">wait</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">okRead</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">nr</span><span class="o">++;</span>
+<span class="o">}</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="o">-&gt;</span> <span class="n">read</span> <span class="o">&lt;-</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="n">nr</span><span class="o">--;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">nr</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">ww</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// Let in a single writer</span>
+        <span class="n">ww</span><span class="o">--;</span>
+        <span class="n">nw</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+        <span class="n">signal</span><span class="o">(</span><span class="n">okWrite</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+
+<span class="c1">// Writer</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">nr</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">nw</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">wr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// Again, the &#39;if&#39; is wrong</span>
+    <span class="n">ww</span><span class="o">++;</span>
+    <span class="n">wait</span><span class="o">(</span><span class="n">e</span><span class="o">,</span> <span class="n">okWrite</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">nw</span><span class="o">++;</span>
+<span class="o">}</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="o">-&gt;</span> <span class="n">write</span> <span class="o">&lt;-</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+<span class="n">nw</span><span class="o">--;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">wr</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Let in all the readers</span>
+    <span class="n">nr</span> <span class="o">=</span> <span class="n">wr</span><span class="o">;</span>
+    <span class="n">wr</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="n">signal_all</span><span class="o">(</span><span class="n">okRead</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">ww</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+    <span class="n">ww</span><span class="o">--;</span>
+    <span class="n">nw</span><span class="o">++;</span>
+    <span class="n">signal</span><span class="o">(</span><span class="n">okWrite</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</pre></div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

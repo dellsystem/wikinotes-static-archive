@@ -1,0 +1,194 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 23, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 23, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Prenex normal form
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Converting into prenex normal form<a class="headerlink" href="#converting-into-prenex-normal-form" name="converting-into-prenex-normal-form">&para;</a></h2>
+<blockquote>
+<p><strong>Prenex normal form</strong>: when all the quantifiers are at the very left side of the formula.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>Allowed moves<a class="headerlink" href="#allowed-moves" name="allowed-moves">&para;</a></h3>
+<ul>
+<li>Change of bound variables</li>
+<li>Replacing <span>$\neg \forall x \phi$</span> with <span>$\exists x \neg \phi$</span> and <span>$\neg \exists x \phi$</span> with <span>$\forall x \neg \phi$</span></li>
+<li>Replacing <span>$(\forall x \Phi) \land (\Psi)$</span> with <span>$\forall x(\Phi \land \Psi)$</span> provided <span>$x$</span> does not occur free in <span>$\Psi$</span> (if it does, use a different variable for the quantifier). Same with <span>$\exists$</span>. This also works if the quantifier is in the second place.</li>
+<li>Replacing <span>$\Phi \to \Psi$</span> by <span>$\neg \Phi \lor \Psi$</span> (they're equivalent). It's not that you can't use a <span>$\to$</span> in prenex normal form, it's just that you sometimes have to change it to be able to move the quantifiers. See the first example below.</li>
+<li>Replacing <span>$\Phi \iff \Psi$</span> with, for example, <span>$(\Phi \to \Psi) \land (\Psi \to \Phi)$</span> or <span>$(\Phi \land \Psi) \lor (\neg \Phi \land \neg \Psi)$</span> or whatever.</li>
+</ul>
+<p>Note: if <span>$\Phi$</span> is equivalent to <span>$\Phi'$</span> then <span>$\forall a(\Phi)$</span> is equivalent to <span>$\forall a (\Phi')$</span>.</p>
+<p>The <a href="http://en.wikipedia.org/wiki/Prenex_normal_form">wikipedia page</a> on this is pretty good.</p>
+<h3 class="header"><i>1.2</i>In-class examples<a class="headerlink" href="#in-class-examples" name="in-class-examples">&para;</a></h3>
+<p><span>$$\exists x Px \to Qy$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\neg (\exists x Px) \lor Qy$</span></td>
+<td>The equivalent replacement thing</td>
+</tr>
+<tr>
+<td><span>$(\forall x \neg Px) \lor Qy$</span></td>
+<td>The negation replacement thing</td>
+</tr>
+<tr>
+<td><span>$\forall x (\neg Px \lor Qy)$</span></td>
+<td>Moving the quantifier outside</td>
+</tr>
+<tr>
+<td><span>$\forall x (Px \to Qy)$</span></td>
+<td>Putting the <span>$\to$</span> back in</td>
+</tr>
+</tbody>
+</table>
+<p>More on the <a href="/MATH_318/summary/fall-2011/htsefp-prenex-normal-form">HTSEFP page</a>.</p>
+<p><span>$$\forall y (Py \to Qxy) \land \neg \forall x (Px \land \exists y Qxy)$$</span></p>
+<p>See the <a href="/MATH_318/past-exam/fall-2009/final#question-8">Fall 2009 final</a> page for the solution.</p>
+<p><span>$$(\exists Pxy \to \forall Qxy) \land \neg \forall y \exists x ((Pxy \lor \neg Qyx) \land \neg Pxz)$$</span></p>
+<p>See the <a href="/MATH_318/past-exam/fall-2010/final#question-8">Fall 2010 final</a> page for the solution.</p>
+<h3 class="header"><i>1.3</i>Other examples<a class="headerlink" href="#other-examples" name="other-examples">&para;</a></h3>
+<p>Not done in class - found <a href="http://www.csd.uwo.ca/~lila/prenex.pdf">here</a>. Solutions created independently but compared to the provided solutions to ensure accuracy</p>
+<p><span>$$\forall x((\exists y R(x, y) \land \forall y \neg S(x, y)) \to \neg (\exists y R(x, y) \land P))$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\forall x (\neg(\exists y R(x,y) \land \forall y(\neg S(x,y))) \lor \neg (\exists y R(x, y) \land P)$</span></td>
+<td>Changed the implication into a disjunction</td>
+</tr>
+<tr>
+<td><span>$\forall u (\neg(\exists y R(u,y) \land \forall y(\neg S(u,y))) \lor \neg (\exists y R(x, y) \land P)$</span></td>
+<td>Change of bound variable (x to u)</td>
+</tr>
+<tr>
+<td><span>$\forall u (\neg \exists y R(u, y) \lor \neg \forall y (\neg S(u, y))) \lor (\neg \exists y R(x, y) \lor \neg P)$</span></td>
+<td>Distributed the negation, for both sides</td>
+</tr>
+<tr>
+<td><span>$\forall u (\forall y (\neg R(u, y)) \lor \exists v S(u, v)) \lor \forall y(\neg R(x, y) \lor \neg P) $</span></td>
+<td>Changed <span>$\neg \exists$</span> to <span>$\forall \neg$</span> for both sides</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Something, got a bit lost</td>
+</tr>
+<tr>
+<td><span>$\forall y \forall u \exists v \forall w(\neg R(u, y) \lor S(u, v) \lor \neg R(x, w) \lor \neg P)$</span></td>
+<td>Moving things outside</td>
+</tr>
+</tbody>
+</table>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

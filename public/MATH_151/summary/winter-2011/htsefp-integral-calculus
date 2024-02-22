@@ -1,0 +1,386 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_151/">
+                MATH 151
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Integral calculus
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Integral calculus
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#straight-integration">1 Straight integration</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#area-between-two-curves">2 Area between two curves</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#arc-length-solid-of-revolution-of-a-curve">3 Arc length, solid of revolution of a curve</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#rotate-area-between-curves-around-axis">4 Rotate area between curves around axis</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#area-common-to-two-shapes">5 Area common to two shapes</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#find-the-centroid-or-center-of-mass-of-a-shape">6 Find the centroid or center of mass of a shape</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#evaluating-trigonometric-integrals-with-the-gamma-function">7 Evaluating trigonometric integrals with the gamma function</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#moment-of-inertia-about-the-z-axis">8 Moment of inertia about the z-axis</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#evaluate-an-integral-over-a-surface">9 Evaluate an integral over a surface</a><ul>
+<li><a href="#general-solution_8">9.1 General solution</a></li>
+<li><a href="#examples_8">9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#evaluate-an-integral-over-a-region">10 Evaluate an integral over a region</a><ul>
+<li><a href="#general-solution_9">10.1 General solution</a></li>
+<li><a href="#examples_9">10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#circle-of-curvature">11 Circle of curvature</a><ul>
+<li><a href="#general-solution_10">11.1 General solution</a></li>
+<li><a href="#examples_10">11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#length-area-enclosed-volume-of-polar-curves">12 Length, area enclosed, volume of polar curves</a><ul>
+<li><a href="#general-solution_11">12.1 General solution</a></li>
+<li><a href="#examples_11">12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#surface-area-of-a-function-bounded-by-another-function">13 Surface area of a function bounded by another function</a><ul>
+<li><a href="#general-solution_12">13.1 General solution</a></li>
+<li><a href="#examples_12">13.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#volume-between-two-surfaces">14 Volume between two surfaces</a><ul>
+<li><a href="#general-solution_13">14.1 General solution</a></li>
+<li><a href="#examples_13">14.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#volume-of-a-ball-with-a-hole-drilled-through-it">15 Volume of a ball with a hole drilled through it</a><ul>
+<li><a href="#general-solution_14">15.1 General solution</a></li>
+<li><a href="#examples_14">15.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#gamma-function">16 Gamma function</a><ul>
+<li><a href="#general-solution_15">16.1 General solution</a></li>
+<li><a href="#examples_15">16.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Straight integration<a class="headerlink" href="#straight-integration" name="straight-integration">&para;</a></h2>
+<blockquote>
+<p>Might involve one or more of the following:</p>
+<ul>
+<li>Integration by parts</li>
+<li>Trigonometric substitution</li>
+<li>Trigonometric integration (don't forget your identities)</li>
+<li>Partial fractions</li>
+<li>Substitution</li>
+<li>Improper integrals</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<h2 class="header"><i>2</i>Area between two curves<a class="headerlink" href="#area-between-two-curves" name="area-between-two-curves">&para;</a></h2>
+<blockquote>
+<p>Find the area bounded by two graphs <span>$f(x)$</span> and <span>$g(x)$</span>, between two values of x.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>First, sketch them out to find out if we need to split the region into two parts. Assuming that they intersect at one point, we then integrate the upper function minus the lower function from the lower bound to the intersection, then the (now) upper function minus the lower function from the intersection to the upper bound. We then add up those two values to get a positive value for the area.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Winter 2011 midterm, question 5</li>
+</ul>
+<h2 class="header"><i>3</i>Arc length, solid of revolution of a curve<a class="headerlink" href="#arc-length-solid-of-revolution-of-a-curve" name="arc-length-solid-of-revolution-of-a-curve">&para;</a></h2>
+<blockquote>
+<p>Given a curve, find the arc length between two points and the surface area or volume when the curve is rotated about an axis.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Arc length between <span>$x=\alpha$</span> and <span>$x=\beta$</span>: <span>$\int_{\alpha}^{\beta} \sqrt{1 = \left ( \frac{dy}{dx} \right )^2}\,dx$</span></p>
+<p>Surface area, when revolving about the y-axis: <span>$\int_{\alpha}^{\beta} 2\pi x \sqrt{1 + \left ( \frac{dy}{dx} \right )^2}\,dx$</span></p>
+<p>Surface area, when revolving about the x-axis: <span>$\int_{\alpha}^{\beta} 2\pi y \sqrt{1 + \left ( \frac{dy}{dx} \right )^2}\,dx$</span></p>
+<p>If it's a function of y, you could just integrate with respect to y, just replace things where necessary.</p>
+<p>Volume: <span>$\int_{\alpha}^{\beta} \pi f(x)^2 \,dx$</span> about the x-axis, replace with y if it's about the y-axis</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Winter 2011 midterm, question 8</li>
+</ul>
+<h2 class="header"><i>4</i>Rotate area between curves around axis<a class="headerlink" href="#rotate-area-between-curves-around-axis" name="rotate-area-between-curves-around-axis">&para;</a></h2>
+<blockquote>
+<p>Find the volume or surface area of the solid obtained by rotating the area bounded by some curves about an axis (or a horizontal/vertical line somewhere).</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>If we're rotating about a line that is not an axis, we'll have to perform the translations to get it to rotate about an axis. First find the boundaries (sketching it out may be helpful), then set it up as a double integral. For volume, it's <span>$2\pi y$</span> if it's about the x-axis and with x if it's about the y-axis. For surface area, it's <span>$2\pi r^2$</span> where r is the radius (either y=f(x) or x=f(y) depending on the axis), The integration itself may be more complicated, but the setup is fairly simple.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 3, question 1</li>
+<li>Assignment 3, question 2</li>
+<li>Assignment 3, question 3</li>
+</ul>
+<h2 class="header"><i>5</i>Area common to two shapes<a class="headerlink" href="#area-common-to-two-shapes" name="area-common-to-two-shapes">&para;</a></h2>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>6</i>Find the centroid or center of mass of a shape<a class="headerlink" href="#find-the-centroid-or-center-of-mass-of-a-shape" name="find-the-centroid-or-center-of-mass-of-a-shape">&para;</a></h2>
+<blockquote>
+<p>Given a shape, find its centroid or center of mass</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>If the density is constant, then:</p>
+<p><span>$$x_{\text{cent}} = \frac{1}{\text{volume}} \iiint\limits_R x\,dV\quad y_{\text{cent}} = \frac{1}{\text{volume}} \iiint\limits_R y\,dV \quad z_{\text{cent}} = \frac{1}{\text{volume}} \iiint\limits_R z\,dV$$</span></p>
+<p>If it's not constant, integrate mass or something.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 3, question 12</li>
+<li>Assignment 3, question 13</li>
+</ul>
+<h2 class="header"><i>7</i>Evaluating trigonometric integrals with the gamma function<a class="headerlink" href="#evaluating-trigonometric-integrals-with-the-gamma-function" name="evaluating-trigonometric-integrals-with-the-gamma-function">&para;</a></h2>
+<blockquote>
+<p>Integrate, from 0 to pi/2 or a multiple thereof, some combination of powers of sine and cosine.</p>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>From the gamma function: <span>$\int_0^{\pi/2} \cos^{2n-1}\theta \sin^{2n-1}\theta\,d\theta = \frac{\Gamma(n)\Gamma(m)}{2\Gamma(m+n)}$</span></p>
+<p>For other intervals, see if the sign of the function is the same as in the first quadrant, etc.</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>8</i>Moment of inertia about the z-axis<a class="headerlink" href="#moment-of-inertia-about-the-z-axis" name="moment-of-inertia-about-the-z-axis">&para;</a></h2>
+<blockquote>
+<p>Find the moment of inertia about the z-axis, given that the density is proportional to the distance from the z-axis. (The formula for moment of inertia will probably be given).</p>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>9</i>Evaluate an integral over a surface<a class="headerlink" href="#evaluate-an-integral-over-a-surface" name="evaluate-an-integral-over-a-surface">&para;</a></h2>
+<blockquote>
+<p>Evaluate an integral of a surface.</p>
+</blockquote>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>Find the bounds as usual, only instead of dV, you have dS which is the magnitude of the cross-product (from the arc length formula)</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>10</i>Evaluate an integral over a region<a class="headerlink" href="#evaluate-an-integral-over-a-region" name="evaluate-an-integral-over-a-region">&para;</a></h2>
+<blockquote>
+<p>Evaluate an integral over a region.</p>
+</blockquote>
+<h3 class="header"><i>10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h3>
+<ul>
+<li>Might involve transforming to polar coordinates</li>
+<li>Or, changing the order of integration</li>
+<li>Or, transforming coordinates (don't forget the Jacobian)</li>
+</ul>
+<h3 class="header"><i>10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>11</i>Circle of curvature<a class="headerlink" href="#circle-of-curvature" name="circle-of-curvature">&para;</a></h2>
+<blockquote>
+<p>Given a function, find its circle of curvature</p>
+</blockquote>
+<h3 class="header"><i>11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h3>
+<p>The curvature is <span>$\kappa = \frac{|\dot{x} \ddot{y} - \dot{y} \ddot{x} |}{(\dot{x} + \dot{y})^{3/2}}$</span>. Evaluate that at a point. The radius is then <span>$\frac{1}{\kappa}$</span>. Then, find the direction of the normal vector (from the tangent vector), and determine where the center of the circle is (where the normal vector is pointing towards). From that you can figure out the equation for the circle.</p>
+<h3 class="header"><i>11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 9</li>
+</ul>
+<h2 class="header"><i>12</i>Length, area enclosed, volume of polar curves<a class="headerlink" href="#length-area-enclosed-volume-of-polar-curves" name="length-area-enclosed-volume-of-polar-curves">&para;</a></h2>
+<blockquote>
+<p>Given a polar curve:</p>
+<ul>
+<li>Find its arc length (from 0 to 2pi or something else)</li>
+<li>Find the area enclosed either by the whole thing or in one loopful (e.g. roses)</li>
+<li>Find the surface area or volume obtained by revolving it</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>12.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>12.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>13</i>Surface area of a function bounded by another function<a class="headerlink" href="#surface-area-of-a-function-bounded-by-another-function" name="surface-area-of-a-function-bounded-by-another-function">&para;</a></h2>
+<p>Find the surface area of a function bounded by another function.</p>
+<h3 class="header"><i>13.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h3>
+<ul>
+<li>Example - surface area of a paraboloid within a sphere</li>
+<li>Probably best to convert into cylindrical coordinates in that case</li>
+<li>Just find the bounds, then dS, then integrate</li>
+</ul>
+<h3 class="header"><i>13.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+<h2 class="header"><i>14</i>Volume between two surfaces<a class="headerlink" href="#volume-between-two-surfaces" name="volume-between-two-surfaces">&para;</a></h2>
+<blockquote>
+<ul>
+<li>Either two surfaces and given bounds</li>
+<li>Or, between two shapes, and you have to find the bounds</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>14.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h3>
+<p>For this type of question, the initial setup involves identifying the bounds (possibly transforming coordinates in the process) and then integrating the Jacobian (if there is one) as a triple integral.</p>
+<p>For example, let the two surfaces be a sphere and a paraboloid, both centered at the origin. It would be easiest to transform into cylindrical coordinates. So the bounds would be 0 to 2pi for theta, 0 to a certain r for the radius, and the formula of the paraboloid to the formula of the sphere for z. The certain r would be the intersection of the paraboloid and the sphere, which would be solved using their formulae. Once you have that, it's a fairly straightforward integration. Don't forget the Jacobian r.</p>
+<p>Another example - area between two cylinders, bounded by planes. Draw it out and transform into polar coordinates.</p>
+<p>For these types of questions, the main challenge usually lies in identifying the bounds. Once those have been found, it only remains to integrate the Jacobian.</p>
+<h3 class="header"><i>14.2</i>Examples<a class="headerlink" href="#examples_13" name="examples_13">&para;</a></h3>
+<ul>
+<li>Winter 2006 final, question 5</li>
+<li>Assignment 3, question 9</li>
+<li>Assignment 3, question 11</li>
+</ul>
+<h2 class="header"><i>15</i>Volume of a ball with a hole drilled through it<a class="headerlink" href="#volume-of-a-ball-with-a-hole-drilled-through-it" name="volume-of-a-ball-with-a-hole-drilled-through-it">&para;</a></h2>
+<blockquote>
+<p>Either you're given the radius of a sphere and the radius of the hole (centered at the origin), or, functions for both the sphere and the cylinder (which may or may not be centered at the origin). You want to find either the volume cut from the ball by the cylinder of the volume of the ball remaining after the hole has been cut out.</p>
+</blockquote>
+<h3 class="header"><i>15.1</i>General solution<a class="headerlink" href="#general-solution_14" name="general-solution_14">&para;</a></h3>
+<p>The first situation is probably easiest in cylindrical coordinates. Theta goes from 0 to 2pi, r goes from 0 to the radius of the cylinder, z goes from the lower surface of the sphere to the upper surface. Then you just integrate the Jacobian.</p>
+<p>For the second situation, you could do it as a region to be rotated about an axis. First find the intersection of the sphere and the cylinder in the xy plane to get the lower and upper limits of integration. The setup would then involve <span>$\pi y^2$</span> as a ring, so outer ring (the sphere) squared - inner ring (the cylinder) squared, integrated.</p>
+<p>The second situation could also be done in cylindricals - theta from 0 to 2pi, radius from the radius of the cylinder to the radius of the sphere, z from the lower surface of the sphere to the upper surface. Then you just integrate the Jacobian.</p>
+<h3 class="header"><i>15.2</i>Examples<a class="headerlink" href="#examples_14" name="examples_14">&para;</a></h3>
+<ul>
+<li>Winter 2011 midterm, question 10</li>
+<li>Winter 207 final, question 2</li>
+<li>Winter 2006 final, question 3</li>
+</ul>
+<h2 class="header"><i>16</i>Gamma function<a class="headerlink" href="#gamma-function" name="gamma-function">&para;</a></h2>
+<blockquote>
+<p>Given a function involving e to the something, transform it into gamma function form (involves substitution), then evaluate</p>
+</blockquote>
+<h3 class="header"><i>16.1</i>General solution<a class="headerlink" href="#general-solution_15" name="general-solution_15">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>16.2</i>Examples<a class="headerlink" href="#examples_15" name="examples_15">&para;</a></h3>
+<ul>
+<li>Later</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

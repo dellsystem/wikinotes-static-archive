@@ -1,0 +1,322 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 23, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 23, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Mutual Exclusion algorithms and linearization
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#more-algorithms">1 More Algorithms</a><ul>
+<li><a href="#ticket-algorithm">1.1 Ticket Algorithm</a></li>
+<li><a href="#bakery-algorithm">1.2 Bakery Algorithm</a></li>
+<li><a href="#queue-locks">1.3 Queue-locks</a><ul>
+<li><a href="#mcs-locks-mellor-crummey-scott">1.3.1 MCS locks (Mellor Crummey Scott)</a></li>
+<li><a href="#clh-lock">1.3.2 CLH lock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#spin-locks-in-general">2 Spin-locks in general</a></li>
+<li><a href="#how-do-java-locks-work">3 How do Java locks work</a><ul>
+<li><a href="#the-lockword-in-an-object">3.1 The lockword in an Object</a></li>
+<li><a href="#thin-locks">3.2 Thin locks</a><ul>
+<li><a href="#locking-an-unlocked-object">3.2.1 Locking an unlocked object:</a></li>
+<li><a href="#fat-lock">3.2.2 Fat lock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>More Algorithms<a class="headerlink" href="#more-algorithms" name="more-algorithms">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Ticket Algorithm<a class="headerlink" href="#ticket-algorithm" name="ticket-algorithm">&para;</a></h3>
+<p>The <strong>ticket algorithm</strong> is something really trivial, the inspiration of which comes from real life. When someone walks into a store, or a medical clinic, for example, there usually is a little ticket dispenser. People take a ticket, and wait for their number to be called.</p>
+<div class="codehilite"><pre><span class="c1">// Init</span>
+<span class="kt">int</span> <span class="n">next</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// The number display</span>
+<span class="kt">int</span> <span class="n">turn</span><span class="p">[</span><span class="n">n</span><span class="p">];</span> <span class="c1">// Every thread&#39;s own ticket</span>
+<span class="kt">int</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// The next ticket to be taken</span>
+
+<span class="c1">// Enter</span>
+<span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">number</span><span class="o">++</span><span class="p">;</span> <span class="c1">// This MUST be atomic</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">!=</span> <span class="n">next</span><span class="p">);</span> <span class="c1">// Spin</span>
+
+<span class="c1">// Exit</span>
+<span class="n">next</span><span class="o">++</span><span class="p">;</span> <span class="c1">// Not atomic, but in the thread itself so only this thread does it.</span>
+</pre></div>
+
+
+<p>Two threads might read the same number if the line <code>turn[id] = number++;</code> is not executed atomically. We end up having to use mutual exclusion, inside a mutual exclusion algorithm.</p>
+<h3 class="header"><i>1.2</i>Bakery Algorithm<a class="headerlink" href="#bakery-algorithm" name="bakery-algorithm">&para;</a></h3>
+<blockquote>
+<p>Lamport, 1974</p>
+</blockquote>
+<p>The idea of having a centralized ticket dispenser might not be something we want to keep.</p>
+<p>What people usually do, when there is no ticket dispenser upon arriving at some place they should wait, is to keep in mind who was there before them, and only take their turn once all these people have taken theirs.</p>
+<div class="codehilite"><pre><span class="c1">// Init</span>
+<span class="kt">int</span> <span class="n">turn</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+
+<span class="kt">int</span> <span class="nf">max</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Return the biggest integer in an array</span>
+<span class="p">}</span>
+
+<span class="c1">// Enter</span>
+<span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">turn</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// This MUST be atomic</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">==</span><span class="n">id</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="n">turn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">turn</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="c1">//Spin</span>
+<span class="p">}</span>
+
+<span class="c1">// Exit</span>
+<span class="n">turn</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+
+<p><strong>Nb 1:</strong> We can relax the atomic <code>max</code> operation. A solution, present in the textbook, is the use of <strong>"lexicographic ordering"</strong>: threads, on top of using their respective turn value, also consider their <code>ID</code>. That is, two threads are allowed to end up with the same number, but break their tie by arbitrarily considering their <code>ID</code> as well.</p>
+<p><strong>Nb 2:</strong> In both the case of the <strong>Ticket Algorithm</strong> and the <strong>Bakery Algorithm</strong>, it is possible for the turn/ticket number variable to <strong>overflow</strong>. It is not much of an issue in the former case because the tickets numbers are compared absolutely, but in the Bakery Algorithm, the numbers are compared relative to the others. There are solutions for that, but it is beyond the scope of this course.</p>
+<h3 class="header"><i>1.3</i>Queue-locks<a class="headerlink" href="#queue-locks" name="queue-locks">&para;</a></h3>
+<p><strong>HOLD IT RIGHT THERE</strong>. <a href="http://qr.ae/iDEzE">This link</a> explains everything, but better.</p>
+<h4 class="header"><i>1.3.1</i>MCS locks (Mellor Crummey Scott)<a class="headerlink" href="#mcs-locks-mellor-crummey-scott" name="mcs-locks-mellor-crummey-scott">&para;</a></h4>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+  <span class="n">Node</span> <span class="n">next</span>
+  <span class="kt">boolean</span> <span class="n">locked</span>
+<span class="o">}</span>
+<span class="c1">// each thread is going to have its own node</span>
+
+<span class="n">enter</span><span class="o">(</span><span class="n">Node</span> <span class="n">me</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">Node</span> <span class="n">pred</span> <span class="o">=</span> <span class="n">TS</span><span class="o">(</span><span class="n">tail</span><span class="o">,</span> <span class="n">me</span><span class="o">)</span>
+  <span class="k">if</span><span class="o">(</span><span class="n">pred</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">me</span><span class="o">.</span><span class="na">locked</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">pred</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">me</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">me</span><span class="o">.</span><span class="na">locked</span><span class="o">)</span> <span class="c1">//spin</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">exit</span><span class="o">(</span><span class="n">Node</span> <span class="n">me</span><span class="o">)</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">me</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">compare_and_swap</span><span class="o">(</span><span class="n">tail</span><span class="o">,</span> <span class="n">me</span><span class="o">,</span> <span class="kc">null</span><span class="o">))</span> <span class="k">return</span><span class="o">;</span> <span class="c1">// no one else there</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">me</span><span class="o">.</span><span class="na">next</span> <span class="o">==</span> <span class="kc">null</span><span class="o">);</span> <span class="c1">// spin (during exit, wow), wait for whoever&#39;s coming in to finish</span>
+  <span class="o">}</span>
+  <span class="n">me</span><span class="o">.</span><span class="na">next</span><span class="o">.</span><span class="na">locked</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+  <span class="n">me</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Pros:</p>
+<ul>
+<li>Space-efficient</li>
+<li>Cache-friendly</li>
+<li>First come first served</li>
+</ul>
+<p>Cons:</p>
+<ul>
+<li>cas, ts</li>
+<li>Exit spins</li>
+</ul>
+<h4 class="header"><i>1.3.2</i>CLH lock<a class="headerlink" href="#clh-lock" name="clh-lock">&para;</a></h4>
+<div class="codehilite"><pre><span class="kd">class</span> <span class="nc">Node</span> <span class="o">{</span>
+  <span class="kt">boolean</span> <span class="n">locked</span>
+<span class="o">}</span>
+<span class="kd">static</span> <span class="n">Node</span> <span class="n">tail</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">()</span>
+<span class="c1">// each thread will have:</span>
+<span class="n">Node</span> <span class="n">me</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">()</span>
+<span class="n">Node</span> <span class="n">pred</span> <span class="o">=</span> <span class="kc">null</span> <span class="c1">// just a pointer</span>
+
+<span class="n">enter</span><span class="o">(</span><span class="n">Node</span> <span class="n">me</span><span class="o">,</span> <span class="n">Node</span> <span class="n">pred</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">me</span><span class="o">.</span><span class="na">locked</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">pred</span> <span class="o">=</span> <span class="n">TS</span><span class="o">(</span><span class="n">tail</span><span class="o">,</span> <span class="n">me</span><span class="o">)</span>
+  <span class="k">while</span><span class="o">(</span><span class="n">pred</span><span class="o">.</span><span class="na">locked</span><span class="o">)</span> <span class="c1">// spin</span>
+<span class="o">}</span>
+
+<span class="n">exit</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">me</span><span class="o">.</span><span class="na">locked</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="n">me</span> <span class="o">=</span> <span class="n">pred</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Use pred value to maintain an implicit queue.</p>
+<p>Pros:</p>
+<ul>
+<li>fcfs</li>
+<li>Cache-friendly</li>
+<li>Doesn't spin on exit</li>
+<li>mem efficient</li>
+<li>Only uses ts</li>
+</ul>
+<h2 class="header"><i>2</i>Spin-locks in general<a class="headerlink" href="#spin-locks-in-general" name="spin-locks-in-general">&para;</a></h2>
+<ul>
+<li>easy</li>
+<li>can be less efficient if we're waiting for a while</li>
+<li>blocking (sleep &amp; wakeup)</li>
+<li>synchronized -&gt; blocking</li>
+<li>mutex -&gt; blocking</li>
+</ul>
+<h2 class="header"><i>3</i>How do Java locks work<a class="headerlink" href="#how-do-java-locks-work" name="how-do-java-locks-work">&para;</a></h2>
+<p>We have seen a lot of locks. We know that in Java, a synchronized block/method locks a mutex, but how is it implemented? If we are doing concurrent programming in Java, we normally end up acquiring locks frequently, in more ways than one. The actual cost of locking becomes a significant concern.</p>
+<p>Hybrid lock (combines spin &amp; block)<br />
+Actual contention is rare</p>
+<h3 class="header"><i>3.1</i>The lockword in an Object<a class="headerlink" href="#the-lockword-in-an-object" name="the-lockword-in-an-object">&para;</a></h3>
+<p>Every <code>Object</code> has a <strong>lockword</strong> which it uses to keep track of its locking state.</p>
+<h3 class="header"><i>3.2</i>Thin locks<a class="headerlink" href="#thin-locks" name="thin-locks">&para;</a></h3>
+<p>Common use-cases (from very common to rare)</p>
+<ul>
+<li>locking an unlocked object (and unlock it)</li>
+<li>shallow (recursive) locking (&lt;= 256 levels): we might try to lock something and call another synchronized method inside the same object, thus acquiring the lock again.</li>
+<li>deep (recursive) locking. Lots of relock of the same object over say, a data structure (e.g. a recursive linked list doing some stuff on the list and locking and locking...).</li>
+<li>shallow contention (one thread waiting for another)</li>
+<li>deep contention (bunch of threads trying to acquire the lock at the same time)</li>
+</ul>
+<p>Java optimizes for the first two (more frequent).</p>
+<p>n.b. we will need CAS</p>
+<p>32-bit lock word:</p>
+<p><img alt="Thin lock diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-28.png" title="" /></p>
+<dl>
+<dt>Lock Shape</dt>
+<dd>Either 0 if it is a thin lock (easy cases, above picture), or 1 if it is a fat lock (harder cases, below)</dd>
+<dt>Thread ID</dt>
+<dd>Allows for up to 32767 threads (0 is reserved).</dd>
+<dt>Recursive Count</dt>
+<dd>How many times the lock was relocked through recursion. Allows for a maximum of 256 levels of recursion. After that, a fat lock is required, but a thin lock can accommodate shallow recursive locking.</dd>
+<dt>Metadata</dt>
+<dd>Every object has some header to keep some meta information to keep.</dd>
+</dl>
+<p>The thin lock form is very cheap to acquire. When the thread ID is 0, it indicates that no thread has acquired the lock. To acquire the lock, in such a case, all that has to be done is a <code>compare-and-swap</code>: <code>CAS(0, [0|id|0|...]);</code>. If the operation succeeds, then the lock is acquired in one atomic instruction.</p>
+<p>The operation could still fail. One of the probable cause is that the lock was already acquired by the thread, to do recursive locking. If the ID is already the right one, then all that is left to do is to increment the recursive count, as long as it does not overflow.</p>
+<h4 class="header"><i>3.2.1</i>Locking an unlocked object:<a class="headerlink" href="#locking-an-unlocked-object" name="locking-an-unlocked-object">&para;</a></h4>
+<div class="codehilite"><pre>(unlocked: all 0s)
+cas(lock, 0, id &lt;&lt; 16)
+if succeed -&gt; locked
+
+Unlock -&gt; get the 3rd field and decrement
+  if &lt; 0 -&gt; out
+  else start the new count
+
+  if cas fails:
+    check the owner. Is it us?
+      yes -&gt; recursive locking, then inc 3rd field without overflow then redo
+
+otherwise in all other cases:
+  check shape bit:
+    if &lt; 1 -&gt; fat lock
+    if = 0 -&gt; transition to fat lock
+  if we are the owner -&gt; do the transition
+  if not -&gt; spin until we are the owner (or it becomes a fat lock), then make the transition
+</pre></div>
+
+
+<p>n.b. a fat lock behaves like a normal mutex lock.</p>
+<h4 class="header"><i>3.2.2</i>Fat lock<a class="headerlink" href="#fat-lock" name="fat-lock">&para;</a></h4>
+<p>The first two cases described above accommodate the two most common cases, the bulk of locking. In any other case, a thin lock must be transitioned to a <strong>fat lock</strong>.</p>
+<p>The shape bit is changed to <code>1</code> and the next 23 bits are used to index an allocated mutex in a table. </p>
+<p><img alt="Fat lock diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-29.png" title="" /></p>
+<ul>
+<li>First section is now 1 (fat lock).</li>
+<li>Second section is now different. Indexes into a table of mutexes. Then we use the mutex from now on. So the transition is one-way. Once you go fat you never go back. (design improved later on (Tasuki locks): allows going back to thin, but uses more data (extra bit))</li>
+</ul>
+<p><strong>Nb:</strong> There is a little bit of subtlety doing this transition. If a thread already owns a thin lock and needs to change it into a fat lock (i.e. it has exceeded the maximum recursive count), then the transition can proceed. However, if a thread does not own a thin lock and expects to change it into a fat lock, it must spin until the current owner releases it and transition it after.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

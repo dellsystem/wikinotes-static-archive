@@ -1,0 +1,139 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 28, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 28, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Carathéodory&#x27;s Theorem and set-up for the chain rule
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Motivation behind the chain rule<a class="headerlink" href="#motivation-behind-the-chain-rule" name="motivation-behind-the-chain-rule">&para;</a></h2>
+<p>We can generalize the product rule and (by induction) show that <br />
+<span>$$
+(f^n)'(c) = n(f^{n-1})(c) \cdot f'(c)
+$$</span><br />
+<span>$f^n$</span> is the composition of <span>$f(x)$</span> and <span>$g(x) = x^n$</span>. Naturally the question arises: what is the derivative of two composed functions? Of course, we already know the answer: <span>$(g \circ f)(x) = g'(f(x)) \cdot f'(x)$</span></p>
+<p>If we try to prove this the usual way, we would take the route of writing</p>
+<p><span>$$
+\frac{g(f(x)) - g(f(c))}{x-c} = \frac{g(f(x))-g(f(c))}{f(x)-f(c)}\cdot\frac{f(x)-f(c)}{x-c}
+$$</span></p>
+<p>While this seems like the right way to go, it also presents a problem: the first factor on the right is undefined when <span>$f(x)-f(c) = 0$</span> for values of <span>$x$</span> near <span>$c$</span>. To avoid this, we introduce Carathéodory's Theorem:</p>
+<h2 class="header"><i>2</i>Carathéodory's Theorem<a class="headerlink" href="#caratheodorys-theorem" name="caratheodorys-theorem">&para;</a></h2>
+<p>This theorem must have some other name in real life since it doesn't seem to be <a href="http://en.wikipedia.org/wiki/Carath%C3%A9odory's_theorem">here</a>. Anyway:</p>
+<p><strong>Theorem:</strong> (Carathéodory's) Let <span>$f$</span> be defined on an interval <span>$I$</span> and <span>$c \in I$</span>. <span>$f$</span> is differentiable at <span>$c \in I$</span> <em>if and only if</em> there exists a function <span>$\phi$</span> on <span>$I$</span> continuous at <span>$c$</span> such that <span>$f(x)-f(c)=\phi(x)(x-c)$</span> for all <span>$x \in I$</span>. In this case, <span>$f'(c) = \phi(c)$</span>.</p>
+<p><strong>Proof:</strong> (<span>$\Rightarrow$</span>) if <span>$f'(c)$</span> exists, define</p>
+<p><span>$$
+\phi(x) = \left\{
+     \begin{array}{lr}
+       \frac{f(x)-f(c)}{x-c} &amp;  x \neq c \\
+       f'(c) &amp;  x = c
+     \end{array}
+   \right.
+$$</span></p>
+<p>Then <span>$\phi$</span> is defined on <span>$I$</span> and since <span>$f$</span> is differentiable at <span>$c$</span>, for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$\delta &gt; 0$</span> such that <span>$0 &lt;|x-c|&lt;\delta$</span> then</p>
+<p><span>$$
+\left|\frac{f(x)-f(c)}{x-c} - f'(c)\right| &lt; \epsilon, \text{ i.e. } |\phi(x)-\phi(c)| &lt; \epsilon
+$$</span></p>
+<p>If <span>$x=c$</span>, then <span>$|\phi(x) - \phi(c)| = 0 &lt; \epsilon$</span> thus if <span>$|x-c|&lt;\delta$</span> then <span>$|\phi(x) - \phi(c)| &lt; \epsilon$</span></p>
+<p>(<span>$\Leftarrow$</span>) Suppose there exists a function <span>$\phi$</span> continuous at <span>$c$</span> such that <span>$f(x)-f(c) = \phi(x)(x-c)$</span>. Then for <span>$x \neq c$</span> <span>$\phi(x) = \frac{f(x) - f(c)}{x-c}$</span>. Since <span>$\phi$</span> is continuous at <span>$c$</span>, for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$\delta &gt; 0$</span> such that if <span>$|x-c|&lt;\delta$</span> then <span>$|\phi(x)-\phi(c)|&lt;\epsilon$</span>. So, in particular, if <span>$0&lt;|x-c|&lt;\delta$</span> then <span>$\left|\frac{f(x)-f(c)}{x-c} - \phi(c)\right| &lt; \epsilon$</span>, i.e. <span>$f$</span> is differentiable at <span>$c$</span> and <span>$f'(c) = \phi(c)$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,307 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, October 28, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, October 28, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                More Peano arithmetic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Proofs in Peano arithmetic<a class="headerlink" href="#proofs-in-peano-arithmetic" name="proofs-in-peano-arithmetic">&para;</a></h2>
+<p>From last class, we have:</p>
+<blockquote>
+<p>PA <span>$\vdash \forall x (x = 0 \lor \exists y (x = Sy))$</span><br />
+PA <span>$\vdash (\forall x \forall y \forall z(x + (y+z) = (x+y) + z))$</span> (associativity of addition)</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>Proof that 0 + x = x<a class="headerlink" href="#proof-that-0-x-x" name="proof-that-0-x-x">&para;</a></h3>
+<p>Even the axioms can be proven in Peano arithmetic. Axiom A1, for instance, can be proven in two lines - one a use of a tautology, the other a use of monotonicity. We can also prove the following similar theorem:</p>
+<p><span>$$\forall x(0 + x = x)$$</span></p>
+<p>Basis step:</p>
+<blockquote>
+<p><span>$0 + 0 = 0$</span>, by A1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$0 + x = x$</span>.<br />
+<span>$0 + Sx = S(0+x)$</span> by A2<br />
+<span>$S(0 + x) = Sx$</span> by the induction hypothesis and substitution<br />
+<span>$0 + Sx = Sx$</span> by the transitivity of equality <span>$\blacksquare$</span></p>
+</blockquote>
+<p>From this, we can also conclude that <span>$x + 0 = 0 + x$</span>.</p>
+<p>N.B. <span>$x + S0 = S(x + 0) = Sx$</span> by A2 and A1 for all <span>$x, \mathcal{N}$</span> in PA.</p>
+<h3 class="header"><i>1.2</i>Proof that S0 + x = Sx<a class="headerlink" href="#proof-that-s0-x-sx" name="proof-that-s0-x-sx">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x (S0 + x = Sx)$$</span></p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$S0 + 0 = S0$</span> by A1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$S0 + x = Sx$</span> (induction hypothesis)<br />
+Then <span>$S0 + Sx = S(S0 + x) = SSx$</span> by the induction hypothesis <span>$\blacksquare$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.3</i>Proof that addition is commutative<a class="headerlink" href="#proof-that-addition-is-commutative" name="proof-that-addition-is-commutative">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x \forall y (x + y = y + x)$$</span></p>
+<p>This can be proved by induction on y. Basis:</p>
+<blockquote>
+<p><span>$x + 0 = x = 0 + x$</span> (from above)</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$x + y = y + x$</span>.<br />
+Then, <span>$x + Sy = S(x + y)$</span><br />
+Also, <span>$Sy + x = (y + S0) + s$</span> (from above)<br />
+which is equal to <span>$y + (S0 + x)$</span> (due to the associativity of addition)<br />
+which is equal to <span>$y + Sx = S(y+x)$</span> (from above, and by A2) <span>$\blacksquare$</span></p>
+</blockquote>
+<p>So by the induction hypothesis and substitution, we get <span>$S(x+y) = S(y+x)$</span>, so indeed <span>$x + Sy = Sy + x$</span>.</p>
+<h3 class="header"><i>1.4</i>Proof that 0 * x = 0<a class="headerlink" href="#proof-that-0-x-0" name="proof-that-0-x-0">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x (0 \cdot x = 0)$$</span></p>
+<p>(This is like M1, but the other way around.)</p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$0 \cdot 0 = 0$</span> by M1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$0 \cdot x = 0$</span>.<br />
+Then, <span>$x \cdot S0 = x \cdot 0 + x$</span> by M2<br />
+<span>$= 0 + x$</span> by M1<br />
+<span>$= x$</span> by <span>$\text{PA } \vdash \forall x (0 + x = 0)$</span> <span>$\blacksquare$</span></p>
+</blockquote>
+<h3 class="header"><i>1.5</i>Proof that S0 * x = x<a class="headerlink" href="#proof-that-s0-x-x" name="proof-that-s0-x-x">&para;</a></h3>
+<p>Basis:</p>
+<blockquote>
+<p><span>$S0 \cdot 0 = 0$</span> by M1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$S0 \cdot x = x$</span><br />
+Then, <span>$S0 \cdot Sx = (S0 \cdot x) + S0$</span> by M2<br />
+<span>$= x + S0$</span> by the induction hypothesis<br />
+<span>$ = Sx$</span> (previously proved)</p>
+</blockquote>
+<h3 class="header"><i>1.6</i>Proof of the distributivity of multiplication<a class="headerlink" href="#proof-of-the-distributivity-of-multiplication" name="proof-of-the-distributivity-of-multiplication">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x \forall y(x \cdot (y + z) = (x + y) \cdot (x + z))$$</span></p>
+<p>This can be proved by induction on <span>$z$</span>.<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="If you have a theorem with multiple variables, you...">1</a></sup> Incidentally, if you have a commutative law, one distributive law follows from the other. But it's actually harder to prove commutativity than to prove either distributive law, so.</p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$x \cdot (y + 0) = x + y$</span> by A1 and substitution<br />
+and <span>$(x \cdot y) + (x \cdot 0) = (x \cdot y) + 0$</span> by M1<br />
+<span>$= x \cdot y$</span> by A1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$x \cdot (y + z) = (x \cdot y) + (x \cdot z)$</span>.<br />
+Then, <span>$x \cdot (y + Sz) = x \cdot (S(y + z))$</span> by A2<br />
+<span>$= x \cdot (y + z) + x$</span> by M2<br />
+<span>$= (x \cdot y + x \cdot z) + x$</span> by the induction hypothesis<br />
+<span>$= x \cdot y + (x \cdot z + x)$</span> by the associativity of addition<br />
+<span>$=x \cdot y + x \cdot Sz$</span> by M2 <span>$\blacksquare$</span></p>
+</blockquote>
+<h3 class="header"><i>1.7</i>Proof of the other distributivity law<a class="headerlink" href="#proof-of-the-other-distributivity-law" name="proof-of-the-other-distributivity-law">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x \forall y \forall z ((x + y) \cdot z = x \cdot z + y \cdot z)$$</span></p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$(x + y) \cdot 0 = 0$</span> by M1<br />
+<span>$x \cdot 0 + y \cdot 0 = 0 + 0 = 0$</span> by M1 and A1</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$(x + y) \cdot z = x \cdot z + y \cdot z$</span>.<br />
+Then <span>$(x + y) \cdot Sz = (x + y) \cdot z + (x + y)$</span> by M1<br />
+<span>$=(x \cdot z + y \cdot z) + (x + y)$</span> by the induction hypothesis<br />
+<span>$=((x \cdot z + y \cdot z) + x) + y$</span> by the associativity of addition<br />
+<span>$= (x \cdot z + (y \cdot z + x)) + y$</span> by the associativity of addition<br />
+<span>$=(x \cdot z + (x + y \cdot z)) + y$</span> by the commutativity of addition<br />
+<span>$=((x \cdot z + x) + y \cdot z) + y$</span> by the associativity of addition<br />
+<span>$=(x \cdot z + x) + (y \cdot z + y)$</span> by the associativity of addition<br />
+<span>$=x \cdot Sz + y \cdot Sz$</span> by M2 <span>$\blacksquare$</span></p>
+</blockquote>
+<h3 class="header"><i>1.8</i>Proof of the associativity of multiplication<a class="headerlink" href="#proof-of-the-associativity-of-multiplication" name="proof-of-the-associativity-of-multiplication">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x \forall y \forall z (x \cdot (y \cdot z) = (x \cdot y) \cdot z)$$</span></p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$x \cdot (y \cdot 0) = x \cdot 0 = 0$</span> by M1. twice<br />
+<span>$(x \cdot y) \cdot 0 = 0$</span> by M1 (once)</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$x \cdot (y \cdot z) = (x \cdot y) \cdot z$</span>.<br />
+Then <span>$x \cdot (y \cdot Sz) = x \cdot (y \cdot z + y)$</span> by M2<br />
+<span>$=x \cdot (y \cdot z) + x \cdot y$</span> by distributivity<br />
+<span>$=(x \cdot y) \cdot z + (x\cdot y)$</span> by the induction hypothesis<br />
+<span>$=(x \cdot y) \cdot Sz$</span> by M2</p>
+</blockquote>
+<h3 class="header"><i>1.9</i>Proof of the commutativity of multiplication<a class="headerlink" href="#proof-of-the-commutativity-of-multiplication" name="proof-of-the-commutativity-of-multiplication">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x \forall y (x \cdot y = y \cdot x)$$</span></p>
+<p>Basis:</p>
+<blockquote>
+<p><span>$x \cdot 0 = 0 \cdot x$</span> from before I think</p>
+</blockquote>
+<p>Induction step:</p>
+<blockquote>
+<p>Assume <span>$x \cdot y = y \cdot x$</span>.<br />
+Then <span>$x \cdot Sy = x \cdot y + x$</span> by M2<br />
+<span>$= y \cdot x + x$</span> by the induction hypothesis<br />
+<span>$=y \cdot x + S0 \cdot x$</span> (previously proved)<br />
+<span>$=(y+S0) \cdot x$</span> by distributivity<br />
+<span>$=Sy \cdot x$</span> (previously proved) <span>$\blacksquare$</span></p>
+</blockquote>
+<h3 class="header"><i>1.10</i>Some new symbols<a class="headerlink" href="#some-new-symbols" name="some-new-symbols">&para;</a></h3>
+<p>Let's throw in a new symbol: <span>$x^*y$</span>, which means <span>$x^y$</span>. Also, <span>$\Pi(x)$</span> which abbreviates "<span>$x$</span> is prime" (i.e. <span>$S0 &lt; x \land \forall y \forall z (y \cdot z = x \to (y = S0 \lor z = S0))$</span>). And recall that <span>$x \mid y$</span> abbreviates <span>$\exists z (x \cdot z = y)$</span> (which is a partial order - transitive due to the associativity of multiplication, and antisymmetric only for the positive integers).</p>
+<h3 class="header"><i>1.11</i>Strong induction<a class="headerlink" href="#strong-induction" name="strong-induction">&para;</a></h3>
+<p><span>$$\text{PA } \vdash \forall x (S0 &lt; x \to \exists y (y \mid x \land \Pi(y)))$$</span></p>
+<p>We can't really prove this by regular induction, because you can't figure out the factors of <span>$Sx$</span> from the factors of <span>$x$</span>.</p>
+<p>So instead, we use strong induction, which makes a stronger assumption than regular induction. Here's the induction hypothesis:</p>
+<p><span>$$\forall y ((\forall z(z &lt; x \to \varphi(z, \bar{y})) \to \varphi(x, \bar{y})) \to \forall x \varphi(x, \bar{y}))$$</span></p>
+<p>Basically you assume that the thing you want to prove is true not only for some <span>$x$</span>, but for all the numbers up to <span>$x$</span> as well.</p>
+<h4 class="header"><i>1.11.1</i>A proof by strong induction<a class="headerlink" href="#a-proof-by-strong-induction" name="a-proof-by-strong-induction">&para;</a></h4>
+<p>In this case, the theorem <span>$\varphi(x)$</span> that we want to prove is as follows:</p>
+<p><span>$$S0 &lt; x \to \exists y(\Pi(y) \land y \mid x)$$</span></p>
+<p>Our induction hypothesis is <span>$\forall z (z &lt; x \to \varphi(z, \bar{y}))$</span>.</p>
+<p>From this, we want to be able to conclude that <span>$S0 &lt; x \to \exists y(\Pi(y) \land y \mid x)$</span>.</p>
+<p>We can assume that <span>$S0 &lt; x$</span>. If <span>$\Pi(x)$</span>, then since <span>$x \mid x$</span>, <span>$\exists y (\Pi(y) \land y \mid x)$</span>. Else, if <span>$\neg \Pi(x)$</span>, then there exist <span>$u, v$</span> such that <span>$x = u \cdot v$</span> with <span>$S0 &lt; u \land S0 &lt; v$</span>.</p>
+<p>Claim: <span>$u &lt; x \land v &lt; x$</span>. Why? Well, <span>$S0 + w = u$</span> for some <span>$w \neq 0$</span> (axiom L).</p>
+<p>So, <span>$x = (S0 + w) \cdot v = S0 \cdot v + w \cdot v = v + w \cdot v = w \cdot v \neq 0$</span>.</p>
+<p>Say <span>$S0 + t = v$</span>. Then <span>$w \cdot v = w \cdot (S0 + t) = w \cdot st = wt + w = wt + Sv = S(w \cdot t + v) \neq 0$</span>. So <span>$w \neq 0$</span>. So <span>$w = Sv$</span> for some <span>$v$</span>. <sup>I think that's a v.</sup></p>
+<p>By axiom L, <span>$v &lt; x$</span> (similarly, <span>$u &lt;x$</span>).</p>
+<p>By the induction hypothesis, there is a <span>$y$</span> such that <span>$\Pi(y)$</span> and <span>$y \mid u$</span>. So <span>$y \cdot z = u$</span> for some <span>$z$</span>. So <span>$(y \cdot z) \cdot v = u \cdot v = x$</span>. So <span>$y \cdot (z \cdot v) = x$</span>, so <span>$y\mid x$</span>.</p>
+<p>By strong induction, <span>$\forall x \varphi (x)$</span>.</p>
+<div class="ui divider"></div>
+<p>(Is this something different?)</p>
+<p>Lemma: <span>$\forall z \forall x (z &lt; Sx \iff (z &lt; x \lor z = x))$</span>.</p>
+<p>Proof: say <span>$z &lt; Sx$</span>. Then, by L, <span>$z + w = Sz$</span> for some <span>$w \neq 0$</span>. So <span>$w = Sk$</span> for some <span>$k$</span>. So <span>$z = Su = Sx$</span>, and <span>$S(z + u) = Sx$</span> (by A2), and <span>$z + u = x$</span> (by S2). If <span>$u \neq 0$</span>, by L, <span>$z &lt; x$</span>. If <span>$u = 0$</span>, by A1, <span>$z = x$</span>.</p>
+<p>Now for the other direction. Note: <span>$x &lt; Sx$</span>, since <span>$x + S0 = Sx$</span>, and <span>$S0 \neq 0$</span>, and by the transitivity of <span>$&lt;$</span><sup id="fnref:2"><a href="#fn:2" rel="footnote" title="We'll have to prove this, eventually.">2</a></sup>, if <span>$z &lt; x$</span>, then <span>$z &lt; Sx$</span>. If <span>$z = x$</span>, then <span>$z &lt; Sx$</span>.</p>
+<div class="ui divider"></div>
+<p>(Is <em>this</em> something different?)</p>
+<p>Given <span>$\varphi(x, \bar{y})$</span>, let <span>$\Psi(x, \bar{y})$</span> be <span>$\forall z(z &lt; x \to \varphi(z, \bar{y}))$</span>. Assuming <span>$\forall x (\forall z(z &lt; x \to \varphi(z, \bar{y})) \to \varphi(x, \bar{y}))$</span>, we will show <span>$\Psi(0, \bar{y}) \land \forall x (\Psi(x, y) \to \varphi(Sx, \bar{y}))$</span>. Then, by ordinary induction, we will show that <span>$\forall x \Psi(x, \bar{y})$</span>.</p>
+<p><span>$\Psi(0, \bar{y})$</span> says <span>$\forall z (z &lt; 0 \to \varphi(z, \bar{y}))$</span> (since <span>$z &lt; 0$</span> is always false). Suppose <span>$\Psi(x, y)$</span>, i.e. <span>$\forall z(z &lt; x \to \varphi(z, \bar{y}))$</span>. So <span>$\Psi(0, \bar{y})$</span> is true.</p>
+<p>Using our assumption, we get <span>$\varphi(x, y)$</span>.</p>
+<p>By our lemma, <span>$x &lt; Sx \iff z &lt; x \lor z = x$</span>.</p>
+<p>But <span>$\forall z(z &lt; x \to \varphi(z, \bar{y})) \land \varphi(x, \bar{y})$</span>.</p>
+<p>So <span>$\forall z(z &lt; Sx \to \varphi(z, \bar{y}))$</span>.</p>
+<p>By <span>$\forall x \Psi(x, \bar{y})$</span>, then <span>$\Psi(Sx, \bar{y})$</span> is true. If <span>$\forall z (z &lt; Sx \to \Psi(z, \bar{y})) $</span> and <span>$x &lt; Sx$</span>,<sup>what?</sup> so <span>$\varphi(x, \bar{y})$</span> is true for all <span>$x$</span>.</p>
+<h3 class="header"><i>1.12</i>Proof that there are infinitely many primes<a class="headerlink" href="#proof-that-there-are-infinitely-many-primes" name="proof-that-there-are-infinitely-many-primes">&para;</a></h3>
+<p>A very informal proof that there are infinitely many primes, by contradiction.</p>
+<p><span>$$\forall x \exists y (x &lt; y \land \Pi(y))$$</span></p>
+<p>Suppose there's some <span>$x$</span> such that every prime <span>$\leq x$</span>.</p>
+<p>Then we can list all the primes as <span>$y_1, y_2 \ldots y_n$</span>. Let <span>$N = y_1 \cdot \ldots \cdot y_n + 1$</span> (so the product of all the primes, plus one). Clearly <span>$N&gt;1$</span>. So there is a prime <span>$p$</span> such that <span>$p \mid N$</span>, but it can't be one of the <span>$y$</span>'s, because otherwise you'd get a remainder of 1. Consequently, <span>$N$</span> must also be prime.</p>
+<h3 class="header"><i>1.13</i>Euclid's division algorithm<a class="headerlink" href="#euclids-division-algorithm" name="euclids-division-algorithm">&para;</a></h3>
+<p><span>$$\forall x \forall y(0 &lt; y \to \exists z \exists w(x = y\cdot z + w \land w &lt; y \land \forall u \forall v (x = y \cdot u + v \land v &lt; y \to u = z \land v = w)))$$</span></p>
+<p>Proof of existence, by strong induction on <span>$x$</span>.</p>
+<p>If <span>$x &lt; y$</span>, let <span>$z = 0 \land w = x$</span>.</p>
+<p>Assume the induction hypothesis: <span>$\forall t (t &lt; x \ to \exists z \exists w(t = y \cdot z + w) \land w &lt; y)$</span>. Claim: from this, we get the same for <span>$x$</span>, and we may assume <span>$y = x$</span> or <span>$y &lt; x$</span>. If <span>$y = x$</span>, let <span>$z =  1$</span> and <span>$w = 0$</span>. If <span>$y &lt; x$</span>, let <span>$y + t = x$</span> for some <span>$t &gt; 0$</span> and <span>$t &lt; x$</span> because <span>$y \neq 0$</span>. So there are <span>$z$</span> and <span>$w$</span> such that <span>$t = y \cdot z + w \land w &lt; y$</span>. <span>$x = y + t = y + (y \cdot z +w) = (y \cdot S0 + y \cdot z) + w = y \cdot (S0 + z) + w$</span>, so we are done by induction.<sup>?</sup></p>
+<p>Incidentally, the natural numbers are well-ordered (by the strict, total order <span>$&lt;$</span>), meaning that if you have any subset of <span>$\mathbb{N}$</span>, there is a smallest one. Not sure why this was mentioned in this lecture but there you go.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>If you have a theorem with multiple variables, you can typically do induction on the variable farthest to the right, e.g. <span>$z$</span> in <span>$\forall x \forall y \forall z$</span> because of where shit is in the axioms&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>We'll have to prove this, eventually.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

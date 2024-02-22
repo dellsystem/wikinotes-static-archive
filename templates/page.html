@@ -1,0 +1,79 @@
+{% extends "default.html" %}
+
+{% block head %}
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="{{ page.course.get_absolute_url }}">
+                {{ page.course }}
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                {% if page.title %}
+                {{ page.title }}
+                {% else %}
+                {{ page.subject }}
+                {% endif %}
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            {% if page.title %}
+            {{ page.title }}
+            {% else %}
+            {{ page.subject }}
+            {% endif %}
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            {% if page.title and page.subject %}
+            <div class="sub header">
+                {{ page.subject }}
+            </div>
+            {% endif %}
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> {{ page.maintainer }}
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	{% if page.course.department.pk == 'MATH' and page.course.number == '325' %}
+	<div class="ui error message">
+	These notes have been removed at the request of Professor Tony
+	Humphries. Please contact him for more information.
+	</div>
+	{% else %}
+        {{ page.content|safe }}
+	{% endif %}
+    </div>
+</div>
+{% endblock %}

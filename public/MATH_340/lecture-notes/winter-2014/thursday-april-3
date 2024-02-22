@@ -1,0 +1,195 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, April 3, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, April 3, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Catalan numbers, EGFs, derangements, Bell numbers
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#generating-functions-for-catalan-numbers">1 Generating functions for Catalan numbers</a></li>
+<li><a href="#manipulating-exponential-generating-functions">2 Manipulating exponential generating functions</a><ul>
+<li><a href="#derangements-example">2.1 Derangements example</a></li>
+</ul>
+</li>
+<li><a href="#bell-numbers">3 Bell numbers</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Generating functions for Catalan numbers<a class="headerlink" href="#generating-functions-for-catalan-numbers" name="generating-functions-for-catalan-numbers">&para;</a></h2>
+<p>Last time, we derived the following generating function for Catalan numbers:</p>
+<p><span>$$C(x) = \sum_{n \geq 0} c(n) x^n = \frac{1-\sqrt{1-4x}}{2x}$$</span></p>
+<p>Now recall that <span>$\displaystyle c(n) = \frac{1}{n+1} \binom{2n}{n}$</span>.</p>
+<p>How do we get this from the ogf? Well, we have:</p>
+<p><span>$$\begin{align}
+2x \cdot C(x) &amp; = 1 - \sqrt{1-4x} \\
+\therefore \; 2x \cdot \sum_{n \geq 0} c(n) \cdot x^n &amp; = 1-\sqrt{1-4x} \\
+\therefore \; c(x) &amp; = \frac{[x^{n+1}] (1-\sqrt{1-4x})}{2}
+\end{align}$$</span></p>
+<p>But what is <span>$\sqrt{1-4x}$</span>? Well, what if we we wrote it as <span>$(1-4x)^{1/2}$</span>? Recall that <span>$(1-4x)^r$</span> can be expanded using the binomial theorem:</p>
+<p><span>$$(1+y)^r = \sum_{k \geq 0} \binom{r}{k} y^k$$</span></p>
+<p>But this doesn't really work for non-integer values of <span>$r$</span>. So instead, we use the generalised binomial theorem (Newton, 1665):</p>
+<p><span>$$(1+y)^r = \sum_{k \geq 0} \binom{r}{k}y^k \tag{where $\displaystyle \binom{r}{k} = \frac{r(r-1) \cdots (r-k+1)}{k!}$}$$</span></p>
+<p>Then, we can <span>$(1-4x)^{1/2}$</span> as follows:</p>
+<p><span>$$\begin{align}
+(1-4x)^{1/2} &amp; = \sum_{k \geq 0} \binom{1/2}{k} (-4x)^k \\
+&amp; = \binom{1/2}{0} + \sum_{k \geq 0} \binom{1/2}{k} (-4x)^k \\
+&amp; = 1 + \sum_{k \geq 1} \frac{1/2 - 1/2 - 3/2 - 5/2 - \cdots - \frac{(2k-3)}{2}}{k!} \cdot (-1)^k4^kx^k \\
+&amp; = 1 - \sum_{n \geq 0} \frac{\frac{(2k-3)}{2} \cdot \frac{(2k-5)}{2} \cdots \frac{5}{2} \cdot \frac{3}{2} \cdot \frac{1}{2} \cdot \left ( -\frac{1}{2} \right )}{k!} \cdot 2^k \cdot 2^k \cdot x^k \\
+&amp; = 1 - \sum_{k \geq 1} \frac{(2k-3) \cdots 5\cdot 3 \cdot 1 \cdot 1 \cdot 2^k \cdot x^k}{k!} \\
+&amp; = \text{fuck it I don't care}
+\end{align}$$</span></p>
+<p>Anyway, in the end, you get</p>
+<p><span>$$c(n) = \frac{1}{2} [x^{n+1}] \sum_{k \geq 1} \frac{2}{k} \binom{2k-2}{k-1} x^k = \frac{1}{n+1} \binom{2n}{n}$$</span></p>
+<h2 class="header"><i>2</i>Manipulating exponential generating functions<a class="headerlink" href="#manipulating-exponential-generating-functions" name="manipulating-exponential-generating-functions">&para;</a></h2>
+<p>Let <span>$\displaystyle \hat F = \sum_{n\geq 0}f(n) \frac{x^n}{n!}$</span>. Then:</p>
+<p><span>$$\sum_{n \geq 0} f(n+k) \frac{x^n}{n!} = D\hat F(x) = \sum_{n \geq 1} \frac{n\cdot f(n) x^{n-1}}{n!} = \sum_{n \geq 1} \frac{f(n) x^{n-1}}{(n-1)!} = \sum_{n \geq 0} f(n+1) \frac{x^n}{n!}$$</span></p>
+<p>Also:</p>
+<p><span>$$(xD)^2F(x) = \sum_{n \geq 0} n^k f(n) \frac{x^n}{n!}$$</span></p>
+<p>Products:</p>
+<p><span>$$\begin{align}
+\hat H(x) \cdot \hat G(x) &amp; = \left ( h(0) + h(1) \frac{x^1}{1!} + \frac{h(2)}{2!} x^2 + \cdots \right ) \cdot \left ( g(0) + g(1) \frac{x^1}{1!} + \cdots \right )\\
+&amp; = \sum_{n \geq 0} \left ( \sum_{k=0}^n \binom{n}{k} \frac{1}{n!} h(k) g(n-k) \right ) \cdot x^n \tag{since $\binom{n}{k} = \left ( \frac{n!}{k!(n-k)!} \right )$ apparently?} \\
+&amp; = \sum_{n\geq 0} \left ( \sum_{k=0}^n \binom{n}{k} h(k)g(n-k) \right ) \frac{x^n}{n!} \\
+&amp; = \sum_{k=0}^n h(k) \frac{x^n}{n!} \cdot \frac{g(n-k)x^{n-k}}{(n-k)!}
+\end{align}$$</span></p>
+<p>Note: it's the product rule which determines which type of generating function would be most useful for your particular problem. For example, OGFs are best for counting unlabelled objects, while EGFs are best for counting labelled objects (which is where the <span>$\binom{n}{k}$</span> comes from).</p>
+<h3 class="header"><i>2.1</i>Derangements example<a class="headerlink" href="#derangements-example" name="derangements-example">&para;</a></h3>
+<p>A <strong>derangement</strong> is a permutation <span>$\pi$</span> such that <span>$\pi_i \neq i$</span> <span>$\forall i$</span>.</p>
+<p>Let <span>$d(n)$</span> be the number of derangements on <span>$[n] = \{1, 2, 3, \ldots, n\}$</span>.</p>
+<p>Let <span>$h(n)$</span> be the number of fixed permutations (i.e., ways of permuting <span>$[n]$</span> without changing it at all); obviously there is only one way of doing so, thus, <span>$h(n)=1$</span>.</p>
+<p>Let <span>$f(n) = n!$</span>, which is the total number of permutations.</p>
+<p>Our claim:</p>
+<p><span>$$f(n) = n! = \sum_{k=0}^n \binom{n}{k} \cdot h(k) \cdot d(n-k) = \sum_{k=0}^n \binom{n}{k} d(n-k)$$</span></p>
+<p>We can think of this problem as that of a postman, trying to deliver letters to houses. (Why? Not sure.) In any case, we have:</p>
+<p><span>$$\hat F(x) = \sum_{n \geq 0}f(n) \frac{x^n}{n!} = \sum_{n \geq 0} \left ( \sum_{k=0}^n \binom{n}{k} \cdot h(k) \cdot d(n-k) \right ) \frac{x^n}{n!}$$</span></p>
+<p>So by the product rule (from before), we have:</p>
+<p><span>$$\hat F(x) = \hat H(x) \cdot \hat D(x)$$</span></p>
+<p>Thus we have <span>$\displaystyle \hat D(x) = \frac{\hat F(x)}{\hat H(x)}$</span>. Let's find <span>$\hat H(x)$</span>, using the fact that <span>$h(n) =1$</span>:</p>
+<p><span>$$\hat H(x) = \sum_{n \geq 0} h(n) \cdot \frac{x^n}{n!} = \sum_{n \geq 0} \frac{x^n}{n!} = e^x$$</span></p>
+<p>Now let's find <span>$\hat F(x)$</span>, using the fact that <span>$f(n) = n!$</span>:</p>
+<p><span>$$\hat F(x) = \sum_{n \geq 0} f(n) \frac{x^n}{n!} = \sum_{n \geq 0} \cancel{n!} \cdot \frac{x^n}{\cancel{n!}} = \frac{1}{1-x}$$</span></p>
+<p>Thus we can solve for <span>$\hat D(x)$</span>:</p>
+<p><span>$$\hat D(x) = \frac{\frac{1}{1-x}}{e^x} = \frac{e^{-x}}{1-x}$$</span></p>
+<p>Using this, we can find <span>$d(n)$</span>. We have that</p>
+<p><span>$$\sum_{n \geq 0} d(n) \frac{x^n}{n!} = \frac{e^{-x}}{1-x} = (1+x+x^2+\cdots)\cdot (1-\frac{x^1}{1!} + \frac{x^2}{2!} - \frac{x^3}{3!} + \cdots)$$</span></p>
+<p>Hence:</p>
+<p><span>$$\frac{d(n)}{n!} = [x^n](1+x+x^2+\cdots)\cdot (1-\frac{x^1}{1!} + \frac{x^2}{2!} - \frac{x^3}{3!} + \cdots) = \sum_{k=0}^n \frac{(-1)^k}{k!}$$</span></p>
+<p>Thus we can approximate <span>$d(n)$</span> as follows:</p>
+<p><span>$$d(n) = n! \cdot \sum_{k=0}^n \frac{(-1)^k}{k!} \approx n!\cdot e^{-1}$$</span></p>
+<p><em>Not sure if correct</em></p>
+<h2 class="header"><i>3</i>Bell numbers<a class="headerlink" href="#bell-numbers" name="bell-numbers">&para;</a></h2>
+<p>Let <span>$b(n)$</span> be the number of ways to partition an <span>$n$</span>-set into parts.</p>
+<p>For example, <span>$b(3)=5$</span>, because we have <span>$123$</span>, <span>$1-23$</span>, <span>$2-13$</span>, <span>$3-12$</span>, and <span>$1-2-3$</span>. Similarly, <span>$b(4)=15$</span>.</p>
+<p>The recurrence relation is as follows:</p>
+<p><span>$$b(n+1) = \sum_{k=0}^n \binom{n}{n-k} b(k) = \sum_{k=0}^n \binom{n}{k} b(k) \tag{by symmetry of binomials}$$</span></p>
+<p>Here's why. Suppose the number <span>$n+1$</span> goes into the same partition as <span>$(n-k)$</span> other numbers. Then, <span>$\displaystyle \binom{n}{n-k}$</span> represents the number of distinct ways of picking these <span>$n-k$</span> numbers. Furthermore, I can partition the other <span>$k$</span> numbers in <span>$b(k)$</span> ways.</p>
+<p>Recall, by <a href="/MATH_340/lecture-notes/winter-2014/tuesday-april-1/#shifting-by-k">the shift rule from last lecture</a>, that</p>
+<p><span>$$\sum_{n \geq 0} b(n+1) \frac{x^n}{n!} = DB(x) \tag{?}$$</span></p>
+<p>Furthermore,</p>
+<p><span>$$\sum_{n \geq 0} b(n+1) \frac{x^n}{n!} = \sum_{n \geq 0} \left ( \sum_{k=0}^n \binom{n}{k} \cdot 1 \cdot b(k) \right ) \frac{x^n}{n!} = \hat B(x) \cdot \sum_{n \geq 0} 1 \cdot \frac{x^n}{n!} = e^x \cdot \hat B(x)$$</span></p>
+<p>Thus, we conclude:</p>
+<p><span>$$D\hat B(x) = e^x \cdot \hat B(x)$$</span></p>
+<p>Solve to get <span>$\hat B(x) = c \cdot \exp(e^x)$</span>. Since <span>$b(0) = 1$</span>, we get <span>$c= 1/e$</span>. The full derivation is left as an exercise because I'm not really following.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

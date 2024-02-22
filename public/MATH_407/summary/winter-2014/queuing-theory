@@ -1,0 +1,243 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_407/">
+                MATH 407
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Queuing theory
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Queuing theory
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#standard-queueing-theory">1 Standard queueing theory</a><ul>
+<li><a href="#terminology">1.1 Terminology</a></li>
+<li><a href="#notation">1.2 Notation</a></li>
+<li><a href="#the-formulas">1.3 The formulas</a><ul>
+<li><a href="#the-exponential-distribution">1.3.1 The exponential distribution</a><ul>
+<li><a href="#properties">1.3.1.1 Properties</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#birth-and-death-processes">1.4 Birth and death processes</a></li>
+</ul>
+</li>
+<li><a href="#finite-queue-variations">2 Finite queue variations</a><ul>
+<li><a href="#one-server">2.1 One server</a></li>
+<li><a href="#machine-repair">2.2 Machine repair</a><ul>
+<li><a href="#the-theory">2.2.1 The theory</a></li>
+<li><a href="#example">2.2.2 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Standard queueing theory<a class="headerlink" href="#standard-queueing-theory" name="standard-queueing-theory">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Terminology<a class="headerlink" href="#terminology" name="terminology">&para;</a></h3>
+<p>Scenario: customers in a queue. Of course, these techniques can be used for any type of queue scenario.</p>
+<dl>
+<dt><span>$N(t)$</span></dt>
+<dd>the number of customers in the queue.</dd>
+<dt><span>$P_n(t)$</span></dt>
+<dd>the probability that <span>$n$</span> customers are in the queue at time <span>$0$</span></dd>
+<dt><span>$S$</span></dt>
+<dd>number of servers</dd>
+<dt><span>$\lambda_n$</span></dt>
+<dd>mean arrival rate (i.e., expected number of arrivals per unit time) of new customers when there are already <span>$n$</span> customers in the system</dd>
+<dt><span>$\mu_n$</span></dt>
+<dd>mean service rate. This represents the combined rate at which all busy servers achieve service.</dd>
+</dl>
+<p>When <span>$\lambda_n$</span> is constant for all <span>$n$</span>, we just denote it by <span>$\lambda$</span>.</p>
+<p><span>$\frac{1}{\lambda}$</span> and <span>$\frac{1}{\mu}$</span> are the expected inter-arrival and service times, respectively.</p>
+<p>If <span>$n &gt; S$</span>, then <span>$\mu_n = S\mu$</span>?</p>
+<p>Also, <span>$\displaystyle \rho = \frac{\lambda}{S \mu}$</span> is the utilisation factor for the service facility, i.e., the expected fraction of time that the service capacity <span>$s\mu$</span> is being utilised, on average, by arriving customers.</p>
+<h3 class="header"><i>1.2</i>Notation<a class="headerlink" href="#notation" name="notation">&para;</a></h3>
+<dl>
+<dt><span>$P_n$</span></dt>
+<dd>Probability that exactly <span>$n$</span> customers are in the queue</dd>
+<dt><span>$L$</span></dt>
+<dd>Expected number of customers in the queue</dd>
+<dt><span>$L_q$</span></dt>
+<dd>Expected length of queue (excluding customers currently being served)</dd>
+<dt><span>$\mathcal W$</span></dt>
+<dd>Waiting time in system for a given customer (as a random event), including service time</dd>
+<dt><span>$W = E(\mathcal W)$</span></dt>
+<dd>Expected waiting time</dd>
+<dt><span>$\mathcal W_q$</span></dt>
+<dd>Waiting time in queue, excluding service time</dd>
+<dt><span>$W_q = E(\mathcal W_q)$</span></dt>
+<dd>Expected waiting time in queue</dd>
+</dl>
+<h3 class="header"><i>1.3</i>The formulas<a class="headerlink" href="#the-formulas" name="the-formulas">&para;</a></h3>
+<p>Assume <span>$\lambda_n$</span> is constant <span>$\forall n$</span> (so <span>$\lambda_n = \lambda \, \forall n$</span>). In the steady state, we have:</p>
+<p><span>$$L = \lambda W \quad \text{and} \quad L_q = \lambda W_q$$</span></p>
+<p>The mean service time is constant, and is given by <span>$\frac{1}{\mu} \, \forall n \geq q$</span>.</p>
+<p>Thus it follows that <span>$W = W_q + \frac{1}{\mu}$</span>.</p>
+<p>Now let's assume an exponential distribution for interarrival times (which are independent and identically distributed) and for service times (same). We label them</p>
+<p><span>$$\text{interarrival times} / \text{service times} / \text{number of servers}$$</span></p>
+<p>When the distributions are the same, we call this <span>$M/M/S$</span> where <span>$M$</span> is some distribution.</p>
+<h4 class="header"><i>1.3.1</i>The exponential distribution<a class="headerlink" href="#the-exponential-distribution" name="the-exponential-distribution">&para;</a></h4>
+<p>Let the random variable <span>$T$</span> represent either the interarrival times or the service times. We get a probability density function given by</p>
+<p><span>$$f_T(t) = \begin{cases} \alpha e^{-\alpha t} &amp; t \geq 0 \\ 0 &amp; t &lt; 0 \end{cases}$$</span></p>
+<p>The cumulative probabilities are:</p>
+<p><span>$$P(T \leq t) = 1 - e^{-\alpha t} \quad \text{and} \quad P(T \geq t) = e^{-\alpha t}$$</span></p>
+<h5 class="header"><i>1.3.1.1</i>Properties<a class="headerlink" href="#properties" name="properties">&para;</a></h5>
+<ol>
+<li>Non-decreasing</li>
+<li>Memoryless: <span>$P(T &gt; m+n \mid T &gt; m) = P(T &gt; n)$</span> (proof omitted)</li>
+</ol>
+<h3 class="header"><i>1.4</i>Birth and death processes<a class="headerlink" href="#birth-and-death-processes" name="birth-and-death-processes">&para;</a></h3>
+<p>Where birth = customer arrival and death = customers being served. This describes, probabilistically, how <span>$N(t)$</span> changes as <span>$t \to \infty$</span>.</p>
+<p>There's a diagram but it'll take too long to draw it. Just think about the states (<span>$t$</span>) and the transitions between states (with probability <span>$\mu_t$</span> from <span>$t$</span> to <span>$t-1$</span>, and probability <span>$\lambda_t$</span> from <span>$t$</span> to <span>$t+1$</span>.</p>
+<p>Equate rate in with rate out for each state. This gives us balance equations for the birth and death processes:</p>
+<dl>
+<dt>State 0</dt>
+<dd><span>$\mu_1 P_1 = \lambda_0 P_0$</span></dd>
+<dt>State 1</dt>
+<dd><span>$\lambda_0 P_0 + \lambda_2 P_2 = \lambda P_1 + \mu P_1$</span> therefore (derivation omitted) <span>$\displaystyle P_2 = \frac{\lambda_1\lambda_0}{\mu_2\mu_1} P_0$</span></dd>
+<dt>State <span>$n$</span></dt>
+<dd><span>$\displaystyle P_n = \underbrace{\frac{\lambda_{n-1} \cdots \lambda_0}{\mu_n \cdots \mu_0}}_{C_n}P_0$</span></dd>
+</dl>
+<p>Now, the sum of all the probabilities must be 1, because probability:</p>
+<p><span>$$\sum_{n=0}^{\infty} P_n = 1$$</span></p>
+<p>If we rearrange this a bit and use the fact that <span>$P_n = C_nP_0$</span>, we get</p>
+<p><span>$$P_0 = \frac{1}{1 + \sum_{n=1}^{\infty} C_n}$$</span></p>
+<p>Now, <span>$L$</span> is the expected number of customers in the system. So:</p>
+<p><span>$$L = \sum_{n=0}^{\infty} nP_n\quad \text{and} \quad L_q = \sum_{n=s}^{\infty} (n-s) P_n$$</span></p>
+<p>Furthermore, waiting time is given by</p>
+<p><span>$$W = \frac{L}{\bar \lambda} \quad \text{and} \quad W_q = \frac{L_q}{\bar \lambda}$$</span></p>
+<p>Obviously this model isn't entirely realistic for real-life situations, but what can you do.</p>
+<h2 class="header"><i>2</i>Finite queue variations<a class="headerlink" href="#finite-queue-variations" name="finite-queue-variations">&para;</a></h2>
+<h3 class="header"><i>2.1</i>One server<a class="headerlink" href="#one-server" name="one-server">&para;</a></h3>
+<p>This is <span>$M/M/1/K$</span> (i.e. there is only 1 server and the number of customers is <span>$k$</span>.</p>
+<p><span>$$C_n = \begin{cases} \left ( \frac{\lambda}{\mu} \right )^n = e^n &amp; n=1, 2, \ldots, k \\ 0 &amp; n &gt; k \end{cases} \quad P_0 = \frac{1}{\sum_{n=0}^{k} \left ( \frac{\lambda}{\mu} \right )^n} = \frac{1}{\sum_{n=0}^k \rho^n} \quad P_n = C_nP_0$$</span></p>
+<p>Gonna skip the derivation cus it's realllly long but</p>
+<p><span>$$L = \frac{1}{1 - \rho} - \frac{(k+1)\rho^{k+1}}{1-\rho^{k+1}} \quad \text{and} \quad L_q = L-(1-P_0)$$</span></p>
+<p>where <span>$\rho$</span> is a Greek letter that represents something.</p>
+<h3 class="header"><i>2.2</i>Machine repair<a class="headerlink" href="#machine-repair" name="machine-repair">&para;</a></h3>
+<p>Variation of the M/M/S model. Suppose you have <span>$n$</span> machines which often break down and need to be repaired. <span>$n$</span> customers being in the "queue" is equivalent to <span>$n$</span> machines being broken down at the same time. There are also <span>$k$</span> repairmen. Only one repairman can work on a machine at any given time, and must work on that machine until it's fixed.</p>
+<p>Let <span>$\lambda$</span> be the average number of breakdowns per day (or some other unit of time) and let <span>$\mu$</span> be the average number of breakdowns each repairman can fix per day (or some other unit of time, as long as it's the same unit of time as <span>$\lambda$</span>).</p>
+<h4 class="header"><i>2.2.1</i>The theory<a class="headerlink" href="#the-theory" name="the-theory">&para;</a></h4>
+<p>Instead of trying to memorise a bunch of formulas (which end up being really long and complicated and even use factorial wtf), simply model the problem in terms of birth and death processes. Being in state <span>$i$</span> means that there are <span>$i$</span> machines currently broken. There are then <span>$n+1$</span> possible states (there can be <span>$0, 1, \ldots, n$</span> machines broken at any given time). Draw these states as circles, with room for arrows connecting them both above and below.</p>
+<p>Consider the first state, <span>$i=0$</span>. What is the birth (breakdown) process at this state? Well, since there are <span>$n$</span> machines, and each machine breaks down an average of <span>$\lambda$</span> times in a day, then the transition from <span>$i=0$</span> to <span>$i=1$</span> happens <span>$n\lambda$</span> times per day. So draw an arrow from state 0 to state 1, labelled with <span>$n\lambda$</span> (calculate it).</p>
+<p>At the second state, <span>$i=1$</span>, there are only <span>$n-1$</span> functioning machines (since one of them is broken). So the transition from <span>$i=1$</span> to <span>$i=2$</span> happens <span>$(n-1)\lambda$</span> times per day.</p>
+<p>The same pattern holds for all the remaining states - the transition from state <span>$i$</span> to state <span>$i+1$</span> happens <span>$(n-i)\lambda$</span> times per day.</p>
+<p>What about the death processes? Well, at state <span>$i$</span>, <span>$i$</span> machines are broken. Let's assume <span>$k &lt; i$</span>. Then there aren't enough repairmen to service all the machines in parallel. The best they can do is <span>$k \mu$</span> machines repaired per day (on average). So draw an arrow from state <span>$i$</span> to state <span>$i-1$</span>, labelled with <span>$k\mu$</span> (calculate it). On the other hand, if <span>$k &gt; i$</span>, then some of the repairmen won't have anything to do, as only one repairman at a time can work on a particular machine. So there are <span>$i\mu$</span> machines being repaired per day, on average.</p>
+<p>Then all you have to do is equate rate in = rate out for each state. At state 0, we have <span>$n\lambda$</span> going out, and <span>$\mu$</span> going in. So <span>$n\lambda P_0 = \mu P_1$</span>. At state 1, we have <span>$(n-1)\lambda + \mu$</span> going out, and <span>$\min(k, n)\mu + n\lambda$</span> going in. So <span>$(n-1)\lambda P_1 + \mu P_1 = n\lambda P_0 + \min(k, n) P_2$</span>. Continuing in this fashion, we get a formula like this for every state, which you can manipulate until you get a formula for <span>$P_i$</span> that depends only on <span>$P_0$</span>. You can derive it from the state diagram so don't worry about trying to memorise it.</p>
+<p>Then, since <span>$\displaystyle \sum_{i=1}^{n} P_i = 1$</span>, and all the other <span>$P_i$</span>'s depend directly on <span>$P_0$</span> (i.e., there is only one independent variable), we can use this to solve for <span>$P_0$</span>. Instead of memorising the formula for it, just write out the <span>$\sum$</span> in full and rearrange. From this we can find <span>$P_i$</span> for each <span>$i=0, \ldots, n$</span>, which is the steady-state probability distribution.</p>
+<p>To calculate the expected number of machines that are not running at any given time, use</p>
+<p><span>$$L = \sum_{i=0}^n i P_i$$</span></p>
+<h4 class="header"><i>2.2.2</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p><span>$\lambda = 2$</span> per day, <span>$\mu = 4$</span> per day per repairman, <span>$k = 2$</span> repairmen, <span>$n=3$</span> machines.</p>
+<p>The state diagram looks like this:</p>
+<p><img alt="such inkscape" src="http://i.imgur.com/x6wihMA.png" title="Original diagram; released under CC0" /></p>
+<p>So we have:</p>
+<ul>
+<li>At state 0: <span>$6P_0 = 4P_1$</span> thus <span>$P_1 = \frac{3}{2}P_0$</span></li>
+<li>At state 1: <span>$(4 + 4)P_1 = 6P_0 + 8P_2$</span>. From above, <span>$8P_1 = 12P_0$</span>. So <span>$12P_0 = 6P_0 + 8P_2$</span>. Thus <span>$6P_0 = 8P_2$</span>. So <span>$P_2 = \frac{6}{8}P_0 = \frac{3}{4} P_0$</span>.</li>
+<li>At state 2: <span>$(8+2)P_2 = 4P_1 + 8P_3$</span>. From above, <span>$10P_2 = \frac{15}{2}P_0$</span> and <span>$4P_1 = 6P_0$</span>. So <span>$10P_2 = \frac{15}{2}P_0 = 6P_0 + 8P_3$</span>, thus <span>$P_3 = \frac{3}{16}P_0$</span>.</li>
+<li>At state 3: I don't think you need to use this? Though you can use it to check.</li>
+</ul>
+<p>Then, using the fact that the sum of the probabilities must be 1, we have:</p>
+<p><span>$$\sum_{i=0}^3 P_i = P_0 + \frac{3}{2}P_0 + \frac{3}{4}P_0 + \frac{3}{16}P_0 + = \frac{16 + 24 + 12 + 3}{16} P_0 = \frac{55}{16}P_0 = 1 \quad \; \therefore P_0 = \frac{16}{55} \approx 0.2909, P_1 = 0.4364, P_2 = 0.2182, P_3 = 0.0545$$</span></p>
+<p>Now to find the expected number of broken machines at any point:</p>
+<p><span>$$L = \sum_{i=1}^{3} i P_i = P_1 + 2P_2 + 3P_3 \approx 1.0363$$</span></p>
+<p>(The number of machines that are <em>working</em> is just <span>$n-$</span> this number, so, <span>$3-1.0363 =1.9637$</span> in this case.)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, February 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, February 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Eigenvalues and eigenvectors
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Eigenvalues and the existence of their associated eigenvectors.</p>
+<div class="toc">
+<ul>
+<li><a href="#eigenvectors">1 Eigenvectors</a><ul>
+<li><a href="#example">1.1 Example</a></li>
+<li><a href="#theorem-56">1.2 Theorem 5.6</a><ul>
+<li><a href="#corollary">1.2.1 Corollary</a></li>
+</ul>
+</li>
+<li><a href="#operations-on-operators">1.3 Operations on operators</a></li>
+<li><a href="#theorem-510">1.4 Theorem 5.10</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Eigenvectors<a class="headerlink" href="#eigenvectors" name="eigenvectors">&para;</a></h2>
+<p>An <strong>eigenvector</strong>, corresponding to an eigenvalue <span>$\lambda$</span> of a linear operator <span>$T$</span>, is a non-zero vector <span>$u$</span> such that <span>$Tu = \lambda u$</span>.</p>
+<h3 class="header"><i>1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h3>
+<p>Let <span>$T: \mathbb F^2 \to \mathbb F^2$</span>, <span>$(z, w) \mapsto (-w, z)$</span>. For which <span>$\lambda \in \mathbb F$</span> and which vectors <span>$(z, w)$</span>, do we have that <span>$T(z, w) = \lambda (z, w)$</span>? Well, <span>$T(z, w) = (-w, z) = (\lambda z, \lambda w)$</span>. So we must have that <span>$-w = \lambda z$</span> and <span>$z = \lambda w$</span>. If we multiply both sides of the latter equation by <span>$\lambda$</span>, we get that <span>$\lambda z = \lambda^2 w = -w$</span> and so <span>$\lambda^2 = -1$</span>.</p>
+<p>Clearly this has no solutions if <span>$\mathbb F = \mathbb R$</span>. Thus <span>$T$</span> has no eigenvalues over the reals. However, if we're working over the complex numbers, then <span>$T$</span> has two eigenvalues: <span>$\lambda_1 = i$</span> and <span>$\lambda_2 = -i$</span>, with associated eigenvectors of <span>$(w, -iw)$</span> and <span>$(w, iw)$</span> respectively.</p>
+<p><span>$$T(w, -iw) = (iw, w) = i(w, -iw) \quad T(w, iw) = (-iw, w) = -i(w, iw)$$</span></p>
+<p>(Geometrically, this linear operator corresponds to a counterclockwise rotation of <span>$90\deg$</span>. Obviously we cannot achieve this by multiplying a vector by a real scalar, so it makes sense that this only has eigenvalues in the complex numbers.)</p>
+<h3 class="header"><i>1.2</i>Theorem 5.6<a class="headerlink" href="#theorem-56" name="theorem-56">&para;</a></h3>
+<blockquote>
+<p>Let <span>$T \in \mathbb L(V)$</span>. Suppose <span>$\lambda_1, \ldots, \lambda_m$</span> are <em>distinct</em> eigenvalues of <span>$T$</span>, and that <span>$v_1,\ldots, v_m$</span> are the corresponding non-zero eigenvectors (one eigenvector for each eigenvalue). Then, <span>$(v_1, \ldots, v_m)$</span> is linearly independent.</p>
+</blockquote>
+<p>Proof: by contradiction. Assume that <span>$(v_1, \ldots, v_m)$</span> is linearly dependent. Let <span>$v_k$</span> be the first vector in the list that is in the span of the others (that is, the first one that makes it linearly dependent if we go through them one-by-one). So <span>$v_k \in \text{span}(v_1, \ldots, v_{k-1})$</span>. So for some <span>$a_i \in \mathbb F$</span>, we have that</p>
+<p><span>$$v_k = a_1v_1 + \ldots + a_{k-1}v_{k-1} \tag{1}$$</span></p>
+<p>Applying <span>$T$</span> on both sides of (1), we get (since <span>$Tv_i = \lambda_i v_i$</span>):</p>
+<p><span>$$Tv_k = \lambda_k v_k = a_1\lambda_1v_1 + \ldots + a_{k-1}\lambda_{k-1}v_{k-1} \tag{2}$$</span></p>
+<p>Next, let's multiply (1) by <span>$\lambda_k$</span>, and subtract (2) from the result:</p>
+<p><span>$$\lambda_k v_k - \lambda_k v_k = 0 = a_1(\lambda_k - \lambda_1)v_1 + \ldots + a_{k-1}(\lambda_k - \lambda_{k-1})v_{k-1} \tag{3}$$</span></p>
+<p>But we know that <span>$(v_1, \ldots, v_{k-1})$</span> are linearly independent (since <span>$v_k$</span> is the <em>first</em> vector in our list to make the set dependent). Thus all the coefficients in (3) must be zero. We also know that the <span>$\lambda$</span>s are all distinct (by assumption). So it must be that the <span>$a$</span>'s are zero. From this we conclude that <span>$v_k = 0$</span>. But this is a contradiction, since we assumed that all the eigenvectors must be non-zero.</p>
+<p>Hence, it must be that the list is linearly independent. <span>$\blacksquare$</span>.</p>
+<h4 class="header"><i>1.2.1</i>Corollary<a class="headerlink" href="#corollary" name="corollary">&para;</a></h4>
+<p>Each operator in <span>$V$</span> has at most <span>$\dim(V)$</span> distinct eigenvalues. This follows from the fact that the list of eigenvectors is linearly independent, and since there can be at most <span>$\dim V$</span> linearly independent vectors in any vector space <span>$V$</span>, <span>$\dim V$</span> is the upper limit for the number of distinct eigenvectors (and thus eigenvalues).</p>
+<h3 class="header"><i>1.3</i>Operations on operators<a class="headerlink" href="#operations-on-operators" name="operations-on-operators">&para;</a></h3>
+<p>Let <span>$T \in \mathcal L(V)$</span> and <span>$m \in \mathbb N$</span>. We define some standard arithmetic operations on linear operators (all of which result in  linear operators), which will be useful for the next section:</p>
+<ul>
+<li><span>$\displaystyle T^m = \underbrace{T \cdot T \cdots T}_{m \text{ times}}$</span>, with <span>$T^0 = I$</span> (the identity operator)</li>
+<li><span>$T^mT^n = T^{m+n}$</span></li>
+<li><span>$(T^m)^n = T^{mn}$</span></li>
+<li>If <span>$T$</span> is invertible and <span>$m &gt; 0$</span>, then <span>$T^{-m} = (T^{-1})^m$</span></li>
+<li>If <span>$p \in P(\mathbb F)$</span> is given by <span>$p(z) = a_0 + \ldots + a_mz^m$</span>, then <span>$p(T) = a_0 I + a_1 T + a_2 T^2 + \ldots + a_m T^m$</span></li>
+</ul>
+<h3 class="header"><i>1.4</i>Theorem 5.10<a class="headerlink" href="#theorem-510" name="theorem-510">&para;</a></h3>
+<blockquote>
+<p>Every operator in a finite-dimensional, non-zero, complex vector space has an eigenvalue.</p>
+</blockquote>
+<p>Proof: Let <span>$V$</span> be a complex vector space of dimension <span>$n &gt; 0$</span>. Choose a non-zero <span>$v \in V$</span>. Let's look at <span>$(v, Tv, \ldots, T^n v)$</span>. Since there are <span>$n+1$</span> vectors in that list, it is linearly dependent. So there exist coefficients <span>$a_0, \ldots, a_n$</span>, at least one of which is non-zero, such that <span>$a_0v + a_1Tv + \ldots + a_nT^nv = 0$</span>. We call that polynomial <span>$p(Tv)$</span>.</p>
+<p>Now, let <span>$m$</span> be the largest index such that <span>$a_m \neq 0$</span>. Note that <span>$m \neq 0$</span>; if it were, we would have <span>$a_0 v = 0$</span> but neither <span>$a_0$</span> nor <span>$v$</span> is zero (by assumption). So <span>$m &gt; 0$</span>. Also, <span>$m \leq n$</span> by obviousity. From the <a href="http://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra">fundamental theorem of algebra</a> (which I don't actually recall learning in an algebra class), we know that we can factor <span>$p(Tv)$</span> as follows:</p>
+<p><span>$$\begin{align}p(Tv) &amp; = a_0Iv + a_1Tv + \ldots + a_mT^m v \\
+&amp; = (a_0I + a_1T + \ldots + a_mT^m)v \tag{by distributivity} \\
+&amp; = c(T -\lambda_1 I) \cdots (T - \lambda_m I)v \tag{by FTA, where $c \in \mathbb C / \{0\}$}
+\end{align}$$</span></p>
+<p>Hence at least one of the linear operators <span>$T - \lambda_j$</span> is not injective, in order for it to send <span>$v$</span> (on the RHS) to zero (when <span>$v \neq 0$</span>). Hence <span>$T$</span> has an eigenvalue. This proof needs to be explained more clearly.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

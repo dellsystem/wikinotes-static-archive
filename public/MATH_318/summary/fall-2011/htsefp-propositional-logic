@@ -1,0 +1,181 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Propositional logic
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Propositional logic
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Part one of the "How to solve every problem" series for MATH 318.</p>
+<h2 class="header"><i>1</i>Truth tables<a class="headerlink" href="#truth-tables" name="truth-tables">&para;</a></h2>
+<blockquote>
+<p>Given a propositional formula, write out its truth table and determine whether or not it is a tautology.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>A truth table for a formula of <span>$n$</span> variables will need <span>$2^n$</span> lines. Just write out every possible valuation based on the combinations of the values of the variables. The formula is a tautology if and only if every single line in the truth table comes out <span>$\top$</span>.</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 1</li>
+<li>Lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/friday-september-2#truth-tables">Friday, September 2</a></li>
+</ul>
+<h2 class="header"><i>2</i>Determining validity for propositional arguments<a class="headerlink" href="#determining-validity-for-propositional-arguments" name="determining-validity-for-propositional-arguments">&para;</a></h2>
+<blockquote>
+<p>Given an argument, translate the statements into propositional formulas and determine whether or not the argument is valid.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>Translating should be easy, just put a <span>$\vdash$</span> before the final statement. To determine validity, simply try to invalidate it: look for a valuation that makes the conclusion come out <span>$\bot$</span> and the premises come out <span>$\top$</span>. If this is impossible, then it's valid, and explain why (due to the connectives etc).</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 2</li>
+<li>Fall 2010 final exam, question 1</li>
+<li>Lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/wednesday-september-7#determining-the-validity-of-an-argument">Wednesday, September 7</a></li>
+</ul>
+<h2 class="header"><i>3</i>Determining the consistency of statements<a class="headerlink" href="#determining-the-consistency-of-statements" name="determining-the-consistency-of-statements">&para;</a></h2>
+<blockquote>
+<p>Given a set of a sentences, translate the statements into propositional formulas and determine whether or not the set is consistent.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Try to make them all come out <span>$\top$</span>. If this is impossible, then it's inconsistent.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 3</li>
+<li>Fall 2009 final exam, question 1</li>
+<li>Lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/wednesday-september-7#propositionally-consistent-formulas">Wednesday, September 7</a></li>
+</ul>
+<h2 class="header"><i>4</i>Representative sets<a class="headerlink" href="#representative-sets" name="representative-sets">&para;</a></h2>
+<blockquote>
+<p>Give a representative set of propositional formulas in <span>$n$</span> variables (where <span>$n$</span> is a natural number). Alternatively: same as before, but use only the connectives given.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>A representative set of propositional formulas in <span>$n$</span> variables will have <span>$2^{2^n}$</span> formulas. Finding the formulas is just a matter of identifying the possible truth tables and creating a formula for each. For example, for <span>$n=1$</span>, there are two truth tables: either the formula comes out <span>$\top$</span>, or the formula comes out <span>$\bot$</span>. For the former, the formula <span>$p_1$</span> would do it; for the latter, <span>$\neg p_1$</span>. For <span>$n = 2$</span>, there are 16 truth tables. One truth table consists of <span>$\top$</span> in every situation (i.e. for all four combinations of the values of <span>$p_1$</span> and <span>$p_2$</span>), another consists of <span>$\bot$</span> in every situation, another consists of <span>$\top$</span> only when <span>$V(p_1) = V(p_2) = \top$</span>, etc.</p>
+<p>For each truth table, just find a corresponding formula. For example, for the truth table that comes out <span>$\bot$</span> only when <span>$V(p_1) = V(p_2)$</span>, we could use the formula <span>$\neg (p_1 \iff p_2)$</span>, which would give the required truth table. It's mostly a matter of trial and error, and possibly identifying patterns.</p>
+<p>If the connectives used in the propositional formulas must come from a supplied set, then just use those connectives to generate each formula. This should be fairly straightforward.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 4 (for the general case)</li>
+<li>Assignment 2, question 2, part b (part of the proof; also includes the "alternative" part)</li>
+</ul>
+<h2 class="header"><i>5</i>Truth tables and normal forms<a class="headerlink" href="#truth-tables-and-normal-forms" name="truth-tables-and-normal-forms">&para;</a></h2>
+<blockquote>
+<p>Given the truth table for some unknown connective, find an equivalent formula in disjunctive normal form and one in conjunctive normal form.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<dl>
+<dt>Disjunctive normal form</dt>
+<dd>Identify the rows that come out <span>$\top$</span>, and find an equivalent conjunctive clause (e.g. <span>$p \land q \land \neg r$</span>) for each. Then join them together with <span>$\lor$</span>s. Simplify if possible - <span>$(p \land q \land \neg r) \lor (p \land \neg q \land \neg r)$</span> can be simplified to <span>$p \land \neg r$</span>, for example.</dd>
+<dt>Conjunctive normal form</dt>
+<dd>The easiest way is probably to take the simplified formula in d.n.f. (obtained above) and use the distributive law to turn it into c.n.f. See the example in the lecture notes below for the procedure.</dd>
+</dl>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 1</li>
+<li>Lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/friday-september-9#disjuncts-and-conjuncts">Friday, September 9</a></li>
+</ul>
+<h2 class="header"><i>6</i>Functionally complete sets<a class="headerlink" href="#functionally-complete-sets" name="functionally-complete-sets">&para;</a></h2>
+<blockquote>
+<p>Given a set of <span>$n$</span> connectives, determine whether or not that set is functionally complete. Justify your answer. Alternatively: show that a set of connectives is functionally complete.</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>Pretty simple. If it's functionally complete, you can generate every possible truth table (so <span>$2^{2^n}$</span> different ones). If it's not, you can't. See the example in the assignment.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 2</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

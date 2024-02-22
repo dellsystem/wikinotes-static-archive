@@ -1,0 +1,755 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_547/">
+                COMP 547
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>A summary of material covered during the lectures, following the organisation of the textbook (<em>Introduction to Modern Cryptography</em>, by Jonathan Katz and Yehuda Lindell). Since the exam is open book (all documentation is permitted), this page is intended to serve as a supplement to the textbook. <span>$\DeclareMathOperator{\K}{\mathcal K} \DeclareMathOperator{\C}{\mathcal C} \DeclareMathOperator{\M}{\mathcal M}$</span></p>
+<h2 class="header"><i>1</i>Introduction and classical ciphers<a class="headerlink" href="#introduction-and-classical-ciphers" name="introduction-and-classical-ciphers">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Cryptography and modern cryptography<a class="headerlink" href="#cryptography-and-modern-cryptography" name="cryptography-and-modern-cryptography">&para;</a></h3>
+<p>Nothing noteworthy</p>
+<h3 class="header"><i>1.2</i>The setting of private-key encryption<a class="headerlink" href="#the-setting-of-private-key-encryption" name="the-setting-of-private-key-encryption">&para;</a></h3>
+<p>There is one shared key, which is used for encryption and decryption, and which must be kept secret by its users. Also, it's assumed that the users have a way of sharing the key securely (though sometimes there's just one user, at different points in time).</p>
+<dl>
+<dt>Gen</dt>
+<dd>Probabilistic algorithm that outputs a key</dd>
+<dt>Enc</dt>
+<dd>Given a key and message (plaintext), outputs ciphertext; can be probabilistic</dd>
+<dt>Dec</dt>
+<dd>Given a message and key (ciphertext), outputs corresponding plaintext; must be deterministic</dd>
+</dl>
+<p>(The above 3 are enough to fully specify an encryption scheme.)</p>
+<dl>
+<dt><span>$\K$</span></dt>
+<dd>The set of all possible keys (finite)</dd>
+<dt><span>$\M$</span></dt>
+<dd>The set of all plaintext messages for which Enc is defined</dd>
+<dt><span>$\C$</span></dt>
+<dd>The set of all possible ciphertexts</dd>
+<dt>Correctness</dt>
+<dd>Encrypting a message then decrypting it gives you the same message back, for any message</dd>
+<dt>Kerckhoff's principle</dt>
+<dd>Only the key should be kept secret, not the algorithm (harder to keep an algorithm secret and harder to change it if it's compromised, etc)</dd>
+<dt>Ciphertext-only attack</dt>
+<dd>You only have the ciphertext and want to figure out the plaintext. The standard type of attack.</dd>
+<dt>Known-plaintext attack</dt>
+<dd>You have the plaintext for some ciphertext, and you want to figure out the plaintext for a different ciphertext.</dd>
+<dt>Chosen-plaintext attack</dt>
+<dd>You can get the ciphertext corresponding to any plaintext you want (encryption oracle)</dd>
+<dt>Chosen-ciphertext attack</dt>
+<dd>You can get the plaintext corresponding to any ciphertext you want (decryption oracle)</dd>
+</dl>
+<h3 class="header"><i>1.3</i>Historical ciphers and their cryptanalysis<a class="headerlink" href="#historical-ciphers-and-their-cryptanalysis" name="historical-ciphers-and-their-cryptanalysis">&para;</a></h3>
+<p>All these ciphers are broken fairly easily by known-ciphertext attacks, and are completely worthless against known-plaintext attacks.</p>
+<dl>
+<dt>Caesar cipher</dt>
+<dd>Too easy. Shift 3. No key. What was Caesar thinking?</dd>
+<dt>Shift cipher</dt>
+<dd>The key is the shift. Keyspace of size 26. Can attack by trying every key, computing a value (true frequency * expected frequency for each letter and summing over all letters), and outputting the key that gives the value that's closest to the expected value (0.065).</dd>
+<dt>Brute-force/exhaustive search attack</dt>
+<dd>Try every key until you find one that gives a message that makes sense. Any encryption scheme that is vulnerable to this is not very secure at all. If the key space is smaller than the message space, then you will never achieve true security.</dd>
+<dt>Monoalphabetic substitution</dt>
+<dd>The key is a one-to-one mapping from the letters in the alphabet for the plaintext to the corresponding letters in the ciphertext. Huge key space (<span>$26!$</span>), but easily broken via frequency analysis</dd>
+<dt>Vigenere cipher</dt>
+<dd>A form of polyalphabetic substitution. The key is a word of length <span>$t$</span>. Equivalent to using <span>$t$</span> different monoalphabetic shift ciphers (periodic). The key needs to be pretty long (ideally as long as the message) to attain any semblance of security.</dd>
+<dt>Kasiski's method</dt>
+<dd>Attack for Vigenere. Look for repeated patterns of 2-3 letters, find the distances between repeats, the gcd of the distances is probably <span>$t$</span> or a multiple of it</dd>
+<dt>Index of coincidence method</dt>
+<dd>Another attack for Vigenere. Easier to automate. For each possible value of <span>$t$</span>, look at every <span>$t$</span> letter and calculate the frequency value thing (same as the one used for shift cipher). If it's right, it'll be close to 0.065; otherwise, it'll be closer to 0.038 (randomness)</dd>
+</dl>
+<h3 class="header"><i>1.4</i>The basic principles of modern cryptography<a class="headerlink" href="#the-basic-principles-of-modern-cryptography" name="the-basic-principles-of-modern-cryptography">&para;</a></h3>
+<ul>
+<li>Need to define security in a rigourous way</li>
+<li>Assumptions needed to prove security should be minimal, and must be stated</li>
+<li>Security for a system must be proved rigourously</li>
+</ul>
+<p><strong>Definition of security</strong>: "An encryption scheme is secure if no adversary can compute any <em>function</em> of the plaintext from the ciphertext." (Katz and Lindell, p. 22) The adversary here is generally assumed to be probabilistic and working in polynomial-time, but the power of the adversary depends on the context (sometimes the adversary has access to an encryption or decryption oracle, for instance).</p>
+<p><strong>The reductionist approach</strong>: To prove the security of some scheme given an assumption, we can simply reduce the task of breaking the scheme to violating the assumption. Kind of like polytime reduction to prove NP-hardness.</p>
+<h3 class="header"><i>1.5</i>Exercises<a class="headerlink" href="#exercises" name="exercises">&para;</a></h3>
+<p>(Interesting results encountered in the exercises.)</p>
+<dl>
+<dt>1.1</dt>
+<dd>Homework 2, part B</dd>
+<dt>1.2</dt>
+<dd>QH homework 1</dd>
+<dt>1.3</dt>
+<dd>If Vigenere used a monoalphabetic substitution instead of a shift cipher for its letters, then it's still possible to break, you just need a longer message (and you can't be sure). Just do frequency analysis on every <span>$t$</span> letters. If the resulting letter distribution is similar to the expected one, then assign probable letter mappings. Otherwise, try another value of <span>$t$</span>, etc.</dd>
+<dt>1.4</dt>
+<dd>Homework 2, part B</dd>
+<dd>If Vigenere is modified so that you break the plaintext up into blocks of size <span>$t$</span> and add the block number to the ciphertext, then you can't use Kasiski's anymore. Solution: for each <span>$t$</span>, look at <span>$c_{t}, c_{2t} - 1, c_{3t}-2$</span>, etc; since these have been encrypted using the same shift, you can just sum over all the frequencies and see if it's close to 0.065. The one that's closest is probably the right value of <span>$t$</span>.</dd>
+<dt>1.5</dt>
+<dd>Homework 2, part B</dd>
+<dd>With the shift cipher, CPA needs 1 plaintext character to get the entire key. For monoalphabetic: 25 different characters. With Vigenere: <span>$t$</span>.</dd>
+<dt>1.6</dt>
+<dd>Homework 2, part B</dd>
+</dl>
+<h2 class="header"><i>2</i>Perfectly-secret encryption<a class="headerlink" href="#perfectly-secret-encryption" name="perfectly-secret-encryption">&para;</a></h2>
+<p>This stuff is still kind of "classical" as opposed to modern.</p>
+<h3 class="header"><i>2.1</i>Definitions and basic properties<a class="headerlink" href="#definitions-and-basic-properties" name="definitions-and-basic-properties">&para;</a></h3>
+<dl>
+<dt><span>$Pr[K=k]$</span></dt>
+<dd>the probability that a particular key is used</dd>
+<dt><span>$Pr[M=m]$</span></dt>
+<dd>the probability that a particular plaintext message is sent (independent of the previous)</dd>
+<dt><span>$Pr[C=c]$</span></dt>
+<dd>prob that a particular ciphertext is produced (fixed by the above distributions)</dd>
+<dt>The definition of perfect secrecry</dt>
+<dd>An encryption scheme is perfectly secret if <span>$Pr[\M=m|\C=c] = Pr[\M=m]$</span> for every <span>$m \in M$</span>, for any distribution of <span>$\M$</span> and any possible <span>$c$</span>, limited to <span>$m$</span> and <span>$c$</span> with non-zero probability. That is, distributions over plaintext and ciphertext are independent. This is equivalent to <span>$Pr[\C=c|\M=c] = Pr[\C=c]$</span> (by Bayes' theorem).</dd>
+<dt>Perfect indistinguishability</dt>
+<dd>The ciphertext probability distribution for any message is the same. Thus <span>$Pr[\C=c|\M=m_0] = Pr[\C=c|\M=m_1]$</span></dd>
+<dt>Adversarial indistinguishability</dt>
+<dd>Experiment: adversary tries to guess which message generated a given ciphertext; perfect secrecy implies that the probability of success is 1/2</dd>
+</dl>
+<h3 class="header"><i>2.2</i>The one-time pad (Vernam's cipher)<a class="headerlink" href="#the-one-time-pad-vernams-cipher" name="the-one-time-pad-vernams-cipher">&para;</a></h3>
+<p>To encrypt a message of length <span>$l$</span>, create a randomly-generated bitstring of length <span>$l$</span> and XOR all the bits. Perfectly secret (assuming that all messages are possible). <span>$Pr[\C=c|\M=m] = 2^{-l}$</span> for any plaintext and ciphertext.</p>
+<p>Drawbacks:</p>
+<ul>
+<li>Key must be as long as message</li>
+<li>Can only be used once (otherwise, if you take the XOR of the ciphertexts, you get the XOR of the messages which can be interesting)</li>
+<li>Only secure against ciphertext-only attack; KPA or CPA can recover the key, rendering it useless in the future</li>
+</ul>
+<h3 class="header"><i>2.3</i>Limitations of perfect secrecy<a class="headerlink" href="#limitations-of-perfect-secrecy" name="limitations-of-perfect-secrecy">&para;</a></h3>
+<p>The keyspace <em>must</em> be as large as the message space to guarantee perfect secrecy. Otherwise, for any given ciphertext, there's a message that could not have produced it. (p. 33)</p>
+<h3 class="header"><i>2.4</i>Shannon's theorem<a class="headerlink" href="#shannons-theorem" name="shannons-theorem">&para;</a></h3>
+<p>If <span>$|\K| = |\M| = |\C|$</span>, then there must be a single key that produces a particular ciphertext from a given message. Also, the key needs to be chosen uniformly at random. Proof: p. 38-40.</p>
+<p>(We know that <span>$|\C| \geq |\M|$</span> because otherwise multiple messages would map to a single ciphertext and decryption would not be ambiguous. So assuming that the sizes are equal is the most "efficient" assumption we can make.)</p>
+<h3 class="header"><i>2.5</i>Summary<a class="headerlink" href="#summary" name="summary">&para;</a></h3>
+<p>Conclusion: perfect secrecy is possible, but the key must be as long as the message</p>
+<h3 class="header"><i>2.6</i>Exercises<a class="headerlink" href="#exercises_1" name="exercises_1">&para;</a></h3>
+<dl>
+<dt>2.1</dt>
+<dd>Bayes' theorem</dd>
+<dt>2.2</dt>
+<dd>Not necessarily ... recall that <span>$Pr[\M =m|\C=c] = Pr[M=m]$</span> is what is needed. If <span>$Pr[\M =m] \neq Pr[M=m']$</span> then the probabilities given the ciphertext shouldn't be the same.</dd>
+<dd>QH homework 1</dd>
+<dt>2.3</dt>
+<dd>Bad idea.</dd>
+<dd>QH homework 1</dd>
+<dt>2.4</dt>
+<dd>(a) if it's just a single character, we can't use assumptions about character frequencies in English text. So the probability of any character is 1/26.</dd>
+<dd>(b) Each letter is used the same number of times?</dd>
+<dd>(c) Make the key length <span>$n$</span>. Then it's equivalent to the one-time pad.</dd>
+<dt>2.5</dt>
+<dd>False ... what if the key isn't even used at all, etc</dd>
+<dt>2.6</dt>
+<dd>Take the subset of <span>$\C$</span> that corresponds to <span>$\M'$</span>, etc</dd>
+<dt>2.7</dt>
+<dd>QH homework 1</dd>
+<dt>2.8</dt>
+<dd>QH homework 2</dd>
+<dt>2.9</dt>
+<dd>Homework 2, part B</dd>
+<dt>2.10</dt>
+<dd>Homework 2, part B</dd>
+<dt>2.11</dt>
+<dd>QH homework 1</dd>
+<dt>2.12</dt>
+<dd>QH homework 1</dd>
+</dl>
+<h2 class="header"><i>3</i>Private-key encryption and pseudorandomness<a class="headerlink" href="#private-key-encryption-and-pseudorandomness" name="private-key-encryption-and-pseudorandomness">&para;</a></h2>
+<p>If we use a short key (relative to the length of the message), we can't achieve perfect secrecy, but we can achieve computational secrecy. Perfect secrecy, aka informational-theoretic secrecy, means that the adversary just doesn't have enough information to break it, even with an infinite amount of time. Computational secrecy means that the adversary does have enough information, but it would take nearly an infinite amount of time to use it properly.</p>
+<h3 class="header"><i>3.1</i>A computational approach to cryptography<a class="headerlink" href="#a-computational-approach-to-cryptography" name="a-computational-approach-to-cryptography">&para;</a></h3>
+<dl>
+<dt>The concrete approach</dt>
+<dd>"A scheme is <span>$(t, \epsilon)$</span>-secure if every adversary running for time at most <span>$t$</span> succeeds in breaking the scheme with probability at most <span>$\epsilon$</span>" (p. 49)</dd>
+<dd>Drawbacks to this: what algorithms, computing power, etc does it assume? Not known! Also might not take into account things like Moore's law, or optimised versions of algorithms.</dd>
+<dt>The asymptotic approach</dt>
+<dd>We'll use this instead of the concrete approach</dd>
+<dd>Running time of adversary, and the adversary's success probability, are functions of a security parameter <span>$n$</span> (integer), which is chosen by the honest parties</dd>
+<dd>Adversary assumed to run in probabilistic polynomial time </dd>
+<dt>Negligible probability</dt>
+<dd>When the probability function grows slower than any inverse polynomial <span>$n^{-c}$</span> for some <span>$c$</span>. Full definition on p. 56.</dd>
+<dd>Examples: <span>$2^{-n}$</span>, <span>$2^{-\sqrt{n}}$</span>, <span>$n^{-\log n}$</span></dd>
+<dd>The sum of two negl functions is still negl</dd>
+<dd>Multiplication by a polynomial preserves negligibility</dd>
+</dl>
+<p>The asymptotic approach's definition of security:</p>
+<blockquote>
+<p>A scheme is secure if every PPT adversary succeeds in breaking the scheme with only negligible probability. (p. 51)</p>
+</blockquote>
+<p>Using this approach, if faster computers are available, a larger <span>$n$</span> can be chosen (by choosing a larger key size) and the adversary's running time will be even higher (without compromising the speed of the scheme for honest parties).</p>
+<p>If the scheme is not perfectly secret (with <span>$|\K| &lt; |\M|$</span>), there are several possible attacks. For a given ciphertext, try every key and see what the decrypted result is (the plaintext must be one of these results). Or, KPA with a bunch of messages and ciphertexts, can most likely figure out the key (time: linear in <span>$|\K|$</span>). Or, KPA, guess a key at random and check if it works for all the pairs (constant-time, probability of success is <span>$1/|\K|$</span>. So we need our definition of computational secrecy to basically ignore these possibilities.</p>
+<p><strong>Proof by reduction</strong>: <span>$X$</span> is the problem that can only be solved with negligible probability in PPT. <span>$\Pi$</span> is the encryption scheme, <span>$\epsilon(n)$</span> is the adversary's probability of success. Show that if <span>$\epsilon$</span> is not negligible, then we can solve <span>$X$</span> with non-negligible probability <span>$\epsilon(n)/p(n)$</span> (where the adversary for <span>$\Pi$</span> is run as a kind of subroutine), contradicting the assumption. Thus <span>$\Pi$</span> is computationally secure. (p. 59)</p>
+<h3 class="header"><i>3.2</i>Defining computationally-secure encryption<a class="headerlink" href="#defining-computationally-secure-encryption" name="defining-computationally-secure-encryption">&para;</a></h3>
+<p>Defining a private-key encryption scheme: (p. 60)</p>
+<dl>
+<dt>Gen</dt>
+<dd>Input: <span>$1^n$</span>; output, <span>$k$</span>, such that <span>$|k| \geq n$</span> (randomly chosen)</dd>
+<dt>Enc</dt>
+<dd>Runs in time polynomial to <span>$|k|+|m|$</span>. Takes in a key, a message (bitstring) of some length, outputs ciphertext</dd>
+<dt>Dec</dt>
+<dd>Deterministic. Takes in key, ciphertext; outputs plaintext</dd>
+</dl>
+<p><strong>Indistinguishability in the presence of an eavesdropper</strong>: almost the same as in perfect secrecy, but messages must be the same length, and we allow the probability to be 1/2 + negl. As usual, the input is a single ciphertext.</p>
+<h3 class="header"><i>3.3</i>Pseudorandomness<a class="headerlink" href="#pseudorandomness" name="pseudorandomness">&para;</a></h3>
+<ul>
+<li>No PT algorithm can tell if a string was chosen according to some fixed distribution or randomly</li>
+<li>Pseudorandom generator: takes a short random seed of length <span>$n$</span> as input, outputs a long pseudorandom string (length <span>$l(n)$</span>, where <span>$l$</span> is called the expansion factor)</li>
+<li>Full definition on p. 70</li>
+<li>Distinguisher: Given a string of length <span>$l$</span>, go through all possible seeds. If there is a seed that could generate this string, assume that it's pseudorandom (you'd only be wrong with probability <span>$2^{n-l}$</span>); otherwise, it's random. However, this cannot be done in probabilistic polynomial time.</li>
+<li>We can't prove the existence of pseudorandom functions; we believe they do, under the assumption that one-way functions exist</li>
+</ul>
+<h3 class="header"><i>3.4</i>Constructing secure encryption schemes<a class="headerlink" href="#constructing-secure-encryption-schemes" name="constructing-secure-encryption-schemes">&para;</a></h3>
+<p>Like the one-time pad, but with a pseudorandom string and not a random one. Proof of security: if it's the same as the random string, then the proof from chapter 2 holds; otherwise, the adversary is basically distinguishing a pseudorandom string from a random one which is assumed to be impossible.</p>
+<p>We can convert a standard PRG into a variable-length PRG.</p>
+<p><strong>Security for multiple encryptions</strong>: the eavesdropper experiment, but distinguishing between two sets of messages, all encrypted with a particular key. For example, the pseudorandom one-time pad is not secure under this definition. Also, <em>any</em> deterministic scheme is insecure under this definition - for one set, make the two messages identical, and for the other set, make the two messages different; then it's trivial to distinguish between them (p. 79).</p>
+<p><strong>Using stream ciphers for secure multiple encryptions</strong>:</p>
+<ul>
+<li>Synchronised mode, to prevent re-use of the same part of the stream (must maintain state between encryptions). Alice uses the first few bits, Bob uses the next few, etc. (p. 80)</li>
+<li>Unsynchronised: State is not maintained. The PRG (which must be an <strong>augmented pseudorandom generator</strong>) must take another input - an IV (initialisation vector) of length <span>$n$</span>, which basically randomly sets the initial state. It is sent in the clear. (p. 81)</li>
+</ul>
+<h3 class="header"><i>3.5</i>Security against CPA<a class="headerlink" href="#security-against-cpa" name="security-against-cpa">&para;</a></h3>
+<p>CPA is a very realistic threat (see: gardening, Midway, sending a message to a server, etc).</p>
+<p>The adversary has access to an encryption oracle, and can encrypt as many messages as desired (in PT). Obviously any CPA-secure scheme must be probabilistic, otherwise the adversary can just encrypt both messages and see which resulting ciphertext is the same as the challenge ciphertext. (p. 83)</p>
+<p>Extending this to multiple encryption is easy. Anything that is CPA-secure is automatically secure against multiple encryptions (p. 85).</p>
+<h3 class="header"><i>3.6</i>Constructing CPA-secure encryption schemes<a class="headerlink" href="#constructing-cpa-secure-encryption-schemes" name="constructing-cpa-secure-encryption-schemes">&para;</a></h3>
+<p>Pseudorandom function: maps an <span>$n$</span>-bit string to another <span>$n$</span>-bit string. Represented as a <strong>keyed function</strong>, <span>$F_k$</span>, which needs a key of length <span>$k$</span> to select the function. The domain of such a function has size <span>$2^n$</span>, and there are <span>$2^{2^n}$</span> functions that can be generated (p. 87). The distinguisher does not have access to the key <span>$k$</span>, of course, otherwise it would be trivial.</p>
+<p>To use such functions to make a CPA-secure encryption scheme, we can't just take the output of the function with the given input, since that would be deterministic and thus clearly not CPA-secure. Instead, we generate a random value <span>$r$</span>, apply <span>$F$</span> to it, and XOR the result with the plaintext. It's CPA-secure because the probability that <span>$A$</span> has seen something with <span>$r$</span> before is negligible, and if it hasn't been seen, then you can only guess. Full proof: p. 90-93.</p>
+<p><strong>Keyed permutation</strong>: bijective keyed function. Pseudorandom if we can't distinguish it from a random permutation. If we can't even if <span>$D$</span> is given access to the inverse, then it's a <strong>strong</strong> pseudorandom permutation.</p>
+<h4 class="header"><i>3.6.1</i>Modes of operations for block ciphers<a class="headerlink" href="#modes-of-operations-for-block-ciphers" name="modes-of-operations-for-block-ciphers">&para;</a></h4>
+<dl>
+<dt>ECB (electronic code book)</dt>
+<dd>Split the message up into blocks of length <span>$n$</span>, compute <span>$F_k(m_i)$</span> for each block</dd>
+<dd>The simplest way probably; you just encrypt each block directly using the permutation</dd>
+<dd>Easy to parallelise</dd>
+<dd>Since this is deterministic, it's not CPA-secure</dd>
+<dd>In fact, it's not even indistinguishable in the presence of an eavesdropper (we could repeat blocks in one message, and not in the other)</dd>
+<dt>CBC (cipher-block chaining)</dt>
+<dd>Choose a random IV, set <span>$c_0 = IV$</span>, and let <span>$c_i = F_k(c_{i-1} \oplus m_i)$</span></dd>
+<dd>Send the IV in clear, and send all the other <span>$c_i$</span>s too</dd>
+<dd>Cannot be parallelised</dd>
+<dd>Must be padded to a multiple of the block size</dd>
+<dd>CPA-secure</dd>
+<dt>OFB (output feedback)</dt>
+<dd>Set <span>$r$</span> to a random IV, and use <span>$F(r)$</span> to generate a pseudorandom stream (<span>$F$</span> just has to be a function, not a permutation)</dd>
+<dd>Considered block-wise, we let <span>$r_0 = IV$</span>, <span>$r_i = F(r_{i-1})$</span>, then <span>$c_i = r_i \oplus m_i$</span></dd>
+<dd>Output: the IV, plus all the <span>$c$</span>s</dd>
+<dd>To decrypt, compute the <span>$r$</span>s, then XOR with the <span>$c$</span>'s</dd>
+<dd>Can be quick if you compute the <span>$r$</span>'s and whatever beforehand</dd>
+<dt>CTF (counter, the randomised variant)</dt>
+<dd><span>$r_0 = IV$</span>, <span>$r_i = F_k(IV + i)$</span></dd>
+<dd>Other than that, it's the same as OFB (again, <span>$F$</span> doesn't need to be a permutation)</dd>
+<dd>Supports <span>$O(1)$</span> random access for blocks</dd>
+<dd>Can be parallelised</dd>
+</dl>
+<p>The purpose of the IV is to ensure that <span>$F$</span> is always (with high probabiity) evaluate on a new input.</p>
+<p>The choice of block length matters! The probability of success for an adversary is <span>$\displaystyle \frac{1}{2} + \frac{q^2}{2^{n-1}}$</span> where <span>$n$</span> is the block length.</p>
+<h3 class="header"><i>3.7</i>Security against CCA<a class="headerlink" href="#security-against-cca" name="security-against-cca">&para;</a></h3>
+<p>In CCA, we assume the adversary has access to encryption and decryption oracles (except on the challenge ciphertext itself, obviously).</p>
+<p>Everything we've learned so far is vulnerable to this type of attack. To break the one-time pad variant that uses an IV, set <span>$m_0 = 0^n$</span> and <span>$m_1 = 1^n$</span>, get the ciphertext, flip the first bit, send that to be decrypted. The result will be either <span>$0111\ldots$</span> (so <span>$m_1$</span>) or <span>$1000\ldots$</span> (so <span>$m_0$</span>).</p>
+<h3 class="header"><i>3.8</i>Exercises<a class="headerlink" href="#exercises_2" name="exercises_2">&para;</a></h3>
+<dl>
+<dt>3.1</dt>
+<dd>Working with negligible functions. Not very interesting.</dd>
+<dt>3.2</dt>
+<dd>It takes <span>$2^{n^{1/3} (\log n)^{2/3}}$</span> clock cycles to factor an <span>$n$</span>-bit integer. In 100 years. at <span>$4\times 10^9$</span> clock cycles per second, we have <span>$4*10^9 * 60 * 60 * 24 * 365 * 100 = 12614400000000000000$</span> clock cycles. The log of this (base 2) is approximately 63.45. Then, <span>$n^{1/3} (\log n)^{2/3} \geq 63.45$</span>. Cubing both sides, we get that <span>$n (\log n)^2 \geq 255464$</span> and if we try a bunch of values for <span>$n$</span> we get that <span>$n = 355$</span> is the size of numbers that can't be factored for 100 years.</dd>
+<dt>3.3</dt>
+<dd>QH homework 2</dd>
+<dt>3.4</dt>
+<dd>QH homework 2</dd>
+<dt>3.5</dt>
+<dd>Not worth it</dd>
+<dt>3.6</dt>
+<dd>QH homework 2</dd>
+<dt>3.7</dt>
+<dd>What about the one-time-pad with the random IV thing? Mentioned in a <a href="#security-against-cca">previous section</a>.</dd>
+<dt>3.8</dt>
+<dd>Use the random function ...</dd>
+<dt>3.9</dt>
+<dd>To make it variable-length, what about taking <span>$n$</span> bits from the output and using them as the next input, concatenating the result, etc</dd>
+<dd>2010 Homework 3</dd>
+<dt>3.10</dt>
+<dd>Homework 3</dd>
+<dt>3.11</dt>
+<dd>You would have to check a substantial proportion of outputs, which can't be done in polynomial time?</dd>
+<dt>3.12</dt>
+<dd>Remove the negligible part. This is impossible because there is a certain number of messages, let's say <span>$k$</span>, which can correspond to the ciphertext, and we can just try encrypting them all. Now, if <span>$k$</span> is too large (larger than half of <span>$|\M|$</span>, for instance) we can just try the other messages instead. In any case, this can probably be done in polynomial time.</dd>
+<dt>3.13</dt>
+<dd>QH homework 4 (called "Additional problem 1")</dd>
+<dt>3.14</dt>
+<dd>To decrypt, compute <span>$F^{-1}_k(c)$</span> and ignore the first <span>$n/2$</span> bits. To prove that it's CPA-secure, show that if it weren't, it could be used as a distinguisher or something. Advantage: less stuff to send? Not sure.</dd>
+<dd>QH homework 5 (called "Additional problem 2")</dd>
+<dt>3.15</dt>
+<dd>Homework 3</dd>
+<dt>3.16</dt>
+<dd>Homework 3</dd>
+<dt>3.17</dt>
+<dt>3.18</dt>
+<dt>3.19</dt>
+<dt>3.20</dt>
+<dd>QH homework 4 (called "Additional problem 3")</dd>
+<dt>3.21</dt>
+<dd>QH homework 4 (called 3.18)</dd>
+<dd>Homework 3</dd>
+<dt>3.22</dt>
+<dd>QH homework 4 (called 3.19)</dd>
+</dl>
+<h2 class="header"><i>4</i>MACs and collision-resistant hash functions<a class="headerlink" href="#macs-and-collision-resistant-hash-functions" name="macs-and-collision-resistant-hash-functions">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Secure communication and message integrity<a class="headerlink" href="#secure-communication-and-message-integrity" name="secure-communication-and-message-integrity">&para;</a></h3>
+<p>We want to be able to ensure the integrity of messages. Secrecy is not important.</p>
+<h3 class="header"><i>4.2</i>Encryption vs message authentication<a class="headerlink" href="#encryption-vs-message-authentication" name="encryption-vs-message-authentication">&para;</a></h3>
+<p>Stream ciphers provide no integrity - just flip a bit in the ciphertext and you flip the same bit in the plaintext.</p>
+<p>For block ciphers, it depends on the mode. CTR and OFB are XOR, just like stream ciphers. With ECB, you can switch orders, or change blocks unpredictably. With CBC, flip a bit in the IV to flip the same bit in the first block (only).</p>
+<p>Also, with all of these schemes that we've learned so far, any possible ciphertext corresponds to some message, so it's easy to spoof.</p>
+<h3 class="header"><i>4.3</i>Message authentication codes - definitions<a class="headerlink" href="#message-authentication-codes-definitions" name="message-authentication-codes-definitions">&para;</a></h3>
+<p>A message authentication code is meant to allow tampering detection.</p>
+<dl>
+<dt>Gen</dt>
+<dd>Input <span>$1^n$</span>, output <span>$k$</span> where <span>$|k| \geq n$</span></dd>
+<dt>Mac</dt>
+<dd>Input <span>$k$</span> and <span>$m$</span>, output tag <span>$t$</span> (probabilistic)</dd>
+<dt>Vrfy</dt>
+<dd>Input <span>$k$</span>, <span>$m$</span> and <span>$t$</span>; output 1 if <span>$t$</span> is valid and 0 otherwise</dd>
+<dt>Correctness</dt>
+<dd>Vrfy always works on a tag that Mac generated</dd>
+</dl>
+<p>The notion of security here is <strong>existential unforgeability under an adaptive chosen message attack</strong>. <span>$A$</span> can request tags for any message. A break occurs when <span>$A$</span> can produce a message, along with its tag, which she has not submitted to the oracle; the probability of this happening must be negligible.</p>
+<p><strong>Replay attacks</strong>: Mac can't take care of this. Can be dealt with using timestamps or sequence numbers or whatever, but this should be dealt with by the application. More on p. 117.</p>
+<h3 class="header"><i>4.4</i>Constructing secure MACs<a class="headerlink" href="#constructing-secure-macs" name="constructing-secure-macs">&para;</a></h3>
+<p>Construction using pseudorandom functions: set the tag to be <span>$F_k(m)$</span>, for fixed-length messages. This is existentially unforgeable since if <span>$F$</span> were random it would be, and if it weren't, we would have a distinguisher etc. However, if we wanted to extend this to a variable-length scheme, it might not be secure, depending on how we do it. If we XOR all the blocks and authenticate that, then it's obviously not secure because someone can just flip an even number of the same bits for each block. Alternatively, if we authenticate each block separately and output each of the tags, then this is also insecure because we can just move blocks around and shit. Finally, we could authenticate each block along with some sort of sequence number, but then we could just drop blocks at the end or mix and match blocks from different messages.</p>
+<p>The correct way to do it is to split a message up into blocks of length <span>$n/4$</span>, compute random IV <span>$r$</span>, and compute <span>$Mac(r\|l\|i\|m_i)$</span> for each block <span>$i$</span> (so the random IV, the length of the message, the index, the message block). Then, output <span>$(r, t_1, \ldots, t_d)$</span> (the IV plus the tags for all of the blocks). Note that the message can't be longer than <span>$2^{n/4}$</span>, and can be padded to be exactly <span>$n/4$</span>. This is exist. unforge.; proof on p. 122-124. However, this is very inefficient; a more efficient scheme is CBC-MAC.</p>
+<h3 class="header"><i>4.5</i>CBC-MAC<a class="headerlink" href="#cbc-mac" name="cbc-mac">&para;</a></h3>
+<p>Only works for fixed-length message. Split the message up into <span>$l$</span> blocks of length <span>$n$</span> each, Let <span>$t_0 = 0^n$</span>, and let <span>$t_i = F_k(t_{i-1} \oplus m_i)$</span>. Return <span>$t_l$</span> (so only the last tag). This is better than the previous fixed-length MAC because this one can handle longer message.</p>
+<p>Note that the IV is fixed, unlike with CBC encryption. This is important! If the IV were random instead of <span>$0^n$</span>, it would not be secure.</p>
+<p>To extend this to variable-length messages, there are 3 techniques:</p>
+<ol>
+<li>Apply <span>$F$</span> to the length to get a key of length <span>$n$</span>, then do regular CBC-MAC (this ensures that different keys are used to authenticate messages of different length ... otherwise you could just add like one bit)</li>
+<li>Prepend the message's length to the message (appending doesn't work)</li>
+<li>Generate 2 different keys, <span>$k$</span> and <span>$k'$</span>. Let <span>$t = Mac_k(m)$</span>; output <span>$F_{k'}(t)$</span>.</li>
+</ol>
+<h3 class="header"><i>4.6</i>Collision-resistant hash functions<a class="headerlink" href="#collision-resistant-hash-functions" name="collision-resistant-hash-functions">&para;</a></h3>
+<p>A hash function has infinite domain and finite range (in our study). Collisions are of course present, but in a collision-resistant hash function, they should be rare. Characterised by two functions:</p>
+<dl>
+<dt>Gen</dt>
+<dd>Input <span>$1^n$</span>, output <span>$s$</span> (not necessarily chosen uniformly at random)</dd>
+<dt>H</dt>
+<dd>The hash function. Input: <span>$x$</span> of variable length; output: <span>$H^s(x)$</span> of length <span>$l(n)$</span> (so it depends on the security parameter), where <span>$H^s$</span> is kind of like a keyed function (though <span>$H$</span> might not be defined for all <span>$s$</span>).</dd>
+</dl>
+<p>For the fixed-length case, we just need that the input length is greater than the output length. Otherwise, it doesn't really compress anything so what's the point?</p>
+<p><strong>Collision-finding experiment</strong>: to define collision-resistance. <span>$A$</span> creates 2 strings, and wins if their hashes are identical. Note that <span>$A$</span> is allowed to use the hash function <span>$H^s$</span> as many times as <span>$A$</span> likes. The probability of <span>$A$</span> winning should be negl. (p. 129)</p>
+<p>Some weaker definitions (in order of increasing weakness)</p>
+<ul>
+<li>Second pre-image resistance: given <span>$s$</span> and <span>$x$</span>, find <span>$x'$</span> that collides with <span>$x$</span></li>
+<li>Pre-image resistance: hard to invert a hash (so it's a one-way function)</li>
+</ul>
+<h4 class="header"><i>4.6.1</i>Collision-finding attacks<a class="headerlink" href="#collision-finding-attacks" name="collision-finding-attacks">&para;</a></h4>
+<p><strong>Birthday attack</strong>: compute <span>$q$</span> messages of length <span>$2l$</span>, where <span>$l$</span> is the length of a hash. If <span>$q &gt; 2^l$</span> then obviously we have a collision, by the pigeonhole principle. If computing <span>$H$</span> is <span>$O(1)$</span>, then to resist this kind of attack for time <span>$T$</span> , the length must be <span>$2\log T$</span> bits. A drawback to this method is that a lot of memory is needed. Like, if the hashes are 64 bits, then we need billions of gigabytes just to store <span>$2^l$</span> hashes.</p>
+<p>There is another approach which uses a constant amount of memory. Pick a random <span>$x_0$</span>, compute <span>$x_i = H(x_{i-1})$</span> and <span>$H_{2i} = H(H(x_{2(i-1)}))$</span>. If <span>$x_i$</span> and <span>$x_{2i}$</span> are ever the same, then we most likely have a collision since then <span>$x_{i-1}$</span> and <span>$H_{x_{2(i-1)}}$</span> will be the same (unless <span>$x_i$</span> and <span>$x_{2i}$</span> are the same but that is unlikely). We only need to store <span>$x_i$</span> and <span>$x_{2i}$</span>, so the memory footprint is small; furthermore, this gives a collision with probability <span>$1/2$</span> in time polynomial to <span>$2^{l/2}$</span>.</p>
+<p>However, both approaches have the problem that we don't have control over the colliding message we find. If we want to create a certain type of message (say, a generic recommendation letter) then we can generate a bunch of possibilities that would work, and look for a collision with a message whose tag we have.</p>
+<h4 class="header"><i>4.6.2</i>The Merkle-Damgard transform<a class="headerlink" href="#the-merkle-damgard-transform" name="the-merkle-damgard-transform">&para;</a></h4>
+<p>Used for converting a fixed-length hash function to a variable length one. If it was collision resistant before, it will still be.</p>
+<dl>
+<dt>Gen</dt>
+<dd>Same as for the fixed-length hash</dd>
+<dt>H</dt>
+<dd>Given <span>$s$</span>, <span>$x$</span> of length <span>$L &lt; 2^{l(n)}$</span>, split up <span>$x$</span> into blocks (pad with 0's if necessary) and make a new block, containing <span>$L$</span> (encoded using <span>$l$</span> bits). Use an IV <span>$z_0$</span>. Compute <span>$z_i = h^2(z_{i-1}\|x_i)$</span> where <span>$h$</span> is the fixed-length hash function. At the end, output the last <span>$z$</span>.</dd>
+</dl>
+<p>The IV can be replaced by any constant. The proof of the collision-resistance is on p. 135.</p>
+<h3 class="header"><i>4.7</i>NMAC and HMAC<a class="headerlink" href="#nmac-and-hmac" name="nmac-and-hmac">&para;</a></h3>
+<p>Not covered</p>
+<h3 class="header"><i>4.8</i>Constructing CCA-secure encryption schemes<a class="headerlink" href="#constructing-cca-secure-encryption-schemes" name="constructing-cca-secure-encryption-schemes">&para;</a></h3>
+<p>Two keys: one for encryption, one for MAC. You encrypt and tag, recipient verifies tag before decrypting. Full def on p. 144.</p>
+<p>Now, if the encryption scheme is CPA-secure and the MAC is secure with unique tags, then the hybrid is CCA-secure. The proof is long (p. 145-147).</p>
+<p>Why did we need unique tags? Otherwise, A could modify <span>$t$</span> to <span>$t'$</span> so that we still get a valid tag, then just send <span>$(c, t')$</span> to the oracle (which is allowed). Note that this makes MAC functionally deterministic.</p>
+<h3 class="header"><i>4.9</i>Obtaining privacy and message authentication<a class="headerlink" href="#obtaining-privacy-and-message-authentication" name="obtaining-privacy-and-message-authentication">&para;</a></h3>
+<dl>
+<dt>Encrypt-and-authenticate</dt>
+<dd>send both the tag and the ciphertext in the clear</dd>
+<dd>Can be insecure (see p. 152)</dd>
+<dt>Authenticate-then-encrypt</dt>
+<dd>send the tag encrypted</dd>
+<dd>Also can be insecure (see p. 152)</dd>
+<dt>Encrypt-then-authenticate</dt>
+<dd>Authenticate the encrypted message</dd>
+<dd>Secure!</dd>
+</dl>
+<h4 class="header"><i>4.9.1</i>Message transmission scheme<a class="headerlink" href="#message-transmission-scheme" name="message-transmission-scheme">&para;</a></h4>
+<dl>
+<dt>Gen</dt>
+<dd>Outputs 2 keys, <span>$(k_1, k_2)$</span></dd>
+<dt>EncMac</dt>
+<dd>Input: keys, <span>$m$</span>; output: <span>$c$</span>, derived by calling some combination of Enc and MAC.</dd>
+<dt>Decryption</dt>
+<dd>Result is either <span>$m$</span> or "INVALID"</dd>
+</dl>
+<p>Correctness holds. Note that this is also a private-key encryption scheme, but it gives us integrity in addition to privacy so we call it a MTS. </p>
+<p><strong>Authenticated communication</strong>: in the experiment, A is given oracle access to EncMac, and has to try to output a ciphertext that has some valid decryption. We need the probability of this happening to be negl.</p>
+<p>Security is achieved if it's CCA-secure and achieves authenticated communication.</p>
+<p>Gotta use different keys for encryption and tagging.</p>
+<h3 class="header"><i>4.10</i>Exercises<a class="headerlink" href="#exercises_3" name="exercises_3">&para;</a></h3>
+<dl>
+<dt>4.1</dt>
+<dt>4.2</dt>
+<dd>QH homework 5</dd>
+<dt>4.3</dt>
+<dd>QH homework 5</dd>
+<dt>4.4</dt>
+<dd>Homework 4</dd>
+<dt>4.5</dt>
+<dt>4.5</dt>
+<dt>4.7</dt>
+<dd>Homework 4</dd>
+<dt>4.8</dt>
+<dd>Homework 4</dd>
+<dt>4.9</dt>
+<dd>Homework 4</dd>
+</dl>
+<p>Maybe look at some of the rest later</p>
+<h2 class="header"><i>5</i>Block ciphers<a class="headerlink" href="#block-ciphers" name="block-ciphers">&para;</a></h2>
+<p>Recall that a <strong>block cipher</strong> is a keyed permutation (takes in a key of length <span>$n$</span> and an input of length <span>$l$</span>; returns a bitstring of length <span>$l$</span>). <span>$n$</span> = key length, <span>$l$</span> = block length. These are set as fixed constants (and can be different). Block ciphers are strong pseudorandom permutations, NOT encryption schemes in themselves. With block ciphers, since we don't use a security parameter <span>$n$</span> (though the <span>$n$</span> and <span>$l$</span> can sort of be thought to be security parameters), we deal with asymptotic and not concrete security.'</p>
+<p>Any pseudorandom permutation is secure against CPA. A strong pseudorandom permutation is secure against CCA.</p>
+<h3 class="header"><i>5.1</i>Substitution-permutation networks<a class="headerlink" href="#substitution-permutation-networks" name="substitution-permutation-networks">&para;</a></h3>
+<dl>
+<dt>Goal</dt>
+<dd>Construct a concise function (can be described with few bits) that behaves like a random one.</dd>
+<dt>Confusion-diffusion</dt>
+<dd>confusion is when you take a block, and permute it to make it look completely different. Diffusion is when you somehow reorder the bits in the output. Also, confusion/diffusion steps - together called a round - are repeated several times. You can use different functions in each round (like, making them keyed), or fix them, or whatever.</dd>
+<dt>Substitution-permutation network</dt>
+<dd>basically confusion/diffusion but round functions are fixed. We assume all the S-boxes and mixing permutations are known. Only the key is secret.</dd>
+<dt>Master key</dt>
+<dd>the key to each block cipher (the same)</dd>
+<dt>Key schedule</dt>
+<dd>sub-keys that are XORed with intermediate results from each round (derived from master key)</dd>
+<dt>Invertibility of S-boxes</dt>
+<dd>if they are not invertible (not bijective), you can't decrypt</dd>
+<dt>Avalanche effect</dt>
+<dd>small changes in input have large changes in output.</dd>
+<dd>Guaranteed as long as two properties hold for S-boxes: changing 1 bit of input leads to changing 2 bits of output; also, output bits of any given S-box are spread into different S-boxes</dd>
+<dt>Randomly-chosen S-boxes</dt>
+<dd>These are actually a bad idea (top of p. 168)</dd>
+</dl>
+<p>These are pretty secure, but it depends on the number of rounds. Attacking a single-round network is easy; somewhat easy with 2-round (p. 169). 3-round is hard (p. 170)</p>
+<h3 class="header"><i>5.2</i>Feistel networks<a class="headerlink" href="#feistel-networks" name="feistel-networks">&para;</a></h3>
+<p>Similar to sub-perm, except the high-level design is different, and S-boxes don't have to be invertible. Obviously the function as a whole is invertible, though.</p>
+<p>For each round, the input is split up into the left half and the right half. The round function (not necessarily invertible) acts on the right half, taking a bitstring of length <span>$n/2$</span> and outputting one of the same length. Then, let the new right input (for the next round) be the previous left input XORed with the output of the round function, and let the new left input be the previous right input.</p>
+<p><strong>Mangler function</strong>: public, takes a subkey as input (or the master key if that's fixed)</p>
+<p>To decrypt, see p. 172.</p>
+<h3 class="header"><i>5.3</i>DES<a class="headerlink" href="#des" name="des">&para;</a></h3>
+<p>Secure except for its short bit length.</p>
+<p>16-round Feistel network, block length of 64, key length of 56. Each round function takes/outputs 32 bits. The key schedule is fixed and public, only the key is private. See p. 173 for more details.</p>
+<p>Mangler function: it, along with the <span>$i$</span>th subkey, determine the <span>$i$</span>th round function. This is basically a 1-round sub/perm network. Given a 32-bit string, it's somehow expanded to 48 (duplicating half the bits), then we XOR that with the key and split this up into 8 blocks.</p>
+<p>8 S-boxes: well-studied. All are permutations. Each maps a 6-bit string to a 4-bit string (4-1 function). Changing one input changes at least two bits of output.</p>
+<p>To attack single-round DES, see p. 177. Same for two-round, three-round.</p>
+<h3 class="header"><i>5.4</i>The security of DES<a class="headerlink" href="#the-security-of-des" name="the-security-of-des">&para;</a></h3>
+<p>Best known attack: brute force search. Can be done in mere days, or less. So the only real flaws are the short key length and, somewhat, its short block length.</p>
+<h3 class="header"><i>5.5</i>Increasing the key length of a block cipher<a class="headerlink" href="#increasing-the-key-length-of-a-block-cipher" name="increasing-the-key-length-of-a-block-cipher">&para;</a></h3>
+<p>Instead of modifying the internal structure of DES (we don't want to break it etc), we treat it as a black box. One solution to increase the key length to 112 is double encryption. Basically you choose two keys, encrypt message with the first key, and encrypt the ciphertext with the second key. Then concat the keys and that's your 112-bit key. But this can be broken in <span>$2^n$</span> time (where <span>$n=56$</span>), so this is no better (p. 183).</p>
+<p>Triple encryption: actually works. Either 3 diff keys, or 2 keys and make the third key depend on some formula (p. 184). </p>
+<h3 class="header"><i>5.6</i>AES<a class="headerlink" href="#aes" name="aes">&para;</a></h3>
+<p>Block length of 128 bits, can use keys of length 128, 192, 256. In each round, we derive a subkey of 128 bits from the master key, and keep it in a 4x4 array of bytes, XORed with the state. See p. 186 for more.</p>
+<h3 class="header"><i>5.7</i>Differential and linear cryptanalysis<a class="headerlink" href="#differential-and-linear-cryptanalysis" name="differential-and-linear-cryptanalysis">&para;</a></h3>
+<p>Skipped</p>
+<h3 class="header"><i>5.8</i>Exercises<a class="headerlink" href="#exercises_4" name="exercises_4">&para;</a></h3>
+<dl>
+<dt>5.10</dt>
+<dd>Homework 3</dd>
+<dt>5.14</dt>
+<dd>Homework 3</dd>
+</dl>
+<h2 class="header"><i>6</i>Theoretical constructions of pseudorandom objects<a class="headerlink" href="#theoretical-constructions-of-pseudorandom-objects" name="theoretical-constructions-of-pseudorandom-objects">&para;</a></h2>
+<p>SKIPPED</p>
+<h2 class="header"><i>7</i>Number theory<a class="headerlink" href="#number-theory" name="number-theory">&para;</a></h2>
+<dl>
+<dt>Discrete logarithms</dt>
+<dd>hard. hardest for prime order groups</dd>
+<dt>Diffie-Hellman</dt>
+<dd>Differentiate between <span>$(g^a, g^b, g^{ab})$</span> and <span>$(g^a, g^b, g^c)$</span> where <span>$a, b, c$</span> are randomly chosen</dd>
+<dd>also hard, and hardest for prime-order groups (p. 279)</dd>
+</dl>
+<h3 class="header"><i>7.1</i>Exercises<a class="headerlink" href="#exercises_5" name="exercises_5">&para;</a></h3>
+<dl>
+<dt>7.1</dt>
+<dd>Suppose <span>$e$</span> and <span>$e'$</span> are both identity elements. Then <span>$e = ee' = e'$</span> so lol yeah. To show that inverses are unique, let <span>$g$</span> be some random element with inverses <span>$h$</span> and <span>$h'$</span>. Then <span>$gh = 1$</span> and <span>$gh' = 1$</span>. Thus <span>$gh = gh'$</span>. Multiply by <span>$h$</span> and you get <span>$(gh)h = (gh)h'$</span> so <span>$h = h'$</span>.</dd>
+<dt>7.5</dt>
+<dd><a href="/COMP_547/summary/winter-2013/htsefp#winter-2010-question-3">See HTSEFP: Winter 2010, question 3</a></dd>
+<dt>7.6</dt>
+<dd><a href="/COMP_547/summary/winter-2013/htsefp#winter-2009-question-3">See HTSEFP: Winter 2009, question 3</a></dd>
+</dl>
+<h2 class="header"><i>8</i>Factoring and computing discrete logarithms<a class="headerlink" href="#factoring-and-computing-discrete-logarithms" name="factoring-and-computing-discrete-logarithms">&para;</a></h2>
+<p>SKIPPED</p>
+<p>may be interesting</p>
+<h2 class="header"><i>9</i>Private-key management and the public-key revolution<a class="headerlink" href="#private-key-management-and-the-public-key-revolution" name="private-key-management-and-the-public-key-revolution">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Limitations of private-key cryptography<a class="headerlink" href="#limitations-of-private-key-cryptography" name="limitations-of-private-key-cryptography">&para;</a></h3>
+<p>Have to store a lot of keys, have to deal with their secure distribution, etc</p>
+<h3 class="header"><i>9.2</i>A partial solution<a class="headerlink" href="#a-partial-solution" name="a-partial-solution">&para;</a></h3>
+<p>Key distribution centers (p. 318), for session keys. Problematic.</p>
+<h3 class="header"><i>9.3</i>The public-key revolution<a class="headerlink" href="#the-public-key-revolution" name="the-public-key-revolution">&para;</a></h3>
+<p>Asymmetry: an encryption key, and a decryption key. Uses one-way functions.</p>
+<h3 class="header"><i>9.4</i>Diffie-Hellman key exchange<a class="headerlink" href="#diffie-hellman-key-exchange" name="diffie-hellman-key-exchange">&para;</a></h3>
+<p>We define a rather weak notion of security (stronger definitions are outside the scope of the book). The key-exchange experiment goes like this:</p>
+<ol>
+<li>Alice and Bob execute <span>$\Pi$</span>, both get a copy of the key <span>$k$</span>.</li>
+<li>Eve is gets to see a transcript of all the messages sent between Alice and Bob.</li>
+<li>Eve is then given two possible keys: one that is <span>$k$</span>, and one that is chosen at random.</li>
+<li>Eve tries to guess which key is the real key.</li>
+</ol>
+<p>The key exchange scheme is <strong>secure in the presence of an eavesdropper</strong> if the probability of Eve winning is 1/2 + negl(n).</p>
+<p>The actual key exchange scheme that Diffie and Hellman proposed goes like this:</p>
+<ol>
+<li>Alice and Bob both get <span>$1^n$</span> (security parameter).</li>
+<li>Alice runs <span>$\mathcal G$</span> (PPT algo that outputs a cyclic group, its order of size <span>$n$</span>, and a generator), gets <span>$(\mathbb G, q, g)$</span>.</li>
+<li>Alice chooses <span>$x$</span> randomly from <span>$\mathbb Z_q$</span>, computes <span>$h_1 = g^x$</span>, sends all this shit to Bob</li>
+<li>Bob receives <span>$(\mathbb G, q, g, h_1)$</span>, chooses <span>$y$</span> randomly from <span>$\mathbb Z_q$</span>, computes <span>$h_2 = g^y$</span>, sends <span>$h_2$</span> to Alice, and saves the key <span>$k = h_1^y$</span></li>
+<li>Alice saves the key <span>$k = h_2^x$</span> (the same as Bob's)</li>
+</ol>
+<p>Obviously the discrete logarithm problem must be hard. But the decisional Diffie-Hellman (DDH) problem must be hard too, otherwise it would be possible to distinguish between <span>$g^{xy}$</span> and some random element, meaning that Eve would win. We can in fact prove that this key exchange protocol is secure in the presence of an eavesdropper (using the slightly modified assumption that the other possible key is a random group element, not just a random string) - see p.328-329.</p>
+<p>Unfortunately, DH is completely insecure against man-in-the-middle attacks.</p>
+<h3 class="header"><i>9.5</i>Exercises<a class="headerlink" href="#exercises_6" name="exercises_6">&para;</a></h3>
+<dl>
+<dt>9.1 - interactive protocol for key exchange</dt>
+<dd>Eve chooses two messages, <span>$m_0$</span> and <span>$m_1$</span>. Alice and Bob generate their key, and Eve can see any messages sent between them. Then Alice sends either the encryption of <span>$m_1$</span> or of <span>$m_0$</span>, and Eve has to guess which it was.</dd>
+<dt>9.2 - explain vulnerability to a man-in-the-middle attack</dt>
+<dd>Eve intercepts Alice's shit, chooses some random <span>$a$</span> and substitutes <span>$g^{a}$</span> for <span>$g^{x}$</span> in what Alice has sent and sends that to Bob. Bob computes <span>$g^y$</span> and sends that to Alice, then saves the key <span>$k_1 = g^{ay}$</span>. Eve intercepts Bob's shit, and sends <span>$g^{a}$</span> to Alice (pretending to be Bob). Then Alice saves the key <span>$k_2 = g^{ax}$</span>. Now, since Eve has both <span>$g^{x}$</span> and <span>$g^{y}$</span> (and chose <span>$a$</span>), she can easily compute <span>$k_1$</span> and <span>$k_2$</span>. So she can intercept all of Alice's messages, decrypt them, encrypt a new message (if she likes) using Bob's keys, and send that instead, etc.</dd>
+<dt>9.3</dt>
+<dd>Homework 4</dd>
+</dl>
+<h2 class="header"><i>10</i>Public-key encryption<a class="headerlink" href="#public-key-encryption" name="public-key-encryption">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Overview<a class="headerlink" href="#overview" name="overview">&para;</a></h3>
+<p>Advantages over private-key encryption:</p>
+<ul>
+<li>Solves the key distribution problem</li>
+<li>Single key for multiple users</li>
+</ul>
+<p>Disadvantages: slower. Also, we still need to ensure that Alice can securely send her public key to Bob without it getting altered by Eve along the way, but we will ignore that in this chapter.</p>
+<h3 class="header"><i>10.2</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<dl>
+<dt>Gen</dt>
+<dd>Input: <span>$1^n$</span>. Output: <span>$(pk, sk)$</span> (public, private); both have length at least <span>$n$</span> (<span>$n$</span> can be determined from the keys)</dd>
+<dt>Enc</dt>
+<dd>Given <span>$pk$</span> and <span>$m$</span>, outputs some ciphertext probabilistically</dd>
+<dt>Dec</dt>
+<dd>Given <span>$sk$</span> and <span>$c$</span>, outputs either the plaintext or "INVALID"</dd>
+</dl>
+<p>Note that correctness is only required with 1 minus some negligible probability. Which is weird.</p>
+<p><strong>CPA-security</strong>: We create the standard eavesdropping experiment, except A has the public key which means access to an encryption oracle. So indistinguishable encryptions in the presence of an eavesdropper implies CPA security.</p>
+<p>Can never be perfectly secret - with enough time, we could try all possible values of <span>$m$</span>, etc.</p>
+<p>For multiple encryptions, see p. 341. Indistinguishable implies, secure under multiple.</p>
+<p>For arbitrary-length messages, see p. 346.</p>
+<h3 class="header"><i>10.3</i>Hybrid encryption<a class="headerlink" href="#hybrid-encryption" name="hybrid-encryption">&para;</a></h3>
+<p>Use public key and private key methods together. Choose a key, encrypt it using Alice's public key, Alice can decrypt so now you have the same key, which you can use for private key encryption schemes. Useful when <span>$|m| &gt; n$</span>. Usually more efficient. Security analysis is done from p. 350-355.</p>
+<h3 class="header"><i>10.4</i>RSA encryption<a class="headerlink" href="#rsa-encryption" name="rsa-encryption">&para;</a></h3>
+<p>Textbook RSA is deterministic, thus not CPA secure. See p. 356. NO TIME.</p>
+<h3 class="header"><i>10.5</i>El Gamal<a class="headerlink" href="#el-gamal" name="el-gamal">&para;</a></h3>
+<p>Relies on hardness of DDH.</p>
+<dl>
+<dt>Gen</dt>
+<dd>Input <span>$1^n$</span>, public key is <span>$(\mathbb G, q, g, g^x)$</span>, private is <span>$(\mathbb G, q, g, x)$</span>.</dd>
+<dt>Enc</dt>
+<dd>Choose random <span>$y$</span>, return <span>$(g^y, g^{xy} \cdot m)$</span></dd>
+<dt>Dec</dt>
+<dd>Compute <span>$m = c_2 / c_1^x$</span>.</dd>
+</dl>
+<p>The proof of CPA-security is found on p. 366-367.</p>
+<h3 class="header"><i>10.6</i>Security against CCA<a class="headerlink" href="#security-against-cca_1" name="security-against-cca_1">&para;</a></h3>
+<dl>
+<dt>Malleable</dt>
+<dd>For example, given <span>$m$</span>, create <span>$2m$</span>. CCA-secure schemes are never malleable.</dd>
+</dl>
+<p>Definition: A has access to decryption oracle, outputs 2 messages (in the plaintext space for <span>$pk$</span>), is given a ciphertext <span>$c$</span>, and can continue to decrypt any message except <span>$c$</span> itself, then tries to guess which message was used. Probability should be 1/2 + negl.</p>
+<h3 class="header"><i>10.7</i>Exercises<a class="headerlink" href="#exercises_7" name="exercises_7">&para;</a></h3>
+<dl>
+<dt>10.1 - public-key encryption is not perfectly secret</dt>
+<dd>Well, obviously, an unbounded adversary can just encrypt every single message using the public key and see which one gives the ciphertext</dd>
+<dt>10.2 - determining the message in a small message space</dt>
+<dd>Homework 4</dd>
+<dt>10.3 - size of ciphertext, superlogarithmic in the security parameter</dt>
+<dd>Homework 4</dd>
+<dt>10.8 - popular choices of <span>$e$</span> and why</dt>
+<dd>Homework 5</dd>
+<dt>10.11 - CPA-security of El Gamal based on hardness of DDH</dt>
+<dd>Homework 5</dd>
+<dt>10.12 - hybrid encryption for El Gamal</dt>
+<dd>Homework 5</dd>
+<dt>10.17</dt>
+<dd>Homework 5</dd>
+</dl>
+<h2 class="header"><i>11</i>Additional public-key encryption schemes<a class="headerlink" href="#additional-public-key-encryption-schemes" name="additional-public-key-encryption-schemes">&para;</a></h2>
+<p>SKIPPED</p>
+<h2 class="header"><i>12</i>Digital signature schemes<a class="headerlink" href="#digital-signature-schemes" name="digital-signature-schemes">&para;</a></h2>
+<h3 class="header"><i>12.1</i>Overview<a class="headerlink" href="#overview_1" name="overview_1">&para;</a></h3>
+<p>The public-key counterpart to MACs for preserving message integrity. Advantage over MACs: publicly verifiable, don't need a secret key (and multiple secret keys for multiple recipients). Also, public verifiability implies transferability, so if <span>$A$</span> verifies <span>$B$</span>, and <span>$B$</span> verifies <span>$C$</span>, then anyone who trusts A can theoretically trust C too. Also, non-repudiability: if it looks like A signed something, then we can trust that A did indeed sign it</p>
+<h3 class="header"><i>12.2</i>Definitions<a class="headerlink" href="#definitions_1" name="definitions_1">&para;</a></h3>
+<dl>
+<dt>Gen</dt>
+<dd>Input: <span>$1^n$</span>; output: <span>$(pk, sk)$</span></dd>
+<dt>Sign</dt>
+<dd>Input: private key <span>$sk$</span>, message <span>$m$</span> of variable length. outputs signature <span>$\sigma$</span> (probabilistically)</dd>
+<dt>Vrfy</dt>
+<dd>Input: public key <span>$pk$</span>, message <span>$m$</span>, signature <span>$\sigma$</span>. outputs 1 if valid, 0 otherwise.</dd>
+</dl>
+<p>True correctness must be satisfied (obviously). Messages can't be modified without losing the validity of the signature, though replay attacks are still possible.</p>
+<p><strong>Definition of security</strong>: there is an experiment Sig-forge. A is given the public key and oracle access to Sign, then outputs a message (never sent to oracle) and proposed signature. The scheme is <strong>existentially unforgeable under an adaptive chosen-message attack</strong> if the probability of A outputting a valid sig is negl. (p. 425)</p>
+<h3 class="header"><i>12.3</i>RSA signature<a class="headerlink" href="#rsa-signature" name="rsa-signature">&para;</a></h3>
+<p>"Textbook" RSA:</p>
+<dl>
+<dt>Gen</dt>
+<dd>Run GenRSA to get <span>$(N, e, d)$</span>. Public key: <span>$(N, e)$</span>; private key: <span>$(N, d)$</span></dd>
+<dt>Sign</dt>
+<dd>Given a private key <span>$sk = (N, d)$</span> and message <span>$m$</span> (represented in the field of units, <span>$\mathbb Z^*_{N}$</span>), compute <span>$m^d \pmod N$</span>.</dd>
+<dt>Vrfy</dt>
+<dd>Given a public key <span>$pk = (N, e)$</span>, message <span>$m$</span>, and signature <span>$\sigma$</span>, compute <span>$\sigma^d \pmod N$</span> and return 1 if that's equal to <span>$m$</span>.</dd>
+</dl>
+<p>Correctness holds - recall that <span>$(m^d)^n \mod N = m^{ed \mod \varphi(N)} = m^1 = m \pmod N$</span></p>
+<h4 class="header"><i>12.3.1</i>Attacks on textbook RSA<a class="headerlink" href="#attacks-on-textbook-rsa" name="attacks-on-textbook-rsa">&para;</a></h4>
+<p>Highly insecure ...</p>
+<dl>
+<dt>No-message attack</dt>
+<dd>Choose an arbitrary <span>$\sigma$</span>, compute <span>$m = \sigma^e \pmod N$</span>.</dd>
+<dt>Arbitrary message forging</dt>
+<dd>Requires two signatures from the signer</dd>
+<dd>Want to sign <span>$m$</span>. Choose <span>$m_1$</span>, set <span>$m_2 = m / m_1$</span>, get signatures <span>$\sigma^1$</span> and <span>$\sigma^2$</span>. Then <span>$\sigma = \sigma_1 \cdot \sigma^2$</span> is a signature for <span>$m$</span>. Proof on p. 427</dd>
+</dl>
+<h4 class="header"><i>12.3.2</i>Hashed RSA<a class="headerlink" href="#hashed-rsa" name="hashed-rsa">&para;</a></h4>
+<p>Modification of textbook RSA to make it harder to attack. The message is hashed (with a good one-way hash function) before it is signed. To verify, compute <span>$H(m)$</span>, check if that is equal to <span>$\sigma^e$</span>.</p>
+<p>Obviously <span>$H$</span> must be collision-resistant. Sadly we don't know of any <span>$H$</span> that is proven to be secure.</p>
+<p>However, if we assume that <span>$H$</span> is not easily invertible, then the no-message attack is thwarted. Same for arbitrary message forging.</p>
+<h3 class="header"><i>12.4</i>The hash-and-sign paradigm<a class="headerlink" href="#the-hash-and-sign-paradigm" name="the-hash-and-sign-paradigm">&para;</a></h3>
+<p>Hashed RSA is useful in that we can now sign arbitrary-length bitstrings rather than just elements of <span>$\mathbb Z^*_N$</span>, by hashing them first.</p>
+<p>If we have some signature scheme that is existentially unforgeable under adaptive chosen-message attack, then if we add hashing into the mix, the result is also existentially unforgeable etc. Proof: p. 430.</p>
+<h3 class="header"><i>12.5</i>Lamport's one-time signature scheme<a class="headerlink" href="#lamports-one-time-signature-scheme" name="lamports-one-time-signature-scheme">&para;</a></h3>
+<p>Like the one-time pad. Secure only if it signs a single message.</p>
+<p>Security definition: in the experiment, A is given the pk and can ask the Sign oracle for a single signature. A then must output the signature for a different message. Probability of this happening must be negligible for the scheme to be <strong>existentially unforgeable under a single-message attack</strong>.</p>
+<p>It works like this: for messages of length <span>$l$</span>, we choose <span>$2l$</span> random values, feed them into some non-invertible function <span>$f$</span>, and put the inputs in one matrix <span>$X$</span> and the outputs in another, <span>$Y$</span> (both <span>$2 \times l$</span>). Then, given a message, for each bit <span>$i$</span>, if that bit is 0, choose the entry in <span>$X$</span> in the first row, second row is bit is 1 (in the <span>$i$</span>th column). To verify, use the matrix <span>$Y$</span> (which is the public key) and check that it all works out (p. 433)</p>
+<h3 class="header"><i>12.6</i>Signatures from collision-resistant hashing<a class="headerlink" href="#signatures-from-collision-resistant-hashing" name="signatures-from-collision-resistant-hashing">&para;</a></h3>
+<p>SKIPPED</p>
+<h3 class="header"><i>12.7</i>The digital signature standard<a class="headerlink" href="#the-digital-signature-standard" name="the-digital-signature-standard">&para;</a></h3>
+<p>Based on the hardness of discrete log, but no proof.</p>
+<dl>
+<dt>Gen</dt>
+<dd>Input <span>$1^n$</span>, generates <span>$(p, q, g)$</span> where <span>$p$</span> and <span>$q$</span> are primes with <span>$\|q\| = n$</span>, <span>$q\mid(p-1)$</span>, <span>$q^2 \not \mid (p-1)$</span>, and <span>$g$</span> is a generator of <span>$\mathbb Z^*_p$</span> with order <span>$q$</span>. Find some hash function with output length <span>$n$</span>. Choose <span>$x$</span> from <span>$\mathbb Z_q$</span> randomly, let <span>$y = g^x \pmod p$</span>. Public key: <span>$(H, p, q, g, y)$</span> and private key is <span>$(H, p, q, g, x)$</span>.</dd>
+<dt>Sign</dt>
+<dd>Choose some random <span>$k \in \mathbb Z_q^*$</span>, let <span>$r = (g^k \pmod p) \pmod q)$</span>. Then compute <span>$s = (H(m) + xr)\cdot k^{-1} \pmod q$</span>, output the signature <span>$(r, s)$</span>.</dd>
+<dt>Vrfy</dt>
+<dd>Compute <span>$u_1 = H(m)s^{-1} \pmod q$</span>, and <span>$u_2 = r\cdot s^{-1} \pmod q$</span>. Check if <span>$(g^{u_1}g^{u_2} \pmod p) \pmod q$</span> is equal to <span>$r$</span>.</dd>
+</dl>
+<p>See p. 446 for proof of correctness.</p>
+<h3 class="header"><i>12.8</i>Certificates and public-key infrastructures<a class="headerlink" href="#certificates-and-public-key-infrastructures" name="certificates-and-public-key-infrastructures">&para;</a></h3>
+<p>Bootstrapping. Single CA, versus multiple CAs, certificate chains. web of trust, </p>
+<p>Invalidating certificates: expiration (date on certificate), or revocation (serial number on certificate, users can check some website or something if a certificate is still valid)</p>
+<h3 class="header"><i>12.9</i>Exercises<a class="headerlink" href="#exercises_8" name="exercises_8">&para;</a></h3>
+<dl>
+<dt>12.4 - encoded RSA</dt>
+<dd>Homework 5</dd>
+<dt>12.5 - variable-length MAC vs hash-and-sign</dt>
+<dd>Homework 5</dd>
+</dl>
+<h2 class="header"><i>13</i>Identification<a class="headerlink" href="#identification" name="identification">&para;</a></h2>
+<p>Not in textbook. Almost exactly the same as signatures though. Ident: </p>
+<p>• An identiﬁcation scheme is used in the following way. One party Id , who acts as the identiﬁer, runs Gen(1n<br />
+) to obtain keys pk and share it with the other party, the veriﬁer. <br />
+• When Id wants to identify, a random challenge c is computed by the veriﬁer Vr using pk, Id computes and sends the response ρ ← Identpk(c).<br />
+•<br />
+Upon receipt of ρ, the Vr, who knows pk, can check whether Checkpk(c,ρ) ? = 1.</p>
+<p>Security of Private-Key identiﬁcation schemes</p>
+<p>The identiﬁcation experiment Ident-fakeA,Π(n): <br />
+1. Gen(1<sup>n</sup>)is run to obtain keys pk.<br />
+2. Adversary A is given pk and oracle access to Identpk(·).<br />
+Let Q denote the set of challenges whose identiﬁcation were <br />
+requested by A during its execution.<br />
+3. A challenge c←{0,1}<sup>n</sup> is randomly selected and given to A.<br />
+4. The adversary A then outputs ρ.<br />
+5. The output of the experiment is deﬁned to be 1 iff<br />
+(1) Checkpk(c,ρ) = 1, and (2) c ∉ Q</p>
+<p>Security of identiﬁcation schemes.<br />
+DEFINITION 12.2 An identiﬁcation scheme Π = (Gen,Ident,Check) is existentially unforgeable under an adaptive chosen-challenge attack if for all probabilistic polynomial-time adversaries A, there exists a negligible function negl such that: <br />
+Pr[Ident-fakeA,Π(n) = 1] ≤ negl(n).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

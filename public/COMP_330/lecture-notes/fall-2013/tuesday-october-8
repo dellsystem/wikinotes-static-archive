@@ -1,0 +1,185 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, October 8, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, October 8, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Duality
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>THESE NOTES HAVE NOT BEEN VERIFIED BY THE INSTRUCTOR. USE AT YOUR OWN RISK.</strong></p>
+<p>Kripke automata, stone duality, Brzozowski's algorithm. Detailed notes on duality are available <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/duality.pdf">here</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#sidebar-on-vector-spaces">1 Sidebar on vector spaces</a></li>
+<li><a href="#stone-duality-for-automata-theory">2 Stone duality for automata theory</a><ul>
+<li><a href="#kripke-automata">2.1 Kripke automata</a><ul>
+<li><a href="#introduction-to-tests">2.1.1 Introduction to tests</a></li>
+<li><a href="#creating-the-dual-machine">2.1.2 Creating the dual machine</a></li>
+<li><a href="#brzozowskis-algorithm">2.1.3 Brzozowski's algorithm</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Sidebar on vector spaces<a class="headerlink" href="#sidebar-on-vector-spaces" name="sidebar-on-vector-spaces">&para;</a></h2>
+<p><em>The below is just an introduction to duality via vector spaces, so don't worry too much about it.</em></p>
+<p>Let <span>$V$</span> be a vector space over <span>$\mathbb R$</span> of finite dimension <span>$n$</span>, and let <span>$\lambda$</span> be a linear map <span>$V \to \mathbb R$</span> (so <span>$\lambda(\alpha u + \beta v) = \alpha \lambda (u) + \beta \lambda (v)$</span>).</p>
+<p>The collection of all possible linear maps is itself an <span>$n$</span>-dimensional vector space, which we can call <span>$V^*$</span>. Let <span>$v_1, \ldots, v_n$</span> be a basis for <span>$V$</span>. Then a basis for <span>$V^*$</span> is given by <span>$\sigma_1, \ldots, \sigma_n$</span> where</p>
+<p><span>$$\sigma_i(v_j) = \begin{cases} 0 &amp; \text{if} &amp; i \neq j \\ 1 &amp; \text{if} &amp; i = j \end{cases}$$</span></p>
+<p><span>$V$</span> and <span>$V^*$</span> are isomorphic, but mirror images, if you will. Specifically, if <span>$M$</span> is a linear function <span>$V \to U$</span>, then <span>$M^*$</span> is a map <span>$U^* \to V^*$</span>. If <span>$\alpha \in U^*$</span> and <span>$v \in V$</span>, <span>$M^*(\alpha)(v) = \alpha(M(v))$</span>.</p>
+<p>So the <span>$^*$</span> is just the adjoint/transpose operator, really. Also, <span>$V^{**} \simeq V$</span> (canonical isomorphism).</p>
+<h2 class="header"><i>2</i>Stone duality for automata theory<a class="headerlink" href="#stone-duality-for-automata-theory" name="stone-duality-for-automata-theory">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Kripke automata<a class="headerlink" href="#kripke-automata" name="kripke-automata">&para;</a></h3>
+<p>Consider a Kripke automaton (or, Moore machine) -- there are buttons, and lights, which can be on or off. We can let the states be defined by the exact lights that are on, and transitions between states are governed by the buttons. Formally, we have <span>$(S, A, O, \delta, \gamma)$</span>, where:</p>
+<ul>
+<li><span>$S$</span>: states</li>
+<li><span>$A$</span>: alphabet, or actions</li>
+<li><span>$O$</span>: observations (lights)</li>
+<li><span>$\delta$</span>: transition function, <span>$S \times A \to S$</span></li>
+<li><span>$\gamma$</span>: the possible observations for each state, <span>$S \to \mathcal P(O)$</span></li>
+</ul>
+<h4 class="header"><i>2.1.1</i>Introduction to tests<a class="headerlink" href="#introduction-to-tests" name="introduction-to-tests">&para;</a></h4>
+<p>Tests/experiments that can be done:</p>
+<ul>
+<li>Any <span>$w \in O$</span> is a test (e.g., "is the blue light on")</li>
+<li>If <span>$t$</span> is a test and <span>$a\in A$</span> then <span>$at$</span> is a test (e.g., "press this button then check if the blue light is on")</li>
+</ul>
+<p>We can then have tests like <span>$abaccB$</span> where <span>$a, b, c$</span> are all actions and <span>$B$</span> is an observation.</p>
+<p>Let <span>$s \in S$</span> and let <span>$t$</span> be a test. We can define what it means to satisfy a test inductively. If <span>$t$</span> consists of just an observation, then <span>$s \models t$</span> (<span>$S$</span> satisfies <span>$t$</span>) if <span>$t \in \gamma(s)$</span>, i.e., if the observation <span>$t$</span> is a possibility from the state <span>$s$</span>. Now consider <span>$at$</span> for <span>$a \in A$</span>. <span>$s \models at$</span> if <span>$\delta(s, a) \models t$</span>. Furthermore, if <span>$w$</span> is a sequence of actions, then <span>$s \models wt$</span> if <span>$\delta^*(s, w) \models t$</span>. In other words, we perform all the actions of the test, then check if the observation is true.</p>
+<p>Two tests <span>$t_1$</span> and <span>$t_2$</span> are equivalent if <span>$\forall s \in S$</span>, <span>$s \models t_1 \iff s \models t_2$</span>.</p>
+<p>This defines an equivalence relation on tests. There are of course infinitely many tests<sup id="fnref:infinitely"><a href="#fn:infinitely" rel="footnote" title="You could just keep prepending actions, for instan...">1</a></sup>, but the number of equivalence classes has an upper bound of <span>$2^|S|$</span> since any test is fully specified by the subset of states that satisfy it. Formally, we define <span>$⟦t⟧ = \{s \mid s \models t\}$</span>. Then <span>$t_1 \sim t_2 \iff ⟦t_1⟧ = ⟦t_2⟧$</span>.</p>
+<p>In addition, we define an equivalence relation on states as follows: <span>$s_1 \equiv s_2$</span> if for all tests <span>$t$</span>, <span>$s_1 \models t \iff s_2 \models t$</span> (so two states are equivalent if there is no observable difference in behaviour between them that can be revealed by tests).</p>
+<h4 class="header"><i>2.1.2</i>Creating the dual machine<a class="headerlink" href="#creating-the-dual-machine" name="creating-the-dual-machine">&para;</a></h4>
+<p>Now, since there are finitely many equivalence classes for the equivalence relation on tests, we can create a dual machine which uses these equivalence classes for tests as states, and states as observations. We define this machine as <span>$K = (S', A, O', \delta', \gamma')$</span>:</p>
+<ul>
+<li><span>$S' = \text{Tests} / \sim$</span> (i.e., the equivalence classes for tests mentioned earlier)</li>
+<li><span>$O' = S$</span></li>
+<li><span>$\delta'([t], a) = [at]$</span><sup id="fnref:well-defined"><a href="#fn:well-defined" rel="footnote" title="We should probably show that this is well-defined....">2</a></sup></li>
+<li><span>$\gamma'([t]) = \{s \mid s \models t \} = ⟦t⟧$</span> as we defined earlier.</li>
+</ul>
+<p>This machine is similar to the original in many ways, except that it's backwards, in a sense.</p>
+<p>Now consider what happens if you take the dual of the dual machine. Do you get the original machine? Not quite - you get the minimal machine. Why is this? Well, recall our equivalence relation <span>$\equiv$</span> for states. If there are no pairs of states <span>$s$</span> and <span>$s'$</span> such that <span>$s \equiv s'$</span> (and <span>$s \neq s'$</span>), then the machine is minimal. But that's exactly what results from taking the dual twice!</p>
+<h4 class="header"><i>2.1.3</i>Brzozowski's algorithm<a class="headerlink" href="#brzozowskis-algorithm" name="brzozowskis-algorithm">&para;</a></h4>
+<p>We can formalise this method of obtaining the minimal machine as an algorithm, known as Brzozowski's algorithm (a mouthful of a name if I ever saw one). It works as follows:</p>
+<ol>
+<li>Take a DFA and reverse the arrows.</li>
+<li>Make the initial state final, and the final states initial. This produces a DFA.</li>
+<li>Determinise the NFA and take the reachable subset.</li>
+<li>Repeat steps 1-3 on the reachable subset.</li>
+<li>Rejoice, for you have created a minimal machine.</li>
+</ol>
+<p>Unfortunately, this algorithm isn't entirely practical - the running time is (potentially) exponential, which is much worse than other algorithms that accomplish the same thing<sup>which?</sup>. However, the median running time is pretty good.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:infinitely">
+<p>You could just keep prepending actions, for instance.&#160;<a href="#fnref:infinitely" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:well-defined">
+<p>We should probably show that this is well-defined. To do so, we'd have to show that when <span>$t_1 \sim t_2$</span>, then <span>$at_1 \sim at_2$</span>. Well: <span>$\forall s$</span>, <span>$s \models at_1 \iff \delta(s, a) \models t_1 \iff \delta(s, a) \models t_2 \iff s \models at_2$</span>. <span>$\blacksquare$</span>&#160;<a href="#fnref:well-defined" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

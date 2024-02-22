@@ -1,0 +1,151 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 30, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 30, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The rules of formal logic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Introduction to formal logic<a class="headerlink" href="#introduction-to-formal-logic" name="introduction-to-formal-logic">&para;</a></h2>
+<blockquote>
+<p>A <strong>formal proof</strong> is a finite collection of lines, each of which is a sequent (i.e. an expression of the form <span>$\Phi_1, ... \Phi_n \vdash \Psi$</span>, where each of <span>$\Phi_1, ... \Phi_n, \Psi$</span> is a formula; <span>$n=0$</span> is allowed), in a specific order and abiding by specific rules. Each line in a proof should either be valid by itself or should logically follow from one or more earlier lines.</p>
+</blockquote>
+<h2 class="header"><i>2</i>Structural rules<a class="headerlink" href="#structural-rules" name="structural-rules">&para;</a></h2>
+<p>Let <span>$\Gamma = \{ \Phi_1, ...\Phi_n \}$</span>. We then have the following structural rules:</p>
+<h3 class="header"><i>2.1</i>Monotonicity<a class="headerlink" href="#monotonicity" name="monotonicity">&para;</a></h3>
+<p><span>$$\frac{\Gamma \vdash \Psi}{\Gamma' \vdash \Psi}$$</span></p>
+<p>provided <span>$\Gamma \subseteq \Gamma'$</span> (so <span>$\Gamma'$</span> is a superset of <span>$\Gamma$</span>). So we can always increase the number of premises and reach the same conclusion we reached in an earlier line, as long as the earlier line is valid. This is true even if a contradiction occurs among the premises - after all, by material implication, <span>$\bot$</span> implies everything.</p>
+<h3 class="header"><i>2.2</i>Transitivity<a class="headerlink" href="#transitivity" name="transitivity">&para;</a></h3>
+<p><span>$$\displaylines{\Gamma \vdash \Psi \\ \frac{\Gamma, \Phi \vdash \Psi}{\Gamma \vdash \Psi}}$$</span></p>
+<p>So <span>$\Phi$</span> is basically a lemma.</p>
+<h3 class="header"><i>2.3</i>Deduction<a class="headerlink" href="#deduction" name="deduction">&para;</a></h3>
+<p>This one is really two rules, and is the only principle that is completely reversible.</p>
+<p><span>$$\frac{\Gamma \vdash \Phi \to \Psi}{\Gamma, \Phi \vdash \Psi} \quad \text{ and } \quad \frac{\Gamma, \Phi \vdash \Psi}{\Gamma \vdash \Phi \to \Psi}$$</span></p>
+<h3 class="header"><i>2.4</i>Contradiction<a class="headerlink" href="#contradiction" name="contradiction">&para;</a></h3>
+<p>Not completely necessary, but the more rules you have, the easier (and shorter) your proofs get. This rule is basically proof by contradiction - once you reach a contradictory conclusion, you know that the premises can't all be true.</p>
+<p><span>$$\frac{\Gamma, \Phi \vdash \Psi \land \neg \Psi}{\Gamma \vdash \neg \Phi}$$</span></p>
+<h3 class="header"><i>2.5</i>Tautology<a class="headerlink" href="#tautology" name="tautology">&para;</a></h3>
+<p>If <span>$\Phi_1 \land ... \land \Phi_n \to \Psi$</span> is a tautology, then we can put <span>$\Phi_1, ... \Phi_n \vdash \Psi$</span> in any line of any proof, no justification necessary.</p>
+<div class="ui divider"></div>
+<p>These rules don't really tell us much about the reasoning, but it's a good idea to keep them explicit. Note: the order of things on the left side is unimportant, although keeping them consistent may be less confusing.</p>
+<h2 class="header"><i>3</i>Valuation within predicate logic<a class="headerlink" href="#valuation-within-predicate-logic" name="valuation-within-predicate-logic">&para;</a></h2>
+<blockquote>
+<p><strong>Valuation</strong>: a function <span>$V: L_{\Sigma} \to \{\top, \bot\}$</span> with the same basic rules as in propositional logic so I'm not going to type them up again.</p>
+</blockquote>
+<p>Note that there is nothing in the definition preventing <span>$V(x = x) = \bot$</span> from being true, i.e. the definition of valuation says nothing about squality. So <span>$x=x$</span> may be an axiom, but it is certainly not a tautology (or even a formula - we can't even make a truth table for this because there are no valuations). On the other hand, <span>$Px \lor \neg Px$</span> is, where <span>$P$</span> is a unary predicate symbol.</p>
+<h2 class="header"><i>4</i>Rules for quantifiers<a class="headerlink" href="#rules-for-quantifiers" name="rules-for-quantifiers">&para;</a></h2>
+<h3 class="header"><i>4.1</i>For-all elimination<a class="headerlink" href="#for-all-elimination" name="for-all-elimination">&para;</a></h3>
+<p>You can put this in any line of a proof:</p>
+<p><span>$$\forall x \Phi(x) \to \Phi(t)$$</span></p>
+<p>"If it's true for anything, then it's true for any specific thing." Make sure to change the bound variable to something free, so you avoid a clash of variables.</p>
+<p>Examples:</p>
+<p><span>$$\forall x\exists y(\neg(x=y)) \to \exists y(\neg (x=y)) \,\checkmark$$</span></p>
+<p><span>$$\forall x \exists y (\neg (x=y)) \to \exists y(\neg(0 = y))\, \checkmark$$</span></p>
+<p><span>$$\forall x \exists y(\neg(x=y)) \to \exists y(\neg (x=SSz)) \,\checkmark$$</span></p>
+<p><span>$$\forall x \exists y(\neg(x=y)) \to \exists y (\neg (y=y)) \,\times$$</span></p>
+<p><span>$$\forall x \exists y (\neg(x=y)) \to \exists y (\neg(Sy=y)) \,\times$$</span></p>
+<p>The last two are invalid because of the clash of variable thing.</p>
+<div class="ui divider"></div>
+<p>More to come next lecture.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

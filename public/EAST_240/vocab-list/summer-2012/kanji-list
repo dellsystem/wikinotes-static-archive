@@ -1,0 +1,1504 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/EAST_240/">
+                EAST 240
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Kanji List
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Kanji List
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The mnemonics are mostly inspired by those in Heisig's Remembering the Kanji. They are usually little stories (that sometimes make little sense) designed to create a vivid image to aid in associating a sense to each kanji. The stronger mnemonics use the actual radicals of the kanji, but as we won't see all of them, some weaker mnemonics resort to simply using the appearance of the kanji.</p>
+<p>Onyomi and Kunyomi readings are taken directly from Nakama. Weirdly enough, there seems to be some inconsistencies between the book and other resources.</p>
+<p>The stroke order animations are taken from <a href="http://www.yamasa.org">The Yamasa Institute</a>'s <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SearchKanji3?OpenForm">Online Kanji Dictionary</a>, but have been optimized for faster loading.</p>
+<div class="toc">
+<ul>
+<li><a href="#mountain">1 山 Mountain</a></li>
+<li><a href="#daysun">2 日 Day/Sun</a></li>
+<li><a href="#rice-field">3 田 Rice Field</a></li>
+<li><a href="#person">4 人 Person</a></li>
+<li><a href="#rootbook">5 本 Root/Book</a></li>
+<li><a href="#river">6 川 River</a></li>
+<li><a href="#above">7 上 Above</a></li>
+<li><a href="#below">8 下 Below</a></li>
+<li><a href="#inside">9 中 Inside</a></li>
+<li><a href="#big">10 大 Big</a></li>
+<li><a href="#small">11 小 Small</a></li>
+<li><a href="#study">12 学 Study</a></li>
+<li><a href="#life">13 生 Life</a></li>
+<li><a href="#previous">14 先 Previous</a></li>
+<li><a href="#i-myself">15 私 I, myself</a></li>
+<li><a href="#one">16 一 One</a></li>
+<li><a href="#two">17 二 Two</a></li>
+<li><a href="#three">18 三 Three</a></li>
+<li><a href="#four">19 四 Four</a></li>
+<li><a href="#five">20 五 Five</a></li>
+<li><a href="#six">21 六 Six</a></li>
+<li><a href="#seven">22 七 Seven</a></li>
+<li><a href="#eight">23 八 Eight</a></li>
+<li><a href="#nine">24 九 Nine</a></li>
+<li><a href="#ten">25 十 Ten</a></li>
+<li><a href="#town">26 町 Town</a></li>
+<li><a href="#country">27 国 Country</a></li>
+<li><a href="#silver">28 銀 Silver</a></li>
+<li><a href="#to-go">29 行 To go</a></li>
+<li><a href="#moonmonth">30 月 Moon/Month</a></li>
+<li><a href="#fire">31 火 Fire</a></li>
+<li><a href="#water">32 水 Water</a></li>
+<li><a href="#tree">33 木 Tree</a></li>
+<li><a href="#gold">34 金 Gold</a></li>
+<li><a href="#soil">35 土 Soil</a></li>
+<li><a href="#day-of-the-week">36 曜 Day of the week</a></li>
+<li><a href="#year">37 年 Year</a></li>
+<li><a href="#timehour">38 時 Time/Hour</a></li>
+<li><a href="#intervalbetween">39 間 Interval/Between</a></li>
+<li><a href="#what">40 何 What</a></li>
+<li><a href="#now">41 今 Now</a></li>
+<li><a href="#week">42 週 Week</a></li>
+<li><a href="#middle">43 半 Middle</a></li>
+<li><a href="#minutepart">44 分 Minute/Part</a></li>
+<li><a href="#morning">45 朝 Morning</a></li>
+<li><a href="#afternoon">46 昼 Afternoon</a></li>
+<li><a href="#eveningnight">47 晩 Evening/Night</a></li>
+<li><a href="#nightevening">48 夜 Night/Evening</a></li>
+<li><a href="#every">49 毎 Every</a></li>
+<li><a href="#to-come">50 来 To come</a></li>
+<li><a href="#to-return">51 帰 To return</a></li>
+<li><a href="#to-eat">52 食 To eat</a></li>
+<li><a href="#to-drink">53 飲 To drink</a></li>
+<li><a href="#to-watch">54 見 To watch</a></li>
+<li><a href="#to-hear">55 聞 To hear</a></li>
+<li><a href="#to-read">56 読 To read</a></li>
+<li><a href="#to-talk">57 話 To talk</a></li>
+<li><a href="#to-write">58 書 To write</a></li>
+<li><a href="#to-get-out">59 出 To get out</a></li>
+<li><a href="#to-meet">60 会 To meet</a></li>
+<li><a href="#to-buy">61 買 To buy</a></li>
+<li><a href="#school">62 校 School</a></li>
+<li><a href="#language">63 語 Language</a></li>
+<li><a href="#to-make">64 作 To make</a></li>
+<li><a href="#endeavor">65 勉 Endeavor</a></li>
+<li><a href="#forcestrong">66 強 Force/Strong</a></li>
+<li><a href="#old">67 古 Old</a></li>
+<li><a href="#new">68 新 New</a></li>
+<li><a href="#highexpensive">69 高 High/Expensive</a></li>
+<li><a href="#cheap">70 安 Cheap</a></li>
+<li><a href="#low">71 低 Low</a></li>
+<li><a href="#long">72 長 Long</a></li>
+<li><a href="#short">73 短 Short</a></li>
+<li><a href="#bright">74 明 Bright</a></li>
+<li><a href="#dark">75 暗 Dark</a></li>
+<li><a href="#to-enter">76 入 To enter</a></li>
+<li><a href="#to-rise">77 起 To rise</a></li>
+<li><a href="#to-sleep">78 寝 To sleep</a></li>
+<li><a href="#to-begin">79 始 To begin</a></li>
+<li><a href="#to-end">80 終 To end</a></li>
+<li><a href="#right">81 右 Right</a></li>
+<li><a href="#left">82 左 Left</a></li>
+<li><a href="#outside">83 外 Outside</a></li>
+<li><a href="#front">84 前 Front</a></li>
+<li><a href="#noon">85 午 Noon</a></li>
+<li><a href="#behind">86 後 Behind</a></li>
+<li><a href="#name">87 名 Name</a></li>
+<li><a href="#company">88 社 Company</a></li>
+<li><a href="#public">89 公 Public</a></li>
+<li><a href="#garden">90 園 Garden</a></li>
+<li><a href="#shop">91 店 Shop</a></li>
+<li><a href="#tea">92 茶 Tea</a></li>
+<li><a href="#liquor">93 酒 Liquor</a></li>
+<li><a href="#meat">94 肉 Meat</a></li>
+<li><a href="#fish">95 魚 Fish</a></li>
+<li><a href="#bird">96 鳥 Bird</a></li>
+<li><a href="#cow">97 牛 Cow</a></li>
+<li><a href="#thing">98 物 Thing</a></li>
+<li><a href="#hundred">99 百 Hundred</a></li>
+<li><a href="#yen">100 円 Yen</a></li>
+<li><a href="#thousand">101 千 Thousand</a></li>
+<li><a href="#ten-thousand">102 万 Ten thousand</a></li>
+<li><a href="#field">103 野 Field</a></li>
+<li><a href="#vegetable">104 菜 Vegetable</a></li>
+<li><a href="#material">105 料 Material</a></li>
+<li><a href="#reason">106 理 Reason</a></li>
+<li><a href="#to-take">107 取 To take</a></li>
+<li><a href="#to-walk">108 歩 To walk</a></li>
+<li><a href="#to-use">109 使 To use</a></li>
+<li><a href="#to-lend">110 貸 To lend</a></li>
+<li><a href="#to-hold">111 持 To hold</a></li>
+<li><a href="#splendid-person-england">112 英 Splendid person, England</a></li>
+<li><a href="#friend">113 友 Friend</a></li>
+<li><a href="#plural-marker">114 達 Plural marker</a></li>
+<li><a href="#to-wait">115 待 To wait</a></li>
+<li><a href="#older-brother">116 兄 Older brother</a></li>
+<li><a href="#younger-brother">117 弟 Younger brother</a></li>
+<li><a href="#older-sister">118 姉 Older sister</a></li>
+<li><a href="#younger-sister">119 妹 Younger sister</a></li>
+<li><a href="#father">120 父 Father</a></li>
+<li><a href="#mother">121 母 Mother</a></li>
+<li><a href="#house">122 家 House</a></li>
+<li><a href="#tribe">123 族 Tribe</a></li>
+<li><a href="#man">124 男 Man</a></li>
+<li><a href="#woman">125 女 Woman</a></li>
+<li><a href="#child">126 子 Child</a></li>
+<li><a href="#eye">127 目 Eye</a></li>
+<li><a href="#ear">128 耳 Ear</a></li>
+<li><a href="#mouth">129 口 Mouth</a></li>
+<li><a href="#footleg">130 足 Foot/Leg</a></li>
+<li><a href="#hand">131 手 Hand</a></li>
+<li><a href="#to-put-on-to-arrive">132 着 To Put on, to Arrive</a></li>
+<li><a href="#to-know">133 知 To know</a></li>
+<li><a href="#to-ride">134 乗 To ride</a></li>
+<li><a href="#to-teach">135 教 To teach</a></li>
+<li><a href="#likelove">136 好 Like/Love</a></li>
+<li><a href="#to-live">137 住 To live</a></li>
+<li><a href="#place">138 所 Place</a></li>
+<li><a href="#spring">139 春 Spring</a></li>
+<li><a href="#summer">140 夏 Summer</a></li>
+<li><a href="#autumn">141 秋 Autumn</a></li>
+<li><a href="#winter">142 冬 Winter</a></li>
+<li><a href="#hot-weather">143 暑 Hot (weather)</a></li>
+<li><a href="#cold-weather">144 寒 Cold (weather)</a></li>
+<li><a href="#warm-and-nice">145 暖 Warm (and nice)</a></li>
+<li><a href="#cool-weather">146 涼 Cool (weather)</a></li>
+<li><a href="#hot-to-the-touch">147 熱 Hot (to the touch)</a></li>
+<li><a href="#cold-to-the-touch">148 冷 Cold (to the touch)</a></li>
+<li><a href="#warm">149 温 Warm</a></li>
+<li><a href="#origin-former">150 元 Origin, Former</a></li>
+<li><a href="#spirit-energy-mind">151 気 Spirit, Energy, Mind</a></li>
+<li><a href="#sickness-illness">152 病 Sickness, illness</a></li>
+<li><a href="#institution">153 院 Institution</a></li>
+<li><a href="#medicine-drugs">154 薬 Medicine, drugs</a></li>
+<li><a href="#to-rest">155 休 To rest</a></li>
+<li><a href="#body">156 体 Body</a></li>
+<li><a href="#times-frequency">157 回 Times, frequency</a></li>
+<li><a href="#degree-frequency">158 度 Degree, frequency</a></li>
+<li><a href="#to-wash">159 洗 To wash</a></li>
+<li><a href="#to-cut">160 切 To cut</a></li>
+<li><a href="#to-borrow">161 借 To borrow</a></li>
+<li><a href="#to-run">162 走 To run</a></li>
+<li><a href="#to-give-back">163 返 To give back</a></li>
+<li><a href="#weak">164 弱 Weak</a></li>
+<li><a href="#many">165 多 Many</a></li>
+<li><a href="#few">166 少 Few</a></li>
+<li><a href="#heaven">167 天 Heaven</a></li>
+<li><a href="#rain">168 雨 Rain</a></li>
+<li><a href="#snow">169 雪 Snow</a></li>
+<li><a href="#wind">170 風 Wind</a></li>
+<li><a href="#clear">171 晴 Clear</a></li>
+<li><a href="#east">172 東 East</a></li>
+<li><a href="#west">173 西 West</a></li>
+<li><a href="#south">174 南 South</a></li>
+<li><a href="#north">175 北 North</a></li>
+<li><a href="#direction-person-polite">176 方 Direction, Person (polite)</a></li>
+<li><a href="#to-think">177 思 To think</a></li>
+<li><a href="#to-say">178 言 To say</a></li>
+<li><a href="#electricity">179 電 Electricity</a></li>
+<li><a href="#vehicle">180 車 Vehicle</a></li>
+<li><a href="#capital">181 京 Capital</a></li>
+<li><a href="#previous_1">182 昨 Previous</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>山 Mountain<a class="headerlink" href="#mountain" name="mountain">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/001.png" title="Mountain" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B1%B1?OpenDocument" title="Mountain"><img alt="Stroke Animation for &quot;Mountain&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/001.gif" /></a><br />
+Notice the outline of a <strong>mountain</strong>.</p>
+<p><strong>kun</strong>: やま<br />
+<strong>on</strong>: サン</p>
+<ul>
+<li><strong>山</strong>田さん：　<strong>やま</strong>ださん <em>Mr. Yamada</em></li>
+<li>この<strong>山</strong>は大きいです。: この　<strong>やま</strong>は　おおきい　です。 <em>This mountain is big.</em></li>
+<li>富士<strong>山</strong>：　ふじ<strong>さん</strong> <em>Mount Fuji</em></li>
+</ul>
+<h2 class="header"><i>2</i>日 Day/Sun<a class="headerlink" href="#daysun" name="daysun">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/002.png" title="Day/Sun" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%97%A5?OpenDocument" title="Day/Sun"><img alt="Stroke Animation for &quot;Day/Sun&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/002.gif" /></a><br />
+You can perceive this as the <strong>sun</strong> and its reflection in the water.</p>
+<p><strong>kun</strong>: ひ、 び<br />
+<strong>on</strong>: ニチ、 ニ、 ジツ、 カ</p>
+<ul>
+<li>誕生<strong>日</strong>：　たんじょう<strong>び</strong>　<em>Birthday</em></li>
+<li><strong>日</strong>曜<strong>日</strong>：　<strong>にち</strong>よう<strong>び</strong> <em>Sunday</em></li>
+<li><strong>日</strong>本：　<strong>に</strong>ほん　<em>Japan</em></li>
+</ul>
+<h2 class="header"><i>3</i>田 Rice Field<a class="headerlink" href="#rice-field" name="rice-field">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/003.png" title="Rice Field" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%94%B0?OpenDocument" title="Rice Field"><img alt="Stroke Animation for &quot;Rice Field&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/003.gif" /></a><br />
+It looks like a <strong>rice field</strong> divided into four plots.</p>
+<p><strong>kun</strong>: た<br />
+<strong>on</strong>: デン</p>
+<ul>
+<li>私の名前は山<strong>田</strong>です: わたしの　なまえは　やま<strong>だ</strong>です。 <em>My name is Yamada</em></li>
+</ul>
+<h2 class="header"><i>4</i>人 Person<a class="headerlink" href="#person" name="person">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/004.png" title="Person" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BA%BA?OpenDocument" title="Person"><img alt="Stroke Animation for &quot;Person&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/004.gif" /></a><br />
+It represents a <strong>person</strong> walking outwards (more obvious with the handwritten version).</p>
+<p><strong>kun</strong>: ひと<br />
+<strong>on</strong>: ジン、 ニン</p>
+<ul>
+<li>カナダ<strong>人</strong>：　かなだ<strong>じん</strong>　<em>Someone from Canada</em></li>
+<li>一<strong>人</strong>、　二<strong>人</strong>、　三<strong>人</strong>。。。：　ひと<strong>り</strong>、　ふた<strong>り</strong>、　さん<strong>にん</strong>　<em>One person, two people, three people...</em></li>
+<li>会社の<strong>人</strong>と昼ごはんを食べました：　かいしゃの　<strong>ひと</strong>と　ひるごはんを　たべました。 <em>I had dinner with some people from the company.</em></li>
+</ul>
+<h2 class="header"><i>5</i>本 Root/Book<a class="headerlink" href="#rootbook" name="rootbook">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/005.png" title="Root/Book" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9C%AC?OpenDocument" title="Root/Book"><img alt="Stroke Animation for &quot;Root/Book&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/005.gif" /></a><br />
+Emphasis on the <strong>root</strong> of a tree with the small horizontal line.</p>
+<p><strong>kun</strong>: もと<br />
+<strong>on</strong>: ホン、 ボン、 ポン</p>
+<ul>
+<li><strong>本</strong>を読みます：　<strong>ほん</strong>を　よみます。　<em>Reading a book.</em></li>
+<li>日<strong>本</strong>：　に<strong>ほん</strong>　<em>Japan (Origin of the sun)</em></li>
+<li>末<strong>本</strong>さん：　まつ<strong>もと</strong>さん</li>
+</ul>
+<h2 class="header"><i>6</i>川 River<a class="headerlink" href="#river" name="river">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/006.png" title="River" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B7%9D?OpenDocument" title="River"><img alt="Stroke Animation for &quot;River&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/006.gif" /></a><br />
+The vertical line in the middle is like the stream of the <strong>river</strong> between the two shores.</p>
+<p><strong>kun</strong>: かわ、 がわ<br />
+<strong>on</strong>: セン</p>
+<ul>
+<li>山<strong>川</strong>さん：　やま<strong>がわ</strong>さん</li>
+<li>サントローレンス<strong>川</strong>：　サントローレンス<strong>がわ</strong>　<em>Saint Lawrence River</em></li>
+</ul>
+<h2 class="header"><i>7</i>上 Above<a class="headerlink" href="#above" name="above">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/007.png" title="Above" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%8A?OpenDocument" title="Above"><img alt="Stroke Animation for &quot;Above&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/007.gif" /></a><br />
+Magic wand standing "magically" <strong>above</strong> the floor.</p>
+<p><strong>kun</strong>: うえ、 かみ<br />
+<strong>on</strong>: ジョウ</p>
+<ul>
+<li>つくえの<strong>上</strong>にえんぴつがあります：　つくえの　<strong>うえ</strong>に　えんぴつが　あります。　<em>There is a pencil on the table.</em></li>
+</ul>
+<h2 class="header"><i>8</i>下 Below<a class="headerlink" href="#below" name="below">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/008.png" title="Below" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%8B?OpenDocument" title="Below"><img alt="Stroke Animation for &quot;Below&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/008.gif" /></a><br />
+Magic wand hanging on its own, <strong>below</strong> the ceiling.</p>
+<p><strong>kun</strong>: した、 くだ<br />
+<strong>on</strong>: ゲ、 カ</p>
+<ul>
+<li>地<strong>下</strong>鉄：　ち<strong>か</strong>てつ <em>Underground train</em></li>
+<li>テーブルの<strong>下</strong>にねこがいます：　テーブルの　<strong>した</strong>に　ねこが　います。　<em>There is a cat under the table.</em></li>
+<li>これを<strong>下</strong>さい：　これを　<strong>くだ</strong>さい。 <em>I'll have this, please.</em></li>
+</ul>
+<h2 class="header"><i>9</i>中 Inside<a class="headerlink" href="#inside" name="inside">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/009.png" title="Inside" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%AD?OpenDocument" title="Inside"><img alt="Stroke Animation for &quot;Inside&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/009.gif" /></a><br />
+Cutting something open to see the <strong>inside</strong>.</p>
+<p><strong>kun</strong>: なか<br />
+<strong>on</strong>: チュウ</p>
+<ul>
+<li>去年<strong>中</strong>国に来ました：　きょねん　<strong>ちゅう</strong>ごくに　きました。　<em>I went to China last year.</em></li>
+<li>ビルの<strong>中</strong>に男の人がいます：　ビルの　<strong>なか</strong>に　おとこのこ　が　います。　<em>There is a man inside the building.</em></li>
+</ul>
+<h2 class="header"><i>10</i>大 Big<a class="headerlink" href="#big" name="big">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/010.png" title="Big" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%A7?OpenDocument" title="Big"><img alt="Stroke Animation for &quot;Big&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/010.gif" /></a><br />
+A fisherman telling how <strong>big</strong> the fish he caught was.</p>
+<p><strong>kun</strong>: おお （きい）<br />
+<strong>on</strong>: ダイ</p>
+<ul>
+<li><strong>大</strong>学生：　<strong>だい</strong>がくせい　<em>University student</em></li>
+<li>その<strong>大きい</strong>建物は図書館です：　その　<strong>おおきい</strong>　たてものは　としょかん　です。 <em>That big building is the library.</em></li>
+</ul>
+<h2 class="header"><i>11</i>小 Small<a class="headerlink" href="#small" name="small">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/011.png" title="Small" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B0%8F?OpenDocument" title="Small"><img alt="Stroke Animation for &quot;Small&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/011.gif" /></a><br />
+Three <strong>little</strong> drops (the first, in the middle, being larger to give shape to the kanji)</p>
+<p><strong>kun</strong>: ちい （さい）、 お<br />
+<strong>on</strong>: ショウ</p>
+<ul>
+<li><strong>小</strong>学校：　<strong>しょう</strong>がっこう　<em>Elementary school</em></li>
+<li>この<strong>小さい</strong>ねこは私のです：　この　<strong>ちいさい</strong>　ねこは　わたしの　です。　<em>This small cat is mine.</em></li>
+</ul>
+<h2 class="header"><i>12</i>学 Study<a class="headerlink" href="#study" name="study">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/012.png" title="Study" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AD%A6?OpenDocument" title="Study"><img alt="Stroke Animation for &quot;Study&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/012.gif" /></a><br />
+Child <strong>studying</strong> under the roof of a school.</p>
+<p><strong>kun</strong>: まな （ぶ）<br />
+<strong>on</strong>: ガク、 ガッ</p>
+<ul>
+<li><strong>学</strong>生：　<strong>がく</strong>せい <em>Student</em></li>
+<li><strong>学</strong>校：　<strong>がっ</strong>こう <em>School</em></li>
+</ul>
+<h2 class="header"><i>13</i>生 Life<a class="headerlink" href="#life" name="life">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/013.png" title="Life" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%94%9F?OpenDocument" title="Life"><img alt="Stroke Animation for &quot;Life&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/013.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: なま<br />
+<strong>on</strong>: セイ</p>
+<ul>
+<li>先<strong>生</strong>：　せん<strong>せい</strong>　<em>Teacher</em></li>
+<li>誕<strong>生</strong>日：　たん<strong>じょう</strong>び <em>Birthday</em></li>
+</ul>
+<h2 class="header"><i>14</i>先 Previous<a class="headerlink" href="#previous" name="previous">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/014.png" title="Previous" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%88?OpenDocument" title="Previous"><img alt="Stroke Animation for &quot;Previous&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/014.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: さき<br />
+<strong>on</strong>: セン</p>
+<ul>
+<li><strong>先</strong>生：　<strong>せん</strong>せい　<em>Teacher</em></li>
+<li><strong>先</strong>のバスは早かったです：　<strong>さき</strong>の　バスは　はやかったです。 <em>The previous bus was early.</em></li>
+</ul>
+<h2 class="header"><i>15</i>私 I, myself<a class="headerlink" href="#i-myself" name="i-myself">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/015.png" title="I, myself" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%A7%81?OpenDocument" title="I, myself"><img alt="Stroke Animation for &quot;I, myself&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/015.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: わたし、 わたくし<br />
+<strong>on</strong>: シ</p>
+<ul>
+<li><strong>私</strong>の名前は田中です：　<strong>わたし</strong>の　なまえは　たなか　です。　<em>My name is Tanaka.</em></li>
+</ul>
+<h2 class="header"><i>16</i>一 One<a class="headerlink" href="#one" name="one">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/016.png" title="One" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%80?OpenDocument" title="One"><img alt="Stroke Animation for &quot;One&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/016.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ひと （つ）<br />
+<strong>on</strong>: イチ</p>
+<ul>
+<li><strong>一</strong>日：　<strong>いち</strong>にち <em>A day's worth</em></li>
+<li><strong>一</strong>人：　<strong>ひと</strong>り <em>One person</em></li>
+<li>一日：　ついたち <em>First day of the month</em></li>
+</ul>
+<h2 class="header"><i>17</i>二 Two<a class="headerlink" href="#two" name="two">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/017.png" title="Two" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BA%8C?OpenDocument" title="Two"><img alt="Stroke Animation for &quot;Two&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/017.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ふた （つ）<br />
+<strong>on</strong>: ニ</p>
+<ul>
+<li><strong>二</strong>時：　<strong>に</strong>じ <em>2:00:00</em></li>
+<li>二日：　ふつか <em>Second day of the month</em></li>
+<li><strong>二</strong>人：　<strong>ふた</strong>り <em>Two people</em></li>
+</ul>
+<h2 class="header"><i>18</i>三 Three<a class="headerlink" href="#three" name="three">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/018.png" title="Three" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%89?OpenDocument" title="Three"><img alt="Stroke Animation for &quot;Three&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/018.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: み、 みっ （つ）<br />
+<strong>on</strong>: サン</p>
+<ul>
+<li><strong>三</strong>時: <strong>さん</strong>じ <em>3:00:00</em></li>
+<li>三日：　みっか <em>Third day of the month</em></li>
+<li><strong>三</strong>人：　<strong>さん</strong>にん <em>Three people</em></li>
+</ul>
+<h2 class="header"><i>19</i>四 Four<a class="headerlink" href="#four" name="four">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/019.png" title="Four" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%9B%9B?OpenDocument" title="Four"><img alt="Stroke Animation for &quot;Four&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/019.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: よ、 よん、 よっ （つ）<br />
+<strong>on</strong>: シ</p>
+<ul>
+<li>一、二、三、<strong>四</strong>：　いち、に、さん、<strong>し</strong> <em>1,2,3,4</em></li>
+<li><strong>四</strong>時：　よじ <em>4:00:00</em></li>
+<li><strong>四</strong>日：　<strong>よっ</strong>か <em>Fourth day of the month</em></li>
+</ul>
+<h2 class="header"><i>20</i>五 Five<a class="headerlink" href="#five" name="five">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/020.png" title="Five" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BA%94?OpenDocument" title="Five"><img alt="Stroke Animation for &quot;Five&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/020.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: いつ （つ）<br />
+<strong>on</strong>: ゴ</p>
+<ul>
+<li><strong>五</strong>時：　<strong>ご</strong>じ <em>5:00:00</em></li>
+<li><strong>五</strong>日：　<strong>いつ</strong>か <em>Fifth day of the month</em></li>
+</ul>
+<h2 class="header"><i>21</i>六 Six<a class="headerlink" href="#six" name="six">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/021.png" title="Six" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%AD?OpenDocument" title="Six"><img alt="Stroke Animation for &quot;Six&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/021.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: むっ（つ）<br />
+<strong>on</strong>: ロク</p>
+<ul>
+<li><strong>六</strong>時<strong>六</strong>分：　<strong>ろく</strong>じ<strong>ろっ</strong>ぷん <em>6:06:00</em></li>
+<li><strong>六</strong>日：　<strong>むい</strong>か <em>6th day of the month</em></li>
+</ul>
+<h2 class="header"><i>22</i>七 Seven<a class="headerlink" href="#seven" name="seven">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/022.png" title="Seven" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%83?OpenDocument" title="Seven"><img alt="Stroke Animation for &quot;Seven&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/022.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: なな （つ）<br />
+<strong>on</strong>: シチ</p>
+<ul>
+<li><strong>七</strong>時：　<strong>しち</strong>じ <em>7:00:00</em></li>
+<li><strong>七</strong>号：　<strong>なな</strong>ごう <em>[Model] Number 07</em></li>
+<li><strong>七</strong>日：　<strong>なの</strong>か <em>Seventh day</em></li>
+</ul>
+<h2 class="header"><i>23</i>八 Eight<a class="headerlink" href="#eight" name="eight">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/023.png" title="Eight" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%AB?OpenDocument" title="Eight"><img alt="Stroke Animation for &quot;Eight&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/023.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: やっ （つ）<br />
+<strong>on</strong>: ハチ、 ハッ</p>
+<ul>
+<li><strong>八</strong>時八分：　<strong>はち</strong>じ<strong>はっ</strong>ぶん <em>8:08:00</em></li>
+<li><strong>八日：　</strong>よう<em><em>か </em>Eight day of the month</em></li>
+</ul>
+<h2 class="header"><i>24</i>九 Nine<a class="headerlink" href="#nine" name="nine">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/024.png" title="Nine" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B9%9D?OpenDocument" title="Nine"><img alt="Stroke Animation for &quot;Nine&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/024.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ここの （つ）<br />
+<strong>on</strong>: キュウ、 ク</p>
+<h2 class="header"><i>25</i>十 Ten<a class="headerlink" href="#ten" name="ten">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/025.png" title="Ten" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8D%81?OpenDocument" title="Ten"><img alt="Stroke Animation for &quot;Ten&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/025.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: とお<br />
+<strong>on</strong>: ジュウ</p>
+<h2 class="header"><i>26</i>町 Town<a class="headerlink" href="#town" name="town">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/026.png" title="Town" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%94%BA?OpenDocument" title="Town"><img alt="Stroke Animation for &quot;Town&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/026.gif" /></a><br />
+Every <strong>town</strong> must be hooked to a steady income of food for its citizens to survive.</p>
+<p><strong>kun</strong>: まち<br />
+<strong>on</strong>: チョウ</p>
+<ul>
+<li>山の上に小さい<strong>町</strong>があります：　やまの　うえに　ちいさい　<strong>まち</strong>が　あります。 <em>Atop of the mountain, there is a small <strong>town</strong>.</em></li>
+</ul>
+<h2 class="header"><i>27</i>国 Country<a class="headerlink" href="#country" name="country">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/027.png" title="Country" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%9B%BD?OpenDocument" title="Country"><img alt="Stroke Animation for &quot;Country&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/027.gif" /></a><br />
+A <strong>country</strong> is usually a sovereign power delimited by a frontier.</p>
+<p><strong>kun</strong>: くに<br />
+<strong>on</strong>: コク、 ゴク</p>
+<ul>
+<li>お<strong>国</strong>はどちらですか：　お<strong>くに</strong>は　どちら　ですか。 <em>Which is your <strong>country</strong>?</em></li>
+</ul>
+<h2 class="header"><i>28</i>銀 Silver<a class="headerlink" href="#silver" name="silver">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/028.png" title="Silver" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%8A%80?OpenDocument" title="Silver"><img alt="Stroke Animation for &quot;Silver&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/028.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: ギン</p>
+<ul>
+<li><strong>銀</strong>行：　<strong>ぎん</strong>こう</li>
+</ul>
+<h2 class="header"><i>29</i>行 To go<a class="headerlink" href="#to-go" name="to-go">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/029.png" title="To go" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%A1%8C?OpenDocument" title="To go"><img alt="Stroke Animation for &quot;To go&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/029.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: い （く）<br />
+<strong>on</strong>: コウ</p>
+<ul>
+<li>銀<strong>行</strong>に<strong>行</strong>きましょう：　ぎん<strong>こう</strong>に　<strong>い</strong>きましょう。　<em>Let's go to the bank.</em></li>
+</ul>
+<h2 class="header"><i>30</i>月 Moon/Month<a class="headerlink" href="#moonmonth" name="moonmonth">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/030.png" title="Moon/Month" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9C%88?OpenDocument" title="Moon/Month"><img alt="Stroke Animation for &quot;Moon/Month&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/030.gif" /></a><br />
+Try to see the two vertical strokes as the two ears of the Moon Rabbit (its ears indeed point downwards!).</p>
+<p><strong>kun</strong>: つき<br />
+<strong>on</strong>: ゲツ、 ガツ</p>
+<ul>
+<li><strong>月</strong>曜日：　<strong>げつ</strong>ようび</li>
+<li>何<strong>月</strong>：　なん<strong>がつ</strong></li>
+<li>毎<strong>月</strong>：　まい<strong>つき</strong></li>
+<li>毎<strong>月</strong>：　まい<strong>げつ</strong></li>
+</ul>
+<h2 class="header"><i>31</i>火 Fire<a class="headerlink" href="#fire" name="fire">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/031.png" title="Fire" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%81%AB?OpenDocument" title="Fire"><img alt="Stroke Animation for &quot;Fire&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/031.gif" /></a><br />
+A sparkling flame.</p>
+<p><strong>kun</strong>: ひ<br />
+<strong>on</strong>: カ</p>
+<ul>
+<li><strong>火</strong>曜日：　<strong>か</strong>ようび</li>
+</ul>
+<h2 class="header"><i>32</i>水 Water<a class="headerlink" href="#water" name="water">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/032.png" title="Water" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%B0%B4?OpenDocument" title="Water"><img alt="Stroke Animation for &quot;Water&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/032.gif" /></a><br />
+Squeezing a river to get water.</p>
+<p><strong>kun</strong>: みず<br />
+<strong>on</strong>: スイ</p>
+<ul>
+<li><strong>水</strong>曜日：　<strong>すい</strong>ようび </li>
+<li><strong>水</strong>を飲む：　<strong>みず</strong>を　のむ。</li>
+</ul>
+<h2 class="header"><i>33</i>木 Tree<a class="headerlink" href="#tree" name="tree">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/033.png" title="Tree" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9C%A8?OpenDocument" title="Tree"><img alt="Stroke Animation for &quot;Tree&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/033.gif" /></a><br />
+A small tree and its gigantic roots in the soil.</p>
+<p><strong>kun</strong>: き<br />
+<strong>on</strong>: モキ</p>
+<ul>
+<li><strong>木</strong>曜日：　<strong>もく</strong>ようび</li>
+<li>高<strong>木</strong>：　たか<strong>ぎ</strong> <em>Tall tree</em></li>
+</ul>
+<h2 class="header"><i>34</i>金 Gold<a class="headerlink" href="#gold" name="gold">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/034.png" title="Gold" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%87%91?OpenDocument" title="Gold"><img alt="Stroke Animation for &quot;Gold&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/034.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: かね<br />
+<strong>on</strong>: キン</p>
+<ul>
+<li>金曜日：　きんようび</li>
+<li>お金：　おかね</li>
+</ul>
+<h2 class="header"><i>35</i>土 Soil<a class="headerlink" href="#soil" name="soil">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/035.png" title="Soil" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%9C%9F?OpenDocument" title="Soil"><img alt="Stroke Animation for &quot;Soil&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/035.gif" /></a><br />
+Like that big cross sitting on the <strong>soil</strong> of Mount Royal.</p>
+<p><strong>kun</strong>: つち<br />
+<strong>on</strong>: ド</p>
+<ul>
+<li>土曜日：　どようび</li>
+</ul>
+<h2 class="header"><i>36</i>曜 Day of the week<a class="headerlink" href="#day-of-the-week" name="day-of-the-week">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/036.png" title="Day of the week" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9B%9C?OpenDocument" title="Day of the week"><img alt="Stroke Animation for &quot;Day of the week&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/036.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: ヨウ</p>
+<ul>
+<li>何週：　なんしゅう</li>
+<li>毎週：　まいしゅう</li>
+</ul>
+<h2 class="header"><i>37</i>年 Year<a class="headerlink" href="#year" name="year">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/037.png" title="Year" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B9%B4?OpenDocument" title="Year"><img alt="Stroke Animation for &quot;Year&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/037.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: とし<br />
+<strong>on</strong>: ネン</p>
+<ul>
+<li>何年生：　なんねんせい</li>
+<li>毎年：　まいとし</li>
+</ul>
+<h2 class="header"><i>38</i>時 Time/Hour<a class="headerlink" href="#timehour" name="timehour">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/038.png" title="Time/Hour" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%99%82?OpenDocument" title="Time/Hour"><img alt="Stroke Animation for &quot;Time/Hour&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/038.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: とき<br />
+<strong>on</strong>: ジ</p>
+<ul>
+<li>今、なんじですか：　いま、なんじ　ですか。</li>
+<li>高校のとき：　こうこうの　とき</li>
+</ul>
+<h2 class="header"><i>39</i>間 Interval/Between<a class="headerlink" href="#intervalbetween" name="intervalbetween">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/039.png" title="Interval/Between" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%96%93?OpenDocument" title="Interval/Between"><img alt="Stroke Animation for &quot;Interval/Between&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/039.gif" /></a><br />
+Two gates delimiting an <em>interval</em> inside a day.</p>
+<p><strong>kun</strong>: あいだ<br />
+<strong>on</strong>: カン</p>
+<ul>
+<li>何時間：　なんじかん</li>
+<li>本と消しゴムの間に鉛筆があります：ほんと　けしゴムの　あいだに　えんぴつが　ありまうす。</li>
+</ul>
+<h2 class="header"><i>40</i>何 What<a class="headerlink" href="#what" name="what">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/040.png" title="What" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%95?OpenDocument" title="What"><img alt="Stroke Animation for &quot;What&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/040.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: なに、 なん<br />
+<em> 何ですか：　なんですか。<br />
+</em> 何？！：　なに？！</p>
+<h2 class="header"><i>41</i>今 Now<a class="headerlink" href="#now" name="now">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/041.png" title="Now" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BB%8A?OpenDocument" title="Now"><img alt="Stroke Animation for &quot;Now&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/041.gif" /></a><br />
+The bottom stroke is like the two hands of a clock, indicating what time it is <strong>now</strong>.</p>
+<p><strong>kun</strong>: いま<br />
+<strong>on</strong>: コン</p>
+<ul>
+<li>今、何時ですか：　いま、なんじ　ですか</li>
+<li>今年：　ことし</li>
+<li>今月：　こんげつ</li>
+<li>今週：　こんしゅう</li>
+<li>今日：　きょう</li>
+</ul>
+<h2 class="header"><i>42</i>週 Week<a class="headerlink" href="#week" name="week">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/042.png" title="Week" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%80%B1?OpenDocument" title="Week"><img alt="Stroke Animation for &quot;Week&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/042.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: シュウ</p>
+<ul>
+<li>何週：　なんしゅう</li>
+</ul>
+<h2 class="header"><i>43</i>半 Middle<a class="headerlink" href="#middle" name="middle">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/043.png" title="Middle" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8D%8A?OpenDocument" title="Middle"><img alt="Stroke Animation for &quot;Middle&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/043.gif" /></a><br />
+Slashing something right in the <strong>middle</strong> to obtain two equal parts.</p>
+<p><strong>on</strong>: ハン</p>
+<ul>
+<li>一時半：　いちじはん</li>
+</ul>
+<h2 class="header"><i>44</i>分 Minute/Part<a class="headerlink" href="#minutepart" name="minutepart">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/044.png" title="Minute/Part" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%88%86?OpenDocument" title="Minute/Part"><img alt="Stroke Animation for &quot;Minute/Part&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/044.gif" /></a><br />
+Cutting something into <strong>parts</strong> (an hour into <strong>minutes</strong>).</p>
+<p><strong>kun</strong>: わ（ける）、 わ（かる）<br />
+<strong>on</strong>: ふん、 ぶん、 ぷん</p>
+<h2 class="header"><i>45</i>朝 Morning<a class="headerlink" href="#morning" name="morning">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/045.png" title="Morning" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9C%9D?OpenDocument" title="Morning"><img alt="Stroke Animation for &quot;Morning&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/045.gif" /></a><br />
+Left part means mist; the <strong>morning</strong> dew as the moon sets off.</p>
+<p><strong>kun</strong>: つち<br />
+<strong>on</strong>: ド</p>
+<h2 class="header"><i>46</i>昼 Afternoon<a class="headerlink" href="#afternoon" name="afternoon">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/046.png" title="Afternoon" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%98%BC?OpenDocument" title="Afternoon"><img alt="Stroke Animation for &quot;Afternoon&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/046.gif" /></a><br />
+Shading yourself from the <strong>afternoon</strong> sun.</p>
+<p><strong>kun</strong>: つち<br />
+<strong>on</strong>: ド</p>
+<h2 class="header"><i>47</i>晩 Evening/Night<a class="headerlink" href="#eveningnight" name="eveningnight">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/047.png" title="Evening/Night" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%99%A9?OpenDocument" title="Evening/Night"><img alt="Stroke Animation for &quot;Evening/Night&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/047.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ばん</p>
+<h2 class="header"><i>48</i>夜 Night/Evening<a class="headerlink" href="#nightevening" name="nightevening">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/048.png" title="Night/Evening" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%9C?OpenDocument" title="Night/Evening"><img alt="Stroke Animation for &quot;Night/Evening&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/048.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: よる<br />
+<strong>on</strong>: ヤ</p>
+<h2 class="header"><i>49</i>毎 Every<a class="headerlink" href="#every" name="every">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/049.png" title="Every" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%AF%8E?OpenDocument" title="Every"><img alt="Stroke Animation for &quot;Every&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/049.gif" /></a><br />
+Going through every crops of a field to cultivate the food they bear.</p>
+<p><strong>on</strong>: マイ</p>
+<h2 class="header"><i>50</i>来 To come<a class="headerlink" href="#to-come" name="to-come">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/050.png" title="To come" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9D%A5?OpenDocument" title="To come"><img alt="Stroke Animation for &quot;To come&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/050.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: く（る）<br />
+<strong>on</strong>: ライ</p>
+<h2 class="header"><i>51</i>帰 To return<a class="headerlink" href="#to-return" name="to-return">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/051.png" title="To return" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B8%B0?OpenDocument" title="To return"><img alt="Stroke Animation for &quot;To return&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/051.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: かえ （る）<br />
+<strong>on</strong>: キ</p>
+<h2 class="header"><i>52</i>食 To eat<a class="headerlink" href="#to-eat" name="to-eat">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/052.png" title="To eat" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%A3%9F?OpenDocument" title="To eat"><img alt="Stroke Animation for &quot;To eat&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/052.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: た （べる）<br />
+<strong>on</strong>: ショク</p>
+<h2 class="header"><i>53</i>飲 To drink<a class="headerlink" href="#to-drink" name="to-drink">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/053.png" title="To drink" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%A3%B2?OpenDocument" title="To drink"><img alt="Stroke Animation for &quot;To drink&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/053.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: の （む）<br />
+<strong>on</strong>: イン</p>
+<h2 class="header"><i>54</i>見 To watch<a class="headerlink" href="#to-watch" name="to-watch">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/054.png" title="To watch" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%A6%8B?OpenDocument" title="To watch"><img alt="Stroke Animation for &quot;To watch&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/054.gif" /></a><br />
+An eye with two human legs.　Any animal can see with their eyes, but it takes a human-like intelligence to actually <strong>watch</strong>.</p>
+<p><strong>kun</strong>: み （る）<br />
+<strong>on</strong>: ケン</p>
+<ul>
+<li>テレビを<strong>見</strong>ます：　テレビを　<strong>み</strong>ます。　<em>Watching the TV</em></li>
+</ul>
+<h2 class="header"><i>55</i>聞 To hear<a class="headerlink" href="#to-hear" name="to-hear">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/055.png" title="To hear" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%81%9E?OpenDocument" title="To hear"><img alt="Stroke Animation for &quot;To hear&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/055.gif" /></a><br />
+You can interpret the two gates as putting your hands next to your ears, to <strong>hear</strong> better.</p>
+<p><strong>kun</strong>: き （く）<br />
+<strong>on</strong>: ブン</p>
+<ul>
+<li>音楽を聞きます：　おんがくを　ききます。　<em>Listening to music</em></li>
+<li>新聞：　しんぶん　<em>Newspaper (Did you hear the news?)</em></li>
+</ul>
+<h2 class="header"><i>56</i>読 To read<a class="headerlink" href="#to-read" name="to-read">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/056.png" title="To read" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%AA%AD?OpenDocument" title="To read"><img alt="Stroke Animation for &quot;To read&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/056.gif" /></a><br />
+A priest, <strong>reading</strong> an holy document by an alter, voicing the lines aloud.</p>
+<p><strong>kun</strong>: よ （む）<br />
+<strong>on</strong>: ドウ</p>
+<ul>
+<li>新聞を<strong>読</strong>む：　しんぶんを　<strong>よ</strong>む。 <em>Reading a newspaper</em></li>
+</ul>
+<h2 class="header"><i>57</i>話 To talk<a class="headerlink" href="#to-talk" name="to-talk">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/057.png" title="To talk" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%A9%B1?OpenDocument" title="To talk"><img alt="Stroke Animation for &quot;To talk&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/057.gif" /></a><br />
+You <strong>talk</strong> with a thousand words coming out of your mouth</p>
+<p><strong>kun</strong>: はな （す）<br />
+<strong>on</strong>: ワ</p>
+<ul>
+<li>友達と<strong>話</strong>します：　ともだちと　<strong>はな</strong>します。 <em>Speaking with a friend</em></li>
+<li>一<strong>話</strong>：　ひと<strong>わ</strong> <em>One story</em></li>
+</ul>
+<h2 class="header"><i>58</i>書 To write<a class="headerlink" href="#to-write" name="to-write">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/058.png" title="To write" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9B%B8?OpenDocument" title="To write"><img alt="Stroke Animation for &quot;To write&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/058.gif" /></a><br />
+Subvocalizing those lines of text as you <strong>write</strong> them, with your tongue waggling in your mouth.</p>
+<p><strong>kun</strong>: か （く）<br />
+<strong>on</strong>: ショ</p>
+<ul>
+<li><strong>書</strong>きます：　<strong>か</strong>きます <em>To write</em></li>
+<li>図<strong>書</strong>館：　と<strong>しょ</strong>かん <em>Library</em></li>
+</ul>
+<h2 class="header"><i>59</i>出 To get out<a class="headerlink" href="#to-get-out" name="to-get-out">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/059.png" title="To get out" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%87%BA?OpenDocument" title="To get out"><img alt="Stroke Animation for &quot;To get out&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/059.gif" /></a><br />
+Just like a mountain erupting out of the crust, <strong>getting out</strong> of the soil.</p>
+<p><strong>kun</strong>: で （る）、 だ （す）<br />
+<strong>on</strong>: しゅつ</p>
+<ul>
+<li><strong>出</strong>かける：　<strong>で</strong>かける <em>To go out</em></li>
+<li><strong>出</strong>す：　<strong>だ</strong>す <em>To hand in</em> or <em>To send out</em></li>
+<li>供<strong>出</strong>：　きょう<strong>しゅつ</strong> <em>Delivery</em></li>
+</ul>
+<h2 class="header"><i>60</i>会 To meet<a class="headerlink" href="#to-meet" name="to-meet">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/060.png" title="To meet" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BC%9A?OpenDocument" title="To meet"><img alt="Stroke Animation for &quot;To meet&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/060.gif" /></a><br />
+Look at the last strokes as the two hands of a clock, with emphasis on the minute hand. You always have a set time to <strong>meet</strong> with someone.</p>
+<p><strong>kun</strong>: あ （う）<br />
+<strong>on</strong>: カイ</p>
+<ul>
+<li><strong>会</strong>います：　<strong>あ</strong>います <em>To meet</em></li>
+<li><strong>会</strong>社：　<strong>かい</strong>しゃ <em>Company</em></li>
+</ul>
+<h2 class="header"><i>61</i>買 To buy<a class="headerlink" href="#to-buy" name="to-buy">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/061.png" title="To buy" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%B2%B7?OpenDocument" title="To buy"><img alt="Stroke Animation for &quot;To buy&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/061.gif" /></a><br />
+No mnemonic.</p>
+<p><strong>kun</strong>: か （う）<br />
+<strong>on</strong>: バイ</p>
+<ul>
+<li><strong>買</strong>います：　<strong>かい</strong>ます <em>To buy</em></li>
+<li><strong>買</strong>い物：　<strong>かい</strong>もの <em>Shopping</em></li>
+</ul>
+<h2 class="header"><i>62</i>校 School<a class="headerlink" href="#school" name="school">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/062.png" title="School" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%A0%A1?OpenDocument" title="School"><img alt="Stroke Animation for &quot;School&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/062.gif" /></a><br />
+Having skipped <strong>school</strong>, you're hiding near a tree while your father waits inside, ready to give you a scolding.</p>
+<p><strong>on</strong>: コウ</p>
+<ul>
+<li>学<strong>校</strong>：　がっ<strong>こう</strong> <em>School</em></li>
+</ul>
+<h2 class="header"><i>63</i>語 Language<a class="headerlink" href="#language" name="language">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/063.png" title="Language" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%AA%9E?OpenDocument" title="Language"><img alt="Stroke Animation for &quot;Language&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/063.gif" /></a><br />
+Right part means oneself: You have 5 holes in your face (one mouth, two nostrils and two ears).<br />
+You express yourself by speaking a <strong>language</strong>.</p>
+<p><strong>kun</strong>: かた （る）<br />
+<strong>on</strong>: ゴ</p>
+<ul>
+<li>日本<strong>語</strong>：　にほん<strong>ご</strong> <em>Japanese Language</em></li>
+<li>フランス<strong>語</strong>：　フランス<strong>ご</strong> <em>French Language</em></li>
+</ul>
+<h2 class="header"><i>64</i>作 To make<a class="headerlink" href="#to-make" name="to-make">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/064.png" title="To make" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%9C?OpenDocument" title="To make"><img alt="Stroke Animation for &quot;To make&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/064.gif" /></a><br />
+A person watching another so dexterous, it looks like he is <strong>making</strong> his craft with three hands!</p>
+<p><strong>kun</strong>: つく （る）<br />
+<strong>on</strong>: サク</p>
+<ul>
+<li>ご飯を<strong>作</strong>ります：　ごはんを　<strong>つく</strong>ります。　<em>Making a meal.</em></li>
+</ul>
+<h2 class="header"><i>65</i>勉 Endeavor<a class="headerlink" href="#endeavor" name="endeavor">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/065.png" title="Endeavor" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8B%89?OpenDocument" title="Endeavor"><img alt="Stroke Animation for &quot;Endeavor&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/065.gif" /></a><br />
+Seize the running day to gain the power to go on this <strong>endeavor</strong>.</p>
+<p><strong>on</strong>: ベン</p>
+<ul>
+<li>感じの<strong>勉</strong>強をします：　かんじの　<strong>べん</strong>きょうを　します。　<em>Studying Kanji</em></li>
+</ul>
+<h2 class="header"><i>66</i>強 Force/Strong<a class="headerlink" href="#forcestrong" name="forcestrong">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/066.png" title="Force/Strong" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BC%B7?OpenDocument" title="Force/Strong"><img alt="Stroke Animation for &quot;Force/Strong&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/066.gif" /></a><br />
+He has much <strong>strength</strong> inside his arms for choking that big snake to death.</p>
+<p><strong>kun</strong>: つよ （い）<br />
+<strong>on</strong>: キョウ</p>
+<ul>
+<li>風が<strong>強</strong>いです：　かぜが　<strong>つよい</strong>　です。　<em>The wind is strong.</em></li>
+<li>勉<strong>強</strong>：　べん<strong>きょう</strong></li>
+</ul>
+<h2 class="header"><i>67</i>古 Old<a class="headerlink" href="#old" name="old">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/067.png" title="Old" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8F%A4?OpenDocument" title="Old"><img alt="Stroke Animation for &quot;Old&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/067.gif" /></a><br />
+Like a cross on an <strong>old</strong> tombstone.</p>
+<p><strong>kun</strong>: ふる （い）<br />
+<strong>on</strong>: コ</p>
+<ul>
+<li>その上着は<strong>古い</strong>ですよ：　その　うわぎは　<strong>ふるい</strong>　ですよ。　<em>That jacket is old.</em></li>
+</ul>
+<h2 class="header"><i>68</i>新 New<a class="headerlink" href="#new" name="new">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/068.png" title="New" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%96%B0?OpenDocument" title="New"><img alt="Stroke Animation for &quot;New&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/068.gif" /></a><br />
+Look at that young boy having to stand on a tree to access these <strong>new</strong> issues at the top of the magazine shelf.</p>
+<p><strong>kun</strong>: あたら （しい）<br />
+<strong>on</strong>: シン</p>
+<ul>
+<li><strong>新しい</strong>雑誌を買います：　<strong>あたらしい</strong>　ざっしを　かいます。 <em>Buying new magazines.</em></li>
+<li><strong>新</strong>聞を読んでいる：　<strong>新</strong>聞を　よんでいる。 <em>I am reading a newspaper.</em></li>
+</ul>
+<h2 class="header"><i>69</i>高 High/Expensive<a class="headerlink" href="#highexpensive" name="highexpensive">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/069.png" title="High/Expensive" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%AB%98?OpenDocument" title="High/Expensive"><img alt="Stroke Animation for &quot;High/Expensive&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/069.gif" /></a><br />
+Does it not remind you of those <strong>tall</strong> Japanese pagodas?</p>
+<p><strong>kun</strong>: たか （い）<br />
+<strong>on</strong>: コウ</p>
+<ul>
+<li>あのタワーが<strong>高い</strong>です：　あの　タワーが　<strong>たかい</strong>　です。 <em>That tower is tall.</em></li>
+<li>大きいテレビは<strong>高い</strong>です：　おおきい　てれびは　<strong>たかい</strong>です。 <em>The big television is expensive.</em></li>
+<li><strong>高</strong>校学生はうちに帰ります： <strong>こう</strong>こうがくせいは　うちに　かえります。 <em>The high school students are going back home.</em></li>
+</ul>
+<h2 class="header"><i>70</i>安 Cheap<a class="headerlink" href="#cheap" name="cheap">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/070.png" title="Cheap" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AE%89?OpenDocument" title="Cheap"><img alt="Stroke Animation for &quot;Cheap&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/070.gif" /></a><br />
+A woman relaxing in the comfort of her <strong>cheap</strong> house.</p>
+<p><strong>kun</strong>: やす （い）<br />
+<strong>on</strong>: アン</p>
+<ul>
+<li><strong>安い</strong>魚をうる：　<strong>やすい</strong>　さかなを　うる。 <em>Selling some cheap fish</em></li>
+</ul>
+<h2 class="header"><i>71</i>低 Low<a class="headerlink" href="#low" name="low">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/071.png" title="Low" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%8E?OpenDocument" title="Low"><img alt="Stroke Animation for &quot;Low&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/071.gif" /></a><br />
+A person standing next to a table so <strong>low</strong>, the legs are laying on the floor!</p>
+<p><strong>kun</strong>: ひく （い）<br />
+<strong>on</strong>: テイ</p>
+<ul>
+<li><strong>低い</strong>建物は図書館です：　<strong>ひくい</strong>　たてものは　としょかんです。　<em>The low building is a library</em></li>
+</ul>
+<h2 class="header"><i>72</i>長 Long<a class="headerlink" href="#long" name="long">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/072.png" title="Long" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%95%B7?OpenDocument" title="Long"><img alt="Stroke Animation for &quot;Long&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/072.gif" /></a><br />
+A comb with a nice handle to straighten this <strong>long</strong> hair.</p>
+<p><strong>kun</strong>: なが （い）<br />
+<strong>on</strong>: チョウ</p>
+<ul>
+<li><strong>長い</strong>鉛筆がありません：　<strong>ながい</strong>　えんぴつが　ありません。 <em>I have no long pencil.</em></li>
+</ul>
+<h2 class="header"><i>73</i>短 Short<a class="headerlink" href="#short" name="short">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/073.png" title="Short" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%9F%AD?OpenDocument" title="Short"><img alt="Stroke Animation for &quot;Short&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/073.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: みじか （い）<br />
+<strong>on</strong>: タン</p>
+<ul>
+<li><strong>短い</strong>指です：　<strong>みじかい</strong>　ゆび　です。 <em>Those are some short fingers.</em></li>
+</ul>
+<h2 class="header"><i>74</i>明 Bright<a class="headerlink" href="#bright" name="bright">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/074.png" title="Bright" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%98%8E?OpenDocument" title="Bright"><img alt="Stroke Animation for &quot;Bright&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/074.gif" /></a><br />
+With both the sun and the moon shining in the sky, it is very <strong>bright</strong> outside.</p>
+<p><strong>kun</strong>: あかる （い）<br />
+<strong>on</strong>: メイ、 ミョウ</p>
+<ul>
+<li>その人は<strong>明るい</strong>です：その　ひと　は　<strong>あかるい</strong>　です。 <em>That person is cheerful.</em></li>
+<li>僕の部屋は<strong>明るい</strong>です：　ぼくの　へやは　<strong>あかるい</strong>　です。 <em>My room is bright.</em></li>
+<li><strong>明</strong>日は私の誕生日です：　あしたは　わたしの　たんじょうび　です。 <em>Tomorrow is my birthday.</em></li>
+</ul>
+<h2 class="header"><i>75</i>暗 Dark<a class="headerlink" href="#dark" name="dark">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/075.png" title="Dark" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9A%97?OpenDocument" title="Dark"><img alt="Stroke Animation for &quot;Dark&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/075.gif" /></a><br />
+No wonder it's so <strong>dark</strong> today, a giant is standing on the sun!</p>
+<p><strong>kun</strong>: くら （い）<br />
+<strong>on</strong>: アン</p>
+<ul>
+<li><strong>暗い</strong>人が大嫌いです：　<strong>くらい</strong>　ひとが　だいきらい　です。 <em>I really hate gloomy people.</em></li>
+<li>部屋は<strong>暗い</strong>ですから、窓を開けてください：　へやは　<strong>くらい</strong>　です　から、　まどを　あけてください。 <em>Since the room is dark, please open the window.</em></li>
+</ul>
+<h2 class="header"><i>76</i>入 To enter<a class="headerlink" href="#to-enter" name="to-enter">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/076.png" title="To enter" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%A5?OpenDocument" title="To enter"><img alt="Stroke Animation for &quot;To enter&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/076.gif" /></a><br />
+A person walking inwards, to <strong>enter</strong> a room.</p>
+<p><strong>kun</strong>: はい （る）<br />
+<strong>on</strong>: ニュウ</p>
+<h2 class="header"><i>77</i>起 To rise<a class="headerlink" href="#to-rise" name="to-rise">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/077.png" title="To rise" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%B5%B7?OpenDocument" title="To rise"><img alt="Stroke Animation for &quot;To rise&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/077.gif" /></a><br />
+<strong>Wake up</strong> and run, there's a snake at your feet!</p>
+<p><strong>kun</strong>: お （きる）<br />
+<strong>on</strong>: キ</p>
+<h2 class="header"><i>78</i>寝 To sleep<a class="headerlink" href="#to-sleep" name="to-sleep">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/078.png" title="To sleep" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AF%9D?OpenDocument" title="To sleep"><img alt="Stroke Animation for &quot;To sleep&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/078.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ね （る）<br />
+<strong>on</strong>: シン</p>
+<h2 class="header"><i>79</i>始 To begin<a class="headerlink" href="#to-begin" name="to-begin">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/079.png" title="To begin" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A7%8B?OpenDocument" title="To begin"><img alt="Stroke Animation for &quot;To begin&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/079.gif" /></a><br />
+A woman holding her newborn baby in her bent arm; a new mouth to feed, a new <strong>beginning</strong>!</p>
+<p><strong>kun</strong>: はじ （まる）、 はじ （める）<br />
+<strong>on</strong>: シ</p>
+<h2 class="header"><i>80</i>終 To end<a class="headerlink" href="#to-end" name="to-end">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/080.png" title="To end" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%B5%82?OpenDocument" title="To end"><img alt="Stroke Animation for &quot;To end&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/080.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: お （わる）、 お （える）<br />
+<strong>on</strong>: シュウ</p>
+<h2 class="header"><i>81</i>右 Right<a class="headerlink" href="#right" name="right">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/081.png" title="Right" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8F%B3?OpenDocument" title="Right"><img alt="Stroke Animation for &quot;Right&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/081.gif" /></a><br />
+Traditionally, even lefties hold chopsticks with their <strong>right</strong> hand.</p>
+<p><strong>kun</strong>: みぎ<br />
+<strong>on</strong>: ウ</p>
+<h2 class="header"><i>82</i>左 Left<a class="headerlink" href="#left" name="left">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/082.png" title="Left" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B7%A6?OpenDocument" title="Left"><img alt="Stroke Animation for &quot;Left&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/082.gif" /></a><br />
+While you're busy eating with your right hand, please be useful and hold that I-beam on your <strong>left</strong> shoulder.</p>
+<p><strong>kun</strong>: ひだり<br />
+<strong>on</strong>: サ</p>
+<h2 class="header"><i>83</i>外 Outside<a class="headerlink" href="#outside" name="outside">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/083.png" title="Outside" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%96?OpenDocument" title="Outside"><img alt="Stroke Animation for &quot;Outside&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/083.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: そと<br />
+<strong>on</strong>: ガイ</p>
+<h2 class="header"><i>84</i>前 Front<a class="headerlink" href="#front" name="front">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/084.png" title="Front" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%89%8D?OpenDocument" title="Front"><img alt="Stroke Animation for &quot;Front&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/084.gif" /></a><br />
+A butcher skinning a bovine by the river to get its meat.</p>
+<p><strong>kun</strong>: まえ<br />
+<strong>on</strong>: ゼン</p>
+<h2 class="header"><i>85</i>午 Noon<a class="headerlink" href="#noon" name="noon">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/085.png" title="Noon" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8D%88?OpenDocument" title="Noon"><img alt="Stroke Animation for &quot;Noon&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/085.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ご</p>
+<h2 class="header"><i>86</i>後 Behind<a class="headerlink" href="#behind" name="behind">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/086.png" title="Behind" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BE%8C?OpenDocument" title="Behind"><img alt="Stroke Animation for &quot;Behind&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/086.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: うし （ろ）、 あと<br />
+<strong>on</strong>: ゴ</p>
+<h2 class="header"><i>87</i>名 Name<a class="headerlink" href="#name" name="name">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/087.png" title="Name" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%90%8D?OpenDocument" title="Name"><img alt="Stroke Animation for &quot;Name&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/087.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: な<br />
+<strong>on</strong>: メイ</p>
+<h2 class="header"><i>88</i>社 Company<a class="headerlink" href="#company" name="company">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/088.png" title="Company" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%A4%BE?OpenDocument" title="Company"><img alt="Stroke Animation for &quot;Company&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/088.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: くら （い）<br />
+<strong>on</strong>: アン</p>
+<h2 class="header"><i>89</i>公 Public<a class="headerlink" href="#public" name="public">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/089.png" title="Public" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%AC?OpenDocument" title="Public"><img alt="Stroke Animation for &quot;Public&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/089.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: おおやけ<br />
+<strong>on</strong>: コウ</p>
+<h2 class="header"><i>90</i>園 Garden<a class="headerlink" href="#garden" name="garden">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/090.png" title="Garden" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%9C%92?OpenDocument" title="Garden"><img alt="Stroke Animation for &quot;Garden&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/090.gif" /></a><br />
+Flowers growing out of the soil delimited as your <strong>garden</strong>.</p>
+<p><strong>kun</strong>: その<br />
+<strong>on</strong>: エン</p>
+<h2 class="header"><i>91</i>店 Shop<a class="headerlink" href="#shop" name="shop">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/091.png" title="Shop" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BA%97?OpenDocument" title="Shop"><img alt="Stroke Animation for &quot;Shop&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/091.gif" /></a><br />
+A creepy merchant, for his <strong>shop</strong> sits in a cave.</p>
+<p><strong>kun</strong>: みせ<br />
+<strong>on</strong>: テン</p>
+<h2 class="header"><i>92</i>茶 Tea<a class="headerlink" href="#tea" name="tea">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/092.png" title="Tea" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%8C%B6?OpenDocument" title="Tea"><img alt="Stroke Animation for &quot;Tea&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/092.gif" /></a><br />
+Some <strong>tea</strong> trees are grown under the shade.</p>
+<p><strong>on</strong>: チャ、 サ</p>
+<h2 class="header"><i>93</i>酒 Liquor<a class="headerlink" href="#liquor" name="liquor">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/093.png" title="Liquor" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%85%92?OpenDocument" title="Liquor"><img alt="Stroke Animation for &quot;Liquor&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/093.gif" /></a><br />
+A dripping bottle of <strong>sake</strong>.</p>
+<p><strong>kun</strong>: さけ<br />
+<strong>on</strong>: シュ</p>
+<h2 class="header"><i>94</i>肉 Meat<a class="headerlink" href="#meat" name="meat">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/094.png" title="Meat" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%82%89?OpenDocument" title="Meat"><img alt="Stroke Animation for &quot;Meat&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/094.gif" /></a><br />
+Like T-Bones hanging on <strong>meat</strong> racks.</p>
+<p><strong>on</strong>: ニク</p>
+<h2 class="header"><i>95</i>魚 Fish<a class="headerlink" href="#fish" name="fish">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/095.png" title="Fish" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%AD%9A?OpenDocument" title="Fish"><img alt="Stroke Animation for &quot;Fish&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/095.gif" /></a><br />
+Caught a <strong>fish</strong> (field-&gt;food-&gt;fish) and cooked it on a fire.</p>
+<p><strong>kun</strong>: さかな<br />
+<strong>on</strong>: ギョ</p>
+<h2 class="header"><i>96</i>鳥 Bird<a class="headerlink" href="#bird" name="bird">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/096.png" title="Bird" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%B3%A5?OpenDocument" title="Bird"><img alt="Stroke Animation for &quot;Bird&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/096.gif" /></a><br />
+The white feathers of a magnificent <strong>bird</strong>.</p>
+<p><strong>kun</strong>: とり<br />
+<strong>on</strong>: チョウ</p>
+<h2 class="header"><i>97</i>牛 Cow<a class="headerlink" href="#cow" name="cow">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/097.png" title="Cow" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%89%9B?OpenDocument" title="Cow"><img alt="Stroke Animation for &quot;Cow&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/097.gif" /></a><br />
+A dead <strong>cow</strong> with its legs spread out and its head on the side.</p>
+<p><strong>kun</strong>: うし<br />
+<strong>on</strong>: ギュウ</p>
+<h2 class="header"><i>98</i>物 Thing<a class="headerlink" href="#thing" name="thing">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/098.png" title="Thing" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%89%A9?OpenDocument" title="Thing"><img alt="Stroke Animation for &quot;Thing&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/098.gif" /></a><br />
+What has science done?! This thing is a cow with winged appendages!</p>
+<p><strong>kun</strong>: もの<br />
+<strong>on</strong>: ブツ</p>
+<ul>
+<li>植<strong>物</strong>園に行きますか：　しょく<strong>ぶつ</strong>えんに　いきますか。 <em>Do you go to the botanical garden.</em></li>
+<li>買い<strong>物</strong>に出かけました：　かい<strong>もの</strong>に　でかけました。 <em>Went out shopping.</em></li>
+</ul>
+<h2 class="header"><i>99</i>百 Hundred<a class="headerlink" href="#hundred" name="hundred">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/099.png" title="Hundred" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%99%BE?OpenDocument" title="Hundred"><img alt="Stroke Animation for &quot;Hundred&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/099.gif" /></a><br />
+In Japan, the 99th year of a lifetime is called the white year. Add one more (the horizontal line), and you get <strong>100</strong>.</p>
+<p><strong>on</strong>: ヒャク、 ビャク、 ピャク</p>
+<ul>
+<li>三<strong>百</strong>円です：　さん<strong>びゃく</strong>　えん　です。 <em>It is 300 yen.</em></li>
+</ul>
+<h2 class="header"><i>100</i>円 Yen<a class="headerlink" href="#yen" name="yen">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/100.png" title="Yen" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%86%86?OpenDocument" title="Yen"><img alt="Stroke Animation for &quot;Yen&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/100.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: エン</p>
+<h2 class="header"><i>101</i>千 Thousand<a class="headerlink" href="#thousand" name="thousand">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/101.png" title="Thousand" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8D%83?OpenDocument" title="Thousand"><img alt="Stroke Animation for &quot;Thousand&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/101.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: セン、 ゼン</p>
+<h2 class="header"><i>102</i>万 Ten thousand<a class="headerlink" href="#ten-thousand" name="ten-thousand">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/102.png" title="Ten thousand" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B8%87?OpenDocument" title="Ten thousand"><img alt="Stroke Animation for &quot;Ten thousand&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/102.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: マン</p>
+<ul>
+<li>海底二<strong>万</strong>里：　かいていに<strong>まん</strong>り <em>Twenty thousands leagues under the sea.</em></li>
+</ul>
+<h2 class="header"><i>103</i>野 Field<a class="headerlink" href="#field" name="field">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/103.png" title="Field" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%87%8E?OpenDocument" title="Field"><img alt="Stroke Animation for &quot;Field&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/103.gif" /></a><br />
+The child is no longer in his baby holder as he is now working in the <strong>field</strong>.</p>
+<p><strong>kun</strong>: の<br />
+<strong>on</strong>: ヤ</p>
+<ul>
+<li><strong>野</strong>球とベースボールとどちらのほうが好きですか：　<strong>や</strong>きゅうと　ベースボールと　どちらの　ほうが　すき　ですか。 <em>Between Japanese baseball and western baseball, which one do you prefer?</em></li>
+</ul>
+<h2 class="header"><i>104</i>菜 Vegetable<a class="headerlink" href="#vegetable" name="vegetable">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/104.png" title="Vegetable" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%8F%9C?OpenDocument" title="Vegetable"><img alt="Stroke Animation for &quot;Vegetable&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/104.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: サイ</p>
+<ul>
+<li>どうしてその野<strong>菜</strong>を食べないんですか：　どうして　その　や<strong>さい</strong>を　たべないん　ですか。 <em>Why don't you eat those vegetables?</em></li>
+</ul>
+<h2 class="header"><i>105</i>料 Material<a class="headerlink" href="#material" name="material">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/105.png" title="Material" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%96%99?OpenDocument" title="Material"><img alt="Stroke Animation for &quot;Material&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/105.gif" /></a><br />
+Gathering the wood of a tree as a building <strong>material</strong>.</p>
+<p><strong>on</strong>: リョウ</p>
+<h2 class="header"><i>106</i>理 Reason<a class="headerlink" href="#reason" name="reason">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/106.png" title="Reason" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%90%86?OpenDocument" title="Reason"><img alt="Stroke Animation for &quot;Reason&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/106.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: リ</p>
+<ul>
+<li>ケベックの料<strong>理</strong>はプーティンが有名です：　ケベックの　りょう<strong>り</strong>は　プーティンが　ゆうめい　です。 <em>Considering Québécois dishes, poutine is famous.</em></li>
+</ul>
+<h2 class="header"><i>107</i>取 To take<a class="headerlink" href="#to-take" name="to-take">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/107.png" title="To take" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8F%96?OpenDocument" title="To take"><img alt="Stroke Animation for &quot;To take&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/107.gif" /></a><br />
+You heard some strange noise as the burglar was <strong>taking</strong> some of your belongings.</p>
+<p><strong>kun</strong>: と （る）<br />
+<strong>on</strong>: シュ</p>
+<h2 class="header"><i>108</i>歩 To walk<a class="headerlink" href="#to-walk" name="to-walk">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/108.png" title="To walk" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%AD%A9?OpenDocument" title="To walk"><img alt="Stroke Animation for &quot;To walk&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/108.gif" /></a><br />
+<strong>Walking</strong> from point A to B, you might have to stop a little, to let others pass.</p>
+<p><strong>kun</strong>: ある （く）<br />
+<strong>on</strong>: ホ</p>
+<ul>
+<li>近くに住んでいますから、<strong>歩</strong>いて学校に来ます：　ちかくに　すんでいます　から、　<strong>ある</strong>いて　がっこうに　きます。 <em>Since I live near, I came to school by walking.</em></li>
+</ul>
+<h2 class="header"><i>109</i>使 To use<a class="headerlink" href="#to-use" name="to-use">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/109.png" title="To use" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%BF?OpenDocument" title="To use"><img alt="Stroke Animation for &quot;To use&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/109.gif" /></a><br />
+This person sure did not know how to <strong>use</strong> that tool to find himself with his legs inside the ceiling.</p>
+<p><strong>kun</strong>: つか （う）<br />
+<strong>on</strong>: シ</p>
+<ul>
+<li>テストの部屋で携帯を<strong>使</strong>わないでください： テストの　へやで　けいたいを　<strong>たか</strong>ないでください。 <em>In the test room, please do not use any cellphone.</em></li>
+</ul>
+<h2 class="header"><i>110</i>貸 To lend<a class="headerlink" href="#to-lend" name="to-lend">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/110.png" title="To lend" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%B2%B8?OpenDocument" title="To lend"><img alt="Stroke Animation for &quot;To lend&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/110.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: か （す）<br />
+<strong>on</strong>: （タイ）</p>
+<ul>
+<li>鉛筆を貸してください：　えんぴつを　かして　ください。 <em>Please lend me a pencil.</em></li>
+</ul>
+<h2 class="header"><i>111</i>持 To hold<a class="headerlink" href="#to-hold" name="to-hold">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/111.png" title="To hold" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%8C%81?OpenDocument" title="To hold"><img alt="Stroke Animation for &quot;To hold&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/111.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: も （つ）<br />
+<strong>on</strong>: ジ</p>
+<h2 class="header"><i>112</i>英 Splendid person, England<a class="headerlink" href="#splendid-person-england" name="splendid-person-england">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/112.png" title="Splendid person, England" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%8B%B1?OpenDocument" title="Splendid person, England"><img alt="Stroke Animation for &quot;Splendid person, England&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/112.gif" /></a><br />
+Mad hatter (Person + Huge hat) drinking tea in that <strong>British</strong> tea plantation.</p>
+<p><strong>on</strong>: エイ</p>
+<ul>
+<li>アメリカ人の友達に<strong>英</strong>語で手紙を書きます：　アメリカじん　の　ともだちに　<strong>えい</strong>ごで　てがみを　かきます。 *To my American friend, I write letters in English.</li>
+</ul>
+<h2 class="header"><i>113</i>友 Friend<a class="headerlink" href="#friend" name="friend">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/113.png" title="Friend" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8F%8B?OpenDocument" title="Friend"><img alt="Stroke Animation for &quot;Friend&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/113.gif" /></a><br />
+That good friend always welcoming you with a friendly head-lock.</p>
+<p><strong>kun</strong>: とも<br />
+<strong>on</strong>: ユウ</p>
+<ul>
+<li>スティヴさんは僕の<strong>友</strong>人です：　スティヴさんは　ぼくの　<strong>ゆう</strong>じん　です。 <em>Steve is my <strong>friend</strong>.</em></li>
+<li>友達のうちでパーティがあります：　ともだちの　うちに　パーティが　あります。 <em>There is a party at my <strong>friend</strong>'s house.</em></li>
+</ul>
+<h2 class="header"><i>114</i>達 Plural marker<a class="headerlink" href="#plural-marker" name="plural-marker">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/114.png" title="Plural marker" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%81%94?OpenDocument" title="Plural marker"><img alt="Stroke Animation for &quot;Plural marker&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/114.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: タチ、 ダチ</p>
+<ul>
+<li>君<strong>達</strong>はなぜここにいる：　きみ<strong>たち</strong>は　なぜ　ここに　いる。 <em>Why are you all here?</em></li>
+<li>高校の友<strong>達</strong>に手紙を書いています：　こうこうの　とも<strong>だち</strong>に　てがみを　かいています。 <em>I'm writing a letter to my friend from high school.</em></li>
+</ul>
+<h2 class="header"><i>115</i>待 To wait<a class="headerlink" href="#to-wait" name="to-wait">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/115.png" title="To wait" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BE%85?OpenDocument" title="To wait"><img alt="Stroke Animation for &quot;To wait&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/115.gif" /></a><br />
+<strong>Waiting</strong> by the temple.</p>
+<p><strong>kun</strong>: ま （つ）<br />
+<strong>on</strong>: タイ</p>
+<ul>
+<li>おい！　ちょっと<strong>待</strong>ってください：　おい！　ちょっと　<strong>ま</strong>って　ください。</li>
+</ul>
+<h2 class="header"><i>116</i>兄 Older brother<a class="headerlink" href="#older-brother" name="older-brother">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/116.png" title="Older brother" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%84?OpenDocument" title="Older brother"><img alt="Stroke Animation for &quot;Older brother&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/116.gif" /></a><br />
+Your <strong>older brother</strong> can't stop bragging; a real mouth on two legs.</p>
+<p><strong>kun</strong>: あに、 にい<br />
+<strong>on</strong>: ケイ、 キョウ</p>
+<h2 class="header"><i>117</i>弟 Younger brother<a class="headerlink" href="#younger-brother" name="younger-brother">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/117.png" title="Younger brother" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BC%9F?OpenDocument" title="Younger brother"><img alt="Stroke Animation for &quot;Younger brother&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/117.gif" /></a><br />
+Your <strong>little brother</strong> is such a devious little snake.</p>
+<p><strong>kun</strong>: おとうと<br />
+<strong>on</strong>: ダイ</p>
+<h2 class="header"><i>118</i>姉 Older sister<a class="headerlink" href="#older-sister" name="older-sister">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/118.png" title="Older sister" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A7%89?OpenDocument" title="Older sister"><img alt="Stroke Animation for &quot;Older sister&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/118.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: あね、 ねえ<br />
+<strong>on</strong>: シ</p>
+<h2 class="header"><i>119</i>妹 Younger sister<a class="headerlink" href="#younger-sister" name="younger-sister">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/119.png" title="Younger sister" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A6%B9?OpenDocument" title="Younger sister"><img alt="Stroke Animation for &quot;Younger sister&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/119.gif" /></a><br />
+Your <strong>little sister</strong> is so light, she can climb up trees really easily.</p>
+<p><strong>kun</strong>: いもうと<br />
+<strong>on</strong>: マイ</p>
+<h2 class="header"><i>120</i>父 Father<a class="headerlink" href="#father" name="father">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/120.png" title="Father" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%88%B6?OpenDocument" title="Father"><img alt="Stroke Animation for &quot;Father&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/120.gif" /></a><br />
+Arm and hammer.</p>
+<p><strong>kun</strong>: ちち、 とう<br />
+<strong>on</strong>: フ</p>
+<h2 class="header"><i>121</i>母 Mother<a class="headerlink" href="#mother" name="mother">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/121.png" title="Mother" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%AF%8D?OpenDocument" title="Mother"><img alt="Stroke Animation for &quot;Mother&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/121.gif" /></a><br />
+The breasts of a loving <strong>mother</strong>.</p>
+<p><strong>kun</strong>: はは、 かあ<br />
+<strong>on</strong>: ボ</p>
+<h2 class="header"><i>122</i>家 House<a class="headerlink" href="#house" name="house">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/122.png" title="House" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AE%B6?OpenDocument" title="House"><img alt="Stroke Animation for &quot;House&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/122.gif" /></a><br />
+A pig in the <strong>house</strong>.</p>
+<p><strong>kun</strong>: いえ、 （うち） (uchi is usually written with kana alone)<br />
+<strong>on</strong>: カ</p>
+<h2 class="header"><i>123</i>族 Tribe<a class="headerlink" href="#tribe" name="tribe">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/123.png" title="Tribe" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%97%8F?OpenDocument" title="Tribe"><img alt="Stroke Animation for &quot;Tribe&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/123.gif" /></a><br />
+The tribe follows the direction of big recolts.</p>
+<p><strong>on</strong>: ゾク</p>
+<h2 class="header"><i>124</i>男 Man<a class="headerlink" href="#man" name="man">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/124.png" title="Man" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%94%B7?OpenDocument" title="Man"><img alt="Stroke Animation for &quot;Man&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/124.gif" /></a><br />
+Strong <strong>men</strong> working in the field.</p>
+<p><strong>kun</strong>: おとこ<br />
+<strong>on</strong>: ダん</p>
+<h2 class="header"><i>125</i>女 Woman<a class="headerlink" href="#woman" name="woman">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/125.png" title="Woman" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A5%B3?OpenDocument" title="Woman"><img alt="Stroke Animation for &quot;Woman&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/125.gif" /></a><br />
+<strong>Female</strong> ninja were known as <em>kunoichi</em> (く + ノ + 一).</p>
+<p><strong>kun</strong>: おんな<br />
+<strong>on</strong>: ジョ</p>
+<h2 class="header"><i>126</i>子 Child<a class="headerlink" href="#child" name="child">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/126.png" title="Child" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AD%90?OpenDocument" title="Child"><img alt="Stroke Animation for &quot;Child&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/126.gif" /></a><br />
+A young child wrapped in a baby carrier.</p>
+<p><strong>kun</strong>: こ<br />
+<strong>on</strong>: シ</p>
+<h2 class="header"><i>127</i>目 Eye<a class="headerlink" href="#eye" name="eye">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/127.png" title="Eye" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%9B%AE?OpenDocument" title="Eye"><img alt="Stroke Animation for &quot;Eye&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/127.gif" /></a><br />
+<strong>Eye</strong> and eyelids.</p>
+<p><strong>kun</strong>: め<br />
+<strong>on</strong>: モク</p>
+<h2 class="header"><i>128</i>耳 Ear<a class="headerlink" href="#ear" name="ear">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/128.png" title="Ear" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%80%B3?OpenDocument" title="Ear"><img alt="Stroke Animation for &quot;Ear&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/128.gif" /></a><br />
+The dents and bumps in the <strong>ear</strong> auricle.</p>
+<p><strong>kun</strong>: みみ<br />
+<strong>on</strong>: ジ</p>
+<h2 class="header"><i>129</i>口 Mouth<a class="headerlink" href="#mouth" name="mouth">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/129.png" title="Mouth" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8F%A3?OpenDocument" title="Mouth"><img alt="Stroke Animation for &quot;Mouth&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/129.gif" /></a><br />
+An gaping <strong>mouth</strong>.</p>
+<p><strong>kun</strong>: くち<br />
+<strong>on</strong>: コウ</p>
+<h2 class="header"><i>130</i>足 Foot/Leg<a class="headerlink" href="#footleg" name="footleg">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/130.png" title="Foot/Leg" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%B6%B3?OpenDocument" title="Foot/Leg"><img alt="Stroke Animation for &quot;Foot/Leg&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/130.gif" /></a><br />
+It sort of resembles a roman sandal, viewed on its side, ready to be worn on a <strong>foot</strong>.</p>
+<p><strong>kun</strong>: あし<br />
+<strong>on</strong>: ソク</p>
+<h2 class="header"><i>131</i>手 Hand<a class="headerlink" href="#hand" name="hand">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/131.png" title="Hand" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%89%8B?OpenDocument" title="Hand"><img alt="Stroke Animation for &quot;Hand&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/131.gif" /></a><br />
+Bottom stroke is your thumb and your pinky; middle stroke is your index and your ring finger and top stroke is your middle finger. Finally, the vertical stroke is your <strong>hand</strong>.</p>
+<p><strong>kun</strong>: て<br />
+<strong>on</strong>: シュ</p>
+<h2 class="header"><i>132</i>着 To Put on, to Arrive<a class="headerlink" href="#to-put-on-to-arrive" name="to-put-on-to-arrive">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/132.png" title="To Put on, to Arrive" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%9D%80?OpenDocument" title="To Put on, to Arrive"><img alt="Stroke Animation for &quot;To Put on, to Arrive&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/132.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: き （る）、 つ （く）<br />
+<strong>on</strong>: チャク</p>
+<h2 class="header"><i>133</i>知 To know<a class="headerlink" href="#to-know" name="to-know">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/133.png" title="To know" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%9F%A5?OpenDocument" title="To know"><img alt="Stroke Animation for &quot;To know&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/133.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: し （る）<br />
+<strong>on</strong>: チ</p>
+<h2 class="header"><i>134</i>乗 To ride<a class="headerlink" href="#to-ride" name="to-ride">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/134.png" title="To ride" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%B9%97?OpenDocument" title="To ride"><img alt="Stroke Animation for &quot;To ride&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/134.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: の （る）<br />
+<strong>on</strong>: ジョウ</p>
+<h2 class="header"><i>135</i>教 To teach<a class="headerlink" href="#to-teach" name="to-teach">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/135.png" title="To teach" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%95%99?OpenDocument" title="To teach"><img alt="Stroke Animation for &quot;To teach&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/135.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: おし （える）<br />
+<strong>on</strong>: キョウ</p>
+<h2 class="header"><i>136</i>好 Like/Love<a class="headerlink" href="#likelove" name="likelove">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/136.png" title="Like/Love" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A5%BD?OpenDocument" title="Like/Love"><img alt="Stroke Animation for &quot;Like/Love&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/136.gif" /></a><br />
+A mother's <strong>love</strong> for her child.</p>
+<p><strong>kun</strong>: す （き）<br />
+<strong>on</strong>: コウ</p>
+<h2 class="header"><i>137</i>住 To live<a class="headerlink" href="#to-live" name="to-live">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/137.png" title="To live" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%8F?OpenDocument" title="To live"><img alt="Stroke Animation for &quot;To live&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/137.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: す （む）<br />
+<strong>on</strong>: ジュウ</p>
+<h2 class="header"><i>138</i>所 Place<a class="headerlink" href="#place" name="place">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/138.png" title="Place" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%89%80?OpenDocument" title="Place"><img alt="Stroke Animation for &quot;Place&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/138.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ところ<br />
+<strong>on</strong>: ショ</p>
+<h2 class="header"><i>139</i>春 Spring<a class="headerlink" href="#spring" name="spring">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/139.png" title="Spring" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%98%A5?OpenDocument" title="Spring"><img alt="Stroke Animation for &quot;Spring&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/139.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: はる<br />
+<strong>on</strong>: シュン</p>
+<h2 class="header"><i>140</i>夏 Summer<a class="headerlink" href="#summer" name="summer">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/140.png" title="Summer" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%8F?OpenDocument" title="Summer"><img alt="Stroke Animation for &quot;Summer&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/140.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: なつ<br />
+<strong>on</strong>: カ</p>
+<h2 class="header"><i>141</i>秋 Autumn<a class="headerlink" href="#autumn" name="autumn">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/141.png" title="Autumn" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%A7%8B?OpenDocument" title="Autumn"><img alt="Stroke Animation for &quot;Autumn&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/141.gif" /></a><br />
+In <strong>autumn</strong>, the leaves of the trees turn orange, as if they were catching on fire.</p>
+<p><strong>kun</strong>: あき<br />
+<strong>on</strong>: シュウ</p>
+<h2 class="header"><i>142</i>冬 Winter<a class="headerlink" href="#winter" name="winter">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/142.png" title="Winter" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%86%AC?OpenDocument" title="Winter"><img alt="Stroke Animation for &quot;Winter&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/142.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ふゆ<br />
+<strong>on</strong>: ト</p>
+<h2 class="header"><i>143</i>暑 Hot (weather)<a class="headerlink" href="#hot-weather" name="hot-weather">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/143.png" title="&quot;Hot (weather" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9A%91?OpenDocument" title="Hot (weather)"><img alt="Stroke Animation for &quot;Hot (weather)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/143.gif" /></a><br />
+Sometimes, it's so <strong>hot</strong> outside that we still feel the warmth of the Sun after it's set.</p>
+<p><strong>kun</strong>: あつ （い）</p>
+<h2 class="header"><i>144</i>寒 Cold (weather)<a class="headerlink" href="#cold-weather" name="cold-weather">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/144.png" title="&quot;Cold (weather" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%AF%92?OpenDocument" title="Cold (weather)"><img alt="Stroke Animation for &quot;Cold (weather)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/144.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: さむ （い）</p>
+<h2 class="header"><i>145</i>暖 Warm (and nice)<a class="headerlink" href="#warm-and-nice" name="warm-and-nice">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/145.png" title="&quot;Warm (and nice" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9A%96?OpenDocument" title="Warm (and nice)"><img alt="Stroke Animation for &quot;Warm (and nice)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/145.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: あたた （かい）</p>
+<h2 class="header"><i>146</i>涼 Cool (weather)<a class="headerlink" href="#cool-weather" name="cool-weather">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/146.png" title="&quot;Cool (weather" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%B6%BC?OpenDocument" title="Cool (weather)"><img alt="Stroke Animation for &quot;Cool (weather)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/146.gif" /></a><br />
+It's <strong>chilly</strong> inside and the lips of your mouth have gotten small.</p>
+<p><strong>kun</strong>: すず （しい）</p>
+<h2 class="header"><i>147</i>熱 Hot (to the touch)<a class="headerlink" href="#hot-to-the-touch" name="hot-to-the-touch">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/147.png" title="&quot;Hot (to the touch" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%86%B1?OpenDocument" title="Hot (to the touch)"><img alt="Stroke Animation for &quot;Hot (to the touch)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/147.gif" /></a><br />
+The blade of the katana had just gotten out of the furnace and was hot to the touch.</p>
+<p><strong>kun</strong>: あつ （い）<br />
+<strong>on</strong>: ネツ</p>
+<h2 class="header"><i>148</i>冷 Cold (to the touch)<a class="headerlink" href="#cold-to-the-touch" name="cold-to-the-touch">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/148.png" title="&quot;Cold (to the touch" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%86%B7?OpenDocument" title="Cold (to the touch)"><img alt="Stroke Animation for &quot;Cold (to the touch)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/148.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: つめ （たい）<br />
+<strong>on</strong>: レイ</p>
+<h2 class="header"><i>149</i>温 Warm<a class="headerlink" href="#warm" name="warm">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/149.png" title="Warm" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%B8%A9?OpenDocument" title="Warm"><img alt="Stroke Animation for &quot;Warm&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/149.gif" /></a><br />
+The water in that container has been <strong>warmed</strong> by the sun.</p>
+<p><strong>kun</strong>: あたた （かい）<br />
+<strong>on</strong>: オン</p>
+<h2 class="header"><i>150</i>元 Origin, Former<a class="headerlink" href="#origin-former" name="origin-former">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/150.png" title="Origin, Former" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%85%83?OpenDocument" title="Origin, Former"><img alt="Stroke Animation for &quot;Origin, Former&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/150.gif" /></a><br />
+We stand on our two legs; they are the <strong>origin</strong> of our stature.</p>
+<p><strong>kun</strong>: もと<br />
+<strong>on</strong>: ゲン</p>
+<h2 class="header"><i>151</i>気 Spirit, Energy, Mind<a class="headerlink" href="#spirit-energy-mind" name="spirit-energy-mind">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/151.png" title="Spirit, Energy, Mind" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%B0%97?OpenDocument" title="Spirit, Energy, Mind"><img alt="Stroke Animation for &quot;Spirit, Energy, Mind&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/151.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: キ</p>
+<h2 class="header"><i>152</i>病 Sickness, illness<a class="headerlink" href="#sickness-illness" name="sickness-illness">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/152.png" title="Sickness, illness" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E7%97%85?OpenDocument" title="Sickness, illness"><img alt="Stroke Animation for &quot;Sickness, illness&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/152.gif" /></a><br />
+Eating a stale piece of meat that was stocked in a humid cave for a long time will make you <strong>sick</strong>.</p>
+<p><strong>kun</strong>: やま （い）<br />
+<strong>on</strong>: ビョウ</p>
+<h2 class="header"><i>153</i>院 Institution<a class="headerlink" href="#institution" name="institution">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/153.png" title="Institution" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%99%A2?OpenDocument" title="Institution"><img alt="Stroke Animation for &quot;Institution&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/153.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: イン</p>
+<h2 class="header"><i>154</i>薬 Medicine, drugs<a class="headerlink" href="#medicine-drugs" name="medicine-drugs">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/154.png" title="Medicine, drugs" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%96%AC?OpenDocument" title="Medicine, drugs"><img alt="Stroke Animation for &quot;Medicine, drugs&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/154.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: くすり<br />
+<strong>on</strong>: ヤク</p>
+<h2 class="header"><i>155</i>休 To rest<a class="headerlink" href="#to-rest" name="to-rest">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/155.png" title="To rest" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BC%91?OpenDocument" title="To rest"><img alt="Stroke Animation for &quot;To rest&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/155.gif" /></a><br />
+A person <strong>resting</strong> by a tree.</p>
+<p><strong>kun</strong>: やす （む）、 やす （み）<br />
+<strong>on</strong>: キュウ</p>
+<h2 class="header"><i>156</i>体 Body<a class="headerlink" href="#body" name="body">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/156.png" title="Body" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BD%93?OpenDocument" title="Body"><img alt="Stroke Animation for &quot;Body&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/156.gif" /></a><br />
+The <strong>body</strong> is the foundation of any person.</p>
+<p><strong>kun</strong>: からだ<br />
+<strong>on</strong>: タイ、 テイ</p>
+<h2 class="header"><i>157</i>回 Times, frequency<a class="headerlink" href="#times-frequency" name="times-frequency">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/157.png" title="Times, frequency" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%9B%9E?OpenDocument" title="Times, frequency"><img alt="Stroke Animation for &quot;Times, frequency&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/157.gif" /></a><br />
+<strong>How often</strong> do you see a creature with a second mouth down its throat?</p>
+<p><strong>kun</strong>: まわ （る）<br />
+<strong>on</strong>: カイ</p>
+<h2 class="header"><i>158</i>度 Degree, frequency<a class="headerlink" href="#degree-frequency" name="degree-frequency">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/158.png" title="Degree, frequency" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BA%A6?OpenDocument" title="Degree, frequency"><img alt="Stroke Animation for &quot;Degree, frequency&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/158.gif" /></a><br />
+No mnemonic</p>
+<p><strong>on</strong>: ド</p>
+<h2 class="header"><i>159</i>洗 To wash<a class="headerlink" href="#to-wash" name="to-wash">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/159.png" title="To wash" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%B4%97?OpenDocument" title="To wash"><img alt="Stroke Animation for &quot;To wash&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/159.gif" /></a><br />
+<strong>Washing</strong> oneself by a water source.</p>
+<p><strong>kun</strong>: あら （う）<br />
+<strong>on</strong>: セン</p>
+<h2 class="header"><i>160</i>切 To cut<a class="headerlink" href="#to-cut" name="to-cut">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/160.png" title="To cut" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%88%87?OpenDocument" title="To cut"><img alt="Stroke Animation for &quot;To cut&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/160.gif" /></a><br />
+The Seven samurais <strong>cutting</strong> down bandits with their swords.</p>
+<p><strong>kun</strong>: き （る）<br />
+<strong>on</strong>: セツ</p>
+<h2 class="header"><i>161</i>借 To borrow<a class="headerlink" href="#to-borrow" name="to-borrow">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/161.png" title="To borrow" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%80%9F?OpenDocument" title="To borrow"><img alt="Stroke Animation for &quot;To borrow&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/161.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: か （りる）<br />
+<strong>on</strong>: シャク</p>
+<h2 class="header"><i>162</i>走 To run<a class="headerlink" href="#to-run" name="to-run">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/162.png" title="To run" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%B5%B0?OpenDocument" title="To run"><img alt="Stroke Animation for &quot;To run&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/162.gif" /></a><br />
+You feel the soil under the sole of your feet as you <strong>run</strong>.</p>
+<p><strong>kun</strong>: はし （る）<br />
+<strong>on</strong>: ソウ</p>
+<ul>
+<li>はさみを持ったら、<strong>走</strong>れないで下さい！　はさみを　もったら、　<strong>はし</strong>れないでください！ <em>If you are holding scissors, please do not run!</em></li>
+</ul>
+<h2 class="header"><i>163</i>返 To give back<a class="headerlink" href="#to-give-back" name="to-give-back">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/163.png" title="To give back" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%BF%94?OpenDocument" title="To give back"><img alt="Stroke Animation for &quot;To give back&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/163.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: かえ （す）<br />
+<strong>on</strong>: ヘン</p>
+<ul>
+<li>私の本を<strong>返</strong>してください：　わたしの　ほんを　<strong>かえ</strong>して　ください。 <em>Please give me back my book.</em></li>
+</ul>
+<h2 class="header"><i>164</i>弱 Weak<a class="headerlink" href="#weak" name="weak">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/164.png" title="Weak" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%BC%B1?OpenDocument" title="Weak"><img alt="Stroke Animation for &quot;Weak&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/164.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: よわ （い）<br />
+<strong>on</strong>: ジャク</p>
+<ul>
+<li>小さな時、　<strong>弱</strong>かったです：　ちいさな　とき、　<strong>よわ</strong>かったです。 <em>When I was little, I was weak.</em></li>
+</ul>
+<h2 class="header"><i>165</i>多 Many<a class="headerlink" href="#many" name="many">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/165.png" title="Many" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%9A?OpenDocument" title="Many"><img alt="Stroke Animation for &quot;Many&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/165.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: おお （い）<br />
+<strong>on</strong>: タ</p>
+<h2 class="header"><i>166</i>少 Few<a class="headerlink" href="#few" name="few">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/166.png" title="Few" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%B0%91?OpenDocument" title="Few"><img alt="Stroke Animation for &quot;Few&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/166.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: すく （ない）、 すこ （し）<br />
+<strong>on</strong>: ショウ</p>
+<h2 class="header"><i>167</i>天 Heaven<a class="headerlink" href="#heaven" name="heaven">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/167.png" title="Heaven" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%A4%A9?OpenDocument" title="Heaven"><img alt="Stroke Animation for &quot;Heaven&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/167.gif" /></a><br />
+The <strong>sky</strong> above is like a big ceiling.</p>
+<p><strong>on</strong>: テン</p>
+<h2 class="header"><i>168</i>雨 Rain<a class="headerlink" href="#rain" name="rain">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/168.png" title="Rain" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%9B%A8?OpenDocument" title="Rain"><img alt="Stroke Animation for &quot;Rain&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/168.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: あめ<br />
+<strong>on</strong>: ウ</p>
+<h2 class="header"><i>169</i>雪 Snow<a class="headerlink" href="#snow" name="snow">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/169.png" title="Snow" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%9B%AA?OpenDocument" title="Snow"><img alt="Stroke Animation for &quot;Snow&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/169.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: ゆき<br />
+<strong>on</strong>: セツ</p>
+<ul>
+<li><strong>雪</strong>が　ふりました：　<strong>ゆき</strong>が　ふりました。 <em>Snow has fallen.</em></li>
+</ul>
+<h2 class="header"><i>170</i>風 Wind<a class="headerlink" href="#wind" name="wind">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/170.png" title="Wind" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%A2%A8?OpenDocument" title="Wind"><img alt="Stroke Animation for &quot;Wind&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/170.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: かぜ<br />
+<strong>on</strong>: フウ</p>
+<ul>
+<li>今日、<strong>風</strong>が強いです：　きょう、　<strong>かぜ</strong>が　つよいです。 <em>Today, the wind is strong.</em></li>
+<li>来週、台<strong>風</strong>がありますよ：　らいしゅう、　たい<strong>ふう</strong>が　ありますよ。 <em>Next week, there will be a typhoon!</em></li>
+</ul>
+<h2 class="header"><i>171</i>晴 Clear<a class="headerlink" href="#clear" name="clear">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/171.png" title="Clear" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%99%B4?OpenDocument" title="Clear"><img alt="Stroke Animation for &quot;Clear&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/171.gif" /></a><br />
+The sky is <strong>clear</strong> when all we see above the horizon is the Sun, with the Moon hiding under it.</p>
+<p><strong>kun</strong>: は （れ）、 は （れる）<br />
+<strong>on</strong>: セイ</p>
+<ul>
+<li>そらが<strong>晴れ</strong>ました：　そらが　<strong>はれ</strong>ました。 <em>The sky cleared up.</em></li>
+</ul>
+<h2 class="header"><i>172</i>東 East<a class="headerlink" href="#east" name="east">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/172.png" title="East" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%9D%B1?OpenDocument" title="East"><img alt="Stroke Animation for &quot;East&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/172.gif" /></a><br />
+The Sun rises up in the <strong>East</strong>, shining through the trees.</p>
+<p><strong>kun</strong>: ひがし<br />
+<strong>on</strong>: トウ</p>
+<h2 class="header"><i>173</i>西 West<a class="headerlink" href="#west" name="west">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/173.png" title="West" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%A5%BF?OpenDocument" title="West"><img alt="Stroke Animation for &quot;West&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/173.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: にし<br />
+<strong>on</strong>: セイ</p>
+<h2 class="header"><i>174</i>南 South<a class="headerlink" href="#south" name="south">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/174.png" title="South" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8D%97?OpenDocument" title="South"><img alt="Stroke Animation for &quot;South&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/174.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: みなみ<br />
+<strong>on</strong>: ナン</p>
+<h2 class="header"><i>175</i>北 North<a class="headerlink" href="#north" name="north">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/175.png" title="North" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E5%8C%97?OpenDocument" title="North"><img alt="Stroke Animation for &quot;North&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/175.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: きた<br />
+<strong>on</strong>: ホク</p>
+<p><em>　かべの<strong>北</strong>、あぶないです：　かべの　<strong>きた</strong>、　あぶないです。 </em>It's dangerous, North of the wall.*</p>
+<h2 class="header"><i>176</i>方 Direction, Person (polite)<a class="headerlink" href="#direction-person-polite" name="direction-person-polite">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/176.png" title="&quot;Direction, Person (polite" />") <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%96%B9?OpenDocument" title="Direction, Person (polite)"><img alt="Stroke Animation for &quot;Direction, Person (polite)&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/176.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: かた<br />
+<strong>on</strong>: ホウ</p>
+<p><em>　かんこうきゃく<strong>方</strong>ですか：　かんこうきゃく　<strong>かた</strong>　ですか。 </em>Are you tourists?*</p>
+<h2 class="header"><i>177</i>思 To think<a class="headerlink" href="#to-think" name="to-think">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/177.png" title="To think" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%80%9D?OpenDocument" title="To think"><img alt="Stroke Animation for &quot;To think&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/177.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: おも （う）<br />
+<strong>on</strong>: シ (Typo in Nakama II)</p>
+<ul>
+<li>だれだと<strong>思</strong>います：　だれ　だと　<strong>おも</strong>います？ <em>Who do you think it is?</em></li>
+</ul>
+<h2 class="header"><i>178</i>言 To say<a class="headerlink" href="#to-say" name="to-say">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/178.png" title="To say" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%A8%80?OpenDocument" title="To say"><img alt="Stroke Animation for &quot;To say&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/178.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: い （う）<br />
+<strong>on</strong>: ゲン</p>
+<ul>
+<li>それは日本語で何と<strong>言</strong>いますか：　それは　にほんごで　なんと　<strong>い</strong>いますか。 <em>How do you call that in Japanese?</em></li>
+</ul>
+<h2 class="header"><i>179</i>電 Electricity<a class="headerlink" href="#electricity" name="electricity">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/179.png" title="Electricity" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E9%9B%BB?OpenDocument" title="Electricity"><img alt="Stroke Animation for &quot;Electricity&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/179.gif" /></a><br />
+Think of hydroelectricity: large areas of land are flooded by rainfall and the flow of water generates the electricity.</p>
+<p><strong>on</strong>: デン</p>
+<ul>
+<li>へやを出る時、<strong>電</strong>気をけしてください：　へやを　でる　とき、　<strong>でん</strong>きを　けして　ください。 <em>When you leave the room, please close the lights.</em></li>
+</ul>
+<h2 class="header"><i>180</i>車 Vehicle<a class="headerlink" href="#vehicle" name="vehicle">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/180.png" title="Vehicle" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E8%BB%8A?OpenDocument" title="Vehicle"><img alt="Stroke Animation for &quot;Vehicle&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/180.gif" /></a><br />
+Two axles and a main shaft form the basis of a solar powered <strong>car</strong>.</p>
+<p><strong>kun</strong>: くるま<br />
+<strong>on</strong>: シャ</p>
+<ul>
+<li><strong>車</strong>に乗って下さい：　<strong>くるま</strong>に　のって　ください。 <em>Please get in the car.</em></li>
+<li>電<strong>車</strong>で来ました：　でん<strong>しゃ</strong>で　きました。 <em>I came by train.</em></li>
+</ul>
+<h2 class="header"><i>181</i>京 Capital<a class="headerlink" href="#capital" name="capital">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/181.png" title="Capital" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E4%BA%AC?OpenDocument" title="Capital"><img alt="Stroke Animation for &quot;Capital&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/181.gif" /></a><br />
+No mnemonic</p>
+<p><strong>kun</strong>: キョウ<br />
+<strong>on</strong>: ケイ</p>
+<ul>
+<li>東<strong>京</strong>に行きたいです：　とう<strong>きょう</strong>に　いきたい　です。 <em>I want to go to Tokyo.</em></li>
+<li><strong>京</strong>都で葵祭があります：　<strong>きょう</strong>とで　あおい　まつりが　あります。 *In Kyoto, there is the Hollyhock Festival.</li>
+</ul>
+<h2 class="header"><i>182</i>昨 Previous<a class="headerlink" href="#previous_1" name="previous_1">&para;</a></h2>
+<p><img alt="Static Kanji" src="http://cs.mcgill.ca/~ejanco/east240/kanji/png/182.png" title="Previous" /> <a href="http://www.yamasa.cc/members/ocjs/kanjidic.nsf/SortedByKanji2THEnglish/%E6%98%A8?OpenDocument" title="Previous"><img alt="Stroke Animation for &quot;Previous&quot;" src="http://www.cs.mcgill.ca/~ejanco/east240/kanji/182.gif" /></a><br />
+<em>That one is not on our list (Summer 2012), but it is in the one on Docuum.</em></p>
+<p><strong>on</strong>: サク</p>
+<ul>
+<li>昨日のテストはどうでしたか：　きのうの　テストは　どう　でしたか。　<em>How was yesterday's test?</em></li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

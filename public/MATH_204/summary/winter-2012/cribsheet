@@ -1,0 +1,307 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_204/">
+                MATH 204
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Cribsheet
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Cribsheet
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The pdf is here <a href="http://cs.mcgill.ca/~yzhou53/stuff/cribsheet.pdf"><a href="http://cs.mcgill.ca/~yzhou53/stuff/cribsheet.pdf">http://cs.mcgill.ca/~yzhou53/stuff/cribsheet.pdf</a></a></p>
+<p>The source is:</p>
+<div class="codehilite"><pre><span class="k">\documentclass</span><span class="na">[landscape]</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amssymb<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsthm<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[T1]</span><span class="nb">{</span>fontenc<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>multicol<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="na">[margin=1cm]</span><span class="nb">{</span>geometry<span class="nb">}</span>
+<span class="k">\setlength</span><span class="nb">{</span><span class="k">\parindent</span><span class="nb">}{</span>0in<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>multicols<span class="nb">}{</span>3<span class="nb">}</span>
+
+Testing the real standard dev of a sample:
+<span class="sb">$$</span><span class="nb">W</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="o">)</span><span class="nb">S^</span><span class="m">2</span><span class="nb">}{</span><span class="nv">\sigma</span><span class="nb">^</span><span class="m">2</span><span class="nb">_</span><span class="m">0</span><span class="nb">}, W </span><span class="nv">\sim</span><span class="nb"> </span><span class="nv">\chi</span><span class="nb">^</span><span class="m">2</span><span class="nv">\:</span><span class="nb">df</span><span class="o">=</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="s">$$</span>
+
+Assume random/independent sample, normally distributed pop. 
+
+Testing if two population variances are the same:
+<span class="sb">$$</span><span class="nb">F</span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{S^</span><span class="m">2</span><span class="nb">_</span><span class="m">1</span><span class="nb">}{S^</span><span class="m">2</span><span class="nb">_</span><span class="m">2</span><span class="nb">}, </span><span class="nv">\:</span><span class="nb">df</span><span class="o">=</span><span class="nb">n_</span><span class="m">1</span><span class="o">-</span><span class="m">1</span><span class="nb">,n_</span><span class="m">2</span><span class="o">-</span><span class="m">1</span><span class="s">$$</span>
+
+Assume two samples are randomly and independently selected from their two populations, which are both normally distributed
+
+One-Way Anova
+
+<span class="sb">$$</span><span class="nb">SST </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{k</span><span class="o">=</span><span class="m">1</span><span class="nb">}^K n_k</span><span class="o">(</span><span class="nb">Y_k </span><span class="o">-</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb"> Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">MST </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SST}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{k</span><span class="o">=</span><span class="m">1</span><span class="nb">}^K</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{n_k}</span><span class="o">(</span><span class="nb">Y_{ij} </span><span class="o">-</span><span class="nb"> Y_k</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">s_p^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> MSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{n</span><span class="o">-</span><span class="nb">K}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">F</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{MST}{MSE}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">TSS </span><span class="o">=</span><span class="nb"> </span><span class="nv">\Sigma</span><span class="nb">_{k</span><span class="o">=</span><span class="m">1</span><span class="nb">}^K</span><span class="nv">\Sigma</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{n_k}</span><span class="o">(</span><span class="nb">Y_{ij} </span><span class="o">-</span><span class="nb"> Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="o">(</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="o">)</span><span class="nb">s^</span><span class="m">2</span><span class="s">$$</span>
+
+Assume random/independent selection, and each group is normally distributed
+
+Confidence interval for difference between 2 groups if K = 2
+<span class="sb">$$</span><span class="nb">y_</span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> y_</span><span class="m">2</span><span class="nb"> </span><span class="nv">\pm</span><span class="nb"> t_{</span><span class="nv">\alpha</span><span class="o">/</span><span class="m">2</span><span class="nb">,n_</span><span class="m">1</span><span class="o">+</span><span class="nb">n_</span><span class="m">2</span><span class="o">-</span><span class="m">2</span><span class="nb">}</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="nv">\frac</span><span class="nb">{s^</span><span class="m">2</span><span class="nb">_p}{n_</span><span class="m">1</span><span class="nb">}</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{s^</span><span class="m">2</span><span class="nb">_p}{n_</span><span class="m">2</span><span class="nb">}},</span><span class="nv">\:</span><span class="nb">df</span><span class="o">=</span><span class="nb">n_</span><span class="m">1</span><span class="o">+</span><span class="nb">n_</span><span class="m">2</span><span class="o">+</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">y_</span><span class="m">1</span><span class="o">-</span><span class="nb">y_</span><span class="m">2</span><span class="nv">\pm</span><span class="nb"> t_{</span><span class="nv">\alpha</span><span class="o">/</span><span class="m">2</span><span class="nb">,n</span><span class="o">-</span><span class="nb">K}</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="nv">\frac</span><span class="nb">{MSE}{n_i}</span><span class="o">+</span><span class="nv">\frac</span><span class="nb">{MSE}{n_j}}</span><span class="nv">\:</span><span class="nb">df</span><span class="o">=</span><span class="nb">n</span><span class="o">-</span><span class="nb">K</span><span class="s">$$</span>
+Bonferroni correction
+<span class="sb">$$</span><span class="nv">\alpha</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\alpha</span><span class="nb">_F}{K</span><span class="o">(</span><span class="nb">K</span><span class="o">-</span><span class="m">1</span><span class="o">)/</span><span class="m">2</span><span class="nb">}</span><span class="s">$$</span>
+
+Two-Way Anova with block design
+
+<span class="sb">$$</span><span class="nb">TSS </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^K</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^B</span><span class="o">(</span><span class="nb">Y_{ij}</span><span class="o">-</span><span class="nb">Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SST </span><span class="o">=</span><span class="nb"> B</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^K</span><span class="o">(</span><span class="nb">Y_{i</span><span class="o">-</span><span class="nb">} </span><span class="o">-</span><span class="nb"> Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SSB </span><span class="o">=</span><span class="nb"> K</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^B</span><span class="o">(</span><span class="nb">Y_{</span><span class="o">-</span><span class="nb">j}</span><span class="o">-</span><span class="nb">Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SSE </span><span class="o">=</span><span class="nb"> TSS </span><span class="o">-</span><span class="nb"> SSB </span><span class="o">-</span><span class="nb"> SST </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i_</span><span class="m">1</span><span class="nb">}^{K}</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{B}</span><span class="o">(</span><span class="nb">Y_{ij}</span><span class="o">-</span><span class="nb">Y_{i</span><span class="o">-</span><span class="nb">}</span><span class="o">-</span><span class="nb">Y_{</span><span class="o">-</span><span class="nb">j}</span><span class="o">+</span><span class="nb">Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+
+Assume errors are normally distributed, blocks are as homogenous as possible. Treatments are randomly assigned to the units in each block, treatment and block effects are all constants.
+
+Two-Way Anova with Factors
+
+Overall test
+<span class="sb">$$</span><span class="nb">SSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{K}</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{J}</span><span class="nv">\sum</span><span class="nb">_{r</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{R}</span><span class="o">(</span><span class="nb">Y_{ijr} </span><span class="o">-</span><span class="nb"> Y_{ij</span><span class="o">-</span><span class="nb">}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+
+<span class="sb">$$</span><span class="nb">SST </span><span class="o">=</span><span class="nb"> R</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{K}</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{J}</span><span class="o">(</span><span class="nb">Y_{ij</span><span class="o">-</span><span class="nb">}</span><span class="o">-</span><span class="nb">Y</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+
+<span class="s">$</span><span class="nb">MST </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SST}{JK</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span>  <span class="s">$</span><span class="nb">MSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{n</span><span class="o">-</span><span class="nb">KJ}</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+Decomposed tests
+<span class="sb">$$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> RJ</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{K}</span><span class="o">(</span><span class="nv">\bar</span><span class="nb"> y_{i</span><span class="o">--</span><span class="nb">} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> y_{</span><span class="o">---</span><span class="nb">}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> RK</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{J}</span><span class="o">(</span><span class="nv">\bar</span><span class="nb"> y_{</span><span class="o">-</span><span class="nb">j</span><span class="o">-</span><span class="nb">} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> y_{</span><span class="o">---</span><span class="nb">}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="k">\begin</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="s">$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb">}{J</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span> <span class="s">$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb">}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span>
+<span class="k">\end</span><span class="nb">{</span>center<span class="nb">}</span>
+<span class="sb">$$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> R</span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^J</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{K}</span><span class="o">(</span><span class="nv">\bar</span><span class="nb"> y_{ij</span><span class="o">-</span><span class="nb">} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> y_{i</span><span class="o">--</span><span class="nb">} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> y_{</span><span class="o">-</span><span class="nb">j</span><span class="o">-</span><span class="nb">} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> y_{</span><span class="o">---</span><span class="nb">}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb">}{KJ</span><span class="o">-</span><span class="nb">J</span><span class="o">-</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="nb">}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">F_{AB} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{MS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb">}{MSE}</span><span class="nv">\:</span><span class="nb">,df</span><span class="o">=</span><span class="nb">KJ</span><span class="o">-</span><span class="nb">J</span><span class="o">-</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="nb">,n</span><span class="o">-</span><span class="nb">JK</span><span class="s">$$</span>
+if not rejected, then:
+<span class="sb">$$</span><span class="nb">F_A </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{MS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb">}{MSE}</span><span class="nv">\:</span><span class="nb">,df</span><span class="o">=</span><span class="nb">K</span><span class="o">-</span><span class="m">1</span><span class="nb">,n</span><span class="o">-</span><span class="nb">JK</span><span class="s">$$</span>
+
+Assume: samples are random/independent, each group normally distributed. 
+same <span class="k">\#</span> of experimental units randomly assigned to each <span class="s">$</span><span class="nb">R</span><span class="nv">\times</span><span class="nb"> J</span><span class="s">$</span> possible 
+factor combinations. Errors are normally distributed with the same var as population. 
+
+Linear Regression
+
+<span class="sb">$$</span><span class="nv">\sigma</span><span class="nb">_{</span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_</span><span class="m">1</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\sigma</span><span class="nb">}{</span><span class="nv">\sqrt</span><span class="nb">{S_{XX}}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">s^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\sigma</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^{n}</span><span class="o">(</span><span class="nb">y_i</span><span class="o">-</span><span class="nv">\hat</span><span class="nb">{y}_i</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{n</span><span class="o">-</span><span class="m">2</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{n</span><span class="o">-</span><span class="m">2</span><span class="nb">}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SSE </span><span class="o">=</span><span class="nb"> SS_{YY} </span><span class="o">-</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_</span><span class="m">1</span><span class="nb">SS_{XY}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">T </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_</span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="m">0</span><span class="nb">}{</span><span class="nv">\sigma</span><span class="o">/</span><span class="nv">\sqrt</span><span class="nb">{SS_{XX}}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_</span><span class="m">1</span><span class="nb"> </span><span class="nv">\pm</span><span class="nb"> t_{n</span><span class="o">-</span><span class="m">2</span><span class="nb">,</span><span class="nv">\alpha</span><span class="o">/</span><span class="m">2</span><span class="nb">}</span><span class="nv">\frac</span><span class="nb">{s}{</span><span class="nv">\sqrt</span><span class="nb">{SS_{XX}}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">r </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SS_{XY}}{</span><span class="nv">\sqrt</span><span class="nb">{SS_{XX}SS_{YY}}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SS_{XY} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{y}</span><span class="o">)(</span><span class="nb">x_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{x}</span><span class="o">)</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SS_{XX} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">x_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{x}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SS_{YY} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{y}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">r </span><span class="o">=</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_</span><span class="m">1</span><span class="nv">\frac</span><span class="nb">{s_x}{s_y}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">SSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\hat</span><span class="nb">{y}_i</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">r^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{SS_{YY}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">r </span><span class="nv">\pm</span><span class="nb"> t_{</span><span class="nv">\alpha</span><span class="o">/</span><span class="m">2</span><span class="nb">,n</span><span class="o">-</span><span class="m">2</span><span class="nb">}</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="o">(</span><span class="m">1</span><span class="o">-</span><span class="nb">r^</span><span class="m">2</span><span class="o">)/(</span><span class="nb">n</span><span class="o">-</span><span class="m">2</span><span class="o">)</span><span class="nb">}</span><span class="s">$$</span>
+In small samples:
+<span class="sb">$$</span><span class="nb">Z </span><span class="o">=</span><span class="nb"> </span><span class="nv">\ln</span><span class="nb">{</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="o">+</span><span class="nb">r}{</span><span class="m">1</span><span class="o">-</span><span class="nb">r}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">Z </span><span class="nv">\pm</span><span class="nb"> z_{</span><span class="nv">\alpha</span><span class="o">/</span><span class="m">2</span><span class="nb">}</span><span class="o">/</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="o">(</span><span class="nb">n</span><span class="o">-</span><span class="m">3</span><span class="o">)</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="o">(</span><span class="nb">c_L, c_U</span><span class="o">)</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="o">[</span><span class="nv">\frac</span><span class="nb">{exp</span><span class="o">(</span><span class="m">2</span><span class="o">*</span><span class="nb">c_L </span><span class="o">-</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb">}{exp</span><span class="o">(</span><span class="m">2</span><span class="o">*</span><span class="nb">c_L </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb">},</span><span class="nv">\frac</span><span class="nb">{exp</span><span class="o">(</span><span class="m">2</span><span class="o">*</span><span class="nb">c_U </span><span class="o">-</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb">}{exp</span><span class="o">(</span><span class="m">2</span><span class="o">*</span><span class="nb">c_U </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb">}</span><span class="o">]</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">E</span><span class="o">(</span><span class="nv">\hat</span><span class="nb">{y}</span><span class="o">(</span><span class="nb">x_</span><span class="m">0</span><span class="o">))</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">_</span><span class="m">0</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">_</span><span class="m">1</span><span class="nb">x_</span><span class="m">0</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">s_{</span><span class="nv">\hat</span><span class="nb"> y</span><span class="o">(</span><span class="nb">x_</span><span class="m">0</span><span class="o">)</span><span class="nb">} </span><span class="o">=</span><span class="nb"> s</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{n} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">x_</span><span class="m">0</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb"> x</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{SS_{XX}}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">S_{</span><span class="nv">\tilde</span><span class="nb">{y}</span><span class="o">(</span><span class="nb">x_</span><span class="m">0</span><span class="o">)</span><span class="nb">} </span><span class="o">=</span><span class="nb"> s</span><span class="nv">\sqrt</span><span class="nb">{</span><span class="m">1</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="m">1</span><span class="nb">}{n} </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">x_</span><span class="m">0</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{x}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{SS_{XX}}}</span><span class="s">$$</span>
+
+Assume x as constant(error around the measurement of x is negligible), errors are independent random variables with the same variance as the population(Y), mean of zero. Y is a random variable with the same variance as errors.
+Assume that <span class="s">$</span><span class="nv">\hat</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">_</span><span class="m">1</span><span class="s">$</span> and <span class="s">$</span><span class="nv">\hat</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">_</span><span class="m">0</span><span class="s">$</span> are normally distributed.
+
+Multiple Regression
+Assume: <span class="s">$</span><span class="nb">E</span><span class="o">(</span><span class="nv">\epsilon</span><span class="nb">_i</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">0</span><span class="s">$</span> for all i, <span class="s">$</span><span class="nb">Var</span><span class="o">(</span><span class="nv">\epsilon</span><span class="nb">_i</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sigma</span><span class="nb">^</span><span class="m">2</span><span class="s">$</span>, normally and independently distributed errors.
+<span class="sb">$$</span><span class="nb">s^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i</span><span class="o">-</span><span class="nv">\hat</span><span class="nb">{y}_i</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{n</span><span class="o">-(</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="o">)</span><span class="nb">}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">t </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_j </span><span class="o">-</span><span class="nb"> </span><span class="nv">\beta</span><span class="nb">^</span><span class="o">*</span><span class="nb">_j}{s</span><span class="nv">\sqrt</span><span class="nb">{c_{jj}}}</span><span class="s">$$</span>
+<span class="s">$</span><span class="nb">c_{jj}</span><span class="s">$</span> is the variance of <span class="s">$</span><span class="nv">\hat</span><span class="nb">{</span><span class="nv">\beta</span><span class="nb">}_j</span><span class="s">$</span>.
+
+Assume x as constant(error around the measurement of x is negligible), errors are independent random variables with the same variance as the population(Y), mean of zero. Y is a random variable with the same variance as errors.
+
+Measuring the fit of the model
+
+<span class="sb">$$</span><span class="nb"> SSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i</span><span class="o">-</span><span class="nv">\hat</span><span class="nb">{y}_i</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb"> SS_{yy} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{i</span><span class="o">=</span><span class="m">1</span><span class="nb">}^n</span><span class="o">(</span><span class="nb">y_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\bar</span><span class="nb">{y}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">R^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{SS_{yy}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">R^</span><span class="m">2</span><span class="nb">_a </span><span class="o">=</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="o">[</span><span class="nv">\frac</span><span class="nb">{n</span><span class="o">-</span><span class="m">1</span><span class="nb">}{n</span><span class="o">-(</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="o">)</span><span class="nb">}</span><span class="o">](</span><span class="nv">\frac</span><span class="nb">{SSE}{SS_{yy}}</span><span class="o">)</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">F </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">SS_{YY} </span><span class="o">-</span><span class="nb"> SSE</span><span class="o">)/</span><span class="nb">k}{SSE</span><span class="o">/[</span><span class="nb">n</span><span class="o">-(</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="o">)]</span><span class="nb">} </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{R^</span><span class="m">2</span><span class="o">/</span><span class="nb">K}{</span><span class="o">(</span><span class="m">1</span><span class="o">-</span><span class="nb">R^</span><span class="m">2</span><span class="o">)/(</span><span class="nb">n</span><span class="o">-(</span><span class="nb">K</span><span class="o">+</span><span class="m">1</span><span class="o">))</span><span class="nb">}</span><span class="s">$$</span>
+
+Comparing Nested Models
+
+<span class="sb">$$</span><span class="nb">F </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">SSE_{M_</span><span class="m">0</span><span class="nb">} </span><span class="o">-</span><span class="nb"> SSE_{M_</span><span class="m">1</span><span class="nb">}</span><span class="o">)/(</span><span class="nb">k</span><span class="o">-</span><span class="nb">g</span><span class="o">)</span><span class="nb">}{SSE_{M</span><span class="m">1</span><span class="nb">}</span><span class="o">/(</span><span class="nb">n</span><span class="o">-(</span><span class="nb">k</span><span class="o">+</span><span class="m">1</span><span class="o">))</span><span class="nb">},</span><span class="nv">\:</span><span class="nb">df</span><span class="o">=</span><span class="nb">k</span><span class="o">-</span><span class="nb">g,n</span><span class="o">-</span><span class="nb">k</span><span class="o">-</span><span class="m">1</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nb">e^{std}_i </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{e_i}{s}</span><span class="s">$$</span>
+
+Categorical Data
+
+<span class="sb">$$</span><span class="nv">\chi</span><span class="nb">^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^k</span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">n_j </span><span class="o">-</span><span class="nb"> np_j^{</span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="nb">}</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{np_j^{</span><span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="nb">}}</span><span class="s">$$</span>
+<span class="sb">$$</span><span class="nv">\chi</span><span class="nb">^</span><span class="m">2</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\sum</span><span class="nb">_{j</span><span class="o">=</span><span class="m">1</span><span class="nb">}^k</span><span class="nv">\frac</span><span class="nb">{</span><span class="o">(</span><span class="nb">observed </span><span class="o">-</span><span class="nb"> expected</span><span class="o">)</span><span class="nb">^</span><span class="m">2</span><span class="nb">}{expected}</span><span class="s">$$</span>
+The degrees of freedom is the difference between k - 1 and the number of unspecified probabilities in <span class="s">$</span><span class="nb">H_</span><span class="m">0</span><span class="s">$</span>.
+
+Test for independence
+<span class="s">$</span><span class="nb">E</span><span class="o">(</span><span class="nb">n_{jk}</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> n</span><span class="nv">\hat</span><span class="nb">{p}_{j</span><span class="o">-</span><span class="nb">}</span><span class="nv">\hat</span><span class="nb">{p}_{</span><span class="o">-</span><span class="nb">k}</span><span class="s">$</span>
+<span class="s">$</span><span class="nb">df </span><span class="o">=</span><span class="nb"> rc </span><span class="o">-</span><span class="nb"> </span><span class="m">1</span><span class="nb"> </span><span class="o">-</span><span class="nb"> </span><span class="o">(</span><span class="nb">r</span><span class="o">+</span><span class="nb">c</span><span class="o">-</span><span class="m">2</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="o">(</span><span class="nb">r</span><span class="o">-</span><span class="m">1</span><span class="o">)(</span><span class="nb">c</span><span class="o">-</span><span class="m">1</span><span class="o">)</span><span class="s">$</span>
+
+Non-parametric statistics
+
+<span class="sb">$$</span><span class="nb">D_i </span><span class="o">=</span><span class="nb"> X_i </span><span class="o">-</span><span class="nb"> </span><span class="nv">\eta</span><span class="nb">_</span><span class="m">0</span><span class="s">$$</span>
+use binomial test on <span class="s">$</span><span class="nb">D_i</span><span class="s">$</span>, <span class="s">$</span><span class="nb">p</span><span class="o">=</span><span class="m">0</span><span class="nb">.</span><span class="m">5</span><span class="s">$</span>
+<span class="sb">$$</span><span class="nb">z </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{X</span><span class="o">-</span><span class="nb">np}{</span><span class="nv">\sqrt</span><span class="nb">{npq}}</span><span class="s">$$</span>
+
+For matched pairs, <span class="s">$</span><span class="nb">D_i </span><span class="o">=</span><span class="nb"> X_i </span><span class="o">-</span><span class="nb"> Y_i</span><span class="s">$</span>, then do test on <span class="s">$</span><span class="nb">D_i</span><span class="s">$</span>
+
+Wilcoxon Paired Rank Sum
+
+<span class="s">$</span><span class="nb">T^</span><span class="o">+</span><span class="s">$</span> is rank sum of positive <span class="s">$</span><span class="nb">D_i</span><span class="s">$</span>
+<span class="sb">$$</span><span class="nb">E</span><span class="o">(</span><span class="nb">T^</span><span class="o">+)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{n</span><span class="o">(</span><span class="nb">n</span><span class="o">+</span><span class="m">1</span><span class="o">)</span><span class="nb">}{</span><span class="m">4</span><span class="nb">}</span><span class="s">$$</span> 
+<span class="sb">$$</span><span class="nb">Var</span><span class="o">(</span><span class="nb">T^</span><span class="o">+)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{n</span><span class="o">(</span><span class="nb">n</span><span class="o">+</span><span class="m">1</span><span class="o">)(</span><span class="m">2</span><span class="nb">n</span><span class="o">+</span><span class="m">1</span><span class="o">)</span><span class="nb">}{</span><span class="m">24</span><span class="nb">}</span><span class="s">$$</span>
+Use Z statistic
+
+Wilcoxon Independent Rank Sum
+<span class="sb">$$</span><span class="nb">U </span><span class="o">=</span><span class="nb"> n_</span><span class="m">1</span><span class="nb">n_</span><span class="m">2</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{n_</span><span class="m">1</span><span class="o">(</span><span class="nb">n_</span><span class="m">1</span><span class="nb"> </span><span class="o">+</span><span class="nb"> </span><span class="m">1</span><span class="o">)</span><span class="nb">}{</span><span class="m">2</span><span class="nb">} </span><span class="o">-</span><span class="nb"> W</span><span class="s">$$</span>
+Where W is the rank sum of first sample
+<span class="sb">$$</span><span class="nb">Z </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{U</span><span class="o">-(</span><span class="nb">n_</span><span class="m">1</span><span class="nb">n_</span><span class="m">2</span><span class="o">/</span><span class="m">2</span><span class="o">)</span><span class="nb">}{</span><span class="nv">\sqrt</span><span class="nb">{n_</span><span class="m">1</span><span class="nb">n_</span><span class="m">2</span><span class="o">(</span><span class="nb">n_</span><span class="m">1</span><span class="o">+</span><span class="nb">n_</span><span class="m">2</span><span class="o">+</span><span class="m">1</span><span class="o">)/</span><span class="m">12</span><span class="nb">}}</span><span class="s">$$</span>
+
+Assume independent and identically distributed data.
+
+<span class="k">\end</span><span class="nb">{</span>multicols<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>multicols<span class="nb">}{</span>2<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c | c| c|c|c|c<span class="nb">}</span>
+
+Source <span class="nb">&amp;</span> df <span class="nb">&amp;</span> SS <span class="nb">&amp;</span> MS <span class="nb">&amp;</span> F <span class="nb">&amp;</span> p-value <span class="k">\\</span>
+<span class="k">\hline</span>
+Treatments<span class="nb">&amp;</span><span class="s">$</span><span class="nb">K</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SST</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MST</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{SST}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MST}{MSE}</span><span class="s">$</span><span class="nb">&amp;</span>Pr(F<span class="k">\*</span> &gt; F)<span class="k">\\</span>
+<span class="k">\hline</span>
+Error<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="nb">K</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SSE</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MSE</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{SST}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;&amp;</span><span class="k">\\</span>
+<span class="k">\hline</span>
+Total<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">TSS</span><span class="s">$</span><span class="nb">&amp;&amp;&amp;</span><span class="k">\\</span>
+
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>                          
+
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c | c| c|c|c<span class="nb">}</span>
+Source<span class="nb">&amp;</span> df <span class="nb">&amp;</span> SS <span class="nb">&amp;</span> MS <span class="nb">&amp;</span> F <span class="k">\\</span>
+<span class="k">\hline</span>
+Treatments<span class="nb">&amp;</span><span class="s">$</span><span class="nb">K</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SST</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MST</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{SST}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MST}{MSE}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+Blocks<span class="nb">&amp;</span><span class="s">$</span><span class="nb">B</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SSB</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MSB</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{SSB}{B</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MSB}{MSE}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+Error<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="nb">K</span><span class="o">-</span><span class="nb">B</span><span class="o">+</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SSE</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MSE</span><span class="o">=</span><span class="nv">\frac</span><span class="nb">{SSE}{n</span><span class="o">-</span><span class="nb">K</span><span class="o">-</span><span class="nb">B</span><span class="o">+</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="k">\\</span>
+<span class="k">\hline</span>
+Total<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">TSS</span><span class="s">$</span><span class="nb">&amp;&amp;</span><span class="k">\\</span>
+
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>multicols<span class="nb">}</span>
+
+<span class="k">\begin</span><span class="nb">{</span>tabular<span class="nb">}{</span>c | c| c|c|c<span class="nb">}</span>
+Source<span class="nb">&amp;</span>df<span class="nb">&amp;</span>SS<span class="nb">&amp;</span>MS<span class="nb">&amp;</span>F<span class="k">\\</span>
+<span class="k">\hline</span>
+<span class="s">$</span><span class="nb">A</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">K</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">A</span><span class="o">)=</span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb">}{K</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MS</span><span class="o">(</span><span class="nb">A</span><span class="o">)</span><span class="nb">}{MSE}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+<span class="s">$</span><span class="nb">B</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">J</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">B</span><span class="o">)=</span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb">}{J</span><span class="o">-</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MS</span><span class="o">(</span><span class="nb">B</span><span class="o">)</span><span class="nb">}{MSE}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+<span class="s">$</span><span class="nb">A </span><span class="nv">\times</span><span class="nb"> B</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">KJ </span><span class="o">-</span><span class="nb"> K </span><span class="o">-</span><span class="nb"> J </span><span class="o">+</span><span class="nb"></span>
+<span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)=</span><span class="nv">\frac</span><span class="nb">{SS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb">}{KJ</span><span class="o">-</span><span class="nb">K</span><span class="o">-</span><span class="nb">J</span><span class="o">+</span><span class="m">1</span><span class="nb">}</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nv">\frac</span><span class="nb">{MS</span><span class="o">(</span><span class="nb">AB</span><span class="o">)</span><span class="nb">}{MSE}</span><span class="s">$</span><span class="k">\\</span>
+<span class="k">\hline</span>
+Error<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="nb">KJ</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">SSE</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">MSE </span><span class="o">=</span><span class="nb"> </span><span class="nv">\frac</span><span class="nb">{SSE}{n</span><span class="o">-</span><span class="nb">KJ}</span><span class="s">$</span><span class="nb">&amp;</span><span class="k">\\</span>
+<span class="k">\hline</span>
+ Total<span class="nb">&amp;</span><span class="s">$</span><span class="nb">n</span><span class="o">-</span><span class="m">1</span><span class="s">$</span><span class="nb">&amp;</span><span class="s">$</span><span class="nb">TSS</span><span class="s">$</span><span class="nb">&amp;&amp;</span><span class="k">\\</span>
+<span class="k">\end</span><span class="nb">{</span>tabular<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</pre></div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

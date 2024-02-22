@@ -1,0 +1,305 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, September 6, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, September 6, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to the course
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for the first COMP 360 class, taught by <a href="http://www.cs.mcgill.ca/~hatami/">Hamed Hatami</a>. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#overview-of-the-course">1 Overview of the course</a></li>
+<li><a href="#network-flow">2 Network flow</a><ul>
+<li><a href="#the-max-flow-problem">2.1 The max-flow problem</a></li>
+<li><a href="#ford-fulkerson">2.2 Ford-Fulkerson</a><ul>
+<li><a href="#definitions">2.2.1 Definitions</a></li>
+<li><a href="#algorithm-steps">2.2.2 Algorithm steps</a></li>
+<li><a href="#analysis-of-the-algorithm">2.2.3 Analysis of the algorithm</a><ul>
+<li><a href="#correctness">2.2.3.1 Correctness</a></li>
+<li><a href="#termination">2.2.3.2 Termination</a></li>
+<li><a href="#running-time">2.2.3.3 Running time</a></li>
+</ul>
+</li>
+<li><a href="#implementation-in-python">2.2.4 Implementation in Python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Overview of the course<a class="headerlink" href="#overview-of-the-course" name="overview-of-the-course">&para;</a></h2>
+<p>The required textbook is <a href="http://www.amazon.ca/Algorithm-Design-Jon-Kleinberg/dp/0321295358">Algorithm Design</a> by Jon Kleinberg and Éva Tardos (likely the same as the one used in <a class="wikilink" href="/COMP_251/">COMP 251</a>).</p>
+<p>In <a class="wikilink" href="/COMP_250/">COMP 250</a> and <a class="wikilink" href="/COMP_251/">COMP 251</a>, we mainly covered basic algorithms: sorting, searching, graph traversal, and the like. In this course, we will cover more advanced algorithms, particularly optimisation algorithms. An approximate overview of the topics that will be covered is:</p>
+<ul>
+<li>Network flow</li>
+<li>NP-completeness</li>
+<li>Linear programming</li>
+<li>Approximation algorithms</li>
+<li>Randomisation algorithms</li>
+</ul>
+<h2 class="header"><i>2</i>Network flow<a class="headerlink" href="#network-flow" name="network-flow">&para;</a></h2>
+<h3 class="header"><i>2.1</i>The max-flow problem<a class="headerlink" href="#the-max-flow-problem" name="the-max-flow-problem">&para;</a></h3>
+<p>The first topic to be covered is network flow, specifically, the max-flow problem. We define a <strong>flow network</strong> as a <em>directed graph</em>, <span>$G = (V, E)$</span> (i.e. a set of vertices and edges), such that:</p>
+<ol>
+<li>Every edge <span>$e$</span> has a capacity <span>$c_e$</span>.</li>
+<li>There is a source <span>$s \in V$</span> from which the flow starts.</li>
+<li>There is a sink <span>$t \in V$</span> where the flow ends.</li>
+</ol>
+<p>Some assumptions:</p>
+<ul>
+<li>The capacities are all natural numbers (positive integers).</li>
+<li>The source has no incoming edges, and at least one outgoing edge.</li>
+<li>The sink has no outgoing edges, and at least one incoming edge.</li>
+<li>Every other node is adjacent to (connected with) at least one incoming and one outgoing edge.</li>
+</ul>
+<p>We define an <strong>s-t flow</strong> as a function, <span>$f: E \to \mathbb{Z}^+ \cup \{0\}$</span>, which assigns a non-negative integer to every edge (which is the flow through that edge). This function must satisfy the following conditions:</p>
+<ol>
+<li><strong>Capacity condition</strong>. The flow through any edge must not be greater than the capacity of that edge. Mathematically: <span>$\forall e \in E, f(e) \leq c_e$</span>.</li>
+<li><strong>Conservation condition</strong>. For all nodes other than the source and the sink, the flow through all incoming edges should be equal to the flow through all outgoing edges. Mathematically: <span>$\forall v \in V / \{s, t\}$</span>, <span>$\displaystyle\sum_{\text{incoming edges}} f(e) = \sum_{\text{outgoing edges}} f(e)$</span>.</li>
+</ol>
+<p>Next, we define a <span>$v(f)$</span>: the total value of a flow <span>$f$</span> leaving the source. This is the particular quantity that we wish to maximise. Specifically, the problem is: given a flow network <span>$(G, \{c_e\}, s, t)$</span>, what is the maximum <span>$v(f)$</span> among all valid flows <span>$f$</span>?</p>
+<h3 class="header"><i>2.2</i>Ford-Fulkerson<a class="headerlink" href="#ford-fulkerson" name="ford-fulkerson">&para;</a></h3>
+<p>One algorithm for finding the maximum flow in a flow network is known as Ford-Fulkerson. The basic process is:</p>
+<ol>
+<li>Start with the flow for every edge being set to 0.</li>
+<li>At every step, push more flow through until we can add no more.</li>
+</ol>
+<p>(A better, more detailed explanation of the process can be found below.)</p>
+<h4 class="header"><i>2.2.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h4>
+<p>At this point, we need to define the concept of a <strong>residual graph</strong>. Given <span>$(G, \{c_e\}, s, t)$</span>, and an <span>$s-t$</span> flow <span>$f$</span>, the residual graph <span>$G_f$</span> has the same vertices as <span>$G$</span>, and its edges are specified as follows:</p>
+<ol>
+<li>If <span>$f(e) &lt; c_e$</span>, then <span>$G_f$</span> has the same edge <span>$e$</span>, but with a capacity of <span>$c_e - f(e)$</span>. In other words, if the flow in the original graph has not reached capacity, the flow in the residual graph is the remaining capacity.</li>
+<li>If <span>$f(e) &gt; 0$</span>, then <span>$G_f$</span> has an edge in the opposite direction (possibly in addition to an edge in the same direction) with capacity <span>$f(e)$</span>.</li>
+</ol>
+<p>Here's an example, taken from the lecture<sup id="fnref:residual graph"><a href="#fn:residual graph" rel="footnote" title="The diagram that was drawn on the board didn't, as...">1</a></sup>:</p>
+<p><img alt="Residual graph example" src="http://cs.mcgill.ca/~wliu65/media/comp360/residual-graphs.png" /></p>
+<p>In other words, for any edge, its equivalent edge in the same direction in the residual graph has a capacity of whatever remains of the original edge's capacity (that has not been "filled" with flow). It also has an edge in the opposite direction with capacity being whatever the flow of the original edge was.</p>
+<p>Now we define an <strong>augmented path</strong> <span>$P$</span>, which is a simple path<sup id="fnref:simple path"><a href="#fn:simple path" rel="footnote" title="A path in which no vertex is visited more than onc...">2</a></sup> in a residual graph <span>$G_f$</span> that starts at the source and ends at the sink. We define <span>$\text{Bottleneck}(P, f)$</span><sup id="fnref:bottleneck"><a href="#fn:bottleneck" rel="footnote" title="I think the notation is meant to indicate a functi...">3</a></sup> to be the minimum residual capacity of any edge in <span>$P$</span>. So the bottleneck (or cut) is the maximum amount of flow that can be pushed through <span>$P$</span>.</p>
+<h4 class="header"><i>2.2.2</i>Algorithm steps<a class="headerlink" href="#algorithm-steps" name="algorithm-steps">&para;</a></h4>
+<p>Now we can redefine the steps of this algorithm in terms of the residual graph and augmented paths:</p>
+<ol>
+<li>Set <span>$f(e)$</span> to 0 for every edge in <span>$G$</span>.</li>
+<li>While there is an <span>$s-t$</span> path in the residual graph <span>$G_f$</span>:<ul>
+<li><span>$f' = \text{augment}(f,P)$</span> (i.e. increase the flow by <span>$\text{Bottleneck}(P, f)$</span> through <span>$P$</span>)</li>
+<li>Update <span>$f$</span> to <span>$f'$</span></li>
+<li>Reconstruct the residual graph.</li>
+</ul>
+</li>
+</ol>
+<h4 class="header"><i>2.2.3</i>Analysis of the algorithm<a class="headerlink" href="#analysis-of-the-algorithm" name="analysis-of-the-algorithm">&para;</a></h4>
+<h5 class="header"><i>2.2.3.1</i>Correctness<a class="headerlink" href="#correctness" name="correctness">&para;</a></h5>
+<p>The augmented flow satisfies the two conditions of a valid flow - the capacity constraint, and conservation - as follows:</p>
+<ul>
+<li><strong>Capacity</strong>: the residual capacities are always less than the original capacities.</li>
+<li><strong>Conservation</strong>: there are three possible cases, and in each case the conservation condition is preserved.<ul>
+<li>-- a --&gt; V -- a --&gt;</li>
+<li>-- a --&gt; V &lt;- a ---</li>
+<li>&lt;- a --- V -- a --&gt;</li>
+</ul>
+</li>
+</ul>
+<h5 class="header"><i>2.2.3.2</i>Termination<a class="headerlink" href="#termination" name="termination">&para;</a></h5>
+<p>A valid flow cannot be larger than the total capacity of the edges leaving the source. Every time we agument the flow, we increase the value by at least 1. So, there are at most <span>$C$</span> iterations where <span>$C$</span> is the sum of the capacities of the edges leaving the source.</p>
+<h5 class="header"><i>2.2.3.3</i>Running time<a class="headerlink" href="#running-time" name="running-time">&para;</a></h5>
+<p>Every iteration is <span>$O(m) + O(m) = O(m)$</span>. The total running time is <span>$O(mC)$</span> where <span>$m$</span> is the number of edges in the graph.</p>
+<p>Is this, then, a polynomial-time algorithm? No, it is not. If you make bad initial choices when augmenting the flow, it could take much longer to complete the algorithm.<sup id="fnref:addendum"><a href="#fn:addendum" rel="footnote" title="The professor also mentioned something about $\lce...">4</a></sup></p>
+<h4 class="header"><i>2.2.4</i>Implementation in Python<a class="headerlink" href="#implementation-in-python" name="implementation-in-python">&para;</a></h4>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Edge</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">=</span> <span class="n">u</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sink</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">capacity</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="c"># flow only determined when working out the Ford-Fulkerson algorithm </span>
+
+<span class="k">class</span> <span class="nc">FlowGraph</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neigb</span> <span class="o">=</span> <span class="p">{}</span> <span class="c"># list of nodes and the edges that connect the said node to its neighbours</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="o">=</span> <span class="p">{}</span> <span class="c"># list of flow in edges</span>
+
+    <span class="k">def</span> <span class="nf">add_vertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neigb</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># initiate each node with a list of edge coming from this node</span>
+
+    <span class="k">def</span> <span class="nf">get_edges</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">neigb</span><span class="p">[</span><span class="n">v</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">add_edge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">u</span> <span class="o">==</span> <span class="n">v</span><span class="p">:</span>
+             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;u==v&quot;</span><span class="p">)</span>
+
+        <span class="c"># directly add the edges of the residual graph     </span>
+        <span class="n">edge</span> <span class="o">=</span> <span class="n">Edge</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+        <span class="n">redge</span> <span class="o">=</span> <span class="n">Edge</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">edge</span><span class="o">.</span><span class="n">redge</span> <span class="o">=</span> <span class="n">redge</span>
+        <span class="n">redge</span><span class="o">.</span><span class="n">redge</span> <span class="o">=</span> <span class="n">edge</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neigb</span><span class="p">[</span><span class="n">u</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">neigb</span><span class="p">[</span><span class="n">v</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">redge</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">redge</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">find_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">source</span> <span class="o">==</span> <span class="n">sink</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">path</span>
+
+        <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_edges</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+            <span class="n">residual</span> <span class="o">=</span> <span class="n">edge</span><span class="o">.</span><span class="n">capacity</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span>
+
+            <span class="c"># path is a list of set (edge, residual capacity)</span>
+            <span class="k">if</span> <span class="n">residual</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">edge</span><span class="p">,</span> <span class="n">residual</span><span class="p">)</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_path</span><span class="p">(</span><span class="n">edge</span><span class="o">.</span><span class="n">sink</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[(</span><span class="n">edge</span><span class="p">,</span> <span class="n">residual</span><span class="p">)])</span>
+
+                <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">max_flow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">):</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_path</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">while</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="c"># bottleneck is calculated as the minimal flow in the current augmented path </span>
+            <span class="n">flow</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">res</span> <span class="k">for</span> <span class="n">edge</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">path</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">edge</span><span class="p">,</span> <span class="n">res</span> <span class="ow">in</span> <span class="n">path</span><span class="p">:</span>
+                 <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="o">+=</span> <span class="n">flow</span>
+                 <span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">edge</span><span class="o">.</span><span class="n">redge</span><span class="p">]</span> <span class="o">-=</span> <span class="n">flow</span>
+
+            <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">find_path</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sink</span><span class="p">,</span> <span class="p">[])</span>
+
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flow</span><span class="p">[</span><span class="n">edge</span><span class="p">]</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_edges</span><span class="p">(</span><span class="n">source</span><span class="p">))</span>
+
+<span class="c"># Remark: instead of creating residual graph, each node has residual edges</span>
+<span class="c"># residual edge is edge of of another node</span>
+
+<span class="c"># Algorithm test</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">FlowGraph</span><span class="p">()</span>
+<span class="nb">map</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">add_vertex</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">,</span><span class="s">&#39;q&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;t&#39;</span><span class="p">])</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="s">&#39;p&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;o&#39;</span><span class="p">,</span><span class="s">&#39;q&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="s">&#39;t&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;q&#39;</span><span class="p">,</span><span class="s">&#39;r&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="s">&#39;q&#39;</span><span class="p">,</span><span class="s">&#39;t&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">g</span><span class="o">.</span><span class="n">max_flow</span><span class="p">(</span><span class="s">&#39;s&#39;</span><span class="p">,</span><span class="s">&#39;t&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:residual graph">
+<p>The diagram that was drawn on the board didn't, as far as I could tell, have the opposite-direction arrows in cases where the original flow was equal to the capacity. I'm not sure if that was deliberate, accidental, or a mistake on my part, but the above diagram should be correct. See also <a href="http://compgeom.cs.uiuc.edu/~jeffe/teaching/algorithms/notes/16-maxflowalgs.pdf">these notes</a> from the CS department at Urbana-Champaign.&#160;<a href="#fnref:residual graph" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:simple path">
+<p>A path in which no vertex is visited more than once&#160;<a href="#fnref:simple path" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:bottleneck">
+<p>I think the notation is meant to indicate a function that takes in two arguments?&#160;<a href="#fnref:bottleneck" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:addendum">
+<p>The professor also mentioned something about <span>$\lceil \log_2 n \rceil$</span> bits being needed to store an integer <span>$n$</span>, but that's a fairly trivial comment valid for many algorithms and doesn't really shed additional light on Ford-Fulkerson in particular. I could have misunderstood what he was saying, though.    &#160;<a href="#fnref:addendum" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

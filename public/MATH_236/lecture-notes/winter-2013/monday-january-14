@@ -1,0 +1,161 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 14, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 14, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Span and linear independence
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Span, linear combinations, and linear independence/dependence.</p>
+<div class="toc">
+<ul>
+<li><a href="#span">1 Span</a><ul>
+<li><a href="#finite-and-infinite-dimensions">1.1 Finite and infinite dimensions</a></li>
+</ul>
+</li>
+<li><a href="#linear-independencedependence">2 Linear independence/dependence</a><ul>
+<li><a href="#an-alternative-definition">2.1 An alternative definition</a><ul>
+<li><a href="#lemma-24">2.1.1 Lemma 2.4</a></li>
+<li><a href="#theorem-26">2.1.2 Theorem 2.6</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Span<a class="headerlink" href="#span" name="span">&para;</a></h2>
+<p>A <strong>linear combination</strong> of vectors <span>$(v_1, \ldots, v_n)$</span>, where each <span>$v_i \in V$</span>, is the vector <span>$v = \alpha_1 v_1 + \ldots + \alpha_n v_n, \; \alpha_I \in \mathbb F$</span>.</p>
+<p>The <strong>span</strong> of <span>$(v_1, \ldots, v_n)$</span>, written <span>$\text{span}(v_1, \ldots, v_n)$</span> or equivalently as <span>$\langle v_1, \ldots, v_n\rangle$</span>, is the set of all possible linear combinations of <span>$(v_1, \ldots, v_n)$</span>. We could also write it as</p>
+<p><span>$$\text{span}(v_1, \ldots, v_n) = \{\alpha_1 v_1 + \ldots + \alpha_n v_n \mid \alpha_I \in \mathbb F \}$$</span></p>
+<p>Clearly, each vector <span>$v_i$</span> is in the span. Also, the span is a subspace of <span>$V$</span>. Indeed, if the span of <span>$(v_1, \ldots, v_n)$</span> is <span>$V$</span>, we say that <span>$(v_1, \ldots, v_n)$</span> <em>spans</em> <span>$V$</span>!!! For example, <span>$((1, 0, 0), (0, 1, 0), (0, 0, 1))$</span> spans <span>$\mathbb F^3$</span>.</p>
+<h3 class="header"><i>1.1</i>Finite and infinite dimensions<a class="headerlink" href="#finite-and-infinite-dimensions" name="finite-and-infinite-dimensions">&para;</a></h3>
+<p>If a vector space <span>$V$</span> is spanned by a finite list of vectors, then we say that <span>$V$</span> has finite dimension. If it cannot be spanned by any finite list of vectors, then we say that <span>$V$</span> has infinite dimension.</p>
+<p>Examples:</p>
+<ul>
+<li><span>$\mathbb F^n$</span>, spanned by <span>$(1, 0, \ldots)$</span>, <span>$(0, 1, \ldots)$</span>, <span>$\ldots$</span>, <span>$(0, \ldots, 1)$</span></li>
+<li><span>$\mathbb P_n(\mathbb F)$</span> (polynomials), spanned by <span>$(1, z, z^2, \ldots, z^n)$</span></li>
+<li><span>$\mathbb P (\mathbb F)$</span> but with no upper limit on the degree. To show that the dimension of this vector is infinite, we use a proof by contradiction: assume that there is a finite list of vectors (polynomials), and the highest degree among all the polynomials is <span>$n$</span>. Then there is no way to make a polynomial of degree <span>$n+1$</span>, and yet, such a polynomial would be a valid one in the vector space. So then the list of vectors must be infinite.</li>
+<li><span>$\mathbb F^{\infty}$</span>, similar to above.</li>
+</ul>
+<h2 class="header"><i>2</i>Linear independence/dependence<a class="headerlink" href="#linear-independencedependence" name="linear-independencedependence">&para;</a></h2>
+<p>A list of vectors <span>$(v_1, \ldots, v_n)$</span> is said to be <strong>linearly independent</strong> if <span>$a_1v_1 + \ldots + a_nv_n = 0$</span> if and only if <span>$a_1, \ldots, a_n = 0$</span> (where <span>$a_i \in \mathbb F$</span>).</p>
+<p>For example, given <span>$((1, 1, 0), (1, 0, 1). (1, 2, -1))$</span>, if <span>$a_1 = 2$</span>, <span>$a_2 = -1$</span> and <span>$a_3 =-1$</span>, then the linear combination is 0, so these vectors are linearly dependent.</p>
+<p>On the other hand, <span>$(z+1, z, z^2)$</span> is linearly independent. Proof: <span>$a_1(z+1) + a_2(z) + a_3(z^2) = a_1z + a_1 + a_2z + a_3z^3$</span> (by distributivity) <span>$= a_1 + (a_1 + a_2)z + a_3z^2$</span>. For this to be equal to 0, we must have that <span>$a_1 = 0$</span> and <span>$a_3 = 0$</span>. But since <span>$a_1 + a_2 = 0$</span>, then <span>$0 + a_2 = 0$</span> and so <span>$a_2 = 0$</span>. So <span>$a_1 = a_2 = a_3 = 0$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>2.1</i>An alternative definition<a class="headerlink" href="#an-alternative-definition" name="an-alternative-definition">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Lemma 2.4<a class="headerlink" href="#lemma-24" name="lemma-24">&para;</a></h4>
+<blockquote>
+<p>A list of vectors <span>$(v_1, \ldots, v_n)$</span> is linearly dependent if and only if one vector can be written as a linear combination of the others.</p>
+</blockquote>
+<p>Proof: (<span>$\to$</span>) assume that <span>$(v_1, \ldots, v_n)$</span> is linearly dependent. That means that we can write <span>$a_1v_1 + \ldots + a_nv_n= 0$</span> with <span>$a_k \neq 0$</span> for some index <span>$k$</span> (possibly more than one). Then we can write</p>
+<p><span>$$a_kv_k = -\sum_{i \neq k} a_iv_i$$</span></p>
+<p>and if we divide by <span>$a_k$</span>, we get</p>
+<p><span>$$v_k = \frac{1}{a_k} -\sum_{i \neq k} a_iv_i = -\sum_{i \neq k} \frac{a_i}{a_k} v_i = \sum{i \neq k} -\frac{a_i}{a_k}v_i$$</span></p>
+<p>and so we can express <span>$v_k$</span> as a linear combination of the other vectors.</p>
+<p>(<span>$\rightarrow$</span>) assume that <span>$\displaystyle v_k = \sum_{i \neq k} b_iv_i$</span> where <span>$b_i \in \mathbb F$</span>. Then <span>$\displaystyle v_k - \sum_{i \neq k} b_iv_i = 0$</span>, which is a linear combination with <span>$a_k = 1$</span> and <span>$a_i = -b_i$</span> for <span>$i \neq k$</span>. Thus we have shown linear dependence. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>2.1.2</i>Theorem 2.6<a class="headerlink" href="#theorem-26" name="theorem-26">&para;</a></h4>
+<blockquote>
+<p>Let <span>$V$</span> be a vector space of finite dimension which is spanned by <span>$(v_1, \ldots, v_n)$</span>. Let <span>$m$</span> be the size of a linearly independent list of vectors in <span>$V$</span>. Then <span>$m \leq n$</span>.</p>
+</blockquote>
+<p>Proof: The one given in class is almost inductive in nature but manages to avoid being an actual proof by induction. I don't really like it. To be continued.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

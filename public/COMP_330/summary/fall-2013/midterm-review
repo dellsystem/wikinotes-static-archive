@@ -1,0 +1,123 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm will take place in class on Thursday, October 10. There will be 5 true/false questions (no explanation necessary) in addition to several long-answer questions. You will have the full 80 minutes to write the exam, though it shouldn't take you that long.</p>
+<p>The midterm will cover <a href="http://wikinotes.ca/COMP_330#series-fall-2013-lecture-notes">all the lectures up to Thursday, October 3</a>, EXCEPT <a href="/COMP_330/lecture-notes/fall-2013/tuesday-september-3#well-founded-induction">the one on well-founded induction</a> and <a href="/COMP_330/lecture-notes/fall-2013/thursday-september-19">the one on learning algorithms</a>.</p>
+<h2 class="header"><i>1</i>Things to know<a class="headerlink" href="#things-to-know" name="things-to-know">&para;</a></h2>
+<ul>
+<li>How to design automata (DFAs/NFAs). Show dead states only for DFAs.</li>
+<li><a href="/COMP_330/lecture-notes/fall-2013/tuesday-october-1#the-pumping-lemma">The pumping lemma</a></li>
+<li>How to determine &amp; prove if a language is regular or not<ul>
+<li>If it's regular: draw the corresponding DFA or NFA diagram</li>
+<li>If it's not: show that it's not pumpable (note that we won't be given any irregular, pumpable languages)</li>
+</ul>
+</li>
+<li>Some algorithm about regular languages/expressions<ul>
+<li>Create a new algorithm for something</li>
+<li>Can make use of algorithms that we've already studied (refer to them briefly; no need to go into detail)</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

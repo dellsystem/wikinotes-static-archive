@@ -1,0 +1,718 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Review for quiz 3
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Review for quiz 3
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Review for quiz #3, to be held during class on Tuesday, November 20. Chapters covered: 8 and 9.</p>
+<p>The content on this page includes summaries of the contents of the slides posted by Professor Liu, in addition to user-created supplementary questions and answers.</p>
+<div class="toc">
+<ul>
+<li><a href="#chapter-8-main-memory">1 Chapter 8: Main memory</a><ul>
+<li><a href="#sample-questions">1.1 Sample questions</a><ul>
+<li><a href="#cpu-and-storage">1.1.1 CPU and storage</a></li>
+<li><a href="#address-binding">1.1.2 Address binding</a></li>
+<li><a href="#mmu">1.1.3 MMU</a></li>
+<li><a href="#loading-vs-linking">1.1.4 Loading vs. linking</a></li>
+<li><a href="#backing-store">1.1.5 Backing store</a></li>
+<li><a href="#memory-partitions">1.1.6 Memory partitions</a></li>
+<li><a href="#multiple-partition-allocation">1.1.7 Multiple-partition allocation</a></li>
+<li><a href="#fragmentation">1.1.8 Fragmentation</a></li>
+<li><a href="#compaction">1.1.9 Compaction</a></li>
+<li><a href="#pages-and-frames">1.1.10 Pages and frames</a></li>
+<li><a href="#virtual-address-calculations">1.1.11 Virtual address calculations</a></li>
+<li><a href="#page-table-implementations">1.1.12 Page table implementations</a></li>
+<li><a href="#page-table-eat-calculations">1.1.13 Page table EAT calculations</a></li>
+<li><a href="#reentrant-code">1.1.14 Reentrant code</a></li>
+<li><a href="#why-pages">1.1.15 Why pages</a></li>
+<li><a href="#page-table-structures">1.1.16 Page table structures</a></li>
+<li><a href="#hierarchical-paging-calculations">1.1.17 Hierarchical paging calculations</a></li>
+<li><a href="#segment-tables">1.1.18 Segment tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-9-virtual-memory">2 Chapter 9: Virtual memory</a><ul>
+<li><a href="#sample-questions_1">2.1 Sample questions</a><ul>
+<li><a href="#demand-paging">2.1.1 Demand paging</a></li>
+<li><a href="#page-faults">2.1.2 Page faults</a></li>
+<li><a href="#page-fault-eat-calculations">2.1.3 Page fault EAT calculations</a></li>
+<li><a href="#copy-on-write">2.1.4 Copy-on-write</a></li>
+<li><a href="#page-replacement-policies">2.1.5 Page replacement policies</a></li>
+<li><a href="#beladys-anomaly">2.1.6 Belady's anomaly</a></li>
+<li><a href="#frame-allocation">2.1.7 Frame allocation</a></li>
+<li><a href="#thrashing">2.1.8 Thrashing</a></li>
+<li><a href="#working-set-model">2.1.9 Working-set model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chapter 8: Main memory<a class="headerlink" href="#chapter-8-main-memory" name="chapter-8-main-memory">&para;</a></h2>
+<ul>
+<li>background<ul>
+<li>for a program to run (as a process), it must be read from disk into memory<ul>
+<li>recall: the only storage media the CPU can access directly are main memory and registers (with the CPU cache between registers and main memory)</li>
+<li>accessing registers can be done within one clock cycle</li>
+<li>accessing main memory can take many clock cycles</li>
+</ul>
+</li>
+<li>each process has a separate memory space, defined by <strong>base</strong> and <strong>limit</strong> registers<ul>
+<li>base: smallest legal physical memory address</li>
+<li>limit: the size of the address space</li>
+</ul>
+</li>
+<li>processing of a user program:<ul>
+<li>the variables used are symbolic addresses in the source program</li>
+<li>the source program is then compiled/assembled to an object module</li>
+<li>the compiler binds the symbolic addresses to relocatable addresses ("x bytes from start of module")</li>
+<li>loader/linkage editor then binds the relocatable addresses to absolute addresses</li>
+<li>in fact, final-address-binding can happen at various stages<ul>
+<li>at compile time, if the memory location is known beforehand, absolute code can be generated (although if the starting location changes, code must be recompiled)</li>
+<li>at load time, if relocatable code is generated by the compiler</li>
+<li>at run time, if the process can be moved (in memory) during execution (needs hardware - MMU - support)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>logical vs. physical address spaces<ul>
+<li>logical address: virtual</li>
+<li>physical address: the one used by the memory unit (like latitude/longitude vs. street names, etc)</li>
+</ul>
+</li>
+<li>memory management unit (MMU)<ul>
+<li>hardware device mapping virtual to physical addresses (dynamically)</li>
+<li>uses TLB</li>
+<li>allows user programs to deal with virtual rather than physical addresses</li>
+<li>makes use of a <strong>relocation register</strong>: given a virtual address, it adds the value of that register to it, then uses that as the physical address</li>
+</ul>
+</li>
+<li>dynamic loading<ul>
+<li>routines are not loaded into memory until they are needed (called)</li>
+<li>results in better memory usage</li>
+<li>useful for things like error routines (large amounts of code, called infrequently)</li>
+<li>can be handled by the process itself - the calling routine will call a relocatable linking loader to load the desired routine in memory if it is not already in it</li>
+<li>no special support from the OS is needed</li>
+<li>however, it falls on the programmer to make use of dynamic loading in their programs</li>
+</ul>
+</li>
+<li>dynamic vs static linking<ul>
+<li>static: system libraries are treated like any other object module and are combined by the loader into the binary</li>
+<li>dynamic: the linking happens at execution time</li>
+<li>advantage: more space efficient</li>
+<li>a code stub handles locating the library if it's in memory already, or loading it if it is not</li>
+<li>the stub then replaces itself with the address of the routine for the library, which is then executed</li>
+<li>needs support from the OS, to check if the routine is in the process' memory address (what does this mean???)</li>
+<li>useful for libraries</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>swapping<ul>
+<li>process can be temporarily <strong>swapped</strong> to disk (known as the <strong>backing store</strong>), then brought back into memory to continue execution</li>
+<li>roll out, roll in: lower-priority processes are swapped out in favour of higher-priority processes</li>
+<li>the time it takes to swap something to disk is proportional to the amount of memory swapped (as the limiting factor is the transfer time)</li>
+<li><strong>ready queue</strong>: holds the list of ready-to-run processes which have memory images on disk</li>
+</ul>
+</li>
+<li>contiguous memory allocation<ul>
+<li>main memory is usually divided into two partitions: a "high" partition, and a "low" partition</li>
+<li>since the interrupt vector is usually in low memory, the OS is usually placed in low memory as well</li>
+<li>then, user processes are placed in high memory</li>
+<li>relocation registers (base, limit) used to protect processes</li>
+<li>if the logical address is less than the limit register, then you add the base register to it to get the physical address</li>
+<li>otherwise you get a trap (addressing error, maybe segfault)</li>
+<li>multiple-partition allocation<ul>
+<li><strong>hole</strong>: block of available memory</li>
+<li>holes of various sizes are scattered throughout memory, etc</li>
+<li>when a process begins execution, it is allocated memory from a large-enough hole</li>
+<li>OS keeps info on which partitions are free and which have already been allocated</li>
+<li>ways of satisfying requests:<ul>
+<li>first-fit: allocate the first hole that is big enough</li>
+<li>best-fit: allocate the smallest hole that is big enough (requires searching the entire list, unless it has been ordered by size)</li>
+<li>worst-fit: allocates the largest hole that is big enough (same as above)</li>
+<li>usually first-fit and best-fit use storage more effectively</li>
+<li>first-fit is typically fastest</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fragmentation<ul>
+<li>external fragmentation: there is enough space in all of memory to satisfy a request, but it is not contiguous (due to processes being loaded and removed from memory, etc)</li>
+<li>internal fragmentation: when the amount of memory allocated is larger than that requested, so there's some space within partitions that is not being used</li>
+<li>external frag. can be reduced by compaction (shuffling memory contents to place all the free blocks together)</li>
+<li>compaction is only possible if relocation is dynamic (done at execution time)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>paging<ul>
+<li>allows the physical address space of a process to be noncontiguous</li>
+<li>physical memory is divided into fixed-size blocks called <strong>frames</strong> (size between 2<sup>9</sup> and 2<sup>24</sup> bytes per page)</li>
+<li>virtual memory is divided into fixed-size blocks called <strong>pages</strong></li>
+<li>OS keeps track of all free frames</li>
+<li>to run a program, you need as many free frames as it needs lol</li>
+<li>then you have a page table to translate virtual to physical addresses</li>
+<li>the virtual address consists of two parts:<ul>
+<li>page number: used as an index into the page table, contains base address of each page in physical memory</li>
+<li>page offset: combined with base address, defines the physical memory address</li>
+</ul>
+</li>
+<li>if the page size is 2<sup>n</sup> bytes, the page offset is n bits</li>
+<li>if there are 2<sup>m</sup> possible virtual addresses, then the page number is m-n bits</li>
+<li>so in virtual memory you have pages, and each page corresponds to a frame in physical memory<ul>
+<li>that mapping is defined in the page table (so index 0 corresponds to frame 1)</li>
+<li>then, a thing in a page corresponds to the same location in the frame itself, etc</li>
+</ul>
+</li>
+<li>from virtual address to fetching the thing in memory, it goes like:<ul>
+<li>the page table index is used to look up the frame index via the page table</li>
+<li>the page offset is added to the end of the frame index</li>
+<li>goes to that location in physical memory, fetches the relevant byte</li>
+</ul>
+</li>
+<li>implementation of the page table<ul>
+<li>one scheme: kept in main memory<ul>
+<li>page table base register: starting address of the page table</li>
+<li>page table length register: size of it</li>
+<li>in this scheme, accessing anything requires two memory accesses: one to find the page table, then another to get the thing itself (which is inefficient)</li>
+</ul>
+</li>
+<li>another scheme: special hardware caches to speed up lookup<ul>
+<li>associative memory or translation lookaside buffers (cache for the page table)</li>
+<li>if the desired page is not in the TLB, then go to memory, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>calculating the effective access time when looking up something<ul>
+<li>let <span>$\epsilon$</span> be the amount of time it takes to look up a page in the TLB</li>
+<li>assume it takes 1 unit of time to look up something in memory</li>
+<li>hit ratio for TLB: <span>$\alpha$</span></li>
+<li>time taken if the page is in the TLB: <span>$(1 + \epsilon)$</span> since you look it up in memory afterwards</li>
+<li>time taken if it's not: <span>$2 + \epsilon$</span> since you have to look it up in the TLB anyway, then access memory to find the page table translation, then again to find the thing itself</li>
+<li>then effective access time is <span>$(1 + \epsilon) \alpha + (2+\epsilon)(1-\alpha) = 2 + \epsilon - \alpha$</span></li>
+</ul>
+</li>
+<li>memory protection<ul>
+<li>protection bit associated with each frame</li>
+<li>corresponding valid/invalid bit attached to each entry in the page table</li>
+<li>if the page is in the process' logical address space, then it's valid; otherwise, invalid</li>
+<li>for example, if that page is not being used by the process, then it would be marked invalid</li>
+<li>note that page tables are per-process ..........</li>
+</ul>
+</li>
+<li>shared pages<ul>
+<li>common code can be shared in a paging scheme</li>
+<li>read-only (reentrant) code shared among multiple processes (maybe different users)<ul>
+<li>must appear in the same location in the logical address space of all processes (?)</li>
+<li>i.e., the frames are shared (so the page tables for these different processes have some overlap)</li>
+<li>reentrant: non-self-modifying, can never change during execution</li>
+</ul>
+</li>
+<li>processes can also have their own private code and data, can appear anywhere in virtual memory etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>structure of the page table<ul>
+<li>hierarchical paging<ul>
+<li>since modern OSes support very large virtual address spaces (2<sup>32</sup> or 2<sup>64</sup>, etc), the page table itself can become very large</li>
+<li>solution: use a multiple-level page table scheme</li>
+<li>you have an outer page table, and each entry points to the location of an inner page table (not standard term terminology)</li>
+<li>then each entry in each inner page table points to a frame in physical memory</li>
+<li>basically you're paging the page table itself</li>
+<li>example: 32-bit addresses, page size of 2<sup>10</sup> bytes<ul>
+<li>page number: 22 bits, page offset: 10 bits</li>
+<li>then, the page number has a 12-bit page number page number (lol) and a 10-bit page number page offset</li>
+<li>the 12-bit page number page number is used for the outer page table, then the 10-bit page number page offset is used for the inner page table</li>
+</ul>
+</li>
+<li>of course, you can also have three-level paging schemes, etc</li>
+<li>example: 64-bit addresses, page size still 2<sup>10</sup><ul>
+<li>if 2 levels: 12 bit offset, 10 bit inner page, 42 bit outer page</li>
+<li>if 3 levels: 12 bit offset, 10 bit inner page, 10 bit middle page, 32 bit outer page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hashed page tables<ul>
+<li>common for &gt; 32-bit address spaces</li>
+<li>the page number is hashed; collisions are handled by using buckets</li>
+<li>frame found by hashing it, then searching along the bucket chain</li>
+</ul>
+</li>
+<li>inverted page tables<ul>
+<li>usually, each process has one page table, which has one entry for each page the process is using</li>
+<li>con: lots of memory used just to store page tables</li>
+<li>solution: one entry for each frame of memory</li>
+<li>each entry contains virtual address of page, and information about the owning process</li>
+<li>so there's only one page table needed in the system, and only one entry per page (reduces duplication, so, less memory needed overall)</li>
+<li>however, when a page reference occurs, you need to search through this larger table, which would be slower (since can't index it directly)<ul>
+<li>the inverted page table is sorted by physical address</li>
+<li>go through entries one by one, find the physical address matching the virtual address (also the process ID)</li>
+<li>can use a hash table to limit the search a bit. but each access to the hash table would add a memory reference</li>
+</ul>
+</li>
+<li>also, harder to implement shared memory pages<ul>
+<li>since in shared memory, multiple virtual addresses are mapped to one physical address</li>
+<li>but in this scheme, there is only one virtual page entry for each physical page</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>segmentation<ul>
+<li>memory-management scheme that corresponds to a user's view of memory</li>
+<li>collection of variable-sized segments (not ordered)</li>
+<li>program: collection of segments</li>
+<li>segment: logical unit, like an array, method, function, program, section of variables, etc</li>
+<li>just a way of grouping together things logically (even though they may not be grouped together physically)</li>
+<li>a logical address consists of a 2-tuple: segment number, offset</li>
+<li>segment table: maps the above logical address to physical addresses<ul>
+<li>each entry (one per segment) has a base and a limit</li>
+<li>hardware view:<ul>
+<li>segment number is translated using the segment table, to get the limit and base for this segment</li>
+<li>the offset is compared with the limit; if it exceeds it, we get a trap</li>
+<li>then, the base is added to the offset, and used as the physical address</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Sample questions<a class="headerlink" href="#sample-questions" name="sample-questions">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>CPU and storage<a class="headerlink" href="#cpu-and-storage" name="cpu-and-storage">&para;</a></h4>
+<blockquote>
+<p>What are the two storage media that the CPU can access directly, and how do their access times compare?</p>
+</blockquote>
+<p>Main memory, and registers. Accessing registers can be done in &lt;1 clock cycle, whereas accessing main memory can take multiple.</p>
+<h4 class="header"><i>1.1.2</i>Address binding<a class="headerlink" href="#address-binding" name="address-binding">&para;</a></h4>
+<blockquote>
+<p>At what stages can final address binding happen? Give detail, etc.</p>
+</blockquote>
+<p>At compile time, to generate absolute code (code must be recompiled if starting location changes - is this ever used?)</p>
+<p>At load time, if the compiler has generated relocatable code</p>
+<p>At run time, if the process can be moved in memory during execution (requires MMU support)</p>
+<h4 class="header"><i>1.1.3</i>MMU<a class="headerlink" href="#mmu" name="mmu">&para;</a></h4>
+<blockquote>
+<p>Wtf is an MMU</p>
+</blockquote>
+<p>Memory management unit. Hardware device, translates virtual addresses to physical addresses so that programmers don't have to deal with physical addresses. Uses a TLB, etc.</p>
+<h4 class="header"><i>1.1.4</i>Loading vs. linking<a class="headerlink" href="#loading-vs-linking" name="loading-vs-linking">&para;</a></h4>
+<blockquote>
+<p>What is the difference between dynamic loading and linking? What are the advantages of both compared to their static counterparts?</p>
+</blockquote>
+<p>Dynamic loading: parts of a process that are not needed right away are not brought into memory until they are called. Useful for things like error handling routines, which are typically large blocks of code that get called infrequently. Results in a smaller memory footprint. It falls upon the programmer to make use of dynamic loading in their programs by calling a "relocatable linking loader" that will either locate a part in memory (if it is there) or else bring it into memory.</p>
+<p>Dynamic linking: system libraries and other commonly-used code are linked at execution time, with the programmer making use of a "code stub" that locates the library in memory and replaces itself (during execution time) with the address of that routine. Needs support from the OS, to check that the desired routine is in the process' memory space. Also results in a smaller memory footprint.</p>
+<h4 class="header"><i>1.1.5</i>Backing store<a class="headerlink" href="#backing-store" name="backing-store">&para;</a></h4>
+<blockquote>
+<p>Define this.</p>
+</blockquote>
+<p>A large storage device, commonly a disk, to which things in memory can be swapped.</p>
+<h4 class="header"><i>1.1.6</i>Memory partitions<a class="headerlink" href="#memory-partitions" name="memory-partitions">&para;</a></h4>
+<blockquote>
+<p>Main memory is usually divided into two partitions. What are they called and what goes into each?</p>
+</blockquote>
+<p>High: user processes. Low: interrupt vector, OS.</p>
+<h4 class="header"><i>1.1.7</i>Multiple-partition allocation<a class="headerlink" href="#multiple-partition-allocation" name="multiple-partition-allocation">&para;</a></h4>
+<blockquote>
+<p>Ways of satisfying allocation requests? Which is fastest?</p>
+</blockquote>
+<p>First-fit: first hole that is big enough. Fastest if the list of holes is not ordered by size.</p>
+<p>Best-fit: smallest hole that is big enough</p>
+<p>Worst fit: largest hole that is big enough (why would even do this??)</p>
+<h4 class="header"><i>1.1.8</i>Fragmentation<a class="headerlink" href="#fragmentation" name="fragmentation">&para;</a></h4>
+<blockquote>
+<p>Difference between internal, external</p>
+</blockquote>
+<p>External fragmentation: when you have small holes scattered throughout memory, and you can't use them because they're just too small individually. For example, there is a hole of size 10, and three others of size 4 (all non-contiguous), and a process comes along requesting a hole of size 6, which is granted. Then you're just left with (at best) 4 holes of size 4. If a process comes along needing a hole of size 16, well, it can't be given because the holes are not contiguous</p>
+<p>Internal fragmentation: when you have leftover space (not being used by anything) <em>within</em> the partitions being used, due to the way blocks are allocated. For instance, if a process requests 15 bytes, but it's given 16 because it has to be a power of 2 (etc).</p>
+<h4 class="header"><i>1.1.9</i>Compaction<a class="headerlink" href="#compaction" name="compaction">&para;</a></h4>
+<blockquote>
+<p>What is it, what is a requirement for this to be possible, when can it be done</p>
+</blockquote>
+<p>Compaction is a way to reduce external fragmentation, and consists of shuffling the contents of memory so as to place all the holes together. This is done at execution time and thus is only possible if relocation is dynamic.</p>
+<h4 class="header"><i>1.1.10</i>Pages and frames<a class="headerlink" href="#pages-and-frames" name="pages-and-frames">&para;</a></h4>
+<blockquote>
+<p>Difference?</p>
+</blockquote>
+<p>Pages: used in the logical (virtual) view of memory. Frames: physical view. One-to-one correspondence.</p>
+<h4 class="header"><i>1.1.11</i>Virtual address calculations<a class="headerlink" href="#virtual-address-calculations" name="virtual-address-calculations">&para;</a></h4>
+<blockquote>
+<p>Explain what the bits of a virtual address mean if a virtual address is 32 bits, and the page size is 16 kilobytes.</p>
+</blockquote>
+<p>16 KB = 2<sup>4</sup> * 2<sup>10</sup> so 2<sup>14</sup> bytes. You need 2<sup>14</sup> bits to indicate the page offset for any byte on a page. The remaining 18 bits can be used for the page index, and so there needs be 2<sup>18</sup> pages in order to store 2<sup>32</sup> bytes.</p>
+<h4 class="header"><i>1.1.12</i>Page table implementations<a class="headerlink" href="#page-table-implementations" name="page-table-implementations">&para;</a></h4>
+<blockquote>
+<p>How is the page table stored?</p>
+</blockquote>
+<p>In main memory, with base and limit registers. To speed up lookup, a special hardware cache (TLB) is used to store part of the page table.</p>
+<h4 class="header"><i>1.1.13</i>Page table EAT calculations<a class="headerlink" href="#page-table-eat-calculations" name="page-table-eat-calculations">&para;</a></h4>
+<blockquote>
+<p>Let's say the hit ratio for the TLB is 0.9, and it takes 100 units of time to look something up in memory. To look something up in the TLB takes 1 unit of time. What's the EAT?</p>
+</blockquote>
+<p>101 for anything in the TLB, so 101 * 0.9. Then, 201 for anything not in the TLB, since you have to look up the page table in memory as well, so 201 * 0.1. Total: 90.9 + 20.1 = 111.</p>
+<h4 class="header"><i>1.1.14</i>Reentrant code<a class="headerlink" href="#reentrant-code" name="reentrant-code">&para;</a></h4>
+<blockquote>
+<p>What is? Use?</p>
+</blockquote>
+<p>Non-self modifying, or read-only, code. Never changes during its execution. Can be shared among processes.</p>
+<h4 class="header"><i>1.1.15</i>Why pages<a class="headerlink" href="#why-pages" name="why-pages">&para;</a></h4>
+<blockquote>
+<p>Why do we even need pages in the first place</p>
+</blockquote>
+<p>To allow memory usage to be non-contiguous</p>
+<h4 class="header"><i>1.1.16</i>Page table structures<a class="headerlink" href="#page-table-structures" name="page-table-structures">&para;</a></h4>
+<blockquote>
+<p>What are the different structures, and how do they work</p>
+</blockquote>
+<p>Hierarchical paging: paging the page table.</p>
+<p>Hashed page tables: hash the page number, then handle collisions using a bucket chain.</p>
+<p>Inverted page tables: one entry per frame (not per-process), sorted by physical address. Less memory used, but slower, and harder to implement sharing.</p>
+<h4 class="header"><i>1.1.17</i>Hierarchical paging calculations<a class="headerlink" href="#hierarchical-paging-calculations" name="hierarchical-paging-calculations">&para;</a></h4>
+<p>Taken from <a href="http://stackoverflow.com/questions/5558886/multi-level-page-tables-hierarchical-paging">stack overflow</a> (actual source: some exam):</p>
+<blockquote>
+<p>A computer has a 64-bit virtual address space and 2048-byte pages. A page table entry takes 4 bytes. A multi-level page table is used because each table must be contained within a page. How many levels are required?</p>
+</blockquote>
+<p>2048 is 2<sup>11</sup>, so each table can hold 2<sup>9</sup> entries. Since 11 bits are required for the page offset, 53 bits remain to encode the entry for each page level. 53/9 is 6 (rounded up), so we need 6 levels.</p>
+<p>Another calculation question:</p>
+<blockquote>
+<p>32-bit virtual addresses, 4 KB pages, 2 levels of paging. What do the bits in an address mean?</p>
+</blockquote>
+<p>4KB = 2<sup>12</sup> bytes in each page. So, 12 bits required for the page offset. Apparently the other two are both 10 bits each, though I don't know why (<a href="http://www.gitam.edu/eresource/comp/gvr(os)/8.4.htm">source</a>).</p>
+<h4 class="header"><i>1.1.18</i>Segment tables<a class="headerlink" href="#segment-tables" name="segment-tables">&para;</a></h4>
+<blockquote>
+<p>What are they</p>
+</blockquote>
+<p>Logical addresses (consisting of a segment number and an offset) are mapped to physical addresses</p>
+<h2 class="header"><i>2</i>Chapter 9: Virtual memory<a class="headerlink" href="#chapter-9-virtual-memory" name="chapter-9-virtual-memory">&para;</a></h2>
+<ul>
+<li>background<ul>
+<li>virtual memory allows for the separation of logical (user) memory from physical memory<ul>
+<li>the logical view consists of: a stack that grows downwards, a heap that grows upwards, a data section, and a code section (with shared libraries in the middle between the heap and the stack)</li>
+</ul>
+</li>
+<li>for programs, this means that not everything needs to be in memory for execution to begin</li>
+<li>also, the logical address space can be much larger than physical address space</li>
+<li>and, address spaces can be shared by different processes</li>
+<li>process creation is more efficient</li>
+<li>can be implemented via demand paging, and demand segmentation</li>
+</ul>
+</li>
+<li>demand paging<ul>
+<li>a page is brought into memory only when it is needed</li>
+<li>less unnecessary I/O and less memory needed</li>
+<li>a page is determined to be "needed" when there is a reference to it<ul>
+<li>if a reference is invalid, abort</li>
+<li>if a reference is to a page that is not in memory, it will be brought into memory</li>
+</ul>
+</li>
+<li>to execute a process, we swap the pages for it into memory (lazily)</li>
+<li><strong>pager</strong>: swapper that deals with pages (does this really need its own term)</li>
+<li>valid/invalid bits for the page table<ul>
+<li>like those used introduced in the memory protection section, but serving another purpose as well</li>
+<li>valid: legal and in memory</li>
+<li>invalid: either illegal or not in memory</li>
+<li>all entries initially set to invalid</li>
+<li>if we ever need to lookup an invalid entry, we get a <strong>page fault</strong>, so the OS needs to:<ol>
+<li>look at another table (one stored within the PCB) to decide if it was an invalid memory reference or just a swapped-to-disk page</li>
+<li>find an empty frame from the free frame list</li>
+<li>read the page from disk and swaps it into the frame</li>
+<li>modify the table in the PCB</li>
+<li>update the validation bit and the entry in the page table</li>
+<li>restart the instruction that caused the page fault</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>effective access time:<ul>
+<li>let <span>$p$</span> be the page fault rate</li>
+<li>let <span>$t$</span> be the time it takes to handle a page fault</li>
+<li>let <span>$m$</span> be the time it takes to access memory (to read a page, say)</li>
+<li>EAT: <span>$(1-p) \cdot  m + p \cdot t$</span></li>
+</ul>
+</li>
+<li>the time it takes to handle a page fault is determined by:<ul>
+<li>time to service the interrupt<ul>
+<li>save user registers, process state</li>
+<li>check if the interrupt is a page fault</li>
+<li>check if the page reference is legal</li>
+<li>if so, find the location of the page on disk</li>
+</ul>
+</li>
+<li>time to read in the page to a free frame (usually slowest)<ul>
+<li>influenced by disk latency, seek time, queueing time on the device</li>
+</ul>
+</li>
+<li>then, time to restart the instruction that was interrupted (why is this here)</li>
+</ul>
+</li>
+<li>example for calculating EAT:<ul>
+<li>m = 200 nanoseconds = 0.0002 milliseconds</li>
+<li>t = 8 milliseconds</li>
+<li>p = 0.001</li>
+<li>EAT = <span>$(1-0.001) \cdot 0.0002 + 0.001 \cdot 8 = 0.0001998 + 0.008 \approx 0.0082$</span> milliseconds so 8.2 microseconds or 8200 nanoseconds</li>
+<li>this shows that even if page faults are relatively rare, they can still introduce huge slowdowns (40x slower in this case)</li>
+<li>obviously, we want to keep page-fault-rate low</li>
+<li>if we want to keep it below, say, 5%, then we need for the EAT to be less than 210</li>
+<li>the calculation's not hard, just make <span>$p$</span> the variable </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>copy-on-write<ul>
+<li>a benefit of virtual memory realised during process creation</li>
+<li>normally, the <code>fork()</code> system call duplicates the parent's pages for the child</li>
+<li>however, many ungrateful children invoke <code>exec()</code> immediately after birth, making this copying unnecessary</li>
+<li>copy-on-write allows the parent and child to initially share the parent's pages in memory</li>
+<li>only if either process modifies a shared page is that page copied</li>
+<li>results in more efficient process creation (so that fewer pages need to be allocated to child processes)</li>
+</ul>
+</li>
+<li>page replacement<ul>
+<li>what happens when we need to swap a new page into memory but there are no free frames????????</li>
+<li>in that case, we need some sort of page replacement policy to get rid of pages we don't need</li>
+<li>such a policy should minimise the number of page faults (obviously)</li>
+<li>basic algorithm:<ul>
+<li>find location of desired page on disk</li>
+<li>find a free frame, if one exists</li>
+<li>if no free frames exist, find a victim frame, write it to disk (if dirty), and change the page and frame tables accordingly</li>
+<li>bring the desired page into the newly freed frame, update tables</li>
+</ul>
+</li>
+<li>makes use of a dirty bit in the page table so that only modified pages are written back to disk when they are evicted from memory</li>
+<li>evaluating different page replacement policies<ul>
+<li>FIFO: remove the least-recently-added pages first</li>
+<li>belady's anomaly: for some page replacement policies, more frames can result in more page faults (which seems paradoxical)</li>
+<li>OPT/MIN: theoretical algorithm (lol) that has the lowest page-fault rate and will never suffer from belady's anomaly<ul>
+<li>you evict the page that will not be used for the longest period of time</li>
+<li>obviously this is impossible to implement in practice unless you know the future</li>
+<li>however, it's useful as a comparison point for other page replacement policies ("how does this algorithm behave compared to OPT")</li>
+</ul>
+</li>
+<li>LRU: use recent history to simulate OPT<ul>
+<li>evict the page that was least recently used</li>
+<li>implementation: every page entry has a "counter" (really a timestamp for the last use)</li>
+<li>when we need to evict one, we just replace the page with the smallest timestamp</li>
+<li>this has the added overhead of needing to search the table to find the LRU page each time, and we also need to write the timestamp to memory during every memory access</li>
+<li>still, it's pretty efficient as it tends to reduce the number of page faults compared to most other algorithms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>allocation of frames<ul>
+<li>how do we allocate the fixed amount of free memory among the various processes running on a system?</li>
+<li>two methods: fixed, priority</li>
+<li>fixed allocation - doesn't take priorities into account; 2 methods<ul>
+<li>equal allocation:<ul>
+<li>all animals are equal</li>
+<li>each process gets the same number of frames</li>
+</ul>
+</li>
+<li>proportional allocation:<ul>
+<li>some are more equal than others</li>
+<li>frames allocated according to the size (virtual memory) of a process</li>
+<li>how do they know that???</li>
+<li>for example, if there are 2 processes, one of size 5, and one of size 10, and there are 30 frames, the first would get 10 frames, the second would get 20</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>priority allocation - takes priorities into account<ul>
+<li>high-priority processes are given more memory to speed their execution</li>
+<li>uses a proportional allocation scheme using priority rather than size (or possibly both priority and size)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thrashing<ul>
+<li>if a process has too few frames, its page fault rate will be very high</li>
+<li>result: low CPU usage, so the OS thinks it needs to increase the degree of multiprogramming, so it adds more processes, then it all goes to hell</li>
+<li>then the OS will spend more time paging than executing processes (i.e., thrashing)</li>
+<li>to prevent this, we must provide a process with as many frames as it needs</li>
+<li>how do we know this magic number?</li>
+<li><strong>working-set strategy</strong>: looks at how many frames a process is actually using<ul>
+<li>purpose: to prevent thrashing while keeping the degree of multiprogramming as high as possible</li>
+<li>makes use of the <strong>locality model</strong> of process execution<ul>
+<li>locality: set of pages commonly used together</li>
+<li>for instance, when a function is called, a new locality is defined</li>
+<li>thrashing occurs when the size of the locality is greater than the total memory size</li>
+</ul>
+</li>
+<li>in the working-set model, we have a parameter <span>$\Delta$</span> (working-set window) which is a fixed number of page references</li>
+<li>working-set size of a process: number of pages referenced in the most recent <span>$\Delta$</span></li>
+<li>need an optimal size of <span>$\Delta$</span> so that we get exactly one locality (not less, not more), or at least, estimate it better</li>
+<li>the total number of frames we need is the sum of all the working set sizes (for all the processes)</li>
+<li>if this number &gt; total number of available frames, then we'll have thrashing</li>
+<li>so, we need to suspend a process</li>
+<li>if we have extra frames, then we can start a new process</li>
+<li>for example, if the last few pages referenced were: 12323434343334<ul>
+<li>then, if <span>$\Delta = 10$</span>, we look at the last 10 page references --&gt; pages 3 and 4</li>
+</ul>
+</li>
+<li>not entirely sure how this is supposed to work</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.1</i>Sample questions<a class="headerlink" href="#sample-questions_1" name="sample-questions_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Demand paging<a class="headerlink" href="#demand-paging" name="demand-paging">&para;</a></h4>
+<blockquote>
+<p>What is this? What do valid and invalid bits mean for the page table in this scheme?</p>
+</blockquote>
+<p>A page is only brought into memory when there is a reference to it (lazy loading). Valid = page is in memory. Invalid = page is illegal or not in memory.</p>
+<h4 class="header"><i>2.1.2</i>Page faults<a class="headerlink" href="#page-faults" name="page-faults">&para;</a></h4>
+<blockquote>
+<p>What are page faults, and what happens when they are encountered?</p>
+</blockquote>
+<p>When we hit a reference to a page marked invalid in the page table (so either illegal or just not in memory). The OS needs to look at another table in the PCB to check if it's illegal, and, if not, finds an empty frame using the free frame list, reads the page from disk into the frame, updates all the tables, then restarts the instruction.</p>
+<h4 class="header"><i>2.1.3</i>Page fault EAT calculations<a class="headerlink" href="#page-fault-eat-calculations" name="page-fault-eat-calculations">&para;</a></h4>
+<blockquote>
+<p>Accessing memory takes 0.0005 (ignore the unit). The page fault rate is 0.01, and it takes 2.0 to handle a page fault. What's the EAT?</p>
+</blockquote>
+<p><span>$(0.0005 \cdot 0.99) + (\cdot 2.0 \cdot 0.01) = 0.020495$</span> which is a ~40x slowdown</p>
+<blockquote>
+<p>Same numbers as above, but we want to find the highest page fault rate that will result in a 10x slowdown</p>
+</blockquote>
+<p><span>$0.0005 \cdot (1-p) + 2.0p = 0.0005 + 1.9995p = 0.005$</span>, so <span>$1.9995p = 0.0045$</span> and <span>$p \approx 0.0023$</span></p>
+<h4 class="header"><i>2.1.4</i>Copy-on-write<a class="headerlink" href="#copy-on-write" name="copy-on-write">&para;</a></h4>
+<blockquote>
+<p>What is it? Benefits?</p>
+</blockquote>
+<p>During process creation (with fork), instead of copying all the parent pages over for the child, let the child share the parent's pages and only copy when one process writes to a page. More efficient process creation and less memory wasted.</p>
+<h4 class="header"><i>2.1.5</i>Page replacement policies<a class="headerlink" href="#page-replacement-policies" name="page-replacement-policies">&para;</a></h4>
+<blockquote>
+<p>List them</p>
+</blockquote>
+<p>FIFO: replaces the first one in</p>
+<p>OPT: theoretical, replaces the one that will be used latest</p>
+<p>LRU: replaces the least recently used one (smallest timestamp). overhead: searching the entire table, and updating the page table whenever you need to access a page</p>
+<h4 class="header"><i>2.1.6</i>Belady's anomaly<a class="headerlink" href="#beladys-anomaly" name="beladys-anomaly">&para;</a></h4>
+<blockquote>
+<p>What is Belady's anomaly? Give a page replacement algorithm that does not suffer from it.</p>
+</blockquote>
+<p>When increasing the number of frames increases the number of page faults for a page replacement policy. OPT is the only one.</p>
+<h4 class="header"><i>2.1.7</i>Frame allocation<a class="headerlink" href="#frame-allocation" name="frame-allocation">&para;</a></h4>
+<blockquote>
+<p>Methods of allocating frames?</p>
+</blockquote>
+<p>Fixed allocation, equal.</p>
+<p>Fixed allocation, proportional to size of memory used by a process.</p>
+<p>Priority allocation, based on priority (and possibly size).</p>
+<h4 class="header"><i>2.1.8</i>Thrashing<a class="headerlink" href="#thrashing" name="thrashing">&para;</a></h4>
+<blockquote>
+<p>What is thrashing</p>
+</blockquote>
+<p>OS is constantly paging rather than doing useful work. Page fault rate is high, OS thinks it needs to add more processes to improve CPU utilisation, etc.</p>
+<h4 class="header"><i>2.1.9</i>Working-set model<a class="headerlink" href="#working-set-model" name="working-set-model">&para;</a></h4>
+<blockquote>
+<p>How does this work</p>
+</blockquote>
+<p>Looks at the number of frames a process is using to try and prevent thrashing while having as many processes running as possible. We look at the number of different pages used by a process per locality. Make sure the sum of working set sizes for all processes is smaller than the number of pages available in memory, etc.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

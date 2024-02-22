@@ -1,0 +1,285 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, March 25, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, March 25, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Synaptic plasticity
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h2>
+<ul>
+<li>synaptic plasticity: <ul>
+<li>changes in strength of a connection based on recent firing patterns and modulatory transmitters </li>
+</ul>
+</li>
+<li>
+<p>functions in</p>
+<ul>
+<li>learning and memory: experiences</li>
+<li>homeostasis : keep the overall excitability of a neuron  </li>
+<li>mood and behaviour : alertness, different effect of the same stimuls at different time </li>
+</ul>
+</li>
+<li>
+<p>strenght of a synapse(M) = NPQ</p>
+<ul>
+<li>P : probability of release of a synaptic vesicle after an action potential</li>
+<li>Q : amplitude of the post-synaptic potential (PSP) due to release of one vesicle</li>
+<li>N : number of synapses or vesicle release spots </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Regulation of P<a class="headerlink" href="#regulation-of-p" name="regulation-of-p">&para;</a></h2>
+<ul>
+<li>amount of calcium</li>
+<li>number of readily releasable vesicles<ul>
+<li>readily releasable pool (RRP) can be measured with hypertonic shock with sucrose</li>
+<li>this would simultaneously fuse all primed vesicles -&gt; can measure RRP</li>
+</ul>
+</li>
+<li>
+<p>coupling of calcium entry to fusion of vesicles </p>
+</li>
+<li>
+<p>also modulated by </p>
+<ul>
+<li>recent firing patterns -&gt; paired pulse plasticity </li>
+<li>modulatory neurotransmission <ul>
+<li>ex: short-term facilitation in aplysia</li>
+</ul>
+</li>
+<li>long-term potentiation<ul>
+<li>induced by PKA </li>
+<li>have to do with Rab3A and phosphoryation of RIM </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Paired Pulse plasticity<a class="headerlink" href="#paired-pulse-plasticity" name="paired-pulse-plasticity">&para;</a></h2>
+<ul>
+<li>def: a change in probabilty of a vesicle fusing when two action potentials occur in succession </li>
+<li>depends on the time in between pulses</li>
+<li>
+<p>due to residual calcium</p>
+<ul>
+<li>saturate the endogenous calcium buffers to that new calcium entering shortly afterwards gives rise to a higher concentration. </li>
+</ul>
+</li>
+<li>
+<p>Types (not memory formation, because transient) </p>
+<ul>
+<li>paired pulse facilitation <ul>
+<li>second postsynpatic action potential is stronger than the first </li>
+<li>if p was small for the first action potential </li>
+</ul>
+</li>
+<li>paire pulse depression <ul>
+<li>second postsynpatic action potential is weaker than the first</li>
+<li>if p was large for the first action potential ; more RRP was secreted <ul>
+<li>not enough time to regenerate the vesicles, </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>post-tetanic potentiation<ul>
+<li>tetanic: high freqency action potential </li>
+<li>will get depression first</li>
+<li>wait a few minutes and then fire action potential : get facilitation </li>
+<li>after short burst of action potential, there's an increase in p because:<ul>
+<li>residual calcium binds to calcium sensors</li>
+<li>residual calcium persists because they can leak out of mitochondria after being reuptake </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.1</i>Regulation of<a class="headerlink" href="#regulation-of" name="regulation-of">&para;</a></h3>
+<ul>
+<li>
+<p>Munc 13 : calcium dependent increase in RRP :</p>
+<ul>
+<li>not only remove inhibitory effect of Munc18 on Syntaxin </li>
+<li>but also binds to calmodulin, a calcium senseor </li>
+<li>when the calmodulin-binding domain is removed, PTP is reduced <ul>
+<li>no calcium-induced increase in RRP </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Unc 13 </p>
+<ul>
+<li>regultory hub for priming </li>
+<li>DAG, produced by phospholipase C, directly binds to unc13 <ul>
+<li>in combination of PKC phosphorylatino of Munc18 increase priming </li>
+</ul>
+</li>
+<li>removing C1 domain of unc13 blocks modulation by DAG </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>4</i>memory formation<a class="headerlink" href="#memory-formation" name="memory-formation">&para;</a></h2>
+<ul>
+<li>aplysia, a stupid sea animal, can learn to retract its siphon faster after bieng shock </li>
+<li>sensitization is due to serotoninergic interneuron<ul>
+<li>serotonin increase synaptic strength in both motor and sensory neurons </li>
+</ul>
+</li>
+<li>repeated firing leads to less release and decrease of EPSP to motor neuron<ul>
+<li>RRP is intact </li>
+<li>depression blocks calcium-secretion coupling </li>
+</ul>
+</li>
+<li>whereas, shock removes the desensitization/depression <ul>
+<li>serotonin leads to more release and increase of EPSP to motor neurons</li>
+<li>does this by PKC regulation </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.1</i>Mechanism of serotonin<a class="headerlink" href="#mechanism-of-serotonin" name="mechanism-of-serotonin">&para;</a></h3>
+<ul>
+<li>shock release serotonin (5-HT) from interneuron </li>
+<li>5-HT acts through G proein linked receptor and thereby increases cAMP level</li>
+<li>cAMP activates PKA </li>
+<li>PKA phosphorylates K+ channels and thereby inactivates them <ul>
+<li>also increases priming in vertebrates via phosphorylation of RIM </li>
+</ul>
+</li>
+<li>slow repoloarization -&gt; broadened action potential -&gt; more calcium influx -&gt; more transmitter - &gt; bigger EPSP </li>
+</ul>
+<h3 class="header"><i>4.2</i>Long-term potentiation (LTP)<a class="headerlink" href="#long-term-potentiation-ltp" name="long-term-potentiation-ltp">&para;</a></h3>
+<ul>
+<li>
+<p>seen at  </p>
+<ul>
+<li>dentate gyrus to CA3 </li>
+<li>parallel fibers to purkinje cells </li>
+<li>both depends on PKA activation <ul>
+<li>phosphorylates RIM and K+ channels </li>
+</ul>
+</li>
+<li>both are gone in Rab3A or RIM knockouts </li>
+</ul>
+</li>
+<li>
+<p>experiment on RIM</p>
+<ul>
+<li>replaces phosphorylated site with other amino acids </li>
+<li>lack of rescue with phosphorylation suggest phosphorylation of RIM is critical for LTP </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>5</i>Review/Summary<a class="headerlink" href="#reviewsummary" name="reviewsummary">&para;</a></h2>
+<ul>
+<li>need to know :<ul>
+<li>M=NPQ </li>
+<li>PPF and PTP mechanism, how they relate to p </li>
+<li>sensitization and associative memories with the changes in p </li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

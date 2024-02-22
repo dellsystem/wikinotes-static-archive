@@ -1,0 +1,342 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_223/">
+                MATH 223
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2012 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2012 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Winter 2012 disastrously hard closed book <a class="wikilink" href="/MATH_223/">MATH 223</a> final, by <a href="http://www.math.mcgill.ca/people/jonsson">Wilbur Jonsson</a>. No solutions yet, feel free to fill them in.</p>
+<p>The original PDF is available through <a href="http://s3.amazonaws.com/docuum/attachments/6969/Winter%202012%20Final.pdf?1348426448">Docuum</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#question">1.1 Question</a></li>
+<li><a href="#solution">1.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#question_1">2.1 Question</a></li>
+<li><a href="#solution_1">2.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#question_2">3.1 Question</a></li>
+<li><a href="#solution_2">3.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#question_3">4.1 Question</a></li>
+<li><a href="#solution_3">4.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#question_4">5.1 Question</a></li>
+<li><a href="#solution_4">5.2 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question<a class="headerlink" href="#question" name="question">&para;</a></h3>
+<p>For each of the following subsets, decide whether it is or is not a subspace of the given vector space (justify your answers using the three part subspace criterion):</p>
+<ul>
+<li>(a) The subset <span>$\left \{z \in \mathit{C} \mid \left \vert z \right \vert \leq 1 \right \}$</span> of the complex vector space <span>$\mathit{C}$</span>.</li>
+<li>(b) The subset of the real vector space of real valued functions of one variable consisting of differentiable functions.</li>
+<li>(c) The subset of the complex vector space of polynomials with complex coefficients consisting of those polynomials all of whose roots in <span>$\mathit{C}$</span> are distinct.</li>
+<li>(d) The subset of the real vector space of polynomials with complex coefficients consisting of those polynomials of degree at most 10.</li>
+<li>(e) The intersections of any collection of subspaces of a vector space V.</li>
+</ul>
+<h3 class="header"><i>1.2</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>Recall that the three part subspace criterion for <span>$W \leq V$</span> with <span>$V, W $</span> over <span>$ \mathbb{F}$</span> is the following:</p>
+<ol>
+<li><span>$0 \in W$</span></li>
+<li><span>$u,v \in W \to u+v \in W$</span></li>
+<li><span>$u \in W, c \in \mathbb{F} \to cu \in W$</span></li>
+</ol>
+<p>(a) </p>
+<p>Let <span>$z_1, z_2 \in \mathbb{C}$</span> such that <span>$z_1, z_2 \in W$</span>. Then,</p>
+<p><span>$$\begin{cases}
+|z_1| \leq 1\\
+|z_2| \leq 1
+\end{cases} \qquad \to \qquad |z_1|+|z_2| \leq 2 \quad \text{ but }\quad |z_1|+|z_2| \leq 1 \quad \text{not guaranteed}$$</span></p>
+<p>For example, take a counterexample <span>$z_1 = z_2 = 0.7$</span>. Then, <span>$z_1, z_2 \in W$</span> since <span>$|z_1| \leq 1$</span> and <span>$|z_2| \leq 1$</span>, but <span>$|z_1| + |z_2| = 1.4 &gt; 1$</span> meaning <span>$|z_1| + |z_2| \not \in W$</span>. This violates criterion 2.</p>
+<p><strong><span>$W$</span> is not a subspace</strong></p>
+<p>(b) </p>
+<p><span>$W = \{f(x) \in \mathbb{F} \ | \ f'(x) \in \mathbb{F}\}$</span> where <span>$\mathbb{F} =$</span> real valued functions of one variable</p>
+<ol>
+<li><span>$f(x) = 0 \in W$</span></li>
+<li>Let <span>$f(x), g(x) \in W$</span>, then <span>$(f(x) + g(x))' = f'(x) + g'(x)$</span>. Both <span>$f'(x)$</span> and <span>$g'(x)$</span> are defined given <span>$f, g$</span> are differentiable, so their sum is as well. Therefore, <span>$f(x) + g(x) \in W$</span>.</li>
+<li>Let <span>$f(x) \in W, c \in \mathbb{R}$</span>, then <span>$(cf(x))' = cf'(x)$</span>. <span>$f'(x)$</span> is defined and so is any of its multiples. Therefore, <span>$cf(x) \in W$</span>.</li>
+</ol>
+<p><strong><span>$W$</span> is a subspace</strong></p>
+<p>(c) </p>
+<p><span>$W = \{f(x) = k(x-z_1)(x-z_2)\ldots(x - z_k) \in \mathbb{F} \ | \ z_1 \neq z_2 \neq \ldots \neq z_k, \quad k, z_1, z_2, \ldots z_k \in \mathbb{C}\}$</span> where <span>$\mathbb{F} =$</span> complex vector space of polynomials with complex coefficients</p>
+<p>Let <span>$z_1 \neq z_2 \neq z_3$</span> be complex numbers and <span>$f(x) = (x-z_1)(x-z_2), g(x) = (x-z_1)(x-z_3)$</span>  so that <span>$f(x), g(x) \in W$</span> since their roots are distinct.</p>
+<p>Then, <br />
+<span>$$
+f(x) + g(x) = (x-z_1)(x-z_2)+(x-z_1)(x-z_3) = (x-z_1)(x-z_2 +x -z_3) = 2(x-z_1)(x - \frac{z_2 + z_3}{2})
+$$</span></p>
+<p>So, it is sufficient to choose <span>$z_2 \neq z_3$</span> such that <span>$z_1 = \frac{z_2 + z_3}{2}$</span> to show <span>$f(x) + g(x) \not \in W$</span> and violate criterion 2.</p>
+<p><strong><span>$W$</span> is not a subspace</strong></p>
+<p>(d)</p>
+<p><span>$W = \{p(x) = a_0 + a_1 x + \ldots + a_{10}x^{10} \ | a_i \in \mathbb{R}\}$</span></p>
+<ol>
+<li><span>$p(x) = 0 \in W$</span> (zero polynomial)</li>
+<li>(I'll combine it with criterion 3) </li>
+</ol>
+<p>Let <span>$f(x), g(x) \in W$</span>, then <span>$cf(x) + g(x) = c(a_0 + a_1 x + \ldots + a_{10}x^{10}) + (b_0 + b_1 x + \ldots + b_{10}x^{10}) = (ca_0 + b_0) + (ca_1 + b_1)x + \ldots + (ca_{10} + b_{10})x^{10}
+ \in W$</span> since the coefficients are real.</p>
+<p><strong><span>$W$</span> is a subspace</strong></p>
+<p>(e)</p>
+<p><span>$W = \{\cap_{i \in S} U_i \ | \ U_i \leq V \}$</span> with <span>$S = \{1,2, \ldots \}$</span></p>
+<p><em>Note</em>: <span>$\leq$</span> is Pr. Jonsson's notation for subspace.</p>
+<ol>
+<li><span>$\ 0 \in U_i \quad \forall i \in S$</span> since this is part of a subspace's definition, therefore <span>$0$</span> is also in their intersection, so <span>$0 \in W$</span></li>
+<li>Let <span>$u, v \in W$</span>, therefore <span>$u$</span> and <span>$v$</span> are in every subspace <span>$U_i$</span> of V. Since subspaces are closed under addition (from criterion 2 precisely), then <span>$u+v$</span> is also in every subspace <span>$U_i$</span> of V hence, <span>$u+v \in W$</span></li>
+<li>A similar argument can be made here.</li>
+</ol>
+<p><strong><span>$W$</span> is a subspace</strong></p>
+<h3 class="header"><i>1.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Solution written by <a href="/users/eleyine">@eleyine</a>. I still need someone to verify it.</p>
+<blockquote>
+<p>Looks right - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question<a class="headerlink" href="#question_1" name="question_1">&para;</a></h3>
+<p>Consider the polynomial <span>$f(x)=x^3-x^2-5x-3=(x-3)(x+1)^2$</span> and define <span>$U_f = \left \{ f(x)g(x) \mid g(x) \in \mathit{F} \left [ x \right ] \right \}$</span> whereby <span>$\mathit{F} \left [ x \right ]$</span> consists of all polynomials in the indeterminate x with coefficients from the field <span>$\mathit{F}$</span>.</p>
+<ul>
+<li>(a) Find polynomials <span>$a(x)$</span>, <span>$b(x)$</span> such that <span>$a(x)(x-3) + b(x)(x+1)^2 = 1$</span></li>
+<li>(b) Show that the quotient space <span>$V/U_f$</span> is the internal direct sum of <span>$\text{Image} \hspace{2mm} T_{x-3}$</span> and <span>$\text{Image} \hspace{2mm} T_{(x+1)^2}$</span> with the notation used in class. Why is <span>$a(T)$</span> invertible on <span>$\text{Image} \hspace{2mm} T_{(x-3)}$</span> ?</li>
+<li>(c) Find a basis for the factor space such that the matrix of the induced linear transformation has the form</li>
+</ul>
+<p><span>$$\begin{pmatrix} 3 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 1 \\ 0 &amp; 0 &amp; -1 \end{pmatrix}$$</span></p>
+<h3 class="header"><i>2.2</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>None</p>
+<h3 class="header"><i>2.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>N/A</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question<a class="headerlink" href="#question_2" name="question_2">&para;</a></h3>
+<ul>
+<li>(a) Consider the set <span>$\mathit{V}$</span> of all sequences of elements of the field <span>$\mathit{F}$</span> as vectors with countably many components, e.g. <span>$x= \left ( x_1, x_2, ..., x_k, ... \right )$</span> with all <span>$x_j \in \mathit{F}$</span> is a typical such vector.<br />
+  Show that the sequences satisfying the recurrence relation <span>$x_{n+2} = ax_{n+1} + bx_n$</span> for a two dimensional subspace of <span>$\mathit{V}$</span>.</li>
+<li>(b) With the two dimensional subspace of the previous part of this question in mind, solve the following difference equation explicitly by reducing it to a problem about the eigenvalues of a two by two matrix. (That is, find an explicit, nonrecursive formula for <span>$x_n$</span>.)</li>
+</ul>
+<p><span>$$x_1 = 5, \hspace{5mm} x_2 = 3, \hspace{5mm} x_{n+2} = 3x_{n+1} + 4x_n \hspace{2mm} \text{for} \hspace{2mm} n\geq1$$</span></p>
+<h3 class="header"><i>3.2</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>(a) </p>
+<p>We first note that <span>$\mathbf{Z} = (1,0,x_3,...), \mathbf{Y} = (0,1,x_3,...)$</span> are a basis for sequences satisfying <span>$x_{n+2} = \alpha x_{n+1}+ \beta x_n$</span> since <span>$x_1 Z+x_2Y = (x_1, x_2, x_3, \ldots) = \mathbf{x}$</span>. Now, to prove such sequences (that we call <span>$W$</span>) form a subspace of <span>$V$</span>, we use the three part criterion.</p>
+<ol>
+<li><span>$\mathbf{0} = (0,0,\ldots) \in W$</span> obviously because it satisfies the recurrence relation <span>$x_{n+2} = \alpha x_{n+1}+ \beta x_n \leftrightarrow 0 = \alpha \cdot 0+ \beta \cdot 0$</span>.</li>
+<li>Let <span>$\mathbf{l} = (l_1, l_2, \ldots , l_n, \ldots) \in W$</span> and <span>$
+\mathbf{m} = (m_1, m_2, \ldots , m_n, \ldots) \in W$</span>. Then, <span>$l_{n+2} = \alpha l_{n+1} + \beta l_{n}, \quad m_{n+2} = \alpha m_{n+1} + \beta m_{n}$</span>. What of <span>$(l_{n+2} + m_{n+2})?$</span><br />
+<span>$$l_{n+2} + m_{n+2} = (\alpha l_{n+1} + \beta l_{n}) + (\alpha m_{n+1} + \beta m_{n}) = \alpha(l_{n+1}+ m_{n+1}) + \beta (l_n + m_{n}) \qquad \to \mathbf{l + m} = (l_1+m_1, l_2+m_2, \ldots , l_n+m_n, \ldots) \in W$$</span></li>
+<li>Similarly,<br />
+<span>$$cl_{n+2} = c(\alpha l_{n+1} + bl_{n})= \alpha (cl_{n+1})+ \beta (cl_n) \qquad \to \mathbf{cl} = (cl_1, cl_2, \ldots , cl_n, \ldots) \in W \qquad \blacksquare$$</span></li>
+</ol>
+<p>(b)</p>
+<p>We first express the recurrence relation as a matrix transformation.</p>
+<p><span>$$
+\begin{bmatrix}x_{n+2} \\ x_{n+1} \end{bmatrix} =
+\begin{bmatrix}3 &amp; 4 \\ 1 &amp; 0 \end{bmatrix}
+\begin{bmatrix}x_{n+1} \\ x_{n} \end{bmatrix}
+$$</span></p>
+<p>We then find the eigenvalues of the corresponding matrix.</p>
+<p><span>$$
+det(A - \lambda I) = \begin{vmatrix}3-\lambda &amp; 4 \\ 1 &amp; -\lambda \end{vmatrix} = (3-\lambda)(-\lambda) - 4 = \lambda^2 - 3\lambda - 4 = (\lambda + 1)(\lambda -4)
+$$</span></p>
+<p>Then, the explicit formula is given by <span>$x_n = \alpha \lambda_1^n + \beta \lambda_2^n = \alpha (-1)^n + \beta (4)^n$</span> (magic, I guess?).</p>
+<p>We find the values <span>$\alpha, \beta$</span> using <span>$x_1, x_2$</span> by solving the system:</p>
+<p><span>$$
+\begin{cases}
+x_1 = \alpha \lambda_1^1 + \beta \lambda_2^1 = \alpha (-1) + \beta (4) \\
+x_2 = \alpha \lambda_1^2 + \beta \lambda_2^2 = \alpha (-1)^2 + \beta (4)^2 
+\end{cases}
+\quad \leftrightarrow \quad
+\begin{cases}
+5 = -\alpha  + 4 \beta \\
+3 =  \alpha + 16 \beta  
+\end{cases}
+$$</span></p>
+<p>which has solutions <span>$\alpha = 5, \beta = \frac{5}{2}$</span>.</p>
+<p>So, <span>$x_n = 5 \lambda_1^n + \frac{5}{2} \lambda_2^n$</span></p>
+<h3 class="header"><i>3.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Solution by <a href="/users/eleyine">@eleyine</a>. Someone should check accuracy.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Question<a class="headerlink" href="#question_3" name="question_3">&para;</a></h3>
+<ul>
+<li>(a) State and prove Cramer's rule for solving a system on <span>$n$</span> equations in <span>$n$</span> unknowns based on the three axioms given in class for the definition of the determinant function.</li>
+<li>(b) Given two three by three matrices <span>$\mathit{A}$</span> and <span>$\mathit{B}$</span> with entries from a field <span>$\mathit{F}$</span>, define<br />
+<span>$$\mathit{C} = \begin{pmatrix} \mathit{A} &amp; \mathbf{0} \\ \mathit{-I} &amp; \mathit{B} \end{pmatrix}$$</span><br />
+  whereby <span>$\mathbf{0}$</span> is a three by three block of zeros and <span>$\mathit{I}$</span> is the tree by three identity matrix.<ul>
+<li>i. Using only column and row operations, show that <span>$\det \mathit{C} = -\det \begin{pmatrix} \mathit{-I} &amp; \mathit{B} \\ \mathbf{0} &amp; \mathit{AB} \end{pmatrix}$</span>.</li>
+<li>ii. Using column operations and/or the row cofactor expansion, conclude <span>$\det \mathit{A} \hspace{1mm} \det \mathit{B} = \det \mathit{C} = \det \left (\mathit{AB} \right )$</span></li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.2</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>(a) To prove Cramer's rule, use two properties:</p>
+<ol>
+<li>adding (or subtracting) a multiple of a column to another does not change the determinant</li>
+<li><span>$\det\begin{bmatrix} a_1, &amp; \ldots, &amp; b a_j, &amp; \ldots, a_n \end{bmatrix} = b \det(A)$</span> where <span>$A = \begin{bmatrix} a_1, &amp; \ldots, &amp; a_j, &amp; \ldots, a_n \end{bmatrix}$</span></li>
+</ol>
+<p><span>$$\begin{aligned}
+\begin{pmatrix} 
+a_{1,1} &amp; a_{1,2} &amp; \dots &amp; a_{1,j} &amp; \dots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \dots &amp; a_{2,j} &amp; \dots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,j} &amp; \dots &amp; a_{n,n} 
+\end{pmatrix} 
+\begin{pmatrix} x_1 \\ \vdots \\ \vdots \\ x_n \end{pmatrix}
+&amp;=
+\begin{pmatrix} b_1 \\ \vdots \\ \vdots \\ b_n \end{pmatrix}
+\\
+\begin{vmatrix} 
+a_{1,1} &amp; a_{1,2} &amp; \dots &amp; b_{1} &amp; \dots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \dots &amp; b_{2} &amp; \dots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \dots &amp; b_{n} &amp; \dots &amp; a_{n,n} 
+\end{vmatrix}
+&amp;=
+\begin{vmatrix} 
+a_{1,1} &amp; a_{1,2} &amp; \dots &amp; a_{1,1}x_1 + a_{1,2}x_2 + \dots + a_{1,j}x_j+ \dots + a_{1,n}x_n &amp; \dots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \dots &amp; a_{2,1}x_1 + a_{2,2}x_2 + \dots + a_{2,j}x_j+ \dots + a_{2,n}x_n &amp; \dots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,1}x_1 + a_{n,2}x_2 + \dots + a_{n,j}x_j+ \dots + a_{n,n}x_n &amp; \dots &amp; a_{n,n} 
+\end{vmatrix} \\
+&amp;=
+\begin{vmatrix} 
+a_{1,1} &amp; a_{1,2} &amp; \dots &amp; a_{1,j}x_j &amp; \dots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \dots &amp; a_{2,j}x_j &amp; \dots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,j}x_j &amp; \dots &amp; a_{n,n} 
+\end{vmatrix} \qquad \text{using property 1} \\
+&amp;= x_j
+\begin{vmatrix} 
+a_{1,1} &amp; a_{1,2} &amp; \dots &amp; a_{1,j} &amp; \dots &amp; a_{1,n} \\
+a_{2,1} &amp; a_{2,2} &amp; \dots &amp; a_{2,j} &amp; \dots &amp; a_{2,n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n,1} &amp; a_{n,2} &amp; \dots &amp; a_{n,j} &amp; \dots &amp; a_{n,n} 
+\end{vmatrix} \qquad \text{using property 2} 
+\end{aligned}
+$$</span></p>
+<p>We obtain Cramer's rule by dividing each side by <span>$\det \ A$</span>.</p>
+<h3 class="header"><i>4.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Cramer's rule proof by <a href="/users/eleyine">@eleyine</a>.</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Question<a class="headerlink" href="#question_4" name="question_4">&para;</a></h3>
+<ul>
+<li>(a) Let <span>$\mathit{V} = \mathit{C}^4$</span> as an inner product over the complex numbers <span>$\mathit{C}$</span> with the usual inner product and define <span>$\mathit{W} = \text{Span} \left \{ \left ( 1, i, -1, i \right )^t, \left ( -i, 1, i, -1 \right )^t \right \}$</span><ul>
+<li>i. Find an orthonormal basis for <span>$\mathit{W}^\perp$</span>, the orthogonal complement of W.</li>
+<li>ii. Extend this basis to an othonormal basis of <span>$\mathit{V}$</span>.</li>
+</ul>
+</li>
+<li>(b) Let <span>$\mathit{U}$</span> be an inner product space over the complex numbers <span>$\mathit{C}$</span> and <span>$\mathit{H}$</span> a Hermitian opertor <span>$\mathit{H} : \mathit{U} \to \mathit{U}$</span>. Prove that eigenvectors of <span>$\mathit{H}$</span> for distince eigenvalues are orthogonal.</li>
+</ul>
+<h3 class="header"><i>5.2</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>None</p>
+<h3 class="header"><i>5.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>N/A</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

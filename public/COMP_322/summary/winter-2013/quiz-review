@@ -1,0 +1,923 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_322/">
+                COMP 322
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Quiz review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Quiz review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The notes below are based on the slides created by the lecturer (Dan Pomerantz), which can be found on the <a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures.html">course website</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#quiz-1">1 Quiz 1</a><ul>
+<li><a href="#lecture-1-introduction">1.1 Lecture 1: Introduction</a></li>
+<li><a href="#lecture-2-basics-of-c">1.2 Lecture 2: Basics of C++</a></li>
+<li><a href="#lecture-3-pointers-and-references">1.3 Lecture 3: Pointers and references</a></li>
+<li><a href="#lecture-4-memory-management">1.4 Lecture 4: Memory management</a></li>
+<li><a href="#lecture-5-the-standard-library">1.5 Lecture 5: The standard library</a></li>
+<li><a href="#lecture-6-introduction-to-c-classes">1.6 Lecture 6: Introduction to C++ classes</a></li>
+</ul>
+</li>
+<li><a href="#quiz-2">2 Quiz 2</a><ul>
+<li><a href="#lecture-8-oop-and-inheritance">2.1 Lecture 8: OOP and inheritance</a><ul>
+<li><a href="#recap-of-classes">2.1.1 Recap of classes</a></li>
+<li><a href="#inheritance">2.1.2 Inheritance</a></li>
+</ul>
+</li>
+<li><a href="#lecture-9-inheritance-continued">2.2 Lecture 9: Inheritance continued</a><ul>
+<li><a href="#static-and-dynamic-dispatch">2.2.1 Static and dynamic dispatch</a></li>
+<li><a href="#multiple-inheritance">2.2.2 Multiple inheritance</a></li>
+<li><a href="#advanced-type-casting">2.2.3 Advanced type-casting</a></li>
+<li><a href="#remarks-on-algorithmsh">2.2.4 Remarks on algorithms.h</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10-overloading-operators-and-exceptions">2.3 Lecture 10: Overloading operators and exceptions</a><ul>
+<li><a href="#operator-overloading">2.3.1 Operator overloading</a></li>
+<li><a href="#exceptions">2.3.2 Exceptions</a></li>
+<li><a href="#resource-acquisition-is-initialisation">2.3.3 Resource acquisition is initialisation</a></li>
+</ul>
+</li>
+<li><a href="#lecture-11-templates-and-custom-iterators">2.4 Lecture 11: Templates and custom iterators</a><ul>
+<li><a href="#custom-iterators">2.4.1 Custom iterators</a></li>
+<li><a href="#templates">2.4.2 Templates</a></li>
+</ul>
+</li>
+<li><a href="#practice-question-solutions">2.5 Practice question solutions</a><ul>
+<li><a href="#practice-questions">2.5.1 Practice questions</a></li>
+<li><a href="#winter-2010-quiz">2.5.2 Winter 2010 quiz</a></li>
+<li><a href="#winter-2012-quiz">2.5.3 Winter 2012 quiz</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Quiz 1<a class="headerlink" href="#quiz-1" name="quiz-1">&para;</a></h2>
+<p>The first quiz will take place on Tuesday, February 26, during class (at the usual location). It will be 50 minutes long and will cover everything up to and including lecture 7, except for inheritance.</p>
+<p>Other resources:</p>
+<ul>
+<li><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture7/practicequiz1.pdf">Practice exercises</a>, with <a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture7/practicequiz1answers.pdf">solutions</a></li>
+<li><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture7/COMP322-Q01.pdf">Quiz from Winter 2012</a>, with <a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture7/COMP322-Q01solutions.pdf">solutions</a></li>
+</ul>
+<h3 class="header"><i>1.1</i>Lecture 1: Introduction<a class="headerlink" href="#lecture-1-introduction" name="lecture-1-introduction">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture1/lecture1.pdf">Link to slides</a></p>
+<ul>
+<li>C++ = C with classes</li>
+<li>Compile-time type-checking, mostly compatible with C</li>
+<li>In C++ but not in C:<ul>
+<li>Classes</li>
+<li>Overloading</li>
+<li>Templates</li>
+<li>Exceptions</li>
+<li>Namespaces</li>
+</ul>
+</li>
+<li>In C++ but not in Java:<ul>
+<li>Compiles to machine code, not VM code</li>
+<li>Multiple inheritance is allowed</li>
+<li>Pointers and references (done very differently from Java)</li>
+<li>No garbage collection - memory management must be done manually</li>
+</ul>
+</li>
+<li>The hello world program:<ul>
+<li><code>#include &lt;iostream&gt;</code> to have access to <code>std</code></li>
+<li><code>int main()</code> as usual, should return 0 for success</li>
+<li><code>std::cout &lt;&lt; "lol";</code> to print something (printf works too, though you have to include <code>stdio.h</code> in that case)</li>
+<li><code>std::cout</code> is an object of the class <code>ostream</code>; similar to the stdout global from C</li>
+<li><code>&lt;&lt;</code> is overloaded to act as both a bitshift operator and a stream-appending operator</li>
+<li>It returns a stream, so you can chain multiple <code>&lt;&lt;</code>s together</li>
+<li>To compile, you can do <code>g++ -Wall helloworld.cpp -o outputfile</code> where <code>-Wall</code> means that you get all the warnings</li>
+</ul>
+</li>
+<li>Types<ul>
+<li>bool</li>
+<li>signed, unsigned, regular char</li>
+<li>int: short, long, unsigned or signed, etc</li>
+<li>float, double</li>
+<li>long double</li>
+</ul>
+</li>
+<li>Operators and statements<ul>
+<li>Basically the same as C. Don't worry about it.</li>
+</ul>
+</li>
+<li>Scope<ul>
+<li>global scope, local scope, block scope (C++ has this because it's not Javascript) </li>
+</ul>
+</li>
+<li>Preprocessor<ul>
+<li><code>#define</code>, <code>#include</code>, <code>#ifdef</code>, etc</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Lecture 2: Basics of C++<a class="headerlink" href="#lecture-2-basics-of-c" name="lecture-2-basics-of-c">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture2/COMP322-L02.pdf">Link to slides</a></p>
+<ul>
+<li>Function orders<ul>
+<li>You can't call a function before its defined</li>
+<li>Defining the function header works (so if you put everything in a header file, you can call anything in whatever order you like)</li>
+</ul>
+</li>
+<li>Preprocessor commands<ul>
+<li><code>#define</code>, for defining macros<ul>
+<li>Textual substition (basically find &amp; replace), uses capital letters by convention</li>
+<li>Can even use it for functions, like: `#define MAX(a, b) ((a &lt; b) ? b : a)</li>
+</ul>
+</li>
+<li><code>#include</code><ul>
+<li>Copies &amp; pastes the content of the file into the output file</li>
+<li>Usually header filenames end with .h, but only by convention</li>
+<li><code>"header.h"</code> -&gt; searches local dir, then standard directories</li>
+<li><code>&lt;standard.h&gt;</code> -&gt; only searches standard dirs</li>
+</ul>
+</li>
+<li><code>#if</code>, <code>#ifdef</code>, <code>#ifndef</code>, <code>#if defined</code></li>
+<li>You can also use standard boolean operators in preprocessor statements (<code>&amp;&amp;</code>, <code>||</code>), and you can nest statements</li>
+<li><code>undef</code> deletes a macro</li>
+</ul>
+</li>
+<li>Some operators<ul>
+<li><code>sizeof something</code> - return the number of bytes occupied by <code>something</code> (could be a type, too)</li>
+<li>comma operator: <code>exp1, exp2</code> evaluates both, returns <code>exp2</code></li>
+<li>Assignment returns the assigned value, so you can put an assignment in another assignment</li>
+</ul>
+</li>
+<li>Some keywords, used when declaring things<ul>
+<li><code>auto</code>: implicit in any variable declaration (for temp storage); don't know why we need this then</li>
+<li><code>volatile</code>: warns compiler that the value may change unexpectedly (used for e.g., semaphores)</li>
+<li><code>register</code>: tells compiler that this variable will be used frequently (may be ignored by compiler)</li>
+<li><code>const</code>: can't modify after initialisation (compiler will complain), and must be initialised at declaration</li>
+<li><code>extern</code>: declares something that isn't initialised until later on (or in another file that is being included); can be used in conjunction with const to prevent the compiler from complaining</li>
+<li><code>static</code>: several different meanings, depending on the context:<ul>
+<li>outside a function, this makes the variable local so that it can't be used by other files</li>
+<li>inside a function, this allocates the memory for it on the heap<sup>i think</sup> so that it sticks around until the end of the program and not just when it goes out of scope</li>
+<li>also, used inside a loop, it can prevent a variable from being re-initialised (only set the first time)</li>
+<li>it can also be used for OOP, but we'll probably cover that later</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Arrays<ul>
+<li>Don't need to specify the length of the array if initialising explicitly (string, or <code>{1, 2, 3}</code>, etc)</li>
+</ul>
+</li>
+<li>Function definitions<ul>
+<li>No nesting</li>
+<li>If it doesn't return anything, should return <code>void</code> in the header</li>
+<li>Inline functions: used for small functions; asks the compiler to use macro substitutions to avoid actually calling it (the compiler may or may not accede)</li>
+<li>Parameters of "simple" types (int, bool, char, etc) are passed by value</li>
+</ul>
+</li>
+<li>User-defined types<ul>
+<li>enums<ul>
+<li>you can make a named type, or omit the type (then they can be used anywhere)</li>
+<li><code>enum season { WINTER, SPRING, SUMMER, FALL}</code> and <code>enum season this_season = WINTER</code></li>
+<li>each enum value is implicitly assigned an int, starting from 0, though you can set explicit values with equals or just set the first one</li>
+<li><code>enum grade { A=4, B=3, C=2, D=1 }</code> or <code>enum grade { D=1, C, B, A }</code> (equivalent)</li>
+</ul>
+</li>
+<li>structs: same as in C. <code>struct something { // define properties };</code> then <code>struct something var;</code>, or make an array of these, or whatever</li>
+<li>union: sort of like a struct, but all fields share the same place in memory (legitimate examples are hard to come by, but it's usually when you want to save space I guess)</li>
+<li>the <code>typedef</code> operator: <code>typedef unsigned short word</code> makes <code>word</code> a shorthand for <code>unsigned short</code> (can also be used for structs - <code>typedef struct _Etc {} etc</code> makes <code>etc</code> a shorthand for <code>struct _Etc</code>)</li>
+</ul>
+</li>
+<li>Namespaces<ul>
+<li>like <code>std::cout</code> (std is the namespace)</li>
+<li>Pretty simple concept</li>
+<li>To stay within the <code>std</code> scope (to avoid having to use <code>std::etc</code> every time), use <code>using namespace std;</code></li>
+<li>Or, <code>using std::cout;</code> to get only <code>cout</code> (like <code>from x import y</code> in python as opposed to <code>from x import *</code>, although in the case of C++ we can still use <code>std::cout</code>, so we can consider <code>#include &lt;iostream&gt;</code> as doing <code>import x</code>)</li>
+<li>To define a namespace: <code>namespace A { // define functions here }</code></li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.3</i>Lecture 3: Pointers and references<a class="headerlink" href="#lecture-3-pointers-and-references" name="lecture-3-pointers-and-references">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture3/COMP322-L03.pdf">Link to slides</a></p>
+<ul>
+<li>Pointers<ul>
+<li><code>int* p</code> or <code>int * p</code> or <code>int *p</code> all mean that <code>p</code> points to something of type <code>int</code></li>
+<li><code>*</code>: unary dereference operator (gets whatever is stored at that address)</li>
+<li><code>&amp;</code>: gets the address of a variable</li>
+<li>Pointer arithmetic:<ul>
+<li><code>integer = pointer1 - pointer2</code> gets the number of elements between the two pointers (which MUST be of the same base type, in the same array?)</li>
+<li>(I guess the pointers are by element and not by byte. Weird)</li>
+</ul>
+</li>
+<li>Useful for modifying function params (the function must take a pointer, and must be passed a pointer)</li>
+<li>Pointers to structs/unions:<ul>
+<li>Probably faster than passing by value or whatever happens normally</li>
+<li>Declare an instance of a struct, get its address with <code>&amp;</code>, save as a pointer</li>
+<li>To access a field on a struct instance, do <code>(*p).field</code> or <code>p-&gt;field</code> (-&gt; only in C++)</li>
+</ul>
+</li>
+<li>Things to avoid<ul>
+<li>Failing to initialise <code>*p</code> and then attempting to do <code>*p = 1</code></li>
+<li>Returning pointers to local variables (well duh)</li>
+<li>Comparing pointers when we really want to compare the data the pointers are pointing to</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Memory allocation<ul>
+<li>Use the <code>new</code> keyword to prevent local vars from going out of scope</li>
+<li>Must delete using <code>delete</code> to prevent memory leaks</li>
+</ul>
+</li>
+<li>References<ul>
+<li><code>int x; int &amp; y = x;</code> means that <code>y</code> is an alias for <code>x</code></li>
+<li>So, if we change <code>y</code>, we change <code>x</code> as well (they are pointing to the same cell in memory, etc)</li>
+<li>Must be initialised upon declaration</li>
+<li>Must have the same type as the thing it's referencing</li>
+<li>Cannot be reassigned after initialisation</li>
+<li>Can't have references to references</li>
+<li>Useful for function parameters (callee can pass in regular variables, and the function can change the values of them without having to use pointers at all)</li>
+<li>Taking a reference whose type is some large data structure is faster than being passed it by value, as we can avoid having to copy it</li>
+<li>Using <code>const</code> in a function def for a ref parameter means that we can't modify the contents of the ref</li>
+<li>If you try to pass something that is not a variable of some sort (an <code>lvalue</code>) to a function expecting a reference, it will fail (compiler error)</li>
+<li>Same if you pass something of the wrong type</li>
+<li>More on <code>lvalues</code>:<ul>
+<li>These are: <code>x</code>, <code>something-&gt;x</code>, <code>something.x</code>, <code>*p</code>, <code>array[1]</code></li>
+<li>These are not: <code>x+1</code>, <code>p</code> (where <code>p</code> is a pointer), <code>lol()</code> (unless it returns a reference)</li>
+</ul>
+</li>
+<li>References as return values:<ul>
+<li>Can be used to return a large object without copying it (should actually the pointer)</li>
+<li>Or, to return an lvalue</li>
+<li>To do this, just return the thing you want a reference to, and put <code>&amp;</code> in the function header directly after the return type</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.4</i>Lecture 4: Memory management<a class="headerlink" href="#lecture-4-memory-management" name="lecture-4-memory-management">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture4/COMP322-L04.pdf">Link to slides</a></p>
+<ul>
+<li><code>static</code> vs <code>automatic</code> (permanent storage vs ephemeral, in-scope storage)</li>
+<li>In C, to dynamically allocate memory on the heap, use <code>malloc</code> and <code>free</code></li>
+<li>In C++, we also have <code>new</code> and <code>delete</code> (unary operators, not functions)</li>
+<li><code>new</code> returns a pointer; <code>delete</code> takes in a pointer (if the pointer is NULL, it does nothing)<ul>
+<li>We only need to delete things created with new, so delete must be passed a pointer that was returned by using new</li>
+<li>new implicitly calls the constructor; we can specifiy arguments for it if we like, in the usual way</li>
+<li>if <code>new</code> fails, it throws an exception, which terminates the program</li>
+<li>the exception can be surpressed by doing <code>new(std::nothrow)</code> (gotta <code>#include &lt;new&gt;</code>; in that case, if it fails, it will just return NULL</li>
+</ul>
+</li>
+<li>new and delete on arrays:<ul>
+<li>If we need to determine an array length at runtime, we have to use the new operator (<code>int array = new int[x]</code>)</li>
+<li>Of course, that then has to be deleted, using <code>delete [] array</code> (note the <code>[]</code>)</li>
+<li>Doing it this way initialises the elements to 0 or something (if we just did <code>int array[100]</code>, the elements could be anything)</li>
+</ul>
+</li>
+<li>Initialising multidimensional arrays<ul>
+<li>Can't just do <code>new int[5][5]</code>; have to initialise each element in the first outer to a <code>new int[5]</code></li>
+</ul>
+</li>
+<li>Advantages of new/delete over malloc/free<ul>
+<li>No need to cast pointers - new always returns the right type</li>
+<li>Don't need to calculate the size of the object</li>
+<li><code>new</code> implicitly calls constructor</li>
+<li>Exceptions</li>
+<li><code>delete</code> implicitly calls destructor</li>
+<li><code>new</code> can be overridden (is this a good thing???)</li>
+</ul>
+</li>
+<li>Possible issues with new/delete<ul>
+<li>Trying to delete a pointer that was not returned by <code>new</code> will result in a segfault</li>
+<li>Trying to delete the same pointer twice will result in this cryptic error: <code>*** glibc detected *** ./a.out: double free or corruption (fasttop): 0x08618008 ***</code></li>
+<li>Not deleting things created with new (memory leaks)</li>
+<li>In the slides there is an example on page 14 titled "Assuming the memory is initialised"<ul>
+<li>However, this is NOT an example of a common memory management error, at least not with my compiler (gcc 4.6)</li>
+<li><code>pv1[0]</code> is indeed defined</li>
+<li>In fact, the elements are all initialised to 0</li>
+<li>Even <code>sum</code> has been implicitly initialised to 0.0, which makes <code>sum += pv1[0]</code> work</li>
+<li>Not sure if it's a mistake in the slides or something compiler-specific</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.5</i>Lecture 5: The standard library<a class="headerlink" href="#lecture-5-the-standard-library" name="lecture-5-the-standard-library">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture5/COMP322-L05.pdf">Link to slides</a></p>
+<ul>
+<li>I/O<ul>
+<li>cin, cout, and cerr are stream objects which supersede stdin, stdout and stderr respectively (they're easier to type I guess)</li>
+<li><code>[somestream] &lt;&lt; [some string]</code> is basically a replacement of <code>fprintf([some stream], [some string])</code> though without the formatting options maybe</li>
+<li>Remember that <code>&lt;&lt;</code> is LTR, when chaining (as it should be)</li>
+<li>To read from cin or something, use <code>&gt;&gt;</code> (returns the stream, again)</li>
+<li>To do the equivalent of string formatting with streams, use <strong>output stream manipulators</strong><ul>
+<li>Examples: <code>hex</code>, <code>oct</code>, <code>dec</code> to control the base; <code>setprecision(2)</code> which is sort of like <code>%.2f</code>; <code>fixed</code> to set fixed precision in some shape or form</li>
+<li>To use these, have to <code>#include &lt;iomanip&gt;</code></li>
+<li>Some manipulators are temporary, in which case, they <em>only</em> apply to the next item printed</li>
+</ul>
+</li>
+<li>For I/O with normal files, <code>#include &lt;fstream&gt;</code> which gives <code>ofstream</code> (files we can write to) and <code>ifstream</code> (files we can read from)<ul>
+<li>To write to a file: <code>ofstream file; file.open('file'); file &lt;&lt; "ll"; file.close()</code></li>
+<li>Going to skip the reading example, but it's basically <code>ifstream</code> instead of <code>ofstream</code> and with some other stuff that we probably don't need to know</li>
+<li>Remember that you can use strings to hold input in C++, and don't need to rely on buffers</li>
+<li>Other functions: <code>file.get(ch)</code> reads a character (byte) into <code>ch</code>; <code>file.unget</code> puts it back into the stream somehow (?); <code>getline(file, line)</code> is self-explanatory;</li>
+<li><code>stream.get()</code> can take a second parameter, which is the number of bytes we want to read</li>
+<li>We can implement random access if we want, using <code>seekp</code>, <code>tellg</code>, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Container classes in the standard lib<ul>
+<li>They're all templated classes (i.e. generic, can operate on any type)</li>
+<li>Although when you instantiate a particular class, you need to fix the type</li>
+<li><code>vector&lt;int&gt; x</code> creates a vector which holds ints (need to <code>#include&lt;vector&gt;</code> and <code>using namespace std</code></li>
+<li>Then, you can call methods on <code>x</code>, etc</li>
+<li>Iterators<ul>
+<li><code>for (vector&lt;int&gt;::iterator current = x.begin(); current != x.end(); current++)</code></li>
+<li>note that <code>x.end()</code> is actually one past the end, to ensure that we reach the last element </li>
+<li>Also, the size of the container (number of elements) is <code>x.end() - x.begin()</code></li>
+<li>Then, to get the data, just do <code>*current</code> since current basically acts like a pointer</li>
+<li>Note that if the container has been <code>const</code>ed, you need to use <code>vector&lt;int&gt;::const_iterator</code> (and the container ends up being read-only)</li>
+<li>Beyond read-only, we also have write-only, forward-only, bidirectional, random-access iterators</li>
+<li><code>begin()</code> returns a random-access iterator (we could jump ahead any number of elements)</li>
+</ul>
+</li>
+<li>Generic iterators<ul>
+<li>have to put <code>template class&lt;Iterator&gt;</code> somewhere</li>
+<li>then, instead of doing <code>vector&lt;int&gt;::iterator</code>, can just do <code>Iterator</code> (the type determined and checked at compile time)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.6</i>Lecture 6: Introduction to C++ classes<a class="headerlink" href="#lecture-6-introduction-to-c-classes" name="lecture-6-introduction-to-c-classes">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture6/COMP322-L06.pdf">Link to slides</a></p>
+<ul>
+<li>Header declarations for classes<ul>
+<li><code>class whatever</code></li>
+<li><code>public: // public declarations here</code> (including the constructor usually)</li>
+<li><code>private: // etc</code></li>
+<li>if the return type is something declared in the class, have to use <code>whatever::thetype</code> in the method signature</li>
+</ul>
+</li>
+<li>Constructors<ul>
+<li>If you do <code>whatever x(0)</code> you get a <code>whatever</code> object; if you want a pointer, do <code>whatever* x = new whatever(0)</code> (both call the constructor with the parameter 0)</li>
+<li>If you omit the () part, you call the default constructor which doesn't really do much</li>
+</ul>
+</li>
+<li>Access modifiers<ul>
+<li>public, private (only members of the class), protected (this class and classes that inherit from it)</li>
+</ul>
+</li>
+<li><code>this</code><ul>
+<li>Pointer to the current object (rarely necessary to use)</li>
+</ul>
+</li>
+<li><code>const</code> methods<ul>
+<li>put a const right before the { to declare that the method will not change anything</li>
+<li>not sure if this is reinforced by the compiler</li>
+</ul>
+</li>
+<li><code>static</code><ul>
+<li>for functions: no <code>this</code></li>
+<li>for data: shared among all instances of the class (usage example: a counter of how many objects of this class exist)</li>
+</ul>
+</li>
+<li>Default parameters<ul>
+<li>like kwargs in python except you have to specify the type</li>
+</ul>
+</li>
+<li>Destructors<ul>
+<li>Called when an object is <code>delete</code>d OR when it goes out of scope</li>
+<li>define it by <code>~whatever()</code></li>
+</ul>
+</li>
+<li>Copy constructors<ul>
+<li>When we try to copy an object, we make a shallow clone</li>
+<li>To prevent this, we can create our own copy constructor which does a deep clone</li>
+<li><code>whatever(const whatever &amp; source)</code></li>
+</ul>
+</li>
+<li>friend functions lol<ul>
+<li>To allow other classes to access private members</li>
+<li><code>friend returntype somefunction(...)</code> should be added to the <code>whatever</code>class def</li>
+<li>then somefunction has access to the private members of <code>whatever</code></li>
+<li>Also applicable to member functions, and even classes</li>
+</ul>
+</li>
+<li>Scoping issues<ul>
+<li>use <code>this-&gt;</code> if you need to refer to a private member that is shadowed by a local variable</li>
+<li>Use <code>::x</code> to refer to a global object and not the <code>x</code> defined in the class</li>
+<li>Nested classes are not visible outside of that scope</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Quiz 2<a class="headerlink" href="#quiz-2" name="quiz-2">&para;</a></h2>
+<p>The second quiz will take place on Tuesday, April 2, during class (at the usual location). It will be 50 minutes long and will cover everything up to and including lecture 11, though the last few lectures will be the focus.</p>
+<p>The notes below are based on the slides, which can be found on the <a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures.html">course website</a></p>
+<p>Other resources:</p>
+<ul>
+<li><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture11/COMP322-Q02practice.pdf">Practice questions</a></li>
+<li><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture11/COMP322-OldQuiz.pdf">Quiz from Winter 2010</a></li>
+<li><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/quizzes/COMP322-Q02.pdf">Quiz from Winter 2012</a></li>
+</ul>
+<p><strong>Since official solutions are not provided, you can find student-generated solutions <a href="#practice-question-solutions">below</a></strong></p>
+<h3 class="header"><i>2.1</i>Lecture 8: OOP and inheritance<a class="headerlink" href="#lecture-8-oop-and-inheritance" name="lecture-8-oop-and-inheritance">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture7/COMP322-L07.pdf">Link to slides</a></p>
+<p>Purpose of a class:</p>
+<ul>
+<li>Abstract data type (functionality, data)</li>
+<li>Hide implementation detail</li>
+<li>Inherit functionality</li>
+</ul>
+<h4 class="header"><i>2.1.1</i>Recap of classes<a class="headerlink" href="#recap-of-classes" name="recap-of-classes">&para;</a></h4>
+<p>To recap, here's how you declare a class (usually in a header file):</p>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">Person</span> <span class="p">{</span>
+<span class="nl">public:</span>
+    <span class="n">Person</span><span class="p">();</span> <span class="c1">// Default constructor</span>
+    <span class="n">Person</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">float</span> <span class="n">money</span><span class="p">);</span> <span class="c1">// Full constructor</span>
+    <span class="n">Person</span><span class="o">*</span> <span class="nf">clone_self</span><span class="p">();</span>
+    <span class="n">Person</span><span class="o">*</span> <span class="nf">reproduce</span><span class="p">(</span><span class="k">const</span> <span class="n">Person</span> <span class="o">&amp;</span><span class="n">other_parent</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">donate_money</span><span class="p">(</span><span class="kt">float</span> <span class="n">amount</span><span class="p">,</span> <span class="n">Person</span> <span class="o">&amp;</span><span class="n">beneficiary</span><span class="p">);</span> <span class="c1">// This works even if money is private</span>
+    <span class="n">string</span> <span class="nf">get_name</span><span class="p">();</span>
+
+<span class="nl">private:</span>
+    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+    <span class="kt">float</span> <span class="n">money</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>You can define the functions in the non-header file:</p>
+<div class="codehilite"><pre><span class="n">Person</span><span class="o">::</span><span class="n">Person</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;John Doe&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Person</span><span class="o">::</span><span class="n">Person</span><span class="p">(</span><span class="n">string</span> <span class="n">name</span><span class="p">,</span> <span class="kt">float</span> <span class="n">money</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>
+    <span class="k">this</span><span class="o">-&gt;</span><span class="n">money</span> <span class="o">=</span> <span class="n">money</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">Person</span><span class="o">*</span> <span class="n">Person</span><span class="o">::</span><span class="n">clone_self</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">money</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Then you can instantiate people and call methods:</p>
+<div class="codehilite"><pre><span class="n">Person</span><span class="o">*</span> <span class="n">alice</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Alice Doe&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">Person</span><span class="o">*</span> <span class="n">bob</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span><span class="p">(</span><span class="s">&quot;Bob Doe&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">Person</span><span class="o">*</span> <span class="n">alice_bob</span> <span class="o">=</span> <span class="n">alice</span><span class="o">-&gt;</span><span class="n">reproduce</span><span class="p">(</span><span class="o">*</span><span class="n">bob</span><span class="p">);</span>
+<span class="c1">// ^ doesn&#39;t really make sense but whatever</span>
+
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">alice_bob</span><span class="o">-&gt;</span><span class="n">get_name</span><span class="p">();</span>
+<span class="n">alice</span><span class="o">-&gt;</span><span class="n">donate_money</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="o">*</span><span class="n">alice_bob</span><span class="p">);</span>
+<span class="n">bob</span><span class="o">-&gt;</span><span class="n">donate_money</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="o">*</span><span class="n">alice_bob</span><span class="p">);</span>
+</pre></div>
+
+
+<h4 class="header"><i>2.1.2</i>Inheritance<a class="headerlink" href="#inheritance" name="inheritance">&para;</a></h4>
+<ul>
+<li>Derived classes inherit all data and methods, and can add new ones or override inherited</li>
+<li>Privacy of methods and data:<ul>
+<li>Private: only visible to that class</li>
+<li>Protected: visible to derived classes as well</li>
+<li>Public: visible to everybody</li>
+</ul>
+</li>
+<li>Privacy of inheritance:<ul>
+<li>Usually you do <code>class B: public A</code></li>
+<li>If the <code>public</code> is omitted, it is equivalent to <code>class B: private A</code></li>
+<li>Pretty much the same as above except in this case the privacy refers to the fact that B is inheriting from A<ul>
+<li>If public, everyone can know that B inherits from A</li>
+<li>If protected, only children can know that B inherits from A. Thus only children will be able to access the public methods/data that B inherits from A</li>
+<li>If private, only B knows that B inherits from A ... thus only B can access the public or protected methods/data that B inherits from A</li>
+<li>You might use private inheritance when B relies on A in terms of implementation, but outsiders don't need to know that B uses A (e.g., a graph implemented using an array for an adjacency list)</li>
+</ul>
+</li>
+<li>In other words, public inheritance gives the default access modifier behaviour</li>
+<li>Protected inheritance makes public things protected</li>
+<li>Private inheritance makes public and protected things private</li>
+</ul>
+</li>
+<li>No super, due to multiple inheritance</li>
+<li>Constructors and destructors:<ul>
+<li>Automatically inherited</li>
+<li>Base class constructors are always invoked, before derived class constructors</li>
+<li>Base class destructors are always invoked, after derived class destructors (and the derived class destructors are only invoked if the base destructor is virtual)</li>
+<li>The default constructors for base classes are invoked by default, but we can invoke a different constructor by inheriting from it: <code>B(int x) : A(x) { // ... }</code>, p. cool</li>
+<li>(Obviously this is not true of other methods)</li>
+</ul>
+</li>
+<li>Assignment compatibility:<ul>
+<li>Assigning something of type B to something of type A is legal, but it makes you lose anything defined only in B</li>
+<li><code>A a; B b = a</code> is illegal since B-only data would be undefined</li>
+<li>Using pointers, though, we can do <code>A *pa = new B;</code></li>
+</ul>
+</li>
+<li>Polymorphism<ul>
+<li>Doesn't happen by default - calling <code>*pa-&gt;something()</code> when <code>something</code> is defined for A and overridden for B would still call the method in the base class</li>
+<li>To avoid this, define the base class method to be <code>virtual</code> (before the return type)</li>
+<li>Note that a derived class method will only override a virtual function if the type sigs match</li>
+<li><code>virtual</code> is legal in derived classes as well, of course</li>
+<li>You can choose which particular method to use using the scope operator: <code>pa-&gt;A::something</code> to call the base class (when it's virtual)</li>
+<li>Constructors cannot be virtual; destructors can (and probably should be)</li>
+</ul>
+</li>
+<li>Abstract classes:<ul>
+<li>At least one function is virtual and unimplemented/pure (<code>virtual void something() = 0;</code>)</li>
+<li>Abstract classes can not be instantiated directly - you can only instantiate an inheriting class that is not abstract</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Lecture 9: Inheritance continued<a class="headerlink" href="#lecture-9-inheritance-continued" name="lecture-9-inheritance-continued">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture9/COMP322-L09.pdf">Link to slides</a></p>
+<h4 class="header"><i>2.2.1</i>Static and dynamic dispatch<a class="headerlink" href="#static-and-dynamic-dispatch" name="static-and-dynamic-dispatch">&para;</a></h4>
+<ul>
+<li>If a member function is virtual, choosing which function to run is done at runtime (<strong>dynamic dispatch</strong>)<ul>
+<li>Implemented using a vtable (contains addresses of virtual functions)</li>
+<li>At runtime, the call to the function is executed by "indirecting" through the vtable pointer</li>
+<li>I don't really know how this works</li>
+<li>But a function in the base class can call methods that are pure as long as they're defined in a derived class (and obviously the base class can't be instantiated) </li>
+</ul>
+</li>
+<li>If it's not virtual, then the function called depends on the type of object (<strong>static dispatch</strong>)<ul>
+<li>Calls within a constructor or destructor are always static (so, always referring to the method accessible within the class)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.2</i>Multiple inheritance<a class="headerlink" href="#multiple-inheritance" name="multiple-inheritance">&para;</a></h4>
+<ul>
+<li>Akin to the interface construct in Java, except messier</li>
+<li>Syntax: <code>class C : public A, private B</code><ul>
+<li>Then an object of type C can be assigned to an object of type A or B, though you might lose stuff</li>
+<li>Assignment compatibility with pointers is the same as with single inheritance<ul>
+<li>However, pointers of different types to the same object will probably have different values, due to the way objects are stored (A|B|C) - the compiler returns a pointer to the beginning of the part corresponding to the type of the object</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Ambiguities<ul>
+<li>Let's say <code>f</code> is defined in both A and B, and something in C calls f<ul>
+<li>This is somewhat ambiguous - is it A::f or B::f which is called?</li>
+<li>You'd think that it would be resolved by the order in which the base classes are inherited from, but no, you just get a compiler error</li>
+<li>Same thing happens for data</li>
+</ul>
+</li>
+<li>Diamond inheritance: A, B1 and B2 inherit from A, C inherits from B1 and B2<ul>
+<li>Then something of type C basically has two copies of type A stuff</li>
+<li>Assignment compatibility is frail when you try to assign to something of type A, because which A do you use? (could avoid this by casting)</li>
+<li>Scope resolution can be used to avoid the "which method do you use" problem</li>
+<li>Try to avoid this situation<ul>
+<li>Use virtual inheritance if necessary: <code>class B1 : virtual public A</code>, <code>class B2 : virtual public A</code>; ensures that only one copy of the common base class is used</li>
+<li>Avoid function name conflicts (data name conflicts are fine I guess)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.3</i>Advanced type-casting<a class="headerlink" href="#advanced-type-casting" name="advanced-type-casting">&para;</a></h4>
+<p>Dynamic casting: takes runtime type into account. Say C inherits from A and B, <code>A *pa1 = new A</code>, <code>A *pa2 = new C</code>. Then:</p>
+<ul>
+<li><code>dynamic_cast&lt;C*&gt;(pa1)</code>: returns null - you can't safely convert this to a C (missing B parts)</li>
+<li><code>dynamic_cast&lt;C*&gt;(pa2)</code>: works, returning something of type C</li>
+<li><code>dynamic_cast&lt;B*&gt;(pa2)</code>: works, returning something of type B (trims off the A parts I suppose)</li>
+</ul>
+<p>Static casting: only the compile-time type is considered.</p>
+<ul>
+<li><code>static_cast&lt;C*&gt;(pa1)</code>: works, but is probably a bad idea since the B parts are missing</li>
+<li><code>static_cast&lt;C*&gt;(pa2)</code>: works, returning something of type C (same as dynamic casting)</li>
+<li><code>static_cast&lt;B*&gt;(new C)</code>: works, returning something of type B</li>
+<li><code>static_cast&lt;B*&gt;(pa2)</code>: compiler error, because <code>pa2</code> is technically (statically) of type A, which is not related to B as far as the compiler knows</li>
+</ul>
+<p><code>reinterpret_cast&lt;desired type&gt;(expression)</code>: no checks at all. Pretty dangerous.</p>
+<h4 class="header"><i>2.2.4</i>Remarks on algorithms.h<a class="headerlink" href="#remarks-on-algorithmsh" name="remarks-on-algorithmsh">&para;</a></h4>
+<p>If you want to use, say, <code>sort</code> from algorithms.h, you'll have to pass in a function that defines the comparison. Sometimes, you'll want the function to be able to take other arguments. In that case, you'll need to define the function as part of a class; you can then pass other arguments to the constructor. Then you'll have to define a method called <code>operator()(arguments)</code> (the return type should be whatever you want your function to return - in this case, <code>bool</code>). To pass the function as an argument to <code>sort</code>, do this: <code>MyClass f(arguments)</code> then <code>sort(..., ..., f)</code>.</p>
+<h3 class="header"><i>2.3</i>Lecture 10: Overloading operators and exceptions<a class="headerlink" href="#lecture-10-overloading-operators-and-exceptions" name="lecture-10-overloading-operators-and-exceptions">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture10/COMP322-L10.pdf">Link to slides</a></p>
+<h4 class="header"><i>2.3.1</i>Operator overloading<a class="headerlink" href="#operator-overloading" name="operator-overloading">&para;</a></h4>
+<p>Syntax: <code>[type] operator [sign] ([arguments])</code> where <code>operator</code> is the word operator, <code>[type]</code> is the return type as usual, and <code>[sign]</code> is the operator we want to overload (e.g., <code>+</code>, or <code>[]</code> for array-like operations, or <code>=</code> for assignment, or <code>==</code> for comparison)</p>
+<h4 class="header"><i>2.3.2</i>Exceptions<a class="headerlink" href="#exceptions" name="exceptions">&para;</a></h4>
+<ul>
+<li><code>try</code>, <code>catch</code>, <code>throw</code> (no <code>finally</code>)</li>
+<li>catch can take in parameters of any type, or it can just be <code>catch (...)</code> including the ellipsis for the default handler<ul>
+<li>it must always specify the type, though it doesn't have to specify a name (in which case we can't examine the exception more closely of course - anonymous)</li>
+<li>the default handler always behaves anonymously (even the type is unknown)</li>
+</ul>
+</li>
+<li>methods don't have to specify the exceptions that they can throw, unlike in Java, though they may if they like<ul>
+<li>if a method does specify <code>throw</code>, it's assumed that it can only throw the types given</li>
+<li><code>bool f() throw()</code> means it throws no exceptions, <code>bool f() throw(int)</code> means it can only throw int</li>
+<li>Throwing types beyond those specified is legal (compiler-wise), but those exceptions can't be caught; the program will just terminate</li>
+</ul>
+</li>
+<li>Some obvious things: try/catch blocks can be nested; exceptions can cascade through multiple function calls</li>
+<li>When an exception is thrown:<ul>
+<li>the call stack is unwound</li>
+<li>all fully-constructed objects (NOT created with new) are destroyed</li>
+<li>Those allocated with new are <em>not</em> destroyed</li>
+</ul>
+</li>
+<li>You can pass execptions upward after catching them, simply by using <code>throw</code> within a catch block</li>
+<li>Exceptions can be class types (inheritance can be used, too)<ul>
+<li>Only one catch block is executed, and the first compatible one is chosen</li>
+<li>To avoid problems with assignment involving derived/base classes, we can use references: <code>catch (SomeException &amp;e)</code></li>
+<li>References are recommended over pointers, as you don't have to worry about deleting them then</li>
+</ul>
+</li>
+<li>Don't throw exceptions in a destructor. Why? Probably because you don't know when destructors will be executed (since they are called whenever an object goes out of scope)</li>
+<li>Exceptions that can be thrown by the std lib are defined in <code>stdexcept</code></li>
+</ul>
+<h4 class="header"><i>2.3.3</i>Resource acquisition is initialisation<a class="headerlink" href="#resource-acquisition-is-initialisation" name="resource-acquisition-is-initialisation">&para;</a></h4>
+<p>This is a design pattern used in C++ to guarantee that resources are freed when a function either returns normally or throws an exception. This is done by putting resource-freeing code in the destructor, which will be called whenever the object goes out of scope. Of course, for this to occur, relevant objects must be local, not global. Acquiring resouces should occur in the constructor.</p>
+<p>Incidentally, it is possible to enclose entire functions within a try/catch block:</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">f</span><span class="p">()</span> <span class="n">try</span> <span class="p">{</span>
+    <span class="c1">// something</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(...)</span> <span class="p">{</span>
+    <span class="c1">// something else</span>
+<span class="p">}</span> <span class="p">{</span>
+    <span class="c1">// presumably the actual function body goes here</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>2.4</i>Lecture 11: Templates and custom iterators<a class="headerlink" href="#lecture-11-templates-and-custom-iterators" name="lecture-11-templates-and-custom-iterators">&para;</a></h3>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture11/COMP322-L11.pdf">Link to slides</a></p>
+<h4 class="header"><i>2.4.1</i>Custom iterators<a class="headerlink" href="#custom-iterators" name="custom-iterators">&para;</a></h4>
+<p>Example:</p>
+<div class="codehilite"><pre><span class="k">class</span> <span class="nc">FibonacciIterator</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="kt">int</span> <span class="n">next_position</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">current_position</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;*</span> <span class="n">data</span><span class="p">;</span>
+
+<span class="nl">public:</span>
+    <span class="n">FibonacciIterator</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;*</span> <span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">current_position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">next_position</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">FibonacciIterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">FibonacciIterator</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">data</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">data</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">current_position</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">current_position</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">next_position</span> <span class="o">=</span> <span class="n">other</span><span class="p">.</span><span class="n">next_position</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Prefix ++ operator (++i)</span>
+    <span class="n">FibonacciIterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">next_position</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">next_position</span> <span class="o">+=</span> <span class="n">current_position</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">current_position</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Postfix ++ operator (i++)</span>
+    <span class="n">FibonacciIterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">next_position</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">next_position</span> <span class="o">+=</span> <span class="n">current_position</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">current_position</span> <span class="o">=</span> <span class="n">temp</span><span class="p">;</span>
+
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Dereference operator</span>
+    <span class="kt">int</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)[</span><span class="n">current_position</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>haven't tested it</p>
+<h4 class="header"><i>2.4.2</i>Templates<a class="headerlink" href="#templates" name="templates">&para;</a></h4>
+<div class="codehilite"><pre><span class="cp">#include&lt;iostream&gt;</span>
+<span class="cp">#include&lt;string&gt;</span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="cm">/*</span>
+<span class="cm">This is a fairly useless class for a container that holds exactly one object at</span>
+<span class="cm">a time. Although it does keep track of how many objects it has held so far, which could possibly come in handy one day.</span>
+<span class="cm">*/</span>
+<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">Container</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="n">T</span><span class="o">*</span> <span class="n">item</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+<span class="nl">public:</span>
+    <span class="n">Container</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">num</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kt">void</span> <span class="n">fill_with</span><span class="p">(</span><span class="n">T</span> <span class="n">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">num</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">this</span><span class="o">-&gt;</span><span class="n">item</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">item</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">T</span> <span class="n">retrieve_item</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Container</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">container</span><span class="p">;</span>
+    <span class="n">string</span> <span class="n">item</span> <span class="o">=</span> <span class="s">&quot;Lol&quot;</span><span class="p">;</span>
+    <span class="n">container</span><span class="p">.</span><span class="n">fill_with</span><span class="p">(</span><span class="n">item</span><span class="p">);</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">container</span><span class="p">.</span><span class="n">retrieve_item</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>If we wanted to define the member functions outside the class, we would have to do something like</p>
+<div class="codehilite"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="n">Container</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">retrieve_item</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">*</span><span class="n">item</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Multiple template types can be used as well:</p>
+<div class="codehilite"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="p">,</span> <span class="k">class</span> <span class="nc">U</span><span class="p">,</span> <span class="k">class</span> <span class="nc">V</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">TripleContainer</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>We can also use integer constants (<code>&lt;int N&gt;</code>) and even other templates (<code>&lt;template &lt;class&gt; class A&gt;</code> though I'm not sure why you would do that).</p>
+<p>If two Containers are instantiated with different template types, they are usually not assignment compatible, though they can be if the types are essentially equivalent.</p>
+<p>If you try to instantiate a class with a template type that is not supported (say, if the class tries to perform arithmetic with things of that type, but you give it something that does not support arithmetic), you'll get a runtime error (usually not compile-time).</p>
+<p>Functions can also be defined using templates:</p>
+<div class="codehilite"><pre>template &lt;class T&gt; void some_function(int x) {
+    // ...
+}
+</pre></div>
+
+
+<p>We can mark templates for export by putting the <code>export</code> keyword in front of a template def, but this isn't supported by many compilers so why does it even matter?</p>
+<p><strong>Template specialisation</strong> allows us to write code that only works for a particular template type.<sup>why does this mean</sup></p>
+<p>The <code>typename</code> keyword can be used instead of <code>class</code> in a template def to reduce confusion (recently introduced).</p>
+<p>Note that inheritance is not preserved across templates if we use a class as a template type. Speaking of inheritance, did you know that templates can inherit from templated classes? Same deal as regular inheritance. For example:</p>
+<div class="codehilite"><pre><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">T</span><span class="o">&gt;</span> <span class="k">class</span> <span class="nc">B</span> <span class="o">:</span> <span class="k">public</span> <span class="n">A</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">};</span>
+</pre></div>
+
+
+<p>Templates can also be members of a class.</p>
+<h3 class="header"><i>2.5</i>Practice question solutions<a class="headerlink" href="#practice-question-solutions" name="practice-question-solutions">&para;</a></h3>
+<h4 class="header"><i>2.5.1</i>Practice questions<a class="headerlink" href="#practice-questions" name="practice-questions">&para;</a></h4>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture11/COMP322-Q02practice.pdf">Link to questions</a></p>
+<p>1: Is a: inherits from. Has a: should be a class member.<br />
+2: Encapsulation, preventing access to attributes, hiding implementation details, allows for inheritance, etc<br />
+3: Defines relationships (more semantic), saves typing, allows for polymorphism, etc<br />
+4: </p>
+<div class="codehilite"><pre><span class="c1">// Let data be the vector&lt;float&gt;</span>
+<span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;::</span><span class="n">const_iterator</span> <span class="n">current</span> <span class="o">=</span> <span class="n">data</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">current</span> <span class="o">!=</span> <span class="n">data</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">current</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="o">*</span><span class="n">current</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>5:</p>
+<div class="codehilite"><pre><span class="c1">// Just going to define the bare minimum for now</span>
+<span class="k">class</span> <span class="nc">IntLinkedListIterator</span> <span class="p">{</span>
+<span class="nl">private:</span>
+    <span class="n">Node</span><span class="o">*</span> <span class="n">current</span><span class="p">;</span>
+<span class="nl">public:</span>
+    <span class="n">IntLinkedListIterator</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">node</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">node</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Postfix operator (i++)</span>
+    <span class="n">IntLinkedListIterator</span><span class="o">&amp;</span> <span class="k">operator</span><span class="o">++</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+
+        <span class="c1">// Not really necessary in this case but it&#39;s convention</span>
+        <span class="k">return</span> <span class="o">*</span><span class="k">this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Dereference operator</span>
+    <span class="kt">int</span> <span class="k">operator</span><span class="o">*</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">current</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>6: I haven't looked at the assignment but I'm assuming it would be misleading because we don't actually have O(1) random access. Not a good idea with a linked list iterator. To implement, just use a loop (while or for)<br />
+7: Unexpected input or result, want to allow something else to handle it<br />
+8: Too long<br />
+9: ^</p>
+<h4 class="header"><i>2.5.2</i>Winter 2010 quiz<a class="headerlink" href="#winter-2010-quiz" name="winter-2010-quiz">&para;</a></h4>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/lectures/lecture11/COMP322-OldQuiz.pdf">Link to questions</a></p>
+<ol>
+<li>1 then 2 on the next line. Why: since <code>A::f</code> is virtual and the <code>B::f</code> is defined, then <code>A::f</code> is never called when calling <code>pa-&gt;f()</code>. Similarly, when calling <code>pb-&gt;f()</code>, only <code>C::f</code> is called since <code>A::f</code> is virtual (<code>B::f</code> doesn't even need to be virtual)</li>
+<li>1 then 2 on the next line. Why: 1 is thrown as an exception; it is caught and printed out. Then, it is incremented by 1, and is thrown again, after which is it caught and printed.</li>
+<li>1 then 0 because both destructors are called, since the A destructor is virtual (thus <code>~B</code> is called first, then <code>~A</code>).</li>
+<li>0 only because B the A destructor is not virtual.</li>
+<li>Not 1, not 2, yes 3, yes 4, yes 5, no 6.</li>
+</ol>
+<h4 class="header"><i>2.5.3</i>Winter 2012 quiz<a class="headerlink" href="#winter-2012-quiz" name="winter-2012-quiz">&para;</a></h4>
+<p><a href="http://www.cs.mcgill.ca/~dpomer/comp322/winter2013/quizzes/COMP322-Q02.pdf">Link to questions</a></p>
+<ol>
+<li>Normal, virtual (can be overriden), pure (must be overriden).</li>
+<li>a) totally fine, though you will lose any apple-only things. b) fine, and you won't lose any apple-only things.</li>
+<li>Private: only members of that class can access/modify it. Protected: inheriting classes can too. Public: anyone can. Bad practice because sometimes you don't want others to be able to access/modify it (and it hides the implementation, which is less likely to cause issues with backwards compatibility if you ever modify the implementation, etc).</li>
+<li>The vector of ints <code>vector&lt;int&gt;</code>, the current position (<code>int</code>)</li>
+<li><code>current += x;</code>?</li>
+<li>Define an exception called <code>NoRecordFound</code> or something, then throw it if you can't find a record</li>
+</ol>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

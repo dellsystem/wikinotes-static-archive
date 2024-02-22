@@ -1,0 +1,335 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, September 17, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, September 17, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Minimisation theory for DFAs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>This class was taught by Artem Kaznatcheev, one of the TAs for this course, as Prakash is out of town for the week. Subject: minimisation theory.</p>
+<div class="toc">
+<ul>
+<li><a href="#minimisation-theory">1 Minimisation theory</a><ul>
+<li><a href="#minimisation-example">1.1 Minimisation example</a></li>
+<li><a href="#the-quotient-machine">1.2 The quotient machine</a></li>
+<li><a href="#construction-algorithm">1.3 Construction algorithm</a><ul>
+<li><a href="#example">1.3.1 Example</a><ul>
+<li><a href="#iteration-0">1.3.1.1 Iteration 0</a></li>
+<li><a href="#iteration-1">1.3.1.2 Iteration 1</a></li>
+<li><a href="#iteration-2">1.3.1.3 Iteration 2</a></li>
+<li><a href="#iteration-3">1.3.1.4 Iteration 3</a></li>
+</ul>
+</li>
+<li><a href="#bfs-definition">1.3.2 BFS definition</a></li>
+<li><a href="#proof-of-correctness">1.3.3 Proof of correctness</a></li>
+<li><a href="#taking-the-quotient-again">1.3.4 Taking the quotient again</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Minimisation theory<a class="headerlink" href="#minimisation-theory" name="minimisation-theory">&para;</a></h2>
+<p>Suppose you have the following DFAs:</p>
+<p><img alt="Two DFA diagrams" src="http://i.imgur.com/yxG7Czp.png" title="Colours added purely because I can. Original diagram, released under CC0." /></p>
+<p>Clearly, these DFAs recognise the same language. But <span>$M_2$</span> is more complex, in terms of the number of states. We can transform <span>$M_2$</span> into <span>$M_1$</span> simply by collapsing the two accept states.</p>
+<h3 class="header"><i>1.1</i>Minimisation example<a class="headerlink" href="#minimisation-example" name="minimisation-example">&para;</a></h3>
+<p>Let's look at a slightly more complicated DFA diagram. How would we minimise the following DFA?</p>
+<p><img alt="Example to minimise" src="http://i.imgur.com/h441kPc.png" title="Also coloured because I never back down from a challenge. Original diagram, released under CC0." /></p>
+<p>Let's try merging the indicated states:</p>
+<p><img alt="Example to minimise, merging" src="http://i.imgur.com/zLdr7m1.png" title="Original diagram, released under CC0" /></p>
+<p>Let's also merge the other indicated states:</p>
+<p><img alt="Example to minimise, merging step 2" src="http://i.imgur.com/qqunnIF.png" title="Original diagram, released under CC0" /></p>
+<p>We're done:</p>
+<p><img alt="Example to minimise, final step" src="http://i.imgur.com/vVMkkSH.png" title="Original diagram, released under CC0" /></p>
+<p>This was followed by an even more complicated example but I'm going to omit it from the notes because it's a pain to draw.</p>
+<h3 class="header"><i>1.2</i>The quotient machine<a class="headerlink" href="#the-quotient-machine" name="the-quotient-machine">&para;</a></h3>
+<p>Now let's look at how we can transform an arbitrary machine into a minimal machine<sup id="fnref:minimal"><a href="#fn:minimal" rel="footnote" title="We can't yet prove that quotient machines are mini...">1</a></sup>. First, we define the following equivalence relation to formally describe states that are "equivalent":</p>
+<p><span>$$p \approx q \iff (\forall x \in \Sigma^*, \, \delta^*(p, x) \in F \iff \delta^*(q, x) \in F)$$</span></p>
+<p>We define the equivalence class of a state <span>$p$</span> in the usual way: <span>$[p] = \{q \mid p \approx q\}$</span>.</p>
+<p>Next, we define the concept of a <strong>quotient machine</strong>: <span>$M/\approx = (Q', s_0', \delta', F')$</span> (with the same alphabet <span>$\Sigma$</span>), where:</p>
+<ul>
+<li><span>$Q' = \{[p] \mid p \in Q\}$</span> (the set of all equivalence classes)</li>
+<li><span>$s_0' = [s_0]$</span></li>
+<li><span>$F' = \{[p] \mid p \in F\}$</span> (the set of equivalence classes for accept states)</li>
+<li><span>$\delta': Q' \times \Sigma \to Q'$</span> is defined by <span>$\delta'([p], a) = [\delta(p, a)]$</span></li>
+</ul>
+<p>Of course, before we accept this definition, we need to show that <span>$\delta'$</span> is well-defined. First, a lemma: <span>$[p] = [q] \to [\delta(p, a)] = [\delta(q, a)]$</span>, <span>$\forall a \in \Sigma$</span>. Proof: Let <span>$a \in \Sigma$</span>, <span>$y \in \Sigma^*$</span>, and suppose that <span>$[p] = [q]$</span> for some states <span>$p, q \in Q$</span>. Then <span>$\delta^*(p, ay) \in F \iff \delta^*(q, ay) \in F$</span> by the definition of the equivalence relation <span>$\approx$</span>. Equivalently: <span>$\delta^*(\delta(p, a), y) \in F \iff \delta^*(\delta(q, a), y)) \in F$</span> which proves the lemma. <span>$\blacksquare$</span></p>
+<p>Next, we have another lemma: <span>$\forall x \in \Sigma^*, \delta^*([p], x) = [\delta^*(p, x)]$</span>. We can prove this via induction on the length of the string. Left as an exercise for the reader who is more diligent than I.</p>
+<p>Last lemma: <span>$p \in F \iff [p] \in F'$</span>. Proof: (<span>$\Rightarrow$</span>) is trivial; it follows from the definition of <span>$F'$</span>. (<span>$\Leftarrow$</span>): Use the definition of <span>$\approx$</span>, and let <span>$x = \epsilon$</span>. Then <span>$p \in F \iff q \in F$</span>. Thus if <span>$q \in [p]$</span>, then <span>$q \in F$</span>. Hence, it follows that if <span>$[p] \in F'$</span>, <span>$p \in F$</span>. <span>$\blacksquare$</span>.</p>
+<p>We can now use these lemmas to prove that the quotient machine accepts the same language as the original machine <span>$M = (Q, s_0, \delta, F)$</span> (so <span>$L(M/\approx) = L(M)$</span>). Formally, we need to show that <span>$\forall x \in \Sigma^*$</span>, <span>$x \in L(M/\approx) \iff x \in L(M)$</span>. In other words:</p>
+<p><span>$$\delta^*(\underbrace{[s_0]}_{=s_0'}, x) \in F' \iff \delta^*(s_0, x) \in F$$</span></p>
+<p>The LHS above is equivalent to <span>$[\delta^*(s_0, x)] \in F'$</span>, by lemma 2. But that's equivalent to the RHS above, by lemma 3! Thus any machine <span>$M$</span> and its corresponding quotient machine, <span>$M/\approx$</span>, accept the same language.</p>
+<h3 class="header"><i>1.3</i>Construction algorithm<a class="headerlink" href="#construction-algorithm" name="construction-algorithm">&para;</a></h3>
+<p>Now let's design an algorithm for constructing a quotient machine. First, we build a table consisting of a cell for each pair of states <span>$(p, q)$</span>. We initialise each pair as "unmarked" (that is, potentially mergeable).</p>
+<p>Next, we go through each pair, and mark all the pairs consisting of one reject state and one accept state. Think of "marking" as saying "these states are not equivalent".</p>
+<p>Next, we revisit all the unmarked pairs. For each unmarked pair <span>$(p, q)$</span>, look at every letter <span>$a$</span> in the alphabet, and if there is some letter such that following that transition results in <span>$(p', q')$</span> which is marked, then mark <span>$(p, q)$</span>. (In other words: if <span>$(\delta(p, a), \delta(q, a))$</span> is marked, then <span>$(p, q)$</span> needs to be marked as well.) This is an iterative algorithm that continues until we get to an iteration during which no new pairs are marked, at which point we would exit. Clearly this algorithm halts: at any given iteration, the number of marked pairs either increases or is stationary; if the former, then eventually we get to 0 unmarked pairs, and if the latter, then we exit.</p>
+<p>Once we are done, we can treat any unmarked pairs as equivalent according to the relation <span>$\approx$</span>, and thus merge them.</p>
+<h4 class="header"><i>1.3.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Here's an example, using the DFA diagram from earlier:</p>
+<p><img alt="Example to minimise" src="http://i.imgur.com/gy0nLh0.png" title="Same diagram as before, only with state numbers. Original diagram, released under CC0." /></p>
+<p>Below you can find the table, with marked pairs indicated with a number inscribed in a circle (the number indicates the iteration at which we marked that pair). Note that we can ignore anything below the diagonal since this relation is symmetric, and we can ignore the diagonal itself since it's reflexive.<sup id="fnref:reflexive"><a href="#fn:reflexive" rel="footnote" title="During the lecture, Artem said that we can ignore ...">2</a></sup></p>
+<table class="fresh">
+<thead>
+<tr>
+<th>States</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td>⓪</td>
+<td>⓪</td>
+<td>②</td>
+<td>②</td>
+<td>⓪</td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td>⓪</td>
+<td>⓪</td>
+<td>①</td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td>⓪</td>
+<td>⓪</td>
+<td>①</td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>⓪</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>⓪</td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Here's a step-by-step description of the process (looking only at the upper right half, as explained above):</p>
+<h5 class="header"><i>1.3.1.1</i>Iteration 0<a class="headerlink" href="#iteration-0" name="iteration-0">&para;</a></h5>
+<ul>
+<li><span>$(1, 2)$</span>: 1 is reject, 2 is accept. Mark.</li>
+<li><span>$(1, 3)$</span>: 1 is reject, 3 is accept. Mark.</li>
+<li><span>$(1, 4)$</span>: both reject. Leave unmarked.</li>
+<li><span>$(1, 5)$</span>: both reject. Leave umarked.</li>
+<li><span>$(1, 6)$</span>: 1 is reject, 6 is accept. Mark.</li>
+<li><span>$(2, 3)$</span>: both accept. Leave unmarked.</li>
+<li><span>$(2, 4)$</span>: 2 is accept, 4 is reject. Mark.</li>
+<li><span>$(2, 5)$</span>: 2 is accept, 5 is reject. Mark.</li>
+<li><span>$(2, 6)$</span>: both accept. Leave unmarked.</li>
+<li><span>$(3, 4)$</span>: 3 is accept, 4 is reject. Mark.</li>
+<li><span>$(3, 5)$</span>: 3 is accept, 5 is reject. Mark.</li>
+<li><span>$(3, 6)$</span>: both accept. Leave unmarked.</li>
+<li><span>$(4, 5)$</span>: both reject. Leave unmarked.</li>
+<li><span>$(4, 6)$</span>: 4 is reject, 6 is accept. Mark.</li>
+<li><span>$(5, 6)$</span>: 5 is reject, 6 is accept. Mark.</li>
+</ul>
+<h5 class="header"><i>1.3.1.2</i>Iteration 1<a class="headerlink" href="#iteration-1" name="iteration-1">&para;</a></h5>
+<ul>
+<li><span>$(1, 4)$</span>:<ul>
+<li><span>$a \to (2, 6)$</span> which is unmarked. Leave unmarked.</li>
+<li><span>$b \to (3, 6)$</span> which is unmarked. Leave unmarked.</li>
+</ul>
+</li>
+<li><span>$(1, 5)$</span>:<ul>
+<li><span>$a \to (2, 6)$</span> which is unmarked. Leave unmarked.</li>
+<li><span>$b \to (3, 6)$</span> which is unmarked. Leave unmarked.</li>
+</ul>
+</li>
+<li><span>$(2, 3)$</span>:<ul>
+<li><span>$a \to (4, 4)$</span> which is unmarked. Leave unmarked.</li>
+<li><span>$b \to (5, 5)$</span> which is unmarked. Leave unmarked.</li>
+</ul>
+</li>
+<li><span>$(2, 6)$</span>:<ul>
+<li><span>$a \to (4, 6)$</span> which is marked. Mark.</li>
+<li>Don't even need to bother looking at <span>$b$</span>.</li>
+</ul>
+</li>
+<li><span>$(3, 6)$</span>:<ul>
+<li><span>$a \to (5, 6)$</span> which is marked. Mark.</li>
+</ul>
+</li>
+<li><span>$(4, 5)$</span>:<ul>
+<li><span>$a \to (6, 6)$</span> which is unmarked. Leave unmarked.</li>
+<li><span>$b \to (6, 6)$</span> which is unmarked. Leave unmarked.</li>
+</ul>
+</li>
+</ul>
+<h5 class="header"><i>1.3.1.3</i>Iteration 2<a class="headerlink" href="#iteration-2" name="iteration-2">&para;</a></h5>
+<ul>
+<li><span>$(1, 4)$</span>:<ul>
+<li><span>$(2, 6)$</span> is now marked. Mark.</li>
+</ul>
+</li>
+<li><span>$(1, 5)$</span>:<ul>
+<li><span>$(2, 6)$</span> is now marked. Mark.</li>
+</ul>
+</li>
+<li><span>$(2, 3)$</span>: can be left unmarked since <span>$(4, 4)$</span> and <span>$(5, 5)$</span> will never be marked.</li>
+<li><span>$(4, 5)$</span>: can be left unmarked since <span>$(6, 6)$</span> will never be marked.</li>
+</ul>
+<h5 class="header"><i>1.3.1.4</i>Iteration 3<a class="headerlink" href="#iteration-3" name="iteration-3">&para;</a></h5>
+<p>Only <span>$(2, 3)$</span> and <span>$(4, 5)$</span> are unmarked, and since these will never be marked due to the reflexivity of <span>$\approx$</span>, we can stop there, as nothing will change in this iteration. So the remaining unmarked pairs are (2, 3) and (4, 5), and thus we can merge states 2 &amp; 3 and states 4 &amp; 5.</p>
+<h4 class="header"><i>1.3.2</i>BFS definition<a class="headerlink" href="#bfs-definition" name="bfs-definition">&para;</a></h4>
+<p>Alternatively, we could formulate this as a breadth first search problem (equivalent to the above):</p>
+<ol>
+<li>For each pair <span>$(p, q)$</span> create a vertex.</li>
+<li>For each vertex and letter <span>$a \in \Sigma$</span>, draw an edge from that vertex to the vertex that pair transitions to (i.e., from <span>$(p, q)$</span> to <span>$(\delta(p, a)$</span>, \delta(q, a))$.</li>
+<li>Add a new vertex <span>$r$</span>, and draw an edge between <span>$r$</span> and every vertex <span>$(p, q)$</span> where one state is in <span>$F$</span> but the other isn't.</li>
+<li>Run BFS from <span>$r$</span>. Any unreachable vertices should be merged.</li>
+</ol>
+<h4 class="header"><i>1.3.3</i>Proof of correctness<a class="headerlink" href="#proof-of-correctness" name="proof-of-correctness">&para;</a></h4>
+<p><span>$(p, q)$</span> is marked/reachable <span>$\iff$</span> <span>$\exists x \in \Sigma^*$</span> such that <span>$\delta^*(p, x) \in F$</span> and <span>$\delta^*(q, x) \notin F$</span></p>
+<p>The steps for proving this involve showing the equivalence of the <a href="#construction-algorithm">construction algorithm</a> and the BFS formulation, then using inducton on the length of the shortest path from <span>$r$</span> to a vertex<sup id="fnref:unreadable"><a href="#fn:unreadable" rel="footnote" title="My handwriting here is unreadable. &quot;Vertex&quot; is jus...">3</a></sup>. Then we can prove, by contradiction, that the algorithm is correct. Left as an exercise for the reader who does not have a midterm tomorrow.</p>
+<h4 class="header"><i>1.3.4</i>Taking the quotient again<a class="headerlink" href="#taking-the-quotient-again" name="taking-the-quotient-again">&para;</a></h4>
+<p>If we were to take the quotient of the quotient machine, the resulting machine would be essentially unchanged in terms of complexity.</p>
+<p>Note that this does NOT prove that the quotient machine is the minimal machine! It <em>is</em>, but we haven't proven that yet.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:minimal">
+<p>We can't yet prove that quotient machines are minimal; this will come later on. For now, I guess you just have to accept that this is true.&#160;<a href="#fnref:minimal" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:reflexive">
+<p>During the lecture, Artem said that we can ignore the elements along diagonal because the relation is symmetric. This is not true; presumably he meant "reflexive".&#160;<a href="#fnref:reflexive" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:unreadable">
+<p>My handwriting here is unreadable. "Vertex" is just a plausible-sounding guess.&#160;<a href="#fnref:unreadable" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

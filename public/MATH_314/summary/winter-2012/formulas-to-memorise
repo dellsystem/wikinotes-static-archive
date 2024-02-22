@@ -1,0 +1,201 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Formulas to memorise
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Formulas to memorise
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-del-operator">1 The del operator</a><ul>
+<li><a href="#the-curl">1.1 The curl</a></li>
+<li><a href="#the-divergence">1.2 The divergence</a></li>
+<li><a href="#the-gradient">1.3 The gradient</a></li>
+</ul>
+</li>
+<li><a href="#the-theorems">2 The theorems</a><ul>
+<li><a href="#stokes-theorem">2.1 Stokes' theorem</a></li>
+<li><a href="#greens-theorem">2.2 Green's theorem</a></li>
+<li><a href="#divergence-theorem">2.3 Divergence theorem</a></li>
+</ul>
+</li>
+<li><a href="#jacobians">3 Jacobians</a><ul>
+<li><a href="#change-of-variables">3.1 Change of variables</a></li>
+<li><a href="#implicit-functions">3.2 Implicit functions</a></li>
+</ul>
+</li>
+<li><a href="#miscellaneous">4 Miscellaneous</a><ul>
+<li><a href="#flux">4.1 Flux</a></li>
+<li><a href="#line-integrals">4.2 Line integrals</a></li>
+<li><a href="#coordinates-of-the-centroid">4.3 Coordinates of the centroid</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The del operator<a class="headerlink" href="#the-del-operator" name="the-del-operator">&para;</a></h2>
+<p>Given <span>$\vec F = Q\hat i + P \hat j + R \hat k$</span> and <span>$f(x, y, z)$</span>:</p>
+<h3 class="header"><i>1.1</i>The curl<a class="headerlink" href="#the-curl" name="the-curl">&para;</a></h3>
+<p>Turns a <strong>vector</strong> into a <strong>vector</strong> (lol)</p>
+<p><span>$$\text{curl } \vec F = \nabla \times \vec F = \det \begin{pmatrix} \hat i &amp; \hat j &amp; \hat k \\ \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y} &amp; \frac{\partial }{\partial z} \\ Q &amp; P &amp; R \end{pmatrix}$$</span></p>
+<p>Uses: Stokes' theorem, showing that a vector field is conservative</p>
+<h3 class="header"><i>1.2</i>The divergence<a class="headerlink" href="#the-divergence" name="the-divergence">&para;</a></h3>
+<p>Turns a <strong>vector</strong> into a <strong>scalar</strong></p>
+<p><span>$$\text{div } \vec F = \nabla \cdot \vec F = \frac{\partial Q}{\partial x} + \frac{\partial P}{\partial y} + \frac{\partial R}{\partial z}$$</span></p>
+<p>Uses: Divergence theorem, showing that a vector field is solenoidal</p>
+<h3 class="header"><i>1.3</i>The gradient<a class="headerlink" href="#the-gradient" name="the-gradient">&para;</a></h3>
+<p>Turns a <strong>scalar</strong> into a <strong>vector</strong></p>
+<p><span>$$\nabla f = \frac{\partial f}{\partial x} \hat i + \frac{\partial f}{\partial y} \hat j + \frac{\partial f}{\partial z} \hat k$$</span></p>
+<p>Uses: You can use this to check that a potential function is indeed a potential function for the given vector field - take the potential function's gradient, and it should be equal to the vector field.</p>
+<h2 class="header"><i>2</i>The theorems<a class="headerlink" href="#the-theorems" name="the-theorems">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Stokes' theorem<a class="headerlink" href="#stokes-theorem" name="stokes-theorem">&para;</a></h3>
+<p><span>$$\int_C \vec F \cdot d\vec r = \iint_D \text{curl }\vec F \,d\vec S$$</span></p>
+<p>where <span>$C$</span> is a simple, closed, smooth, boundary curve in a oriented counter-clockwise direction and <span>$S$</span> is the surface bounded by that curve. <span>$\vec F$</span> is a vector field.</p>
+<p>Uses: later</p>
+<h3 class="header"><i>2.2</i>Green's theorem<a class="headerlink" href="#greens-theorem" name="greens-theorem">&para;</a></h3>
+<p><span>$$\oint_C P\,dx + Q \,dy = \iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \,dA$$</span></p>
+<p>where <span>$C$</span> is a simple, closed, smooth, boundary curve oriented in a counter-clockwise direction and <span>$D$</span> is the region enclosed by that curve. Also, <span>$P$</span> and <span>$Q$</span> must have continuous first order partial derivatives over <span>$D$</span>.</p>
+<p>Another version of this theorem gives us a way of computing the area enclosed by a curve:</p>
+<p><span>$$\text{Area } = \oint_C x\,dy = \oint_C y\,dx = \frac{1}{2} \oint_C x\,dy - y\,dx$$</span></p>
+<p>Uses: later</p>
+<p>Note: this is the 2-dimensional version of Stokes' theorem.</p>
+<h3 class="header"><i>2.3</i>Divergence theorem<a class="headerlink" href="#divergence-theorem" name="divergence-theorem">&para;</a></h3>
+<p><span>$$\iint_S \vec F \cdot \vec n\,dS = \iiint_E \text{div }\vec F\,dV$$</span></p>
+<p>where <span>$E$</span> is the region bounded by the closed surface <span>$S$</span> and <span>$\vec n$</span> is the outward-pointing unit normal vector.</p>
+<p>Also known as Gauss' theorem.</p>
+<p>Uses: later</p>
+<h2 class="header"><i>3</i>Jacobians<a class="headerlink" href="#jacobians" name="jacobians">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Change of variables<a class="headerlink" href="#change-of-variables" name="change-of-variables">&para;</a></h3>
+<p>When transforming coordinates, don't forget the Jacobian. In this case, it's only a scaling factor, so take the absolute value. If you're given <span>$x$</span> and <span>$y$</span> and want to transform to <span>$u$</span> and <span>$v$</span>, the "new variables" (<span>$u$</span> and <span>$v$</span>) would be the denominator in the Jacobian, e.g.:</p>
+<p><span>$$\frac{\partial (x, y)}{\partial (u, v)}$$</span></p>
+<p>and since you can't evaluate that directly, take 1 over the reciprocal:</p>
+<p><span>$$1 / \frac{\partial (u, v)}{\partial (x, y)}$$</span></p>
+<p>The Jacobian is just the determinant of the following matrix (or its transpose, whichever way you prefer):</p>
+<p><span>$$\begin{pmatrix} u_x &amp; u_y \\ v_x &amp; v_y \end{pmatrix}$$</span></p>
+<p>Multiply the integrand by the Jacobian, then express the result in terms of the new variables <span>$u$</span> and <span>$v$</span>, then integrate with respect to <span>$u$</span> and <span>$v$</span> over the limits identified.</p>
+<h3 class="header"><i>3.2</i>Implicit functions<a class="headerlink" href="#implicit-functions" name="implicit-functions">&para;</a></h3>
+<p>You also need the Jacobian for finding partial derivatives of implicit functions. In this case, you <em>don't</em> take the absolute value. Again, the "new variables" (i.e. the ones that are functions of the other variables) go on the bottom. Let's say we have the variables <span>$x, y, u, v$</span> and want to express <span>$u$</span> and <span>$v$</span> in terms of <span>$x$</span> and <span>$y$</span> (so <span>$u(x, y)$</span> and <span>$v(x, y)$</span> are the functions, and <span>$u$</span> and <span>$v$</span> are the "new variables"). First you find the "regular" Jacobian, <span>$J$</span>:</p>
+<p><span>$$J = \frac{\partial (F, G)}{\partial (u, v)} = \det\,\begin{pmatrix} F_u &amp; F_v \\ G_u &amp; G_v \end{pmatrix}$$</span></p>
+<p>Finding the partial derivatives is really a matter of plugging in the values to a formula. Let's say we want to find the partial derivatives of <span>$u$</span> and <span>$v$</span> with respect to <span>$x$</span> and <span>$y$</span>:</p>
+<p><span>$$\frac{\partial u}{\partial x} = -\frac{1}{J} \frac{\partial (F, G)}{\partial (x, v)} \quad \frac{\partial u}{\partial y} = -\frac{1}{J} \frac{\partial (F, G)}{\partial (y, v)} \quad \frac{\partial v}{\partial x} = -\frac{1}{J} \frac{\partial (F, G)}{\partial (u, x)} \quad \frac{\partial v}{\partial y} = -\frac{1}{J} \frac{\partial (F, G)}{\partial (u, y)}$$</span></p>
+<p>There's a pretty obvious pattern here - it's especially easy to see if you write out J as a fraction (then you can see what things cancel out and what remains afterwards, etc). In any case these types of problems are usually quite straightforward, so once you're comfortable with the formula they should be a breeze.</p>
+<h2 class="header"><i>4</i>Miscellaneous<a class="headerlink" href="#miscellaneous" name="miscellaneous">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Flux<a class="headerlink" href="#flux" name="flux">&para;</a></h3>
+<p><span>$$\iint_S\vec F \cdot \,d\vec S = \iint_S \vec F \cdot \vec n \,dS$$</span></p>
+<p>Note that you don't have to divide by the magnitude of the normal vector as that is equal to the constant in <span>$dS$</span> (the magnitude part thing) and they cancel each other out.</p>
+<p>There are several ways of doing this, depending on the situation:</p>
+<ul>
+<li>It's a vector field in 3 dimensions, and the parametric equation you're given for the surface is a function of two variables, Take the dot product of <span>$F(r(u,v)$</span> and <span>$r_u \times r_v$</span> (i.e. the cross product of the partial derivatives of <span>$r(u,v)$</span>) and integrate that. It should be a double integral, with the limits being the limits provided for <span>$u$</span> and <span>$v$</span>.</li>
+<li>Later</li>
+</ul>
+<h3 class="header"><i>4.2</i>Line integrals<a class="headerlink" href="#line-integrals" name="line-integrals">&para;</a></h3>
+<p>... as in, what the fuck is a line integral and how do I do one??</p>
+<p>Well, there are several methods for computing a line integral, depending on your situation:</p>
+<ul>
+<li><span>$\displaystyle \int_C \vec F \,d\vec r$</span>, where <span>$C$</span> is some boundary curve and <span>$\vec F$</span> is a vector field - do it by parametrising the curve with <span>$r(t)$</span>, then take the dot-product of <span>$F(r(t))$</span> and the derivative of <span>$r(t)$</span> with respect to <span>$t$</span>, then integrate that over the limits for <span>$t$</span>. <a href="/MATH_314/summary/winter-2012/htsefp-vector-calculus#line-integrals-vector-fields">Link to HTSEFP section</a></li>
+<li><span>$\displaystyle \oint_C P(x,y)\,dy - Q(x,y)\,dx$</span> where <span>$P$</span> and <span>$Q$</span> are functions of <span>$x$</span> and <span>$y$</span> (can be 0) - do it by parametrising the curve with <span>$r(t)$</span>, then replacing <span>$x$</span> and <span>$y$</span> in <span>$P$</span> and <span>$Q$</span> with what come before <span>$\hat i$</span> and <span>$\hat j$</span> in <span>$r(t)$</span>, respectively. Then you just integrate over the limits for <span>$t$</span> (given by the boundary <span>$C$</span>). <a href="/MATH_314/summary/winter-2012/htsefp-vector-calculus#line-integrals-cartesian-coordinates">Link to HTSEFP section</a></li>
+<li>Same as the above, except you're asked to use Green's theorem - use the formula <span>$\displaystyle \oint P\,dx + Q\,dy = \iint_D \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\,dA$</span>. Do the integral in Cartesian coordinates or polar or whatever if that makes more sense. <a href="/MATH_314/summary/winter-2012/htsefp-green-gauss-and-stokes-theorems#line-integral-over-a-region-greens-theorem">Link to HTSEFP</a></li>
+</ul>
+<h3 class="header"><i>4.3</i>Coordinates of the centroid<a class="headerlink" href="#coordinates-of-the-centroid" name="coordinates-of-the-centroid">&para;</a></h3>
+<p>The <span>$x$</span> and <span>$y$</span> coordinates (if it's a two-dimensional problem) of the centroid over a region <span>$D$</span> are:</p>
+<p><span>$$\bar x = \frac{\displaystyle \iint_D x\,ds}{\displaystyle \iint_D \,ds} \quad \bar y = \frac{\displaystyle \iint_D y\,ds}{\displaystyle \iint_D \,ds}$$</span></p>
+<p>If it's in three dimensions, then make the above triple integrals with respect to <span>$z$</span> as well. The <span>$z$</span>-coordinate is the obvious:</p>
+<p><span>$$\bar z = \frac{\displaystyle \iiint_D z\,ds}{\displaystyle \iiint_D \,ds}$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

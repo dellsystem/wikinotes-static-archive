@@ -1,0 +1,326 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/ANAT_322/">
+                ANAT 322
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, April 4, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, April 4, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Circadian rhythms and neuroendocrine regulation II 
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>CLOCK<a class="headerlink" href="#clock" name="clock">&para;</a></h2>
+<ul>
+<li>suprachiasmatic nuclues (SCN) is the central clock in mammals. <ul>
+<li>located next to 3rd ventricle, right above optic chiasm, where the two optic nerves cross each other. </li>
+<li>lesioning SCN disrupt circadian rhythm as shown on the actograms. <ul>
+<li>SCN graft restores circadian rhythm... to that of the donor!!!! </li>
+</ul>
+</li>
+<li>circadian rhythm of electrical activity is shown in isolated SCN neurons<ul>
+<li>which suggests that mechanisms of regulation is at the cellular level. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>however, SCN is not the only clock in the organism. also in other brain regions and periphery organs. <ul>
+<li>different clock genes could also have different functions/regulations/circadian rhythms in different locations. <ul>
+<li>as demonstrated by Per1-luciferase transgene's expression rhythms in different tissue cultures.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>clock genes: <ul>
+<li>conserved among species (ex: rat's and drosophila's clock genes have similar names)</li>
+<li>conserved feature: <ul>
+<li>oscillating mRNAs, proteins, or activities<ul>
+<li>protein level lags behind mRNA level (both are in rhythms)</li>
+</ul>
+</li>
+<li>autoregulatory feedback loops<ul>
+<li>ex: Bmal1 and Clock form dimer and act as TF(transcription factor)</li>
+<li>the TF activate transcription for more clock genes: Per1/2/3, Cyr1/2</li>
+<li>Cyr1/2 and P1/2/3, in conjunction w/ CKI (a kinase), dimerize and suppress Bmal+Clock complex and thereby their own expression </li>
+<li>as Cyr1/2 and P1/2/3 are degraded over time, suppression on Bmal+Clock becomes less, so transcription occurs again on the next day.  </li>
+<li>hence the rhythm </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Bmal-knockout shows very low expression of Per1 in SCN<ul>
+<li>locomotor activity is still in control, but when environmental clue is removed (put in DD cycle), circadian rhythm is completely disrupted. </li>
+<li>so rhythm in Bmal1-knockout is due to masking. </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Mutation<a class="headerlink" href="#mutation" name="mutation">&para;</a></h2>
+<h3 class="header"><i>2.1</i>CKI<a class="headerlink" href="#cki" name="cki">&para;</a></h3>
+<ul>
+<li>CKI does many things: <ul>
+<li>1.phosphorylate Per1 and thereby regulate Per1's location in the cell.</li>
+<li>2.phosphorylate PER1 and targets it for degradation</li>
+<li>3.phosphoryalte Per1/Cry complex and the complex then inhibit Clock/Bmal1.</li>
+<li>4.phosphoryalte BMAL1 to stimulate BMAL1/Clock-induced transcription </li>
+</ul>
+</li>
+<li>tau mutation in hamster: mutation of CKI<ul>
+<li>less stalb ePER protein and thus decreased duration of inhibition of CLOCK/BMAL1.  </li>
+<li>heterogenous mutation: period decrease from 24hr to 22hr</li>
+<li>homozygous mutation : period is 20 hr. (even worse) </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Per2, CKI<a class="headerlink" href="#per2-cki" name="per2-cki">&para;</a></h3>
+<ul>
+<li>familiar advanced sleep phase disorder (FASPD)<ul>
+<li>otherwise healthy individuals. </li>
+<li>caused by mutation in PER2 and CK1-gamma</li>
+<li>shorter period than normal (sleep from 6pm to 2am)</li>
+</ul>
+</li>
+<li>problems may lie in the 1st and the 2nd functions of CKI. </li>
+</ul>
+<h2 class="header"><i>3</i>Components of a circadian clock<a class="headerlink" href="#components-of-a-circadian-clock" name="components-of-a-circadian-clock">&para;</a></h2>
+<ul>
+<li>input (light, clues, etc)</li>
+<li>pacemaker (SCN genes)</li>
+<li>output (physiological rhythms) <ul>
+<li>there must be a link between pacemaker and clock mechanism --&gt; ans: clock-controlled genes (ccg)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.1</i>(ccg)Clock-controlled Genes<a class="headerlink" href="#ccgclock-controlled-genes" name="ccgclock-controlled-genes">&para;</a></h3>
+<ul>
+<li>ccgs are controlled by block machinery and thus the RNAs are expressed rhythmically.</li>
+<li>they can encode neuropeptides such as vasopressin, transcription factors (DBP), receptors, ion channels, metabolic enzymes, etc. </li>
+<li>ex: vasopressin as a ccg <ul>
+<li>In front of vasopressin gene, there's a Ebox in promoter. the Ebox binds Clock/Bmal1. </li>
+</ul>
+</li>
+<li>regulation of ccgs can be different in different tissues <ul>
+<li>in SCN, mutant mice's amp of vasopressin is flattens and has little rhythms comparing to wild type</li>
+<li>in SON, mutant mice's amp and rhythm of VP is pretty much the same as the wild type. </li>
+<li>so there are many clock-controlled genes and most ccgs are different in SCN and periphery (like liver). <ul>
+<li>less than 10% of ccgs shows the same rhythm in more than 1 tissue, so genes have different functions in different tissues (whether it's rhythmic or non-rhythmic). </li>
+<li>this is also proven w/ micrarray analysis, showing that different clock genes are expressed in different tissues. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.2</i>SCN-periphery communication<a class="headerlink" href="#scn-periphery-communication" name="scn-periphery-communication">&para;</a></h3>
+<ul>
+<li>hierarchy : <ul>
+<li>central clock <ul>
+<li>peripheral clocks, which drives rhythms.</li>
+<li>directly drives rhythms. </li>
+</ul>
+</li>
+<li>environments gives direct input to central clock and indirectly to peripheral clock  </li>
+</ul>
+</li>
+<li>putative signals <ul>
+<li>glucocorticoids, retinoic acid, neuronal pathway (autonomic nervous systems) </li>
+<li>temperature cycles (by peripheral clock, not central)</li>
+<li>feeding rhythms (also directly by SCN, by peripheral clock. </li>
+</ul>
+</li>
+<li>SCN sends projections to many nuclei in the brain: PVN, PVT, DMH, CRH, GnRH,etc. </li>
+</ul>
+<h2 class="header"><i>4</i>Melatonin and Cortisol<a class="headerlink" href="#melatonin-and-cortisol" name="melatonin-and-cortisol">&para;</a></h2>
+<h3 class="header"><i>4.1</i>melatonin<a class="headerlink" href="#melatonin" name="melatonin">&para;</a></h3>
+<ul>
+<li>melatonin is secreted by <strong>pineal gland</strong>, which must have connection w/ SCN cuz lesion at SCN abolishes melatonin production. </li>
+<li>pathway of projections: SCN --&gt; PVN --&gt; IMC --&gt; SCG --(via noradrenaline)--&gt; (alpha-1 beta-1 adrenergic receptors) PIN (pineal gland) --&gt; high malatonin at night and low during a day. </li>
+<li>melatonin production: <ul>
+<li>serotonin --(AANAT)--&gt; N-acelylserotonin) --(HIOMT)--&gt; Melatonin <ul>
+<li>AANAT: has a dramatic rhythm : very high at night and very low during the day. </li>
+<li>HIOMT: more or less level throughout the day.</li>
+<li>(therefore AANAT is the rate-limiting step)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>noradrenaline regulation of AANAT via alpha-1/beta-1-adrenergic receptors lead to more transcription of AANAT and less degradation. <ul>
+<li>regulation at transcription and degradation differ among species. </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.2</i>cortisol ##<a class="headerlink" href="#cortisol" name="cortisol">&para;</a></h3>
+<ul>
+<li>regulated by 3 factors: <ul>
+<li>neuroendocrine: SCN --&gt; PVN --&gt; CRH (aka CRF) --&gt; pituitary (produces ACTH) --&gt; adrenal gland (produces cortisol)</li>
+<li>parasympathetic" SCN --&gt; PVN --&gt; DMV --&gt; adrenal gland</li>
+<li>sympathetic: SCN --&gt; PVN --&gt; IML --&gt; adrenal gland. </li>
+</ul>
+</li>
+<li>but there are also circaidan clock in the adrenal gland itself. so SCN is not the only source of rhythm for cortisol.<ul>
+<li>ex: Bmal1 and Per1 genes expression oscillates in the cortex and medulla of the adrenal gland. </li>
+<li>many other clock-controlled genes are involved in the control of adrenal cortisol biosynthesis and secretion. </li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>4.2.1</i>Adrenal clock experiment<a class="headerlink" href="#adrenal-clock-experiment" name="adrenal-clock-experiment">&para;</a></h4>
+<ul>
+<li>rodents with mutated Per2/Cry1 do not show difference between level of cortisol during early day and early dark. </li>
+<li>whereas wild type rodents, cortisol is much higher in early dark than in early day. <ul>
+<li>(rodents are active at night)</li>
+</ul>
+</li>
+<li>therefore, while same amount of ACTH act on adrenal gland, different amount of cortisol were secreted in wild type and mutant. <ul>
+<li>so clock in adrenal cortext has gating effect on the ability of ACTH to evoke cortisol release</li>
+<li>clock determines how strongly tissue would response to ACTh and secrete cortisol. </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>5</i>Circadian and photoperiodism<a class="headerlink" href="#circadian-and-photoperiodism" name="circadian-and-photoperiodism">&para;</a></h2>
+<ul>
+<li>photoperiod: longer in the summer. duration of light phase.</li>
+<li>photoperiodic regulation of prolactin and pelage/horn growth <ul>
+<li>hamsters secrete high prolactin in LD and low in SD (short day)<ul>
+<li>they're white in winte rand agouti in summer </li>
+</ul>
+</li>
+<li>but if SD number of days persist, there's a SD refractory: prolactin level goes up again and animals become agouti. <ul>
+<li>due to intrinsic regulation</li>
+</ul>
+</li>
+<li>same goes with sheep and their prolactin level<ul>
+<li>summer/LD: high prolactin/horn growth</li>
+<li>winter/SD: low prolatin/no horn growth</li>
+<li>prolonged LD: refractoriness (intrinsic regulation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>photoperiod  on fertility of male hamster: <ul>
+<li>wild type: testis atrophy if night &gt;12hr.  more fertile when days are long</li>
+<li>mutant : testis atrophy if night &gt;10hr.<ul>
+<li>mutation in the circadian clock alters photoperiodic time measurement </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>photoperiod on oscillation of Per genes in SCN<ul>
+<li>Per1 is high in light phase</li>
+<li>in SD: higher and narrower peak</li>
+<li>in LD: similar behavior, but lower and broader peak. <ul>
+<li>seems to mimics length of day. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>photoperiod and pineal melatonin rhythms<ul>
+<li>just like Per genes, but opposite<ul>
+<li>melatonin peaks at night and low during day. </li>
+</ul>
+</li>
+<li>pituitary cells response to melatonin from pineal gland, determine whether it's SD or LD, and influence hormonal release<ul>
+<li>sheep are reproductive in SD while hamsters aren't</li>
+<li>hamsters are reproductive in LD while sheep aren't. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

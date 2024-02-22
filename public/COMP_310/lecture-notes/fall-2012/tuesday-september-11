@@ -1,0 +1,185 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, September 11, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, September 11, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Computers and operating systems
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for COMP 310, lecture #2, taught by <a href="http://www.cs.mcgill.ca/~xueliu/">Xue Liu</a>. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly,</p>
+<p>The slides for this lecture are available through <a href="http://www.mcgill.ca/mycourses">MyCourses</a>. Slides covered: 1.27 (continued from last lecture), 1.29-1.50 (there is no slide 1.28).</p>
+<div class="toc">
+<ul>
+<li><a href="#interrupts-continued">1 Interrupts, continued</a><ul>
+<li><a href="#direct-memory-access">1.1 Direct memory access</a></li>
+</ul>
+</li>
+<li><a href="#storage-structures">2 Storage structures</a><ul>
+<li><a href="#storage-hierarchy">2.1 Storage hierarchy</a></li>
+<li><a href="#caching">2.2 Caching</a></li>
+</ul>
+</li>
+<li><a href="#computer-architectures">3 Computer architectures</a><ul>
+<li><a href="#multiprocessing-and-multi-core-systems">3.1 Multiprocessing and multi-core systems</a><ul>
+<li><a href="#limits-to-moores-law">3.1.1 Limits to Moore's law</a></li>
+</ul>
+</li>
+<li><a href="#clustered-systems">3.2 Clustered systems</a></li>
+</ul>
+</li>
+<li><a href="#operating-system-structure">4 Operating system structure</a><ul>
+<li><a href="#multiprogramming">4.1 Multiprogramming</a></li>
+<li><a href="#dual-mode-operations">4.2 Dual-mode operations</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Interrupts, continued<a class="headerlink" href="#interrupts-continued" name="interrupts-continued">&para;</a></h2>
+<p>(continued from last class)</p>
+<p>In an embedded system, you want to minimise the number of interrupts, because the CPU typically has limited processing power and probably has other stuff to do anyway. An example of such a system would be a communication device, for which time is critical.</p>
+<h3 class="header"><i>1.1</i>Direct memory access<a class="headerlink" href="#direct-memory-access" name="direct-memory-access">&para;</a></h3>
+<p>Normally, when an interrupt occurs, the CPU is responsible for transferring data to and from the local buffer of the I/O device to main memory. However, this is not usually desirable for throughput and performance reasons, especially if the CPU has many other tasks to complete. <strong>Direct memory access</strong> is one alternative. In this scheme, a special controller, known as a DMA controller, handles all the data transfer from local buffers to main memory. The CPU needs to initiate the transfer, but once the transfer is under way, the CPU can perform other tasks, and is notified via an interrupt from the DMA controller when the transfer is complete.</p>
+<p>This method has several benefits:</p>
+<ul>
+<li>Data throughput is increased</li>
+<li>The CPU is free to do other work while the transfer is in progress</li>
+<li>Data can be transferred much faster, which is especially important for certain specialised devices like graphics, sound, and network cards</li>
+</ul>
+<p>So we have an I/O device in one corner, and a CPU in another corner, and main memory containing instructions and data in another corner. Between the CPU and memory, we have instructions and data going back and forth, and and between the CPU and the I/O device, and we have interrupts being sent to the CPU, I/O requests sent to the device, and data moving back and forth. Then, we have direct memory access between the I/O device and main memory.</p>
+<h2 class="header"><i>2</i>Storage structures<a class="headerlink" href="#storage-structures" name="storage-structures">&para;</a></h2>
+<p>The only large storage media that the CPU can access directly is <strong>main memory</strong>. This type of memory is volatile, quick to access, and limited in size. Then we have <strong>secondary storage</strong>, which is non-volatile and typically much larger, and <strong>tertiary storage</strong>. I am a bit confused about the distinction between secondary and tertiary storage, and where exactly magnetic disks fit in, but magnetic disks are rigid metal or glass platters coated with magnetic recording material. Nearly all modern computers - smartphones, servers, desktops - use this architecture.</p>
+<h3 class="header"><i>2.1</i>Storage hierarchy<a class="headerlink" href="#storage-hierarchy" name="storage-hierarchy">&para;</a></h3>
+<p>Storage systems can be organised via a hierarchy of speed, cost (actual physical cost), and volatility. The closer you are to the CPU, the faster, more expensive, and more volatile it is.</p>
+<ul>
+<li>Registers (within the CPU)</li>
+<li>CPU cache</li>
+<li>Main memory</li>
+<li>Electronic disk</li>
+<li>Magnetic disk</li>
+<li>Optical disk</li>
+<li>Magnetic tapes</li>
+</ul>
+<h3 class="header"><i>2.2</i>Caching<a class="headerlink" href="#caching" name="caching">&para;</a></h3>
+<p><strong>Caching</strong> is a technique whereby frequently-accessed information (for some definition of "frequently-accessed") is copied to a faster storage location. It's performed at many levels in a computer: in the hardware, in the operating system, in software. For instance, main memory can be viewed as a cache for secondary storage, while the CPU has its own cache for main memory. Information is temporarily copied from the slower storage location to the faster storage location, which is always smaller in size, when the information is being used (exact implementation details differ). When information is needed, the cache (possibly more than one cache, at various levels) is checked first; if the information is not there, it is copied into the cache and then used.</p>
+<p>How exactly caches are managed - its size, what the replacement policy should be, etc - is an important consideration when designing an operating system. </p>
+<p>Incidentally, Google's indexes are stored in main memory (across many machines); this ensures that when you search for a query, the results are near-instantaneous. Google decidedly has other caching mechanisms as well, but this is one of them.</p>
+<h2 class="header"><i>3</i>Computer architectures<a class="headerlink" href="#computer-architectures" name="computer-architectures">&para;</a></h2>
+<p>Most systems have a single, general-purpose processor. Modern systems increasingly sport special-purpose processors as well, such as a graphics processing unit (GPU). Note that multiple cores count as only one CPU. Incidentally, coordinating multiple cores is a very difficult problem, albeit one outside the scope of this course.</p>
+<h3 class="header"><i>3.1</i>Multiprocessing and multi-core systems<a class="headerlink" href="#multiprocessing-and-multi-core-systems" name="multiprocessing-and-multi-core-systems">&para;</a></h3>
+<p><strong>Multiprocessor systems</strong> (also known as parallel or tightly-coupled systems) have become more common as well. These systems have several advantages: increased throughput (more operations can be performed); economy of scale (as different processors can use the same storage devices and power source); and greater robustness and fault tolerance, through redundancy (so if one processor dies, there is still at least one other to function as a backup).</p>
+<p>Multiprocessor systems can be either asymmetric (master-slave) or symmetric (all peers). In a symmetric system, we have multiple CPUs, each with its own registers and cache, all connected through a shared bus to main memory. I don't know what an antisymmetric system looks like because there is no diagram for it in the slides.</p>
+<p>In a multi-core system, you have multiple <strong>cores</strong> on a single chip. Other than that, there isn't really much difference. However, this setup is more efficient for communication, and also results in less power consumption.</p>
+<h4 class="header"><i>3.1.1</i>Limits to Moore's law<a class="headerlink" href="#limits-to-moores-law" name="limits-to-moores-law">&para;</a></h4>
+<p>Although CPUs have been steadily decreasing in size throughout history, this is not likely to last much longer. There are, in fact, physical limits to how much you can pack into a CPU, due to energy density and the risk of overheating.</p>
+<h3 class="header"><i>3.2</i>Clustered systems<a class="headerlink" href="#clustered-systems" name="clustered-systems">&para;</a></h3>
+<p><strong>Clustered systems</strong> are sort of like multiprocessor systems, but instead of one system with multiple processors, they consist of multiple independent systems working together. Storage is usually shared between the computers via a <strong>storage area network</strong> (SAN) or <strong>network-attached storage</strong> (NAS; the two are different), with each computer connected independently to the storage system. The result is a robust service with high availability, even when a machine fails. Clusters are often used for high-performance computing, with the applications and algorithms used developed specifically with parallelisation in mind.</p>
+<p>Clustering can be symmetric or asymmetric. Symmetric clusters consist of one machine running in <strong>hot standby mode</strong>, which coordinates tasks among the other, "worker", machines, and takes over in case of failure. Also known as hot backup, hot mother (not really).</p>
+<h2 class="header"><i>4</i>Operating system structure<a class="headerlink" href="#operating-system-structure" name="operating-system-structure">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Multiprogramming<a class="headerlink" href="#multiprogramming" name="multiprogramming">&para;</a></h3>
+<p>The concept of <strong>multiprogramming</strong> is a very important one in operating system design. It is necessary to ensure that a particular user or program does not keep the CPU and I/O devices perpetually busy, at the expense of others. At the same time, it is also necessary to ensure that the CPU always has a job to execute (so that it is never kept idle). At any given time, a subset of all the possible jobs are stored in memory, with one job being selected according to the scheduling policy of the system. If the operating system ever has to wait to finish completing a job (for an I/O device, for instance), it switches to another job, and resumes the previous job later, when the wait time is likely to be over.</p>
+<p><strong>Timesharing</strong> is a logical extension of the above in which the CPU switches jobs so frequently that it appears that the CPU is performing multiple tasks at the same time. This gives the user the impression of interactive computing. In this case, response time should be very low - certainly less than a second. If not all the processes that need to be run can fit in main memory, the operating system engages in <strong>swapping to disk</strong> to move them in and out of memory as necessary. The use of <strong>virtual memory</strong> abstracts memory management away from the physical storage device, ensuring that a process never has to deal with the specific type of memory storage being used directly.</p>
+<h3 class="header"><i>4.2</i>Dual-mode operations<a class="headerlink" href="#dual-mode-operations" name="dual-mode-operations">&para;</a></h3>
+<p>Sometimes, during the normal course of operation of an operating system, one will encounter hardware-driven interrupts, traps, infinite loops, and the like. </p>
+<p>Under construction</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

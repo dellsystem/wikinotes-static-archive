@@ -1,0 +1,1276 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/ECON_209/">
+                ECON 209
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course Review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course Review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#what-is-macroeconomics">1 What Is Macroeconomics</a><ul>
+<li><a href="#key-macroeconomic-variables">1.1 Key Macroeconomic Variables</a><ul>
+<li><a href="#ouput-and-income">1.1.1 Ouput and income</a></li>
+<li><a href="#employment-and-stuff">1.1.2 Employment and stuff</a></li>
+<li><a href="#productivity">1.1.3 Productivity</a></li>
+<li><a href="#inflation-and-price-level">1.1.4 Inflation and Price Level</a></li>
+<li><a href="#interest-rates">1.1.5 Interest Rates</a></li>
+<li><a href="#international-economy">1.1.6 International economy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#the-measure-of-national-income">2 The Measure of National Income</a><ul>
+<li><a href="#national-output-and-value-added">2.1 National output and value added</a></li>
+</ul>
+</li>
+<li><a href="#national-income-accounting">3 National Income Accounting</a><ul>
+<li><a href="#gdp-from-the-expenditure-side">3.1 GDP From the Expenditure Side</a></li>
+<li><a href="#gdp-from-the-income-side">3.2 GDP From the Income Side</a></li>
+<li><a href="#national-income-accounting_1">3.3 National Income Accounting</a><ul>
+<li><a href="#gdp-gnp">3.3.1 GDP &amp; GNP</a></li>
+<li><a href="#real-and-nominal-gdp">3.3.2 Real and Nominal GDP</a></li>
+</ul>
+</li>
+<li><a href="#omissions-from-gdp">3.4 Omissions from GDP</a></li>
+</ul>
+</li>
+<li><a href="#the-simplest-short-run-macro-model">4 The Simplest Short-Run Macro Model</a><ul>
+<li><a href="#desired-aggregate-expenditure">4.1 Desired Aggregate Expenditure</a></li>
+<li><a href="#desired-consumption-expenditure">4.2 Desired Consumption Expenditure</a></li>
+<li><a href="#the-saving-function">4.3 The Saving Function</a></li>
+<li><a href="#desired-investment-expenditure">4.4 Desired Investment Expenditure</a></li>
+<li><a href="#equilibrium-national-income">4.5 Equilibrium National Income</a></li>
+<li><a href="#changes-in-equilibirum-national-income">4.6 Changes in Equilibirum National Income</a></li>
+<li><a href="#the-multiplier">4.7 The Multiplier</a></li>
+</ul>
+</li>
+<li><a href="#adding-government-and-trade-to-the-simple-macro-model">5 Adding Government and Trade to the Simple Macro Model</a><ul>
+<li><a href="#introducing-government">5.1 Introducing Government</a><ul>
+<li><a href="#government-purchases">5.1.1 Government Purchases</a></li>
+<li><a href="#net-tax-revenues">5.1.2 Net Tax Revenues</a></li>
+<li><a href="#the-budget-balance">5.1.3 The Budget Balance</a></li>
+<li><a href="#provincial-and-municipal-governments">5.1.4 Provincial and Municipal Governments</a></li>
+</ul>
+</li>
+<li><a href="#introducing-foreign-trade">5.2 Introducing Foreign Trade</a><ul>
+<li><a href="#net-exports">5.2.1 Net Exports</a></li>
+<li><a href="#shifts-in-the-net-export-function">5.2.2 Shifts in the Net Export Function</a></li>
+</ul>
+</li>
+<li><a href="#equilibrium-national-income_1">5.3 Equilibrium National Income</a><ul>
+<li><a href="#the-ae-function">5.3.1 The AE Function</a></li>
+<li><a href="#equilibrium-national-income_2">5.3.2 Equilibrium National Income</a></li>
+<li><a href="#changes-in-equilibrium-national-income">5.3.3 Changes in equilibrium national income</a></li>
+<li><a href="#fiscal-policy">5.3.4 Fiscal policy</a></li>
+</ul>
+</li>
+<li><a href="#demand-determined-output">5.4 Demand-determined output</a></li>
+</ul>
+</li>
+<li><a href="#output-and-prices-in-the-short-run">6 Output and Prices in the Short Run</a><ul>
+<li><a href="#the-demand-side-of-the-economy">6.1 The Demand Side of the Economy</a><ul>
+<li><a href="#exogenous-changes-in-the-price-level">6.1.1 Exogenous Changes in the Price Level</a></li>
+<li><a href="#changes-in-equilibrium-gdp">6.1.2 Changes in Equilibrium GDP</a></li>
+<li><a href="#the-aggregate-demand-curve">6.1.3 The Aggregate Demand Curve</a></li>
+</ul>
+</li>
+<li><a href="#the-supply-side-of-the-economy">6.2 The Supply Side of the Economy</a><ul>
+<li><a href="#the-aggregate-supply-curve">6.2.1 The Aggregate Supply Curve</a></li>
+<li><a href="#shifts-in-the-aggregate-supply-curve">6.2.2 Shifts in the Aggregate Supply Curve</a></li>
+</ul>
+</li>
+<li><a href="#macroeconomic-equilibrium">6.3 Macroeconomic equilibrium</a><ul>
+<li><a href="#changes-in-the-macroeconomic-equilibrium">6.3.1 Changes in the Macroeconomic Equilibrium</a></li>
+<li><a href="#aggregate-demand-shocks">6.3.2 Aggregate Demand Shocks</a></li>
+<li><a href="#aggregate-supply-shocks">6.3.3 Aggregate Supply Shocks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#from-the-short-run-to-the-long-run-the-adjustment-of-factor-prices">7 From the Short Run to the Long Run: The Adjustment of Factor Prices</a><ul>
+<li><a href="#the-adjustment-process">7.1 The Adjustment Process</a><ul>
+<li><a href="#potential-output-and-the-output-gap">7.1.1 Potential Output and the Output Gap</a></li>
+<li><a href="#potential-output-as-an-anchor">7.1.2 Potential Output as an "Anchor"</a></li>
+</ul>
+</li>
+<li><a href="#demand-and-supply-shocks">7.2 Demand and Supply Shocks</a><ul>
+<li><a href="#expansionary-ad-shocks">7.2.1 Expansionary AD Shocks</a></li>
+<li><a href="#contractory-ad-shocks">7.2.2 Contractory AD Shocks</a></li>
+<li><a href="#aggregate-supply-shocks_1">7.2.3 Aggregate Supply Shocks</a></li>
+<li><a href="#long-run-equilibrium">7.2.4 Long-Run Equilibrium</a></li>
+</ul>
+</li>
+<li><a href="#fiscal-stabilization-policy">7.3 Fiscal stabilization policy</a><ul>
+<li><a href="#the-basic-theory-of-fiscal-stabilization">7.3.1 The Basic Theory of Fiscal Stabilization</a></li>
+<li><a href="#practical-limitations-of-discretionary-fiscal-policy">7.3.2 Practical Limitations of Discretionary Fiscal Policy</a></li>
+<li><a href="#fiscal-policy-and-growth">7.3.3 Fiscal Policy and Growth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#the-difference-between-short-run-and-long-run-macroeconomics">8 The Difference Between Short-Run and Long-Run Macroeconomics</a><ul>
+<li><a href="#two-examples">8.1 Two Examples</a><ul>
+<li><a href="#inflation-and-interest-rates-in-canada">8.1.1 Inflation and Interest Rates in Canada</a></li>
+<li><a href="#saving-and-growth-in-japan">8.1.2 Saving and Growth in Japan</a></li>
+</ul>
+</li>
+<li><a href="#accounting-for-changes-in-gdp">8.2 Accounting for changes in GDP</a><ul>
+<li><a href="#gdp-accounting-the-basic-principle">8.2.1 GDP Accounting: The Basic Principle</a></li>
+<li><a href="#gdp-accounting-an-application">8.2.2 GDP Accounting: An Application</a></li>
+</ul>
+</li>
+<li><a href="#policy-implications">8.3 Policy Implications</a></li>
+</ul>
+</li>
+<li><a href="#long-run-economic-growth">9 Long-Run Economic Growth</a><ul>
+<li><a href="#the-nature-of-economic-growth">9.1 The Nature of Economic Growth</a><ul>
+<li><a href="#benefits-of-economic-growth">9.1.1 Benefits of Economic Growth</a></li>
+<li><a href="#sources-of-economic-growth">9.1.2 Sources of Economic Growth</a></li>
+</ul>
+</li>
+<li><a href="#established-theories-of-economic-growth">9.2 Established theories of economic growth</a><ul>
+<li><a href="#focus-on-the-long-run">9.2.1 Focus on the Long Run</a></li>
+<li><a href="#investment-saving-and-growth">9.2.2 Investment, Saving, and Growth</a></li>
+</ul>
+</li>
+<li><a href="#neoclassical-growth-theory">9.3 Neoclassical Growth Theory</a></li>
+<li><a href="#new-growth-theories">9.4 New Growth Theories</a><ul>
+<li><a href="#endogenous-technological-change">9.4.1 Endogenous Technological Change</a></li>
+<li><a href="#increasing-marginal-returns">9.4.2 Increasing Marginal Returns</a></li>
+</ul>
+</li>
+<li><a href="#are-there-limits-to-growth">9.5 Are There Limits to Growth?</a><ul>
+<li><a href="#resource-exhaustion">9.5.1 Resource exhaustion</a></li>
+<li><a href="#pollution">9.5.2 Pollution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#money-and-banking">10 Money and Banking</a><ul>
+<li><a href="#the-nature-of-money">10.1 The Nature of Money</a><ul>
+<li><a href="#what-is-money">10.1.1 What is Money?</a></li>
+<li><a href="#origins-of-money">10.1.2 Origins of money</a></li>
+<li><a href="#modern-money-deposit-money">10.1.3 Modern Money: Deposit Money</a></li>
+</ul>
+</li>
+<li><a href="#the-canadian-banking-system">10.2 The Canadian Banking System</a><ul>
+<li><a href="#bank-of-canada">10.2.1 Bank of Canada</a></li>
+<li><a href="#commercial-banks-in-canada">10.2.2 Commercial Banks in Canada</a></li>
+<li><a href="#reserves">10.2.3 Reserves</a></li>
+</ul>
+</li>
+<li><a href="#money-creation-by-the-banking-system">10.3 Money Creation By the Banking System</a><ul>
+<li><a href="#some-simplifying-assumptions">10.3.1 Some Simplifying Assumptions</a></li>
+<li><a href="#the-creation-of-deposit-money">10.3.2 The Creation of Deposit Money</a></li>
+<li><a href="#excessive-reserves-and-cash-drains">10.3.3 Excessive Reserves and Cash Drains</a></li>
+</ul>
+</li>
+<li><a href="#the-money-supply">10.4 The Money Supply</a><ul>
+<li><a href="#kinds-of-deposits">10.4.1 Kinds of Deposits</a></li>
+<li><a href="#definitions-of-the-money-supply">10.4.2 Definitions of the Money Supply</a></li>
+<li><a href="#near-money-and-money-substitutes">10.4.3 Near Money and Money Substitutes</a></li>
+<li><a href="#choosing-a-measure">10.4.4 Choosing a Measure</a></li>
+<li><a href="#the-role-of-the-bank-of-canada">10.4.5 The Role of the Bank of Canada</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#money-interest-rates-and-economic-activity">11 Money, Interest Rates, and Economic Activity</a><ul>
+<li><a href="#understanding-bonds">11.1 Understanding Bonds</a><ul>
+<li><a href="#present-value-and-the-interest-rate">11.1.1 Present value and the Interest Rate</a></li>
+<li><a href="#present-value-and-market-price">11.1.2 Present Value and Market Price</a></li>
+<li><a href="#interest-rates-market-prices-and-bonds-yields">11.1.3 Interest Rates, Market Prices, and Bonds Yields</a></li>
+<li><a href="#bond-riskiness">11.1.4 Bond Riskiness</a></li>
+</ul>
+</li>
+<li><a href="#the-demand-for-money">11.2 The Demand For Money</a><ul>
+<li><a href="#reasons-for-holding-money">11.2.1 Reasons for Holding Money</a></li>
+<li><a href="#the-determinants-of-money-demand">11.2.2 The Determinants of Money Demand</a></li>
+<li><a href="#money-demand-summing-up">11.2.3 Money Demand: Summing Up</a></li>
+</ul>
+</li>
+<li><a href="#monetary-equilibrium-and-national-income">11.3 Monetary Equilibrium and National Income</a><ul>
+<li><a href="#monetary-equilibrium">11.3.1 Monetary Equilibrium</a></li>
+<li><a href="#the-monetary-transmission-mechanism">11.3.2 The Monetary Transmission Mechanism</a></li>
+<li><a href="#an-open-economy-modification">11.3.3 An Open-Economy Modification</a></li>
+<li><a href="#the-slope-of-the-ad-curve">11.3.4 The Slope of the AD Curve</a></li>
+</ul>
+</li>
+<li><a href="#the-strength-of-monetary-forces">11.4 The Strength of Monetary Forces</a><ul>
+<li><a href="#long-run-neutrality-of-money">11.4.1 Long-Run Neutrality of Money</a></li>
+<li><a href="#short-run-non-neutrality-of-money">11.4.2 Short-Run Non-Neutrality of Money</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#monetary-policy-in-canada">12 Monetary Policy in Canada</a><ul>
+<li><a href="#money-supply-versus-the-interest-rate">12.1 Money Supply Versus the Interest Rate</a></li>
+<li><a href="#the-bank-of-canada-and-the-overnight-interest-rate">12.2 The Bank of Canada and the Overnight Interest Rate</a><ul>
+<li><a href="#the-money-supply-is-endogenous">12.2.1 The Money Supply Is Endogenous</a></li>
+<li><a href="#expansionary-and-contractionary-monetary-policies">12.2.2 Expansionary and Contractionary Monetary Policies</a></li>
+</ul>
+</li>
+<li><a href="#inflation-targeting">12.3 Inflation Targeting</a><ul>
+<li><a href="#why-target-inflation">12.3.1 Why Target Inflation?</a></li>
+<li><a href="#role-of-the-output-gap">12.3.2 Role of the output gap.</a></li>
+<li><a href="#inflation-targeting-as-a-stabilizing-policy">12.3.3 Inflation Targeting as a Stabilizing Policy</a></li>
+<li><a href="#complications-in-inflation-targeting">12.3.4 Complications in Inflation Targeting</a></li>
+</ul>
+</li>
+<li><a href="#long-and-variable-lags">12.4 Long and Variable Lags</a><ul>
+<li><a href="#what-are-the-lags-in-monetary-policy">12.4.1 What are the Lags in Monetary Policy?</a></li>
+<li><a href="#destabilizing-policy">12.4.2 Destabilizing Policy</a></li>
+<li><a href="#political-difficulties">12.4.3 Political Difficulties</a></li>
+</ul>
+</li>
+<li><a href="#30-years-of-canadian-monetary-policy">12.5 30 Years of Canadian Monetary Policy</a></li>
+</ul>
+</li>
+<li><a href="#inflation-and-disinflation">13 Inflation and Disinflation</a><ul>
+<li><a href="#adding-inflation-to-the-model">13.1 Adding Inflation to the Model</a><ul>
+<li><a href="#why-wages-change">13.1.1 Why Wages Change</a></li>
+<li><a href="#from-wages-to-prices">13.1.2 From Wages to Prices</a></li>
+<li><a href="#constant-inflation">13.1.3 Constant Inflation</a></li>
+</ul>
+</li>
+<li><a href="#shocks-and-policy-responses">13.2 Shocks and Policy Responses</a><ul>
+<li><a href="#demand-shocks">13.2.1 Demand Shocks</a></li>
+<li><a href="#supply-shocks">13.2.2 Supply Shocks</a></li>
+<li><a href="#accelerating-inflation">13.2.3 Accelerating Inflation</a></li>
+<li><a href="#inflation-as-a-monetary-phenomenon">13.2.4 Inflation as a Monetary Phenomenon</a></li>
+</ul>
+</li>
+<li><a href="#reducing-inflation">13.3 Reducing inflation</a><ul>
+<li><a href="#process-of-disinflation">13.3.1 Process of Disinflation</a></li>
+<li><a href="#the-cost-of-disinflation">13.3.2 The Cost of Disinflation</a></li>
+<li><a href="#conclusion">13.3.3 Conclusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#unemployment-fluctuations-and-the-nairu">14 Unemployment Fluctuations and the NAIRU</a><ul>
+<li><a href="#employment-and-unemployment">14.1 Employment and Unemployment</a><ul>
+<li><a href="#changes-in-employment">14.1.1 Changes in Employment</a></li>
+<li><a href="#changes-in-unemployment">14.1.2 Changes in unemployment</a></li>
+<li><a href="#flows-in-the-labour-market">14.1.3 Flows in the Labour Market</a></li>
+<li><a href="#consequences-of-unemployment">14.1.4 Consequences of Unemployment</a></li>
+</ul>
+</li>
+<li><a href="#unemployment-fluctuations">14.2 Unemployment Fluctuations</a><ul>
+<li><a href="#new-classical-theories">14.2.1 New Classical Theories</a></li>
+<li><a href="#new-keynesian-theories">14.2.2 New Keynesian Theories</a></li>
+<li><a href="#convergence-of-theories">14.2.3 Convergence of Theories?</a></li>
+</ul>
+</li>
+<li><a href="#what-determines-the-nairu">14.3 What Determines the NAIRU</a><ul>
+<li><a href="#frictional-unemployment">14.3.1 Frictional Unemployment</a></li>
+<li><a href="#structural-unemployment">14.3.2 Structural Unemployment</a></li>
+<li><a href="#the-frictional-structural-distinction">14.3.3 The Frictional-Structural Distinction</a></li>
+<li><a href="#why-does-the-nairu-change">14.3.4 Why Does the NAIRU Change?</a></li>
+</ul>
+</li>
+<li><a href="#reducing-unemployment">14.4 Reducing Unemployment</a><ul>
+<li><a href="#cyclical-unemployment">14.4.1 Cyclical Unemployment</a></li>
+<li><a href="#frictional-unemployment_1">14.4.2 Frictional Unemployment</a></li>
+<li><a href="#structural-unemployment_1">14.4.3 Structural Unemployment</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#government-debts-and-deficits">15 Government Debts and Deficits</a><ul>
+<li><a href="#facts-and-definitions">15.1 Facts and Definitions</a><ul>
+<li><a href="#the-governments-budget-constraint">15.1.1 The Government's Budget Constraint</a></li>
+<li><a href="#deficits-and-debt-in-canada">15.1.2 Deficits and Debt in Canada</a></li>
+</ul>
+</li>
+<li><a href="#two-analytical-issues">15.2 Two Analytical Issues</a><ul>
+<li><a href="#the-stance-of-fiscal-policy">15.2.1 The Stance of Fiscal Policy</a></li>
+<li><a href="#changes-in-the-debt-to-gdp-ratio">15.2.2 Changes in the Debt-to-GDP Ratio</a></li>
+</ul>
+</li>
+<li><a href="#the-effects-of-government-debt-and-deficits">15.3 The Effects of Government Debt and Deficits</a><ul>
+<li><a href="#do-deficits-crowd-out-private-activity">15.3.1 Do Deficits Crowd Out Private Activity?</a></li>
+<li><a href="#do-deficits-harm-future-generations">15.3.2 Do Deficits Harm Future Generations?</a></li>
+<li><a href="#does-government-debt-hamper-economic-policy">15.3.3 Does Government Debt hamper Economic Policy?</a></li>
+<li><a href="#current-budget-surpluses">15.3.4 Current Budget Surpluses</a></li>
+</ul>
+</li>
+<li><a href="#formal-fiscal-rules">15.4 Formal Fiscal Rules?</a><ul>
+<li><a href="#annually-balanced-budgets">15.4.1 Annually Balanced Budgets?</a></li>
+<li><a href="#cyclically-balanced-budgets">15.4.2 Cyclically Balanced Budgets?</a></li>
+<li><a href="#allowing-for-growth">15.4.3 Allowing for Growth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>What Is Macroeconomics<a class="headerlink" href="#what-is-macroeconomics" name="what-is-macroeconomics">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Key Macroeconomic Variables<a class="headerlink" href="#key-macroeconomic-variables" name="key-macroeconomic-variables">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Ouput and income<a class="headerlink" href="#ouput-and-income" name="ouput-and-income">&para;</a></h4>
+<p>A measure of a nation's overall level of economic activity is the national product, which is the the values of its total production.</p>
+<p><strong>Aggregating Total Output</strong></p>
+<p>We use this term to  measure the total output. Add up the money values of the different products by multiplying the number of units producted by the price.<br />
+This value of total output gives us the <em>nominal national income</em>. <em>Real national income</em> is the value of outputs at a relative price, it only reflects changes in quantities.<br />
+A measure of national income is called GDP, we mostly talk about real GDP.<br />
+Business cycle refers to the fluctuation of economic activity in the long run.</p>
+<p>Actual national output is what the nation actually outputs(no shit), the potential output is what the econ would produce if everything were normal. <br />
+Actual output =&gt; Y, potential output =&gt; Y*. Output gap = Y* - Y. Both can exceed each other because Y* is not the maximum rate.</p>
+<h4 class="header"><i>1.1.2</i>Employment and stuff<a class="headerlink" href="#employment-and-stuff" name="employment-and-stuff">&para;</a></h4>
+<p>Unemployment rate = <span>$\frac{Number\:of\:people\:unemployed}{Number\:of\:people\:in\:the\:labour\:force}\times100%$</span></p>
+<p>Potential GDP = full employment, but unemployment still exists.<br />
+<em> </em>frictional unemployment<em> is the normal turnover of labour<br />
+</em> <em>structural unemployment</em> unemployment caused by the change in the economy, workers being incompatible with the jobs</p>
+<p>Full employment = when unemployment is ONLY frictional or structural. The other kind is cyclical unemployment because it's caused by the business cycle(wtf?)</p>
+<h4 class="header"><i>1.1.3</i>Productivity<a class="headerlink" href="#productivity" name="productivity">&para;</a></h4>
+<p>Productivity is the measure of the amount of output per unit of input. Or, GDP per unit of labour.</p>
+<blockquote>
+<p>It's been increasing since 1975, surprisingly.</p>
+</blockquote>
+<h4 class="header"><i>1.1.4</i>Inflation and Price Level<a class="headerlink" href="#inflation-and-price-level" name="inflation-and-price-level">&para;</a></h4>
+<p><em>Price level</em> is the average level of all prices, <span>$P$</span> is the symbol for it.<br />
+<em>Inflation</em> is the rate at which the price level rises.</p>
+<p>Price level is the percentage of the base level.</p>
+<p>Rate of inflation = <span>$\frac{\Delta P}{P_0}\times100%$</span></p>
+<p>Purchasing power of money/real value of money means the amount of stuff you can buy with yo bank, inflation reduces it obviously.</p>
+<h4 class="header"><i>1.1.5</i>Interest Rates<a class="headerlink" href="#interest-rates" name="interest-rates">&para;</a></h4>
+<p>Interest is the payment for borrowing money</p>
+<p>Interest rate is the price per dollar borrowed per period. <em>Nominal Interest Rate</em> is the absolute rate, <em>Real Interest Rate</em> is the absolute rate - rate of inflation. Real interest rate matters more.<br />
+(Nominal = useless)</p>
+<h4 class="header"><i>1.1.6</i>International economy<a class="headerlink" href="#international-economy" name="international-economy">&para;</a></h4>
+<p>The exchange rate is the # of our money for 1 of their money. If it takes 2 cdn per 1 euro, then the exchange rate is 2. Depreciation = <em>RISE</em> in exchange rate, more of our money is needed for one of their money, so our money is worth less.<br />
+Appreciation is the opposite obv.<br />
+Trade balance is the difference between exports and imports. </p>
+<h2 class="header"><i>2</i>The Measure of National Income<a class="headerlink" href="#the-measure-of-national-income" name="the-measure-of-national-income">&para;</a></h2>
+<h3 class="header"><i>2.1</i>National output and value added<a class="headerlink" href="#national-output-and-value-added" name="national-output-and-value-added">&para;</a></h3>
+<p>The problem is it is difficult to 'count' how much a nation is producing, we can't just add the outputs of all the companies in the country, because stuff made by one company is consumed by another.<br />
+<em>Intermediate goods</em> Are outputs which are used as inputs by other producers. <em>Final goods</em> are goods that are not used as inputs. </p>
+<p>Value added = Revenue - Cost of intermediate goods<br />
+Value added = Income to the factors of production(The firms and companies)</p>
+<h2 class="header"><i>3</i>National Income Accounting<a class="headerlink" href="#national-income-accounting" name="national-income-accounting">&para;</a></h2>
+<p>Circular Flow of Expenditure and Income</p>
+<p>There are 3 ways of measuring national income(GDP)</p>
+<ul>
+<li>Add up all the value added</li>
+<li>Add up the total income generated in the country</li>
+<li>Add up the total expenditure on domestic output</li>
+</ul>
+<h3 class="header"><i>3.1</i>GDP From the Expenditure Side<a class="headerlink" href="#gdp-from-the-expenditure-side" name="gdp-from-the-expenditure-side">&para;</a></h3>
+<ol>
+<li>Consumption Expenditure: expenditure on everyday stuff like clothes and food = <span>$C_a$</span></li>
+<li>
+<p>Investment Expenditure: expenditure on stuff not for present consumption, like inventories, capital, housing. = <span>$I_a$</span></p>
+<ul>
+<li>Inventories - stock of input/output. Accumulation of inventory counts as investment for the year. Reduction of the stock is a negative investment</li>
+<li>Plant and Equipment - they aid production. The economy's total quantity of capital goods is capital stock, buying more of it = fixed investment</li>
+<li>Residential housing - building of a new house is an investment expenditure, but a person BUYING the house isn't because it's just a transfer(exchange) of assets.</li>
+<li>Gross and Net Investment - total investment = gross investment, net investment = gross investment - depreciation. You waste investment replacing stuff getting old. Positive net investment means capital stock is growing and vice versa. Gross investment is included in the calculation of nation income. Actual total investment expenditure = <span>$I_A$</span></li>
+</ul>
+</li>
+<li>
+<p>Government Purchases: when the government buys stuff = any money the government spends = <span>$G_a$</span>. This is NOT gov't expenditure. When gov't pays someone but does not get good/services in return, it is a <em>transfer payment</em>.</p>
+</li>
+<li>Net Exports: Imports is when the nation buys other countries' stuff while exports is when the nation sells its stuff to other countires. Value of actual imports = <span>$IM_a$</span>, value of actual exports = <span>$X_a$</span></li>
+</ol>
+<p><span>$$GDP=C_a+I_a+G_a+(X_a-IM_a)$$</span></p>
+<h3 class="header"><i>3.2</i>GDP From the Income Side<a class="headerlink" href="#gdp-from-the-income-side" name="gdp-from-the-income-side">&para;</a></h3>
+<ol>
+<li>
+<p>Factor incomes: </p>
+<ul>
+<li>Wages and salaries - payment for services of labour, include pre-tax earnings</li>
+<li>Interest - interest earned in bank deposits/loans to other people(Not the gov't)</li>
+<li>Business Profits - Profits paid out as dividends to owners, rest are retained for use. They are both included.<br />
+Net Domestic Income is the sum of wages and salaries, interest and profits. </li>
+</ul>
+</li>
+<li>
+<p>Non-Factor Payments:</p>
+<ul>
+<li>Indirect Taxes and Subsidies - taxes. If you spend 10 dollars on something, the firm only earns 9 dollars because there is 1 dollar of tax. If the gov't subsidizes the sale of something, the market value isn't increased by that much, thus we must subtract the subsidy.</li>
+<li>Depreciation <br />
+Total National Income is equal to Factor incomes + non-factor payments.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>3.3</i>National Income Accounting<a class="headerlink" href="#national-income-accounting_1" name="national-income-accounting_1">&para;</a></h3>
+<h4 class="header"><i>3.3.1</i>GDP &amp; GNP<a class="headerlink" href="#gdp-gnp" name="gdp-gnp">&para;</a></h4>
+<p>GDP = Output produced in Canada<br />
+GNP = Income received by Canadian residents<br />
+Disposable personal income = part of national income that is available to spend/save = GNP - taxes - depreciation - retained earnings - interest + transfer payments.</p>
+<h4 class="header"><i>3.3.2</i>Real and Nominal GDP<a class="headerlink" href="#real-and-nominal-gdp" name="real-and-nominal-gdp">&para;</a></h4>
+<p>Real GDP = GDP valued at base-period prices</p>
+<p><span>$$GDP\:deflector=\frac{GDP\:at\:current\:prices}{GDP\:at\:base-period\:prices}\times100=\frac{Nominal\:GDP}{Real\:GDP}\times100$$</span></p>
+<h3 class="header"><i>3.4</i>Omissions from GDP<a class="headerlink" href="#omissions-from-gdp" name="omissions-from-gdp">&para;</a></h3>
+<ul>
+<li>Illegal activities</li>
+<li>Underground Economy(puerto rican house maid stuff)</li>
+<li>Non-market activities(Volunteering or any work done not by spending money)</li>
+<li>Economic "bads"(environmental damage)</li>
+</ul>
+<h2 class="header"><i>4</i>The Simplest Short-Run Macro Model<a class="headerlink" href="#the-simplest-short-run-macro-model" name="the-simplest-short-run-macro-model">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Desired Aggregate Expenditure<a class="headerlink" href="#desired-aggregate-expenditure" name="desired-aggregate-expenditure">&para;</a></h3>
+<p>Desired expenditure is what people desire to spend out of the resources they actually have.<br />
+<span>$$Desired\:Aggregate\:Expenditure(AE) = C+I+G+(X-IM)$$</span><br />
+Desired expenditure can be different from actual expenditure</p>
+<p><em>Autonomous expenditures</em> is a component of AE that do NOT dependent on income.<br />
+<em>Induced expenditure</em> is a function of income.</p>
+<h3 class="header"><i>4.2</i>Desired Consumption Expenditure<a class="headerlink" href="#desired-consumption-expenditure" name="desired-consumption-expenditure">&para;</a></h3>
+<p>Disposable income, <span>$Y_D$</span> is equal to national income in this model of no government/taxation. Saving = disposable income that is not spent on consumption.</p>
+<p>Consumption funtion relates desired consumption expenditures to factors which determine it:</p>
+<ul>
+<li>disposable income, increases consumption by increasing the slope, C = 30 + 0.8 <span>$Y_D$</span>, 30 = autonomous expenditure, 0.8<span>$Y_D$</span> = induced</li>
+<li>wealth, value of accumulated assets - debts. increases the consumption by increasing y-intercept</li>
+<li>interest rates, a fall in interest rates makes borrowing easier, a fall in interest rate increases consumption by increasing y-intercept</li>
+<li>expections about the future, increase/decrease consumption by increasing/decreasing y-intercept</li>
+</ul>
+<p>Average and Marginal Propensities to Consume(APC and MPC), MPC is like the slope of the curve<br />
+<span>$$APC = C/Y_D$$</span><br />
+<span>$$MPC = \Delta C/\Delta Y_D$$</span></p>
+<p>45 deg line(lol) is a line with slope 1, when it intersects the C line, income = expenditure</p>
+<h3 class="header"><i>4.3</i>The Saving Function<a class="headerlink" href="#the-saving-function" name="the-saving-function">&para;</a></h3>
+<p>Average and marginal propensity to save (APS and MPS)<br />
+<span>$$APS = S/Y_D$$</span><br />
+<span>$$MPS = \Delta S/\Delta Y_D$$</span></p>
+<p>Since <span>$Y_D = S + C$</span>, <span>$APC+APS=1$</span> and <span>$MPC+MPS=1$</span>.</p>
+<h3 class="header"><i>4.4</i>Desired Investment Expenditure<a class="headerlink" href="#desired-investment-expenditure" name="desired-investment-expenditure">&para;</a></h3>
+<p>Investment expenditure is the most volatile component of GDP.<br />
+The determinants of aggregate investment expenditure are:</p>
+<ul>
+<li>The real interest rate - higher interest rate, higher opportunity, lower the amount of desired investment</li>
+<li>Change in the level of sales - higher the sales, larger the desired stock of inventories, will increase investment temporarily</li>
+<li>Business confidence - optimism leads to more investment</li>
+</ul>
+<p>Desired investment is autonomous expenditure, since it does not depend on national income.</p>
+<p>At this point, AE = C + I</p>
+<p>Marginal Propensity to Spend, how much more a nation is willing to spend with an bit of additional income. <span>$z=\Delta AE/\Delta Y$</span></p>
+<h3 class="header"><i>4.5</i>Equilibrium National Income<a class="headerlink" href="#equilibrium-national-income" name="equilibrium-national-income">&para;</a></h3>
+<p>When income &lt; expenditure, income tends to rise and when expenditure &lt; income, income tends to drop. Expenditure wants to be equal to income.</p>
+<h3 class="header"><i>4.6</i>Changes in Equilibirum National Income<a class="headerlink" href="#changes-in-equilibirum-national-income" name="changes-in-equilibirum-national-income">&para;</a></h3>
+<p>When the AE line shifts up, <span>$Y_0$</span> shifts up</p>
+<h3 class="header"><i>4.7</i>The Multiplier<a class="headerlink" href="#the-multiplier" name="the-multiplier">&para;</a></h3>
+<p>The Multiplier is the change in equilibrium divided by the change in autonomous expenditure. When the slope of AE line is greater than 0, the multiplier is always greater than 1.</p>
+<p>Simple multiplier measures the change in eq national income in response to a change in autonomous expenditure at a constant price level. </p>
+<p>Simple Multiplier = <span>$\frac{1}{1-z}$</span>, <span>$z$</span> = the slope of the AE line.</p>
+<h2 class="header"><i>5</i>Adding Government and Trade to the Simple Macro Model<a class="headerlink" href="#adding-government-and-trade-to-the-simple-macro-model" name="adding-government-and-trade-to-the-simple-macro-model">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Introducing Government<a class="headerlink" href="#introducing-government" name="introducing-government">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>Government Purchases<a class="headerlink" href="#government-purchases" name="government-purchases">&para;</a></h4>
+<p>When the government spends on money on goods or services, it adds to the demands for the economy's current output of goods and services. Thus, desired government purchases, <span>$G$</span>, are a part of AE.</p>
+<p>Note, it is different from transfer payments, when the government pays individuals without goods/services in return. </p>
+<p>It is autonomous/independent with the level of national income. The level of transfer payments will generally change with GDP, but <span>$G$</span> does not.</p>
+<h4 class="header"><i>5.1.2</i>Net Tax Revenues<a class="headerlink" href="#net-tax-revenues" name="net-tax-revenues">&para;</a></h4>
+<p>Taxes reduce household's disposable income relative to national income, and transfer payments raise disposable income relative to national income. Thus net taxes is total tax revenue - total transfer payments, and it is denoted <span>$T$</span>.<br />
+Net tax revenues vary directly with the level of national income, but the <em>tax rate</em> is an autonomous variable.</p>
+<p><span>$$T = tY$$</span></p>
+<p>where <span>$t$</span> is the net tax rate.</p>
+<h4 class="header"><i>5.1.3</i>The Budget Balance<a class="headerlink" href="#the-budget-balance" name="the-budget-balance">&para;</a></h4>
+<p>This is the difference between government revenue and government purchases: <span>$T - G$</span>, if it's positive, the gov't has a <strong>budget surplus</strong>, otherwise the gov't has a <strong>budget deficit</strong>.<br />
+This is also equal to <strong>public savings</strong>.</p>
+<h4 class="header"><i>5.1.4</i>Provincial and Municipal Governments<a class="headerlink" href="#provincial-and-municipal-governments" name="provincial-and-municipal-governments">&para;</a></h4>
+<p>They exist.</p>
+<h3 class="header"><i>5.2</i>Introducing Foreign Trade<a class="headerlink" href="#introducing-foreign-trade" name="introducing-foreign-trade">&para;</a></h3>
+<h4 class="header"><i>5.2.1</i>Net Exports<a class="headerlink" href="#net-exports" name="net-exports">&para;</a></h4>
+<p>Exports(<span>$X$</span>) are independent of income, thus they are autonomous expenditures.<br />
+Imports depend on the spending decisions of Canadian households, and they're a function of income.<br />
+<span>$$IM = mY$$</span><br />
+Where <span>$m$</span> is the marginal propensity to import. </p>
+<p>Thus, net exports is described by the net export function:<br />
+<span>$$NX = X - mY$$</span></p>
+<h4 class="header"><i>5.2.2</i>Shifts in the Net Export Function<a class="headerlink" href="#shifts-in-the-net-export-function" name="shifts-in-the-net-export-function">&para;</a></h4>
+<p>The net export function is drawn under the assumption that everything except income that affects net exports is constant. <br />
+Factors that shift the net export function are foreign national income, domestic and foreign prices, and the exchange rate</p>
+<ul>
+<li>
+<p>Changes in Foreign Income<br />
+If other countries get richer, more stuff they'll want to buy from us, it will increase export, and shift NX upwards, and vice versa.</p>
+</li>
+<li>
+<p>Changes in Relative International Prices<br />
+A rise in Canadian prices will decrease exports, and increase the marginal propensity to import. It will be a parallel shift up as well as an increase in the slope. The reverse happens if Canadian prices decrease.<br />
+A depreciation in Canadian currency will be the same thing as a drop in Canadian prices, and vice versa.</p>
+</li>
+</ul>
+<h3 class="header"><i>5.3</i>Equilibrium National Income<a class="headerlink" href="#equilibrium-national-income_1" name="equilibrium-national-income_1">&para;</a></h3>
+<p>This is when desired aggregate expenditure(AE) equals actual national income(Y)</p>
+<h4 class="header"><i>5.3.1</i>The AE Function<a class="headerlink" href="#the-ae-function" name="the-ae-function">&para;</a></h4>
+<p>The AE Function is now as follows:<br />
+<span>$$AE = C + I + G + (X - IM)$$</span><br />
+Since <span>$C = a + b(1-t)Y$</span>, and <span>$IM = mY$</span><br />
+<span>$$AE = a + b(1-t)Y + G + X - mY$$</span></p>
+<p><span>$[b(1-t) - m]Y$</span> is known as induced expenditure, and <span>$(a+I+G+X)$</span> is known as autonomous expenditure. The marginal propensity to save is <span>$[b(1-t)-m]$</span>. </p>
+<h4 class="header"><i>5.3.2</i>Equilibrium National Income<a class="headerlink" href="#equilibrium-national-income_2" name="equilibrium-national-income_2">&para;</a></h4>
+<p>If national income is lower than equilibrium(The AE curve is above the 45 deg line), people want to spend more, and purchase more than the economy is producing, so firms are forced to increase their production, increasing the national income.<br />
+Opposite thing happens when it is higher than eq.</p>
+<h4 class="header"><i>5.3.3</i>Changes in equilibrium national income<a class="headerlink" href="#changes-in-equilibrium-national-income" name="changes-in-equilibrium-national-income">&para;</a></h4>
+<p>We will see the effects of taxes and imports on the simple multiplier.</p>
+<p>With Government and Foreign Trade:<br />
+<span>$$z = MPC(1-t) - m$$</span><br />
+<span>$$Simple\:Multiplier = 1/(1-z) = 1/[1-MPC(1-t)+m]$$</span><br />
+An increase in either <span>$t$</span> (net tax rate) or <span>$m$</span> (marginal propensity to import), the lower the simple multiplier.</p>
+<p>An upwards shift in the net export function raises equilibrium national income, and vice versa.</p>
+<h4 class="header"><i>5.3.4</i>Fiscal policy<a class="headerlink" href="#fiscal-policy" name="fiscal-policy">&para;</a></h4>
+<p>The government can change the level of spending and taxation to alter the equilibrium level of national income. The gov't tries to push the actual national income toward the potential national income.</p>
+<p>Reducing government spending(<span>$G$</span>) would shift the AE curve down, lowering the equilibrium level of national income, and vice versa.<br />
+A change in government purchases(<span>$\Delta G$</span>) will change the equilibrium national income by <span>$\Delta G\times simple\:mulitiplier$</span></p>
+<p>A reduction in tax rate will give everyone more disposable income, which means everyone will buy more stuff, increasing the level of national income.</p>
+<p>Thus, lowering the tax rate will increase the level of national income and vice versa.</p>
+<h3 class="header"><i>5.4</i>Demand-determined output<a class="headerlink" href="#demand-determined-output" name="demand-determined-output">&para;</a></h3>
+<p>We assume that the price level is constant, and firms are willing to produce any amount of output at that price level, as long as there is the demand for it. There are two situations when the national income to be demand determined:</p>
+<ul>
+<li>There are unemployed resources and firms have excess capacity, so they can provide whatever is demanded without changing price</li>
+<li>The firms are price setters, they respond to changes in demand by altering production and sales rather than adjusting prices.</li>
+</ul>
+<h2 class="header"><i>6</i>Output and Prices in the Short Run<a class="headerlink" href="#output-and-prices-in-the-short-run" name="output-and-prices-in-the-short-run">&para;</a></h2>
+<h3 class="header"><i>6.1</i>The Demand Side of the Economy<a class="headerlink" href="#the-demand-side-of-the-economy" name="the-demand-side-of-the-economy">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Exogenous Changes in the Price Level<a class="headerlink" href="#exogenous-changes-in-the-price-level" name="exogenous-changes-in-the-price-level">&para;</a></h4>
+<p>If the price level drops, the value of money increases and vice versa. Changes in the price level change the weath of bondholders and bond issues, but the changes are zero-sum.</p>
+<p>A rise in domestic price level shifts the AE curve down because it leads to a reduction in wealth and vice versa. A rise in domestic prices also lowers net exports, which also causes a downward shift in the AE curve.</p>
+<h4 class="header"><i>6.1.2</i>Changes in Equilibrium GDP<a class="headerlink" href="#changes-in-equilibrium-gdp" name="changes-in-equilibrium-gdp">&para;</a></h4>
+<p>We now relabel the AE vs Income graph to be AE vs Real GDP because income is the same thing as GDP.</p>
+<h4 class="header"><i>6.1.3</i>The Aggregate Demand Curve<a class="headerlink" href="#the-aggregate-demand-curve" name="the-aggregate-demand-curve">&para;</a></h4>
+<p>If we change the price level, the equilibrium GDP will change on the AE curve. If we plot the equilibrium GDP at every price level, we obtain a downward sloping Aggregate Demand curve.<br />
+The AD curve shows the level of real GDP for which AE equals actual GDP. A shift in the AE curve is a movement along the AD curve.</p>
+<p>If the AE curve slides up, it causes a movement up and to the left on the AD curve, reflecting a fall in the eq. GDP, and vice versa.</p>
+<p>Any change other than a change in the price level that causes the AE curve to shift will cause the AD curve to shift. This is called an aggregate demand shock.</p>
+<p>The simple multiplier measures the amount of horizontal shift in the AD curve in response to a change in AE.</p>
+<h3 class="header"><i>6.2</i>The Supply Side of the Economy<a class="headerlink" href="#the-supply-side-of-the-economy" name="the-supply-side-of-the-economy">&para;</a></h3>
+<h4 class="header"><i>6.2.1</i>The Aggregate Supply Curve<a class="headerlink" href="#the-aggregate-supply-curve" name="the-aggregate-supply-curve">&para;</a></h4>
+<p>The aggregate supply (AS) curve relates the price level to how much the firms would like to supply assuming technology and prices of the factors of production remain constant.</p>
+<p>It has a positive slope. As output increases, even though technology and the prices of the factors of production remain the same, the unit costs STILL tend to increase, this is known as law of diminishing returns.</p>
+<p>We must distinguish between <em>price takers</em> and <em>price setters</em>. In an industry where each firm is too small the influence the market price, the firms are <em>price takers</em>. When the market price changes, the firms react by changing their level of production.<br />
+Thus, the price-takers will produce more only if price increases. They will produce less if price falls. These firms are typically in the raw materials industry.</p>
+<p>Other industries, including most of those that produce manufactured goods, has firms which can influence the market price of its product. These firms can quote a price which it is prepared to sell each of its products. These firms are called <em>price setters</em>.<br />
+They will increase their output if they can increase their prices, and they will eventually decrease their prices when the unit costs decrease.</p>
+<p>The actions of both the <em>price takers</em> and the <em>price setters</em> cause the AS curve to be upward sloping.</p>
+<p>The AS curve also has a very high first order derivative, because when the output is low, a lot of the equipment are idle, thus a small increase in price is enough incentive to increase production. Once output reaches normal capacity, it becomes much harder to increase output because unit prices increases much higher.</p>
+<h4 class="header"><i>6.2.2</i>Shifts in the Aggregate Supply Curve<a class="headerlink" href="#shifts-in-the-aggregate-supply-curve" name="shifts-in-the-aggregate-supply-curve">&para;</a></h4>
+<p>Anything that changes the firms' production costs will cause the AS curve to shift. These shifts are called <strong>aggregate supply shocks</strong>. Two sources are changes in the price of inputs and changes in productivity.</p>
+<p>If the factor prices rise, the AS curve shifts upward and to the left. Likewise, a fall in factor prices causes the AS curve to shift downward and to the right.</p>
+<p>If labour productivity rises, the unit costs of production will fall, which means the AS curve will shift downwards and to the right, and vice versa.</p>
+<h3 class="header"><i>6.3</i>Macroeconomic equilibrium<a class="headerlink" href="#macroeconomic-equilibrium" name="macroeconomic-equilibrium">&para;</a></h3>
+<p>The equilibrium values of read GDP and the price level occur at the intersection of the AD and AD curves. At any point below the equilibrium price level, the desired output of the firms is less than the aggregate demand at that price level and vice versa.</p>
+<h4 class="header"><i>6.3.1</i>Changes in the Macroeconomic Equilibrium<a class="headerlink" href="#changes-in-the-macroeconomic-equilibrium" name="changes-in-the-macroeconomic-equilibrium">&para;</a></h4>
+<p>A shift in the AD curve is called an aggregate demand shock. A rightward shift increases expenditure at every pricy level. This is called a positive shock, and a leftward shift is called a negative shock for similar reasons.<br />
+A rightward shift in the AS curve increases supply at every price level, and it's called a positive shock, and a leftward shift is called a negative shock.</p>
+<blockquote>
+<p>Right -&gt; positive, left -&gt; negative</p>
+</blockquote>
+<h4 class="header"><i>6.3.2</i>Aggregate Demand Shocks<a class="headerlink" href="#aggregate-demand-shocks" name="aggregate-demand-shocks">&para;</a></h4>
+<p>Aggregate demand shocks cause both the price level and real GDP to change in the same direction, both rise with a positive shock and both fall with a decrease with a negative shock.</p>
+<p>When the price level remains constant, the simple multiplier gives the size of the horizontal shift in the AD curve in response to an autonomous expenditure change. And so the simple multiplier gives the increase in eq. national income.<br />
+But if the AS curve slopes upward, a horizontal shift in the AD curve increases the price level as well, and the rise in real GDP is less than when price level was constant. The multiplier's value is not the same as the simple multiplier.</p>
+<p>Thus the slope of the AS curve determines the effects of a demand shock.</p>
+<p>Over the flat range, any change in demand leads to no change in prices, and the output would equal to that predicted by the simple multiplier.</p>
+<p>Over the intermediate range, a shift in AD would cause the similar change in the real GDP and the price level. The multiplier is positive by smaller than the simple multiplier.</p>
+<p>Over the steep range, a shift in AD would barely increase the real GDP, but it would raise the price level by a large amount. The multiplier in the case is nearly zero.</p>
+<h4 class="header"><i>6.3.3</i>Aggregate Supply Shocks<a class="headerlink" href="#aggregate-supply-shocks" name="aggregate-supply-shocks">&para;</a></h4>
+<p>Aggregate supply shocks cause the price level and real GDP to change in opposite directions. A positive shock increases GDP and lowers price level, a negative shock does the opposite.</p>
+<p>Most economic events cause both aggregate demand and aggregate supply shocks in the same economy.</p>
+<h2 class="header"><i>7</i>From the Short Run to the Long Run: The Adjustment of Factor Prices<a class="headerlink" href="#from-the-short-run-to-the-long-run-the-adjustment-of-factor-prices" name="from-the-short-run-to-the-long-run-the-adjustment-of-factor-prices">&para;</a></h2>
+<p>The time spans in macroecon can be summarized in the following table:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Variables</th>
+<th>The Short Run</th>
+<th>The Adjustment Process</th>
+<th>The Long Run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Factor Prices</td>
+<td>Exogenous</td>
+<td>Flexible(Endogenous)</td>
+<td>Fully adjusted(Endogenous)</td>
+</tr>
+<tr>
+<td>Technology and factor supplies(and <span>$Y^*$</span>)</td>
+<td>Constant(Exogenous)</td>
+<td>Constant(Exogenous)</td>
+<td>Changing(Endogenous)</td>
+</tr>
+<tr>
+<td>Implied Causes of Output Changes</td>
+<td>AD/AS shocks cause <span>$Y$</span> to fluctuate around <span>$Y^*$</span></td>
+<td>Following AD or AS shocks, <span>$Y$</span> returns to <span>$Y^*$</span></td>
+<td>Changes in <span>$Y^*$</span> determine changes in <span>$Y$</span></td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>7.1</i>The Adjustment Process<a class="headerlink" href="#the-adjustment-process" name="the-adjustment-process">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Potential Output and the Output Gap<a class="headerlink" href="#potential-output-and-the-output-gap" name="potential-output-and-the-output-gap">&para;</a></h4>
+<p>When the intersection of AD and AS curves differ from the potential output, the difference is called the output gap. If the intersection is to the left of potential output, it is a recessionary gap, if it is to the right of the gap, it is an inflationary gap.</p>
+<p>When the output is above potential(inflationary gap), factor prices tend to increase, such as wages. This will shift the AS curve up, lowering eq. real GDP and closing the gap.</p>
+<p>When the output is below potential(recessionary gap), factor prices will decrease, wages will drop, and the AS curve shifts down, again, closing the gap.</p>
+<p>The speed at which both processes happen is different. Often it is quicker for the AS curve to go up to close a booming gap than it is for the AS curve to go down to close a recession gap. This is called <em>wage stickiness</em></p>
+<p>Wages tend to fall in periods of high unemployment and rise in periods of low unemployment.</p>
+<h4 class="header"><i>7.1.2</i>Potential Output as an "Anchor"<a class="headerlink" href="#potential-output-as-an-anchor" name="potential-output-as-an-anchor">&para;</a></h4>
+<p>Any change to the eq level of output in the short run is always pressured back towards the potential output. The adjustment of factor prices ensures that the output eventually returns to <span>$Y^*$</span></p>
+<h3 class="header"><i>7.2</i>Demand and Supply Shocks<a class="headerlink" href="#demand-and-supply-shocks" name="demand-and-supply-shocks">&para;</a></h3>
+<h4 class="header"><i>7.2.1</i>Expansionary AD Shocks<a class="headerlink" href="#expansionary-ad-shocks" name="expansionary-ad-shocks">&para;</a></h4>
+<p>When a boom caused by a demand shock occurs, wages/factor prices increases, and it shifts the AS curve up, which lowers the eq real GDP, which closes the gap.</p>
+<h4 class="header"><i>7.2.2</i>Contractory AD Shocks<a class="headerlink" href="#contractory-ad-shocks" name="contractory-ad-shocks">&para;</a></h4>
+<p>If a recession happens, real GDP falls below potential, we have two cases:</p>
+<ol>
+<li>Flexible Wages. If wages fell quickly in response to the recession, it quickly lowers the AS curve, which pushes the eq real GDP back to potential output.</li>
+<li>Sticky Wages. If wages are downwardly sticky, it takes a long time for the real GDP to go back to potential output. This means high unemployment can persist for a long time.</li>
+</ol>
+<h4 class="header"><i>7.2.3</i>Aggregate Supply Shocks<a class="headerlink" href="#aggregate-supply-shocks_1" name="aggregate-supply-shocks_1">&para;</a></h4>
+<p>Exogenous changes in input prices cause shifts in the AS curve, creating output gaps. The adjustment process reverses the initial AS shift and brings the economy back to potential output and the initial price level.</p>
+<h4 class="header"><i>7.2.4</i>Long-Run Equilibrium<a class="headerlink" href="#long-run-equilibrium" name="long-run-equilibrium">&para;</a></h4>
+<p>The economy is in long-run equilibrium when the intersection of the AD and AS curves occur at <span>$Y^*$</span>.</p>
+<p>The level of <span>$Y^*$</span> depends on real variables such as labour force, capital stock, technology, but is independent of the price level. That means in the long run the level of output the firms will produce is independent of the price level.</p>
+<p>Real GDP is determined solely by <span>$Y^*$</span>, the role of aggregate demand is only to determine price level.</p>
+<h3 class="header"><i>7.3</i>Fiscal stabilization policy<a class="headerlink" href="#fiscal-stabilization-policy" name="fiscal-stabilization-policy">&para;</a></h3>
+<h4 class="header"><i>7.3.1</i>The Basic Theory of Fiscal Stabilization<a class="headerlink" href="#the-basic-theory-of-fiscal-stabilization" name="the-basic-theory-of-fiscal-stabilization">&para;</a></h4>
+<p>In a recessionary gap, the government can either increase government spending(<span>$G$</span>) or lower the tax rate(<span>$t$</span>) to shift the AD curve to the right, closing the recessionary gap.</p>
+<p>In an inflationary gap, the government can either decrease government spending(<span>$G$</span>), or increase the tax rate(<span>$t$</span>) to shift the AD curve left, closing the recessionary gap.</p>
+<p>Saving lowers GDP in the short run because people are spending less, but it will increase GDP in the long run due to increased investments and thus increasing output. This is called the paradox of thrift.</p>
+<p>Also, having tax reduces the value of the simple multiplier, which means a shock would lead to a smaller change in GDP.</p>
+<h4 class="header"><i>7.3.2</i>Practical Limitations of Discretionary Fiscal Policy<a class="headerlink" href="#practical-limitations-of-discretionary-fiscal-policy" name="practical-limitations-of-discretionary-fiscal-policy">&para;</a></h4>
+<ul>
+<li>Decision and Execution Lags - the gov't is slow as shit, so when policies are finalized, the context could be completely different</li>
+<li>Temporary Vs Permanent Tax Changes - if people know the tax change is temporary, it is less effective because people just wait until it's finished to buy stuff</li>
+<li>Role of Discretionary Fiscal Policy - fine tuning is the attempt to maintain output at its potential level by means of frequent changes in fiscal policy, gross tuning is the use of macroeconomic policy to stabilize the economy so big gaps don't persist</li>
+</ul>
+<h4 class="header"><i>7.3.3</i>Fiscal Policy and Growth<a class="headerlink" href="#fiscal-policy-and-growth" name="fiscal-policy-and-growth">&para;</a></h4>
+<p>Increases in government purches will shift the AD curve to the right. In order for real GDP to return to <span>$Y^*$</span>, the rise in <span>$G_a$</span> must equal to the fall in <span>$C_a+I_a+NX_a$</span>. This crowding out of private expenditures might mean that the growth rate of potential output would be lower than it would otherwise be.</p>
+<p>Reduces in taxes generate a short-term demand stimulus, and may also generate a long-run increase in the level and growth rate of potential output.</p>
+<h2 class="header"><i>8</i>The Difference Between Short-Run and Long-Run Macroeconomics<a class="headerlink" href="#the-difference-between-short-run-and-long-run-macroeconomics" name="the-difference-between-short-run-and-long-run-macroeconomics">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Two Examples<a class="headerlink" href="#two-examples" name="two-examples">&para;</a></h3>
+<h4 class="header"><i>8.1.1</i>Inflation and Interest Rates in Canada<a class="headerlink" href="#inflation-and-interest-rates-in-canada" name="inflation-and-interest-rates-in-canada">&para;</a></h4>
+<ul>
+<li>Gov'nor Thiessen said that high interest/morgage rates often accompany high inflation rates.</li>
+<li>In order to reduce the rate of inflation the Bank of Canada needs to reduce the growth rate of the money supply, i.e. reduce both the rate of inflation and interest rate.</li>
+<li>The policy to increase interest rates in the short run will reduce capital purches and investments, and will lower inflation and interest rates in the long run</li>
+</ul>
+<h4 class="header"><i>8.1.2</i>Saving and Growth in Japan<a class="headerlink" href="#saving-and-growth-in-japan" name="saving-and-growth-in-japan">&para;</a></h4>
+<ul>
+<li>The Japanese economy had been stagnant by early 2006</li>
+<li>This was caused by excessive saving</li>
+<li>The growth Japan had experienced 40 years before was caused by high savings</li>
+<li>High savings increases long-run GDP because there is a larger pool of available funds, which drives down interest rate, and increases investment. Short term economy is demand determined while long term economy is supply determined.</li>
+</ul>
+<h3 class="header"><i>8.2</i>Accounting for changes in GDP<a class="headerlink" href="#accounting-for-changes-in-gdp" name="accounting-for-changes-in-gdp">&para;</a></h3>
+<p>For long-run trends in GDP, the focus is on the change in potential output, for short-run fluctuations, the focus is on the change in the output gap.</p>
+<h4 class="header"><i>8.2.1</i>GDP Accounting: The Basic Principle<a class="headerlink" href="#gdp-accounting-the-basic-principle" name="gdp-accounting-the-basic-principle">&para;</a></h4>
+<p>We can seperate the GDP in to components to study:</p>
+<p><span>$$GDP = F \times (F_E/F) \times (GDP/F_E)$$</span><br />
+where <span>$F$</span> is the economy's total available stock of factors(land/labour/capital), and <span>$F_E$</span> is the number of employed factors. However, it is different to quantify what each factor is, so we have to look at the equation differently.</p>
+<ul>
+<li><span>$F$</span> is the economy's total amount of factors of production. Labour and capital account for the most of this. Labour increases can be brought on by an increase in population, and it is a <strong>long-run change</strong>. Capital changes are brought on by investments, and is also a <strong>long-run change</strong></li>
+<li><span>$F_E/F$</span> is the factor utilization rate, or fraction of the total supply of factors. Firms change their factor utilization in response to demand and supply shocks, thus they are only a <strong>short-run change</strong>.</li>
+<li><span>$GDP/F_e$</span> is the productivity because it shows the amount of output per employed factor unit. This increases very slowly, but has a large impact over a long period of time, thus it is a <strong>long-run change</strong></li>
+</ul>
+<p>Any changes in GDP can be decomposed to a change in either of the three categories</p>
+<h4 class="header"><i>8.2.2</i>GDP Accounting: An Application<a class="headerlink" href="#gdp-accounting-an-application" name="gdp-accounting-an-application">&para;</a></h4>
+<p>Using the same equation as above, we can apply it to labour markets: <span>$GDP = L \times (E/L) \times (GDP/E)$</span>, <span>$L$</span> is the labour force, and <span>$E$</span> is the level of employment.</p>
+<blockquote>
+<p>Imagine there are 3 graphs here, two of them showing a steady rising line illustrating the long run changes(labour force size and productivity), and one fluctuating wildly showing the short run change(employment rate).</p>
+</blockquote>
+<h3 class="header"><i>8.3</i>Policy Implications<a class="headerlink" href="#policy-implications" name="policy-implications">&para;</a></h3>
+<p>Fiscal and monetary policies affect the short-run level of GDP, but unless they are able to affect the level of potential output, <span>$Y*$</span>, they have no long run effect on GDP.</p>
+<h2 class="header"><i>9</i>Long-Run Economic Growth<a class="headerlink" href="#long-run-economic-growth" name="long-run-economic-growth">&para;</a></h2>
+<h3 class="header"><i>9.1</i>The Nature of Economic Growth<a class="headerlink" href="#the-nature-of-economic-growth" name="the-nature-of-economic-growth">&para;</a></h3>
+<p>Real GDP is not a good measure of living standards because it doesn't take in account the population. The real per capita GDP is a lot more useful. Economic growth is described by increase in real GDP, real per capita GDP, and productivity.</p>
+<h4 class="header"><i>9.1.1</i>Benefits of Economic Growth<a class="headerlink" href="#benefits-of-economic-growth" name="benefits-of-economic-growth">&para;</a></h4>
+<p>It increases material living standards because it increases the average family income, which means the family can buy more luxury goods. </p>
+<p>Economic growth also makes alleviation of poverty easier because the redistribution of wealth is easier when people's income are increasing.</p>
+<p>Economic growth has costs as well. To have economic growth in the future, it is often necessary to invest in capital goods/education at the present time, which lowers current consumpton. This is the opportunity cost of economic growth. Economic growth also obsoletes equipments and labour, which are upsetting to people affected by it.</p>
+<h4 class="header"><i>9.1.2</i>Sources of Economic Growth<a class="headerlink" href="#sources-of-economic-growth" name="sources-of-economic-growth">&para;</a></h4>
+<p>Economic growth can come from these fundamental sources:</p>
+<ol>
+<li>Growth in the labour force, from growth in population or working population</li>
+<li>Growth in human capital, or the skillsets of the workforce</li>
+<li>Growth in physical capital, equipment and facilities</li>
+<li>Techonological improvement, innovations and new ways of thought</li>
+</ol>
+<h3 class="header"><i>9.2</i>Established theories of economic growth<a class="headerlink" href="#established-theories-of-economic-growth" name="established-theories-of-economic-growth">&para;</a></h3>
+<h4 class="header"><i>9.2.1</i>Focus on the Long Run<a class="headerlink" href="#focus-on-the-long-run" name="focus-on-the-long-run">&para;</a></h4>
+<p>Theory of economic growth only focuses on the growth of potential output over long periods of time, not short term fluctuations of output.</p>
+<p>Recall:<br />
+<span>$$Y = C + I$$</span><br />
+<span>$$\because S = Y - C$$</span><br />
+<span>$$\therefore S = I$$</span></p>
+<p>This says that at equilibrium, saving equals desired investment. We now extend the model so the interest rate is now part of the equation.</p>
+<h4 class="header"><i>9.2.2</i>Investment, Saving, and Growth<a class="headerlink" href="#investment-saving-and-growth" name="investment-saving-and-growth">&para;</a></h4>
+<p>We can divide national savings into private saving and public saving:<br />
+<span>$$private\:saving=Y* - T - C$$</span><br />
+<span>$$public\:saving=T-G$$</span><br />
+<span>$$national\:savings=Y* - C - G$$</span></p>
+<p>In the short-run version, equilibrium is when desired saving equals desired investment.</p>
+<p><img alt="hardcore math" src="http://i.imgur.com/y8leT.jpg" /></p>
+<p>In the long-run version, with real GDP fixed at <span>$Y*$</span>, the equilibrium interest rate is where desired national savings equals desired investment.<br />
+When the interest rate is higher than eq interest rate, desired savings is higher than desired investment, and it drives the interest rate down, and vice versa.</p>
+<p>If household consumption(<span>$C$</span>) or government purchases(<span>$G$</span>) decreases, the NS curve shifts to the right because loanable funds increase at every interest rate, thus lowering the equilibrium interest rate.</p>
+<p>If firms' demand for investment increases because of technological improvements/government incentives, the I curve shifts to the right, and increases equilibrium interest rate and the amount of investment.</p>
+<p><img alt="i wanna wake up where you are" src="http://i.imgur.com/PaM9V.jpg" /></p>
+<p>Countries with high rates of investments also have high rates of GDP growth</p>
+<h3 class="header"><i>9.3</i>Neoclassical Growth Theory<a class="headerlink" href="#neoclassical-growth-theory" name="neoclassical-growth-theory">&para;</a></h3>
+<p>The aggregate production function summarizes economic growth as a function of the 4 fundamental sources discussed before.</p>
+<p><span>$$GDP = F_T(L, K, H)$$</span></p>
+<p>Where <span>$L$</span> is labour, <span>$K$</span> is physical capital, <span>$H$</span> is human capital, and <span>$F_T$</span> means they are a function for a state of technology.</p>
+<p>The properties of the Aggregate Production Function:</p>
+<ol>
+<li>Diminishing Marginal Returns</li>
+</ol>
+<p>Total output will always have a negative second-order derivative.<br />
+<img alt="this picture is too goddamn small" src="http://i.imgur.com/9jBeX.jpg" /></p>
+<ol>
+<li>Constant Returns to Scale</li>
+</ol>
+<p>If the input increaes by a certain percentage, the output increases by the same percentage(linearity)</p>
+<p>Thus according to the Neoclassical Growth Theory, each of the fourth factors are subjected to some constraints:</p>
+<ol>
+<li>Labour-force growths are subjected to diminishing marginal returns, increases in population leads to an eventual decline in material living standards</li>
+<li>Physical and human capital accumulation are also subjected to diminishing marginal returns. Improvements in living standards become smaller with each additional increment in capital.</li>
+<li>Balanced growth with constant technology is subjected to constant returns to scale. If labour/capital increase by 2%, the output will also increase by 2%; however the output per capita remains the same. Thus it will not increase living standards.</li>
+</ol>
+<p>Embodied technical change(increase in productivity brought on by innovations and technology) increase potential output even when the amount of labour and capital remain the same. However, the amount of technological growth cannot be quantitized.</p>
+<h3 class="header"><i>9.4</i>New Growth Theories<a class="headerlink" href="#new-growth-theories" name="new-growth-theories">&para;</a></h3>
+<h4 class="header"><i>9.4.1</i>Endogenous Technological Change<a class="headerlink" href="#endogenous-technological-change" name="endogenous-technological-change">&para;</a></h4>
+<p>Research has shown that technological change is a function of economics, thus it is endogenous to the economic system. Technological change stems from R&amp;D which are costly and highly risky. There are several implications of this understanding:<br />
+<em> The innovations in technology are often derivative and is the result of feedback from downstream.<br />
+</em> Technological knowledge is hard to transfer, both costly and time consuming.<br />
+<em> Innovation is caused by pressure from competition, globalization has helped in this aspect<br />
+</em> Economic shocks can cause firms to innovate to adapt.</p>
+<h4 class="header"><i>9.4.2</i>Increasing Marginal Returns<a class="headerlink" href="#increasing-marginal-returns" name="increasing-marginal-returns">&para;</a></h4>
+<p>The initial process of investing into a new market often has costs, and successive investments become more effective as initial problems will be solved.</p>
+<p>Knowledge as a good means that they are not subjected to the same constraints physical goods are, and there are no practical limits to human knowledge.</p>
+<h3 class="header"><i>9.5</i>Are There Limits to Growth?<a class="headerlink" href="#are-there-limits-to-growth" name="are-there-limits-to-growth">&para;</a></h3>
+<h4 class="header"><i>9.5.1</i>Resource exhaustion<a class="headerlink" href="#resource-exhaustion" name="resource-exhaustion">&para;</a></h4>
+<p>On one hand, we're using up stuff really quickly, on the other hand, technological advancements are making resource consumption more efficient.</p>
+<h4 class="header"><i>9.5.2</i>Pollution<a class="headerlink" href="#pollution" name="pollution">&para;</a></h4>
+<p>Pollution is bad, but smartcars will save us<sub>(hopefully)</sub>.</p>
+<h2 class="header"><i>10</i>Money and Banking<a class="headerlink" href="#money-and-banking" name="money-and-banking">&para;</a></h2>
+<p>Printing money happens to be not very good generally.</p>
+<h3 class="header"><i>10.1</i>The Nature of Money<a class="headerlink" href="#the-nature-of-money" name="the-nature-of-money">&para;</a></h3>
+<h4 class="header"><i>10.1.1</i>What is Money?<a class="headerlink" href="#what-is-money" name="what-is-money">&para;</a></h4>
+<p>Money is a medium of exchange. <br />
+Barter is the system where goods/services are traded for each other, but sometimes it's hard to find the right trade because it requires both party to want what the other has. This is *<em>double coincidence of wants</em><br />
+Money is a way of storing purchasing power, you can use money to buy stuff but this requires money to have a relatively stable value.<br />
+Money as a unit of account. It can be used for pure accounting purchases.</p>
+<h4 class="header"><i>10.1.2</i>Origins of money<a class="headerlink" href="#origins-of-money" name="origins-of-money">&para;</a></h4>
+<p>Metallic money. Originally money was made with valuable metals. This was obviously a retarded idea.</p>
+<p>Gresham's law states that when two types of money are used side by side, the more valuable one will be driven out.</p>
+<p>Paper money. Goldsmiths started issuing IOUs for gold, then people started trading those. Then banks started giving out bank notes that are convertible into gold, and the money is backed by gold.<br />
+Banks and goldsmiths figured out that they could have more IOUs than they have actual gold because not a lot of people actually want to trade them for gold. The currency is issued such that it is fractionally backed by the reserves.<br />
+If the bank issued too many IOUs without backing, a slightly higher demand for gold would make it suspend its payments, and the IOUs become less valuable. If everyone withdrew their money at once, the IOUs become worthless because banks can't pay them back</p>
+<p>Initially all money was backed by gold and issued by the central banks. This was the <strong>gold standard</strong></p>
+<p>During a period between the WWs, almost all the countries abandoned the gold standard, and money is just exchanged for other money. <em>fiat money</em> is accepted because it is declared by gov't order to be legal tender. Legal tender is anything that can be traded for goods or services or to repay a debt.</p>
+<p>If the fiat money is acceptable, it is a medium of exchange, if its value is stasble, it is a store of value, if both of these are true, it is a satisfactory of account.</p>
+<h4 class="header"><i>10.1.3</i>Modern Money: Deposit Money<a class="headerlink" href="#modern-money-deposit-money" name="modern-money-deposit-money">&para;</a></h4>
+<p>In modern days banks issue IOUs backed in fiat money instead of gold, but it works the same way.</p>
+<h3 class="header"><i>10.2</i>The Canadian Banking System<a class="headerlink" href="#the-canadian-banking-system" name="the-canadian-banking-system">&para;</a></h3>
+<p>The central bank is the gov't owned and operated institution that controls the banking system.</p>
+<h4 class="header"><i>10.2.1</i>Bank of Canada<a class="headerlink" href="#bank-of-canada" name="bank-of-canada">&para;</a></h4>
+<p>The bank is autonomous in the way it carries out monetary policy, but the governor of the Bank and the minister of finance consult regularly, this is known as joint responsibility. The minister of finance has the option of issuing an explicit directive to the governor.</p>
+<p><img alt="" src="http://i.imgur.com/6JRDt.jpg" /></p>
+<p>The bank has four purposes:</p>
+<ol>
+<li>Banker for private banks. They accept deposits from commercial banks and transfer to another bank. They're like the banks for banks.</li>
+<li>Bank for the government. The gov't take and deposit money into the Central Bank</li>
+<li>Regulator of the nation's money supply. The Central Bank can change its assets and liabilities to change the money supply</li>
+<li>Supporter of financial markets. Assume a responsibility to support the country's financial system and to prevent bank failures.</li>
+</ol>
+<h4 class="header"><i>10.2.2</i>Commercial Banks in Canada<a class="headerlink" href="#commercial-banks-in-canada" name="commercial-banks-in-canada">&para;</a></h4>
+<p>Private sector owned banks are called commercial banks. Commercial banks hold deposits for their customers, they permit the transfer of money between accounts, and they make loans to households and firms.<br />
+They inveset in government securities. Trust companies and credit unions are also financial institutions, they make loans and take deposits.</p>
+<p>Banks share loans, often a group of banks will offer a "pool loan" to a giant corporation. Cheques from bank A that's redeemed at bank B means bank A now owes bank B money. Multibank systems make use of a system called clearing house where interbank indebtedness is computed and net amounts owing are calculated.</p>
+<p>Banks are private firms that seek to make profits. Their primary liability is deposits, and primary assets are securities and bonds. Banks compete for you to deposit your money there.</p>
+<h4 class="header"><i>10.2.3</i>Reserves<a class="headerlink" href="#reserves" name="reserves">&para;</a></h4>
+<p>Reserves are needed for when people actually withdraw their cash. They are usually small. If everyone tried to withdraw their money from a bank, they would not be able to pay off the depositors.<br />
+In these times, the central bank lends reserves directly to the bank on the bonds that are sound but not liquid. It can enter the market and buy the securities, giving the bank cash. The Canadian Deposit Insurance Corporation guarantees that depositors will get their money back up to 100k. This means the depositors will have confidence that they'll get their money back.</p>
+<p>The Canadian banking system is a fractional reserve system because each bank has very little reserve. A reserve ratio is the fraction of its deposits that it actually holds as reserves, and a target reserve ratio is the ideal reserve ratio. Any reserves above the target reserve ratio is called excess reserves</p>
+<h3 class="header"><i>10.3</i>Money Creation By the Banking System<a class="headerlink" href="#money-creation-by-the-banking-system" name="money-creation-by-the-banking-system">&para;</a></h3>
+<h4 class="header"><i>10.3.1</i>Some Simplifying Assumptions<a class="headerlink" href="#some-simplifying-assumptions" name="some-simplifying-assumptions">&para;</a></h4>
+<ol>
+<li>Fixed target reserve ratio. We assume banks have the same constant target reserve ratio. We will assume it's 20%</li>
+<li>No cash drain from the banking system, we assume the amount of currency held by the public is not a constant ratio of their bank deposits</li>
+</ol>
+<h4 class="header"><i>10.3.2</i>The Creation of Deposit Money<a class="headerlink" href="#the-creation-of-deposit-money" name="the-creation-of-deposit-money">&para;</a></h4>
+<p>Money can be created when a new deposit happens:<br />
+1. Immigrants bring cash to Canada, when that is deposited into a bank, it is a new deposit<br />
+2. Cash under your mattress which is deposited into a bank<br />
+3. When BoC purchases a security from an individual or firm, it uses a BoC cheque, then that cheque is deposited into the commercial banking system</p>
+<p>Suppose that TD bank gets a new deposit of 100 dollars, it will now have <span>$80 in excess reserves because the reserve ratio is 0.2. It can now lend the $</span>80 in excess reserves, and reduces its cash reserves by the same amount. This is called a cash drain. A second bank will eventually receive <span>$80 in deposits, and they'll have $</span>64 in excess reserves, and they'll loan that out and so on.</p>
+<p>If <span>$v$</span> is the target reserve ratio, a new deposit to the banking system will increase the total amount of deposits by <span>$1/v$</span> times the new deposit.</p>
+<p>With no cash drain from the banking system, a banking system with a target reserve ratio of v can change its deposits by <span>$1/v$</span> times any change in reserves. Therefore:<br />
+<span>$$\delta\:deposits=\frac{\delta\:Reserves}{v}$$</span></p>
+<p>This is called the multiple expansion of deposits</p>
+<h4 class="header"><i>10.3.3</i>Excessive Reserves and Cash Drains<a class="headerlink" href="#excessive-reserves-and-cash-drains" name="excessive-reserves-and-cash-drains">&para;</a></h4>
+<p>If banks do not lend their excess reserves, the multiple expansion we discussed will not occur.</p>
+<p>A cash drain is the ratio of cash that the public likes to have. A cash drain reduces the expansion of deposits:</p>
+<p><span>$$\delta\:Deposits=\frac{\delta\:Reserves}{c+v}$$</span></p>
+<p>Realistically <span>$v$</span> is about 0.01, and <span>$c$</span> is also about 0.01.</p>
+<h3 class="header"><i>10.4</i>The Money Supply<a class="headerlink" href="#the-money-supply" name="the-money-supply">&para;</a></h3>
+<p>The money supply is the total stock of money in the economy at any moment.<br />
+<span>$$Money\:supply=\:Currency+Bank\:deposits$$</span></p>
+<h4 class="header"><i>10.4.1</i>Kinds of Deposits<a class="headerlink" href="#kinds-of-deposits" name="kinds-of-deposits">&para;</a></h4>
+<p>Deposits that is tied up for a period of time is called a term deposits, which has a specified withdrawal date into the future.</p>
+<h4 class="header"><i>10.4.2</i>Definitions of the Money Supply<a class="headerlink" href="#definitions-of-the-money-supply" name="definitions-of-the-money-supply">&para;</a></h4>
+<dl>
+<dt>M1</dt>
+<dd>Currency and deposits that are usable as a media of exchange</dd>
+<dt>M2</dt>
+<dd>M1 + savings accounts at the chartered banks</dd>
+<dt>M2+</dt>
+<dd>M2 + deposits held at financial institutions that are not chartered banks, like trust companies and credit unions.</dd>
+</dl>
+<h4 class="header"><i>10.4.3</i>Near Money and Money Substitutes<a class="headerlink" href="#near-money-and-money-substitutes" name="near-money-and-money-substitutes">&para;</a></h4>
+<p>Assets that are very liquid and easily convertible to money are called near money. Things that serve as a media of exchange but don't store value ar called money substitutes, such as credit cards.</p>
+<h4 class="header"><i>10.4.4</i>Choosing a Measure<a class="headerlink" href="#choosing-a-measure" name="choosing-a-measure">&para;</a></h4>
+<p>Money is hard to define, thus the amount of money in an economy is hard to define</p>
+<h4 class="header"><i>10.4.5</i>The Role of the Bank of Canada<a class="headerlink" href="#the-role-of-the-bank-of-canada" name="the-role-of-the-bank-of-canada">&para;</a></h4>
+<p>tune in next week to see the role of the bank of canada</p>
+<h2 class="header"><i>11</i>Money, Interest Rates, and Economic Activity<a class="headerlink" href="#money-interest-rates-and-economic-activity" name="money-interest-rates-and-economic-activity">&para;</a></h2>
+<h3 class="header"><i>11.1</i>Understanding Bonds<a class="headerlink" href="#understanding-bonds" name="understanding-bonds">&para;</a></h3>
+<p>Wealth can be divided into two categories, money(assets which can be exchanged) and bonds, which are interest earning financial assets and claims on equity(IOUs from other people).</p>
+<h4 class="header"><i>11.1.1</i>Present value and the Interest Rate<a class="headerlink" href="#present-value-and-the-interest-rate" name="present-value-and-the-interest-rate">&para;</a></h4>
+<p>A bond is a financial asset that promises to make payments at specified dates in the future. The present value of any asset refers the value now of the future payments that the asset offers.<br />
+The interest rate is used to discount the future payments to calculate the present value.</p>
+<p>What is the present value of a bond that will return $100 in one year?</p>
+<p>If the interest rate is 5%, \$100 a year from now would be equal to <span>$\frac{100}{1.05} = 95.24$</span>, thus the present value is equal to <br />
+<span>$$PV = \frac{R_1}{1+i}$$</span><br />
+Where <span>$R_1$</span> is the amount to be received in one year, and <span>$i$</span> is the annual interest rate.</p>
+<p>If a bond repays its value <span>$n$</span> years from now with yearly payments <span>$[R_1,R_2,R_3,...,R_n]$</span>, we can calculate its present value by:<br />
+<span>$$PV=\sum_{k=1}^n\frac{R_k}{(1+i)^k}$$</span><br />
+Therefore, the higher the interest rate, the lower the present value of a bond is.</p>
+<h4 class="header"><i>11.1.2</i>Present Value and Market Price<a class="headerlink" href="#present-value-and-market-price" name="present-value-and-market-price">&para;</a></h4>
+<p>The present value of a bond is the most someone would be willing to pay now to own all the future payments of that bond. At equilibrium market price, any bond will be the present value of the income stream it produces.</p>
+<h4 class="header"><i>11.1.3</i>Interest Rates, Market Prices, and Bonds Yields<a class="headerlink" href="#interest-rates-market-prices-and-bonds-yields" name="interest-rates-market-prices-and-bonds-yields">&para;</a></h4>
+<p>If interest rate of the market rises, the price of bonds will fall, and vice versa. Bond yield is the percent increase of the PV and the money the bond will give back. An increase in the market interest rate will increase bond yields and same with a decrease.</p>
+<h4 class="header"><i>11.1.4</i>Bond Riskiness<a class="headerlink" href="#bond-riskiness" name="bond-riskiness">&para;</a></h4>
+<p>Sometimes yields will change independent of market interest rate. When people feel like the bond might not be able to return the promised money, the perceived <strong>riskiness</strong> of the bond increases, and it lowers its present value/price. Risky bonds will thus have a high yield.</p>
+<h3 class="header"><i>11.2</i>The Demand For Money<a class="headerlink" href="#the-demand-for-money" name="the-demand-for-money">&para;</a></h3>
+<p>The amount of money(non-bond asset) that the public wishes to hold is the demand for money.</p>
+<h4 class="header"><i>11.2.1</i>Reasons for Holding Money<a class="headerlink" href="#reasons-for-holding-money" name="reasons-for-holding-money">&para;</a></h4>
+<p>You need money to pay for hookers and blow. This is called transactions demand for money. Money is needed to use for upcoming transactions.</p>
+<p>Precautionary demand for money is when you hold money in anticipation of a possible future transaction, but since the invention of the ATM, this motive for holding money is less important.</p>
+<p>Speculative demand for money means holding money because of speculation about how interest rates are going to change. High future interest rates would mean you hold more money and less bonds because bonds become less valuable.</p>
+<h4 class="header"><i>11.2.2</i>The Determinants of Money Demand<a class="headerlink" href="#the-determinants-of-money-demand" name="the-determinants-of-money-demand">&para;</a></h4>
+<p>The demand for money is negatively related to the interest rate, since the opportunity cost of holding money is the interest rate it could have earned by not holding it.</p>
+<p>An increase in real GDP increases the amount of money exchanged in the economy, and thus leads to an increase in the demand for money.</p>
+<p>An increase in the price level will also increase the amount of money exchanged in the economy, and will also lead to an increase in the demand for money.</p>
+<p><img alt="now i aint sayin she's a gold digger" src="http://i.imgur.com/WeayE.jpg" /></p>
+<h4 class="header"><i>11.2.3</i>Money Demand: Summing Up<a class="headerlink" href="#money-demand-summing-up" name="money-demand-summing-up">&para;</a></h4>
+<p>We can summarize the function for money demand with this pseudomath equation to seem more credible:<br />
+<span>$$M_D = M_D(-i,Y,P)$$</span></p>
+<h3 class="header"><i>11.3</i>Monetary Equilibrium and National Income<a class="headerlink" href="#monetary-equilibrium-and-national-income" name="monetary-equilibrium-and-national-income">&para;</a></h3>
+<h4 class="header"><i>11.3.1</i>Monetary Equilibrium<a class="headerlink" href="#monetary-equilibrium" name="monetary-equilibrium">&para;</a></h4>
+<p><img alt="but she aint messin with no broke niggas" src="http://i.imgur.com/spqvp.jpg" /></p>
+<p>Monetary Equilibrium occurs when the quantity of money demanded equals the quantity of money supplied(By the central bank reserves/commercial bank loans). This is similar to the traditional supply and demand curve, except instead of price it's the interest rate.</p>
+<p>Suppose everyone wants to convert bonds to money, this means there's a high demand for money, and we'll be right of the equilibrium point. Everyone wanting to sell bonds will lower the price of bonds, which means an increase in the interest rate, which moves the demand for money back to the equilibrium point.<br />
+Monetary equilibrium occurs when the rate of interest is such that the supply of money is equal to the demand of money.</p>
+<h4 class="header"><i>11.3.2</i>The Monetary Transmission Mechanism<a class="headerlink" href="#the-monetary-transmission-mechanism" name="the-monetary-transmission-mechanism">&para;</a></h4>
+<p>The monetary transmission mechanism is the way a change in the supply and demand of money changes aggregate demand. It has three stages:</p>
+<ol>
+<li>Changes in the demand and supply of money cause a change in the equilibrium interest rate. Increase in demand increases interest rate, increase in supply decreases interest rate.</li>
+<li>Change in interest rate leads to a change in desired investment and consumption expenditure. Increase interest rate decreases desired investment.</li>
+<li>Change in desired aggregate expenditure leads to a shift in the AD curve and causes short-run changes in real GDP and the price level. Increased investment increases real GDP</li>
+</ol>
+<h4 class="header"><i>11.3.3</i>An Open-Economy Modification<a class="headerlink" href="#an-open-economy-modification" name="an-open-economy-modification">&para;</a></h4>
+<p>An increase in the Canadian money supply reduces Canadian interest rates, which lowers the value of Canadian bonds, which means investors will sell Canadian bonds to buy foreign bonds, which means change canadian currency for foreign currency, which leads to a depreciation of Canadian currency.<br />
+As Canadian dollar depreciates, imports fall and exports rise, which increases AE.</p>
+<h4 class="header"><i>11.3.4</i>The Slope of the AD Curve<a class="headerlink" href="#the-slope-of-the-ad-curve" name="the-slope-of-the-ad-curve">&para;</a></h4>
+<p>As price level increases, the demand for money increases, and thus interest increases, which reduces AE(Y), that's why the AD curve is negatively sloped.</p>
+<h3 class="header"><i>11.4</i>The Strength of Monetary Forces<a class="headerlink" href="#the-strength-of-monetary-forces" name="the-strength-of-monetary-forces">&para;</a></h3>
+<h4 class="header"><i>11.4.1</i>Long-Run Neutrality of Money<a class="headerlink" href="#long-run-neutrality-of-money" name="long-run-neutrality-of-money">&para;</a></h4>
+<p>The long run effect of an increased supply of money is just an increase in price level, <span>$Y*$</span> stays the same.<br />
+In the view of Classical economists, changes in the supply of money had no effect on real GDP or other real variables, it only changes the price level.<br />
+Modern economists believe that changes in money supply and changes in in the price level are closely linked.</p>
+<p><strong>Hysteresis</strong> is the hypothesis that short term changes in GDP can affect the value of <span>$Y*$</span> in the future.</p>
+<h4 class="header"><i>11.4.2</i>Short-Run Non-Neutrality of Money<a class="headerlink" href="#short-run-non-neutrality-of-money" name="short-run-non-neutrality-of-money">&para;</a></h4>
+<p>In the short run:</p>
+<ul>
+<li>The steeper the <span>$M_D$</span> curve, the more interest rates will change given a change in the money supply</li>
+<li>The flatter the <span>$I^D$</span> curve, the more investment expenditure will change in response to a given change in the interest rate</li>
+</ul>
+<p>The bitch fight between Keynesians and Monetarists is about how important monetary policy is. Keynesians say monetary policies do fuck all while Monetarists say nuh-uh.<br />
+<img alt="" src="http://i.imgur.com/RDHAe.jpg" title="this is what monetarists actually believe" /><br />
+<img alt="" src="http://i.imgur.com/r5mNH.jpg" title="what a load of horse shit" /></p>
+<h2 class="header"><i>12</i>Monetary Policy in Canada<a class="headerlink" href="#monetary-policy-in-canada" name="monetary-policy-in-canada">&para;</a></h2>
+<h3 class="header"><i>12.1</i>Money Supply Versus the Interest Rate<a class="headerlink" href="#money-supply-versus-the-interest-rate" name="money-supply-versus-the-interest-rate">&para;</a></h3>
+<p>Central banks have two ways of implementing its monetary policy. The bank could either set the money supply or set the interest rate, but it cannot do both at once.<br />
+Bank of Canada does not implement its monetary policy by changing the money supply because it can't control the process of deposit expansion carried out by the commercial banks. The commercial banks might not expand their lending, thus the effect of the supply increase is not certain.<br />
+It also doesn't know the slope of <span>$M_D$</span>, so it doesn't know exactly how much the interest rate is affected, and the interest rate is what ultimately affect changes in aggregate demand.</p>
+<p>The Bank of Canada implements its monetary policy by changing the tax rate, this way it has more control and the public has a clearer understanding of the actions.</p>
+<h3 class="header"><i>12.2</i>The Bank of Canada and the Overnight Interest Rate<a class="headerlink" href="#the-bank-of-canada-and-the-overnight-interest-rate" name="the-bank-of-canada-and-the-overnight-interest-rate">&para;</a></h3>
+<p>Generally the longer the bond terms are, the higher return it is. The interest rate corresponding to the shortest period of borrowing/lending is the <strong>overnight interest rate</strong>, which is the rate banks charge each other for overnight loans.<br />
+Banks that run short of reserves can borrow in the overnight market from other banks. This rate is a market determined rate that fluctuates daily. BoC can influence this rate considerably. When this rate changes, the longer term rates change along with it as well.</p>
+<p>The BoC has a target that it sets for the overnight interest rate, this rate is the midpoint of a 0.5% range within which the BoC would like the overnight interest rate to be. The BoC announces this target 8 times a year at pre-specified dates called <em>fixed announcement dates</em>, or FADs.<br />
+The top of the 0.5% range is the bank rate, which is the rate the BoC lends out to commercial banks, and the bottom of the 0.5% is the deposit rate for the commercial banks. That means at any rates higher than the bank rate, a bank would rather borrow from the BoC, and at any rates lower than the deposit rate, a bank would rather deposit at the BoC. This ensures the actual overnight interest rate is within the 0.5%</p>
+<h4 class="header"><i>12.2.1</i>The Money Supply Is Endogenous<a class="headerlink" href="#the-money-supply-is-endogenous" name="the-money-supply-is-endogenous">&para;</a></h4>
+<p>When the overnight rate changes, the other interest rates change really quickly. However, borrowers will not immediately react to the changes as they will consider about long term effects. The demand will eventually adjust to the new interest rates, and banks often find themselves in need of more cash reserves.<br />
+To get cash, the banks will sell some of their gov't securities to the BoC for cash, then use this cash to lend to individuals and firms. By buying gov't securities in an open market operation, the BoC increases the money supply.</p>
+<h4 class="header"><i>12.2.2</i>Expansionary and Contractionary Monetary Policies<a class="headerlink" href="#expansionary-and-contractionary-monetary-policies" name="expansionary-and-contractionary-monetary-policies">&para;</a></h4>
+<p>Decreasing the rate will be a expansionary monetary policy because it increases aggregate demand, and vice versa.</p>
+<h3 class="header"><i>12.3</i>Inflation Targeting<a class="headerlink" href="#inflation-targeting" name="inflation-targeting">&para;</a></h3>
+<h4 class="header"><i>12.3.1</i>Why Target Inflation?<a class="headerlink" href="#why-target-inflation" name="why-target-inflation">&para;</a></h4>
+<p>Inflation is bad because money becomes worthless, esp to people who get paid in a non-inflation adjusted rate, like old people. High and uncertain inflation leads to arbitrary income redistributions, and undermines the efficiency of the price system.</p>
+<p>Monetary policies will affect mainly the price level and inflation in the long run. Sustained inflation can only be caused by monetary policies that allows rapid growth in the money supply. </p>
+<p>High inflation is costly, and since inflation is the only macroeconomical variable which can be controlled by the central bank, thus central banks have come to focus their attentions on reducing and controlling inflation.</p>
+<p>BoC conducts its monetary policy with the objective of keeping inflation at or near 2%.</p>
+<h4 class="header"><i>12.3.2</i>Role of the output gap.<a class="headerlink" href="#role-of-the-output-gap" name="role-of-the-output-gap">&para;</a></h4>
+<p>Output gaps pressures the inflation to change, positive shock increases the inflation rate and negative shock decreses the inflation. The BoC pays attention to the GDP and designs its policy to close gaps.</p>
+<h4 class="header"><i>12.3.3</i>Inflation Targeting as a Stabilizing Policy<a class="headerlink" href="#inflation-targeting-as-a-stabilizing-policy" name="inflation-targeting-as-a-stabilizing-policy">&para;</a></h4>
+<p>Positive shocks will be met with a contractionary monetary policy and negative shocks will be met with an expansionary monetary policy.</p>
+<h4 class="header"><i>12.3.4</i>Complications in Inflation Targeting<a class="headerlink" href="#complications-in-inflation-targeting" name="complications-in-inflation-targeting">&para;</a></h4>
+<p>Internationally traded goods can change their prices suddenly for reasons outside of our control, these changes changes the inflation of the Canadian CPI. Thus the inflation rate of the Canadian CPI is pretty unstable. The BoC instead monitors the rate of "core" inflation without the volatility for a better indicator of Canadian excess demand.</p>
+<p>Since the exchange rate can change due to different reasons, the cause of these changes must be determined before the appropriate monetary policy response can be determined.</p>
+<p>Consider a case where Canadian exports are being demanded, the Canadian dollar appreciates, but net exports increases as well, increasing the aggregate demand, adding inflationary pressures.</p>
+<p>In another case, Canadian assets are being demanded, the Canadian dollar appreciates, and causes net exports to fall, decreasing the aggregate demand, reducing the inflationary pressure.</p>
+<h3 class="header"><i>12.4</i>Long and Variable Lags<a class="headerlink" href="#long-and-variable-lags" name="long-and-variable-lags">&para;</a></h3>
+<h4 class="header"><i>12.4.1</i>What are the Lags in Monetary Policy?<a class="headerlink" href="#what-are-the-lags-in-monetary-policy" name="what-are-the-lags-in-monetary-policy">&para;</a></h4>
+<p>When the overnight interest rate changes, consumer decisions take awhile to change, and firms' investment plans take even longer to come to effect. </p>
+<p>Likewise, expansionary and contractionary pressures put on by monetary policies has long and variable lag. Much like birthing human a baby, a change in monetary policies take 9 months+ to have an effect on real GDP, and another 9 months+ to have an effect on the price level.</p>
+<h4 class="header"><i>12.4.2</i>Destabilizing Policy<a class="headerlink" href="#destabilizing-policy" name="destabilizing-policy">&para;</a></h4>
+<p>Because monetary policy actions take effect 1-2 years into the future, the appropriate response now might be destabilizing in the future.</p>
+<h4 class="header"><i>12.4.3</i>Political Difficulties<a class="headerlink" href="#political-difficulties" name="political-difficulties">&para;</a></h4>
+<p>People are idiots, therefore they'll bitch at the politician for doing what seems to be the wrong thing presently, when the politician is really trying to adjust for the long run.</p>
+<h3 class="header"><i>12.5</i>30 Years of Canadian Monetary Policy<a class="headerlink" href="#30-years-of-canadian-monetary-policy" name="30-years-of-canadian-monetary-policy">&para;</a></h3>
+<p>Not a history class. don't give two shits about this.</p>
+<h2 class="header"><i>13</i>Inflation and Disinflation<a class="headerlink" href="#inflation-and-disinflation" name="inflation-and-disinflation">&para;</a></h2>
+<p>By now you should know what inflation is. If somehow you don't, it is the rise in the average level of all prices, expressed as the annual percentage change in the CPI</p>
+<h3 class="header"><i>13.1</i>Adding Inflation to the Model<a class="headerlink" href="#adding-inflation-to-the-model" name="adding-inflation-to-the-model">&para;</a></h3>
+<p>So far any inflation in our model was temporary(In AD/AS shocks). We're trying to understand how a sustained inflation can exist</p>
+<h4 class="header"><i>13.1.1</i>Why Wages Change<a class="headerlink" href="#why-wages-change" name="why-wages-change">&para;</a></h4>
+<p>We're still assuming technology is held constant, thus when wages/factor prices rise, uni costs increase and AS shifts up, and vice versa.</p>
+<ol>
+<li>In an inflationary gap, there is excess demand for labour and there is upward pressure on money wages</li>
+<li>In a recessionary gap, there is excess supply of labour, and there is downward pressure on money wages</li>
+<li>In the absence of both, there is no pressure on money wages</li>
+</ol>
+<p>When there is no gap, unemployment rate is equal to NAIRU(non-accelerating inflation rate of employment, or natural rate of unemployment) =&gt; <span>$U*$</span>.<br />
+<span>$U*$</span> is not zero, there is still a substantial amount of frictional and structural unemployment. When Y &gt; <span>$Y*$</span>, unemployment rate will be less than the NAIRU (<span>$U$</span> &lt; <span>$U*$</span>), and vice versa.</p>
+<p>When unemployment rate is less than NAIRU, wages rise because there is excess demand for labour, and when employment rate is higher than NAIRU, wages drop because there is excess supply.</p>
+<p>Expectations of future inflation will also create pressure for the change of wages. If people assume a 3% inflation, they want 3% more wages in order to hold their real wages constant. Thus even when there is no gap, the wages would change.</p>
+<p>We can think of the change in wages as:<br />
+<span>$$Change\:In\:Money\:wages=Output-gap\:effect+Expectational\:effect$$</span></p>
+<h4 class="header"><i>13.1.2</i>From Wages to Prices<a class="headerlink" href="#from-wages-to-prices" name="from-wages-to-prices">&para;</a></h4>
+<p>The net change in money wages determines what happens to the AS curve, if it's positive, then the AS curve shifts up, if it's negative, it will shift down.</p>
+<p>In addition to the factors in determining net change in money wages, there is also non-wage supply shocks, like a change in the price of raw materials. Therefore the actual inflation is:<br />
+<span>$$Actual\:Inflation=Output-gap\:Inflation+Expected\:Inflation+Supply-shock\:Inflation$$</span></p>
+<h4 class="header"><i>13.1.3</i>Constant Inflation<a class="headerlink" href="#constant-inflation" name="constant-inflation">&para;</a></h4>
+<p>If inflation and monetary policy stay the same for several years, the expected rate of inflation will equal the actual rate of inflation.</p>
+<p>If there is no supply shocks and if expected inflation equals actual inflation, real GDP must be equal to potential GDP.</p>
+<p>When the central bank increases the money supply at the same rate as the expectated inflation rate, it's called validating the expectation. This is constant inflation with <span>$Y$</span> = <span>$Y*$</span></p>
+<h3 class="header"><i>13.2</i>Shocks and Policy Responses<a class="headerlink" href="#shocks-and-policy-responses" name="shocks-and-policy-responses">&para;</a></h3>
+<p>A constnat rate of inflation is a special case in the macroeconomic model because the rising price level is not caused by an inflationary output gap. In many cases it's usually because of some AD or AS shock.<br />
+Before we assume that <span>$Y*$</span> is not affected by any short term shocks, now we also assume <span>$U*$</span> is not affected by any short term unemployment changes.</p>
+<h4 class="header"><i>13.2.1</i>Demand Shocks<a class="headerlink" href="#demand-shocks" name="demand-shocks">&para;</a></h4>
+<p>Any rightward shift in the AD creates an inflationary output gap, and it creates demand inflation. To study demand shocks we assume our starting point is a stable long-run equilibrium with constant real GDP and price level(no inflation).</p>
+<p>The initial rise in AD creates an inflationary gap, causing wages to rise and shifts the AS curve upward. If the BoC holds the money supply constant, the AS curve moves up and to the left, reducing the inflationary gap, creating an eq. at a higher price level, eliminating the gap.</p>
+<p>Suppose the initial rise in AD is followed by BoC increasing the money supply by reducing interest rates(validates expectations), the AD curve will shift further to the right, and keeping the gap open while increasing the price level.</p>
+<h4 class="header"><i>13.2.2</i>Supply Shocks<a class="headerlink" href="#supply-shocks" name="supply-shocks">&para;</a></h4>
+<p>When the AS curve shifts to the left and is not caused by excess demand, it's called supply inflation. This can either be caused by a rise in the costs of imported raw materials, or the increase of wages from expectations.<br />
+When this happens, equilibrium price level increases while the equilibrium output fall.</p>
+<p>If there is no validation, the factor prices and labor will fall, lowering the unit cost, and lowers the AS curve back down to its original point. This might be a slow process because wages do not fall rapidly.<br />
+If there is validation, the BoC increases the money supply and lowering the interest rates. This will move the AD curve up, returning the output back to its equilibrium point, but increasing the price level. Sometimes validating supply shocks can be good because it moves the economy out of the recession quickly, but in other cases, the AD curve might continue to rise, and starts a wage-price spiral.</p>
+<h4 class="header"><i>13.2.3</i>Accelerating Inflation<a class="headerlink" href="#accelerating-inflation" name="accelerating-inflation">&para;</a></h4>
+<p>The acceleration hypothesis is when the real GDP is held above potential, the inflationary gap will cause inflation to accelerate.</p>
+<p>There are several steps to the reasoning behind the acceleration hypothesis</p>
+<p>If the yearly output-gap inflation is 2%, the wages will be pushed up by 2% and the AS curve will be shifting up at 2% per year. But people will expect the 2% inflation to continue, and the expectation of the 2% inflation will create an actual inflation of 4%, and so on. As long as there's excess demand from inflation gap, inflation rate can't stay constant.</p>
+<p>If the BoC still wishes to hold the level of output constantly above <span>$Y*$</span>, it must implement an expansionary monetary policy to allow the growth rate of the money supply to rise, because the AS curve is shifting up rapidly from the rising rate of expected inflation.</p>
+<p>Now the rate of actual inflation is rising will cause an increase in the expected inflation rate, which will raise the actual inflation rate and back and forth forever. At any level of unemployment less than NAIRU, the real GDP is above <span>$Y*$</span>, and the inflation rate will accelerate, thus NAIRU is the lowest level of unemployment which won't create an accelerating rate of inflation.</p>
+<h4 class="header"><i>13.2.4</i>Inflation as a Monetary Phenomenon<a class="headerlink" href="#inflation-as-a-monetary-phenomenon" name="inflation-as-a-monetary-phenomenon">&para;</a></h4>
+<p>Another bitch fight amongst economists is the extent to which inflation is a monetary phenomenon. Does it have purely monetary causes-changes in the demand or supply of money ,or does it have purely monetary consequences-only the price level is affected.<br />
+Milton Friedman says "Inflation is <strong>everywhere</strong> and <strong>always</strong> a monetary phenomenon", not generalizing at all.</p>
+<p>The causes of inflation are:</p>
+<ul>
+<li>On the demand side, anything that shifts the AD curve to the right will cause inflation</li>
+<li>On the supply side, anything that shifts the AS curve upwards/left will cause inflation</li>
+<li>Unless continual monetary validation occurs, the increases in the price level will eventually come to a halt.</li>
+</ul>
+<p>The first two points say temporary bursts of inflation can be not a monetary phenomenon, making Friedman look pretty stupid. The third point tells us that sustained inflation must be a monetary phenomenon.</p>
+<p>The consequences of inflation are:</p>
+<ul>
+<li>In the short run, demand inflation tend to be accompanied by an increase in real GDP above potential</li>
+<li>In the short run, supply inflation tend to be accompanied by a decrease in real GDP above potential</li>
+<li>In the long run, shifts in either the AD or AS curve leave real GDP unchanged and affects only the price level</li>
+</ul>
+<p>We've reached three conclusions:</p>
+<ul>
+<li>Without monetary validation, demand shocks have no effect on real GDP and only on the price level(increase it)</li>
+<li>Without monetary validation, supply shocks have no effect on real GDP and no effect on the price level.</li>
+<li>Only with continuing monetary validation, inflation initiated by supply/demand shocks continue indefinitely.</li>
+</ul>
+<p>In conclusion, Friedman should make less generalizations and instead say <strong>sustained</strong> inflation is everywhere and always a monetary phenomenon.</p>
+<h3 class="header"><i>13.3</i>Reducing inflation<a class="headerlink" href="#reducing-inflation" name="reducing-inflation">&para;</a></h3>
+<h4 class="header"><i>13.3.1</i>Process of Disinflation<a class="headerlink" href="#process-of-disinflation" name="process-of-disinflation">&para;</a></h4>
+<p>Reducing the rate of inflation takes time and costs a lot. The process starts when the BoC stops validating the ongoing inflation. It does this by increasing the interest rate, lowering real aggregate demand and closing the inflationary gap. <br />
+Some idiots will say increasing the interest rate will increase the price, thus causing more inflation; however, idiots are often wrong. The rise in interest is an one-time effect on the price level, and it will decrease inflation rates in the long run.</p>
+<p>Sometimes inflation will continue even after the real GDP has gone back to the equilibrium GDP, because expectations can cause inflation to persist even after the original causes have been removed. Stagflation is when there is an increase in inflation, but a reduction in output, so the rate of increase of inflation is decreasing. This creates a recession gap because we were already back to the equilibrium GDP, and this will often hurt a lot of people since recessions are bad. However, inflation will slow down.</p>
+<p>The final phase is the return to potential output. When the economy comes to rest, it's the same as when the economy is hit by a negative supply shock, an expansionary monetary policy at this point can shift it back to the real GDP.</p>
+<h4 class="header"><i>13.3.2</i>The Cost of Disinflation<a class="headerlink" href="#the-cost-of-disinflation" name="the-cost-of-disinflation">&para;</a></h4>
+<p>The cost is the loss of output that is generated in the process. The sacrifice ratio is the loss in real GDP, expressed as a percentage of potential output, divided by the percentage-point reduction in the rate of inflation. <br />
+<span>$$Sacrifice\:Ratio = \frac{percentage\:of\:GDP\:lost}{percentage\:of\:Inflation\:reduced}$$</span></p>
+<h4 class="header"><i>13.3.3</i>Conclusion<a class="headerlink" href="#conclusion" name="conclusion">&para;</a></h4>
+<p>Inflation is bad, and sustained inflation is a still a monetary policy.</p>
+<h2 class="header"><i>14</i>Unemployment Fluctuations and the NAIRU<a class="headerlink" href="#unemployment-fluctuations-and-the-nairu" name="unemployment-fluctuations-and-the-nairu">&para;</a></h2>
+<h3 class="header"><i>14.1</i>Employment and Unemployment<a class="headerlink" href="#employment-and-unemployment" name="employment-and-unemployment">&para;</a></h3>
+<p>Over the long term, increases in the labour force is matched by increases in employment. Over the short term, the unemployment rate fluctuates considerably because changes in the labour force are not exactly matched by changes in employment.</p>
+<h4 class="header"><i>14.1.1</i>Changes in Employment<a class="headerlink" href="#changes-in-employment" name="changes-in-employment">&para;</a></h4>
+<p>On the supply side, labour force in Canada has expanded virtually every year since the end of the Second World War, this is caused by an increasing population, increased labour force participation by various group, esp. women, and net immigration of working age persons..</p>
+<p>On the demand side, existing jobs are being eliminated and new jobs are created. Economic growth causes sectors of the economy to decline and others to expand. Jobs are lost in the declining sectors and created in the expanding sectors. There is a net increase in employment.</p>
+<h4 class="header"><i>14.1.2</i>Changes in unemployment<a class="headerlink" href="#changes-in-unemployment" name="changes-in-unemployment">&para;</a></h4>
+<p>During periods of rapid economic growth, the unemployment rate usually falls. During recessions or periods of slow growth, the unemployment rate rises.</p>
+<h4 class="header"><i>14.1.3</i>Flows in the Labour Market<a class="headerlink" href="#flows-in-the-labour-market" name="flows-in-the-labour-market">&para;</a></h4>
+<p>Even when there is no change in the unemployment rate, there can be a lot of activity in the labour market as the number of flows out of unemployment can fluctuate wildly and is also matched by the flows into unemployment. Looking at the gross flows in the labour market, we can see the economic activity that's hidden when we look at the overall level.</p>
+<h4 class="header"><i>14.1.4</i>Consequences of Unemployment<a class="headerlink" href="#consequences-of-unemployment" name="consequences-of-unemployment">&para;</a></h4>
+<p>There are two costs of unemployment:</p>
+<ul>
+<li>Lost output: A person unemployed is not producing output, thus it is a loss for society. Even when the person starts working again, nothing makes up for the past loss that existed while the worker was unemployed</li>
+<li>Personal costs: Being unemployed has negative effects on a person and their families.</li>
+</ul>
+<h3 class="header"><i>14.2</i>Unemployment Fluctuations<a class="headerlink" href="#unemployment-fluctuations" name="unemployment-fluctuations">&para;</a></h3>
+<p>Being economists, there is another bitch fight about the sources in unemployment fluctuations. One group of economists, referred to as <em>New Keynesians</em><sub>west sieede</sub>, emphasize the distinction between the unemployment that exists at GDP equilibrium, and the unemployment that exists in an output gap. The former, is the NAIRU, and is made of frictional and structural unemployment. The latter, is called cyclical unemployment, which falls/rises when the GDP rises above/falls below <span>$Y*$</span>. New Keynesians argue that cyclical unemployment exists because real wages do not quickly adjust to clear labour markets in response to shocks.</p>
+<p>The second group, often called <em>New Classical economists</em><sub>east sieeede</sub>, has a different view of short-run fluctuations in unemployment. In their models, real wages adjust very quickly to clear labour markets and so real GDP is always equal to <span>$Y*$</span>. In the New Classical perspective, the unemployment rate does fluctuate, but only because of changes in the amount of frictional or structural unemployment. For the New Classical economists, there is no cyclical unemployment whatsoever.</p>
+<p>A key difference is the nature of unemployment: New Keynesians say workers who are suffering cyclical unemployment are involuntarily unemployed, while New Classical economists say all unemployment is deemed to be voluntary, workers are only unemployed because they choose not to work or not to accept available job offers.</p>
+<h4 class="header"><i>14.2.1</i>New Classical Theories<a class="headerlink" href="#new-classical-theories" name="new-classical-theories">&para;</a></h4>
+<p>Two major characteristics of New Classical models are that agents continuously optimize and markets continueously clear, thus there is no involuntary unemployment. The New Classical theory explains fluctuations in employment and real wages as having one or two  causes. Changes in technology that affect the marginal product of labour will lead to changes in the demand for labour, and it changes the level of employment and real wages. Second, changes in the willingness of individuals to work will lead to changes in the supply of labour and thus it changes the level of employment and real wages.</p>
+<p>There are two problems with this New Classical view of labour. First employment tends to be quite volatile while wages show little variation. Secondly, saying there is no involuntary unemployment is pretty retarded.</p>
+<h4 class="header"><i>14.2.2</i>New Keynesian Theories<a class="headerlink" href="#new-keynesian-theories" name="new-keynesian-theories">&para;</a></h4>
+<p>These people say that markets do not clear immediately, and they argue that people who are unemployed would accept a job in for which they are trained, at the going wage rate, if such an offer were made. These economists try to explain why wages do not quickly adjust to eliminate voluntary unemployment. If wages don't respond quickly to shifts in supply and demand, labour markets will display unemployment during recessions and excess demand during booms.</p>
+<p>There are several possible reasons why wages do not quickly adjust to all shocks in the labour market:</p>
+<ul>
+<li><em>Long-Term Employment Relationships</em>: workers and employers develop long-term relationships, and the wages of those workers do not fluctuate according to the market, and employee benefits such as pensions and insurance makes the worker stay despite changes in the job market</li>
+<li><em>Menu Costs and Wage Contracts</em>: Costs associated with changing prices lead firms and workers to change infrequently, thus prices and wages are slow in adjusting to shocks</li>
+<li><em>Efficiency Wages</em>: Having higher wages sometimes incentivize the workers to work more efficiently, thus creating unemployment because firms would rather pay higher wages than higher more workers at a lower wage</li>
+<li><em>Union Bargaining</em>: Unions have a lot of say in wage negotiation. If unions act in the interest of those who are already employed, wages will be high and unemployment will exist.</li>
+</ul>
+<h4 class="header"><i>14.2.3</i>Convergence of Theories?<a class="headerlink" href="#convergence-of-theories" name="convergence-of-theories">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>-</th>
+<th><em>New Classical Theory</em></th>
+<th><em>New Keynesian Theory</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td>Key Assumptions</td>
+<td>Key Assumptions</td>
+</tr>
+<tr>
+<td>Market clearing</td>
+<td>Wages and price are perfectly flexible, markets are continuously clearing</td>
+<td>Wage and prices are slow to adjust; markets are not continuously clearing.</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Key Predictions</td>
+<td>Key Prediction</td>
+</tr>
+<tr>
+<td>Unemployment</td>
+<td>U = NAIRU, there is no cyclical or involuntary unemployment</td>
+<td>U often deviates from NAIRU. Unemployment can be both voluntary and involuntary</td>
+</tr>
+<tr>
+<td>Role of AD Shocks</td>
+<td>AD shocks do not cause changes in output because the AS curve adjusts instantly to bring Y back</td>
+<td>AD shocks cause changes in output because AS curve adjusts only gradually to bring Y back</td>
+</tr>
+<tr>
+<td>Changes in <span>$Y*$</span> and NAIRU</td>
+<td>Shocks to technology and preferences lead to changes in both <span>$Y*$</span> and NAIRU</td>
+<td>Shocks to technology and preferences lead to changes in both <span>$Y*$</span> and NAIRU</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>14.3</i>What Determines the NAIRU<a class="headerlink" href="#what-determines-the-nairu" name="what-determines-the-nairu">&para;</a></h3>
+<h4 class="header"><i>14.3.1</i>Frictional Unemployment<a class="headerlink" href="#frictional-unemployment" name="frictional-unemployment">&para;</a></h4>
+<p>Frictional unemployment results from the normal turnover of labour(old people leaving, young people coming). Some of this is voluntary, when workers choose to look for a better job, some of it is involuntary, when a worker gets laid off.</p>
+<h4 class="header"><i>14.3.2</i>Structural Unemployment<a class="headerlink" href="#structural-unemployment" name="structural-unemployment">&para;</a></h4>
+<p>Structural unemployment can be caused by:</p>
+<ul>
+<li>Natural causes: demand in industries change for workers of different skillsets. To meet the changing dmeands, the labour force must constantly restructure. Existing workers can retrain and some new entrants can acquire fresh skills. During the restructuring, structural unemployment exists.</li>
+<li>Policy Causes: Government policies can influence the speed of change of the labour markets. Some policies discourage movement among region/industires/occupations. Employment-insurance program also contributes to structural unemployment. The Canadian EI system gives more benefits to people in high unemployment regions, thus encouraging unemployed workers to remain in high-unemployment regions. Labour market policies make it difficult/costly for firms to fire workers, and also make employers more reluctant to hire workers in the first place. This reduce the amount of turnover in the labour market and contributes to long-term unemployment</li>
+</ul>
+<h4 class="header"><i>14.3.3</i>The Frictional-Structural Distinction<a class="headerlink" href="#the-frictional-structural-distinction" name="the-frictional-structural-distinction">&para;</a></h4>
+<p>Structural unemployment is really long-term frictional unemployment. They can't really be seperate, but they can be seperated from cyclical unemployment. When GDP is at the equilibrium level, the only unemployment is the NAIRU, which comprises frictional and structural unemployment. </p>
+<h4 class="header"><i>14.3.4</i>Why Does the NAIRU Change?<a class="headerlink" href="#why-does-the-nairu-change" name="why-does-the-nairu-change">&para;</a></h4>
+<p>If there are more shocks requiring an adjustment of the labor force, or if the the ability of the labour force to adjust to any given shock declines, the NAIRU rises.</p>
+<p>There are a few reasons why the NAIRU changes:</p>
+<ul>
+<li>A change in demographics might change NAIRU because as more people with high unemployment enter the work force, they increase the NAIRU.</li>
+<li>Hysteresis: when the recession causes a group to be unemployed, they will have less training than the workforce, thus when the recession is over, their employability is still lower, raising the NAIRU even though the recession is over</li>
+<li>Globalization and Structural Change: World economic events will affect the Canadian labour markets, and the NAIRU might rise</li>
+<li>Plicy and Labour-Market Flexibility: Any government policy that reduces labour-market flexibility is likely to increase the NAIRU</li>
+</ul>
+<h3 class="header"><i>14.4</i>Reducing Unemployment<a class="headerlink" href="#reducing-unemployment" name="reducing-unemployment">&para;</a></h3>
+<h4 class="header"><i>14.4.1</i>Cyclical Unemployment<a class="headerlink" href="#cyclical-unemployment" name="cyclical-unemployment">&para;</a></h4>
+<p>Its control is the subject of stabilization policy. There are people who say stabilization policies will reduce cyclical unemployment during recessionary gaps, and there are people that say normal market adjustments can be relied on to remove recessionary gaps, and gov't policies, no matter how well intentioned, will only make things worse.</p>
+<h4 class="header"><i>14.4.2</i>Frictional Unemployment<a class="headerlink" href="#frictional-unemployment_1" name="frictional-unemployment_1">&para;</a></h4>
+<p>Employment insurance is one method of helping people cope with unemployment. Policies in the implementation of EI, such as only giving it to people searching for jobs and denying it from people who voluntarily quit their jobs.</p>
+<h4 class="header"><i>14.4.3</i>Structural Unemployment<a class="headerlink" href="#structural-unemployment_1" name="structural-unemployment_1">&para;</a></h4>
+<p>Either try to resist the changes that the economy experiences or accept the changes and try to assist the necessary adjustments. People who already have jobs will want to resist change because they want to keep their jobs. Policies to increase retraining and improve the flow of labour-market information will assist the adjustments and reduce structural unemployment.</p>
+<h2 class="header"><i>15</i>Government Debts and Deficits<a class="headerlink" href="#government-debts-and-deficits" name="government-debts-and-deficits">&para;</a></h2>
+<h3 class="header"><i>15.1</i>Facts and Definitions<a class="headerlink" href="#facts-and-definitions" name="facts-and-definitions">&para;</a></h3>
+<h4 class="header"><i>15.1.1</i>The Government's Budget Constraint<a class="headerlink" href="#the-governments-budget-constraint" name="the-governments-budget-constraint">&para;</a></h4>
+<p>Like, an individual, the government's expenditures must be financed either by income or by borrowing, the difference the government's income is from taxes. The government's budge constraint is:<br />
+<span>$$Government\:expenditure\:=Tax\:revenue\:+\:Borrowing$$</span><br />
+We can divide gov't expenditure into two categories. One is purchase of goods and services(<span>$G$</span>), the second is interest payments on outstanding stock of debt, this is called <strong>debt-service payments</strong>, and is denoted <span>$i\timesD$</span>, where <span>$i$</span> is the interest rate, and <span>$D$</span> is the stock of gov't debt.</p>
+<p>Therefore the gov't's budget constraint can be rewritten as:<br />
+<span>$$G+i\times D=T+Borrowing$$</span><br />
+<span>$$(G+i\times D)-T=Borrowing$$</span><br />
+This simply says that any excess spending over net tax must come from borrowing. The borrowing is called the budget deficit(<span>$\Delta D$</span>). It is called <span>$\Delta D$</span> because the following year the government's debt will be changed by that much.</p>
+<p>The stock of government debt will rise whenever the budget deficit is positive. The only way the stock of debt drops is if the budge deficit becomes negative, in which case, it's said to be a budget surplus.</p>
+<p>Since at any point in time the outstanding stock of government debt, determined by past government borrowing, cannot be influenced by current gov't policy, the debt-service component of total expenditures is beyond the control of the government. In contrast, the other components of the government's budget are said to be <em>discretionary</em> because it's in the current government's control.</p>
+<p>The *<em>primary budget deficit</em> is the difference between government purchases and net tax revenues, which the government can currently control:<br />
+<span>$$Primary\:budget\:deficit=G-T$$</span><br />
+This is also called the government's program spending. </p>
+<p>In recent years, the federal government has had a significant primary budget surplus, indicating that tax revenues have been more than sufficient to cover program spending.</p>
+<h4 class="header"><i>15.1.2</i>Deficits and Debt in Canada<a class="headerlink" href="#deficits-and-debt-in-canada" name="deficits-and-debt-in-canada">&para;</a></h4>
+<p>Looking at the relative size of the gov't debt/deficit compared to the size of the economy is a lot more useful. Ever since 1998, the federal budget has been in surplus.</p>
+<p>The provincial governments are also responsible for a significant fraction of total government revenues and expenditures, for example, in 2005-2006, the combined provincial and territorial governments had more tax revenues than the federal government. </p>
+<h3 class="header"><i>15.2</i>Two Analytical Issues<a class="headerlink" href="#two-analytical-issues" name="two-analytical-issues">&para;</a></h3>
+<h4 class="header"><i>15.2.1</i>The Stance of Fiscal Policy<a class="headerlink" href="#the-stance-of-fiscal-policy" name="the-stance-of-fiscal-policy">&para;</a></h4>
+<p>Even though the government's fiscal policy determines the budget deficit, a change in the budget deficit doesn't necessarily mean there is a change in the budget deficit. The net taxe income depends on income, thus net taxes rises when the nation income rises. Therefore for a set of expenditure and taxation policies, the budget deficit rises as real GDP falls, and falls as real GDP rises. </p>
+<p><img alt="" src="http://i.imgur.com/dQpyC.jpg" /></p>
+<p>This basic relationship is called the budget deficit function. Expenditure and taxation policies determines the position of the budget deficit function, changes in real GDP lead to movements along the line.</p>
+<p>A more expansionary fiscal policy will shift the line up, while a contractionary policy would shift it down. Therefore if we hold GDP constant, an increase in the deficit would indicate a fiscal expansion, whereas a decrease in the deficit would indicate a fiscal contraction. While we can't hold the GDP constant in practice, we can measure what the budget deficit would be at a specific level of GDP. <br />
+The <strong>cyclically adjusted defict</strong> does just this; it measures the deficit as if real GDP were equal to <span>$Y*$</span>. Changes in the CAD then reveal changes in the stance of fiscal policy:</p>
+<p><img alt="" src="http://i.imgur.com/yXdd8.jpg" /></p>
+<p>An expansionary change in fiscal policy increases the cyclically adjusted deficit, a contractionary change in fiscal policy reduces the cyclically adjusted deficit.</p>
+<h4 class="header"><i>15.2.2</i>Changes in the Debt-to-GDP Ratio<a class="headerlink" href="#changes-in-the-debt-to-gdp-ratio" name="changes-in-the-debt-to-gdp-ratio">&para;</a></h4>
+<p>The debt-to-GDP ratio is a good measure of the government deficits and debt because they are considered relative to the size of the economy. The debt-to-GDP ratio is:<br />
+<span>$$\Delta d = x +(r-g)\times d$$</span><br />
+<span>$d$</span> is the debt-to-GDP ratio, <span>$x$</span> is the gov't's primary budget deficit(<span>$G$</span>-<span>$T$</span>) as a percentage of GDP, <span>$r$</span> is the real interest rate on government bons, <span>$g$</span> is the growth rate of real GDP, and <span>$\Delta d$</span> is the change in the debt-to-GDP ratio.</p>
+<p>In order to have negative <span>$\Delta d$</span>, it is helpful to have continuous budget surpluses, and a real interest rate that is lower than the growth rate of real GDP.</p>
+<h3 class="header"><i>15.3</i>The Effects of Government Debt and Deficits<a class="headerlink" href="#the-effects-of-government-debt-and-deficits" name="the-effects-of-government-debt-and-deficits">&para;</a></h3>
+<p>We assume that an increase in the gov't budget deficit leads to a decrease in national saving, and a decrease in the gov't budget deficit leads to an increase in national saving.</p>
+<h4 class="header"><i>15.3.1</i>Do Deficits Crowd Out Private Activity?<a class="headerlink" href="#do-deficits-crowd-out-private-activity" name="do-deficits-crowd-out-private-activity">&para;</a></h4>
+<p>When there is an increase in budget deficit, this leads to a reduction in government saving, this reduction in government saving leads to a similar reduction in national saving. A reduction in national savings will lead to an excess demand for loanable funds and leads to an increase in the interest rate. As real interest rate increases, the aggregate demand will fall.<br />
+The result is called the crowding out of private investments.</p>
+<p>Suppose again that the government increases government spending and increases its budget deficit. Interests will rise in Canada, foreigners will be attracted to the higher-yield Canadian assets, and thus there will be an increased demand for Canadian dollars, and thus leads to an appreciation of the Canadian dollar. This leads to an increase in imports and a reduction in exports, thereby reducing net export and lowering aggregate demand. This is a crowding out of net exports.</p>
+<h4 class="header"><i>15.3.2</i>Do Deficits Harm Future Generations?<a class="headerlink" href="#do-deficits-harm-future-generations" name="do-deficits-harm-future-generations">&para;</a></h4>
+<p>In an either open or closed economy, a rise in government deficit pushes up interest rates and crowds out domestic investment or net exports. This may be a cost to future generations, this is called the long-term burden of government debt. Whether or not this will become a cost to future generations in the form of taxes depends on how much the budget deficit increased the aggregate demand compared to the crowding out effect.</p>
+<h4 class="header"><i>15.3.3</i>Does Government Debt hamper Economic Policy?<a class="headerlink" href="#does-government-debt-hamper-economic-policy" name="does-government-debt-hamper-economic-policy">&para;</a></h4>
+<p>Government debt make the conduct of monetary and fiscal policy more difficult. </p>
+<p>In order to create a budget surplus, the gov't would have to increase taxes or reduce program spending, both of which are politically unpopular. If that doesn't work, the central bank would have to purchase/monetize an increasing portion of its deficit, which increases money supply and increase inflation. This will lead to an expectation of future inflation, which would increase inflation even more. Thus a large government debt may lead to the expectation of future inflation.</p>
+<p>Fiscal policy could potentially be used to stabilize real GDP. Having cyclically-adjusted budget deficits in recessions and cyclically-adjusted budget surpluses in booms is one way of implementing counter-cyclical fiscal policy.<br />
+From the debt-to-GDP ratio:<br />
+<span>$$\Delta d = x +(r-g)\times d$$</span><br />
+If <span>$d$</span> is already large, any change in <span>$(r-g)$</span> will have a large effect on <span>$\Delta d$</span>, which means it could hamper the government when it want to conduct counter-cyclical fiscal policy.</p>
+<h4 class="header"><i>15.3.4</i>Current Budget Surpluses<a class="headerlink" href="#current-budget-surpluses" name="current-budget-surpluses">&para;</a></h4>
+<ul>
+<li>Increase in government budget surplus will raise the level of national saving</li>
+<li>Rise in national saving will create an excess supply of loanable funds, lowering interest rates. The result is a crowding in of investment</li>
+<li>Similarly it leads to a crowding in of net exports</li>
+<li>As surpluses continue, stock of government debt will fall, this will drop the debt-to-GDP raio</li>
+<li>Lower debt-to-GDP ratio would reduce bondholder's fear of future monetization and reduce interest rates on government debt</li>
+<li>The lower debt-to-GDP ratio will make the government more flexible in using counter-cyclical fiscal policy if the economy enters a recession</li>
+</ul>
+<h3 class="header"><i>15.4</i>Formal Fiscal Rules?<a class="headerlink" href="#formal-fiscal-rules" name="formal-fiscal-rules">&para;</a></h3>
+<p>There is support for legislation that should make balanced budgets a real requirement... is that good?</p>
+<h4 class="header"><i>15.4.1</i>Annually Balanced Budgets?<a class="headerlink" href="#annually-balanced-budgets" name="annually-balanced-budgets">&para;</a></h4>
+<p>Balancing the budget on an annual basis would be extremely difficult to achieve, because a significant portion of the budget is beyond the short term control of the government, and another part is hard to change quickly.</p>
+<p>Trying to balance the budget annually would also destabilize the GDP, and undermine other stabilization policies.</p>
+<h4 class="header"><i>15.4.2</i>Cyclically Balanced Budgets?<a class="headerlink" href="#cyclically-balanced-budgets" name="cyclically-balanced-budgets">&para;</a></h4>
+<p>This is the proposal to balance the budget over the course of a full economic cycle. But, it is impossible to define the cycle precisely, and politicians would argue all day about which part of the cycle they're in, thus it is hard to define a formal policy of this type. The succession of governments also make this policy difficult because governments would be elected at different stages of the cycle, a government can leave the economy in a shitty state, then the next government would be legally required to make up for it.</p>
+<h4 class="header"><i>15.4.3</i>Allowing for Growth<a class="headerlink" href="#allowing-for-growth" name="allowing-for-growth">&para;</a></h4>
+<p>Sometimes having a budget deficit isn't necessarily a bad thing, because the economy could be growing, and having a falling debt-to-GDP ratio, but having a positive overall budget deficits nonetheless. As long as a stable (falling) debt-to-GDP ratio exists, the fiscal situation is good.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

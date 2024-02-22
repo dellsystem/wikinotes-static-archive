@@ -1,0 +1,228 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_407/">
+                MATH 407
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Sequential decision processes
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Sequential decision processes
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>These are transcribed almost directly from the professor's own lecture notes, with very few annotations since I don't really know what's going on. The handwriting is also difficult to read. Wish I had taken Mathematical Finance instead.</p>
+<div class="toc">
+<ul>
+<li><a href="#with-discounting">1 With discounting</a><ul>
+<li><a href="#formulas">1.1 Formulas</a><ul>
+<li><a href="#value-determination-operation">1.1.1 Value-determination operation</a></li>
+<li><a href="#policy-improvement-routine">1.1.2 Policy improvement routine</a></li>
+<li><a href="#proof-of-iteration-cycle">1.1.3 Proof of iteration cycle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#without-discounting">2 Without discounting</a><ul>
+<li><a href="#formulas_1">2.1 Formulas</a><ul>
+<li><a href="#value-determination-operation_1">2.1.1 Value-determination operation</a></li>
+<li><a href="#policy-improvement-routine_1">2.1.2 Policy improvement routine</a></li>
+<li><a href="#proof-of-policy-iteration-method">2.1.3 Proof of policy-iteration method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>With discounting<a class="headerlink" href="#with-discounting" name="with-discounting">&para;</a></h2>
+<p>Sequential decision processes with discounting <span>$\alpha$</span> (where <span>$0 &lt; \alpha &lt; 1$</span>), solved by value iteration.</p>
+<h3 class="header"><i>1.1</i>Formulas<a class="headerlink" href="#formulas" name="formulas">&para;</a></h3>
+<p><span>$$f_i(n) = \max_k \left [q_i^k + \alpha \sum_{j=1}^N p_{ij}^k f_j(n-1) \right ]$$</span></p>
+<p>(Infinite horizon)</p>
+<p><span>$$\lim_{n\to \infty} f_i(N) = f_i \qquad \lim_{n \to \infty} f_j(n-1) = f_j$$</span></p>
+<h4 class="header"><i>1.1.1</i>Value-determination operation<a class="headerlink" href="#value-determination-operation" name="value-determination-operation">&para;</a></h4>
+<p>For a given policy <span>$k$</span>, solve</p>
+<p><span>$$v_i = q_i + \alpha \sum_{j=1}^N p_{ij} v_j \tag{$i=1, 2, \ldots N$}$$</span></p>
+<h4 class="header"><i>1.1.2</i>Policy improvement routine<a class="headerlink" href="#policy-improvement-routine" name="policy-improvement-routine">&para;</a></h4>
+<p>The resulting P.I.R. is as follows: for each end state <span>$i$</span>, find (illegible)<sup>maybe "alternative"?</sup> <span>$k'$</span> that maximises</p>
+<p><span>$$q_i^k + \alpha \sum_{j=1}^N p_{ijk}^k v_j$$</span></p>
+<p>using the present<sup>?</sup> value <span>$v_i$</span> from previous policies. Then <span>$k'$</span> becomes the new decision in the <span>$i$</span><sup>th</sup> state. <span>$q_i^{k'}$</span> becomes <span>$q_i$</span>, and <span>$p_{ij}^{k'}$</span> becomes <span>$p_{ij}$</span>. Stop when there is no change in the policy. This whole section of his notes is impossible to read.</p>
+<h4 class="header"><i>1.1.3</i>Proof of iteration cycle<a class="headerlink" href="#proof-of-iteration-cycle" name="proof-of-iteration-cycle">&para;</a></h4>
+<p>Consider policy <span>$A$</span> and its successor policy <span>$B$</span> produced by the P.I.R:</p>
+<p><span>$$q_i^b + \alpha\sum_{j=1}^n p_{ij}^B v_j^A \geq q_i^A + \alpha \sum_{j=1}^N p_{ij}^A v_j^A \tag{1}$$</span></p>
+<p>in every state <span>$i$</span>. We also know for policies taken individually that:</p>
+<p><span>$$\begin{align}
+v_i^A &amp; = q_i^A + \alpha \sum_{j=1}^N p_{ij}^A v_j^A \quad \text{or} \quad \underline v^A = [I-\alpha P^A]^{-1} \underline q^A
+\tag{2} \\
+\therefore \, \underline v^A &amp; = \underline q^A +\alpha P^A\underline v^A \tag{not sure about the $\therefore$} \\
+v_i^B &amp; = q_i^B + \alpha\sum_{j=1}^N p_{ij}^B v_j^B \quad \text{or} \quad \underline v^B = [I-\alpha P^B]\underline q^B \tag{3} \\
+\therefore \, \underline v^B &amp; = \underline q^B + \alpha P^B\underline v^B
+\end{align}$$</span></p>
+<p>(I'm not sure if <span>$p$</span> is meant to be uppercase or lowercase. Does it matter?)</p>
+<p>Now we define <span>$\gamma_i$</span> (what is <span>$\gamma$</span>?) as follows:</p>
+<p><span>$$\begin{align}
+\gamma_i &amp; = q_i^B + \alpha_{j=1}^N p_{ij}^B v_j^A - q_i^A - \alpha\sum_{j=1}^N p_{ij}^A v_j^B \\
+\therefore \, v_i^B - v_i^A &amp; = q_i^B - q_i^A + \alpha \sum_{j=1}^N p_{ij}^B v_j^B - \alpha \sum_{j=1}^N p_{ij}^A v_j^A \\
+&amp; = \gamma_i - \alpha\sum_{j=1}^N p_{ij}^B v_j^A + \cancel{\alpha \sum_{j=1}^N p_{ij}^A v_j^A} + \alpha \sum_{j=1}^N p_{ij}^B v_j^B - \cancel{\alpha\sum_{j=1}^N p_{ij}^A v_j^A}
+\end{align}$$</span></p>
+<p>Let <span>$\Delta v_i = v_i^B - v_i^A$</span>. In terms of <span>$\gamma_i$</span>, we can write</p>
+<p><span>$$\Delta v_i = \gamma_i + \alpha\sum_{j=1}^N p_{ij}^B \Delta v_j$$</span></p>
+<p>In vector/matrix form, we have:</p>
+<p><span>$$\Delta \underline{v} = \underline{\gamma} + \alpha P\Delta v$$</span></p>
+<p>Thus we can write</p>
+<p><span>$$[I-\alpha P]\Delta \underline{v} = \underline{\gamma} \quad \text{or} \quad \Delta \underline{v} = [I-\alpha P]^{-1} \underline{\gamma}$$</span></p>
+<p>But <span>$[I-\alpha P]^{-1}$</span> has non-negative elements. Hence if <span>$\gamma_i &gt; 0$</span>, at least one <span>$\Delta v_i$</span> must be greater than zero, and no <span>$\Delta v_i$</span> can be less than zero.</p>
+<p>In other words, the P.I.R. must increase at least once and cannot decrease, and if <span>$\Delta \underline{v} = 0$</span> then the algorithm has converged.</p>
+<h2 class="header"><i>2</i>Without discounting<a class="headerlink" href="#without-discounting" name="without-discounting">&para;</a></h2>
+<p>Another set of notes, for the non-discounting case.</p>
+<h3 class="header"><i>2.1</i>Formulas<a class="headerlink" href="#formulas_1" name="formulas_1">&para;</a></h3>
+<p><span>$$f_n(i) = \max_k \left [ q_i^k + \sum_{j=1}^N p_{ij} f_{n-1}(j) \right ], \quad f_1(i) = \max q_i^k \tag{I think}$$</span></p>
+<p>Also, <span>$\displaystyle \lim_{n\to \infty}f_n(i) = f(i)$</span>.</p>
+<p>For a given policy, we have:</p>
+<p><span>$$v_n(i) = q_i + \sum_{j=1}^N p_{ij} v_{n-1}(j) \tag{not sure about this}$$</span></p>
+<p>Let <span>$v_n(i) = ng + c_i$</span>. Then, substituting this into the formula above, we have:</p>
+<p><span>$$\begin{align}
+ng+c_i &amp; = q_i + \sum_{j=1}^N p_{ij} \big [ (n-1)g + c_j \big ] \\
+g + c_i &amp; = q_i + \sum_{j=1}^N p_{ij} c_j \tag{$n$ equations with $n$ unknowns}
+\end{align}$$</span></p>
+<h4 class="header"><i>2.1.1</i>Value-determination operation<a class="headerlink" href="#value-determination-operation_1" name="value-determination-operation_1">&para;</a></h4>
+<p>Use <span>$p_{ij}$</span> and <span>$q_i$</span> for a given policy to solve the following:</p>
+<p><span>$$g+c_i = q_i + \sum_{j=1}^N p_{ij} c_j \tag{$i=1, 2, \ldots, N$}$$</span></p>
+<p>Set <span>$c_N = 0$</span>.</p>
+<h4 class="header"><i>2.1.2</i>Policy improvement routine<a class="headerlink" href="#policy-improvement-routine_1" name="policy-improvement-routine_1">&para;</a></h4>
+<p>For each state, find an alternative policy <span>$k'$</span> that maximises</p>
+<p><span>$$q_i^{k} + \sum_{j=1}^N p_{ij}^k c_j$$</span></p>
+<p>Using the relative value of <span>$c_j$</span> from the previous policy<sup>what does this mean?</sup>, <span>$k'$</span> becomes the new decision in state <span>$i^k$</span>. Furthermore, <span>$q_i^k$</span> becomes <span>$q_i$</span>, and <span>$p_{ij}^k$</span> becomes <span>$p_{ij}$</span>.</p>
+<p>We stop iterating when there is no change in <span>$g$</span></p>
+<h4 class="header"><i>2.1.3</i>Proof of policy-iteration method<a class="headerlink" href="#proof-of-policy-iteration-method" name="proof-of-policy-iteration-method">&para;</a></h4>
+<p>We have evaluated policy <span>$A$</span> for the operation of the system<sup>what does this mean?</sup>, and the P.I.R. has produced policy <span>$B$</span>.</p>
+<p>We seek to prove that <span>$g^B &gt; g^A$</span>, i.e., the gain using policy <span>$B$</span> is greater than the gain using policy <span>$A$</span> (and so policy <span>$B$</span> is indeed optimal).</p>
+<p>Since <span>$B$</span> was chosen over <span>$A$</span>, the following must be true:</p>
+<p><span>$$q_i^B + \sum_{j=1}^N p_{ij}^Bv_j^A \geq q_i^A + \sum_{j=1}^N p_{ij}^A v_j^A \quad i = 1, 2, \ldots, N \tag{1}$$</span></p>
+<p>Next, we define <span>$\gamma_i$</span> as follows:</p>
+<p><span>$$\gamma_i = q_i^B + \left ( \sum_{j=1}^N p_{ij}^B v_j^A \right ) - q_i^A - \left (\sum_{j=1}^N p_{ij}^A v_j^A \right ) \tag{2}$$</span></p>
+<p>For policies <span>$A$</span> and <span>$B$</span> individually, we have the following:</p>
+<p><span>$$\begin{align}
+g^B + v_i^B &amp; = q_i^B + \sum_{j=1}^N p_{ij}^B v_j^B \quad i=1, 2, \ldots, N \tag{3} \\
+g^A + v_i^A &amp; = q_i^A + \sum_{j=1}^N p_{ij}^A v_j^A \quad i=1, 2, \ldots, N \tag{4}
+\end{align}$$</span></p>
+<p>If we subtract (4) from (3), we get:</p>
+<p><span>$$g^B - g^A + v_i^B - v_i^A = q_i^B - q_i^A + \left (\sum_{j=1}^N p_{ij}^B v_j^B\right ) - \left (\sum_{j=1}^N p_{ij}^A v_j^A \right ) \tag{5}$$</span></p>
+<p>Now, if we take (1) + (2) and substitute that into (5), we obtain:</p>
+<p><span>$$\begin{align}
+g^B - g^A + v_i^B - v_i^A &amp; = \gamma_i - \left (\sum_{j=1}^N p_{ij}^B v_j^A \right ) + \cancel{\left ( \sum_{j=1}^N p_{ij}^A v_j^A \right )} + \left ( \sum_{j=1}^N p_{ij}^B v_j^B \right ) - \cancel{\left ( \sum_{j=1}^N p_{ij}^A v_j^A \right )} \\
+&amp; = \gamma_i + \sum_{j=1}^N p_{ij}^B (v_j^B - v_j^A) \tag{6}
+\end{align}$$</span></p>
+<p>Let <span>$\Delta g = g^B - g^A$</span> and let <span>$\Delta v_i = v_i^B - v_i^A$</span>. Then, (6) becomes:<sup id="fnref:wtf"><a href="#fn:wtf" rel="footnote" title="Not sure if $v_j$ or $c_j$. It originally said $v_...">1</a></sup></p>
+<p><span>$$\Delta g + \Delta v_i = \gamma_i + \sum_{j=1}^N p_{ij}^B \Delta c_j$$</span></p>
+<p>Thus we have</p>
+<p><span>$$\Delta g = \sum_{i=1}^N \pi_i^B \gamma_i \tag{what}$$</span></p>
+<p>In the value determination operation, we obtained</p>
+<p><span>$$g + v_i = q_i + \sum_{j=1}^N p_{ij} v_j, \quad i = 1, 2, \ldots, N \tag{1}$$</span></p>
+<p>where <span>$g$</span> is the gain per period of time in the steady state<sup>what?</sup>. In other words, we have</p>
+<p><span>$$g = \sum_{i=1}^N \pi_i q_i$$</span></p>
+<p>where <span>$\pi_i$</span> is the limiting state probability of the <span>$i$</span><sup>th</sup> state<sup>what?</sup>.</p>
+<p>Hence,</p>
+<p><span>$$\Delta g + \Delta c_i = \gamma_i + \sum_{j=1}^N p_{ij}^B \Delta c_j$$</span></p>
+<p>with <span>$\Delta g = \sum \pi_i \gamma_i$</span> is the same as equation (1) with <span>$\Delta g$</span> replacing <span>$g$</span> and <span>$\Delta c_i$</span> replacing <span>$c$</span>. In other words, <span>$\Delta g= \sum \pi_i \gamma_i$</span> and <span>$\gamma_i$</span> is positive, so <span>$\Delta g \geq 0$</span>, and we have a policy improvement until it becomes steady<sup>just guessed the word, it's kind of illegible</sup>, that is, when <span>$\Delta g = 0$</span>.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:wtf">
+<p>Not sure if <span>$v_j$</span> or <span>$c_j$</span>. It originally said <span>$v_j$</span> but he crossed it out and replaced it with <span>$c_j$</span>, but, <span>$\Delta c_j$</span> isn't defined anywhere, and a bunch of other <span>$c$</span>'s were crossed out and replaced with <span>$v$</span>'s and I don't know what is happening I just what. Is add-drop over already?&#160;<a href="#fnref:wtf" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,458 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, November 25, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, November 25, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Transactional memory continued and Message passing
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#transactional-programming">1 Transactional programming</a><ul>
+<li><a href="#pessimistic-approach-always-going-to-work">1.1 Pessimistic approach (always going to work)</a><ul>
+<li><a href="#disadvantages">1.1.1 Disadvantages</a></li>
+</ul>
+</li>
+<li><a href="#optimistic-approach-usually-going-to-work-but-always-right-in-the-end">1.2 Optimistic approach (usually going to work, but always right in the end)</a><ul>
+<li><a href="#tentative-execution">1.2.1 Tentative execution</a></li>
+</ul>
+</li>
+<li><a href="#nested-transactions">1.3 Nested transactions</a><ul>
+<li><a href="#conditional-synchronization">1.3.1 Conditional synchronization</a></li>
+<li><a href="#orelse">1.3.2 orElse</a></li>
+<li><a href="#advantages-over-lock-based-programming">1.3.3 Advantages over lock-based programming</a></li>
+<li><a href="#disadvantages-to-transactional-based-programming">1.3.4 Disadvantages to transactional based programming</a></li>
+<li><a href="#what-transactional-memory-is-suitable-for">1.3.5 What Transactional memory is suitable for</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#hardware-transactional-memory">2 Hardware transactional Memory</a><ul>
+<li><a href="#hardware-implementation">2.1 Hardware implementation</a></li>
+<li><a href="#rtm">2.2 RTM</a></li>
+<li><a href="#hle">2.3 HLE</a></li>
+<li><a href="#tls-thread-level-speculation-also-called-spmt-speculative-multithreading">2.4 TLS (thread-level speculation), also called SPMT (speculative multithreading)</a><ul>
+<li><a href="#speculation-model">2.4.1 Speculation model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Transactional programming<a class="headerlink" href="#transactional-programming" name="transactional-programming">&para;</a></h2>
+<p>It shares idea with the concept of transactions in databases. Basic idea: that we have been using locks to try and enforce mutual-exclusion, but it's a low level process that is easy to mess up and hard to manage. Could we get a system that does locking for us?</p>
+<div class="codehilite"><pre>// Language                                 // Translates to
+atomic {                                    synchronized(global_lock) {
+    // Mutual exclusion with all threads        // Mutual exclusion with all threads
+}                                           }
+</pre></div>
+
+
+<p>We can easily do the above, but the performance suffers. Transactional programming tries to achieve the same result, but differently. It does so with either a pessimistic or optimistic approach.</p>
+<h3 class="header"><i>1.1</i>Pessimistic approach (always going to work)<a class="headerlink" href="#pessimistic-approach-always-going-to-work" name="pessimistic-approach-always-going-to-work">&para;</a></h3>
+<p>When translating the <code>atomic</code> section, a global lock can be allocated and be used to lock the section. This is not performant, as seen above.</p>
+<p>Better, if we know what data is being accessed, it can be locked in a more fine-grained fashion:</p>
+<div class="codehilite"><pre>atomic {                                                // For all x in A, x is locked
+    // Operations accessing the variables in the set A  // The operations are done
+}                                                       // For all x in A, x is unlocked
+</pre></div>
+
+
+<p>This way, we end up with better performance because more than one thread can be in the critical section if they do not overlap their accesses.</p>
+<h4 class="header"><i>1.1.1</i>Disadvantages<a class="headerlink" href="#disadvantages" name="disadvantages">&para;</a></h4>
+<p>Finding what data is being accessed is not always trivial to do:</p>
+<div class="codehilite"><pre>atomic {
+    while (p.x != 0)
+        p = p.next;
+}
+</pre></div>
+
+
+<p>Furthermore, it is required to order the data when locking it (remember the dining philosophers problem) to avoid deadlock.</p>
+<p>Locking overhead tends to build up as well.</p>
+<p>One observation is that the odd of <em>needing</em> locking is often low. This leads to the optimistic approach.</p>
+<h3 class="header"><i>1.2</i>Optimistic approach (usually going to work, but always right in the end)<a class="headerlink" href="#optimistic-approach-usually-going-to-work-but-always-right-in-the-end" name="optimistic-approach-usually-going-to-work-but-always-right-in-the-end">&para;</a></h3>
+<p>Locking is not done at all. Instead, the atomic block is executed no matter what, but before committing it, conflicts are detected (where the complexity of this approach lies). If there is any, the execution is not committed but tried again.</p>
+<h4 class="header"><i>1.2.1</i>Tentative execution<a class="headerlink" href="#tentative-execution" name="tentative-execution">&para;</a></h4>
+<p>The atomic section is executed in isolation. That is, the writes are all buffered rather committed to main memory. Then, it is possible to check if any of the read variables were written by anyone else.</p>
+<p>If not, there is no conflict, and so the buffer is committed.</p>
+<p>If so, the buffer is discarded and the thread tries again.</p>
+<h3 class="header"><i>1.3</i>Nested transactions<a class="headerlink" href="#nested-transactions" name="nested-transactions">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">atomic</span> <span class="o">{</span>
+  <span class="n">atomic</span> <span class="o">{</span>
+    <span class="c1">// Is this useful?</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>According to the atomicity property, using the above is actually redundant, but there are many reasons why these sort of things should be allowed. For modularity for example:</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">foo</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">atomic</span> <span class="o">{</span>
+    <span class="n">bar</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kt">void</span> <span class="nf">bar</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">atomic</span> <span class="o">{</span>
+
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.3.1</i>Conditional synchronization<a class="headerlink" href="#conditional-synchronization" name="conditional-synchronization">&para;</a></h4>
+<p>concurrency deals with atomicity and thread control (communication, coordinate)<br />
+atomicity: we have it.<br />
+thread control in tm: this is one area where transactional programming ends up being weaker, unless we do it properly.</p>
+<p>With an atomic construct, it is impossible to to <code>wait</code> or <code>notify</code> like a monitor. However, some constructs allow to get a bit close to this idea.</p>
+<div class="codehilite"><pre><span class="n">atomic</span> <span class="o">{</span>
+  <span class="c1">// beginning</span>
+  <span class="k">if</span> <span class="o">(...)</span> <span class="o">{</span>
+    <span class="n">retry</span> <span class="c1">// causes transaction to fail and restart at the beginning</span>
+    <span class="c1">// basically allows for a spin lock</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Example:</strong> Producer/consumer</p>
+<div class="codehilite"><pre><span class="n">produce</span><span class="o">(</span><span class="n">data</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">atomic</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">queue</span><span class="o">.</span><span class="na">full</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">retry</span>
+    <span class="o">}</span>
+    <span class="n">queue</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">data</span><span class="o">)</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="n">consume</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">atomic</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">queue</span><span class="o">.</span><span class="na">empty</span><span class="o">())</span> <span class="o">{</span>
+      <span class="n">retry</span>
+    <span class="o">}</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="na">get</span><span class="o">()</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This is closer to spinning than it is to waiting. However, we could have a compiler/runtime system that recognizes the boolean condition on retry and does a proper wait/notify under the cover; Rather than a single statement <code>retry;</code>, we can have <code>retry(boolean);</code> to get closer to the idea of wait/notify. With <strong>nested</strong> transactions, we get inner retries.</p>
+<h4 class="header"><i>1.3.2</i>orElse<a class="headerlink" href="#orelse" name="orelse">&para;</a></h4>
+<div class="codehilite"><pre><span class="n">atomic</span> <span class="p">{</span>
+  <span class="c1">// if this fails,</span>
+<span class="p">}</span> <span class="n">orElse</span> <span class="p">{</span>
+  <span class="c1">// execute that</span>
+<span class="p">}</span> <span class="c1">// the orElse is still atomic</span>
+<span class="c1">// if orElse fails as a transaction, retry the whole thing</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.3.3</i>Advantages over lock-based programming<a class="headerlink" href="#advantages-over-lock-based-programming" name="advantages-over-lock-based-programming">&para;</a></h4>
+<p><strong>1) Conceptually simple: the programmer can just consider transactional memory as sequential code</strong></p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">run</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">atomic</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+          <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="n">atomic</span> <span class="p">{</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">L1</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+    <span class="n">L2</span><span class="p">.</span><span class="n">push</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<dl>
+<dt>2) better parallelism and performance</dt>
+<dd>optimistic concurrency control</dd>
+<dd>no lock/synchronization during transaction execution</dd>
+<dt>3) less error-prone</dt>
+<dd>no deadlock, livelock, etc</dd>
+</dl>
+<h4 class="header"><i>1.3.4</i>Disadvantages to transactional based programming<a class="headerlink" href="#disadvantages-to-transactional-based-programming" name="disadvantages-to-transactional-based-programming">&para;</a></h4>
+<dl>
+<dt>transaction region cannot contain instructions with side-effects such as I/O</dt>
+<dd>when an instruction does more than merely read or write memory. E.g. I/O, incurs interupts. Read/write to/from a port. Output to the screen.</dd>
+<dd>Cannot rollback</dd>
+<dd>transaction will rollback if buffering is overflown</dd>
+<dd>in STM, transaction overhead is proportional to the number of memory accesses</dd>
+</dl>
+<h4 class="header"><i>1.3.5</i>What Transactional memory is suitable for<a class="headerlink" href="#what-transactional-memory-is-suitable-for" name="what-transactional-memory-is-suitable-for">&para;</a></h4>
+<dl>
+<dt>complex data structures</dt>
+<dd>different transactions can work on different parts of the data structure</dd>
+<dd>fine-grain locking is difficult</dd>
+<dt>memory accesses with rare conflicts</dt>
+<dd>most transactions commit</dd>
+<dd>locks have higher contention and overhead</dd>
+</dl>
+<h2 class="header"><i>2</i>Hardware transactional Memory<a class="headerlink" href="#hardware-transactional-memory" name="hardware-transactional-memory">&para;</a></h2>
+<p>An atomic sequence of instructions for which either</p>
+<ul>
+<li>all instructions (commit) execute</li>
+<li>no instruction execute (rollback/abort) when the read/write data of thread is written by another</li>
+</ul>
+<h3 class="header"><i>2.1</i>Hardware implementation<a class="headerlink" href="#hardware-implementation" name="hardware-implementation">&para;</a></h3>
+<dl>
+<dt>Hardware transactional memory (HTM)</dt>
+<dd><strong>IBM</strong> Blue Gene/Q. Gives htm</dd>
+<dd><strong>Intel</strong> Haswell. Gives you machine code to code them (tsx).</dd>
+</dl>
+<p>These give 2 models of transactions:</p>
+<ul>
+<li>Restricted transactional memory (RTM): more flexible HTM implementation.</li>
+<li>Intel Transactional Synchronization Extensions (TSX): Hardware Lock Elision (HLE). Legacy compatible instructions. Good for transition.</li>
+</ul>
+<h3 class="header"><i>2.2</i>RTM<a class="headerlink" href="#rtm" name="rtm">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">XBEGIN</span><span class="o">(</span><span class="n">offset</span><span class="o">)</span>
+  <span class="c1">// transaction</span>
+<span class="n">XEND</span>
+</pre></div>
+
+
+<p>offset means the offset of the failure handler.</p>
+<p>Inside the transaction you get two more instructions:<br />
+XBEGIN(offset)<br />
+  XABORT // give up (and goto handle)<br />
+  XTEST // check whether if in a transition<br />
+XEND</p>
+<p>But you can't just put anything in the transition (well, you can, but that'll just make it abort and fail):<br />
+- cpuid, pause<br />
+- debug registers<br />
+- signals</p>
+<p>Allowed:<br />
+- nesting (there's a max depth. beyond that the transition aborts). BTW the handler gets the error code (can act upon it).</p>
+<p>The intel model doesn't give a progress guarantee. after a certain amount it'll ask you to stop and try something else (e.g. locking)</p>
+<p>In bluegene/Q: has guarantee. if a transition fails a number of times, it'll acquire a lock and prevent all other transitions from moving til the current one is done (serialize everything)</p>
+<p>on a conceptual level, hardware transaction isn't hard to do</p>
+<div class="codehilite"><pre>          <span class="n">L1</span> <span class="n">cache</span>
+        <span class="n">_____________</span>
+        <span class="o">|</span>           <span class="o">|</span>
+        <span class="o">|</span><span class="n">______</span>     <span class="o">|</span>
+   <span class="o">-----|-&gt;</span>   <span class="o">|</span>     <span class="o">|</span>
+  <span class="o">&lt;-----|--</span>   <span class="o">|</span>     <span class="o">|</span>
+        <span class="o">|</span><span class="n">xyzw_</span><span class="o">|</span><span class="n">_____</span><span class="o">|</span>
+          <span class="o">^</span>
+      <span class="n">need</span> <span class="n">to</span> <span class="n">detect</span> <span class="n">conflict</span> <span class="n">r</span><span class="o">/</span><span class="n">w</span><span class="o">,</span> <span class="n">w</span><span class="o">/</span><span class="n">w</span>
+</pre></div>
+
+
+<p>This model does have a problem: dealing with cache-line granularity<br />
+|x|y|z|w|<br />
+if someone reads x and someone writes y, conflict!<br />
+even though no real conflict (called false-sharing). simply because they're on the same cache line<br />
+false sharing isn't rly a big issue though<br />
+struct {<br />
+  int x<br />
+  int y<br />
+}<br />
+but if it ever happens, put a padding between int x and int y (fill the cache line with bullshit so that x and y get on different lines)</p>
+<h3 class="header"><i>2.3</i>HLE<a class="headerlink" href="#hle" name="hle">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">XACQUIRE</span> <span class="c1">// lock-acquire</span>
+  <span class="c1">// whatever you&#39;re doing inside here, I&#39;ll pretend I&#39;m doing it but not really. instead I&#39;ll (pretend) add the write to the transaction</span>
+  <span class="c1">// transaction</span>
+<span class="n">XRELEASE</span> <span class="c1">// lock-release</span>
+</pre></div>
+
+
+<p>Idea: rather to actually lock (expensive), hardware pretend to lock. If someone else gets the lock, this fails and it'll now actually lock (aka, optimistically run without lock the first time). So this is a kind of transaction now<br />
+this is good for low-contention of course.</p>
+<h3 class="header"><i>2.4</i>TLS (thread-level speculation), also called SPMT (speculative multithreading)<a class="headerlink" href="#tls-thread-level-speculation-also-called-spmt-speculative-multithreading" name="tls-thread-level-speculation-also-called-spmt-speculative-multithreading">&para;</a></h3>
+<p>Idea: concurrent programming is hard, take advantage of otherwise idle cores.<br />
+Automatic parallelization<br />
+Normal sequential exec:</p>
+<div class="codehilite"><pre>  __
+  |A|
+  | |
+  |_|__fork__&gt; speculate that c will exec in parallel here correctly
+  |B|          |C|
+  | |          | |  isolated
+  |_|&lt;_join___ |_|
+  |C|
+  | |
+  |_|
+</pre></div>
+
+
+<p>Thread with B is non-speculative, thread C is speculative<br />
+non-spec</p>
+<div class="codehilite"><pre>            ____
+  |   &lt;---&gt; |   |
+  |         |mem|
+  |   &lt;---&gt; |___|
+  V
+</pre></div>
+
+
+<p>spec</p>
+<div class="codehilite"><pre>___
+|WB|&lt;---|
+|__|---&gt;|
+___     |
+|RB|---&gt;|
+|__|    |
+        V
+</pre></div>
+
+
+<p>b starts at state 1<br />
+c starts at state 2<br />
+but when in parallel c actually starts at state 1</p>
+<p>If b modifies x but c reads x before that, once we get to the join point we need to validate the state. Look at the read buffer and see if everything I read is the same as those in the current memory. If not, we give up. good thing that c is executed in complete isolation. Throw away thread C and execute as normally would do sequentially</p>
+<p>Of course, ideally the read buffer matches main mem. in that case, just commit (aka send write buffer, written in isolation, to mem)</p>
+<p>the non-speculative thread (B) continues on whereever speculative thread got to</p>
+<p>Soooo, when do we (auto) fork? static analysis, or some adaptive runtime heuristic</p>
+<ul>
+<li>loop-level speculation</li>
+</ul>
+<div class="codehilite"><pre><span class="k">for</span> <span class="o">(...)</span> <span class="o">{</span>
+  <span class="n">fork</span>
+  <span class="o">...</span>
+  <span class="n">join</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>First iteration non-speculative, second iteration speculative.</p>
+<ul>
+<li>method level speculation</li>
+</ul>
+<div class="codehilite"><pre>|
+V
+foo() -------&gt; foo....
+                |
+                |
+&lt;---------------|
+| bla
+V
+</pre></div>
+
+
+<p>(that's normal exec)<br />
+now try foo() still non-speculative, try bla speculatively<br />
+to make this work better, try to guess the return value of foo (lol)</p>
+<ul>
+<li>null predictor (guess that the val is 0)</li>
+<li>last value predictor (same value as what we got last time. meaning we need to record the previous return value)</li>
+<li>stride predictor (diff between return value v1 and v2)<br />
+  1, 2, 3, 4, 5 -&gt; maybe 6's next</li>
+<li>hybrid predictor (combination)</li>
+</ul>
+<h4 class="header"><i>2.4.1</i>Speculation model<a class="headerlink" href="#speculation-model" name="speculation-model">&para;</a></h4>
+<p>Shat if more than one spec thread?</p>
+<ul>
+<li>
+<p>out-of-order speculation: allow (only) non-speculative thread to fork multiple speculative threads. works well with method-level speculation. Join in reverse order that we speculated them in (thus the name)<br />
+<img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5160935/bf4a6506-7368-11e4-8d35-563ba2f349db.JPG" /></p>
+</li>
+<li>
+<p>In-order speculation: join in the order the threads are created. A speculative thread forks one speculative thread<br />
+<img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5160931/a976704e-7368-11e4-90c5-3fb83a830fc8.JPG" /></p>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

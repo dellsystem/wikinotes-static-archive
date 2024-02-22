@@ -1,0 +1,274 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 2, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 2, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to propositional logic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Read Loveys' notes posted on WebCT - the other notes and the textbook are optional.</p>
+<h2 class="header"><i>1</i>Propositional logic<a class="headerlink" href="#propositional-logic" name="propositional-logic">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Symbols<a class="headerlink" href="#symbols" name="symbols">&para;</a></h3>
+<ul>
+<li><span>$\top$</span>, <span>$\bot$</span> ("top" and "bottom" or "true" and "false", although Loveys doesn't like the latter) - propositional constants, or truth values (but don't call them that)</li>
+<li>Propositional variables: <span>$p, q, r, q', q_1, ...$</span> etc</li>
+<li>Connectives:</li>
+</ul>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Connective</th>
+<th>Meaning</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\neg$</span></td>
+<td>Not</td>
+<td>Unary</td>
+</tr>
+<tr>
+<td><span>$\land$</span></td>
+<td>And</td>
+<td>Binary</td>
+</tr>
+<tr>
+<td><span>$\lor$</span></td>
+<td>Or</td>
+<td>Binary</td>
+</tr>
+<tr>
+<td><span>$\to$</span></td>
+<td>Implies</td>
+<td>Binary</td>
+</tr>
+<tr>
+<td><span>$\iff$</span></td>
+<td>If and only if</td>
+<td>Binary</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.2</i>Rules for making propositional formulas<a class="headerlink" href="#rules-for-making-propositional-formulas" name="rules-for-making-propositional-formulas">&para;</a></h3>
+<ol>
+<li><span>$\top, \bot, p, q ...$</span> are all formulas</li>
+<li>If <span>$\Phi$</span> is a formula, so is <span>$\neg \Phi$</span> (the sole unary connective)</li>
+<li>If <span>$a$</span> and <span>$b$</span> are formulas, so are <span>$a \land b$</span>, <span>$a \lor b$</span>, etc</li>
+</ol>
+<p>Make sure there are enough parentheses (which Loveys calls brackets<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Not incorrect, obviously, just not very precise as...">1</a></sup>) that precedence is forced, i.e. there is only one way to interpret any formula. Note that technically there should be parentheses around <span>$a$</span> and <span>$b$</span> when joined with a binary connective, but if the expression is still unambiguous then it's fine, we can drop them for brevity by convention. We could also have used square brackets ([, ]) or curly braces ({, }).</p>
+<p>As an example, to check that <span>$\neg ((((p) \land (\neg (q))) \lor (\neg(p))) \land \bot))$</span> is a formula, we can use a tree diagram and split at each connective. (I'm not going to do it here because it would take too long but it should be pretty obvious how it works). The valuation of this formula w</p>
+<h3 class="header"><i>1.3</i>Valuation<a class="headerlink" href="#valuation" name="valuation">&para;</a></h3>
+<p>There are only two propositional constants in this classical logic system - the "truth values" <span>$\top$</span> and <span>$\bot$</span>. The process of assigning a truth value to a formula is called <strong>valuation</strong>, defined as follows:</p>
+<blockquote>
+<p>A valuation, <span>$V$</span>, is a function from <span>$\{ p, q, ... \} \to \{\top, \bot\}$</span>. The domain is the countably infinite set of variables, and thus formulas. We have the following rules:</p>
+<ol>
+<li><span>$V(\top) = \top$</span>, <span>$V(\bot) = \bot$</span></li>
+<li><span>$V(\neg \Phi) \neq V(\Phi)$</span></li>
+<li><span>$V(a \land b) = \top$</span> if and only if <span>$V(a) = V(b) = \top$</span><br />
+<span>$V(a \lor b) = \bot$</span> if and only if <span>$V(a) = V(b) = \bot$</span> (i.e. the <span>$\lor$</span> connective behaves like inclusive or)<br />
+<span>$V(a \to b) = \bot$</span> if and only if <span>$V(a) = \top$</span> and <span>$V(b) = \bot$</span> (material implication<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="An implication can only be proved false if the pre...">2</a></sup>)<br />
+<span>$V(a \iff b) = \top$</span> only if <span>$V(a) = V(b)$</span></li>
+</ol>
+</blockquote>
+<p>In other words, the connectives behave pretty much as we would expect them to. No need to memorise any rules.</p>
+<h3 class="header"><i>1.4</i>Truth tables<a class="headerlink" href="#truth-tables" name="truth-tables">&para;</a></h3>
+<p>Given a formula <span>$\Phi$</span> with <span>$n$</span> different propositional variables (<span>$p_1, p_2 ... p_n$</span>), we can summarise the possible values of <span>$V(\Phi)$</span> using a truth table with <span>$2^n$</span> lines<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="See solutions to assignment 1, question 4 a) for a...">3</a></sup>. Each line in the truth table should represent a different combination of valuations for each of <span>$p_1, p_2 ... p_n$</span>, and the last column will always contain the valuation of the formula as a whole. For example, the truth table for <span>$p \to q$</span> can be represented as follows:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$p \to q$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+</tbody>
+</table>
+<p>With more complex formulas, we can get much longer and more complicated truth tables, but writing one out never becomes truly difficult, merely time-consuming. As an example, the truth table for a slightly more complicated formula, <span>$(p \to q) \to (q \to p)$</span>, is shown below:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$p \to q$</span></th>
+<th><span>$q \to p$</span></th>
+<th><span>$(p \to q) \to (q \to p)$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+</tbody>
+</table>
+<p>Although this formula is longer, it still uses only two different variables, and so the truth table only needs to have four lines to cover all of the cases.</p>
+<h3 class="header"><i>1.5</i>Tautologies<a class="headerlink" href="#tautologies" name="tautologies">&para;</a></h3>
+<p>A <strong>tautology</strong> is a formula <span>$\Phi$</span> for which <span>$V(\Phi) = \top$</span> for <em>every</em> valuation <span>$V$</span>. In other words, every line in the truth table comes out <span>$\top$</span>. This is <em>not</em> the same as saying that it is "always true", and Loveys will be on your case if you do not recognise that, so be careful. A formula has no inherent truth in it; it is only when interpreted that a truth value can be assigned. Furthermore, tautologies are only so due to the role of the connectives in the formula<sup>clarify?</sup>. This is just semantics, though, so don't worry about it too much.</p>
+<p>Here's an example of a tautology, one that you'll see again once we start doing predicate logic (I won't write out the truth table because, well, it's a tautology):</p>
+<blockquote>
+<p><span>$(p \land (p \to q)) \to q$</span> (If <span>$p$</span> is true, and <span>$p$</span> implies <span>$q$</span>, then <span>$q$</span> is true)</p>
+</blockquote>
+<p>See <a href="/MATH_318/summary/fall-2011/list-of-tautologies">List of tautologies</a> for more. Note that the formula used in the above section (<span>$(p \to q) \to (q \to p)$</span>) is not a tautology - an implication does not imply its converse.</p>
+<p>An <strong>anti-tautology</strong> always comes out <span>$\bot$</span>.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Not incorrect, obviously, just not very precise as there are several kinds of "brackets"&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>An implication can only be proved false if the premise is true but the conclusion is not. If the premise is false, the implication cannot be proved false no matter what and so the valuation comes out <span>$\top$</span>. This is used a lot in proofs - if you want to prove that an implication is true, you assume that the premise is true and then must prove that the conclusion is always true as well. If the premise is false, there is nothing to prove, as there is no way to falsify the implication.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>See solutions to assignment 1, question 4 a) for an explanation.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

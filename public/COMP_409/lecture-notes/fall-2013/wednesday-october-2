@@ -1,0 +1,326 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, October 2, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, October 2, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Semaphores and Monitors
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-dining-philosophers-problem">1 The Dining Philosophers Problem</a><ul>
+<li><a href="#method-1-single-global-lock">1.1 Method 1: Single global lock</a></li>
+<li><a href="#method-2-classic-solution">1.2 Method 2: "Classic solution"</a></li>
+<li><a href="#method-3-global-lock-mixed-with-the-individual-locks">1.3 Method 3: Global lock mixed with the individual locks</a></li>
+<li><a href="#method-4-strike-out-the-lockunlock-global-when-releasing-the-chopsticks">1.4 Method 4: Strike out the lock/unlock global when releasing the chopsticks</a></li>
+<li><a href="#method-4-global-lock-when-locking-only">1.5 Method 4: Global lock when locking only</a></li>
+<li><a href="#method-5-randomization">1.6 Method 5: Randomization</a></li>
+<li><a href="#method-6-only-let-4-philosophers-sit-at-the-table-at-any-one-time">1.7 Method 6: Only let 4 philosophers sit at the table at any one time.</a></li>
+<li><a href="#method-7-acquire-and-release">1.8 Method 7: Acquire and release</a></li>
+<li><a href="#method-8-order-the-resources-best-solution">1.9 Method 8: Order the resources (best solution)</a></li>
+</ul>
+</li>
+<li><a href="#resource-deadlock">2 Resource Deadlock</a><ul>
+<li><a href="#coffmans-conditions-1971">2.1 Coffman's conditions (1971)</a><ul>
+<li><a href="#serially-usable-resources">2.1.1 Serially usable resources</a></li>
+<li><a href="#incremental-acquisitions">2.1.2 Incremental acquisitions</a></li>
+<li><a href="#no-preemption">2.1.3 No preemption</a></li>
+<li><a href="#a-dependency-cycle-exists">2.1.4 A dependency cycle exists</a></li>
+</ul>
+</li>
+<li><a href="#getting-rid-of-a-condition">2.2 Getting rid of a condition</a></li>
+<li><a href="#other-kinds-of-deadlocks">2.3 Other kinds of deadlocks</a><ul>
+<li><a href="#livelock">2.3.1 Livelock</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The Dining Philosophers Problem<a class="headerlink" href="#the-dining-philosophers-problem" name="the-dining-philosophers-problem">&para;</a></h2>
+<p><img alt="Dining Philosophers Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-16.png" title="Greek philosophers eating spaghetti with an odd number of chopsticks? Of course!" /></p>
+<p>The <strong>dining philosophers problem</strong> is a classic problem. There are <strong>5 philosophers</strong> sitting at a table. They each have a plate and <strong>5 chopsticks</strong> are laid out between those plates. The philosophers can either think, or eat using the two chopsticks right next to each of them. These philosophers can actually be modeled as threads:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Philosopher</span> <span class="kd">extends</span> <span class="n">Thread</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">think</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Think for a while</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">eat</span><span class="o">()</span> <span class="o">{</span>
+        <span class="c1">// Eat with their two chopsticks</span>
+    <span class="o">}</span>
+
+    <span class="nd">@override</span>    
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">think</span><span class="o">();</span>
+            <span class="o">-&gt;</span> <span class="n">Get</span> <span class="n">hungry</span>
+            <span class="o">-&gt;</span> <span class="n">Acquire</span> <span class="n">two</span> <span class="n">chopsticks</span>
+            <span class="n">eat</span><span class="o">();</span>
+            <span class="o">-&gt;</span> <span class="n">Release</span> <span class="n">the</span> <span class="n">chopsticks</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>We have 5 philosophers doing this. We have to somehow make sure that when one acquires two chopsticks, another cannot take any of those two chopsticks before the first one releases them.</p>
+<p>How can we do this? We will look at some solutions, incrementing from the ground up.</p>
+<h3 class="header"><i>1.1</i>Method 1: Single global lock<a class="headerlink" href="#method-1-single-global-lock" name="method-1-single-global-lock">&para;</a></h3>
+<div class="codehilite"><pre><span class="c1">// In the while loop of each Philosopher P_i (0 &lt;= i &lt;= 4)</span>
+<span class="n">think</span><span class="o">();</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span>
+<span class="o">-&gt;</span> <span class="n">Take</span> <span class="n">two</span> <span class="n">chopsticks</span>
+<span class="n">eat</span><span class="o">();</span>
+<span class="o">-&gt;</span> <span class="n">Release</span> <span class="n">the</span> <span class="n">chopsticks</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Thus, acquiring the chopsticks, eating and releasing the chopsticks becomes a <strong>critical section</strong>. While this works and is correct, it is not concurrent! There is no reason for, say, <strong>Philosopher<sub>0</sub></strong> to block <strong>Philosopher<sub>2</sub></strong> from eating because they don't even share any chopsticks. This solution is not concurrent.</p>
+<h3 class="header"><i>1.2</i>Method 2: "Classic solution"<a class="headerlink" href="#method-2-classic-solution" name="method-2-classic-solution">&para;</a></h3>
+<p>Instead of a single global lock, let's associate a lock with every single chopstick.</p>
+<div class="codehilite"><pre><span class="c1">// In the while loop of each Philosopher P_i (0 &lt;= i &lt;= 4)</span>
+<span class="n">think</span><span class="o">();</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span> <span class="c1">// Right one</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span> <span class="c1">// Left one</span>
+<span class="n">eat</span><span class="o">();</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</pre></div>
+
+
+<p>Sadly, this does not work. Say each philosopher acquires their right chopstick one after the other. After that, the first one will not be able to acquire its left chopstick and the same goes for all the other philosophers. The philosophers are <strong>stuck</strong>; we find ourselves with a <strong>deadlock</strong>.</p>
+<p>The problem is that the operation of acquiring both the locks is separated in two. Instead, it should be indivisible.</p>
+<h3 class="header"><i>1.3</i>Method 3: Global lock mixed with the individual locks<a class="headerlink" href="#method-3-global-lock-mixed-with-the-individual-locks" name="method-3-global-lock-mixed-with-the-individual-locks">&para;</a></h3>
+<div class="codehilite"><pre><span class="c1">// In the while loop of each Philosopher P_i (0 &lt;= i &lt;= 4)</span>
+<span class="n">think</span><span class="o">();</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span> <span class="c1">// Right one</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span> <span class="c1">// Left one</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span>
+<span class="n">eat</span><span class="o">();</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span> <span class="c1">// This is actually useless</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">globalLock</span><span class="o">);</span> <span class="c1">// This is actually useless</span>
+</pre></div>
+
+
+<p>This still results in a deadlock, however. Say <strong>Philosopher<sub>0</sub></strong> starts by locking the global lock, acquires both its chopsticks and unlocks the global lock. Then, <strong>Philosopher<sub>1</sub></strong> locks the global lock and tries to acquire its first chopstick, but ends up being stuck. Then, <strong>Philosopher<sub>0</sub></strong>, who is done eating, tries to lock the global lock, but <strong>Philosopher<sub>1</sub></strong> still has it! We, again, find ourselves with a deadlock.</p>
+<p>Locking the global lock when unlocking the chopsticks' locks is actually useless; it does not make much sense to lock the unlocking process.</p>
+<h3 class="header"><i>1.4</i>Method 4: Strike out the lock/unlock global when releasing the chopsticks<a class="headerlink" href="#method-4-strike-out-the-lockunlock-global-when-releasing-the-chopsticks" name="method-4-strike-out-the-lockunlock-global-when-releasing-the-chopsticks">&para;</a></h3>
+<p>Not locking the global lock during the unlocking process avoids the deadlock, but it is still suboptimal, because it limits concurrency. In effect, there is a scenario where a philosopher who <em>could</em> eat still ends up waiting. Finding it is left as an exercise.</p>
+<p>(Screwed up here, will fix)</p>
+<h3 class="header"><i>1.5</i>Method 4: Global lock when locking only<a class="headerlink" href="#method-4-global-lock-when-locking-only" name="method-4-global-lock-when-locking-only">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">think</span><span class="o">();</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">])</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="n">eat</span><span class="o">();</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+</pre></div>
+
+
+<p>This does not deadlock, but it is suboptimal in the sense that we don't get great concurrency. Here's a trace that shows this lack of efficiency:</p>
+<div class="codehilite"><pre><span class="c1">// Philosopher 0</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="mi">0</span><span class="o">]);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="n">eat</span><span class="o">();</span>
+
+<span class="c1">// Philosopher 1</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span> <span class="c1">// Stuck</span>
+</pre></div>
+
+
+<p><strong>Philosopher<sub>1</sub></strong> is not stuck forever, only until <strong>Philosopher<sub>0</sub></strong> finishes eating, but he cannot grab <code>chopstick[1]</code> because <strong>Philosopher<sub>0</sub></strong> has it. All the while, <strong>Philosopher<sub>1</sub></strong> still has the global lock! As such, even though <strong>Philosopher<sub>2, 3 (or even 4)</sub></strong> could readily eat, they cannot even start grabbing chopsticks because <strong>Philosopher<sub>1</sub></strong> blocks them.</p>
+<h3 class="header"><i>1.6</i>Method 5: Randomization<a class="headerlink" href="#method-5-randomization" name="method-5-randomization">&para;</a></h3>
+<p>What produces the deadlock situation is that all the philosophers are systematically grabbing the left chopstick, then the right. What if, instead of always using the same ordering, we would <strong>randomize</strong> it? Sometimes, a philosopher could grab the right chopstick, then the left. Other times, he could grab the left chopstick, then the right.</p>
+<p>We end up breaking the symmetry, which allows to not necessarily end up with the same situation as before. However, we could still be unlucky: it is statistically possible that we end up with the same situation as before. As such, this solution is more likely to work better, but it is certainly not guaranteed to do so. That is not something we really wish for, in concurrent programming.</p>
+<h3 class="header"><i>1.7</i>Method 6: Only let 4 philosophers sit at the table at any one time.<a class="headerlink" href="#method-6-only-let-4-philosophers-sit-at-the-table-at-any-one-time" name="method-6-only-let-4-philosophers-sit-at-the-table-at-any-one-time">&para;</a></h3>
+<p>Another problem is that there are not enough chopsticks to go around. With all 5 philosophers sitting down, there simply are not enough chopsticks to let all the philosophers eat at the same time. If we let only 4 philosophers sit down at one, then maybe we could actually solve this problem.</p>
+<p>Indeed, if only 4 philosophers sit down, there should be at least two chopsticks for at least one philosopher.</p>
+<div class="codehilite"><pre><span class="c1">// Philosopher i</span>
+<span class="o">-&gt;</span> <span class="k">try</span> <span class="n">to</span> <span class="n">sit</span> <span class="o">(</span><span class="n">atomically</span> <span class="n">decrement</span><span class="o">)</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="n">lock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span>
+<span class="n">eat</span><span class="o">();</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+<span class="n">unlock</span><span class="o">(</span><span class="n">chopstick</span><span class="o">[(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span> <span class="o">%</span> <span class="mi">5</span><span class="o">]);</span>
+<span class="o">-&gt;</span> <span class="n">give</span> <span class="n">up</span> <span class="n">the</span> <span class="n">seat</span> <span class="o">(</span><span class="n">atomically</span> <span class="n">increment</span><span class="o">)</span>
+</pre></div>
+
+
+<p>The operation to try to sit involves keeping track of how many free seats there are. There are 4 seats at first; atomically, a philosopher could take a seat, but not take one if the number is 0. This is not something that can be done in a single statement necessarily, and it would need an extra bit of work to implement:</p>
+<div class="codehilite"><pre><span class="kt">boolean</span> <span class="n">temp</span><span class="o">;</span>
+<span class="k">do</span> <span class="o">{</span>
+    <span class="n">lock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">seat</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">seat</span><span class="o">--;</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="o">}</span> <span class="n">unlock</span><span class="o">(</span><span class="n">global</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">temp</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Basically, the fifth philosopher who comes along and tries to sit down after everybody else will be stuck there spinning. Semaphores would make this even more trivial, but it is already possible to do it with spin locks.</p>
+<p>At the end, the philosopher needs to atomically re-increment the number of seats. This can be done with a global lock, or with a fetch-and-add primitive.</p>
+<p>The solution does work. We cannot get in a deadlock situation because the last philosopher cannot block anymore because of the first; the fifth, un-sit philosopher will always leave a hole for a chopstick to be available.</p>
+<h3 class="header"><i>1.8</i>Method 7: Acquire and release<a class="headerlink" href="#method-7-acquire-and-release" name="method-7-acquire-and-release">&para;</a></h3>
+<p>Instead of grabbing a chopstick and holding on to it until he gets the next one, a philosopher could grab one and then try to grab the other. If unsuccessful, he would release the first, then start over.</p>
+<h3 class="header"><i>1.9</i>Method 8: Order the resources (best solution)<a class="headerlink" href="#method-8-order-the-resources-best-solution" name="method-8-order-the-resources-best-solution">&para;</a></h3>
+<p>The chopsticks are already <strong>ordered</strong>. However, they are not always <em>acquired in order</em>; <strong>Philosopher<sub>4</sub></strong> tries to acquire the last chopstick, then the first. This philosopher should rather pick the chopsticks in the opposite order.</p>
+<p>It is a bit like the randomization solution, except it is not actually random. One philosopher in particular is going to break the symmetry, and it is impossible to get back to the deadlock situation.</p>
+<h2 class="header"><i>2</i>Resource Deadlock<a class="headerlink" href="#resource-deadlock" name="resource-deadlock">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Coffman's conditions (1971)<a class="headerlink" href="#coffmans-conditions-1971" name="coffmans-conditions-1971">&para;</a></h3>
+<p>There are resources in a programs/computer that threads or processes try to acquire. As they compete for acquiring the resources, we may end up with deadlocks. There are 4 conditions <strong>necessary</strong> to generate a resource deadlock. If we make sure that a program does not meet one of those conditions, then we are assured not to get deadlock.</p>
+<h4 class="header"><i>2.1.1</i>Serially usable resources<a class="headerlink" href="#serially-usable-resources" name="serially-usable-resources">&para;</a></h4>
+<p>The processes/threads share resources, which they need under mutual exclusion. That is, if one philosopher has a chopstick, no else is supposed to be able to have the same chopstick. </p>
+<h4 class="header"><i>2.1.2</i>Incremental acquisitions<a class="headerlink" href="#incremental-acquisitions" name="incremental-acquisitions">&para;</a></h4>
+<p>The serially usable resources are picked up one at a time. That is, two chopsticks are needed, but they cannot be grabbed both at at once.</p>
+<h4 class="header"><i>2.1.3</i>No preemption<a class="headerlink" href="#no-preemption" name="no-preemption">&para;</a></h4>
+<p>Once a resource is held, only the process/thread holding it can let it go. That is, a philosopher cannot ask another next to him to hand him his chopstick.</p>
+<h4 class="header"><i>2.1.4</i>A dependency cycle exists<a class="headerlink" href="#a-dependency-cycle-exists" name="a-dependency-cycle-exists">&para;</a></h4>
+<p>There is a circular chain of processes/threads, each holding a resource the next needs in the chain.</p>
+<h3 class="header"><i>2.2</i>Getting rid of a condition<a class="headerlink" href="#getting-rid-of-a-condition" name="getting-rid-of-a-condition">&para;</a></h3>
+<p>Often, <strong>condition 1</strong> and <strong>2</strong> are actually built in the problem we are facing. We may not be able to change these 2 conditions without changing the problem itself. <strong>Condition 3</strong> and <strong>4</strong>, however, are better ways to approach the problem.</p>
+<p>As for <strong>condition 3</strong>, there is a solution (not listed) to the Dining Philosophers problem where the philosophers are allowed to steal chopsticks from each other.</p>
+<p>Typically, the easiest way is to <strong>get rid of of dependency cycles</strong> (i.e. solution 8). This is the solution that should come to mind first.</p>
+<p>To do this, resources have to be ordered:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th class="center-align">Philosopher 0</th>
+<th class="center-align">Philosopher 1</th>
+<th class="center-align">Philosopher 2</th>
+<th class="center-align">Philosopher 3</th>
+<th class="center-align">Philosopher 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="center-align">0 &lt; 1</td>
+<td class="center-align">1 &lt; 2</td>
+<td class="center-align">2 &lt; 3</td>
+<td class="center-align">3 &lt; 4</td>
+<td class="center-align">0 &lt; 4 (flipped)</td>
+</tr>
+</tbody>
+</table>
+<p>We can also think of it as a chain of dependency:</p>
+<p><img alt="Chains of dependecy" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-23.png" title="" /></p>
+<p>There is a cycle in the first diagram, but it is broken in the second, once the resources are ordered. We don't end up with a cycle anymore.</p>
+<p><strong><em>We must always make sure that, when we need to acquire multiple resources, we acquire them in order.</em></strong> This way, we never end up with dependency cycles (but rather a tree). Sometimes, the resources are too hard to order, but in most cases, this will work really nicely.</p>
+<p><strong>Nb:</strong> the ordering is arbitrary, but everyone needs to agree on it. It can be a <strong>total order</strong>, where everything is comparable to everything, but it can also be a <strong>partial order</strong> (as long as we can distinguish between two resources which one is bigger that the other one).</p>
+<h3 class="header"><i>2.3</i>Other kinds of deadlocks<a class="headerlink" href="#other-kinds-of-deadlocks" name="other-kinds-of-deadlocks">&para;</a></h3>
+<p>We've seen what <strong>resource deadlocks</strong> are. They are deadlocks based on acquiring resources, but there are other kinds of deadlock. For example, imagine two train tracks crossing, with the two trains riding them being on a collision course.</p>
+<p><img alt="Railway exemple" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-17.png" title="- BITCH, I'M A TRAIN. - BITCH, I'M A TRAIN TOO." /></p>
+<p>They cannot be in the intersection at the same time. If the drivers are cautious, then they will both stop, seeing another train is coming. Neither acquires the "resource". Yet, they end up stuck, waiting for each other. The same may happen with human beings when getting in and out of a room at the same time, or when walking on the same side of the sidewalk.</p>
+<h4 class="header"><i>2.3.1</i>Livelock<a class="headerlink" href="#livelock" name="livelock">&para;</a></h4>
+<p>A <strong>livelock</strong> is not the same as a deadlock. When a deadlock occurs, no one can make any progress; everybody is stuck. During a <strong>livelock</strong>, at least some thread is doing <em>something</em>, but it is useless; no one is making actual progress on the problem to solve. That is, in spite of doing <em>something</em>, the program is still stuck.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

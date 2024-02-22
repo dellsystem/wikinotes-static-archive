@@ -1,0 +1,484 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Proof strategies and definitions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Proof strategies and definitions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Definitions of important concepts and proof strategies for important results. These are things that you should make an effort to learn. Presented in vocabulary list format. <span>$\DeclareMathOperator{\n}{null} \DeclareMathOperator{\r}{range}$</span></p>
+<p><a href="http://www.studyblue.com/#flashcard/view/6391862">View flashcards on StudyBlue</a></p>
+<div class="toc">
+<ul>
+<li><a href="#chapter-1">1 Chapter 1</a></li>
+<li><a href="#chapter-2">2 Chapter 2</a></li>
+<li><a href="#chapter-3">3 Chapter 3</a></li>
+<li><a href="#chapter-4">4 Chapter 4</a></li>
+<li><a href="#chapter-5">5 Chapter 5</a></li>
+<li><a href="#chapter-6">6 Chapter 6</a></li>
+<li><a href="#chapter-7">7 Chapter 7</a></li>
+<li><a href="#chapter-9">8 Chapter 9</a></li>
+<li><a href="#chapter-10">9 Chapter 10</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chapter 1<a class="headerlink" href="#chapter-1" name="chapter-1">&para;</a></h2>
+<dl>
+<dt>Vector space</dt>
+<dd>A set, with addition (comm, assoc, identity, inverse, dist) and scalar mult (assoc, identity, dist)</dd>
+<dt>Subspace</dt>
+<dd>Subset. Contains 0, closed under addition, closed under scalar mult.</dd>
+<dt>Subspaces of <span>$\mathbb R^2$</span></dt>
+<dd>Zero, lines passing through origin, all of <span>$\mathbb R^2$</span></dd>
+<dt>Sum of subspaces</dt>
+<dd>Subspace, consisting of elements formed as a sum of vectors from each subspace. This is the smallest subspace containing all of the components.</dd>
+<dt>Direct sum</dt>
+<dd>Unique representation. Must be sum, and only 1 way to write 0 (i.e., intersection contains only zero).</dd>
+<dt>Intersection of subspaces</dt>
+<dd>always a subspace</dd>
+<dt>Union of subspaces</dt>
+<dd>only a subspace if one is contained within the other</dd>
+<dt>Addition on vector spaces</dt>
+<dd>comm, assoc, identity is <span>$\{0\}$</span></dd>
+</dl>
+<h2 class="header"><i>2</i>Chapter 2<a class="headerlink" href="#chapter-2" name="chapter-2">&para;</a></h2>
+<dl>
+<dt>Span</dt>
+<dd>subspace. set of all linear combos</dd>
+<dt>Finite-dimensional vector space</dt>
+<dd>spanned by a finite list of vectors</dd>
+<dt>Linear independence</dt>
+<dd>A linear combo is 0 only when all the coefficients are 0</dd>
+<dd>one vector can be written as a linear combo of the others</dd>
+<dd>we can remove one without affecting the span</dd>
+<dt>Length of spanning sets and linearly independent lists</dt>
+<dd>Spanning sets are never shorter. Proof: replace vectors from a spanning list with vectors from a lin ind list, should still span, etc.</dd>
+<dt>Basis</dt>
+<dd>linearly independent spanning list</dd>
+<dd>any vector can be written as a unique combination of basis vectors</dd>
+<dd>any lin ind list can be reduced to a basis</dd>
+<dd>any spanning set can be extended to a basis</dd>
+<dt>Existence of a direct sum</dt>
+<dd>Given a subspace <span>$U$</span> of <span>$V$</span>, there is a <span>$W \subseteq V$</span> such that <span>$U \oplus W = V$</span>. Use the basis vectors, show <span>$V$</span> is sum, intersection is 0 (from lin ind).</dd>
+<dt>Dimension of a vector space</dt>
+<dd>Number of vectors in a basis (any)</dd>
+<dt>Lunch in chinatown</dt>
+<dd><span>$\dim(U_1 + U_2) = \dim(U_1) + \dim(U_2) - \dim(U_1 \cap U_2)$</span>; proof via bases (only holds for 2 subspaces)</dd>
+</dl>
+<h2 class="header"><i>3</i>Chapter 3<a class="headerlink" href="#chapter-3" name="chapter-3">&para;</a></h2>
+<dl>
+<dt>Linear map</dt>
+<dd>Function <span>$T: V \to W$</span>, satisfies additivity and homogeneity</dd>
+<dd>Assoc, dist, identity I; not comm</dd>
+<dt>Product of linear maps</dt>
+<dd>Composition, in the same order (<span>$(ST)(v) = S(Tv)$</span>)</dd>
+<dt>Nullspace</dt>
+<dd>Things in the domain that go to 0</dd>
+<dd>Always a subspace</dd>
+<dd>Injective <span>$\Leftrightarrow$</span> nullspace only contains 0</dd>
+<dt>Range</dt>
+<dd>Whatever things in the domain map to</dd>
+<dd>Always a subspace</dd>
+<dd>Surjective <span>$\Leftrightarrow$</span> range is <span>$W$</span></dd>
+<dt>Rank-nullity theorem</dt>
+<dd><span>$\dim V = \dim \n T + \dim \r T$</span></dd>
+<dd>Proof: Create bases, apply T, nullspace parts disappear because they go to 0; this proves the spanning. To prove lin ind, use lin ind of the bases of the ambient space</dd>
+<dd>Corollary: no injective maps to a smaller VS, no surjective maps to a larger VS</dd>
+<dt>Matrix of a linear map</dt>
+<dd>Each column is <span>$T$</span> applied to a basis vector (each row: coefficient for that basis vector)</dd>
+<dt>Invertibility of operators</dt>
+<dd><span>$T$</span> is invertible if <span>$\exists \, S$</span> (unique) with <span>$ST = TS = I$</span></dd>
+<dd>Invertibility <span>$\Leftrightarrow$</span> bijectivity. Proof: show injectivity, surjectivity for one direction, and prove linearity of the inverse for the other</dd>
+<dt>Isomorphic vector spaces</dt>
+<dd>There is an invertible linear map (and thus bijection) between them</dd>
+<dd>Same dimension</dd>
+<dt>Dimension of the vector space of linear operators</dt>
+<dd><span>$\mathcal L(V, W) = \dim V \cdot \dim W$</span></dd>
+<dt>Operator</dt>
+<dd>Linear map from <span>$V$</span> to <span>$V$</span></dd>
+<dt>Proving direct sum</dt>
+<dd>To show that <span>$U \oplus W = V$</span>, show that their intersection is 0, and that you can make an arbitrary vector from <span>$V$</span> by taking one from each</dd>
+<dt>Product of injective maps</dt>
+<dd>Also injective. Proof: apply argument inductively, starting from the end</dd>
+<dt>Injective maps and linear independence</dt>
+<dd>Applying an injective map on each element of a lin ind list gives a lin ind list. Proof: if a linear combo is 0, then apply <span>$T$</span> gives 0, but nullspace is 0</dd>
+<dt>Invertibility of a product</dt>
+<dd><span>$ST$</span> is invertible <span>$\Leftrightarrow$</span> <span>$S, T$</span> both invertible. Proof: <span>$T$</span> is inj, <span>$S$</span> is surj; multiply to get <span>$I$</span> in the other direction</dd>
+</dl>
+<h2 class="header"><i>4</i>Chapter 4<a class="headerlink" href="#chapter-4" name="chapter-4">&para;</a></h2>
+<dl>
+<dt>Roots of polynomials</dt>
+<dd><span>$p(\lambda) = 0$</span></dd>
+<dd><span>$p(z) = (z-\lambda)q(z)$</span>. Proof: <span>$p(z) - p(\lambda) = p(z) -0 $</span> and when you write it all out you can factor out <span>$(z-\lambda)$</span> from each.</dd>
+<dd>At most <span>$\deg p$</span> distinct roots </dd>
+<dt>Division algorithm for polynomials</dt>
+<dd><span>$q = sp + r$</span> where <span>$\deg r &lt; \deg p$</span></dd>
+<dd>Proof of uniqueness: assume two different representation, <span>$(s-s')p = (r-r')$</span>, look at degrees.</dd>
+<dt>Fundamental theorem of algebra</dt>
+<dd>Any polynomial has a unique factorisation into linear polynomials, with complex roots</dd>
+<dt>Unique factorisation of polynomials over the reals</dt>
+<dd>Linear and quadratic terms, all irreducible</dd>
+</dl>
+<h2 class="header"><i>5</i>Chapter 5<a class="headerlink" href="#chapter-5" name="chapter-5">&para;</a></h2>
+<dl>
+<dt>Invariant subspace</dt>
+<dd>If <span>$u \in U$</span>, then <span>$Tu \in U$</span></dd>
+<dd>Means range is subspace of the domain</dd>
+<dd>Both range and nullspace are invariant for ops</dd>
+<dt>One-dimensional invariant subspaces</dt>
+<dd>Trivial (zero, whole space)</dd>
+<dt>Two-dimensional invariant subspaces</dt>
+<dd>Only the trivial ones for <span>$\mathbb R$</span>; <span>$\mathbb C$</span> has some others</dd>
+<dt>Eigenvalue</dt>
+<dd><span>$\lambda$</span> such that <span>$Tv = \lambda v$</span> for some <span>$v \neq 0$</span></dd>
+<dd><span>$T$</span> has a one-dimensional invariant subspace</dd>
+<dd><span>$T-\lambda I$</span> is not injective/invertible/surjective (so it's 0 at some point)</dd>
+<dt>Eigenvectors</dt>
+<dd>In the nullspace of <span>$T-\lambda I$</span> for an eigenvalue <span>$\lambda$</span></dd>
+<dd>If every vector is an evector, then <span>$T$</span> is <span>$aI$</span> (<span>$a$</span> is the only evector)</dd>
+<dt>Linear independence of eigenvector from distinct eigenvalues</dt>
+<dd>Proof: let <span>$v$</span> be in the span of the previous, write it out as a linear combo and apply <span>$T$</span> to get <span>$\lambda_i$</span> as a coeff for each basis vector, multiply both sides by <span>$\lambda$</span> and subtract from the above, then since <span>$\lambda \neq \lambda_i$</span> and the LHS is 0, the coefficients must be 0.</dd>
+<dt>Number of eigenvalues</dt>
+<dd>Max: <span>$\dim V$</span> since the eigenvectors are linearly independent</dd>
+<dt>Rotation</dt>
+<dd>No real eigenvalues - only complex (usually <span>$\pm i$</span>)</dd>
+<dt>Eigenvalues over a complex vector space</dt>
+<dd>Every operator has at least one. Proof: <span>$(v, Tv, \ldots, T^nv)$</span> is not lin ind, so write 0 as a combo, turn this into a poly, factor over complex</dd>
+<dt>Upper triangular matrix</dt>
+<dd>Everything below the diagonal is 0</dd>
+<dd>Every op has one wrt some basis</dd>
+<dd>Means that <span>$Tv_k$</span> for any basis vector is in the span of the previous ones</dd>
+<dd>Means that the span of the first <span>$k$</span> basis vectors is invariant under <span>$T$</span></dd>
+<dt>Zeroes and upper triangular matrices</dt>
+<dd><span>$T$</span> is invertible <span>$\Leftrightarrow$</span> no zeroes on the diagonal of a UT matrix. Proof: <span>$Tv = 0$</span> for some <span>$v$</span>, so not injective, so not invertible; other direction, write <span>$Tv = 0$</span> as a combo of basis vectors, then <span>$Tv_k$</span> is in span of previous, so the coeff of <span>$v_k$</span> is 0</dd>
+<dt>Diagonal elements of upper triangular matrices</dt>
+<dd>These are eigenvalues. Proof: <span>$T - \lambda I$</span> is not invertible iff there is a zero on the diagonal, which happens if <span>$\lambda = \lambda_i$</span> for some <span>$i$</span></dd>
+<dt>Diagonal matrices (TFAE)</dt>
+<dd>An operator has a diagonal matrix</dd>
+<dd>Evectors form a basis</dd>
+<dd>Sum of one-dimensional invariant subspaces is the whole space</dd>
+<dd>The sum of nullspaces of <span>$T - \lambda_k I$</span> is the whole space</dd>
+<dt>Invariant subspaces on real vector spaces</dt>
+<dd>There is always one of dim 1 or 2 (proof by unique factorisation)</dd>
+<dt>Eigenvalues on odd-dimensional spaces</dt>
+<dd>Every op has one</dd>
+<dt>Invariance under every operator</dt>
+<dd>Then <span>$U$</span> must be trivial (0 or V). Proof: Suppose there is nonzero <span>$v \in U$</span>, and <span>$w \notin U$</span>. Extend <span>$v$</span> to a basis, map <span>$av$</span> to <span>$aw$</span>, but that's not in <span>$U$</span> so contradiction</dd>
+<dt>Eigenspace invariance if <span>$ST = TS$</span></dt>
+<dd>Any eigenspace (or nullspace of <span>$T-\lambda I$</span>) of <span>$T$</span> is invariant under <span>$S$</span>. Proof: If <span>$v$</span> is in the eigenspace, then <span>$(T-\lambda I)v = 0$</span>. Apply to <span>$Sv$</span>, by distributivity we get 0, so <span>$Sv$</span> is in eigenspace too, so the eigenspace is invariant</dd>
+<dt>Number of distinct eigenvalues</dt>
+<dd>Dimension of range + 1 if there is a 0 eigenvalue, just dim range otherwise. Proof: at most one from the nullspace (0)</dd>
+<dt>Eigenvalues of the inverse</dt>
+<dd><span>$1/\lambda$</span>. Proof is easy</dd>
+<dt>Eigenvalues of <span>$ST$</span> and <span>$TS$</span></dt>
+<dd>The same</dd>
+<dt>Nullspace and range of <span>$P^2=P$</span></dt>
+<dd>The direct sum is <span>$V$</span>. Proof: <span>$u-Pv$</span> is in the nullspace, <span>$Pv$</span> is in the range</dd>
+</dl>
+<h2 class="header"><i>6</i>Chapter 6<a class="headerlink" href="#chapter-6" name="chapter-6">&para;</a></h2>
+<dl>
+<dt>Inner product</dt>
+<dd>function that takes in <span>$u, v \in V$</span>, outputs something from the field</dd>
+<dd>Positive definiteness (<span>$(\langle v, v \rangle \geq 0$</span>), linearity in the first arg, conjugate symmetry, conjugate homogeneity in the second arg</dd>
+<dt>Standard inner products</dt>
+<dd>Euclidean (dot product with conjugate of second vector) on <span>$\mathbb F^n$</span></dd>
+<dd>Integration for <span>$p$</span></dd>
+<dt>Inner products and linear maps</dt>
+<dd><span>$f: v \to \langle v, w\rangle$</span> for fixed <span>$w$</span> is a linear map (by the way IPs are defined) thus <span>$\langle w, 0 \rangle = \langle 0, w \rangle = 0$</span></dd>
+<dt>Norm</dt>
+<dd><span>$\|v \| = \sqrt{\langle v, v \rangle}$</span></dd>
+<dd>Inherits positive definiteness (only 0 if <span>$v$</span> is)</dd>
+<dd><span>$\|av\|^2 = |a|^2\|v\|^2$</span></dd>
+<dt>Orthogonal</dt>
+<dd><span>$\langle u, v \rangle = 0$</span></dd>
+<dd>0 is orthogonal to everything, and is the only vector orthogonal to itself</dd>
+<dt>Pythagorean theorem</dt>
+<dd>If <span>$u$</span> and <span>$v$</span> are orthogonal, then <span>$\|u+v\|^2 = \|u\|^2 + \|v\|^2$</span></dd>
+<dd>Proof: <span>$\|u+v\|^2 = \langle u+v, u+v \rangle = \|u\|^2 + \|v\|^2 + \langle u, v \rangle + \langle v, u \rangle$</span> but the last two terms are 0 since they're orthogonal</dd>
+<dt>Orthogonal decomposition</dt>
+<dd><span>$v = au + w$</span> where <span>$w$</span> is ortho to <span>$u$</span>. Set <span>$w = v - au$</span>, choose <span>$a = \langle v, u \rangle / \|u\|^2$</span>. Derivation: from <span>$\langle v-au, u \rangle = 0$</span>, rewrite in terms of norms</dd>
+<dt>Cauchy-Schwarz inequality</dt>
+<dd><span>$|\langle u, v \rangle | \leq \|u\|\|v\|$</span>, equality if scalar multiple</dd>
+<dd>Proof: Assume <span>$\|u\|^2 \neq 0$</span>, divide by it, write ortho decomp of <span>$v = u+w$</span>, use Pythagorean to get <span>$\|v\|^2$</span>, multiply both sides by <span>$\|u\|^2$</span>, make an inequality; equality only if <span>$w=0$</span></dd>
+<dt>Triangle inequality</dt>
+<dd><span>$\|u+v\| \leq \|u\| + \|v\|$</span></dd>
+<dd>Proof: Write it out, use Cauchy-Schwarz, equality if non-negative scalar mult</dd>
+<dt>Paralellogram inequality</dt>
+<dd><span>$\|u+v\|^2 + \|u-v\|^2 = 2(\|u\|^2+\|v\|^2)$</span></dd>
+<dd>Proof: from inner products</dd>
+<dt>Orthonormal list</dt>
+<dd>any two vectors are ortho, each has a norm of 1</dd>
+<dd><span>$\| a_1e_1 + \ldots + a_ne_n\|^2 = |a_1|^2 + \ldots + |a_n|^2$</span> by Pythagorean theorem</dd>
+<dd>Always linearly independent (use the previous thing, try to make 0)</dd>
+<dt>Linear combinations of orthonormal bases</dt>
+<dd><span>$v = \langle v, e_1\rangle e_1 + \ldots + \langle v, e_n \rangle$</span></dd>
+<dd>Proof: <span>$v = a_1e_1 + \ldots$</span>, take inner product of <span>$v$</span> with each <span>$e_j$</span>, get <span>$a_j$</span></dd>
+<dd>Also, <span>$\|v\|^2 = |\langle v, e_1 \rangle |^2 + \ldots$</span></dd>
+<dt>Gram-Schmidt</dt>
+<dd>For creating orthonormal bases (for the same VS) out of lin ind lists</dd>
+<dd><span>$e_1 = v_1 / \|v_1\|$</span>; <span>$e_j = v_j-\langle v_j, e_1\rangle e_1 - \cdots$</span> then divide by the norm (not zero since the <span>$v$</span>s are lin ind)</dd>
+<dd>Proof: Norms are clearly 1. Orthogonality take the inner product <span>$\langle e_j, e_k \rangle$</span>, most terms disappear because of pairwise ortho, so we just have <span>$\langle v_j, e_k \rangle - \langle v_j, e_k \rangle$</span>. Also, <span>$v_j$</span> is in the span (just rearrange the formulas) so they span the same space.</dd>
+<dd>Corollary: any FDIPS has an ortho basis</dd>
+<dd>If the list is linearly <em>dependent</em>, we get a division by 0</dd>
+<dt>Upper triangular matrices and orthonormal bases</dt>
+<dd>If an op has a UT matrix wrt some basis, it has one wrt to an ortho one (so in a complex VS, this is every op)</dd>
+<dd>Proof: span of <span>$(v_1, \ldots, v_j)$</span> is invariant under <span>$T$</span> for each <span>$j$</span>, apply Gram-Schmidt to get an ortho basis</dd>
+<dt>Orthogonal complement</dt>
+<dd><span>$U^{\perp}$</span> = set of all vectors orthogonal to every vector in <span>$U$</span></dd>
+<dd>Is a subspace</dd>
+<dd><span>$(U^{\perp})^{\perp} = U$</span> for obvious reasons</dd>
+<dt>Direct sum of orthogonal complement</dt>
+<dd><span>$U \oplus U^{\perp} = V$</span></dd>
+<dd>Proof: use an ortho basis for <span>$U$</span>. <span>$v = (\langle v, e_1\rangle + \ldots) + (v -\langle v, e_1\rangle - \ldots) = u + w$</span>. Clearly <span>$u \in U$</span>, and <span>$w\in U^{\perp}$</span> because <span>$\langle w, e_j\rangle = 0$</span> (so <span>$w$</span> is ortho to every basis vector of <span>$U$</span>). Intersection is obviously only 0, by positive definiteness</dd>
+<dt>Orthogonal projections</dt>
+<dd><span>$P_Uv$</span> maps <span>$v$</span> to the part of its ortho decomp that is in <span>$U$</span></dd>
+<dd>Range is <span>$U$</span>, nullspace is <span>$U^{\perp}$</span></dd>
+<dd><span>$v-P_Uv$</span> is in the nullspace</dd>
+<dd><span>$P_U^2 = P_U$</span></dd>
+<dd><span>$\|P_Uv \| \leq \|v \|$</span></dd>
+<dt>Minimisation problems</dt>
+<dd>Find <span>$u \in U$</span> to minimise <span>$\|v-u\|$</span> for fixed <span>$v$</span>. Answer: <span>$u = P_Uv$</span>!</dd>
+<dd>Proof: <span>$\|v-P_Uv \|^2 \leq \|v-P_Uv\|^2 + \|P_Uv-u\|^2 = \|v-u\|^2$</span> by Pythagorean theorem (applicable since vectors are ortho; middle terms cancel out), equality only when <span>$u = P_Uv$</span></dd>
+<dd>First, find an ortho basis for the subspace we're interested in (e.g., polynomials), take inner product of <span>$v$</span> with each basis vector and use as coefficient</dd>
+<dt>Linear functional</dt>
+<dd><span>$\varphi: V \to \mathbb F$</span> (so sending <span>$v$</span> to <span>$\langle v, u\rangle$</span> for fixed <span>$u$</span>)</dd>
+<dd>Existence of <span>$u$</span>: write <span>$v$</span> in terms of ortho basis, use homogeneity, find <span>$u$</span></dd>
+<dd>Uniqueness of <span>$u$</span>: assume <span>$\langle v u_1, \rangle = \langle v, u_2 \rangle$</span> so <span>$0 = \langle v, u_1-u_2\rangle$</span> for any <span>$v$</span> including <span>$u_1 - u_2$</span> thus <span>$u_1-u_2 = 0$</span> QED</dd>
+<dt>Adjoint</dt>
+<dd>If <span>$T \in \mathcal L(V, W)$</span>, <span>$T^* \in \mathcal L(W, V)$</span> such that <span>$\langle Tv, w \rangle = \langle v, T^*w \rangle$</span></dd>
+<dd>Always a linear map</dd>
+<dd>Eigenvalues are conjugates of <span>$T$</span>'s eigenvalues (proof by contradiction: <span>$T-\lambda I \neq 0$</span>, so there's an inverse, apply adjoint op to both sides, also invertible, thus not an eigenvalue)</dd>
+<dd>If injective, original is surjective, etc (all 4 possibilities)</dd>
+<dt>The adjoint operator</dt>
+<dd>The operator analogue of [conjugate] matrix transposition</dd>
+<dd>Additivity (<span>$(S+T)^* = S^* + T^*$</span>), conjugate homogeneity (<span>$(aT)^* = \overline{a}T^*$</span>)</dd>
+<dd><span>$(T^*)^* = T$</span>, <span>$I^* = I$</span></dd>
+<dd><span>$(ST)^* = T^*S^*$</span></dd>
+<dd>Nullspace of <span>$T^*$</span> is complement of range of <span>$T$</span>, and range is complement of nullspace of <span>$T$</span>, and the other way around</dd>
+</dl>
+<h2 class="header"><i>7</i>Chapter 7<a class="headerlink" href="#chapter-7" name="chapter-7">&para;</a></h2>
+<dl>
+<dt>Self-adjoint operator (Hermitian)</dt>
+<dd><span>$T^* = T$</span>, matrix is equal to conjugate transpose (ONLY WRT AN ORTHO BASIS)</dd>
+<dd>Preserved under addition, real scalar mult</dd>
+<dd>All eigenvalues are real (proof: definitions and conj symmetry; <span>$\lambda \|v\|^2 = \overline{\lambda}\|v\|^2$</span>)</dd>
+<dd><span>$\langle Tv, v \rangle \in \mathbb R$</span> (proof: subtract conjugate, use conj symmetry, zero operator thing below)</dd>
+<dd>Product of two self-adjoint ops only self-adjoint if the multiplication is commutative</dd>
+<dd>Set of all self-adjoint ops is a subspace only in a real IPS, not a complex IPS</dd>
+<dd>Orthogonal projections are self-adjoint </dd>
+<dt>Zero operators on complex inner product spaces</dt>
+<dd>If <span>$\langle Tv, v \rangle = 0$</span> for all <span>$v$</span> then <span>$T = 0$</span></dd>
+<dt>Normal operator</dt>
+<dd><span>$T^*T = TT^*$</span></dd>
+<dd>May not be self-adjoint</dd>
+<dd><span>$\lVert Tv\rVert = \lVert T^*v\rVert$</span>. Proof: <span>$\langle (TT^*-T^*T)v, v \rangle = 0$</span> so <span>$\langle TT^*v, v \rangle = \langle T^*Tv , v \rangle$</span> then use adjoint def to get <span>$\langle T^*v, T^*v \rangle = \langle Tv, Tv \rangle$</span></dd>
+<dd>Eigenvectors for <span>$\lambda$</span> are eigenvectors for <span>$\overline{\lambda}$</span>. Proof: <span>$(T-\lambda I)$</span> is normal, times <span>$v$</span> is 0, use norm relation above to get <span>$\|(T-\lambda I)^*v \| =0$</span>, distribute the adjoint</dd>
+<dd>Set of all normal ops on a VS with <span>$\dim &gt;1$</span> is not a subspace (additivity not satisfied)</dd>
+<dd><span>$T^k, T$</span> have the same range and nullspace</dd>
+<dd>Every normal op on a complex IPS has roots</dd>
+<dt>Orthogonality of eigenvectors of normal operators</dt>
+<dd>Evectors for distinct evalues are ortho. Proof: <span>$(\lambda_1 - \lambda_2)\langle v_1, v_2\rangle = \langle Tv_1, v_1 \rangle - \langle v_2, T^*v_2 \rangle = 0$</span> but evalues are distinct so inner product must be 0.</dd>
+<dt>Spectral theorem</dt>
+<dd>For which ops can evectors form an ortho basis (or have diagonal matrices wrt to an ortho basis)</dd>
+<dt>Complex spectral theorem</dt>
+<dd>Normal <span>$\Leftrightarrow$</span> eigenvectors form an ortho basis</dd>
+<dd>Proof: Diagonal matrix wrt a basis, conjugate transpose also diagonal, so they commute, so <span>$T$</span> is normal. Other direction: <span>$T$</span> has a UT matrix, this is diagonal if you look at the sum of squares in the <span>$j$</span>th row versus <span>$j$</span>th column and use induction (and the fact that <span>$\|Te_j \| = \|Te^*e_j\|$</span>)</dd>
+<dt>Real spectral theorem</dt>
+<dd>Self-adjoint <span>$\Leftrightarrow$</span> eigenvectors form an orthonormal basis</dd>
+<dd>Lemma: self-adjoint op has an eigenvalue in a real IPS. Proof: consider <span>$(v, Tv, \ldots, T^nv)$</span>, not lin ind, write 0, factor over the reals, none of the quadratics is 0, so one of the linears is 0</dd>
+<dd>Proof: Induction. <span>$T$</span> has at least one evalue and evector <span>$u$</span>, which is the basis for a 1-d subspace <span>$U$</span>. <span>$U^{\perp}$</span> is invariant under <span>$T$</span> (reduces to <span>$\lambda \langle u, v \rangle = 0$</span>). Create a new op <span>$S|_{U^{\perp}}$</span>, which is self-adjoint, apply the IH, join it with <span>$u$</span></dd>
+<dt>Normal operators on two-dimensional spaces (TFAE)</dt>
+<dd><span>$T$</span> is normal but not self-adjoint</dd>
+<dd>Matrix wrt any ortho basis looks like <span>$\displaystyle \begin{pmatrix} a &amp; -b \\ b &amp; a \end{pmatrix}$</span> but not diagonal. Proof: <span>$\|Te_1 \|^2 = \|T^*e_1\|^2$</span> to find <span>$c$</span>, use the fact that <span>$T$</span> is normal to do matrix mult and find <span>$d$</span></dd>
+<dd>For <em>some</em> ortho basis, <span>$b &lt; 0$</span> (above). Proof: use <span>$(-e_1, -e_2)$</span> as the basis</dd>
+<dt>Block matrix</dt>
+<dd>When an entry of a matrix is itself a matrix</dd>
+<dt>Invariant subspaces and normal operators</dt>
+<dd><span>$U^{\perp}$</span> is also invariant under <span>$T$</span>. Proof: consider basis vectors, and the matrix, which has all zeros under the first few columns since <span>$U$</span> is invariant, but since <span>$\|Te_j\|^2 = \|T^*e_j\|$</span> then yeah</dd>
+<dd><span>$U$</span> is invariant under <span>$T^*$</span> (take transpose of above matrix)</dd>
+<dt>Block diagonal matrix</dt>
+<dd>Square matrix, diagonal consists of block matrices (of any form), all others are 0 (includes all square matrices really)</dd>
+<dd>Product of two block diagonal matrices: multiply the matrices together along the diagonal, stick the result where you expect</dd>
+<dt>Block diagonal matrices of normal operators</dt>
+<dd>Normal <span>$\Leftrightarrow$</span> has a block diagonal matrix wrt some ortho basis, each block is 1x1 or 2x2 of the form <span>$\displaystyle \begin{pmatrix} a &amp; -b \\ b &amp; a \end{pmatrix}$</span> with <span>$b &gt; 0$</span>. Proof by strong induction, eigenvalues, invariant subspaces to form ortho bases, if dim is 2 then <span>$T|_U$</span> is normal but not self-adjoint, apply IH to <span>$U^{\perp}$</span> and join it with the ortho basis of <span>$U$</span></dd>
+<dt>Generalised eigenvector</dt>
+<dd><span>$(T-\lambda I)^jv =0$</span> for some <span>$j &gt; 0$</span></dd>
+<dd>Used to write <span>$V$</span> as the decomp of nullspaces (generalised eigenspaces basically), where <span>$j = \dim V$</span></dd>
+<dt>Nullspaces of powers <span>$T^0, T^1, T^2, \ldots$</span></dt>
+<dd>Size of nullspace always monotonically increasing</dd>
+<dd>If two consecutive nullspaces are equal, all subsequent ones are equal too (proof: consider nullspace of <span>$T^{m+k+1}$</span>, so <span>$T^kv$</span> is in nullspace of <span>$T^{m+1}$</span>, so it's in the nullspace of <span>$T^{m}$</span> too</dd>
+<dd><span>$T^{\dim V}$</span> and <span>$T^{\dim V+1}$</span> have the same nullspace etc which is how we get <span>$\dim V$</span> for <span>$j$</span> above</dd>
+<dt>Nilpotent operators</dt>
+<dd><span>$N^k = 0$</span> for some <span>$k$</span></dd>
+<dd><span>$k \leq \dim V$</span> since every <span>$v$</span> is a generalised eigenvector for <span>$\lambda = 0$</span> so it inherits it from the previous statements</dd>
+<dd><span>$(v, Tv, Tv^2, \ldots, T^mv)$</span> is lin ind if <span>$T^mv \neq 0$</span> (try to make 0, apply <span>$T$</span> to both sides, all coeffs are 0)</dd>
+<dd>If <span>$ST$</span> is nilpotent, so is <span>$TS$</span> (proof: <span>$(TS)^{n+1} = 0$</span>; regroup etc)</dd>
+<dd>Only <span>$N=0$</span> is self-adjoint and nilpotent</dd>
+<dd>If 0 is the only evalue on a CVS, <span>$N$</span> is nilpotent, because every vector is a generalised evector</dd>
+<dt>Ranges of powers</dt>
+<dd>Size monotically decreasing</dd>
+<dd><span>$T^{\dim V}$</span> and <span>$T^{\dim V+1}$</span> have the same range</dd>
+<dt>Multiplicity</dt>
+<dd>Means geometric multiplicity (dimension of eigenspace)</dd>
+<dd>Controls the number of times an eigenvalue shows up on the diagonal</dd>
+<dd>Sum of multiplicities if <span>$\dim V$</span> on a complex VS</dd>
+<dt>Characteristic polynomial</dt>
+<dd>Factors of eigenvalues, algebraic multiplicity. Degree is <span>$\dim V$</span>. Roots are eigenvalues.</dd>
+<dt>Cayley-Hamilton</dt>
+<dd>Char poly is <span>$q(z)$</span>, then <span>$q(T) = 0$</span></dd>
+<dd>Proof: Show <span>$q(T)v_i = 0$</span> for every basis vector <span>$v_i$</span>. Strong induction on dim. For <span>$n=1$</span>, obvious, only factor vanishes. For <span>$n$</span>, from the UT matrix we can tell that <span>$v_i$</span> is in the span of the previous <span>$v$</span>s, so we write it as a linear combo, and apply the IH (so all the other factors go to 0)</dd>
+<dt>Nullspaces of polynomials of <span>$T$</span></dt>
+<dd>Invariant under <span>$T$</span> somehow</dd>
+<dt>Decomposition into nilpotent operators</dt>
+<dd>The generalised eigenspaces</dd>
+<dt>Bases from generalised eigenvectors</dt>
+<dd>Always enough to form a basis for a complex VS</dd>
+<dt>Matrices of nilpotent operators</dt>
+<dd>There's always a UT matrix with 0's along the diagonal wrt some basis (choose bases from the nullspace of <span>$N$</span>, then <span>$N^2$</span>, put them all together in one giant basis)</dd>
+<dt>Upper-triangular block matrices</dt>
+<dd>If <span>$T$</span> has <span>$m$</span> distinct eigenvalues, <span>$T$</span> has a block diagonal matrix where each block is UT with an eigenvalue repeated along the diagonal, the number of times acc. to its geometric mult</dd>
+<dt>Square roots of operators</dt>
+<dd>If <span>$N$</span> is nilpotent <span>$I+N$</span> has a square root (and any other root); proof by Taylor expansion, which is a finite sum because <span>$N^m = 0$</span> for all <span>$m$</span> after something</dd>
+<dd>Any invertible op has a sqrt on a complex VS - eah eigenspace has a nilpotent op (<span>$\lambda I + N$</span>) and since <span>$T$</span> is invertible, none of the eigenvalues are 0, so we can divide by <span>$\lambda$</span>, showing that <span>$S = \lambda I + N$</span> which is just <span>$T$</span> limited to one subspace, then extend this to the ambient space</dd>
+<dt>Minimal polynomial</dt>
+<dd>The unique monic poly <span>$p$</span> of smallest degree so that <span>$p(T) = 0$</span></dd>
+<dd>Existence proof: <span>$(I, T, T^2, \ldots T^{n^2})$</span> is lin dep (since <span>$\dim \mathcal L(V) = n^2$</span>) so make 0 using some choice of coeffs, not all zero</dd>
+<dd>Unique if we limit to the smallest degree (so instead of <span>$n^2$</span> use the smallest <span>$m$</span> that makes it dep)</dd>
+<dd><span>$q(T) = 0$</span> <span>$\Leftrightarrow$</span> min poly divides <span>$q$</span> (for any <span>$q$</span>, including the char poly); proof by division algo</dd>
+<dd>Roots are eigenvalues, proof by non-zeroness of eigenvectors</dd>
+<dd>All factors of the char poly are in the min poly, multiplicity is reduced to 1 only if all the geometric and algebraic multiplicities are the same (so eigenvectors form a basis)</dd>
+<dt>Nilpotent operators and bases</dt>
+<dd>We can make a basis out of <span>$(v_1, Nv_1, \ldots, N^{a_1}v_1, v_2, \ldots)$</span> (the <span>$a$</span>'s are the highest power that don't make it 0)</dd>
+<dd>Proof: strong induction on dim, apply IH on range since nullspace is not just zero (cuz nilpotent), make a basis out of range vectors, then consider complement of nullspace within range</dd>
+<dt>Jordan form</dt>
+<dd>block-diagonal matrix, each block has size determined by geometric multiplicity and has the evalue along the diagonal and 1 in the line above it</dd>
+<dd>Existence proof for <span>$T$</span> in a CVS: works for nil ops <span>$(N^{a_1}v_1, \ldots, Nv_1, v_1)$</span> giving us zero along the diagonal, and eigenspaces are given by nil ops etc</dd>
+<dd>The matrix of <span>$(v_n, \ldots, v_1)$</span> has each block transposed, so the diagonal is flipped along the / axis (still a diagonal, in reverse order) - so the 1s are under the diagonal</dd>
+</dl>
+<h2 class="header"><i>8</i>Chapter 9<a class="headerlink" href="#chapter-9" name="chapter-9">&para;</a></h2>
+<p>Omitted (not covered)</p>
+<h2 class="header"><i>9</i>Chapter 10<a class="headerlink" href="#chapter-10" name="chapter-10">&para;</a></h2>
+<dl>
+<dt>Change-of-basis matrix</dt>
+<dd>To convert from one basis to another, figure it out from first principles I guess</dd>
+<dd>Equivalent to the matrix for the op that maps each basis vector to the corresponding one</dd>
+<dd>Inverse matrix gives the opposite direction</dd>
+<dt>Trace</dt>
+<dd>Independent of the basis</dd>
+<dd>On a CVS, equal to sum of eigenvalues (repeated acc. to geometric multiplicity)</dd>
+<dd>On a RVS, sum of eigenvalues minus sum of first coordinates of eigenpairs (again, geo mult)</dd>
+<dd>sum along the diagonal for a UT matrix (same as sum of evalues), or even a non-UT matrix</dd>
+<dd><span>$BA = AB$</span> (square, same size)</dd>
+<dd>No operators such that <span>$ST - TS = I$</span>, by looking at trace</dd>
+<dd>Is a non-negative int if <span>$P^2=P$</span></dd>
+<dd>trace of <span>$(T^*T) = \|Te_1\|^2 + \ldots$</span> (cuz trace is given by <span>$\langle T^*T e_1, e_1 \rangle$</span>, since that's how the matrix works etc) </dd>
+<dt>Determinant</dt>
+<dd><span>$(-1)^{\dim V}$</span> times the constant term in the char poly</dd>
+<dd>CVS: product of eigenvalues (incl repeats, acc. to geo mult)</dd>
+<dd>RVS: product of evalues and second coordinates of eigenpairs (geo mult)</dd>
+<dd>Invertible op <span>$\Leftrightarrow$</span> non-zero determinant. Proof: det is zero iff an eigenvalue is 0, in which case, not invertible</dd>
+<dd>Char poly is <span>$\det(zI-T)$</span></dd>
+<dd>For a diagonal matrix, just take the product of the diagonal elements</dd>
+<dd>For block UT matrices, the det is the prod of the det of the block matrices along the diagonal</dd>
+<dd>Changing two columns flips the sign (permutation theory)</dd>
+<dd>If a column is a scalar mult of another, the det is 0</dd>
+<dd><span>$\det(AB) = \det(BA) = \det(A)\det(B)$</span></dd>
+<dd>Dets of ops are independent of the basis used for the matrix</dd>
+</dl>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

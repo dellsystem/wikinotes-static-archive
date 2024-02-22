@@ -1,0 +1,181 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 19, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 19, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Properties of lattices
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Lattices continued<a class="headerlink" href="#lattices-continued" name="lattices-continued">&para;</a></h2>
+<blockquote>
+<p>A <strong>lattice</strong> <span>$(L; \leq)$</span> is a partially ordered set with a top element <span>$\top$</span> (<span>$x \leq \top$</span> for all <span>$x \in L$</span>), a bottom element <span>$\bot$</span> (<span>$\bot \leq x$</span> for all <span>$x \in L$</span>), and for any <span>$a, b \in L$</span> there are <span>$a \lor b$</span> (the "join") and <span>$a \land b$</span> (the "meet") in <span>$L$</span> such that <span>$a, b \leq a \lor b$</span> and whenever <span>$a, b, \leq c$</span>, <span>$a \lor b \leq c$</span>, and <span>$a \land b \leq a, b$</span> and whenever <span>$d \leq a, b$</span> then <span>$d \leq a \land b$</span>.</p>
+</blockquote>
+<p>In the case of the power set (<span>$L=P(X)$</span>): <span>$\bot = \varnothing$</span>, <span>$\top = X$</span>, <span>$A \lor B = A \cup B$</span>, and <span>$A \land B = A \cap B$</span>.</p>
+<h3 class="header"><i>1.1</i>Representative sets<a class="headerlink" href="#representative-sets" name="representative-sets">&para;</a></h3>
+<p>Fix a set of propositional variables: <span>$\{p_1, ... p_n\}$</span> and let <span>$\mathcal{F}$</span><sup id="fnref:1"><a href="#fn:1" rel="footnote" title="The actual symbol looks like a fancy F with sort o...">1</a></sup> be a representative set of formulas in these variables. <span>$\mathcal{F}$</span> has <span>$2^{2^n}$</span> elements<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="Assignment 1, 4 c).">2</a></sup>.</p>
+<p>How do we order this? It turns out there is a natural partial ordering where the bottom is <span>$\bot$</span>, the top is <span>$\top$</span>, and the variables are in the middle. The number of elements in each row thing follows the pattern in Pascal's triangle. For <span>$n = 1$</span>, the Hasse diagram would appear as follows:</p>
+<p><img alt="Hasse diagram" src="http://cs.mcgill.ca/~wliu65/media/math318/img/rep_set_1_hasse_diagram.png" /></p>
+<p>For <span>$n=2$</span>, it's significantly more complicated. I kind of messed up the placement of the elements (it's supposed to look like a <a href="">hypercube</a>) but all the connections should be correct:</p>
+<p><img alt="Hasse diagram" src="http://cs.mcgill.ca/~wliu65/media/math318/img/rep_set_2_hasse_diagram.png" /></p>
+<p>To do: explain this? Is it necessary?</p>
+<h3 class="header"><i>1.2</i>Distributivity<a class="headerlink" href="#distributivity" name="distributivity">&para;</a></h3>
+<blockquote>
+<p>A lattice is <strong>distributive</strong> if it satisfies both distributive laws, for all <span>$a, b, c \in L$</span>: <br />
+1. <span>$a \land (b \lor c) = (a\land b) \lor (a \land c)$</span><br />
+2. <span>$a \lor (b \land c) = (a\lor b) \land (a \lor c)$</span></p>
+</blockquote>
+<p>(The above is not really equality, but rather propositional equivalence.)</p>
+<p>All of the example lattices were distributive. Incidentally, any lattice with 4 or fewer elements is always distributive.</p>
+<h4 class="header"><i>1.2.1</i>A simple non-distributive lattice<a class="headerlink" href="#a-simple-non-distributive-lattice" name="a-simple-non-distributive-lattice">&para;</a></h4>
+<p>Here is an example of a lattice (called "three" or <span>$M_3$</span>) that is not distributive:</p>
+<p><img alt="Non-distributive lattice" src="http://cs.mcgill.ca/~wliu65/media/math318/img/non_distributive_lattice.png" /></p>
+<p>To check that it fails the first distributive law, we evaluate <span>$a \land (b \lor c)$</span> and <span>$(a \land b) \lor (b \land c)$</span>:</p>
+<dl>
+<dt><span>$a \land (b \lor c)$</span></dt>
+<dd><span>$a \land \top = a$</span></dd>
+<dt><span>$(a \land b) \lor (b \land c)$</span></dt>
+<dd><span>$(\bot) \lor (\bot) = \bot$</span></dd>
+</dl>
+<p>So yeah obviously the two are not equal.</p>
+<h3 class="header"><i>1.3</i>Modularity<a class="headerlink" href="#modularity" name="modularity">&para;</a></h3>
+<blockquote>
+<p>A lattice is called <strong>modular</strong> if, whenever <span>$x \leq y$</span>, <span>$y \land (x \lor z) = (y \land x) \lor (y \land z)$</span> and <span>$x \lor (y \land z) = (x \lor y) \land (x \lor z)$</span> for all <span>$z$</span>. A weaker property than distributivity (as all distributive lattices are modular, but not all modular lattices are distributive).</p>
+</blockquote>
+<h4 class="header"><i>1.3.1</i>A simple non-modular lattice<a class="headerlink" href="#a-simple-non-modular-lattice" name="a-simple-non-modular-lattice">&para;</a></h4>
+<p>An example of a a lattice (called "five" or <span>$N_5$</span>) that is not modular (and thus also not distributive):</p>
+<p><img alt="Non-modular lattice" src="http://cs.mcgill.ca/~wliu65/media/math318/img/non_modular_lattice.png" /></p>
+<p>Proof: <span>$b \land (a \lor c) = b \land \top = b$</span>, but <span>$(b \land a) \lor (b \land c) = a \lor \bot = a$</span>.</p>
+<blockquote>
+<p>Fact: if a lattice <span>$(L; \leq)$</span> is not modular, there are <span>$\alpha, \beta, \gamma$</span> in <span>$L$</span> with <span>$\alpha &lt; \beta$</span>, <span>$\alpha \land \gamma = \beta \land \gamma$</span>, and <span>$\alpha \lor \gamma = \beta \lor \gamma$</span> (so a copy of <span>$N_5$</span>, somehow). Conversely, if there is a copy of <span>$N_5$</span>, then the lattice is not modular.</p>
+</blockquote>
+<h3 class="header"><i>1.4</i>Complements<a class="headerlink" href="#complements" name="complements">&para;</a></h3>
+<p>If <span>$(L; \leq)$</span> is a lattice and <span>$a \in L$</span>, a complement of <span>$a$</span> is an element <span>$b$</span> such that <span>$a \land b = \bot$</span> and <span>$a \lor b = \top$</span>.</p>
+<p>In any lattice, <span>$\top$</span> and <span>$\bot$</span> are always complements. In a totally ordered set, only <span>$\top$</span> and <span>$\bot$</span> are complements.</p>
+<p>N.B. Complements are not necessarily unique, although they are in certain cases.</p>
+<p>In the lattice of the power set <span>$P(X)$</span>, every element <span>$A$</span> has a unique complement, which is <span>$X / \{A \}$</span> (so like the actual complement lol). The join (union) of <span>$A$</span> and its complement is <span>$X$</span>, while the meet (intersection) is the empty set.</p>
+<p>In the case of the non-distributive lattice <span>$N_3$</span>, any two of <span>$(a, b, c)$</span> are complements.</p>
+<p>Going back to the representative set <span>$\mathcal{F}$</span>, every formula <span>$\Phi$</span> has a unique complete, which is just the negative of the formula (<span>$\neg \Phi)$</span>. The join is <span>$\Phi \lor \neg \Phi$</span> which always comes out <span>$\top$</span> and the meet is <span>$\Phi \land \neg \Phi$</span> which always comes out <span>$\bot$</span>.</p>
+<h4 class="header"><i>1.4.1</i>Boolean algebras<a class="headerlink" href="#boolean-algebras" name="boolean-algebras">&para;</a></h4>
+<blockquote>
+<p>A <strong>boolean algebra</strong> is a complemented<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="Every element has a complement.">3</a></sup>, distributive<sup id="fnref:4"><a href="#fn:4" rel="footnote" title="Every complement is unique.">4</a></sup> lattice.</p>
+</blockquote>
+<p>An example of a boolean algebra can be found in assignment 4, question 1. The relation is the divisibility relation, and any number that is square-free (i.e. not divisible by any perfect squares except one) on the right side of the <span>$\mid$</span> will result in a lattice in which each element has a unique complement.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>The actual symbol looks like a fancy F with sort of turned backwards, or with the horizontal bars pushed back a bit, but I couldn't find the equivalent symbol to type up.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Assignment 1, 4 c).&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>Every element has a complement.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>Every complement is unique.&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

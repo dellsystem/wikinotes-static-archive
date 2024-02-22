@@ -1,0 +1,917 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>A guide to solving the various types of problems encountered in this course.</p>
+<div class="toc">
+<ul>
+<li><a href="#basic-algebra">1 Basic algebra</a><ul>
+<li><a href="#proof-by-induction">1.1 Proof by induction</a><ul>
+<li><a href="#general-solution">1.1.1 General solution</a></li>
+<li><a href="#examples">1.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#power-sets">1.2 Power sets</a><ul>
+<li><a href="#general-solution_1">1.2.1 General solution</a></li>
+<li><a href="#examples_1">1.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#cardanos-formula">1.3 Cardano's formula</a><ul>
+<li><a href="#general-solution_2">1.3.1 General solution</a></li>
+<li><a href="#examples_2">1.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#set-theory">1.4 Set theory</a><ul>
+<li><a href="#general-solution_3">1.4.1 General solution</a></li>
+<li><a href="#examples_3">1.4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-the-gcd-of-integers">1.5 Computing the gcd of integers</a><ul>
+<li><a href="#general-solution_4">1.5.1 General solution</a></li>
+<li><a href="#examples_4">1.5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-the-gcd-of-polynomials">1.6 Computing the gcd of polynomials</a><ul>
+<li><a href="#general-solution_5">1.6.1 General solution</a></li>
+<li><a href="#examples_5">1.6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#polynomial-division">1.7 Polynomial division</a><ul>
+<li><a href="#general-solution_6">1.7.1 General solution</a></li>
+<li><a href="#examples_6">1.7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#complex-integers">1.8 Complex integers</a><ul>
+<li><a href="#general-solution_7">1.8.1 General solution</a></li>
+<li><a href="#examples_7">1.8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#euclids-lemma">1.9 Euclid's lemma</a><ul>
+<li><a href="#general-solution_8">1.9.1 General solution</a></li>
+<li><a href="#examples_8">1.9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#bezouts-identity">1.10 Bézout's identity</a><ul>
+<li><a href="#general-solution_9">1.10.1 General solution</a></li>
+<li><a href="#examples_9">1.10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#the-fundamental-theorem-of-arithmetic">1.11 The fundamental theorem of arithmetic</a><ul>
+<li><a href="#general-solution_10">1.11.1 General solution</a></li>
+<li><a href="#examples_10">1.11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#infinitely-many-primes">1.12 Infinitely many primes</a><ul>
+<li><a href="#general-solution_11">1.12.1 General solution</a></li>
+<li><a href="#examples_11">1.12.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#solving-congruences">2 Solving congruences</a><ul>
+<li><a href="#calculate-an-exponent-mod-n">2.1 Calculate an exponent mod n</a><ul>
+<li><a href="#general-solution_12">2.1.1 General solution</a></li>
+<li><a href="#examples_12">2.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#congruence-equations">2.2 Congruence equations</a><ul>
+<li><a href="#general-solution_13">2.2.1 General solution</a></li>
+<li><a href="#examples_13">2.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#number-of-solutions-to-a-congruence-equation">2.3 Number of solutions to a congruence equation</a><ul>
+<li><a href="#general-solution_14">2.3.1 General solution</a></li>
+<li><a href="#examples_14">2.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-fermats-little-theorem">2.4 Proving Fermat's Little Theorem</a><ul>
+<li><a href="#general-solution_15">2.4.1 General solution</a></li>
+<li><a href="#examples_15">2.4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#modular-proofs">2.5 Modular proofs</a><ul>
+<li><a href="#general-solution_16">2.5.1 General solution</a></li>
+<li><a href="#examples_16">2.5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#invertible-elements-and-primitive-roots">2.6 Invertible elements and primitive roots</a><ul>
+<li><a href="#general-solution_17">2.6.1 General solution</a></li>
+<li><a href="#examples_17">2.6.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#rings-and-ideals">3 Rings and ideals</a><ul>
+<li><a href="#identifying-ideals">3.1 Identifying ideals</a><ul>
+<li><a href="#general-solution_18">3.1.1 General solution</a></li>
+<li><a href="#examples_18">3.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#subrings">3.2 Subrings</a><ul>
+<li><a href="#general-solution_19">3.2.1 General solution</a></li>
+<li><a href="#examples_19">3.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#describing-quotient-rings">3.3 Describing quotient rings</a><ul>
+<li><a href="#general-solution_20">3.3.1 General solution</a></li>
+<li><a href="#examples_20">3.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-the-chinese-remainder-theorem">3.4 Proving the Chinese Remainder Theorem</a><ul>
+<li><a href="#general-solution_21">3.4.1 General solution</a></li>
+<li><a href="#examples_21">3.4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#maximal-and-prime-ideals">3.5 Maximal and prime ideals</a><ul>
+<li><a href="#general-solution_22">3.5.1 General solution</a></li>
+<li><a href="#examples_22">3.5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-unique-ideals">3.6 Finding the unique ideals</a><ul>
+<li><a href="#general-solution_23">3.6.1 General solution</a></li>
+<li><a href="#examples_23">3.6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-inverses">3.7 Finding inverses</a><ul>
+<li><a href="#general-solution_24">3.7.1 General solution</a></li>
+<li><a href="#examples_24">3.7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#is-it-a-field">3.8 Is it a field?</a><ul>
+<li><a href="#general-solution_25">3.8.1 General solution</a></li>
+<li><a href="#examples_25">3.8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#using-the-first-isomorphism-theorem">3.9 Using the first isomorphism theorem</a><ul>
+<li><a href="#general-solution_26">3.9.1 General solution</a></li>
+<li><a href="#examples_26">3.9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-irreducibility-or-primality">3.10 Proving irreducibility or primality</a><ul>
+<li><a href="#general-solution_27">3.10.1 General solution</a></li>
+<li><a href="#examples_27">3.10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-two-rings-are-homomorphic">3.11 Proving two rings are homomorphic</a><ul>
+<li><a href="#general-solution_28">3.11.1 General solution</a></li>
+<li><a href="#examples_28">3.11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-two-rings-are-not-isomorphic">3.12 Proving two rings are not isomorphic</a><ul>
+<li><a href="#general-solution_29">3.12.1 General solution</a></li>
+<li><a href="#examples_29">3.12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-principality">3.13 Proving principality</a><ul>
+<li><a href="#general-solution_30">3.13.1 General solution</a></li>
+<li><a href="#examples_30">3.13.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-non-principality">3.14 Proving non-principality</a><ul>
+<li><a href="#general-solution_31">3.14.1 General solution</a></li>
+<li><a href="#examples_31">3.14.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#constructing-finite-fields">3.15 Constructing finite fields</a><ul>
+<li><a href="#general-solution_32">3.15.1 General solution</a></li>
+<li><a href="#examples_32">3.15.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#identifying-the-units-of-a-ring">3.16 Identifying the units of a ring</a><ul>
+<li><a href="#general-solution_33">3.16.1 General solution</a></li>
+<li><a href="#examples_33">3.16.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#group-theory">4 Group theory</a><ul>
+<li><a href="#orders-of-elements-in-permutation-groups">4.1 Orders of elements in permutation groups</a><ul>
+<li><a href="#general-solution_34">4.1.1 General solution</a></li>
+<li><a href="#examples_34">4.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#isomorphisms-between-groups-of-n-elements">4.2 Isomorphisms between groups of n elements</a><ul>
+<li><a href="#general-solution_35">4.2.1 General solution</a></li>
+<li><a href="#examples_35">4.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#the-first-isomorphism-theorem-for-groups">4.3 The first isomorphism theorem for groups</a><ul>
+<li><a href="#general-solution_36">4.3.1 General solution</a></li>
+<li><a href="#examples_36">4.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#relations-on-groups">4.4 Relations on groups</a><ul>
+<li><a href="#general-solution_37">4.4.1 General solution</a></li>
+<li><a href="#examples_37">4.4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#the-zero-group-homomorphism">4.5 The zero group homomorphism</a><ul>
+<li><a href="#general-solution_38">4.5.1 General solution</a></li>
+<li><a href="#examples_38">4.5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-lagranges-theorem">4.6 Proving Lagrange's theorem</a><ul>
+<li><a href="#general-solution_39">4.6.1 General solution</a></li>
+<li><a href="#examples_39">4.6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#number-of-elements-of-a-given-order">4.7 Number of elements of a given order</a><ul>
+<li><a href="#general-solution_40">4.7.1 General solution</a></li>
+<li><a href="#examples_40">4.7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-order-of-a-group">4.8 Finding the order of a group</a><ul>
+<li><a href="#general-solution_41">4.8.1 General solution</a></li>
+<li><a href="#examples_41">4.8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-isomorphism-between-groups">4.9 Proving isomorphism between groups</a><ul>
+<li><a href="#general-solution_42">4.9.1 General solution</a></li>
+<li><a href="#examples_42">4.9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#normal-subgroups">4.10 Normal subgroups</a><ul>
+<li><a href="#general-solution_43">4.10.1 General solution</a></li>
+<li><a href="#examples_43">4.10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#properties-of-simple-groups">4.11 Properties of simple groups</a><ul>
+<li><a href="#general-solution_44">4.11.1 General solution</a></li>
+<li><a href="#examples_44">4.11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#properties-involving-orders">4.12 Properties involving orders</a><ul>
+<li><a href="#general-solution_45">4.12.1 General solution</a></li>
+<li><a href="#examples_45">4.12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-the-lack-of-surjective-homomorphisms">4.13 Proving the lack of surjective homomorphisms</a><ul>
+<li><a href="#general-solution_46">4.13.1 General solution</a></li>
+<li><a href="#examples_46">4.13.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#permutation-group-elements">4.14 Permutation group elements</a><ul>
+<li><a href="#general-solution_47">4.14.1 General solution</a></li>
+<li><a href="#examples_47">4.14.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Basic algebra<a class="headerlink" href="#basic-algebra" name="basic-algebra">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h3>
+<blockquote>
+<p>Prove something by induction.</p>
+</blockquote>
+<h4 class="header"><i>1.1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h4>
+<p>Do you even induct?</p>
+<h4 class="header"><i>1.1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-1">Fall 2005 final, question 1</a></li>
+<li>Assignment 1, question 5</li>
+<li>Assignment 1, question 7</li>
+<li>Assignment 1, question 8</li>
+</ul>
+<h3 class="header"><i>1.2</i>Power sets<a class="headerlink" href="#power-sets" name="power-sets">&para;</a></h3>
+<blockquote>
+<p>Prove something involving power sets.</p>
+</blockquote>
+<h4 class="header"><i>1.2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h4>
+<p>For example, that there is no bijection between a set and its power set. Use a proof by contradiction, and consider the set of all elements that are mapped to a set they are not in, and think about what a hypothetical bijection would do to this function.</p>
+<h4 class="header"><i>1.2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-midterm#question-1">Sample midterm, question 1</a></li>
+<li>Assignment 1, question 9</li>
+</ul>
+<h3 class="header"><i>1.3</i>Cardano's formula<a class="headerlink" href="#cardanos-formula" name="cardanos-formula">&para;</a></h3>
+<blockquote>
+<p>Use Cardano's formula to find the roots for some cubic equation.</p>
+</blockquote>
+<h4 class="header"><i>1.3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h4>
+<p>Please let this not be on the final</p>
+<h4 class="header"><i>1.3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h4>
+<ul>
+<li>Assignment 1, question 1</li>
+</ul>
+<h3 class="header"><i>1.4</i>Set theory<a class="headerlink" href="#set-theory" name="set-theory">&para;</a></h3>
+<blockquote>
+<p>Given some statement about sets. Is it true?</p>
+</blockquote>
+<h4 class="header"><i>1.4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h4>
+<p>Draw the Venn diagram? If you can't do that, think about it using examples.</p>
+<h4 class="header"><i>1.4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-10">Fall 2007, question 10 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-6">Fall 2009, question 6 (part I)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2009/final#question-7">Fall 2009, question 7 (part I)</a></li>
+</ul>
+<h3 class="header"><i>1.5</i>Computing the gcd of integers<a class="headerlink" href="#computing-the-gcd-of-integers" name="computing-the-gcd-of-integers">&para;</a></h3>
+<blockquote>
+<p>Given two (typically large) integers, compute their gcd</p>
+</blockquote>
+<h4 class="header"><i>1.5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h4>
+<p>Use the Euclidean algorithm. It's pretty easy.</p>
+<p>To confirm, divide each number by its proposed gcd. If it works, it's definitely a common divisor (although it may not be the <em>greatest</em> if you made a mistake somewhere). If it doesn't divide evenly, then you definitely made a mistake somewhere.</p>
+<h4 class="header"><i>1.5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-midterm#question-2">Sample midterm, question 2</a></li>
+<li>Assignment 1, question 6</li>
+</ul>
+<h3 class="header"><i>1.6</i>Computing the gcd of polynomials<a class="headerlink" href="#computing-the-gcd-of-polynomials" name="computing-the-gcd-of-polynomials">&para;</a></h3>
+<blockquote>
+<p>Given two polynomials, compute their gcd.</p>
+</blockquote>
+<h4 class="header"><i>1.6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h4>
+<p>Same as the previous one, except with polynomial division. Shouldn't be too hard.</p>
+<p>This often occurs in <span>$\mathbb Z/n\mathbb Z$</span>, so keep that in mind.</p>
+<p>If we have to do this in general (with variables as opposed to concrete numbers), it's a bit harder, but not impossible; just run through the Euclidean algorithm and see what happens.</p>
+<h4 class="header"><i>1.6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-2">Fall 2006, question 2 (part A)</a>, <a href="/MATH_235/past-exam/fall-2007/final#question-2">Fall 2007, question 2 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-3">Fall 2009, question 3 (part A)</a></li>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-3">Practice final, question 3</a></li>
+<li>Assignment 3, question 4</li>
+</ul>
+<h3 class="header"><i>1.7</i>Polynomial division<a class="headerlink" href="#polynomial-division" name="polynomial-division">&para;</a></h3>
+<blockquote>
+<p>Divide two polynomials</p>
+</blockquote>
+<h4 class="header"><i>1.7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h4>
+<p>Just use polynomial long division. (There's a package for it.)</p>
+<h4 class="header"><i>1.7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h4>
+<ul>
+<li>Assignment 3, questions 1 and 2</li>
+</ul>
+<h3 class="header"><i>1.8</i>Complex integers<a class="headerlink" href="#complex-integers" name="complex-integers">&para;</a></h3>
+<blockquote>
+<p>Show that a complex number is an integer.</p>
+</blockquote>
+<h4 class="header"><i>1.8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h4>
+<p>First, find the polar representation of the complex number (draw the triangle, calculate <span>$r$</span> and <span>$\theta$</span>). Then, use Euler's identity: <span>$e^{i\theta} = \cos(\theta) + i\sin(\theta)$</span> (twice if necessary). You'll get sin(x) where x comes out to a multiple of pi and so the complex coefficient will be 0.</p>
+<h4 class="header"><i>1.8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h4>
+<ul>
+<li>Assignment 1, question 4</li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-1">Fall 2012 midterm, question 1</a></li>
+</ul>
+<h3 class="header"><i>1.9</i>Euclid's lemma<a class="headerlink" href="#euclids-lemma" name="euclids-lemma">&para;</a></h3>
+<blockquote>
+<p>State and prove it using only the basic properties of the gcd.</p>
+</blockquote>
+<h4 class="header"><i>1.9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h4>
+<p>If <span>$p$</span> is prime, and <span>$p \mid ab$</span>, then <span>$p \mid a$</span> or <span>$p \mid b$</span>.</p>
+<p>Assume <span>$\gcd(p, a) = 1$</span>. Then there exist <span>$u, v$</span> such that <span>$up + av = 1$</span>. Multiply both sides by <span>$b$</span> and we get <span>$bup + bav = b$</span>. Now, <span>$p \mid bup$</span>, and <span>$p \mid ab$</span> so <span>$p \mid bav$</span>. Then <span>$p \mid b$</span>.</p>
+<h4 class="header"><i>1.9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-midterm#question-4">Sample midterm, question 4</a></li>
+</ul>
+<h3 class="header"><i>1.10</i>Bézout's identity<a class="headerlink" href="#bezouts-identity" name="bezouts-identity">&para;</a></h3>
+<blockquote>
+<p>State and prove it.</p>
+</blockquote>
+<h4 class="header"><i>1.10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h4>
+<p>There exist <span>$u, v$</span> such that <span>$ua + vb = \gcd(a, b)$</span>.</p>
+<p>Proof: let <span>$S$</span> be the set of all positive integers that can be expressed in the form <span>$ua + vb$</span>. This is not empty, for <span>$a^2+b^2$</span> is in the set. Let <span>$d$</span> be the minimum element. We can write <span>$a = qd + r = (ua + vb)q + r = qua + qvb + r$</span>. So <span>$r = a - qua + qvb = (1-qu)a + (qv)b$</span>. So <span>$r$</span> is a linear combo of <span>$a$</span> and <span>$b$</span>. But <span>$r$</span> can't be in <span>$S$</span> as that would contradict the minimality of <span>$d$</span>. So <span>$r = 0$</span>. So then <span>$a = qd$</span> so <span>$d \mid a$</span>. Same for <span>$b$</span>.</p>
+<p>To prove that it's the greater divisor, just note that any other divisor must also divide <span>$d$</span>, etc.</p>
+<h4 class="header"><i>1.10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-2">Fall 2012 midterm, question 2</a></li>
+</ul>
+<h3 class="header"><i>1.11</i>The fundamental theorem of arithmetic<a class="headerlink" href="#the-fundamental-theorem-of-arithmetic" name="the-fundamental-theorem-of-arithmetic">&para;</a></h3>
+<blockquote>
+<p>State and prove it.</p>
+</blockquote>
+<h4 class="header"><i>1.11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h4>
+<p>Unique factorisation into primes with powers.</p>
+<p>Existence proof: contradiction, minimality.</p>
+<p>Uniqueness proof: induction.</p>
+<h4 class="header"><i>1.11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-5_1">Fall 2006 final, question 5 (b) (part B)</a> (just the existence part)</li>
+</ul>
+<h3 class="header"><i>1.12</i>Infinitely many primes<a class="headerlink" href="#infinitely-many-primes" name="infinitely-many-primes">&para;</a></h3>
+<blockquote>
+<p>Prove that there are infinitely many primes.</p>
+</blockquote>
+<h4 class="header"><i>1.12.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h4>
+<p>Euclid's proof, by contradiction.</p>
+<h4 class="header"><i>1.12.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-5_1">Fall 2006 final, question 5 (a) (part B)</a></li>
+</ul>
+<h2 class="header"><i>2</i>Solving congruences<a class="headerlink" href="#solving-congruences" name="solving-congruences">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Calculate an exponent mod n<a class="headerlink" href="#calculate-an-exponent-mod-n" name="calculate-an-exponent-mod-n">&para;</a></h3>
+<blockquote>
+<p>Calculate <span>$a^b \pmod c$</span> where <span>$a$</span>, <span>$b$</span> and <span>$c$</span> are given and <span>$b$</span> is typically very large.</p>
+</blockquote>
+<h4 class="header"><i>2.1.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h4>
+<p>If <span>$b$</span> is composite: First, break down <span>$a$</span> into its prime divisors. Then, use the Chinese remainder theorem, and solve for <span>$a$</span> (see below).</p>
+<p>If <span>$b$</span> is prime: Fermat's little theorem is very useful. <a href="http://en.wikipedia.org/wiki/Divisibility_rule#Divisibility_rules_for_numbers_1.E2.80.9320">Divisibility tests</a> can also come in handy.</p>
+<p><strong>Remark</strong>: this kind of question is ubiquitous (it shows up once in pretty much every past exam). Make sure you know how to do questions of this type without having to spend too much time trying to remember what the correct procedure is.</p>
+<h4 class="header"><i>2.1.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-midterm#question-3">Sample midterm, question 3</a></li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-3">Fall 2012 midterm, question 3</a></li>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-6">Fall 2006 final, question 6 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-4">Fall 2007 final, question 4 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2009/final#question-9">Fall 2009 final, question 9 (part I)</a></li>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-1">Practice final, question 1</a></li>
+</ul>
+<h3 class="header"><i>2.2</i>Congruence equations<a class="headerlink" href="#congruence-equations" name="congruence-equations">&para;</a></h3>
+<blockquote>
+<p>Solve a congruence equation. It may or may not be linear.</p>
+</blockquote>
+<h4 class="header"><i>2.2.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h4>
+<p>Trial and error</p>
+<h4 class="header"><i>2.2.2</i>Examples<a class="headerlink" href="#examples_13" name="examples_13">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-2">Fall 2005 final, question 2</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-2_1">Fall 2007 final, question 2 (b) (part II)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2009/final#question-2_1">Fall 2009 final, question 2 (b) (part II)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-4">Fall 2012 midterm, question 4</a></li>
+<li>Assignment 2, question 4</li>
+</ul>
+<h3 class="header"><i>2.3</i>Number of solutions to a congruence equation<a class="headerlink" href="#number-of-solutions-to-a-congruence-equation" name="number-of-solutions-to-a-congruence-equation">&para;</a></h3>
+<blockquote>
+<p>How many solutions does <span>$x^a = b$</span> have in <span>$\mathbb Z / n \mathbb Z$</span> (with <span>$a, b, n$</span> given)?</p>
+</blockquote>
+<h4 class="header"><i>2.3.1</i>General solution<a class="headerlink" href="#general-solution_14" name="general-solution_14">&para;</a></h4>
+<p>It seems that it has something to do with the prime decomposition of <span>$n$</span>. If <span>$n = pq$</span> where <span>$p, q$</span> are prime, then the answer is <span>$\leq a^2$</span>. Think about it. Chinese Remainder Theorem!!</p>
+<h4 class="header"><i>2.3.2</i>Examples<a class="headerlink" href="#examples_14" name="examples_14">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-11">Fall 2007, question 11 (part A)</a></li>
+</ul>
+<h3 class="header"><i>2.4</i>Proving Fermat's Little Theorem<a class="headerlink" href="#proving-fermats-little-theorem" name="proving-fermats-little-theorem">&para;</a></h3>
+<blockquote>
+<p>State and prove Fermat's Little Theorem.</p>
+</blockquote>
+<h4 class="header"><i>2.4.1</i>General solution<a class="headerlink" href="#general-solution_15" name="general-solution_15">&para;</a></h4>
+<p>Proof: prove that a prime divides its binomial coefficient, then, induction.</p>
+<p>You may also be asked to prove this using Lagrange's theorem from group theory. The unit group for <span>$\mathbb Z/p\mathbb Z$</span> has <span>$p-1$</span> elements, so its order is that, and the order of any element divides that. If <span>$k$</span> is the order of <span>$a$</span> then <span>$a^k = 1$</span>, and <span>$a^{p-1} = a^{mk} = (a^m)^k = 1^k = 1$</span>.</p>
+<h4 class="header"><i>2.4.2</i>Examples<a class="headerlink" href="#examples_15" name="examples_15">&para;</a></h4>
+<ul>
+<li><a href="/summary/fall-2012/practice-final#question-5">Practice final, question 5</a> (requires using Lagrange's theorem)</li>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-3">Fall 2005 final, question 3</a></li>
+<li>Assignment 2, question 9 (the binomial coefficient part)</li>
+<li>Assignment 2, question 10 (the rest of it)</li>
+<li>Assignment 5, question 9 (using Lagrange's theorem)</li>
+</ul>
+<h3 class="header"><i>2.5</i>Modular proofs<a class="headerlink" href="#modular-proofs" name="modular-proofs">&para;</a></h3>
+<blockquote>
+<p>Show that <span>$a^x \equiv a \pmod y$</span> for all <span>$a$</span>, where <span>$x$</span> and <span>$y$</span> are given.</p>
+</blockquote>
+<h4 class="header"><i>2.5.1</i>General solution<a class="headerlink" href="#general-solution_16" name="general-solution_16">&para;</a></h4>
+<p>Break <span>$a$</span> down into its prime divisors if it's not prime (if it is, this trivially uses FLT and so is unlikely to be asked). Then, use the Chinese remainder theorem, and FLT on each part.</p>
+<h4 class="header"><i>2.5.2</i>Examples<a class="headerlink" href="#examples_16" name="examples_16">&para;</a></h4>
+<ul>
+<li>Assignment 2, question 11</li>
+<li>Assignment 2, question 5</li>
+</ul>
+<h3 class="header"><i>2.6</i>Invertible elements and primitive roots<a class="headerlink" href="#invertible-elements-and-primitive-roots" name="invertible-elements-and-primitive-roots">&para;</a></h3>
+<blockquote>
+<p>Find all the invertible elements in <span>$\mathbb{Z}/n\mathbb{Z}$</span> where <span>$n$</span> is given. Also, find the primitive roots.</p>
+</blockquote>
+<h4 class="header"><i>2.6.1</i>General solution<a class="headerlink" href="#general-solution_17" name="general-solution_17">&para;</a></h4>
+<p>List all the elements that are relatively prime to <span>$n$</span>. If <span>$n$</span> is simply prime, then all the elements in the ring (which is in fact a field) are invertible.</p>
+<p>Finding primitive roots: try every number (start from 2). Note that for non-prime <span>$n$</span>, there are no primitive roots.</p>
+<h4 class="header"><i>2.6.2</i>Examples<a class="headerlink" href="#examples_17" name="examples_17">&para;</a></h4>
+<ul>
+<li>Assignment 2, question 8</li>
+<li>Assignment 2, question 6</li>
+</ul>
+<h2 class="header"><i>3</i>Rings and ideals<a class="headerlink" href="#rings-and-ideals" name="rings-and-ideals">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Identifying ideals<a class="headerlink" href="#identifying-ideals" name="identifying-ideals">&para;</a></h3>
+<blockquote>
+<p>Is this an ideal????</p>
+</blockquote>
+<h4 class="header"><i>3.1.1</i>General solution<a class="headerlink" href="#general-solution_18" name="general-solution_18">&para;</a></h4>
+<p>Properties:</p>
+<ol>
+<li>Closed under addition</li>
+<li>Closed under ring multiplication</li>
+</ol>
+<h4 class="header"><i>3.1.2</i>Examples<a class="headerlink" href="#examples_18" name="examples_18">&para;</a></h4>
+<ul>
+<li>Assignment 4, questions 6-10</li>
+</ul>
+<h3 class="header"><i>3.2</i>Subrings<a class="headerlink" href="#subrings" name="subrings">&para;</a></h3>
+<blockquote>
+<p>Given a subset <span>$S$</span> of a ring, is it a subring?</p>
+</blockquote>
+<h4 class="header"><i>3.2.1</i>General solution<a class="headerlink" href="#general-solution_19" name="general-solution_19">&para;</a></h4>
+<p>For <span>$S$</span> to be a subring, it must satisfy the following conditions:</p>
+<ol>
+<li>The identity element is in <span>$S$</span></li>
+<li>Closed under addition</li>
+<li>Closed under multiplication</li>
+</ol>
+<h4 class="header"><i>3.2.2</i>Examples<a class="headerlink" href="#examples_19" name="examples_19">&para;</a></h4>
+<ul>
+<li>Assignment 4, question 2</li>
+</ul>
+<h3 class="header"><i>3.3</i>Describing quotient rings<a class="headerlink" href="#describing-quotient-rings" name="describing-quotient-rings">&para;</a></h3>
+<blockquote>
+<p>Give an example of a ring <span>$R$</span> and an ideal <span>$I$</span> in it which is not principal, and describe <span>$R/I$</span>.</p>
+</blockquote>
+<h4 class="header"><i>3.3.1</i>General solution<a class="headerlink" href="#general-solution_20" name="general-solution_20">&para;</a></h4>
+<p><span>$(2, x)$</span> in <span>$\mathbb Z[x]$</span>. Isomorphic to <span>$\mathbb Z/2\mathbb Z$</span></p>
+<h4 class="header"><i>3.3.2</i>Examples<a class="headerlink" href="#examples_20" name="examples_20">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-2">Practice final, question 2</a></li>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-6">Practice final, question 6</a> (the last part of the question asks to describe a quotient ring)</li>
+<li>Assignment 4, question 11 (the last part, the non-principal example)</li>
+</ul>
+<h3 class="header"><i>3.4</i>Proving the Chinese Remainder Theorem<a class="headerlink" href="#proving-the-chinese-remainder-theorem" name="proving-the-chinese-remainder-theorem">&para;</a></h3>
+<blockquote>
+<p>Prove the Chinese Remainder Theorem (that <span>$\mathbb Z /(mn) \mathbb Z \cong \mathbb Z / m\mathbb Z \times \mathbb Z / n \mathbb Z$</span>). Optionally: state the analogous theorem for the ring of polynomials with coefficients in a field.</p>
+</blockquote>
+<h4 class="header"><i>3.4.1</i>General solution<a class="headerlink" href="#general-solution_21" name="general-solution_21">&para;</a></h4>
+<p>Create the following isomorphism: <span>$f: a \mapsto a \pmod m, a \pmod n$</span>. Show that it's a ring homo, injective (easy). Surjective: Bezout's identity, multiplying <span>$um + vn = 1$</span> by <span>$a$</span>.</p>
+<h4 class="header"><i>3.4.2</i>Examples<a class="headerlink" href="#examples_21" name="examples_21">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-3_1">Fall 2006 final, question 3 (a) (part B)</a>, <a href="/MATH_235/past-exam/fall-2007/final#question-2_1">Fall 2007 final, question 2 (a) (part B)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-2_1">Fall 2009 final, question 2 (a) (part II)</a> (the Chinese Remainder Theorem proof)</li>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-3_1">Fall 2006 final, question 3 (b) (part B)</a> (the ring of polynomials part only)</li>
+</ul>
+<h3 class="header"><i>3.5</i>Maximal and prime ideals<a class="headerlink" href="#maximal-and-prime-ideals" name="maximal-and-prime-ideals">&para;</a></h3>
+<blockquote>
+<p>Define maximal and prime ideals. Prove something related to them.</p>
+</blockquote>
+<h4 class="header"><i>3.5.1</i>General solution<a class="headerlink" href="#general-solution_22" name="general-solution_22">&para;</a></h4>
+<p>Maximal ideal: any ideal containing this ideal would have to be the whole ring.</p>
+<p>Prime ideal: if <span>$ab \in I$</span>, then <span>$a \in I$</span> or <span>$b \in I$</span>.</p>
+<h4 class="header"><i>3.5.2</i>Examples<a class="headerlink" href="#examples_22" name="examples_22">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-7">Fall 2005 final, question 7</a></li>
+</ul>
+<h3 class="header"><i>3.6</i>Finding the unique ideals<a class="headerlink" href="#finding-the-unique-ideals" name="finding-the-unique-ideals">&para;</a></h3>
+<blockquote>
+<p>Given a list of ideals, how many unique ideals are there?</p>
+</blockquote>
+<h4 class="header"><i>3.6.1</i>General solution<a class="headerlink" href="#general-solution_23" name="general-solution_23">&para;</a></h4>
+<p>Write them out.</p>
+<h4 class="header"><i>3.6.2</i>Examples<a class="headerlink" href="#examples_23" name="examples_23">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-12">Fall 2007, question 12 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-8">Fall 2009, question 8 (part I)</a></li>
+</ul>
+<h3 class="header"><i>3.7</i>Finding inverses<a class="headerlink" href="#finding-inverses" name="finding-inverses">&para;</a></h3>
+<blockquote>
+<p>Find the inverse of an element in a (possibly quotient) ring.</p>
+</blockquote>
+<h4 class="header"><i>3.7.1</i>General solution<a class="headerlink" href="#general-solution_24" name="general-solution_24">&para;</a></h4>
+<p>If it's a polynomial ring, and you're instructed to evaluate the element to several powers, then you'll probably find the inverse in there.</p>
+<h4 class="header"><i>3.7.2</i>Examples<a class="headerlink" href="#examples_24" name="examples_24">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-5">Fall 2005 final, question 5</a></li>
+</ul>
+<h3 class="header"><i>3.8</i>Is it a field?<a class="headerlink" href="#is-it-a-field" name="is-it-a-field">&para;</a></h3>
+<blockquote>
+<p>Is this (likely quotient) ring a field? Prove it. Optionally: find a square root of something in it.</p>
+</blockquote>
+<h4 class="header"><i>3.8.1</i>General solution<a class="headerlink" href="#general-solution_25" name="general-solution_25">&para;</a></h4>
+<p>If it's a quotient ring, then it depends on what you're modding by. If it's irreducible (for polynomials) or prime (for the integers), then it's a field. Otherwise, it's probably not.</p>
+<p>If you have to prove it, use Bezout's identity to show that every element has an inverse (because the gcd is 1, etc). Also note that the irreducible polynomial that you're modding by has a root in this quotient ring (because <span>$f(x) = 0$</span>).</p>
+<p>Note that <span>$\mathbb Z$</span> is not a field. <span>$\mathbb Q$</span> is.</p>
+<h4 class="header"><i>3.8.2</i>Examples<a class="headerlink" href="#examples_25" name="examples_25">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-4">Fall 2006, question 4 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-4_1">Fall 2006, question 4 (part B)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-3_1">Fall 2007, question 3 (a) (part B)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-3_1">Fall 2007, question 3 (c) (part B)</a> (finding the square root of 2)</li>
+</ul>
+<h3 class="header"><i>3.9</i>Using the first isomorphism theorem<a class="headerlink" href="#using-the-first-isomorphism-theorem" name="using-the-first-isomorphism-theorem">&para;</a></h3>
+<blockquote>
+<p>Make use of the first isomorphism theorem in some way.</p>
+</blockquote>
+<h4 class="header"><i>3.9.1</i>General solution<a class="headerlink" href="#general-solution_26" name="general-solution_26">&para;</a></h4>
+<p>idk</p>
+<h4 class="header"><i>3.9.2</i>Examples<a class="headerlink" href="#examples_26" name="examples_26">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-3_1">Fall 2007, question 3 (d)-(e) (part B)</a></li>
+<li>Assignment 5, question 1</li>
+</ul>
+<h3 class="header"><i>3.10</i>Proving irreducibility or primality<a class="headerlink" href="#proving-irreducibility-or-primality" name="proving-irreducibility-or-primality">&para;</a></h3>
+<blockquote>
+<p>Given a polynomial ring or a square root ring or something, show that an element is irreducible or prime.</p>
+</blockquote>
+<h4 class="header"><i>3.10.1</i>General solution<a class="headerlink" href="#general-solution_27" name="general-solution_27">&para;</a></h4>
+<p>For the <span>$\sqrt{-z}$</span> where <span>$z$</span> is some integer ring, make use of the norm function, <span>$f: a + b \sqrt{-z} \mapsto a^2 + zb^2$</span>. Use the fact that this function is multiplicative and check each of the factors, etc.</p>
+<h4 class="header"><i>3.10.2</i>Examples<a class="headerlink" href="#examples_27" name="examples_27">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-6">Practice final, question 6</a> (just the first part)</li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-3_1">Fall 2007, question 3 (b) (part B)</a></li>
+<li>Assignment 2, question 1</li>
+</ul>
+<h3 class="header"><i>3.11</i>Proving two rings are homomorphic<a class="headerlink" href="#proving-two-rings-are-homomorphic" name="proving-two-rings-are-homomorphic">&para;</a></h3>
+<blockquote>
+<p>Given two rings, create a ring homomorphism between them. Possibly an isomorphism.</p>
+</blockquote>
+<h4 class="header"><i>3.11.1</i>General solution<a class="headerlink" href="#general-solution_28" name="general-solution_28">&para;</a></h4>
+<p>Create a function, show that it's closed under addition and multiplications</p>
+<h4 class="header"><i>3.11.2</i>Examples<a class="headerlink" href="#examples_28" name="examples_28">&para;</a></h4>
+<ul>
+<li>Assignment 3, question 3</li>
+<li>Assignment 4, question 3</li>
+<li>Assignment 4, question 12</li>
+</ul>
+<h3 class="header"><i>3.12</i>Proving two rings are not isomorphic<a class="headerlink" href="#proving-two-rings-are-not-isomorphic" name="proving-two-rings-are-not-isomorphic">&para;</a></h3>
+<blockquote>
+<p>Given two rings, prove that they are not isomorphic.</p>
+</blockquote>
+<h4 class="header"><i>3.12.1</i>General solution<a class="headerlink" href="#general-solution_29" name="general-solution_29">&para;</a></h4>
+<p>If they have different cardinalities, you can prove that there is no bijection between them. TODO</p>
+<h4 class="header"><i>3.12.2</i>Examples<a class="headerlink" href="#examples_29" name="examples_29">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-4">Fall 2005 final, question 4</a></li>
+</ul>
+<h3 class="header"><i>3.13</i>Proving principality<a class="headerlink" href="#proving-principality" name="proving-principality">&para;</a></h3>
+<blockquote>
+<p>Show that some ring is a principal ideal domain (all ideals are principal).</p>
+</blockquote>
+<h4 class="header"><i>3.13.1</i>General solution<a class="headerlink" href="#general-solution_30" name="general-solution_30">&para;</a></h4>
+<p>Assume that the ideal is not the trivial ideal (if it were, it would be, well, trivial). Then we can use Euclidean division and the well-ordering principle?</p>
+<h4 class="header"><i>3.13.2</i>Examples<a class="headerlink" href="#examples_30" name="examples_30">&para;</a></h4>
+<ul>
+<li>Assignment 4, question 11 (the first part)</li>
+</ul>
+<h3 class="header"><i>3.14</i>Proving non-principality<a class="headerlink" href="#proving-non-principality" name="proving-non-principality">&para;</a></h3>
+<blockquote>
+<p>Show that the ideal generated by certain elements is not principal.</p>
+</blockquote>
+<h4 class="header"><i>3.14.1</i>General solution<a class="headerlink" href="#general-solution_31" name="general-solution_31">&para;</a></h4>
+<p>Norm function, or just, contradiction</p>
+<h4 class="header"><i>3.14.2</i>Examples<a class="headerlink" href="#examples_31" name="examples_31">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-6">Practice final, question 6</a> (the second part)</li>
+</ul>
+<h3 class="header"><i>3.15</i>Constructing finite fields<a class="headerlink" href="#constructing-finite-fields" name="constructing-finite-fields">&para;</a></h3>
+<blockquote>
+<p>Construct a field consisting of <span>$p^n$</span> elements where <span>$p$</span> is prime and <span>$n \geq 1$</span>.</p>
+</blockquote>
+<h4 class="header"><i>3.15.1</i>General solution<a class="headerlink" href="#general-solution_32" name="general-solution_32">&para;</a></h4>
+<p>If <span>$n = 1$</span>, then <span>$\mathbb Z / p \mathbb Z$</span> will do the trick, and we can use this field for the other part. Otherwise, find an irreducible polynomial of degree <span>$n$</span>. To find one, write out the numbers in the field to the power of <span>$n$</span>. You'll probably find that there is at least one number that never occurs. Let's call it <span>$t$</span>. So then you know that <span>$a^n = t$</span> has no solutions for <span>$a \in \mathbb Z / p \mathbb Z$</span>, meaning that <span>$x^n - t$</span> should be irreducible.</p>
+<h4 class="header"><i>3.15.2</i>Examples<a class="headerlink" href="#examples_32" name="examples_32">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2009/final#question-1_1">Fall 2009, question 1 (part II)</a></li>
+</ul>
+<h3 class="header"><i>3.16</i>Identifying the units of a ring<a class="headerlink" href="#identifying-the-units-of-a-ring" name="identifying-the-units-of-a-ring">&para;</a></h3>
+<blockquote>
+<p>Here is a ring. What are its units?</p>
+</blockquote>
+<h4 class="header"><i>3.16.1</i>General solution<a class="headerlink" href="#general-solution_33" name="general-solution_33">&para;</a></h4>
+<p>Identify the things that have multiplicative inverses in the ring. For <span>$\mathbb Z /n \mathbb Z$</span>, it's the numbers that are relatively prime to <span>$n$</span>. For <span>$\mathbb Z$</span>, it's 1 and -1. For the ring of dual numbers, it's <span>$a + b \epsilon$</span> where <span>$a \neq 0$</span>.</p>
+<h4 class="header"><i>3.16.2</i>Examples<a class="headerlink" href="#examples_33" name="examples_33">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-9">Fall 2007 final, question 9 (part A)</a></li>
+<li>Assignment 2, question 8</li>
+</ul>
+<h2 class="header"><i>4</i>Group theory<a class="headerlink" href="#group-theory" name="group-theory">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Orders of elements in permutation groups<a class="headerlink" href="#orders-of-elements-in-permutation-groups" name="orders-of-elements-in-permutation-groups">&para;</a></h3>
+<blockquote>
+<p>You're given a permutation group, <span>$S_n$</span>. What orders can its elements have? </p>
+</blockquote>
+<h4 class="header"><i>4.1.1</i>General solution<a class="headerlink" href="#general-solution_34" name="general-solution_34">&para;</a></h4>
+<p>Factors, or lcm of factors</p>
+<h4 class="header"><i>4.1.2</i>Examples<a class="headerlink" href="#examples_34" name="examples_34">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-1">Fall 2006, question 1 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-1">Fall 2007, question 1 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-1">Fall 2009, question 1 (part A)</a></li>
+</ul>
+<h3 class="header"><i>4.2</i>Isomorphisms between groups of n elements<a class="headerlink" href="#isomorphisms-between-groups-of-n-elements" name="isomorphisms-between-groups-of-n-elements">&para;</a></h3>
+<blockquote>
+<p>Are any two groups of <span>$n$</span> elements isomorphic?</p>
+</blockquote>
+<h4 class="header"><i>4.2.1</i>General solution<a class="headerlink" href="#general-solution_35" name="general-solution_35">&para;</a></h4>
+<p>If <span>$n$</span> is prime, yes. Otherwise, not necessarily.</p>
+<h4 class="header"><i>4.2.2</i>Examples<a class="headerlink" href="#examples_35" name="examples_35">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-3">Fall 2006, question 3 (part A)</a>, <a href="/MATH_235/past-exam/fall-2007/final#question-3">Fall 2007, question 3 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-7">Fall 2007, question 7 (part A)</a></li>
+</ul>
+<h3 class="header"><i>4.3</i>The first isomorphism theorem for groups<a class="headerlink" href="#the-first-isomorphism-theorem-for-groups" name="the-first-isomorphism-theorem-for-groups">&para;</a></h3>
+<blockquote>
+<p>State and/or prove it.</p>
+</blockquote>
+<h4 class="header"><i>4.3.1</i>General solution<a class="headerlink" href="#general-solution_36" name="general-solution_36">&para;</a></h4>
+<p>Same as rings</p>
+<h4 class="header"><i>4.3.2</i>Examples<a class="headerlink" href="#examples_36" name="examples_36">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-6_1">Fall 2006, question 6 (a) (part B)</a></li>
+</ul>
+<h3 class="header"><i>4.4</i>Relations on groups<a class="headerlink" href="#relations-on-groups" name="relations-on-groups">&para;</a></h3>
+<blockquote>
+<p>Here's a relation. What are its properties?</p>
+</blockquote>
+<h4 class="header"><i>4.4.1</i>General solution<a class="headerlink" href="#general-solution_37" name="general-solution_37">&para;</a></h4>
+<p>I'm not sure if this is in the syllabus this semester, but you can basically just check each property to see if it holds.</p>
+<p>Note that the conjugacy relation is an equivalence relation. So is the relation for making cosets. TODO: write the formula for them</p>
+<h4 class="header"><i>4.4.2</i>Examples<a class="headerlink" href="#examples_37" name="examples_37">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2007/final#question-6">Fall 2007, question 6 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-2">Fall 2009, question 2 (part A)</a></li>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-7">Fall 2006, question 7 (part A)</a></li>
+</ul>
+<h3 class="header"><i>4.5</i>The zero group homomorphism<a class="headerlink" href="#the-zero-group-homomorphism" name="the-zero-group-homomorphism">&para;</a></h3>
+<blockquote>
+<p>Every homomorphism of groups from <span>$\mathbb Z / n\mathbb Z \to \mathbb Z$</span> is the zero homomorphism. True or false?</p>
+</blockquote>
+<h4 class="header"><i>4.5.1</i>General solution<a class="headerlink" href="#general-solution_38" name="general-solution_38">&para;</a></h4>
+<p>Yep. See the first link in the examples for the reasoning.</p>
+<h4 class="header"><i>4.5.2</i>Examples<a class="headerlink" href="#examples_38" name="examples_38">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-5">Fall 2006, question 5 (part A)</a>, <a href="/MATH_235/past-exam/fall-2007/final#question-5">Fall 2007, question 5 (part A)</a>, <a href="/MATH_235/past-exam/fall-2009/final#question-4">Fall 2009, question 4 (part A)</a></li>
+</ul>
+<h3 class="header"><i>4.6</i>Proving Lagrange's theorem<a class="headerlink" href="#proving-lagranges-theorem" name="proving-lagranges-theorem">&para;</a></h3>
+<blockquote>
+<p>State and prove Lagrange's theorem.</p>
+</blockquote>
+<h4 class="header"><i>4.6.1</i>General solution<a class="headerlink" href="#general-solution_39" name="general-solution_39">&para;</a></h4>
+<p>The theorem: let <span>$G$</span> be a finite group and let <span>$H$</span> be a subgroup of <span>$G$</span>. Then, the order of <span>$H$</span> divides the order of <span>$G$</span>.</p>
+<p>Proof: show that subgroups have the same cardinality (isomorphism)</p>
+<h4 class="header"><i>4.6.2</i>Examples<a class="headerlink" href="#examples_39" name="examples_39">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2009/final#question-3_1">Fall 2009 final, question 3 (part II)</a></li>
+<li><a href="/summary/fall-2012/practice-final#question-5">Practice final, question 5</a> (only stating Lagrange's theorem)</li>
+</ul>
+<h3 class="header"><i>4.7</i>Number of elements of a given order<a class="headerlink" href="#number-of-elements-of-a-given-order" name="number-of-elements-of-a-given-order">&para;</a></h3>
+<blockquote>
+<p>Show that a group has at most <span>$t$</span> elements of order <span>$t$</span> for all <span>$t \geq 1$</span>.</p>
+</blockquote>
+<h4 class="header"><i>4.7.1</i>General solution<a class="headerlink" href="#general-solution_40" name="general-solution_40">&para;</a></h4>
+<p>Polynomials have at most <span>$t$</span> roots, use FLT.</p>
+<h4 class="header"><i>4.7.2</i>Examples<a class="headerlink" href="#examples_40" name="examples_40">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-4">Practice final, question 4</a></li>
+</ul>
+<h3 class="header"><i>4.8</i>Finding the order of a group<a class="headerlink" href="#finding-the-order-of-a-group" name="finding-the-order-of-a-group">&para;</a></h3>
+<blockquote>
+<p>Find the order (cardinality) of a group.</p>
+</blockquote>
+<h4 class="header"><i>4.8.1</i>General solution<a class="headerlink" href="#general-solution_41" name="general-solution_41">&para;</a></h4>
+<p>Depends I guess</p>
+<h4 class="header"><i>4.8.2</i>Examples<a class="headerlink" href="#examples_41" name="examples_41">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-7">Practice final, question 7</a> (the first part)</li>
+</ul>
+<h3 class="header"><i>4.9</i>Proving isomorphism between groups<a class="headerlink" href="#proving-isomorphism-between-groups" name="proving-isomorphism-between-groups">&para;</a></h3>
+<blockquote>
+<p>Given two groups, prove that they are isomorphic.</p>
+</blockquote>
+<h4 class="header"><i>4.9.1</i>General solution<a class="headerlink" href="#general-solution_42" name="general-solution_42">&para;</a></h4>
+<p>Create a group homomorphism. Show that it is bijective.</p>
+<h4 class="header"><i>4.9.2</i>Examples<a class="headerlink" href="#examples_42" name="examples_42">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-7">Practice final, question 7</a> (the second part)</li>
+</ul>
+<h3 class="header"><i>4.10</i>Normal subgroups<a class="headerlink" href="#normal-subgroups" name="normal-subgroups">&para;</a></h3>
+<blockquote>
+<p>Prove that something is a normal subgroup.</p>
+</blockquote>
+<h4 class="header"><i>4.10.1</i>General solution<a class="headerlink" href="#general-solution_43" name="general-solution_43">&para;</a></h4>
+<p>Create a homomorphism.</p>
+<p>Or, show that the left and right cosets are equal.</p>
+<h4 class="header"><i>4.10.2</i>Examples<a class="headerlink" href="#examples_43" name="examples_43">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-8">Practice final, question 8</a></li>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-9">Practice final, question 9</a></li>
+</ul>
+<h3 class="header"><i>4.11</i>Properties of simple groups<a class="headerlink" href="#properties-of-simple-groups" name="properties-of-simple-groups">&para;</a></h3>
+<blockquote>
+<p>Prove something about simple groups.</p>
+</blockquote>
+<h4 class="header"><i>4.11.1</i>General solution<a class="headerlink" href="#general-solution_44" name="general-solution_44">&para;</a></h4>
+<p>depends</p>
+<h4 class="header"><i>4.11.2</i>Examples<a class="headerlink" href="#examples_44" name="examples_44">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/summary/fall-2012/practice-final#question-10">Practice final, question 10</a></li>
+</ul>
+<h3 class="header"><i>4.12</i>Properties involving orders<a class="headerlink" href="#properties-involving-orders" name="properties-involving-orders">&para;</a></h3>
+<blockquote>
+<p>Prove or disprove something involving orders.</p>
+</blockquote>
+<h4 class="header"><i>4.12.1</i>General solution<a class="headerlink" href="#general-solution_45" name="general-solution_45">&para;</a></h4>
+<p>Remember what order means: the order of an element <span>$a \in G$</span> is the least positive integer <span>$t$</span> such that <span>$a^t = e$</span>.</p>
+<h4 class="header"><i>4.12.2</i>Examples<a class="headerlink" href="#examples_45" name="examples_45">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-9">Fall 2006 final, question 9 (part A)</a></li>
+</ul>
+<h3 class="header"><i>4.13</i>Proving the lack of surjective homomorphisms<a class="headerlink" href="#proving-the-lack-of-surjective-homomorphisms" name="proving-the-lack-of-surjective-homomorphisms">&para;</a></h3>
+<blockquote>
+<p>Prove that there does not exist a surjective homomorphism between two groups.</p>
+</blockquote>
+<h4 class="header"><i>4.13.1</i>General solution<a class="headerlink" href="#general-solution_46" name="general-solution_46">&para;</a></h4>
+<p>Proof by contradiction. TODO</p>
+<h4 class="header"><i>4.13.2</i>Examples<a class="headerlink" href="#examples_46" name="examples_46">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2006/final#question-6_1">Fall 2006 final, question 6 (b) (part B)</a></li>
+</ul>
+<h3 class="header"><i>4.14</i>Permutation group elements<a class="headerlink" href="#permutation-group-elements" name="permutation-group-elements">&para;</a></h3>
+<blockquote>
+<p>List the conjugacy classes and normal subgroups in <span>$S_n$</span>.</p>
+</blockquote>
+<h4 class="header"><i>4.14.1</i>General solution<a class="headerlink" href="#general-solution_47" name="general-solution_47">&para;</a></h4>
+<p>Things with the same-length cycle decomposition are in the same conjugacy class.</p>
+<p>The normal subgroups are: the trivial subgroup, the whole group, and the disjoint union of the conjugacy classes whose elements are composed of an even number of even cycles.</p>
+<h4 class="header"><i>4.14.2</i>Examples<a class="headerlink" href="#examples_47" name="examples_47">&para;</a></h4>
+<ul>
+<li><a href="/MATH_235/past-exam/fall-2005/final#question-8">Fall 2005 final, question 8</a></li>
+<li>Assignment 5, question 12</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

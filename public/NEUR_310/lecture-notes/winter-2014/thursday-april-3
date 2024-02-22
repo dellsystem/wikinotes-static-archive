@@ -1,0 +1,268 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, April 3, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, April 3, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Synaptic plasticity part 3
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>LDP (long term depression)<a class="headerlink" href="#ldp-long-term-depression" name="ldp-long-term-depression">&para;</a></h2>
+<ul>
+<li>Hebb: when  neuron A repeatedly failre to excite a post-synaptic neuron B while the other neurons excite B, A and B's connection weakens</li>
+<li>
+<p>two properties</p>
+<ul>
+<li>heterosynaptic : one synapse strengthen and one weakens</li>
+<li>associative: firing asynchronously and the one with stronger stimulation strengthens while the other one weakens </li>
+</ul>
+</li>
+<li>
+<p>weak prolonged stimulation can lead to homosynaptic LTD </p>
+<ul>
+<li>ex: 1Hz stimulus, eventually brings down the EPS  amplitude </li>
+</ul>
+</li>
+<li>homosynaptic LTD : input specific</li>
+<li>LTD requires NMDA-R activation and maybe Ca+ influx, but not CamKII <ul>
+<li>instead it requires protein phosphatase</li>
+<li>evidence : inhibiting PP1 and PP2B (calcineurin) using okadaic acid leads to no LTD </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Mechanism<a class="headerlink" href="#mechanism" name="mechanism">&para;</a></h3>
+<ul>
+<li>
+<p>LTD is due to endocytosis of AMPA receptors </p>
+<ul>
+<li>low ca+ binds to high ca+ affinity protein phosphatase instead of low ca+ affinity PKC and CamKII </li>
+<li>protein phosphatase dephosphorylate some substrates and lead to internalization of AMPA-Rs <ul>
+<li>calcium enters through NMDA </li>
+<li>calcineurin (PP2B) dephosphorylates I1, leads to disinhibition of PP!, whic activates AMPAR internalization machinery </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>in other words : low Ca2+ - &gt; LTD , high Ca2+ (high frequency stimulation) -&gt; LTP</p>
+<ul>
+<li>higher frequncy : more NMDA receptor activation </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>timing<a class="headerlink" href="#timing" name="timing">&para;</a></h3>
+<ul>
+<li>if a  post-syanptic cell is excited before presynaptic firing, there leads to LDP </li>
+<li>LTP if presynaptic fire right before the post-synapti stimulation<ul>
+<li>evidence: using BAPTA which flurescent when there's Ca+<ul>
+<li>decrease in flurescence when AP precedes EPSP </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.3</i>Roden hippocampus<a class="headerlink" href="#roden-hippocampus" name="roden-hippocampus">&para;</a></h3>
+<ul>
+<li>in CA3 nucelus, the mossy fiber synapses are huge, whereas in CA1 they're small </li>
+<li>CA1 LTP <ul>
+<li>NMDA-R dependent</li>
+</ul>
+</li>
+<li>CA3 LTP <ul>
+<li>NMDA-R independent </li>
+<li>doesn't require glutamate receptor activation </li>
+</ul>
+</li>
+<li>because LTP at CA3 is presynaptic and so is LTP<ul>
+<li>Ca2+ leads to activation of mGluRs on the presynaptic cell</li>
+<li>this activates AC1 </li>
+<li>decrease in cAMP level leads to reduction of PKA activity<ul>
+<li>this lowers the release probability</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Rabbit eye puffing experiment<a class="headerlink" href="#rabbit-eye-puffing-experiment" name="rabbit-eye-puffing-experiment">&para;</a></h2>
+<ul>
+<li>at the cerebral level (previously been talking in the context of hippocampus) </li>
+<li>purkinje cells are inhibitory</li>
+<li>climbing fiber make contact with purkinje cell and can greatly stimulate purkinje cell</li>
+<li>
+<p>granule cell extend parallel fibers, touching several purkinje cells but don't sitmilate them as much </p>
+</li>
+<li>
+<p>a puff of air into a rabbit's eye</p>
+<ul>
+<li>granule cells receive input of sound clue and stimulate </li>
+<li>climing fiber receives sensory input from eye </li>
+<li>eventually only sound clue is needed for the rabbit to blind the eye</li>
+</ul>
+</li>
+<li>
+<p>cerebellar LTD </p>
+<ul>
+<li>depends on mGluR and PKC and result in AMPA internaliation </li>
+<li>in cerebellum mainly GluA2/GluA3 neurons contain AMPA receptor</li>
+<li>trafficking are in GluA2 carboxy terminal</li>
+<li>depolarization and glutamate activaon of mGluRs by parallel fiber leads to activation of PKA in purkinje (NMDA receptor independent) </li>
+<li>PKC phosphorylates AMPA receptors and leads to internalization by switching binding partners <ul>
+<li>GluA2 was bonud to RIP, a stabilizer first which maintains it on the plasma membrane</li>
+<li>PKC phosphorylate the SLKV terminus and now PICK binds, which lead to endocytosis </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Endocannabionid<a class="headerlink" href="#endocannabionid" name="endocannabionid">&para;</a></h2>
+<ul>
+<li>
+<p>retrograde transmitter that binsd to CB1 receptor </p>
+</li>
+<li>
+<p>endogenous cannabinoids cause synaptic depression (several forms)</p>
+<ul>
+<li>DSI : depolarizzation dependent supression of INHIBITION</li>
+<li>DSE : depolarization dependent suppression of EXCITATION</li>
+<li>LTD : long-term depression</li>
+</ul>
+</li>
+<li>
+<p>mechanism</p>
+<ul>
+<li>released from post-synaptic cell <ul>
+<li>triggered by calcium entry ad mGluR signaling, made from lipid precursor </li>
+</ul>
+</li>
+<li>binds to CB1 on presynaptic cell </li>
+<li>G protein activated </li>
+<li>G-beta-gamma blocks calcium entry in presynaptic cell </li>
+<li>CB1 dependent LTD in striatum : a decrease in release probability (p) </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>4</i>homeostasis<a class="headerlink" href="#homeostasis" name="homeostasis">&para;</a></h2>
+<ul>
+<li>neurons try to fire at a target firing rate<ul>
+<li>no activity &gt; cell death </li>
+<li>too much activity &gt; epilepsy, excitotoxicity </li>
+</ul>
+</li>
+<li>
+<p>homeostasis is demonstrated by    </p>
+<ul>
+<li>adding TTX to block neuron firing and then wash off the drug - &gt; increase in firing </li>
+<li>adding bicuculine to increase firing and then washing off the drug --&gt; less firing (EPSPs are smaller or less frequent) </li>
+<li>so neurons are always try to counter balance the drugs </li>
+</ul>
+</li>
+<li>
+<p>synaptic scaling : all neurons in one cell are uniformly up or down regulated</p>
+<ul>
+<li>AMPA receptor trafficking at all synapse </li>
+<li>demonstrated by using TTX and bicuculin on cells </li>
+<li>so unlike LTP/LTD, synaptic scaling isn't specific</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

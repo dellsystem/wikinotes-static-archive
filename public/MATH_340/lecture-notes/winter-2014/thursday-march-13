@@ -1,0 +1,240 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 13, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 13, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Statistical trials, quicksort
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#chernoff-bounds-continued">1 Chernoff bounds continued</a><ul>
+<li><a href="#a-corollary">1.1 A corollary</a></li>
+<li><a href="#another-corollary">1.2 Another corollary</a></li>
+<li><a href="#examples">1.3 Examples</a></li>
+</ul>
+</li>
+<li><a href="#statistical-trials">2 Statistical trials</a></li>
+<li><a href="#analysis-of-quicksort">3 Analysis of quicksort</a><ul>
+<li><a href="#number-of-comparisons">3.1 Number of comparisons</a></li>
+<li><a href="#average-depth">3.2 Average depth</a><ul>
+<li><a href="#upper-bound-on-expected-depth">3.2.1 Upper bound on expected depth</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chernoff bounds continued<a class="headerlink" href="#chernoff-bounds-continued" name="chernoff-bounds-continued">&para;</a></h2>
+<p>Recall what we had from the end of last class:</p>
+<blockquote>
+<p>Let <span>$X_1, x_2, \ldots, X_k$</span> be independent Bernoulli trials such that <span>$P(X_i = 1) = p_i$</span>. If <span>$\displaystyle X = \sum_i X_i$</span>, then</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \left ( \frac{e^\delta}{(1+\delta)^{(1+\delta)}} \right)^\mu$$</span></p>
+<p>where <span>$\displaystyle \mu = E(X) = \sum_i P_i$</span>.</p>
+</blockquote>
+<p>Today we'll introduce some corollaries, which are simpler and often easier to use.</p>
+<h3 class="header"><i>1.1</i>A corollary<a class="headerlink" href="#a-corollary" name="a-corollary">&para;</a></h3>
+<p>For <span>$1 &gt; \delta &gt; 0$</span>, we have that</p>
+<p><span>$$P(x &gt; (1+\delta)\mu) \leq e^{-\frac{1}{3} \mu \delta^2}$$</span></p>
+<p>We had to prove this for question 4(b) in assignment 4. It's a somewhat long proof (at least if you write out all the steps), but the general idea is to use the Taylor series expansion of <span>$\ln(1+\delta)$</span>, multiply that by <span>$(1+\delta)$</span>, and ignore some of the higher-order terms in the expansion (as they just make the sum smaller) to find a lower bound for <span>$(1+\delta)\ln(1+\delta)$</span>. Then, use some inequalities derived from the fact that <span>$1 &gt; \delta &gt; 0$</span> to get the desired inequality.</p>
+<h3 class="header"><i>1.2</i>Another corollary<a class="headerlink" href="#another-corollary" name="another-corollary">&para;</a></h3>
+<p>Also, for <span>$b \geq 6\mu$</span>, we have:</p>
+<p><span>$$P(X &gt; b) \leq 2^{-b}$$</span></p>
+<p>We had to prove this for question 4(a) in assignment 4. Start from the standard Chernoff bound, with the assumption that <span>$(1+\delta) \geq 6$</span>. Furthermore, since <span>$e &lt; 3$</span>, <span>$2e &lt; 6$</span> and so <span>$1+\delta &gt; 2e$</span>. Also, <span>$(1+\delta) &gt; \delta &gt; 0$</span>. So we can write</p>
+<p><span>$$\frac{e^\delta}{(1+\delta)^{(1+\delta)}} \leq \frac{e^{(1+\delta)}}{(1+\delta)^{(1+\delta)}} = \left ( \frac{e}{(1+\delta)} \right )^{(1+\delta)} \leq \left ( \frac{e}{2e} \right )^{(1+\delta)}$$</span></p>
+<p>which is just <span>$2^{-(1+\delta)}$</span>, and if we raise both sides to the power of <span>$\mu$</span>, everything falls nicely into place.</p>
+<h3 class="header"><i>1.3</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<p>With <span>$n$</span> balls and <span>$n$</span> bins. Given that <span>$\mu = 1$</span>, what's the probability that <span>$P(X &gt; 2\log(n))$</span> (where <span>$X$</span> is, I don't know, the number of balls in a bin? Or vice versa?)?</p>
+<p>Well, when <span>$2\log(n) &gt; 6$</span>, we can use the first corollary above, resulting in</p>
+<p><span>$$P(X &gt; 2 \log(n) \leq 2^{-2\log(n)} = \frac{1}{n^2} \tag{when $2\log(n) &gt; 6$}$$</span></p>
+<div class="ui divider"></div>
+<p>Another example, with coin-tossing. Suppose we toss <span>$n$</span> coins. What is the probability that we get more than <span>$n/2 + 2 \sqrt{n}\sqrt{\log n}$</span> heads?</p>
+<p>Well, the probability of getting heads is <span>$p=\frac{1}{2}$</span>, thus the expected value is <span>$\mu = \frac{n}{2}$</span>. Consequently, we can rewrite the probability we are interested in as follows:</p>
+<p><span>$$\begin{align}
+P\left (X &gt; \frac{n}{2} + 2 \sqrt{\log(n)}\sqrt{n} \right ) &amp; = P \left ( X &gt; \mu + \frac{4\mu}{\sqrt{n}} \sqrt{\log(n)} \right ) \tag{as $2\sqrt{n} = \frac{4\mu}{\sqrt{n}}$} \\
+&amp; = P\left (X &gt;  \underbrace{ \left(1 + \frac{4\sqrt{\log(n)}}{\sqrt{n}} \right )}_{= \delta, \, 0 &lt; \delta &lt; 1} \mu \right ) \\
+&amp; \leq e^{-\frac{1}{3} \mu \cdot \delta^2} \tag{by the first corollary above} \\
+&amp; = e^{-\frac{1}{3} \cdot \frac{n}{2} \cdot 16 \cdot \frac{\log(n)}{n}} \\
+&amp; = e^{-\frac{8}{3} \log(n)} \\
+&amp; = n^{-8/3}
+\end{align}$$</span></p>
+<h2 class="header"><i>2</i>Statistical trials<a class="headerlink" href="#statistical-trials" name="statistical-trials">&para;</a></h2>
+<p>Suppose we have <span>$n$</span> patients (<span>$p_1, p_2, \ldots, p_n$</span>) in a medical trial, split into 2 groups (one a control group). Suppose each patient has <span>$m$</span> boolean characteristics (<span>$c_1, c_2, \ldots, c_m$</span>), which we can represent in a table:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Patients</th>
+<th><span>$c_1$</span></th>
+<th><span>$c_2$</span></th>
+<th><span>$\ldots$</span></th>
+<th><span>$c_m$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$p_1$</span></td>
+<td>1</td>
+<td>0</td>
+<td><span>$\ldots$</span></td>
+<td>0</td>
+</tr>
+<tr>
+<td><span>$p_2$</span></td>
+<td>0</td>
+<td>0</td>
+<td><span>$\ldots$</span></td>
+<td>1</td>
+</tr>
+<tr>
+<td><span>$\vdots$</span></td>
+<td><span>$\vdots$</span></td>
+<td><span>$\vdots$</span></td>
+<td><span>$\ddots$</span></td>
+<td><span>$\vdots$</span></td>
+</tr>
+<tr>
+<td><span>$p_n$</span></td>
+<td>1</td>
+<td>1</td>
+<td><span>$\ldots$</span></td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>Clearly, when designing a statistical trial, we'd want the characteristics to be similar across groups. For instance, suppose <span>$n_j &lt; n$</span> people have characteristic <span>$j$</span>. We'd want there to be <span>$\sim n_j/2$</span> people in the test group and the same number in the control group. Similarly, we'd want <span>$(n-n_j)/2$</span> people without the characteristic in each of the test and the control groups.</p>
+<p>Now, <span>$\frac{n_j}/2 &lt; \frac{n}{2}$</span> and <span>$\frac{n-n_j}{2} &lt; \frac{n}{2}$</span>, so by the coin-tossing example from above, the probability that there is more than a <span>$2\sqrt{n}\sqrt{\log n}$</span> discrepancy from the expectation is less than <span>$2n^{-8/3}$</span> (twice the upper bound we found in the coin-tossing argument, though, presumably because we have to account for above <span>$n/2$</span> and below <span>$n/2$</span>).</p>
+<p>By Booles' inequality (union bound), if <span>$m \leq n^2$</span>, say, then the probability that any characteristic has a large deviation is <span>$\leq 2n^{-8/3}$</span>.</p>
+<p>So, with high probability, any random sample is going to be balanced!</p>
+<h2 class="header"><i>3</i>Analysis of quicksort<a class="headerlink" href="#analysis-of-quicksort" name="analysis-of-quicksort">&para;</a></h2>
+<p>Recall that quicksort works by randomly choosing a pivot. Knowing this, we can perform a probabilistic analysis of the quicksort algorithm, by representing it as a tree <span>$T$</span> where nodes are labelled by the pivot elements.</p>
+<h3 class="header"><i>3.1</i>Number of comparisons<a class="headerlink" href="#number-of-comparisons" name="number-of-comparisons">&para;</a></h3>
+<blockquote>
+<p>First claim: The number of comparisons made is equal to <span>$\displaystyle \sum_{v \in T} \text{depth}(v)$</span>.</p>
+</blockquote>
+<p>Proof: the pivot <span>$v$</span> is compared to <span>$\text{depth}(v)$</span> pivot elements before it becomes the pivot itself. <span>$\blacksquare$</span></p>
+<p>Note that we define <span>$\text{depth}(T) = \max_{v \in T} \text{depth}(v)$</span>, as one would expect.</p>
+<p>A trivial corollary is that the number of comparisons <span>$\leq n \cdot \text{depth}(T)$</span>.</p>
+<h3 class="header"><i>3.2</i>Average depth<a class="headerlink" href="#average-depth" name="average-depth">&para;</a></h3>
+<p>So what is <span>$\text{depth}(T)$</span> in the average case? For any arbitrary choice of <span>$v$</span>, consider the size of the groups containing <span>$v$</span> as we go down the tree. For example, suppose that <span>$v$</span> is in some group <span>$X$</span> with probability <span>$1/2$</span>. The next pivot for the group is in the range <span>$[\frac{1}{4}|X|, \frac{3}{4}|X|]$</span> (i.e., the middle half of the group). Call this a "good" pivot. If we get a good pivot, then the two new subgroups have size at most <span>$\frac{3}{4}|X|$</span>.</p>
+<p>Thus, if we get <span>$4\ln(n)$</span> good pivots on a path containing <span>$V$</span>, then the group size is at most</p>
+<p><span>$$\left ( \frac{3}{4} \right)^{4\ln(n)} \cdot n = \frac{n}{\left ( \left (\frac{4}{3} \right )^4 \right )^{\ln n}} &lt; 1$$</span></p>
+<p>By then, you'd have reached a leaf in <span>$T$</span>. We claim that this happens with high probability before the depth is <span>$32 \ln n$</span>. _(Proof?)</p>
+<p>Now, the probability that a pivot is bad is <span>$\frac{1}{2}$</span>. So <span>$\mu = E(\text{number of bad pivots}) = 16\ln n$</span>. If <span>$G$</span> is the number of good pivots, and <span>$B$</span> the number of bad pivots, then:</p>
+<p><span>$$\begin{align}
+P(G &lt; 4\ln n) &amp; = P(B \geq 28\ln n) \tag{treating the $32 \ln n$ figure as fact} \\
+&amp; = P\left(B \geq \frac{7}{4} 16\ln n\right) \\
+&amp; = P\left(B \geq \frac{7}{4} \mu\right) \\
+&amp; = P\left(B \geq \left(1+\underbrace{\frac{3}{4}}_{=\delta}\right)\mu\right) \\
+&amp; &lt; e^{-\frac{1}{3} \delta^2\mu} \tag{by the first Chernoff bound corollary} \\
+&amp; = e^{-\frac{1}{3} \cdot \frac{9}{16} \cdot 16 \ln n} \\
+&amp; = e^{-3\ln n} \\
+&amp; = n^{-3}
+\end{align}$$</span></p>
+<p>There are <span>$n$</span> numbers, so the total number of paths to leaves is <span>$\leq n$</span>. Thus, with probability of at least</p>
+<p><span>$$1 - \frac{1}{n^2}$$</span></p>
+<p>all the paths reach leaves by a depth of <span>$32\ln n$</span>.</p>
+<h4 class="header"><i>3.2.1</i>Upper bound on expected depth<a class="headerlink" href="#upper-bound-on-expected-depth" name="upper-bound-on-expected-depth">&para;</a></h4>
+<p><span>$$E(\text{depth}) \leq \frac{(1-\frac{1}{n^2}) \cdot 32 \ln n}{1/n^2 \cdot n} \leq 32 \ln n + 1$$</span></p>
+<p>(Not sure where this came from)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

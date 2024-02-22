@@ -1,0 +1,342 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_302/">
+                COMP 302
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Stuff to know for the midterm. First, the details:</p>
+<p>The midterm exam will take place in Leacock 26, between 14:35 and 15:25 on Wednesday, February 29. The exam is closed book, with a one-page crib sheet (back and front) allowed. The exam will consist of one proof and several programs to write.</p>
+<p>Subjects that will be on the exam (non-exhaustive):</p>
+<ul>
+<li>References</li>
+<li>Proof by induction</li>
+<li>Rewriting standard library functions, possibly using tail recursion</li>
+<li>Using specific standard library functions (e.g. fold) to write others</li>
+</ul>
+<p>Subjects that will not be on the exam:</p>
+<ul>
+<li>Lazy computation (including streams)</li>
+<li>Exceptions</li>
+<li>Continuations</li>
+<li>Regular expressions</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#datatypes">1 Datatypes</a></li>
+<li><a href="#rewriting-standard-library-functions">2 Rewriting standard library functions</a></li>
+<li><a href="#higher-order-functions">3 Higher order functions</a><ul>
+<li><a href="#using-standard-library-functions">3.1 Using standard library functions</a></li>
+<li><a href="#currying">3.2 Currying</a></li>
+<li><a href="#partial-evaluation">3.3 Partial evaluation</a></li>
+</ul>
+</li>
+<li><a href="#proof-by-induction">4 Proof by induction</a></li>
+<li><a href="#references">5 References</a><ul>
+<li><a href="#updating-references">5.1 Updating references</a></li>
+<li><a href="#reading-references">5.2 Reading references</a></li>
+<li><a href="#closures-and-pseudo-objects">5.3 Closures and pseudo-objects</a></li>
+<li><a href="#notes">5.4 Notes</a></li>
+</ul>
+</li>
+<li><a href="#to-do-and-miscellaneous-notes">6 To do and miscellaneous notes</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Datatypes<a class="headerlink" href="#datatypes" name="datatypes">&para;</a></h2>
+<ul>
+<li>Basic datatypes: int, real, string, boolean</li>
+<li>Tuples: int * real, etc</li>
+<li>Functions</li>
+<li>Custom datatypes<ul>
+<li>Cards</li>
+<li>Trees</li>
+</ul>
+</li>
+<li>Lists<ul>
+<li>Recursively defined datatype - basically set comprehension<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="For a cross-department link, see the [notes on set...">1</a></sup></li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Rewriting standard library functions<a class="headerlink" href="#rewriting-standard-library-functions" name="rewriting-standard-library-functions">&para;</a></h2>
+<ul>
+<li>The regular way</li>
+<li>Using tail recursion (an accumulator)</li>
+<li><code>length</code>:</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">length</span> <span class="p">[]</span> <span class="p">=</span> <span class="mi">0</span> <span class="p">|</span> <span class="nf">length</span> <span class="p">(_</span><span class="n">::t</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span> <span class="n">+</span> <span class="n">length</span> <span class="n">t</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">length</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="nd">&#39;a</span> <span class="n">list</span> <span class="p">-&gt;</span> <span class="n">int</span>
+<span class="n">-</span> <span class="n">length</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="mi">3</span> <span class="p">:</span> <span class="n">int</span>
+<span class="n">-</span> <span class="n">length</span> <span class="p">[];</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="mi">0</span> <span class="p">:</span> <span class="kr">in</span>
+</pre></div>
+
+
+<ul>
+<li><code>rev</code> (tail recursion):</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">rev</span> <span class="n">list</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">fun</span> <span class="nf">rev&#39;</span> <span class="p">([],</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span> <span class="p">|</span> <span class="nf">rev&#39;</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">rev&#39;</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h::acc</span><span class="p">)</span> <span class="kr">in</span> <span class="n">rev&#39;</span> <span class="p">(</span><span class="n">list</span><span class="p">,</span> <span class="p">[])</span> <span class="kr">end</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">rev</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="nd">&#39;a</span> <span class="n">list</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span> <span class="n">list</span>
+<span class="n">-</span> <span class="n">rev</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">];</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">:</span> <span class="n">int</span> <span class="n">list</span>
+</pre></div>
+
+
+<h2 class="header"><i>3</i>Higher order functions<a class="headerlink" href="#higher-order-functions" name="higher-order-functions">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Using standard library functions<a class="headerlink" href="#using-standard-library-functions" name="using-standard-library-functions">&para;</a></h3>
+<ul>
+<li>Like map, fold, etc</li>
+<li>Note that you can do <code>op +</code> which will produce the function <code>fn x, y =&gt; x + y</code> (so same thing)<ul>
+<li>Doesn't need parenthesising ... for example, to pass it to fold, <code>foldl op + 0 some_list</code> will result in the sum of <code>some_list</code></li>
+</ul>
+</li>
+<li>Reversing a string: <code>fun srev (s:string):string = implode (rev (explode s));</code></li>
+</ul>
+<h3 class="header"><i>3.2</i>Currying<a class="headerlink" href="#currying" name="currying">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">curry</span> <span class="n">f</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">f</span> <span class="n">x</span> <span class="n">y</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">curry</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="p">(</span><span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;c</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span> <span class="n">*</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;c</span>
+<span class="n">-</span> <span class="kr">fun</span> <span class="nf">uncurry</span> <span class="n">f</span> <span class="p">=</span> <span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="kr">fn</span> <span class="n">y</span> <span class="p">=&gt;</span> <span class="n">f</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">uncurry</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="p">(</span><span class="nd">&#39;a</span> <span class="n">*</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;c</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;c</span>
+<span class="n">-</span> <span class="kr">fun</span> <span class="nf">lol</span> <span class="n">a</span> <span class="n">b</span> <span class="p">=</span> <span class="n">a</span> <span class="n">^</span> <span class="n">b</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">lol</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">string</span> <span class="p">-&gt;</span> <span class="n">string</span> <span class="p">-&gt;</span> <span class="n">string</span>
+<span class="n">-</span> <span class="n">lol</span> <span class="p">(</span><span class="s2">&quot;lol&quot;</span> <span class="s2">&quot;lol&quot;</span><span class="p">);</span>
+<span class="n">stdIn</span><span class="p">:</span><span class="mf">5.6</span><span class="n">-</span><span class="mf">5.17</span> <span class="n">Error</span><span class="p">:</span> <span class="n">operator</span> <span class="n">is</span> <span class="n">not</span> <span class="n">a</span> <span class="n">function</span> <span class="p">[</span><span class="n">tycon</span> <span class="n">mismatch</span><span class="p">]</span>
+  <span class="n">operator</span><span class="p">:</span> <span class="n">string</span>
+  <span class="kr">in</span> <span class="n">expression</span><span class="p">:</span>
+    <span class="s2">&quot;lol&quot;</span> <span class="s2">&quot;lol&quot;</span>
+<span class="n">-</span> <span class="n">lol</span> <span class="s2">&quot;lol&quot;</span> <span class="s2">&quot;lol&quot;</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="s2">&quot;lollol&quot;</span> <span class="p">:</span> <span class="n">string</span>
+<span class="n">-</span> <span class="p">(</span><span class="n">curry</span> <span class="n">lol</span><span class="p">)</span> <span class="p">(</span><span class="s2">&quot;lol&quot;</span><span class="p">,</span> <span class="s2">&quot;lol&quot;</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="s2">&quot;lollol&quot;</span> <span class="p">:</span> <span class="n">string</span>
+<span class="n">-</span> <span class="p">(</span><span class="n">uncurry</span> <span class="p">(</span><span class="n">curry</span> <span class="n">lol</span><span class="p">))</span> <span class="s2">&quot;lol&quot;</span> <span class="s2">&quot;lol&quot;</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">it</span> <span class="p">=</span> <span class="s2">&quot;lollol&quot;</span> <span class="p">:</span> <span class="n">string</span>
+</pre></div>
+
+
+<h3 class="header"><i>3.3</i>Partial evaluation<a class="headerlink" href="#partial-evaluation" name="partial-evaluation">&para;</a></h3>
+<ul>
+<li>order of evaluation? associativity?</li>
+<li>left-associative so ` fun</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">c</span> <span class="n">k</span> <span class="n">a</span> <span class="p">=</span> <span class="n">k</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">c</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span>
+<span class="n">-</span> <span class="kr">val</span> <span class="nv">c</span> <span class="p">=</span> <span class="kr">fn</span> <span class="n">k</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">a</span> <span class="p">=&gt;</span> <span class="n">k</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">c</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="nd">&#39;b</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">blah</span> <span class="n">list</span> <span class="n">f</span> <span class="p">=</span> <span class="n">length</span> <span class="p">(</span><span class="n">f</span> <span class="n">list</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">blah</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="p">(</span><span class="nd">&#39;a</span> <span class="p">-&gt;</span> <span class="nd">&#39;b</span> <span class="n">list</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">int</span>
+<span class="n">-</span> <span class="kr">fun</span> <span class="nf">blah</span> <span class="n">list</span> <span class="n">f</span> <span class="p">=</span> <span class="n">length</span> <span class="n">f</span> <span class="n">list</span><span class="p">;</span>
+<span class="n">stdIn</span><span class="p">:</span><span class="mf">9.19</span><span class="n">-</span><span class="mf">9.32</span> <span class="n">Error</span><span class="p">:</span> <span class="n">operator</span> <span class="n">is</span> <span class="n">not</span> <span class="n">a</span> <span class="n">function</span> <span class="p">[</span><span class="n">tycon</span> <span class="n">mismatch</span><span class="p">]</span>
+  <span class="n">operator</span><span class="p">:</span> <span class="n">int</span>
+  <span class="kr">in</span> <span class="n">expression</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">length</span> <span class="n">f</span><span class="p">)</span> <span class="n">list</span>
+<span class="n">-</span> <span class="cm">(* The above gets evaluated as ((length f) list) *)</span>
+</pre></div>
+
+
+<h2 class="header"><i>4</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h2>
+<ul>
+<li>Structural induction</li>
+<li>tail recursion, using a generalised lemma to prove the full thing</li>
+</ul>
+<h2 class="header"><i>5</i>References<a class="headerlink" href="#references" name="references">&para;</a></h2>
+<p>To create a reference:</p>
+<div class="codehilite"><pre>val r = ref 0
+val s = ref 0
+</pre></div>
+
+
+<p>Now, r and s are both references to 0, but they're not pointing to the same cell in memory. To read:</p>
+<h3 class="header"><i>5.1</i>Updating references<a class="headerlink" href="#updating-references" name="updating-references">&para;</a></h3>
+<div class="codehilite"><pre>r := 4
+</pre></div>
+
+
+<h3 class="header"><i>5.2</i>Reading references<a class="headerlink" href="#reading-references" name="reading-references">&para;</a></h3>
+<div class="codehilite"><pre>val r_value = !r
+</pre></div>
+
+
+<h3 class="header"><i>5.3</i>Closures and pseudo-objects<a class="headerlink" href="#closures-and-pseudo-objects" name="closures-and-pseudo-objects">&para;</a></h3>
+<ul>
+<li>To have a function take no parameters: <code>fun blah () = ...</code></li>
+<li>
+<p>To chain function calls together (only the last value evaluated is returned):</p>
+<p>fun blah () = (do_something 5; do_something_else)</p>
+</li>
+<li>
+<p>Records: <code>val a = {lol="lol", blah="blah"}</code></p>
+</li>
+<li>To get <code>"lol"</code>, do <code>#lol a</code></li>
+</ul>
+<h3 class="header"><i>5.4</i>Notes<a class="headerlink" href="#notes" name="notes">&para;</a></h3>
+<ul>
+<li>there is no pointer arithmetic in SML</li>
+<li>you can have a self-referential reference</li>
+</ul>
+<h2 class="header"><i>6</i>To do and miscellaneous notes<a class="headerlink" href="#to-do-and-miscellaneous-notes" name="to-do-and-miscellaneous-notes">&para;</a></h2>
+<ul>
+<li>examples from the assignments</li>
+<li>currying</li>
+<li>common errors<ul>
+<li><code>andalso</code> and <code>orelse</code> (short-circuit evaluation)</li>
+<li>parentheses in constructed patterns when pattern-matching, e.g. <code>(h::t)</code> not <code>h::t</code> and <code>(Node(k, v))</code> not <code>Node(k, v)</code></li>
+<li>reals and functions are NOT equality types</li>
+<li>type checker evaluates both branches of an if/else statement even if the condition is <code>true</code>, so if the branches are of different types --&gt; errors</li>
+</ul>
+</li>
+<li>creating new types: <code>type</code> keyword</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">type</span> <span class="kt">lol</span> <span class="p">=</span> <span class="p">(</span><span class="n">int</span> <span class="n">*</span> <span class="n">int</span><span class="p">);</span>
+<span class="kr">type</span> <span class="kt">lol</span> <span class="p">=</span> <span class="n">int</span> <span class="n">*</span> <span class="n">int</span>
+<span class="n">-</span> <span class="kr">val</span> <span class="nv">blah</span> <span class="p">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">blah</span> <span class="p">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">:</span> <span class="n">int</span> <span class="n">*</span> <span class="n">int</span>
+<span class="n">-</span> <span class="kr">val</span> <span class="nv">blah</span> <span class="p">:</span> <span class="n">lol</span> <span class="p">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">blah</span> <span class="p">=</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">:</span> <span class="n">lol</span>
+<span class="n">-</span> <span class="kr">type</span> <span class="kt">person</span> <span class="p">=</span> <span class="p">{</span><span class="n">name</span> <span class="p">:</span> <span class="n">string</span><span class="p">,</span> <span class="n">age</span> <span class="p">:</span> <span class="n">int</span><span class="p">};</span>
+<span class="kr">type</span> <span class="kt">person</span> <span class="p">=</span> <span class="p">{</span><span class="n">age</span><span class="p">:</span><span class="n">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="n">string</span><span class="p">}</span>
+<span class="n">-</span> <span class="kr">val</span> <span class="nv">me</span> <span class="p">=</span> <span class="p">{</span><span class="n">age</span><span class="p">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">name</span><span class="p">=</span><span class="s2">&quot;what is this&quot;</span><span class="p">};</span>
+<span class="kr">val</span> <span class="nv">me</span> <span class="p">=</span> <span class="p">{</span><span class="n">age</span><span class="p">=</span><span class="mi">12</span><span class="p">,</span><span class="n">name</span><span class="p">=</span><span class="s2">&quot;what is this&quot;</span><span class="p">}</span> <span class="p">:</span> <span class="p">{</span><span class="n">age</span><span class="p">:</span><span class="n">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span><span class="n">string</span><span class="p">}</span>
+<span class="n">-</span> <span class="kr">val</span> <span class="nv">me</span> <span class="p">:</span> <span class="n">person</span> <span class="p">=</span> <span class="p">{</span><span class="n">age</span><span class="p">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">name</span><span class="p">=</span><span class="s2">&quot;what is this&quot;</span><span class="p">};</span>
+<span class="kr">val</span> <span class="nv">me</span> <span class="p">=</span> <span class="p">{</span><span class="n">age</span><span class="p">=</span><span class="mi">12</span><span class="p">,</span><span class="n">name</span><span class="p">=</span><span class="s2">&quot;what is this&quot;</span><span class="p">}</span> <span class="p">:</span> <span class="n">person</span>
+</pre></div>
+
+
+<ul>
+<li><code>()</code> is the empty tuple; type: <code>unit</code>. Note that there are no tuples with only one element.</li>
+<li>characters: <code>#"a"</code> etc</li>
+<li>converting to real: <code>real(5)</code> etc (<code>fn : int -&gt; real</code>)</li>
+<li><code>_</code> in pattern matching or variable names is a wildcard binding; is thrown away</li>
+<li>decomposing tuples/records/structures is preferred over sharp notation (<code>#1</code> or <code>#age</code> etc)</li>
+<li>Bind failure: execution time, heterogeneous types only; e.g. <code>val 0 = 1 + 1</code></li>
+<li>for some reason you can redefine <code>not</code> (e.g. defining a function called <code>not</code>) but you can't with <code>and</code> or <code>andalso</code> etc</li>
+<li>mutual recursion - for example:</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">even</span> <span class="n">x</span> <span class="p">=</span> <span class="kr">case</span> <span class="n">x</span> <span class="kr">of</span> <span class="mi">0</span> <span class="p">=&gt;</span> <span class="n">true</span> <span class="n">|</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">odd</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="kr">and</span> <span class="nv">odd</span> <span class="n">x</span> <span class="p">=</span> <span class="kr">case</span> <span class="n">x</span> <span class="kr">of</span> <span class="mi">0</span> <span class="p">=&gt;</span> <span class="n">false</span> <span class="n">|</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">even</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">);</span>
+<span class="kr">val</span> <span class="nv">even</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">int</span> <span class="p">-&gt;</span> <span class="n">bool</span>
+<span class="kr">val</span> <span class="nv">odd</span> <span class="p">=</span> <span class="kr">fn</span> <span class="p">:</span> <span class="n">int</span> <span class="p">-&gt;</span> <span class="n">bool</span>
+</pre></div>
+
+
+<ul>
+<li><code>as</code> keyword:</li>
+</ul>
+<div class="codehilite"><pre><span class="n">-</span> <span class="kr">fun</span> <span class="nf">lol</span> <span class="p">(</span><span class="n">x</span> <span class="kr">as</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">))</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="kr">val</span> <span class="nv">lol</span> <span class="p">=</span> <span class="kr">fn</span>  <span class="p">:</span> <span class="nd">&#39;a</span> <span class="n">*</span> <span class="nd">&#39;b</span> <span class="n">*</span> <span class="nd">&#39;c</span> <span class="n">*</span> <span class="nd">&#39;d</span> <span class="n">*</span> <span class="nd">&#39;e</span> <span class="n">*</span> <span class="nd">&#39;f</span> <span class="n">*</span> <span class="nd">&#39;g</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span> <span class="n">*</span> <span class="nd">&#39;b</span> <span class="n">*</span> <span class="nd">&#39;c</span> <span class="n">*</span> <span class="nd">&#39;d</span> <span class="n">*</span> <span class="nd">&#39;e</span> <span class="n">*</span> <span class="nd">&#39;f</span> <span class="n">*</span> <span class="nd">&#39;g</span>
+</pre></div>
+
+
+<ul>
+<li>type information is necessary when using overloaded arithmetic operators; sml/nj will assume int by default in most cases, so passing in reals requires <code>(x:real)</code> or whatever</li>
+<li><code>::</code> is right-associative; <code>1::2::3::[]</code> gives <code>[1, 2, 3]</code> as one might expect</li>
+<li>self-note for tail recursion: the one that's not the accumulator (i.e. the variable with the base case) should be the one that's pared down</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>For a cross-department link, see the <a href="/MATH_318/lecture-notes/fall-2011/monday-november-7#comprehension-separation-scheme">notes on set comprehension</a> from <a href="/MATH_318/">MATH 318 - Mathematical Logic</a>.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

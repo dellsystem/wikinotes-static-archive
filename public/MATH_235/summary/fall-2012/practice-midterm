@@ -1,0 +1,185 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Practice midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Practice midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided solutions to the sample midterm created by Professor Darmon and made available <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sample.pdf">here</a>. The solutions may or may not be accurate.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<blockquote>
+<p>Recall that the power set of a set <span>$A$</span>, denoted <span>$P(A)$</span>, is the set of all subsets of A. Let <span>$f : A \to P(A)$</span> be a function from <span>$A$</span> to its power set. Show that the subset <span>$B$</span> of <span>$A$</span> defined by</p>
+<p><span>$$B = \{ a \in A \text{ such that } a \notin f(a)\}$$</span></p>
+<p>is not an element of the image of <span>$f$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>We can show this by contradiction. Suppose <span>$B$</span> is an element of the image of <span>$f$</span>. That means there must be an element <span>$b \in A$</span> such that <span>$f(b) = B$</span>. Now, is <span>$b$</span> in <span>$B$</span>? Well, if <span>$b \notin f(b)$</span>, then yes, <span>$b \in B$</span>. But <span>$f(b) = B$</span>. So if <span>$b \notin B$</span> then <span>$b \in B$</span>. But that is a contradiction! <span>$b$</span> would have to be both in and not in <span>$B$</span> at the same time.</p>
+<p>So <span>$b$</span> can't be an element of <span>$f(b)$</span>. But if this is the case, then <span>$B$</span> would have to contain <span>$b$</span>, as <span>$b$</span> contains all elements in <span>$A$</span> that are not in their image. So <span>$b \in B$</span>. Since <span>$f(b) = B$</span>, then <span>$b \in f(b)$</span>, contradicting the premise that <span>$b \notin f(b)$</span>. <span>$b$</span> must be neither in nor not in <span>$B$</span>. Of course, that is another contradiction.</p>
+<p>Consequently, <span>$B$</span> cannot be an element of the image of <span>$f$</span>.</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>This question bears a notable resemblance to <a href="http://www.math.mcgill.ca/darmon/courses/algebra/ass1.pdf">question 9 of assignment 1</a>. Both are quite nice. Solution confirmed by Darmon during class on Monday, October 22.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Compute the greatest common divisor of the integers <span>$a = 13200000008150000000000000000132$</span> and <span>$b = 1320000000815$</span>,</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>We can use the Euclidean algorithm for this:</p>
+<p><span>$\begin{align*}
+a &amp; = b \cdot 10000000000000000000 + 132 \\
+b &amp; = 132 \cdot 10000000000 + 815 \\
+132 &amp; = 815 \cdot 0 + 132 \\
+815 &amp; = 132 \cdot 6 + 23 \\
+132 &amp; = 23 \cdot 5 + 17 \\
+23 &amp; = 17 \cdot 1  + 6 \\
+17 &amp; = 6 \cdot 2 + 5 \\
+6 &amp; = 5 \cdot 1 + 1 \\
+5 &amp; = 1 \cdot 5 + 0
+\end{align*}$</span></p>
+<p>So the gcd is 1.</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Solution confirmed by <a href="http://www.wolframalpha.com/input/?i=gcd%2813200000008150000000000000000132%2C+1320000000815%29">WolframAlpha</a>. This question was also posted (almost certainly by someone in this class) on <a href="http://answers.yahoo.com/question/index?qid=20121021152919AAI6tXm">Yahoo! answers</a>, and the only response at the time of writing agreed with this solution. Also, Darmon confirmed that the <span>$\gcd$</span> is 1 during class on Monday, October 22 (and also mentioned that it wasn't supposed to be 1).</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>Compute the least residue modulo N = 95 of the integer <span>$3^{11000000000000000000000000000000000000000000}$</span>.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>We make use of the Chinese remainder theorem. First, note that the prime divisors of 95 are 19 and 5. To find the least residue modulo 95 of the integer (which we'll call <span>$x$</span>), we first have to find its least residue modulo 19 and its least residue modulo 5.</p>
+<p>For modulo 5: first, we note that <span>$3^4 \equiv 1 \pmod 5$</span>, by Fermat's little theorem (since <span>$\gcd(3,5)=1$</span>). Since the exponent of <span>$x$</span> is divisible by 100, it is also divisible by 4, and so <span>$x = {3^4}^n$</span> where <span>$n$</span> is some integer <span>$n$</span>. Consequently, <span>$x \pmod 5 \equiv 1$</span>.</p>
+<p>For modulo 19: by Fermat's little theorem, <span>$3^{18} \equiv 1 \pmod{19}$</span> (since <span>$\gcd(3, 19) = 1$</span>). Now, <span>$18 = 2 \cdot 9$</span>. For a number to be divisible by 18, it must be both even and divisible by 9. For a number to be divisible by 9, its digits must add up to 9. So <span>$x + 16$</span> would be divisible by both 9 and 2 and thus would be divisible by 18. This tells us that <span>$3^{11000000000000000000000000000000000000000016} \equiv {3^{18}}^n \equiv 1$</span> for some <span>$n$</span>. We can multiply both sides by <span>$3^{-16}$</span>, which gives us <span>$x \equiv 3^{-16}$</span>. If we then multiply both sides by <span>$3^{18}$</span>, we get that <span>$3^{18}x \equiv 3^2$</span> and since <span>$3^{18} \equiv 1$</span>, <span>$x \equiv 3^2 \equiv 9$</span>.</p>
+<p>To find the final answer, we need to find a number <span>$y$</span> such that <span>$y \equiv 1 \pmod 5$</span> and <span>$y \equiv 9 \pmod{19}$</span> (where <span>$0 \leq y \leq 95$</span>). By trying different values of <span>$y' \in \mathbb{N}$</span> in the equation <span>$x = 19y' + 9$</span>, and seeing which have a last digit of 1 or 6, we get that <span>$y' = 3$</span> and <span>$y = 66$</span>. So the least residue modulo 95 of <span>$x$</span> is 66.</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>This problem was worked through by the TA during the tutorial session on Friday, October 19. Also worked through by Darmon on Monday, October 22.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Using only the basic properties of the gcd proved in class, (and <em>not</em> the fundamental theorem of arithmetic) show that if a <span>$p$</span> is a prime and <span>$p$</span> divides a product <span>$ab$</span> of two integers, then <span>$p$</span> necessarily divides either <span>$a$</span> or <span>$b$</span>.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>Since <span>$p\mid ab$</span> and <span>$p \mid p$</span> (by the reflexivity of <span>$\mid$</span>), then <span>$\gcd(p, ab) = p$</span> (since nothing <em>greater</em> than <span>$p$</span> can divide <span>$p$</span>). We assume that <span>$p \nmid a$</span> and <span>$p \nmid b$</span>. So <span>$\gcd(p, a) = 1$</span> and <span>$\gcd(p, b) = 1$</span>. By theorem 9.1.2 in the notes (also known as Bézout's identity), there exist integers <span>$x$</span> and <span>$y$</span> such that <span>$xp + ya = 1$</span> (from the fact that <span>$\gcd(p, a) = 1$</span>). If we multiply both sides of the identity by <span>$b$</span>, we get:</p>
+<p><span>$$xbp + yab = b$$</span></p>
+<p>Well, we know that <span>$p \mid ab$</span>, by a premise of this argument. From definition of a <span>$\gcd$</span> (definition 9.0.5 (2) in the notes), we know that <span>$p \mid yab$</span>. We also know that <span>$p \mid xbp$</span>, since that's just a multiple of <span>$p$</span> (definition 9.0.5 (2) again). Then, by definition 9.0.5 (3), we know that <span>$p \mid xbp + yab$</span>, and by the identity above then <span>$p \mid b$</span>. Since this contradicts the premise that <span>$p \nmid b$</span>, then our assumption that <span>$p\nmid a$</span> and <span>$p\nmid b$</span> must be wrong, and so <span>$p$</span> must divide either <span>$a$</span> or <span>$b$</span> (or both).</p>
+<p>Alternatively, we could just assume, without loss of generality, that <span>$p \nmid a$</span> and from that conclude that <span>$p \mid b$</span>. Whichever.</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>He might have gone over this in class on Monday, October 22, but I wasn't paying attention. This proof seems to make sense to me, though, and there are some <a href="http://web.williams.edu/go/math/sjmiller/public_html/math/papers/PrimeDividesProduct_MillerSilva40.pdf">notes</a> available online that use the same method to prove this, so it should be solid.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1281 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Will eventually include a review of absolutely everything in the entire course. Sources: Professor Anderson's notes on WebCT, and the Mathematical Statistics with Applications textbook by Wackerley, Mendenhall, and Scheaffer.</p>
+<p>Stuff to cover:</p>
+<ul>
+<li>Lecture notes (everything except stuff marked with a †)</li>
+<li>The following sections from <em>Mathematical Statistics with Applications</em>:<ul>
+<li>6.7</li>
+<li>7.2</li>
+<li>Chapter 8</li>
+<li>9.1-9.7 plus exercise 9.8</li>
+<li>Chapter 10</li>
+<li>11.1-11.7</li>
+<li>13.1-13.6, 13.8-13.9</li>
+<li>14.1-14.4</li>
+</ul>
+</li>
+</ul>
+<p>Problems from the assignments will be covered in the <a href="/MATH_324/summary/winter-2012/htsefp-final">HTSEFP</a>, and things that we need to memorise can be found on the <a href="/MATH_324/summary/winter-2012/formulas-to-memorise">Formulas to memorise</a> page.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#sampling-distributions">1 Sampling distributions</a><ul>
+<li><a href="#the-basic-distributions">1.1 The basic distributions</a><ul>
+<li><a href="#the-chi-square-distribution">1.1.1 The chi-square distribution</a></li>
+<li><a href="#the-t-distribution">1.1.2 The t-distribution</a></li>
+<li><a href="#the-f-distribution">1.1.3 The F-distribution</a></li>
+<li><a href="#distribution-summary-table">1.1.4 Distribution summary table</a></li>
+</ul>
+</li>
+<li><a href="#applications-of-some-distributions">1.2 Applications of some distributions</a><ul>
+<li><a href="#sample-mean-and-variance">1.2.1 Sample mean and variance</a><ul>
+<li><a href="#expected-value-of-the-sample-mean">1.2.1.1 Expected value of the sample mean</a></li>
+<li><a href="#variance-of-the-sample-mean">1.2.1.2 Variance of the sample mean</a></li>
+<li><a href="#relation-to-the-normal-distribution">1.2.1.3 Relation to the normal distribution</a></li>
+<li><a href="#expected-value-of-the-sample-variance">1.2.1.4 Expected value of the sample variance</a></li>
+<li><a href="#correlation-between-the-sample-mean-and-the-individual-samples">1.2.1.5 Correlation between the sample mean and the individual samples</a></li>
+<li><a href="#independence-of-the-sample-mean-and-sample-variance">1.2.1.6 Independence of the sample mean and sample variance</a></li>
+<li><a href="#relation-to-the-chi-square-distribution">1.2.1.7 Relation to the chi square distribution</a></li>
+<li><a href="#relation-to-the-t-distribution">1.2.1.8 Relation to the t distribution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#order-statistics">1.3 Order statistics</a><ul>
+<li><a href="#sample-median">1.3.1 Sample median</a></li>
+<li><a href="#expected-values-and-variance">1.3.2 Expected values and variance</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#estimation">2 Estimation</a><ul>
+<li><a href="#methods-of-estimation">2.1 Methods of estimation</a><ul>
+<li><a href="#maximum-likelihood-estimation">2.1.1 Maximum likelihood estimation</a></li>
+<li><a href="#method-of-moments">2.1.2 Method of moments</a></li>
+<li><a href="#bayesian-estimation">2.1.3 Bayesian estimation</a></li>
+</ul>
+</li>
+<li><a href="#properties-of-estimators">2.2 Properties of estimators</a><ul>
+<li><a href="#unbiasedness-and-efficiency">2.2.1 Unbiasedness and efficiency</a><ul>
+<li><a href="#cramer-rao-inequality">2.2.1.1 Cramer-Rao inequality</a></li>
+</ul>
+</li>
+<li><a href="#consistency">2.2.2 Consistency</a></li>
+<li><a href="#sufficiency">2.2.3 Sufficiency</a></li>
+<li><a href="#exponential-families">2.2.4 Exponential families</a></li>
+</ul>
+</li>
+<li><a href="#minimum-variance-revisited">2.3 Minimum variance revisited</a></li>
+</ul>
+</li>
+<li><a href="#confidence-intervals">3 Confidence intervals</a></li>
+<li><a href="#theory-of-hypothesis-testing">4 Theory of hypothesis testing</a><ul>
+<li><a href="#introduction-and-definitions">4.1 Introduction and definitions</a></li>
+<li><a href="#choosing-the-critical-region">4.2 Choosing the critical region</a><ul>
+<li><a href="#simple-hypotheses">4.2.1 Simple hypotheses</a></li>
+<li><a href="#composite-hypotheses">4.2.2 Composite hypotheses</a></li>
+</ul>
+</li>
+<li><a href="#hypothesis-testing-examples">4.3 Hypothesis testing examples</a><ul>
+<li><a href="#p-levels">4.3.1 p-levels</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#applications-of-hypothesis-testing">5 Applications of hypothesis testing</a><ul>
+<li><a href="#the-bivariate-normal-distribution">5.1 The bivariate normal distribution</a></li>
+<li><a href="#correlation-analysis">5.2 Correlation analysis</a></li>
+</ul>
+</li>
+<li><a href="#linear-models">6 Linear models</a><ul>
+<li><a href="#linear-regression">6.1 Linear regression</a><ul>
+<li><a href="#finding-distribution-for-the-betas">6.1.1 Finding distribution for the betas</a></li>
+</ul>
+</li>
+<li><a href="#experimental-design">6.2 Experimental design</a><ul>
+<li><a href="#completely-randomised-designs">6.2.1 Completely randomised designs</a></li>
+<li><a href="#randomised-block-designs">6.2.2 Randomised block designs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chi-square-tests">7 Chi-square tests</a><ul>
+<li><a href="#independent-binomial-populations">7.1 Independent binomial populations</a></li>
+<li><a href="#multinomial-distributions">7.2 Multinomial distributions</a></li>
+<li><a href="#goodness-of-fit">7.3 Goodness of fit</a></li>
+<li><a href="#contingency-tables">7.4 Contingency tables</a></li>
+</ul>
+</li>
+<li><a href="#non-parametric-methods-of-inference">8 Non-parametric methods of inference</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Sampling distributions<a class="headerlink" href="#sampling-distributions" name="sampling-distributions">&para;</a></h2>
+<p>Chapter 7 in the textbook, section 1 in Anderson's notes.</p>
+<h3 class="header"><i>1.1</i>The basic distributions<a class="headerlink" href="#the-basic-distributions" name="the-basic-distributions">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>The chi-square distribution<a class="headerlink" href="#the-chi-square-distribution" name="the-chi-square-distribution">&para;</a></h4>
+<p><strong>Density function</strong></p>
+<p>The density function of a random variable <span>$X$</span> with a chi-square distribution with <span>$n$</span> degrees of freedom (<span>$X \sim \chi^2_n$</span>, <span>$n \geq 1$</span>) is as follows:</p>
+<p><span>$$f(x) = \begin{cases} \frac{1}{2^{n/2}\Gamma(n/2)} x^{(n/2)-1}e^{-x/2} &amp; \text{if }x &gt; 0, \\ 0 &amp; \text{otherwise}\end{cases}$$</span></p>
+<p><strong>Graph</strong></p>
+<p><img alt="Chi-square distribution - probability density function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Chi-square_pdf.svg/500px-Chi-square_pdf.svg.png" title="Source: Wikipedia - http://en.wikipedia.org/wiki/File:Chi-square_pdf.svg" /></p>
+<p><strong>Properties</strong></p>
+<p>Incidentally, this is a special case of the gamma distribution, with <span>$\alpha = n/2$</span> and <span>$\beta = 2$</span>. We can consequently derive the distribution's expected value, variance, and moment-generating function:</p>
+<p><span>$$\begin{align*}E(x) &amp; = n \\ Var(X) &amp; = 2n \\ M_X(t) &amp; = \frac{1}{(1-2t)^{n/2}}\end{align*}$$</span></p>
+<p><strong>Relation to other distributions</strong></p>
+<ul>
+<li>Using the central limit theorem, we can map a chi-square distribution, <span>$X$</span>, to the normal distribution with mean 0 and variance 1 (<span>$N(0, 1)$</span>), by the following formula:</li>
+</ul>
+<p><span>$$\frac{X-n}{\sqrt{2n}}$$</span></p>
+<ul>
+<li>The sum of independent chi-square random variables has a chi-square distribution. Its number of degrees of freedom is equal to the sum of the d.f. of the random variables. Or, in mathematical terms, if <span>$X = X_1 + \ldots X_m$</span> where <span>$X_i$</span> is an independent chi-square random variable with <span>$n_i$</span> degrees of freedom, then <span>$X \sim \chi^2_n$</span> where <span>$n = n_1 + \ldots + n_m$</span>. Proof of this is accomplished by writing out the moment-generating functions. (Note that this also implies that if <span>$X$</span> is the sum of two chi-square distributions, and we know the d.f. of <span>$X$</span> and of one of the other distributions, then the d.f. of the <em>other</em> distribution is given by the difference between the two.)</li>
+<li>The sum of the square of independent normal random variables has a chi-square distribution. Its degree of freedom is equal to the number of random variables. Or, in mathematical terms, if <span>$Y = X_1^2 + \ldots X_n^2$</span> where <span>$X_i \sim N(0, 1)$</span>, then <span>$Y \sim X_n^2$</span>. Proof of this is accomplished by algebraically manipulating <span>$P(Z^2 \leq w)$</span> until it becomes <span>$2P(0 \leq Z \leq \sqrt{w})$</span> and then integrating the normal distribution's density function.</li>
+</ul>
+<p><strong>Critical value</strong></p>
+<p><span>$$P(X &gt; \chi_{\alpha, n}^2) = \alpha$$</span></p>
+<p>Insert diagram later</p>
+<h4 class="header"><i>1.1.2</i>The t-distribution<a class="headerlink" href="#the-t-distribution" name="the-t-distribution">&para;</a></h4>
+<p><strong>Density function</strong></p>
+<p>The density function of a random variable <span>$T$</span> with a <span>$t$</span>-distribution with <span>$n$</span> degrees of freedom (<span>$n \geq 1, T \sim t_n$</span>) is given by:</p>
+<p><span>$$f(t) = \frac{\Gamma(\frac{n+1}{2})}{\sqrt{\pi n}\Gamma(\frac{n}{2})}\left ( 1 + \frac{t^2}{n} \right )^{-\frac{n+1}{2}}$$</span></p>
+<p><strong>Graph</strong></p>
+<p><img alt="t-distribution - probability density function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Student_t_pdf.svg/500px-Student_t_pdf.svg.png" title="Source: Wikipedia - http://en.wikipedia.org/wiki/File:Student_t_pdf.svg" /></p>
+<p>Notice that as <span>$n \to \infty$</span>, the graph looks more and more like the normal distribution (the one in black).</p>
+<p><strong>Properties</strong></p>
+<p>None at the moment</p>
+<p><strong>Relation to other distributions</strong></p>
+<p>If <span>$X \sim N(0,1)$</span> and <span>$Y \sim X_n^2$</span>, then</p>
+<p><span>$$T = \frac{X}{\sqrt{Y/n}}$$</span></p>
+<p>gives us a <span>$t$</span> distribution with <span>$n$</span> degrees of freedom (same as as the <span>$\chi^2$</span> distribution).</p>
+<p><strong>Critical value</strong></p>
+<p><span>$$P(T &gt; t_{\alpha, n}^2) = \alpha$$</span></p>
+<p>Insert diagram later</p>
+<h4 class="header"><i>1.1.3</i>The F-distribution<a class="headerlink" href="#the-f-distribution" name="the-f-distribution">&para;</a></h4>
+<p><strong>Density function</strong></p>
+<p>The density function of a random variable <span>$Y$</span> with an <span>$F$</span>-distribution with <span>$n_1$</span> numerator and <span>$n_2$</span> denominator degrees of freedom (<span>$n_1, n_2 \geq 1, Y \sim F_{n_1, n_2}$</span>) is given by:</p>
+<p><span>$$g(y) = \begin{cases} \frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})} \left ( \frac{n_1}{n_2} \right )^{n_1/2} y^{n_1/2 - 1} \left ( 1 + \frac{n_1}{n_2} y \right )^{-\frac{n_1+n_2}{2}}, &amp; \text{if } y &gt; 0, \\ 0, &amp; \text{if } y \leq 0 \end{cases}$$</span></p>
+<p><strong>Graph</strong></p>
+<p><img alt="F-distribution - probability density function" src="http://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/F_distributionPDF.png/640px-F_distributionPDF.png" title="Source: Wikipedia - &quot;http://en.wikipedia.org/wiki/File:F_distributionPDF.png" /></p>
+<p><strong>Properties</strong></p>
+<ul>
+<li>The reciprocal of an <span>$F$</span>-distribution with <span>$n_1$</span> numerator and <span>$n_2$</span> denominator df is also an <span>$F$</span> distribution, but with <span>$n_1$</span> <em>denominator</em> and <span>$n_2$</span> numerator d.f. Mathematically: if <span>$Y \sim F_{n_1,n_2}$</span>, then <span>$1 / Y \sim F_{n_2, n_1}$</span>.</li>
+<li>The reciprocal of the critical value is also the critical value of what? Come back to this later</li>
+</ul>
+<p><strong>Relation to other distributions</strong></p>
+<p>If <span>$X_1 \sim \chi^2_{n_1}$</span> and <span>$X_2 \sim \chi^2_{n_2}$</span> are independent, then</p>
+<p><span>$$Y = \frac{X_1/n_1}{X_2/n_2}$$</span></p>
+<p>gives us an <span>$F$</span>-distribution with <span>$n_1$</span> numerator and <span>$n_2$</span> denominator degrees of freedom.</p>
+<p><strong>Critical value</strong></p>
+<p><span>$$P(Y &gt; F_{\alpha, n_1,n_2}^2) = \alpha$$</span></p>
+<p>Draw diagram later</p>
+<h4 class="header"><i>1.1.4</i>Distribution summary table<a class="headerlink" href="#distribution-summary-table" name="distribution-summary-table">&para;</a></h4>
+<p>Below is an overview of the above distributions (and the normal distribution), presented in tabular form:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Formula</th>
+<th>d.f.</th>
+<th>Properties</th>
+<th>Relation to others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Normal - <span>$N(\mu,\sigma^2)$</span></td>
+<td><span>$\displaystyle \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left (\frac{x-\mu}{\sigma} \right)^2}$</span></td>
+<td>N/A</td>
+<td><span>$E(X) = \mu$</span>, <span>$Var(X) = \sigma^2$</span>, <span>$M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2t^2}$</span></td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Chi-square - <span>$\chi^2_n$</span></td>
+<td><span>$\displaystyle\frac{1}{2^{n/2}\Gamma(n/2)}x^{n/2-1}e^{-x/2}$</span>, <span>$x &gt; 0$</span></td>
+<td><span>$n$</span></td>
+<td><span>$E(X) = n$</span>, <span>$Var(x) = 2n)$</span>, <span>$M_X(t) = \frac{1}{(1-2t)^{n/2}}$</span></td>
+<td>Special case of gamma distribution (<span>$\alpha = n/2$</span>, <span>$\beta  = 2$</span>). Mapped to <span>$N(0,1)$</span> by <span>$\frac{X-n}{\sqrt{2n}}$</span>. Sum of <span>$\chi^2$</span> distributions is a <span>$\chi^2$</span> distribution (d.f.: sum of d.f.s). Sum of square of normal distributions is a <span>$\chi^2$</span> distribution (d.f.: number of random variables).</td>
+</tr>
+<tr>
+<td>t - <span>$t_n$</span></td>
+<td><span>$\displaystyle \frac{\Gamma(\frac{n+1}{2})}{\sqrt{\pi n} \Gamma(\frac{n}{2})} \left ( 1+ \frac{t^2}{n} \right )^{-\frac{n+1}{2}}$</span></td>
+<td><span>$n$</span></td>
+<td>As <span>$n \to \infty$</span>, looks more like <span>$N(0, 1)$</span></td>
+<td><span>$\displaystyle T = \frac{X}{\sqrt{Y/n}}$</span> where <span>$X \sim N(0,1)$</span> and <span>$Y \sim \chi^2_n$</span> (<span>$T \sim t_n$</span>)</td>
+</tr>
+<tr>
+<td>F - <span>$F_{n_1, n_2}$</span></td>
+<td><span>$\displaystyle \frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})} \left ( \frac{n_1}{n_2} \right )^{n_1/2} y^{n_1/2 -1} \left ( 1 + \frac{n_1}{n_2} y \right )^{-\frac{n_1+n_2}{2}}$</span>, <span>$y &gt; 0$</span></td>
+<td><span>$n_1$</span> numerator, <span>$n_2$</span> denominator</td>
+<td>Reciprocal is also <span>$F$</span>, reverse the d.f.</td>
+<td><span>$\displaystyle Y = \frac{X_1/n_1}{X_2/n_2}$</span> where <span>$X_1 \sim \chi^2_{n_1}$</span>, <span>$X_2 \sim \chi^2_{n_2}$</span> (<span>$Y \sim F_{n_1, n_2}$</span>)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.2</i>Applications of some distributions<a class="headerlink" href="#applications-of-some-distributions" name="applications-of-some-distributions">&para;</a></h3>
+<p>First, we make note of the following lemma:</p>
+<blockquote>
+<p>Let <span>${x_1, \ldots, x_n}$</span> and <span>${y_1, \ldots, y_n}$</span> be two sets of <span>$n$</span> numbers each, and let <span>$\bar x$</span> and <span>$\bar y$</span> be the means of each respective set. Then</p>
+<p><span>$$ \sum_{i=1}^n (x_i - c) (y_i - d) = \sum_{i=1}^n (x_i - \bar x)(y_i - \bar y) + n(\bar x - c)(\bar y - d)$$</span></p>
+<p>for any numbers <span>$c$</span> and <span>$d$</span>. If they happen to be equal, then we have the following special case:</p>
+<p><span>$$\sum_{i=1}^n (x_i - \mu)^2 = \sum_{i=1}^n (x_i - \bar x)^2 + n(\bar x - \mu)^2$$</span></p>
+</blockquote>
+<p>I'd imagine that <span>$c = d = \mu$</span>, but the choice of symbol here seems deliberate - a connection to the normal distribution perhaps? In any case, the above can be proved using simple algebraic manipulation.</p>
+<h4 class="header"><i>1.2.1</i>Sample mean and variance<a class="headerlink" href="#sample-mean-and-variance" name="sample-mean-and-variance">&para;</a></h4>
+<p>Let's say we have <span>$n$</span> independent random variables - <span>$X_1,\ldots X_n$</span> - all having the same distribution, with a mean of <span>$\mu$</span> and a variance of <span>$\sigma^2$</span>. We can define the terms <strong>sample mean</strong> and <strong>sample variance</strong> as follows:</p>
+<p><span>$$\text{Sample mean } = \overline X = \frac{X_1 + \ldots X_n}{n}, \quad \text{Sample variance } = s^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2$$</span></p>
+<p>Now, these metrics possess some interesting properties that are independent of the specific distribution of the random variables:</p>
+<h5 class="header"><i>1.2.1.1</i>Expected value of the sample mean<a class="headerlink" href="#expected-value-of-the-sample-mean" name="expected-value-of-the-sample-mean">&para;</a></h5>
+<p><span>$$E(\overline X) = E\left ( \frac{X_1 + \ldots + X_n}{n} \right ) = \frac{1}{n} E\left( \sum_{i=1}^n X_i \right) = \frac{1}{n} \sum_{i=1}^n E(X_i) = \frac{1}{n}\sum_{i=1}^n \mu = \frac{\mu n}{n} = \mu$$</span></p>
+<p>where <span>$E(X_i) = \mu$</span> comes from the fact that each random variable has a distribution with a mean of <span>$\mu$</span>.</p>
+<h5 class="header"><i>1.2.1.2</i>Variance of the sample mean<a class="headerlink" href="#variance-of-the-sample-mean" name="variance-of-the-sample-mean">&para;</a></h5>
+<p><span>$$Var(\overline X) = Var\left ( \frac{X_1 + \ldots + X_n}{n} \right ) = \frac{1}{n^2} Var\left( \sum_{i=1}^n X_i \right) = \frac{1}{n^2}\sum_{i=1}^n Var(X_i) = \frac{1}{n^2}\sum_{i=1}^n \sigma^2 = \frac{\sigma^2 n}{n^2} = \frac{\sigma^2}{n}$$</span></p>
+<p>where <span>$Var(X_i) = \sigma^2$</span> comes from the fact that each random variable has a distribution with a variance of <span>$\sigma^2$</span>.</p>
+<h5 class="header"><i>1.2.1.3</i>Relation to the normal distribution<a class="headerlink" href="#relation-to-the-normal-distribution" name="relation-to-the-normal-distribution">&para;</a></h5>
+<p>If the samples all have a normal distribution, then <span>$\overline X \sim N(\mu, \sigma^2/n)$</span>. This can be proven using moment-generating functions. (Later.)</p>
+<p>If they have an <span>$F$</span> distribution, then this is only approximately true when <span>$n$</span> is large, by the central limit theorem.</p>
+<h5 class="header"><i>1.2.1.4</i>Expected value of the sample variance<a class="headerlink" href="#expected-value-of-the-sample-variance" name="expected-value-of-the-sample-variance">&para;</a></h5>
+<p>First, recall that <span>$Var(x) = E((x - \mu)^2)$</span>. Then, we rewrite the lemma above with the thing we need on the right, we have:</p>
+<p><span>$$\sum_{i=1}^n (X_i-\overline X)^2 = \sum_{i=1}^n (X_i - \mu)^2 - n(\overline X - \mu)^2$$</span></p>
+<p>(Note the switched order.) Then, we can derive the expected value of the sample variance as follows:</p>
+<p><span>$$\begin{align*}E(s^2) &amp; = E \left (\frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2 \right ) = \frac{1}{n-1} E\left (\sum_{i=1}^n (X_i - \overline X)^2 \right) = \frac{1}{n-1} E\left ( \sum_{i=1}^n (X_i - \mu)^2 - n(\overline X - \mu)^2 \right ) \\ &amp; = \frac{1}{n-1} \left ( \sum_{i=1}^n E((X_i - \mu)^2) - n(E(\overline X- \mu)^2) \right ) = \frac{1}{n-1} \left ( \sum_{i=1}^n Var(X_i) - n Var(\overline X) \right ) = \frac{1}{n-1} \left ( n \sigma^2 - n \cdot \frac{\sigma^2}{n} \right ) \\ &amp; = \frac{1}{n-1} (n\sigma^2 - \sigma^2) = \frac{(n-1)\sigma^2}{n-1} \\
+&amp; = \sigma^2 \end{align*}$$</span></p>
+<p>Which is, well, kind of beautiful imo.</p>
+<h5 class="header"><i>1.2.1.5</i>Correlation between the sample mean and the individual samples<a class="headerlink" href="#correlation-between-the-sample-mean-and-the-individual-samples" name="correlation-between-the-sample-mean-and-the-individual-samples">&para;</a></h5>
+<p>Recall that the formula for covariance is:</p>
+<p><span>$$Cov(X, Y) = E((X - E(X))(Y-E(Y)))$$</span></p>
+<p>and that the following properties hold:</p>
+<p><span>$$Cov(X, Y - Z) = Cov(X, Y) - Cov(X, Z) \quad Cov(X, X) = Var(X)$$</span></p>
+<p>We can then show that the sample mean, <span>$\overline X$</span>, and the difference between the sample mean and an individual sample, <span>$X_i - \overline X$</span>, are uncorrelated:</p>
+<p><span>$$\begin{align*}Cov(\overline X, X_i - \overline X) &amp; = Cov(\overline X, X_i) - Cov(\overline X, \overline X) = Cov(\overline X, X_i) - Var(\overline X) = Cov\left (\frac{X_1 + \ldots + X_n}{n}, X_i \right) - \frac{\sigma^2}{n} \\
+&amp; = \frac{1}{n} Cov \left (\sum_{j=1}^n X_j , X_i \right ) - \frac{\sigma^2}{n} = \frac{Cov(X_i, X_i)}{n} - \frac{\sigma^2}{n} = \frac{Var(X_i)}{n} - \frac{\sigma^2}{n} = \frac{\sigma^2}{n} - \frac{\sigma^2}{n} \\
+&amp; = 0\end{align*}$$</span></p>
+<p>(We use the fact that the samples are independent to deduce that <span>$Cov(X_i, X_j)$</span> when <span>$i \neq j = 0$</span>, and so can simplify <span>$\displaystyle Cov \left (\sum_{j=1}^n X_j , X_i \right )$</span> to <span>$Cov(X_i, X_i)$</span>.) This is also kind of pretty.</p>
+<h5 class="header"><i>1.2.1.6</i>Independence of the sample mean and sample variance<a class="headerlink" href="#independence-of-the-sample-mean-and-sample-variance" name="independence-of-the-sample-mean-and-sample-variance">&para;</a></h5>
+<p>Apparently the fact that <span>$\overline X$</span> and <span>$X_i - \overline X$</span> are uncorrelated implies that they are also independent. I didn't think this was true in the general case - maybe it's only true when they have a bivariate normal distribution? In any case, if those two are independent, then so are <span>$\overline X$</span> and <span>$(X_i - \overline X)^2$</span>, and so <span>$\overline X$</span> and <span>$s^2$</span> are independent.</p>
+<h5 class="header"><i>1.2.1.7</i>Relation to the chi square distribution<a class="headerlink" href="#relation-to-the-chi-square-distribution" name="relation-to-the-chi-square-distribution">&para;</a></h5>
+<p>If the random samples come from a normal distribution, then the sample variance relates to the chi-square distribution as follows:</p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}$$</span></p>
+<p>We can prove this using the previously used lemma. First, we rewrite the above statistic by substituting in the equation for <span>$s^2$</span>:</p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2} = \frac{(n-1)}{\sigma^2} \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2 = \frac{\displaystyle \sum (X_i - \overline X)^2}{\sigma^2}$$</span></p>
+<p>Next, let's divide each side of the equals sign in the lemma by <span>$\sigma^2$</span>:</p>
+<p><span>$$\frac{\displaystyle \sum (X_i-\overline X)^2 = \sum (X_i - \mu)^2 - n(\overline X - \mu)^2}{\sigma^2} \quad \therefore \frac{\displaystyle \sum (X_i - \overline X)^2}{\sigma^2} = \frac{\displaystyle \sum (X_i - \mu)^2}{\sigma^2} - \frac{n(\overline X- \mu)^2}{\sigma^2}$$</span><br />
+<span>$$\therefore \sum_{i=1}^n \left ( \frac{(X_i - \overline X)^2}{\sigma^2} \right ) = \frac{\displaystyle \sum (X_i - \mu)^2}{\sigma^2} - \frac{(\sqrt{n} \cdot \overline X- \mu)^2}{\sigma^2} = \underbrace{\sum_{i=1}^n \left ( \frac{X_i - \mu}{\sigma^2} \right )^2}_{\chi^2_n} - \underbrace{\left ( \frac{\overline X- \mu}{\sigma^2/\sqrt{n}} \right )^2}_{\chi^2_1}$$</span></p>
+<p>and since the term on the left is equivalent to the statistic we're looking at, it has a <span>$\chi^2$</span> distribution with <span>$n-1$</span> degrees of freedom (see the "relation to other distributions" section of <a href="#the-chi-square-distribution">the chi-square distribution</a>).</p>
+<p>(We know that the two terms are <span>$\chi^2$</span> distributions because WHY??? Oh, is it because you're squaring things that involve normal distributions ... yeah probably.</p>
+<h5 class="header"><i>1.2.1.8</i>Relation to the t distribution<a class="headerlink" href="#relation-to-the-t-distribution" name="relation-to-the-t-distribution">&para;</a></h5>
+<p><span>$$\frac{\overline X - \mu}{s/\sqrt{n}} \sim t_{n-1}$$</span></p>
+<p>where <span>$X \sim N(0, 1)$</span> and <span>$Y \sim \chi^2_m$</span>.</p>
+<p>This can be derived simply by rewriting the above statistic. Except I don't actually know how to do this. But it's probably not important.</p>
+<h3 class="header"><i>1.3</i>Order statistics<a class="headerlink" href="#order-statistics" name="order-statistics">&para;</a></h3>
+<p>The <span>$k$</span>th order statistic (<span>$Y_k$</span>) is the <span>$k$</span>th smallest value among the random sample <span>$X_1, \ldots, X_n$</span> from a continuous distribution. If we let <span>$\omega$</span> mean "outcome" (not really sure why this is significant), then if <span>$X_1(\omega) = 5$</span>, <span>$X_2(\omega) = 10$</span>, <span>$X_3(\omega) = 1$</span> then <span>$Y_1(\omega) = 1$</span>, <span>$Y_2(\omega) = 5$</span> and <span>$Y_3(\omega) = 10$</span>.</p>
+<p><strong>Density function</strong></p>
+<p><span>$$g_k(y) = \frac{n!}{(k-1)!(n-k)!} (F(y))^{k-1} f(y) [1-F(y)]^{n-k}$$</span></p>
+<p>where <span>$F(y)$</span> is the distribution function, <span>$f(y)$</span> is the density function and <span>$g_k(y)$</span> is the density function for the <span>$k$</span>th order statistic (<span>$Y_k$</span>). This is apparently proved using the trinomial distribution and taking the limit of the probability density as <span>$h \to 0$</span>.</p>
+<h4 class="header"><i>1.3.1</i>Sample median<a class="headerlink" href="#sample-median" name="sample-median">&para;</a></h4>
+<p>Basically the value that is smack in the middle. So if there are 5 values then <span>$Y_3$</span>, if there are 6 then the mean of <span>$Y_3$</span> and <span>$Y_4$</span>. Not going to define it mathematically because it's kind of obvious.</p>
+<p><strong>Density function</strong></p>
+<p>The density function for the sample median given an odd sample size of <span>$2m+1$</span> is:</p>
+<p><span>$$g_m(y) = \frac{(2m+1)!}{m!m!} (F(y))^m f(y) (1-F(y))^m$$</span></p>
+<h4 class="header"><i>1.3.2</i>Expected values and variance<a class="headerlink" href="#expected-values-and-variance" name="expected-values-and-variance">&para;</a></h4>
+<p>To find the expected value of an order statistic, integrate the density function. Remember that <span>$f(x)$</span>, the density function, is the derivative of the distribution function lol lol lol</p>
+<h2 class="header"><i>2</i>Estimation<a class="headerlink" href="#estimation" name="estimation">&para;</a></h2>
+<p>Given some value <span>$x$</span> from a distribution <span>$X$</span> which depends on a parameter <span>$\theta$</span>, there are two main methods by which we can draw some conclusions about <span>$\theta$</span>:</p>
+<dl>
+<dt>Estimation</dt>
+<dd>guessing <span>$\theta$</span></dd>
+<dt>Hypothesis testing</dt>
+<dd>we use <span>$x$</span> to help us decide between two hypotheses about <span>$\theta$</span> (either it's one thing, or it's not)</dd>
+<dt>Statistic</dt>
+<dd>A function of <span>$X$</span>; if used to estimate <span>$\theta$</span>, it is called an estimator (<span>$\hat \theta$</span>), and its value is called the estimate</dd>
+</dl>
+<p>Usually, <span>$X$</span> will be a random sample (<span>$X_1, \ldots, X_n$</span>) and <span>$\theta$</span> will be either a scalar value or a vector (e.g. <span>$(\mu, \sigma^2)$</span>).</p>
+<p>Some commonly used estimators of <span>$\mu$</span> and <span>$\sigma^2$</span>:</p>
+<p><span>$$\hat \mu = \overline X = \frac{1}{n} \sum_{i=1}^n X_i, \quad \hat \sigma^2 = s^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline X)^2$$</span></p>
+<h3 class="header"><i>2.1</i>Methods of estimation<a class="headerlink" href="#methods-of-estimation" name="methods-of-estimation">&para;</a></h3>
+<p>In this section: how to derive a suitable estimator for some given parameter.</p>
+<h4 class="header"><i>2.1.1</i>Maximum likelihood estimation<a class="headerlink" href="#maximum-likelihood-estimation" name="maximum-likelihood-estimation">&para;</a></h4>
+<p>Use the likelihood function <span>$L(\theta)$</span>, and choose the value of <span>$\theta$</span> for which <span>$L(\theta)$</span> is at a maximum (can be found by taking the log and determining where the derivative is equal to 0).</p>
+<p>Note that for the normal distribution, the MLEs for <span>$\mu$</span> and <span>$\sigma^2$</span> are just the sample mean and variance, respectively.</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li>MLEs are not unique</li>
+<li>May not always exist (for example, the uniform density function's log likelihood function has a derivative of <span>$\displaystyle \frac{n}{\theta}$</span>, and so there is no value of <span>$\theta$</span> such that the derivative is 0, since we know that <span>$n &gt; 0$</span>)</li>
+<li>Invariance: if <span>$\hat \theta$</span> is an MLE of <span>$\theta$</span>, then <span>$f(\hat \theta)$</span> is an MLE of <span>$f(\theta)$</span> where <span>$f$</span> is some function</li>
+</ul>
+<p><strong>Examples</strong></p>
+<p>When <span>$\theta = 0$</span>, <span>$x$</span> is always 2. Then <span>$\theta = 1$</span>, <span>$x$</span> is sometimes 1 but usually 2. If we observe that <span>$x = 1$</span>, then the MLE of <span>$\theta$</span> is 1; if we observe that <span>$x=2$</span>, then the MLE of <span>$\theta$</span> is 0.</p>
+<p>Another example (from the lecture notes)</p>
+<ul>
+<li>When <span>$\theta = 0$</span>, <span>$P(X = 1) = 0.1, P(X = 2) = 0.4, P(X = 3) = 0.5$</span></li>
+<li>When <span>$\theta = 1/4$</span>, <span>$P(X = 1) = 0.2, P(X = 2) = 0.4, P(X=3) = 0.4$</span></li>
+<li>When <span>$\theta = 1/2$</span>, <span>$P(X=1) = 0, P(X=2) = 0.3, P(X=3) =0.7$</span></li>
+</ul>
+<p>Consequently, when <span>$x = 1$</span>, the MLE of <span>$\theta$</span> is <span>$1/4$</span>. When <span>$x = 2$</span>, the MLE of <span>$\theta$</span> is either <span>$0$</span> or <span>$1/4$</span>. When <span>$x = 3$</span>, the MLE of <span>$\theta$</span> is 1/2$.</p>
+<p>A solved example from the lecture notes using a continuous likelihood function, where the density function is given by</p>
+<p><span>$$g_{\theta}(t) = \frac{1}{\theta} e^{-t/\theta} \quad \text{when } t &gt; 0; 0 \text{ otherwise}$$</span></p>
+<p>and we want to estimate <span>$\theta$</span>. First, we find the likelihood function:</p>
+<p><span>$$L(\theta) = f_{\theta}(t_1, \ldots, t_n) = g_{\theta}(t_1) \times \ldots \times g_{\theta}(t_n) = \frac{1}{\theta^n}e^{-n\overline t/\theta}$$</span></p>
+<p>when all <span>$t_i &gt; 0$</span> and 0 otherwise. We then take the logarithm of the above to get the log likelihood function:</p>
+<p><span>$$\mathcal{L}(\theta) = \log L(\theta) = \log \left ( \frac{1}{\theta^n}e^{-n\overline t/\theta} \right ) = -\frac{n \overline t}{\theta} - n\log \theta$$</span></p>
+<p>If we differentiate this with respect to <span>$\theta$</span>, we get</p>
+<p><span>$$\mathcal{L}'(\theta) = \frac{n\overline t}{\theta^2} - \frac{n}{\theta} = \frac{n}{\theta} \left ( \frac{\overline t}{\theta} - 1 \right)$$</span></p>
+<p>We see that if <span>$\overline t = \theta$</span>, then the derivative becomes 0, indicating that the MLE is <span>$\hat \theta = \overline t$</span>.</p>
+<p>Similarly, if the likelihood function is</p>
+<p><span>$$L(\theta) = \frac{n}{\theta} e^{-ny/\theta}$$</span></p>
+<p>(when <span>$y &gt; 0$</span>) then the derivative of the log likelihood function is</p>
+<p><span>$$\frac{d}{d\theta} \left ( \log \left ( \frac{n}{\theta} e^{-ny/\theta} \right ) \right ) = \frac{d}{d\theta} \left ( \log(n) - \log(\theta) - \frac{ny}{\theta} \right ) = -\frac{1}{\theta} + \frac{ny}{\theta^2} = \frac{1}{\theta} \left ( \frac{ny}{\theta} - 1 \right )$$</span></p>
+<p>so when <span>$ny = \theta$</span>, then the derivative is 0 and so the MLE of <span>$\theta$</span> is <span>$ny$</span>.</p>
+<p>Another example from the lecture notes, using the binomial distribution, whose likelihood function is given by</p>
+<p><span>$$L(\theta) = \binom{n}{k} \theta^k(1-\theta)^{n-k}$$</span></p>
+<p>where <span>$\theta$</span> is what we usually call <span>$p$</span> (i.e. the probability of "success"). We can find the MLE of <span>$\theta$</span> by differentiating the log likelihood function:</p>
+<p><span>$$\frac{d}{d\theta} (\log L) = \frac{d}{d\theta} \left ( \log \binom{n}{k} + k\log \theta + (n-k)\log(1-\theta)\right ) = \frac{k}{\theta} + \frac{n-k}{1-\theta} = \frac{k(1-\theta) - \theta(n -k}{\theta(1-\theta)} = \frac{k - n\theta}{\theta(1-\theta)}$$</span></p>
+<p>we see that if <span>$\displaystyle \theta = \frac{k}{n}$</span>, then the derivative is 0 and so the MLE of <span>$\theta$</span> is <span>$\displaystyle \frac{k}{n}$</span>.</p>
+<h4 class="header"><i>2.1.2</i>Method of moments<a class="headerlink" href="#method-of-moments" name="method-of-moments">&para;</a></h4>
+<p>Based on the strong law of large numbers:</p>
+<p><span>$$\frac{1}{n} \sum_{i=1}^n X_i^k \to \mu'_k \,\,\text{as } n \to \infty$$</span></p>
+<p>where <span>$X$</span> is a random sample and <span>$\mu_k'$</span> is the <span>$kth$</span> moment (<span>$E(X^k)$</span>). So if <span>$n$</span> is large enough, we have that</p>
+<p><span>$$m_k = \frac{1}{n} \sum_{i=1}^n X_i^k \approx \mu_k'$$</span></p>
+<p>If we set them to be equal, then we can solve the equations for the first few moments until we are able to identify <span>$\theta$</span> (or whatever the parameters are).</p>
+<p><strong>Examples</strong></p>
+<p>For the exponential distribution with mean <span>$\theta$</span>: <span>$\mu_1' = \theta$</span>, <span>$m_1 = \overline X$</span> so <span>$\hat \theta = \overline X$</span>.</p>
+<p>For the Bernoulli distribution with <span>$P(x=0) = 1-\theta$</span> and <span>$P(x=1 = \theta$</span>, <span>$m_1 = \frac{1}{n} \sum_{i=1}^n X_i = \overline X$</span> and <span>$\mu_1' = \theta$</span>, so again we have <span>$\hat \theta = \overline X$</span>.</p>
+<p>For the gamma distribution with parameters <span>$\alpha$</span> and <span>$\beta$</span>, recall that the probability density function is given by</p>
+<p><span>$$f(x) = X_i = \frac{1}{\Gamma(\alpha)\beta^{\alpha}} y^{\alpha -1}e^{-y/\beta}$$</span></p>
+<p>So <span>$\mu_1' = E(X) = \alpha\beta$</span> and <span>$\mu_2' = E(X^2) = E(X^2) - (E(X))^2 + (E(X))^2 = Var(X) + (E(X))^2 = \alpha\beta^2 + (\alpha\beta)^2 = \alpha\beta^2 + \alpha^2\beta^2 = \alpha\beta(1+\alpha)$</span>.</p>
+<p>We don't seem to know the moments (?) so we just let <span>$\mu_1' = m_1 = \alpha\beta$</span> and <span>$\mu_2' = m_1 = \alpha\beta(1+\alpha)$</span> and we obtain the following equations for <span>$\alpha$</span> and <span>$\beta$</span>:</p>
+<p><span>$$\hat \alpha = \frac{m_2}{m_2 - m_1^2} \quad \hat \beta = \frac{m_2 - m_1^2}{m_1}$$</span></p>
+<h4 class="header"><i>2.1.3</i>Bayesian estimation<a class="headerlink" href="#bayesian-estimation" name="bayesian-estimation">&para;</a></h4>
+<p>Chapter 16 in the textbook.</p>
+<p>In this case, <span>$\theta$</span> is a random variable with a distribution called the prior distribution. This essentially means that we have some information about <span>$\theta$</span> (perhaps we believe it to be around 0.50, or 0.01, or something) but there is some uncertainty, which we handle by treating <span>$\theta$</span> as a random variable. For example, if we believe <span>$\theta$</span> to be about 0.10, we may use the beta distribution as a prior, with <span>$\alpha = 1$</span>, <span>$\beta = 9$</span> (as the mean of the beta distribution is given by <span>$\mu = \alpha/(\alpha+\beta)$</span>). The density function for <span>$\theta$</span> would then just be the beta distribution with <span>$\alpha = 1$</span>, <span>$\beta=9$</span>.</p>
+<p>We then define a "loss" function <span>$L(\theta, \hat \theta)$</span> which gives the loss/penalty when the true value of the parameter is <span>$\theta$</span> and our estimate is <span>$\hat \theta$</span>. Examples of loss functions: taking the difference between the two and squaring it (the squared loss function), taking the absolute value of the difference between the two.</p>
+<p>Consequently, to estimate <span>$\theta$</span>, we minimise the expected value of the loss function by finding the optimal estimator, <span>$\hat \theta = t(X)$</span>. For example, for the squared loss function, the Bayes estimator for <span>$\theta$</span> is given by</p>
+<p><span>$$\hat \theta = t(x) = E(\theta|X = x)$$</span></p>
+<p>that is, the expected value of <span>$\theta$</span>, given that <span>$X = x$</span>. This conditional probability, called the posterior density function, is calculated as follows</p>
+<p><span>$$\phi(\theta|x) = \frac{f_{\theta}x(x) h(\theta)}{g(x)}$$</span></p>
+<p>where <span>$h(\theta)$</span> is the prior density/probability function of <span>$\theta$</span> and <span>$f_{\theta}(x)$</span> is the conditional density/probability function <span>$f(x|\theta)$</span>.</p>
+<p>The textbook definition this is slightly different (though the same idea). If <span>$L$</span> is the likelihood function and <span>$g$</span> is the prior density function then the posterior density of <span>$\theta | y_1, \ldots, y_n$</span> is given by</p>
+<p><span>$$g^*(\theta | y_1,\ldots y_n) = \frac{L(y_1, \ldots, y_n | \theta) \times g(\theta)}{\displaystyle \int_{-\infty}^{\infty} L(y_1,\ldots,y_n |\theta) \times g(\theta)\,d\theta}$$</span></p>
+<p>Usually, a Bayesian estimation question will involve finding the posterior distribution for <span>$\theta$</span> given the prior distribution.</p>
+<h3 class="header"><i>2.2</i>Properties of estimators<a class="headerlink" href="#properties-of-estimators" name="properties-of-estimators">&para;</a></h3>
+<p>Four important ways of measuring "goodness" of estimators - unbiasedness, efficiency, consistency, sufficiency.</p>
+<h4 class="header"><i>2.2.1</i>Unbiasedness and efficiency<a class="headerlink" href="#unbiasedness-and-efficiency" name="unbiasedness-and-efficiency">&para;</a></h4>
+<p>Unbiased: if the expected value of <span>$\hat \theta = \theta$</span>. The <strong>bias</strong> is given by <span>$B(\hat \theta) = E(\hat \theta) - \theta$</span>. The <strong>mean square error</strong> is given by <span>$MSE(\hat \theta) = E(\hat \theta - \theta)^2$</span>, which we can rewrite in terms of the variance and bias of <span>$\hat \theta$</span>:</p>
+<p><span>$$MSE(\hat \theta) = E((\hat \theta - \theta)^2) = \underbrace{E(((\hat \theta - E(\hat \theta)) + (E(\hat \theta) - \theta))^2)}_{\text{adding and subtracting } E(\hat \theta)} = Var(\hat \theta) + (B(\hat \theta))^2$$</span></p>
+<p><span>$$\begin{align*} MSE(\hat \theta) &amp; = E((\hat \theta - \theta)^2) = \underbrace{E(((\hat \theta - E(\hat \theta)) + (E(\hat \theta) - \theta))^2)}_{\text{adding and subtracting } E(\hat \theta)} = E((\hat \theta - E(\hat \theta))^2 + 2(\hat \theta - E(\hat \theta))\underbrace{(E(\hat \theta) - \theta)}_{B(\hat\theta)} + \underbrace{(E(\hat \theta) - \theta)^2}_{B(\hat\theta)^2}) \\ &amp; = \underbrace{E((\hat \theta - E(\hat \theta))^2)}_{Var(\hat \theta)} + 2\underbrace{(\hat \theta - E(\hat \theta))}_{E(\hat \theta) - E(\hat \theta) = 0}B(\hat \theta) + (B(\hat \theta))^2 \\
+&amp; = Var(\hat \theta) + (B(\hat \theta))^2 \end{align*}$$</span></p>
+<p>The <strong>standard error</strong> is the standard deviation of <span>$\hat \theta$</span>, that is, the square root of its variance.</p>
+<p>The <strong>relative efficiency</strong> of <span>$\hat \theta_1$</span> with respect to <span>$\hat \theta_2$</span> is given by</p>
+<p><span>$$\frac{E(\hat \theta_2 - \theta)^2}{E(\hat \theta_1 - \theta)^2}$$</span></p>
+<p>(Basically the ratio of their MSEs - a lower MSE means the estimator is more efficient.) The higher this value is, the more efficient <span>$\hat \theta_1$</span> is than <span>$\hat \theta_2$</span>. If both are unbiased, then their relative efficiency depends on their variance.</p>
+<p>A <strong>minimum variance unbiased estimator</strong> is the unbiased estimator with the lowest variance. Note that there may be more than one, or there may be no unbiased estimator with minimum variance (not sure when this would happen?).</p>
+<h5 class="header"><i>2.2.1.1</i>Cramer-Rao inequality<a class="headerlink" href="#cramer-rao-inequality" name="cramer-rao-inequality">&para;</a></h5>
+<blockquote>
+<p>Let <span>$\hat \theta = t(X)$</span> be an estimator of <span>$\theta$</span>, and let <span>$f_{\theta}(x)$</span> be the likelihood function. Then we have</p>
+<p><span>$$Var(\hat \theta) \geq \frac{\phi'(\theta)|^2}{\displaystyle E\left (\frac{\partial \log (f_{\theta}(X))}{\partial \theta} \right )^2}$$</span></p>
+<p>where <span>$\displaystyle \phi(\theta) = E(t(X)) = \int t(x) f_{\theta}(x)\,dx$</span> is the bias function (if the estimator is not biased, this is equal to <span>$\theta$</span>, and so <span>$\phi'(\theta) = 1$</span>).</p>
+<p>If <span>$X$</span> is a random sample <span>$X_1, \ldots, X_n$</span> from a distribution with probability or density function <span>$f_{\theta}(x)$</span>, then the denominator (which is incidentally called the <em>Fisher information</em> of the observation <span>$X$</span>) is multiplied by <span>$n$</span> and the <span>$X$</span> is replaced by <span>$X_1$</span> (I'm assuming because they all have the same probability/density function).</p>
+<p>This can be proved with the assistance of the Cauchy-Schwarz inequality, i.e. that <span>$|Cov(U, V)|^2 \leq Var(U)Var(V)$</span> (which incidentally shows up in <a class="wikilink" href="/MATH_223/">MATH 223</a> as well).</p>
+</blockquote>
+<p>If and only if equality holds, then <span>$\hat \theta$</span> is said to be an <em>efficient</em> estimator of <span>$\theta$</span>. Note that equality holds if and only if <span>$\hat \theta$</span> and the derivative of the log likelihood function are linearly related, meaning that the likelihood function must be of the form <span>$f_{\theta}(x) = h(x)c(\theta)e^{w(\theta)t(x)}$</span> where <span>$w(\theta) = \int a(\theta)\,d\theta$</span> (terminology: of <em>exponential type</em>). Not sure how important this is or what this really means.</p>
+<p>We can use this theorem to show that an estimator is an MVUE. Recall that an MVUE must be unbiased and must be efficient. For example, to show that the estimator <span>$\hat \mu = \overline X$</span> where <span>$X_1,\ldots\,X_n \sim N(\mu, \sigma^2)$</span> is an MVUE of <span>$\mu$</span>, we have to show that equality holds (since we've already shown in <a href="#sample-mean-and-variance">Sample mean and variance</a> that <span>$E(\overline X) = \mu$</span>).</p>
+<p>First, we find the log likelihood function:</p>
+<p><span>$$\log g(x_1) = \log \left (\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (y-\mu)^2} \right ) = \log\left ( \frac{1}{\sigma\sqrt{2\pi}} \right ) + \left ( -\frac{1}{2\sigma^2} (x_1-\mu^2)\right ) = -\log(\sigma\sqrt{2\pi}) - \frac{1}{2\sigma^2} (x_1-\mu)^2$$</span></p>
+<p>Then we differentiate it with respect to <span>$\mu$</span>:</p>
+<p><span>$$\frac{\partial \log g(x_1)}{\partial \mu} = \frac{\partial }{\partial \mu} \left ( -\log(\sigma\sqrt{2\pi}) - \frac{1}{2\sigma^2} (x_1-\mu)^2 \right ) = \frac{\partial }{\partial \mu} \left (-\frac{(x_1-\mu)^2}{2\sigma^2} \right ) = \frac{2(x_1-\mu)}{2\sigma^2} = \frac{x_1-\mu}{\sigma^2}$$</span></p>
+<p>Now, the Fisher information in this case is</p>
+<p><span>$$nE \left ( \frac{\partial \log g(X_1)}{\partial \mu}\right )^2 = nE\left ( \frac{x_1-\mu}{\sigma^2} \right )^2 = n \frac{E(x_1-\mu)^2}{\sigma^4} = \frac{nVar(X_1)}{\sigma^4} = \frac{n\sigma^2}{\sigma^4} = \frac{n}{\sigma^2}$$</span></p>
+<p>Since <span>$\overline X$</span> is unbiased, the numerator <span>$\phi'(\mu) = 1$</span>. Now, we know that the variance of <span>$\overline X$</span> is <span>$\frac{\sigma^2}{n}$</span>, so we get</p>
+<p><span>$$\frac{\sigma^2}{n} \text{ on the left and } \frac{1}{n/\sigma^2} = \frac{\sigma^2}{n} \text{ on the right. }\,\blacksquare$$</span></p>
+<h4 class="header"><i>2.2.2</i>Consistency<a class="headerlink" href="#consistency" name="consistency">&para;</a></h4>
+<p>An estimator <span>$\hat \theta$</span> given a random sample consisting of <span>$n$</span> variables is consistent if it's unbiased and if it approaches <span>$\theta$</span> as <span>$n$</span> approaches infinity. Alternatively: its variance must approach 0 as <span>$n \to \infty$</span> (proven by Chebychev's inequality).</p>
+<p>Example: show that the sample variance <span>$\displaystyle s^2 = \frac{1}{n-1}\sum (X_i-\overline X)^2$</span> (with random samples from <span>$N(\mu, \sigma^2)$</span>) is consistent for <span>$\sigma^2$</span>. To do this, we use the fact that <span>$(n-1)s^2/\sigma^2$</span> has a chi-square distribution with <span>$n-1$</span> degrees of freedom and variance <span>$2(n-1)$</span>. We can then rewrite the formula for the variance of <span>$s^2$</span> as follows:</p>
+<p><span>$$Var(s^2) = Var\left ( \frac{\sigma^2}{n-1} \cdot \frac{(n-1)s^2}{\sigma^2} \right ) = \left ( \frac{\sigma^2}{n-1} \right )^2 Var\left ( \frac{(n-1)s^2}{\sigma^2} \right ) = \frac{\sigma^4}{(n-1)^2} \cdot 2(n-1) = \frac{2\sigma^4}{n-1}$$</span></p>
+<p>We then take the limit as <span>$n \to \infty$</span>:</p>
+<p><span>$$\lim_{n\to\infty} \frac{2\sigma^4}{n-1} = 0$$</span></p>
+<h4 class="header"><i>2.2.3</i>Sufficiency<a class="headerlink" href="#sufficiency" name="sufficiency">&para;</a></h4>
+<p>An estimator is sufficient if it uses all the useful information about <span>$\theta$</span>. There is a theorem we can use here (I remember using it for an assignment). Use the Neyman-Pearson factorisation criterion (?). I suppose this can be left for the HTSEFP.</p>
+<p>Needs to be possible to factor it as</p>
+<p><span>$$f_{\theta}(x) = g_{\theta}[t(x)]h(x)$$</span></p>
+<p>For example, from the normal distribution, if <span>$\sigma^2$</span> is known, then <span>$\overline X$</span> is sufficient for <span>$\mu$</span>. We can prove this by first finding the likelihood function:</p>
+<p><span>$$L(x_1, \ldots, x_n) = \prod_{i=1}^n \left ( \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x_i-\mu)^2} \right ) = \frac{1}{(\sigma\sqrt{2\pi})^n} e^{-\frac{1}{2\sigma^2} \sum (x_i-\mu)^2}$$</span></p>
+<p>We then use the lemma from section 1.2:</p>
+<p><span>$$L(x_1, \ldots, x_n) = \frac{1}{(\sigma\sqrt{2\pi})^n} e^{-\frac{1}{2\sigma^2} \sum(x_i - \overline x)^2} \cdot \frac{1}{(\sigma\sqrt{2\pi})^n} e^{-\frac{n}{2\sigma^2} (\overline x - \mu)^2}$$</span></p>
+<p>So we can split it up into the product of two functions, one of which <span>$(h(x_1,\ldots,x_n)$</span>) is a function of the individual random variables but does NOT contain the thing we're trying to estimate, the other of which (<span>$g_{\mu}(\overline x)$</span>) is a function of the estimator <span>$\overline x$</span> and which CAN contain the thing we're trying to estimate.</p>
+<p><span>$$\therefore g_{\mu}(\overline x) = \frac{1}{(\sigma\sqrt{2\pi})^n} e^{-\frac{n}{2\sigma^2} (\overline x - \mu)^2}, \quad h(x_1, \ldots, x_n) = \frac{1}{(\sigma\sqrt{2\pi})^n} e^{-\frac{1}{2\sigma^2} \sum(x_i - \overline x)^2}$$</span></p>
+<p>Another example, when neither <span>$\sigma^2$</span> nor <span>$\mu$</span> are known, and we want to estimate both. We'd have to be able to split it up into the product of two functions, one of which (<span>$h(x_1, \ldots, x_n)$</span>) is a function of the individual random variables but does NOT contain either <span>$\sigma$</span> or <span>$\mu$</span>, the other of which (<span>$g_{\mu, \sigma^2}(s^2, \overline x)$</span>) is a function of both estimators and CAN contain <span>$\mu$</span> and <span>$\sigma^2$</span> (but not the individual random variables). We can use the fact that</p>
+<p><span>$$s^2 = \frac{1}{n-1} \sum_{i=1}^n (x_i - \overline x)^2 \quad \therefore \sum_{i=1}^n (x_i - \overline x)^2 = (n-1)s^2$$</span></p>
+<p>to obtain</p>
+<p><span>$$g_{\mu, \sigma^2}(s^2, \overline x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{n}{2\sigma^2} (\overline x - \mu)^2 - \frac{(n-1)s^2}{2\sigma^2}} \quad h(x_1,\ldots,x_n) = 1$$</span></p>
+<p>and so the factorisation is complete.</p>
+<h4 class="header"><i>2.2.4</i>Exponential families<a class="headerlink" href="#exponential-families" name="exponential-families">&para;</a></h4>
+<p>A family of density/probability functions is called exponential if it can be expressed in some form, whatever. Examples: normal, binomial. Uniform is not.</p>
+<ul>
+<li>use of order statistics?</li>
+</ul>
+<h3 class="header"><i>2.3</i>Minimum variance revisited<a class="headerlink" href="#minimum-variance-revisited" name="minimum-variance-revisited">&para;</a></h3>
+<ul>
+<li>We can reduce variance of an unbiased estimator by conditioning on a sufficient statistic</li>
+<li>MVUE must be a function of "the" sufficient statistic. Why "the"?</li>
+<li>Rao-Blackwell</li>
+<li>Lehmann-Scheffe</li>
+<li>What does it mean for a statistic to be complete?</li>
+<li>fuck this section, gotta cut your losses at some point</li>
+</ul>
+<h2 class="header"><i>3</i>Confidence intervals<a class="headerlink" href="#confidence-intervals" name="confidence-intervals">&para;</a></h2>
+<p>Interval estimation (as opposed to point estimation, which is what was covered in the last section). If <span>$\hat \theta$</span> is a point estimator, then the <strong>bound on the error of estimation</strong> is <span>$b = 2\sigma_{\hat \theta}$</span>. If <span>$\hat \theta$</span> is unbiased, then Chebychev's inequality tells us that the probability that <span>$\hat \theta $</span> and <span>$\theta$</span> are at most <span>$b$</span> apart is at least 0.75; if the distribution is normal, then the probability is at least 0.95.</p>
+<p>For example, if we're given <span>$n = 50$</span>, <span>$\overline x= 11.5$</span> and <span>$s=3.5$</span>, then our estimate for <span>$\mu$</span> would be 11.5, and our bound on the error of estimation would be <span>$2\sigma/\sqrt{n} = 2s/\sqrt{n} = 7/\sqrt{50} = 0.99$</span> (we can approximate <span>$\sigma$</span> by <span>$s$</span> since <span>$n$</span> is large).</p>
+<p>For interval estimation, we need to find an interval <span>$[\theta_L, \theta_U]$</span> for which <span>$P(\theta_L \leq \theta \leq \theta_U) = 1 - \alpha$</span> for a <span>$(1-\alpha) \times 100\%$</span> confidence interval.</p>
+<p>A confidence interval is derived by using a <strong>pivot</strong>, which is a random variable of the form <span>$g(X, \theta)$</span> whose distribution does not depend on <span>$\theta$</span> (what??) and where the function <span>$g(x, \theta)$</span> is for each <span>$x$</span> a monotonic function of the parameter <span>$\theta$</span> (what does this mean??).</p>
+<p>For example, for the normal distribution with <span>$\sigma^2$</span> known, to find the confidence interval for <span>$\mu$</span>, we use the pivot</p>
+<p><span>$$\frac{\overline X - \mu}{\sigma/\sqrt{n}}$$</span></p>
+<p>Which has a normal distribution <span>$N(0, 1)$</span>. Why do we use that pivot???? Because it's a standard one? Central limit theorem? Okay let's assume that and stop panicking.</p>
+<p>If <span>$\sigma^2$</span> is unknown, then the pivot is</p>
+<p><span>$$\frac{\overline X - \mu}{s/\sqrt{n}}$$</span></p>
+<p>Which has a <span>$t$</span> distribution with <span>$n-1$</span> d.f.</p>
+<p>If <span>$\mu$</span> is unknown, and we want to find the confidence interval for <span>$\sigma^2$</span>:</p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2}$$</span></p>
+<p>which has a <span>$\chi^2$</span> distribution with <span>$n-1$</span> d.f. So the lower bound is <span>$\displaystyle \frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}}$</span> and the upper bound is <span>$\displaystyle \frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}}$</span></p>
+<p><strong>Examples</strong></p>
+<p>Given the random sample 785, 805, 790, 793, 802 from <span>$N(\mu, \sigma^2)$</span>. We don't know either <span>$\mu$</span> or <span>$\sigma^2$</span>. To find a 90% confidence interval for <span>$\mu$</span>, we use the fact that</p>
+<p><span>$$\frac{\overline X - \mu}{s/\sqrt{n}} \sim t_{n-1}$$</span></p>
+<p>We need to find a number <span>$\mu_U$</span> such that <span>$P(\mu &gt; \mu_U) = 0.05$</span>. First, we figure out <span>$\overline X$</span> and <span>$s$</span>:</p>
+<p><span>$$\overline X = 795 \quad s = \sqrt{\frac{1}{n-1} \sum (X_i - \overline X)^2} = \frac{1}{2} \sqrt{(10^2 + 10^2 + 5^2 + 2^2 + 7^2)} = 8.34$$</span></p>
+<p>Anyway, the critical value for <span>$\alpha = 0.05$</span> is 2.132 (from the <span>$t$</span>-distribution table in the back of the exam/textbook, with 4 degrees of freedom). So</p>
+<p><span>$$\frac{\overline X - \mu_L}{s/\sqrt{n}} = \frac{795 - \mu_L}{8.34 / \sqrt{5}} = 2.132$$</span></p>
+<p>So the confidence interval is given by</p>
+<p><span>$$795 \pm \frac{2.132 \times 8.34}{\sqrt{5}} = 795 \pm 7.95 = [787.05, 802.95]$$</span></p>
+<p>To find one for <span>$\sigma^2$</span>, we use the fact that</p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}$$</span></p>
+<p>From the table in the back of the textbook for chi square, with 4 degrees of freedom, the critical value for <span>$\alpha = 0.05$</span> is 9.48773 (the lower bound). Since this distribution is not symmetrical, we also need the critical value for the upper bound: 0.710721. So the confidence interval is given by</p>
+<p><span>$$\frac{(4 \times 69.5}{9.48733} \leq \sigma^2 \leq \frac{4 \times 69.5}{0.710721} = [29.3, 391.15]$$</span></p>
+<p>For a binomial distribution:</p>
+<p><span>$$\text{Lower bound } = \hat p - z_{\alpha/2} \sqrt{\hat p (1-\hat p)}{n} \quad \text{Upper bound } = \hat p + z_{\alpha/2} \sqrt{\hat p (1-\hat p)}{n}$$</span></p>
+<p>where <span>$p = \frac{x}{n}$</span> (number of successes over number of trials) and <span>$z_{\alpha/2}$</span> comes from the normal distribution etc.</p>
+<p>For the difference between the means of two <em>normal</em> distributions whose variances are known, the pivot is</p>
+<p><span>$$\frac{\overline X_1 - \overline X_2 -(\mu_1 - \mu_2)}{\displaystyle \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}}}$$</span></p>
+<p>so the bounds are</p>
+<p><span>$$(\overline x_1 - \overline x_2) \pm \sqrt{\frac{\sigma_1^2}{n_1} + \frac{\sigma_2^2}{n_2}} \times z_{\alpha/2}$$</span></p>
+<p>If the variances are <em>unknown</em>, then we have to assume that the variances are the same, and use the <strong>pooled sample variance</strong> instead of <span>$\sigma_1^2$</span> and <span>$\sigma_2^2$</span>:</p>
+<p><span>$$s_p^2 = \frac{(n_1 - 1)s_1^2 +(n_2 - 1)s_2^2}{n_1+n_2+2}$$</span></p>
+<p>The distribution of the pivot is <span>$t$</span> with <span>$n_1 + n_2 - 2$</span> degrees of freedom. The confidence interval is then given by</p>
+<p><span>$$(\overline x_1 - \overline x_2) \pm \sqrt{\frac{s_p^2}{n_1} + \frac{s_p^2}{n_2}} \times t_{\alpha/2, n_1+n_2-2}$$</span></p>
+<p>Numerical example: <span>$\overline x_1 = 64$</span>, <span>$\overline x_2 = 69$</span>, <span>$s_1^2 = 52$</span>, <span>$s_2^2 = 71$</span>, <span>$n_1 = 11$</span>, <span>$n_2 = 14$</span> and we want to find the difference between the means, <span>$\mu_1-\mu_2$</span>. First, let's find the pooled sample variance:</p>
+<p><span>$$s_p^2 = \frac{(11-1)(52) + (13)(71)}{11+14-2} = \frac{520+ 923}{23} = 62.74$$</span></p>
+<p>Now let's find a 95% confidence interval, given that we have a <span>$t$</span> distribution with 21 degrees of freedom. From the table in the back of the book we have <span>$t_{0.025, 23} = 2.069$</span>. So the confidence interval is given by</p>
+<p><span>$$(\overline x_1 - \overline x_2) \pm t_{0.025, 23}\sqrt{\frac{s_p^2}{n_1^2} + \frac{s_p^2}{n_2^2}} = -5 \pm 2.069 \sqrt{\frac{62.74}{11} + \frac{62.74}{14}} = -5 \pm 6.60 = [-11.60, 1.60]$$</span></p>
+<p><strong>Confidence interval for the ratio of variances</strong></p>
+<p>Two normal distributions, means and variances unknown, we want to find the ratio <span>$\sigma_1^2/\sigma_2^2$</span>. The pivot is</p>
+<p><span>$$\frac{s_2^2/\sigma_2^2}{s_1^2/\sigma_1^2}$$</span></p>
+<p>which has an <span>$F$</span> distribution (NOT SYMMETRICAL!!) with <span>$n_2-1$</span> numerator and <span>$n_1-1$</span> denominator degrees of freedom. The confidence interval is therefore given by</p>
+<p><span>$$\text{Lower bound } = \frac{s_1^2}{s_2^2} F_{1-\alpha/2, n_2-1, n_1-1} \quad \text{Upper bound } = \frac{s_1^2}{s_2^2} F_{\alpha/2, n_2-1, n_1-1}$$</span></p>
+<p>The fact that</p>
+<p><span>$$F_{1-\alpha/2, n_2-1, n_1-2} = \frac{1}{F_{\alpha/2, n_1-1, n_2-1}}$$</span></p>
+<p>(NOTE THE SWITCHED NUMERATOR AND DENOMINATOR D.F.) may be useful.</p>
+<p><strong>Difference between binomial parameters</strong></p>
+<p><span>$\hat p_1 = x_1/n_1$</span>, <span>$\hat p_2 = x_2/n_2$</span>. The pivot used here is</p>
+<p><span>$$\frac{\hat p_1 - \hat p_2 - (p_1 - p_2)}{\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}} \sim N(0, 1)$$</span></p>
+<p>where we estimate <span>$p_1$</span> and <span>$p_2$</span> under the square root sign using <span>$\hat p_1$</span> and <span>$\hat p_2$</span>. The final confidence interval is given by</p>
+<p><span>$$\hat p_1 - \hat p_2 \pm z_{\alpha/2} \sqrt{\frac{\hat p_1(1-\hat p_1)}{n_1} + \frac{\hat p_2(1-\hat p_2)}{n_2}}$$</span></p>
+<p><strong>Mean of an exponential distribution</strong></p>
+<p><span>$X_i$</span> is a random sample from an exponential distribution with mean <span>$\theta$</span> (<span>$n$</span> samples total), which we want to find a confidence interval for. Let the pivot be</p>
+<p><span>$$\frac{2}{\theta} \sum_{i=1}^n X_i$$</span></p>
+<p>which has a chi-square distribution with <span>$2n$</span> degrees of freedom. So the confidence interval is</p>
+<p><span>$$\left [\frac{2\sum x_i}{\chi^2_{\alpha/2, 2n}}, \frac{2\sum x_i}{\chi^2_{1-\alpha/2, 2n}} \right ]$$</span></p>
+<p><strong>Large samples</strong></p>
+<p>When the sample size is large, we can assume that</p>
+<p><span>$$\frac{\hat \theta - \theta}{\sigma_{\hat \theta}} \sim N(0, 1)$$</span></p>
+<p>where <span>$\sigma_{\hat \theta}$</span> is the standard error (standard deviation of the estimator <span>$\hat \theta$</span>). So the confidence interval is</p>
+<p><span>$$\hat \theta \pm z_{\alpha/2} \sigma_{\hat \theta}$$</span></p>
+<p><strong>Bayesian credible sets</strong></p>
+<p>Bayesian analog of confidence intervals. Do we need to know this?</p>
+<h2 class="header"><i>4</i>Theory of hypothesis testing<a class="headerlink" href="#theory-of-hypothesis-testing" name="theory-of-hypothesis-testing">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Introduction and definitions<a class="headerlink" href="#introduction-and-definitions" name="introduction-and-definitions">&para;</a></h3>
+<p>Two hypotheses: the null hypothesis <span>$H_0$</span>, and the alternative hypothesis <span>$H_1$</span>. We select a critical region <span>$C$</span> of the sample space, and if the random variable's outcome is in <span>$C$</span>, then we reject <span>$H_0$</span> and accept <span>$H_1$</span>; else, we accept <span>$H_0$</span> and reject <span>$H_1$</span>.</p>
+<p>Of course, it's possible that we will falsely reject or accept a hypothesis. If <span>$H_0$</span> is true but we reject it, that's a <strong>type I error</strong>; if <span>$H_1$</span> is true but we reject it, that's a <strong>type II error</strong>. Pretty easy to remember. The probability of making a type I error is <span>$\alpha = P(X \in C|H_0 \text{ is true})$</span>, the probability of making a type II error is <span>$\beta = P(X \notin C|H_1 \text{ is true})$</span>. The power of the test is <span>$1-\beta$</span>.</p>
+<p><strong>Binomial distribution example</strong></p>
+<p>7 marbles, <span>$\theta$</span> are red and the rest are green. We randomly select 3 without replacement to try and test the hypotheses</p>
+<p><span>$$H_0:\, \theta = 3 \quad H_1:\,\theta = 5$$</span></p>
+<p>Our rule is, if 2 or more of the marbles are red, reject <span>$H_0$</span> and accept <span>$H_1$</span>; otherwise, accept <span>$H_0$</span> and reject <span>$H_1$</span>. Let's calculate <span>$\alpha$</span> and <span>$\beta$</span> for this test.</p>
+<p><span>$\alpha$</span> is the probability that there are 3 red marbles in the urn and 1 green marble and that when we select 3, there are 2 or 3 red marbles in our sample. So we find the sum of the probabilities of selecting all reds and of selecting one green:</p>
+<p><span>$$\text{All red } = \frac{3}{7}\cdot \frac{2}{6} \cdot \frac{1}{5} = \frac{1}{35} \quad \text{One green } = \frac{3 \times 4 \times 3 \times 2}{7 \times 6 \times 5} = \frac{12}{35} \quad \therefore \alpha = \frac{13}{35}$$</span></p>
+<p><span>$\beta$</span> is the probability that there are 5 red marbles in the urn and 2 green marbles and that when we select 3, there is 1 red marble and 2 green marbles. In other words, we select all the green marbles. This probability is</p>
+<p><span>$$\beta = 3 \cdot \frac{2}{7} \cdot \frac{1}{6}  = \frac{1}{7} = \frac{5}{35}$$</span></p>
+<p>so the power of the test is <span>$\frac{30}{35}$</span>. I should probably figure out how to use the binomial distribution formulas rather than trying to derive everything all the time from scratch.</p>
+<p>If the hypotheses were instead</p>
+<p><span>$$H_0:\, \theta \leq 3 \quad H_1:\,\theta &gt; 3$$</span></p>
+<p>then the hypotheses would be <strong>composite</strong> instead of simple. We would then have to calculate <span>$\alpha$</span> and <span>$\beta$</span> values for each possible value of <span>$\theta$</span> (<span>$\alpha(\theta), \beta(\theta)$</span>). The <strong>power function</strong> of the test (same as regular power, just, it depends on the value of <span>$\theta$</span>) is given by:</p>
+<p><span>$$P(\theta) = P_{\theta}(\text{reject }H_0) = \begin{cases} \alpha(\theta) &amp; \text{if we assume } H_0 \\ 1 - \beta(\theta) &amp; \text{if we assume } H_1 \end{cases}$$</span></p>
+<p>The <strong>size</strong> of the test is the maximum value of <span>$\alpha(\theta)$</span>; the <strong>level</strong> of the test is the maximum value of <span>$\alpha$</span>. Apparently the terms are used confusingly in the textbook.</p>
+<p>Anyway, for this situation, we can construct a table for the power function (remember that the rule is to reject <span>$H_0$</span> if there are 2 red marbles in the sample):</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$\theta$</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$P(\theta)$</span></td>
+<td>0</td>
+<td>0</td>
+<td><span>$\frac{1}{7}$</span></td>
+<td><span>$\frac{13}{35}$</span></td>
+<td><span>$\frac{22}{35}$</span></td>
+<td><span>$\frac{30}{35}$</span></td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Normal distribution example</strong></p>
+<p>We have a sample of size 10 from a distribution with variance <span>$\sigma^2=625$</span>. The hypotheses are:</p>
+<p><span>$$H_0:\,\mu = 100 \quad H_1:\, \mu = 70$$</span></p>
+<p>Rule: reject <span>$H_0$</span> if <span>$\overline X &lt; 80$</span>. Let's calculate <span>$\alpha$</span> and <span>$\beta$</span>.</p>
+<p><span>$\alpha$</span> is the probability that <span>$\mu = 100$</span> and <span>$\overline X &lt; 80$</span>. We can use the fact that</p>
+<p><span>$$\frac{\overline X - \mu}{\sigma/\sqrt{n}} \sim N(0, 1)$$</span></p>
+<p>for this:</p>
+<p><span>$$\alpha = Pr_{H_0}\{X \in C\} = Pr_{\mu = 100} \{\overline X &lt; 80 \} = Pr \left \{ \frac{\overline X - \mu}{\sigma/\sqrt{n}} &lt; \frac{80 - 100}{25/\sqrt{10}} \right \} = Pr \{ Z &lt; -2.53 \} = 0.0057$$</span></p>
+<p>(using the table at the back of the book). To calculate <span>$\beta$</span>:</p>
+<p><span>$$\beta = Pr_{H_1} \{X \notin C\} = Pr_{\mu = 70} \{ \overline X \geq 80 \} = Pr \left \{ \frac{\overline X - \mu}{\sigma/\sqrt{n}} \geq \frac{80 - 70}{25/\sqrt{10}} \right \} = Pr \left \{ Z &gt; 1.26 \right \} = 0.1038$$</span></p>
+<p>If we wanted to test the composite hypotheses</p>
+<p><span>$$H_0:\, \mu \geq 100 \quad H_1:\,\mu &lt; 100$$</span></p>
+<p>it would be the same idea, except we'd have to do it for every possible value of <span>$\mu$</span>, which I don't think is important.</p>
+<p>If we wanted to find a critical region of a size <span>$\alpha$</span>, we use</p>
+<p><span>$$\frac{k - \mu}{\sigma/\sqrt{n}} = -z_{\alpha}$$</span></p>
+<p>and solve for <span>$k$</span> (which is the discriminant for the critical region). This gives us a new test and we can figure out the power for that.</p>
+<h3 class="header"><i>4.2</i>Choosing the critical region<a class="headerlink" href="#choosing-the-critical-region" name="choosing-the-critical-region">&para;</a></h3>
+<h4 class="header"><i>4.2.1</i>Simple hypotheses<a class="headerlink" href="#simple-hypotheses" name="simple-hypotheses">&para;</a></h4>
+<p>First, we decide on a value of <span>$\alpha$</span> (the level). Then, we choose the test that has maximum power for that level (i.e. we minimise <span>$\beta$</span>). This is called a most powerful test (critical region) of level <span>$\alpha$</span>.</p>
+<p>For example, if <span>$f_0(x)$</span> is the likelihood function of observation <span>$X$</span> under hypothesis <span>$H_0$</span> and <span>$f_1(X)$</span> is the likelihood function of observation <span>$X$</span> under hypothesis <span>$H_1$</span> then, given a table or something, we can figure out the most powerful critical region for a given <span>$\alpha$</span> level. Basically, we identify all those regions of size <span>$\alpha$</span> or less, then find the power (<span>$1-\beta$</span>) for each region. Note that there can be a more powerful critical region with a smaller size, which is why we use levels etc.</p>
+<p>How we do choose a most powerful critical region? We can use the Neyman-Pearson lemma:</p>
+<blockquote>
+<p>Let <span>$C$</span> be a critical region of size <span>$\alpha$</span>. If there exists a positive constant <span>$k$</span> such that</p>
+<p><span>$$f_0(x) \leq kf_1(x) \text{ when } x \in C \text{ and } f_0(x) &gt; kf_1(x) \text{ when } c \notin C$$</span></p>
+<p>then <span>$C$</span> is a most powerful critical region of level <span>$\alpha$</span>.</p>
+</blockquote>
+<p>Using this lemma, we can construct a most powerful region of size <span>$\alpha$</span> (which will be the most powerful test of level <span>$\alpha$</span>).</p>
+<p><strong>Normal distribution example</strong></p>
+<p>Known variance of <span>$\sigma^2$</span>, random sample of size <span>$n$</span>, we want to test</p>
+<p><span>$$H_0:\, \mu = \mu_0 \quad H_1: \,\mu=\mu_1$$</span></p>
+<p>where <span>$\mu_1 &lt; \mu_0$</span>. How do we find the most powerful critical region of size <span>$\alpha$</span>?</p>
+<p>First, we find the likelihood function:</p>
+<p><span>$$f_{\mu}(x) = f(x_1,\ldots\,x_n) = \prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x_i-\mu)^2} = \frac{1}{(\sigma \sqrt{2n})^n} e^{-\frac{1}{2\sigma^2} \sum (x_i - \mu)^2} = \frac{1}{(\sigma\sqrt{2\pi})^2} e^{-\frac{1}{2\sigma^2}[\sum (x_i - \overline x)^2 + n(\overline x - \mu)^2]}$$</span></p>
+<p>(making use of the lemma from section 1.2). Then we take the ratio of the hypotheses' likelihood functions:</p>
+<p><span>$$\begin{align*} \frac{f_0(x)}{f_1(x)} &amp; = \frac{1}{(\sigma\sqrt{2\pi})^2} e^{-\frac{1}{2\sigma^2}[\sum (x_i - \overline x)^2 + n(\overline x - \mu_0)^2]} / \frac{1}{(\sigma\sqrt{2\pi})^2} e^{-\frac{1}{2\sigma^2}[\sum (x_i - \overline x)^2 + n(\overline x - \mu_1)^2]} = e^{-\frac{1}{2\sigma^2}[\sum (x_i - \overline x)^2 + n(\overline x - \mu_0)^2] + \frac{n}{2\sigma^2}[\sum (x_i - \overline x)^2 + n(\overline x - \mu_1)^2]} \\ &amp; = e^{\displaystyle -\frac{n}{2\sigma^2}[(\overline x - \mu_0)^2 - (\overline x - \mu_1)^2]} = e^{\displaystyle \frac{n(\mu_0-\mu_1)}{2\sigma^2}[2\overline x - (\mu_0 + \mu_1)]} \end{align*}$$</span></p>
+<p>If we take the log of the above and periodically replace the term on the right by <span>$k'$</span> etc (an arbitrary constant) we see that the critical region is given by</p>
+<p><span>$$C = \left \{ \frac{f_0(x)}{f_1(x)} \leq k \right \} = \left \{ \frac{n(\mu_0-\mu_1)}{2\sigma^2}[2\overline x - \mu_0 - \mu_1] \leq \log k \right \} = \{ 2\overline x - \mu_0 - \mu_1 \leq k' \} = \{ \overline x \leq k'' \}$$</span></p>
+<p>(Note that to get the first <span>$k'$</span>, we divided both sides by the fraction on the left, and since <span>$\mu_1 &lt; \mu_0$</span>, this cannot be 0, so it's all valid etc.)</p>
+<p>Anyway, we use <span>$\displaystyle \frac{\overline X - \mu}{\sigma/\sqrt{n}}$</span> as usual, resulting in</p>
+<p><span>$$Pr \left \{ Z \leq \frac{k'' - \mu_0}{\sigma/\sqrt{n}} \right \}$$</span></p>
+<p>which implies that</p>
+<p><span>$$\frac{k''-\mu_0}{\sigma/\sqrt{n}} = -z_{\alpha}$$</span></p>
+<p>and so the value we use for the critical region is</p>
+<p><span>$$\mu_0 - z_{\alpha} \frac{\sigma}{\sqrt{n}}$$</span></p>
+<p>Or, we could calculate</p>
+<p><span>$$z = \frac{\overline x- \mu_0}{\sigma/\sqrt{n}}$$</span></p>
+<p>and reject <span>$H_0$</span> at level <span>$\alpha$</span> if <span>$z \leq -z_{\alpha}$</span>.</p>
+<p>What if we wanted to test hypotheses involving <span>$\sigma^2$</span>? The derivation is similar, and the ratio of the two likelihood functions becomes</p>
+<p><span>$$\frac{f_{\sigma^2_0}(x)}{f_{\sigma_1^2}} = \left ( \frac{\sigma_1^2}{\sigma_0^2} \right )^{n/2} e^{-\frac{1}{2}(\sigma_0^{-2} - \sigma_1^{-2} ) \sum (x_i-\mu)^2}$$</span></p>
+<p>Let's use <span>$\hat \sigma^2$</span> to estimate the variance:</p>
+<p><span>$$\hat \sigma^2 = \frac{1}{n} \sum_{i=1}^n (x_i-\mu)^2$$</span></p>
+<p>So we reject <span>$H_0$</span> at level <span>$\alpha$</span> if</p>
+<p><span>$$\frac{n\hat\sigma^2}{\sigma_0^2} \geq \chi^2_{\alpha, n}$$</span></p>
+<p><strong>Binomial distribution example</strong></p>
+<p>We want to test</p>
+<p><span>$$H_0:\,\theta = \theta_0 \quad H_1:\,\theta=\theta_1$$</span></p>
+<p>The likelihood function for a binomial distribution is</p>
+<p><span>$$f_{\theta}(x) = \binom{n}{x} \theta^x (1-\theta)^{n-x}$$</span></p>
+<p>The derivation is pretty long and messy but in the end you choose the smallest <span>$k$</span> such that <span>$P(X \geq k) \leq \alpha$</span> or <span>$P(X &lt; k) \geq 1-\alpha$</span>. (We choose the "smallest" to maximise the power). We'd have to use the binomial tables at the back of the book to find the actual value of <span>$k$</span>. For a numerical example, let <span>$n = 20$</span>, <span>$\alpha = 0.05$</span>, and we want to test <span>$H_0: \theta = 0.3$</span> against <span>$H_1: \theta = 0.5$</span>. We need to find the smallest value of <span>$k$</span> such that <span>$P(X &lt; k) \geq 1 - \alpha$</span>, which is 0.95. We see that <span>$P(X &lt; 10) = 0.952$</span>, so, <span>$k$</span> is 10.</p>
+<h4 class="header"><i>4.2.2</i>Composite hypotheses<a class="headerlink" href="#composite-hypotheses" name="composite-hypotheses">&para;</a></h4>
+<p>A test is <strong>uniformly most powerful</strong> if it is more powerful than any other test of level <span>$\alpha$</span>. Although these tests do not always exist, there is a method of finding them when they do, called the likelihood ratio method. It's basically the same as before, except you use the maximum possible value of <span>$\theta$</span> for that hypothesis?</p>
+<p><strong>Normal distribution example</strong></p>
+<p>Random sample of size <span>$n$</span> from a normal distribution where <span>$\sigma^2$</span> is known. We want to test</p>
+<p><span>$$H_0:\,\mu=\mu_0 \quad H_1:\,\mu\neq \mu_0$$</span></p>
+<p>Skipping the derivation, we have that</p>
+<p><span>$$z = \frac{\overline x - \mu_0}{\sigma/\sqrt{n}}$$</span></p>
+<p>and we reject <span>$H_0$</span> is <span>$|z| \geq z_{\alpha/2}$</span>.</p>
+<p>There were a bunch of optional examples skipped at the end of this section.</p>
+<h3 class="header"><i>4.3</i>Hypothesis testing examples<a class="headerlink" href="#hypothesis-testing-examples" name="hypothesis-testing-examples">&para;</a></h3>
+<p>Recall that <span>$H_0$</span> is the <em>null</em> hypothesis, i.e. the "normal state of affairs". <span>$H_1$</span> is the hypothesis which has the burden of proof on it, so that we only accept it if there is sufficient evidence for it. <span>$H_1$</span> is therefore the statement to be proved, and the probability that we mistakenly accept <span>$H_1$</span> is <span>$\alpha$</span>.</p>
+<h4 class="header"><i>4.3.1</i>p-levels<a class="headerlink" href="#p-levels" name="p-levels">&para;</a></h4>
+<p>The <strong>p-level</strong> or (p-value) of a test is the value <span>$\alpha$</span> that discriminates between rejecting <span>$H_0$</span> and accepting <span>$H_0$</span>. Also called the observed/attained level of significance. Example:</p>
+<p><span>$$H_0: \,\mu &lt; 3.5 \quad H_1:\, \mu \geq 3.5$$</span></p>
+<p>where <span>$n = 50$</span>, <span>$\overline X = 3.3$</span> and the sample standard deviation <span>$s = 1.1$</span> (since <span>$n$</span> is large, we take <span>$s = \sigma$</span>). First, at <span>$\alpha = 0.05$</span> (note <span>$z_{\alpha} = 1.645$</span>), what can we conclude? The formula is</p>
+<p><span>$$z = \frac{\overline X - \mu}{\sigma/\sqrt{n}} = \frac{3.3 - 3.5}{1.1/\sqrt{50}} = -1.286$$</span></p>
+<p>We reject <span>$H_0$</span> only if <span>$z$</span> is less than <span>$-z_{\alpha} = -1.645$</span>. It's not, so we don't reject it. However, if <span>$\alpha$</span> were <span>$0.10$</span>, then <span>$z_{\alpha} = 1.282$</span>, so we could reject it with 80% confidence. Or is it 90%?</p>
+<p>The <span>$p$</span>-value is essentially the probability that we are <em>wrong</em>. To calculate the <span>$p$</span>-value, we just use the equation</p>
+<p><span>$$-1.286 = -z_{\alpha}$$</span></p>
+<p>so <span>$p = P(Z &gt; 1.286) = 0.0992$</span>.</p>
+<p>We can also find the probability of making a type II error (i.e. the power of the test) for a given value of <span>$\mu$</span>. That is, we find the probability of rejecting <span>$H_1$</span> (falling outside the critical region) when <span>$H_1$</span> is true. For example, if <span>$\mu = 3.4$</span>, we first find the critical region:</p>
+<p><span>$$\overline x &lt; \mu - z_{\alpha}\frac{\sigma}{\sqrt{n}} = 3.5 - 1.645 \frac{11}{\sqrt{50}} = 3.244$$</span></p>
+<p>so the probability of it falling outside the critical region given that <span>$\mu = 3.4$</span> is given by</p>
+<p><span>$$\begin{align*} \beta &amp; = P_{\mu = 3.4} [ \overline X \geq 3.244 ] = P\left (Z \geq \frac{3.244 - 3.4}{1.1/\sqrt{50}} \right ) = P(Z \geq -1.003) \\ &amp; = 1-P(Z &lt; -1.003) = 1- P(Z &gt; 1.003) = 1 - 0.1579 = 0.8421\end{align*}$$</span></p>
+<p>So the power is <span>$1-\beta = 0.1579$</span>. Not really sure about this part.</p>
+<p>Note that the "some last topics" section is optional which means I will ignore it</p>
+<p>There are some examples here - should probably be in the HTSEFP or formulas to memorise</p>
+<h2 class="header"><i>5</i>Applications of hypothesis testing<a class="headerlink" href="#applications-of-hypothesis-testing" name="applications-of-hypothesis-testing">&para;</a></h2>
+<h3 class="header"><i>5.1</i>The bivariate normal distribution<a class="headerlink" href="#the-bivariate-normal-distribution" name="the-bivariate-normal-distribution">&para;</a></h3>
+<p>Two random variables <span>$X$</span>, <span>$Y$</span> have a bivariate normal distribution if their joint density function is some really long thing. Does this matter? <span>$\rho$</span> is one of the parameters, and <span>$Cov(X, Y) = \rho \sigma_1\sigma_2$</span>.</p>
+<h3 class="header"><i>5.2</i>Correlation analysis<a class="headerlink" href="#correlation-analysis" name="correlation-analysis">&para;</a></h3>
+<p>Whatever, not worth it</p>
+<p>that's all for section 5 (ignore the bit at the end)</p>
+<h2 class="header"><i>6</i>Linear models<a class="headerlink" href="#linear-models" name="linear-models">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Linear regression<a class="headerlink" href="#linear-regression" name="linear-regression">&para;</a></h3>
+<p>Equation for the line of best fit: <span>$y = \beta_0 + \beta_1 x$</span>. However, since the points might not fall exactly on the line, we also have an equation for the relationship between <span>$x_i$</span> and <span>$y_i$</span> for the <span>$i$</span>th point:</p>
+<p><span>$$y_i = \beta_0 + \beta_1 x_i + e_i$$</span></p>
+<p>where <span>$e_i$</span> is the "error" (the <em>vertical</em> distance of the point from the line). This chapter will be about using the data <span>$(x_1, y_1),\ldots, (x_n, y_n)$</span> to estimate the parameters <span>$\beta_0$</span> and <span>$\beta_1$</span>.</p>
+<p>Actually, I seem to remember doing this in <a href="http://wikinotes.ca/wiki/MATH_151/Winter_2011/Unit_1#Line_of_best_fit_.28least_squares.29">Calc A</a>. The derivation is probably not important, so here's the gist: the values we need are</p>
+<p><span>$$\sum x_i \quad \sum y_i \quad \sum x_i y_i \quad \sum x_i^2 \quad \sum y_i^2$$</span></p>
+<p>The solutions are</p>
+<p><span>$$\hat \beta_0 = \frac{(\sum x_i^2)(\sum y_i) - (\sum x_i )(\sum x_i y_i)}{n\sum x_i^2 - (\sum x_i)^2} \quad \hat \beta_1 = \frac{n(\sum x_i y_i) - (\sum x_i)(\sum y_i)}{n\sum x_i^2 - (\sum x_i)^2}$$</span></p>
+<p>MEMORISE THESE. Just do it</p>
+<p>Anyway, the values of <span>$\beta_0$</span> and <span>$\beta_1$</span> that we just got are estimates. It would be nice to be able to obtain confidence intervals and test hypotheses for these values. To be able to do that, we make certain assumptions:</p>
+<ul>
+<li><span>$x_i$</span>'s are fixed (not the values of random variables)</li>
+<li><span>$x_i$</span> and <span>$y_i$</span> are related by <span>$y_i = \beta_0 + \beta_1 x_i + e_i$</span> where <span>$e_i \sim N(0, \sigma^2)$</span> (the random variable)</li>
+</ul>
+<p>Since there's a distribution involved, we can use another method to estimate <span>$\beta_0$</span> and <span>$\beta_1$</span>: maximum likelihood estimation. First, we find the likelihood function by letting <span>$\mu = y_i - \beta_0 - \beta_1 x_i$</span>, and placing that into the formula for the normal distribution:</p>
+<p><span>$$\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x_i - y_i + \beta_0 + \beta_1x_i)^2}$$</span></p>
+<p>(this differs from the one given in the notes - mistake on my part or typo in the notes?) and by taking the log derivatives we see that we can get the same estimates for <span>$\beta_0$</span> and <span>$\beta_1$</span>. Which is kind of neat.</p>
+<h4 class="header"><i>6.1.1</i>Finding distribution for the betas<a class="headerlink" href="#finding-distribution-for-the-betas" name="finding-distribution-for-the-betas">&para;</a></h4>
+<p><span>$$\hat \beta_1 \sim N\left (\beta_1, \frac{\sigma^2}{n(\sum x_i^2) - (\sum x_i)^2} \right) \quad \hat \beta_0 \sim N\left ( \beta_0, \sigma^2 \left [ \frac{1}{n} + \frac{\overline x^2}{n(\sum x_i^2) - (\sum x_i)^2} \right ] \right )$$</span></p>
+<p>Also, their covariance is given by</p>
+<p><span>$$Cov(\hat \beta_0, \hat \beta_1) = -\frac{\sigma^2 \overline x}{n(\sum x_i^2) - (\sum x_i)^2}$$</span></p>
+<p>so the estimated line <span>$y = \hat \beta_0 + \hat\beta_1 x$</span> has distribution</p>
+<p><span>$$\hat beta_0 + \hat \beta_1 x \sim N\left ( \beta_0 + \beta_1 x, \sigma^2 \left [ \frac{1}{n} + \frac{(x-\overline x)^2}{n(\sum x_i^2) - (\sum x_i)^2} \right ] \right )$$</span></p>
+<p>(Derivations omitted)</p>
+<p>Now, let <span>$y = \hat \beta_0 + \hat\beta_1 x + e$</span> be the value resulting from some measurement, and let <span>$\hat y = \hat \beta_0 + \hat \beta_1x$</span> be our prediction for <span>$y$</span>. Now, <span>$E(y - \hat y) = 0$</span> (because of the above) and the variance is given by</p>
+<p><span>$$Var(y - \hat y) = Var(y) + Var(\hat y) - \underbrace{2Cov(y, \hat y)}_{0} = \sigma^2 + \sigma^2\left [\frac{1}{n} + \frac{(x - \overline x)^2}{n(\sum x_i^2) - (\sum x_i)^2} \right ]$$</span></p>
+<p>Consequently, the difference between the estimate and the true value is given by</p>
+<p><span>$$y - \hat y \sim N(0, \sigma^2 \left [ 1 + \frac{1}{n} + \frac{(x-\overline x)^2}{n (\sum x_i^2) - (\sum x_i)^2} \right ]$$</span></p>
+<p>However, the value of <span>$\sigma^2$</span> is not likely to be known, so we have to estimate it. Let's define a value called the <strong>least squares minimum</strong> by</p>
+<p><span>$$SS(Res) = \sum_{i=1}^n (y_i - \hat \beta_0 - \hat \beta_1 x_i)^2 = S_{yy} - \hat \beta_1 S_{xy}$$</span></p>
+<p>where <span>$S_{xy}$</span> and <span>$S_{yy}$</span> are (I think?)</p>
+<p><span>$$S_{yy} = \sum_{i=1}^n (x_i - \overline x)^2 \quad S_{xy} = \sum_{i=1}^n (x_i - \overline x)(y_i - \overline y)$$</span></p>
+<p>The following gives us a <span>$\chi^2$</span> distribution, with <span>$n-2$</span> d.f., independent of the betas:</p>
+<p><span>$$\frac{SS(Res)}{\sigma^2} \sim \chi^2_{n-2}$$</span></p>
+<p>So we can get an unbiased estimator of <span>$\sigma^2$</span> with</p>
+<p><span>$$\hat \sigma^2 = \frac{SS(res)}{n-2}$$</span></p>
+<p>We can get a <span>$t$</span> distribution with <span>$n-2$</span> d.f. by manipulating some shit. We can get more <span>$t$</span> distributions for other things. In any case, the following all have <span>$t$</span> distributions with <span>$n-2$</span> d.f.:</p>
+<p><span>$$\frac{(\hat \beta_1 - \beta)\sqrt{S_xx}}{\hat \sigma} \quad \frac{\hat \beta_0 - \beta_0}{\hat \sigma \sqrt{\frac{1}{n} + \frac{\overline x^2}{S_xx}}} \quad \frac{\hat \beta_0 + \hat \beta_1 x - \beta_0 - \beta_1 x}{\hat \sigma\sqrt{\frac{1}{n} + \frac{(x-\overline x)^2}{S_xx}}} \quad \frac{y-\hat y}{\sigma \sqrt{1 + \frac{1}{n}  + \frac{(x-\overline x)^2}{S_xx}}}$$</span></p>
+<p>There are some numerical examples here - go through them later, maybe in the HTSEFP</p>
+<h3 class="header"><i>6.2</i>Experimental design<a class="headerlink" href="#experimental-design" name="experimental-design">&para;</a></h3>
+<p>One-way analysis of variance (experiment designs involving a single factor)</p>
+<h4 class="header"><i>6.2.1</i>Completely randomised designs<a class="headerlink" href="#completely-randomised-designs" name="completely-randomised-designs">&para;</a></h4>
+<p>Let's say we want to test the effects of <span>$k$</span> different fertilisers on wheat. So we plant a certain number of wheat plants in a bunch of different plots for each type of fertiliser. The yield from each plot is dependent on the effect of the fertiliser used as well as on the random error for that plot.</p>
+<p>Okay, fuck that, here's what goes in an ANOVA table:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Source of variation</th>
+<th>Degrees of freedom</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$k - 1$</span></td>
+<td>SS(Tr)</td>
+<td>MS(Tr)</td>
+<td><span>$F_{Tr}$</span></td>
+</tr>
+<tr>
+<td>Errors</td>
+<td><span>$N - k$</span></td>
+<td>SS(E)</td>
+<td>MS(E)</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$N - 1$</span></td>
+<td>SS(T)</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<p>There are <span>$k$</span> treatments in total (e.g. fertilizers). There are <span>$N$</span> test plots (or like, plant pots, or test tubes, or whatever). The sum of squares column is given as follows:</p>
+<p><span>$$SS(Tr) = \sum_{i=1}^k \frac{x_i^2}{n_i} - \frac{x^2..}{N} \quad SS(E) = \sum_{i=1}^k\sum_{j=1}^{n_i} x_{ij}^2 - \sum_{i=1}^k \frac{x_i^2}{n_i} \quad SS(T) = SS(E) + SS(Tr)$$</span></p>
+<p>Now, what the fuck does that all mean?</p>
+<p><span>$$\begin{align*}SS(Tr) &amp; = \sum \underbrace{\frac{(\text{sum of yields for this fertiliser})^2}{\text{number of plots for this fertiliser}}}_{\text{for all the fertilisers}} - \frac{(\text{sum of all yields})^2}{\text{total number of plots}} \\ SS(E) &amp; = (\text{sum of all the yields})^2 - \sum \underbrace{\frac{(\text{sum of yields for this fertiliser})^2}{\text{number of plots for this fertiliser}}}_{\text{for all the fertilisers}}\end{align*}$$</span></p>
+<p>The mean square column is as follows:</p>
+<p><span>$$MS(Tr) = \frac{SS(Tr)}{k-1} \quad MS(E) = \frac{SS(E)}{N- k}$$</span></p>
+<p>(basically you divide the sum of squares by the degrees of freedom)</p>
+<p>The last column, <span>$F_{Tr}$</span>, is just <span>$MS(Tr)$</span> divided by <span>$MS(E)$</span>. If this value is greater than <span>$F_{\alpha, k-1, N-k}$</span> then we reject <span>$H_0$</span> (no treatment effects, in this case).</p>
+<p>In this situation, the things we would need to compute/note are:</p>
+<ul>
+<li><span>$k$</span>: the number of fertilisers used</li>
+<li><span>$x_{1.}$</span>: the sum of yields for fertiliser 1</li>
+<li><span>$x_{2.}$</span>: the sum of yields for fertiliser 2</li>
+<li><span>$x_{3.}$</span>: the sum of yields for fertiliser 3</li>
+<li><span>$x_{..}$</span>: the sum of yields among all the fertilisers</li>
+<li><span>$n_1$</span>: the number of plots used by fertiliser 1</li>
+<li><span>$n_2$</span>: the number of plots used by fertiliser 2</li>
+<li><span>$n_3$</span>: the number of plots used by fertiliser 3</li>
+<li><span>$N$</span>: the number of plots used, total, among all the fertilisers</li>
+<li><span>$\displaystyle \sum_{i=1}^k \sum_{j=1}^{n_i} x_{ij}^2$</span>: sum of the (yield)<sup>2</sup> among all the plots</li>
+<li><span>$\displaystyle \sum_{i=1}^k \frac{x_{i.}^2}{n_i}$</span>: sum of (sum of yields for this fertiliser/number of plots for this fertiliser)<sup>2</sup> among all the fertilisers</li>
+</ul>
+<p>omg done</p>
+<p><strong>Example</strong></p>
+<p>Number of minutes taken to drive along 4 routes on different days of the week (thing we're testing: route)</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>--</th>
+<th>Route 1</th>
+<th>Route 2</th>
+<th>Route 3</th>
+<th>Route 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>22</td>
+<td>25</td>
+<td>26</td>
+<td>26</td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>26</td>
+<td>27</td>
+<td>29</td>
+<td>28</td>
+</tr>
+<tr>
+<td>Wednesday</td>
+<td>25</td>
+<td>28</td>
+<td>33</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>25</td>
+<td>26</td>
+<td>30</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Friday</td>
+<td>31</td>
+<td>29</td>
+<td>33</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span>$k = 4$</span></li>
+<li><span>$x_{1.} = 129$</span> (total for route 1)</li>
+<li><span>$x_{2.} = 135$</span> (total for route 2)</li>
+<li><span>$x_{3.} = 151$</span> (total for route 3)</li>
+<li><span>$x_{4.} = 141$</span> (total for route 4)</li>
+<li><span>$x_{..} = 556$</span> (total for all routes)</li>
+<li><span>$n = 5$</span> (number of trial things for each route, all the same)</li>
+<li><span>$\sum \sum x_{ij}^2 =15610$</span> (sum of the total-for-each-trip-squared values for all routes)</li>
+<li><span>$\sum x_{i.}^2/n_i = 15509.6$</span> (sum of total-for-each-route-squared, divided by 5)</li>
+<li><span>$SS(Tr) = 15509.6 - 556^2/20 = 15509.6 - 15456.8 = 52.8$</span> (sum of squares for treatment)</li>
+<li><span>$SS(E) = 15610 - 15509.6 = 100.4$</span> (sum of squares for errors)</li>
+<li><span>$SS(T) = 52.8 + 100.4 = 153.2$</span> (sum of squares, total)</li>
+<li><span>$MS(Tr) = 52.8 / 3 = 17.6$</span></li>
+<li><span>$MS(E) = 100.4 / 16 = 6.275$</span></li>
+<li><span>$F_{Tr} = 17.6 / 6.275 = 2.804$</span></li>
+</ul>
+<p>The ANOVA table is:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Source of variation</th>
+<th>Degrees of freedom</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td>3</td>
+<td>52.8</td>
+<td>17.6</td>
+<td>2.804</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>16</td>
+<td>100.4</td>
+<td>6.275</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>19</td>
+<td>153.2</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<p>The distribution is <span>$F_{3, 16}$</span>. At <span>$\alpha = 0.05$</span>, <span>$F_{0.05, 13, 16} = $</span>3.24<span>$. Since $</span>F_{Tr}$ does not exceed this, we can't reject the null hypothesis, which means the time taken could be independent of the route (either 90% or 95% certain - confirm).</p>
+<h4 class="header"><i>6.2.2</i>Randomised block designs<a class="headerlink" href="#randomised-block-designs" name="randomised-block-designs">&para;</a></h4>
+<p>Assigned randomly within blocks. When you have extraneous factors that could introduce bias (confounding), e.g. terrain in the fertiliser example.</p>
+<p>The most important thing here is that we have a new ANOVA table to force into your head. :( Here:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Source of variation</th>
+<th>Degrees of freedom</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$k - 1$</span></td>
+<td>SS(Tr)</td>
+<td>MS(Tr)</td>
+<td><span>$F_{Tr}$</span></td>
+</tr>
+<tr>
+<td>Blocks</td>
+<td><span>$n - 1$</span></td>
+<td>SS(Bl)</td>
+<td>MS(Bl)</td>
+<td><span>$F_{Bl}$</span></td>
+</tr>
+<tr>
+<td>Errors</td>
+<td><span>$(n-1)(k-1)$</span></td>
+<td>SS(E)</td>
+<td>MS(E)</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$nk - 1$</span></td>
+<td>SS(T)</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<p><span>$n$</span> is the number of blocks, obviously. Everything else is a little bit different now:</p>
+<p><span>$$SS(T) = \sum_{i=1}^k \sum_{j=1}^n \left (x_{ij} - \frac{x..}{kn} \right )^2 \quad SS(Tr) = n\sum_{i=1}^k \left ( \frac{x_i.}{n} - \frac{x..}{kn} \right )^2 \quad SS(Bl) = k\sum_{j=1}^n \left ( \frac{x_{.j}}{k} - \frac{x..}{kn} \right )^2 \quad SS(E) = \sum_{i=1}^k\sum_{j=1}^n \left ( x_{ij} - \frac{x_{i.}}{n} - \frac{x_{.j}}{k} + \frac{x..}{kn} \right )^2$$</span></p>
+<p>The mean square column is pretty simple, just the sum of squares divided by the degrees of freedom for that row.</p>
+<p>The last column is the mean square in that row divided by <span>$MS(E)$</span>. Only available for the first two row, obviously.</p>
+<p>Now let's redo the table for the routes thing:</p>
+<ul>
+<li><span>$k = 4$</span>, as before</li>
+<li><span>$x_{1.} = 129$</span> (total for route 1)</li>
+<li><span>$x_{2.} = 135$</span> (total for route 2)</li>
+<li><span>$x_{3.} = 151$</span> (total for route 3)</li>
+<li><span>$x_{4.} = 141$</span> (total for route 4)</li>
+<li><span>$x_{..} = 556$</span> (total for all routes)</li>
+<li><span>$x_{.1} = 99$</span> (total for Monday)</li>
+<li><span>$x_{.2} = 110$</span> (total for Tuesday)</li>
+<li><span>$x_{.3} = 113$</span> (total for Wednesday)</li>
+<li><span>$x_{.4} = 111$</span> (total for Thursday)</li>
+<li><span>$x_{.5} = 123$</span> (total for Friday)</li>
+<li><span>$n = 5$</span> (5 blocks, as in 5 days of the week)</li>
+<li><span>$SS(Tr) = 5 * (4 + 0.64 + 5.76 + 0.16) = 52.8$</span> WTF why is it the same lol lol</li>
+<li><span>$SS(Bl) = 4 * (9.3025 + 0.09 + 0.2025 + 0.0025 + 8.7025 = 73.2$</span></li>
+<li><span>$SS(E) = $</span> fuck this I'll calculate the total instead</li>
+<li><span>$SS(T) = 153.2$</span> so <span>$SS(E) = 153.2 - 126 = 27.2$</span></li>
+</ul>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Source of variation</th>
+<th>Degrees of freedom</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$3$</span></td>
+<td>52.8</td>
+<td>17.6</td>
+<td>7.75</td>
+</tr>
+<tr>
+<td>Blocks</td>
+<td><span>$4$</span></td>
+<td>73.2</td>
+<td>18.3</td>
+<td>8.06</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td><span>$12$</span></td>
+<td>27.2</td>
+<td>2.27</td>
+<td>--</td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$19$</span></td>
+<td>153.2</td>
+<td>--</td>
+<td>--</td>
+</tr>
+</tbody>
+</table>
+<p>To reject the null hypothesis for treatments, the <span>$F$</span> value must be greater than <span>$F_{0.05, 3, 12} = 3.49$</span>; since it is, we can reject it. To reject the null hypothesis for blocks, the <span>$F$</span> value must be greater than <span>$F_{0.05, 4, 12} = 3.26$</span>; since it is, we can reject it too. </p>
+<h2 class="header"><i>7</i>Chi-square tests<a class="headerlink" href="#chi-square-tests" name="chi-square-tests">&para;</a></h2>
+<p>What is a chi-square test?</p>
+<h3 class="header"><i>7.1</i>Independent binomial populations<a class="headerlink" href="#independent-binomial-populations" name="independent-binomial-populations">&para;</a></h3>
+<p><span>$X_1,\ldots X_k$</span> observations from independent binomial distributions with different parameters. We want to test the hypotheses that either the values of <span>$p$</span> are the same (or some given value) for each distribution, or not. Since <span>$X_i$</span> is a binomial random variable, if <span>$n_i$</span> is large enough, then</p>
+<p><span>$$\frac{X_i - n_i p_i}{\sqrt{n_1 p_i(1-p_i)}} \sim N(0, 1)$$</span></p>
+<p>and so</p>
+<p><span>$$\frac{(X_i - n_ip_i)^2}{n_ip_i(1-p_i)} \sim \chi^2_{1}$$</span></p>
+<p>and thus, if all <span>$n_i$</span> are large enough (<span>$\geq k$</span>), then, by independence:</p>
+<p><span>$$\sum_{i=1}^k \frac{(X_i - n_i p_i)^2}{n_ip_i(1-p_i)} \sim \chi^2_{k}$$</span></p>
+<p>The <span>$\alpha$</span>-level test is: reject <span>$H_0$</span> if <span>$\chi^2 \geq \chi^2_{\alpha, k}$</span> where <span>$\chi^2$</span> in this case is the <em>value</em> given by</p>
+<p><span>$$\chi^2 = \sum_{i=1}^k \frac{(X_i - n_i p_{i, 0})^2}{n_ip_{i, 0}(1-p_{i, 0})}$$</span></p>
+<p>where I think <span>$p_{i, 0}$</span> means the value of <span>$p$</span> that you think it is?</p>
+<p>For example, we want to test</p>
+<p><span>$$H_0: \, p_1 = p_2 = p_3 = 0.3 \quad H_1: \text{ not } H_0$$</span></p>
+<p>at <span>$\alpha = 0.05$</span> (so <span>$p_{1, 0} = 0.3$</span> and <span>$1 - p_{1, 0} = 0.7$</span>). The observations are:</p>
+<p><span>$$x_1 = 155 \quad x_2 = 118 \quad x_3 = 87 \quad n_1 = 250 \quad n_2 - 200 \quad n_3 = 150$$</span></p>
+<p>so</p>
+<p><span>$$\chi^2 = \left ( \frac{(155 - 250 \cdot 0.3)^2}{250 \cdot 0.3 \cdot 0.7} \right ) +\left ( \frac{(118 - 200 \cdot 0.3)^2}{200 \cdot 0.3 \cdot 0.7} \right ) + \left ( \frac{(87-150\cdot 0.3)^2}{150 \cdot 0.3 \cdot 0.7} \right ) = 258$$</span></p>
+<p>This is greater than <span>$\chi^2_{0.05, 3} = 7.81$</span>, so we reject the null hypothesis <span>$H_0$</span>.</p>
+<p>Alternatively, if we just want to test if the <span>$p$</span>s are equal (and don't know the actual value) then we have to estimate <span>$p$</span> by the <strong>pooled estimate</strong>:</p>
+<p><span>$$\hat p = \frac{x_1 + \ldots + x_k}{n_1 + \ldots + n_k}$$</span></p>
+<p>Same ideas as before, except you lose a degree of freedom because the common value is estimated by <span>$\hat p$</span>. Not really sure how that works but okay.</p>
+<p>In the previous example, we would estimate <span>$p$</span> to be</p>
+<p><span>$$\hat p = \frac{155 + 118 + 87}{250+200+150} = 0.6$$</span></p>
+<p>and so the value <span>$\chi^2$</span> becomes</p>
+<p><span>$$\chi^2 = \left ( \frac{(155 - 250 \cdot 0.6)^2}{250 \cdot 0.6 \cdot 0.4} \right ) +\left ( \frac{(118 - 200 \cdot 0.6)^2}{200 \cdot 0.6 \cdot 0.4} \right ) + \left ( \frac{(87-150\cdot 0.6)^2}{150 \cdot 0.6 \cdot 0.4} \right ) = 0.75$$</span></p>
+<p>This is less than <span>$\chi^2_{0.05, 2} = 5.99$</span> so we cannot reject <span>$H_0$</span>. So it's not unlikely that all the <span>$p$</span>s are the same.</p>
+<h3 class="header"><i>7.2</i>Multinomial distributions<a class="headerlink" href="#multinomial-distributions" name="multinomial-distributions">&para;</a></h3>
+<p>thank god almost done</p>
+<p>Suppose the random vector <span>$(X_1, \ldots, X_k)$</span> has the multinomial distribution</p>
+<p><span>$$P(X_1 = x_1, \ldots, X_k = x_k) = \begin{cases} \frac{n!}{x_1!\ldots x_k!}p_1^{x_1} \ldots p_k^{x_k} &amp; \text{ if } x_1 + \ldots + x_k = n \\ 0 &amp; \text{ otherwise} \end{cases}$$</span></p>
+<p>with parameters <span>$n$</span> (positive) and <span>$p_1, \ldots, p_k$</span>. Then we have a statistic called <strong>Pearson's chi-square statistic</strong>, given by</p>
+<p><span>$$\chi^2 = \sum_{i=1}^k \frac{(X_i - np_i)^2}{np_i}$$</span></p>
+<p>As <span>$n \to \infty$</span>, this distribution tends to the chi-square distribution with <span>$k-1$</span> degrees of freedom, so for large enough <span>$n$</span> (i.e. <span>$np_i \geq 5$</span>) we can approximate it by that. (Apparently this works partly due to the central limit theorem. We lose a degree of freedom because of the sum of the p's.)</p>
+<p>The tests are pretty much the same as before, except for the loss of a degree of freedom. For example:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Door</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of rats which choose door</td>
+<td>23</td>
+<td>36</td>
+<td>31</td>
+<td>30</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>Test the hypotheses:</p>
+<p><span>$$H_0: \, p_1 = p_2 = p_3 = p_4 = p_5 = 0.2 \quad H_1: \, \text{not } H_0$$</span></p>
+<p>using <span>$\alpha = 0.01$</span>.</p>
+<p>First, we calculate <span>$\chi^2$</span> (the total number of rats is <span>$23+36+31+30+30 = 150$</span></p>
+<p><span>$$\chi^2 = \left (\frac{(23-30)^2}{30} \right ) + \left (\frac{(36-30)^2}{30} \right ) + \left (\frac{(31-30)^2}{30} \right ) + \left (\frac{(30-30)^2}{30} \right )  + \left (\frac{(30-30)^2}{30} \right ) = \frac{49}{30} + \frac{36}{30} + \frac{1}{30} = \frac{86}{30} = 2.87$$</span></p>
+<p>Now, <span>$\chi^2_{0.01, 4} = 13.28$</span>. So we <em>can't</em> reject the hypothesis based on the data provided (i.e. the data are not sufficient to show that the rats show a preference for certain doors).</p>
+<p>Wow, that was cool.</p>
+<p>Incidentally, we can use this statistic to test hypotheses for other types of distributions, too. We have "observed cell frequencies" and "expected cell frequencies". The statistic becomes</p>
+<p><span>$$\chi^2 = \sum_{i=1}^k \frac{(n_i-e_i)^2}{e_i}$$</span></p>
+<p>where <span>$e_i$</span> is the number expected in that cell. Same <span>$\chi^2_{k-1}$</span> distribution. This is pretty straightforward.</p>
+<p>Note that for each independent parameter that is estimated from the sample data, the degrees of freedom drops by 1.</p>
+<h3 class="header"><i>7.3</i>Goodness of fit<a class="headerlink" href="#goodness-of-fit" name="goodness-of-fit">&para;</a></h3>
+<p>Hypothesis testing, whether the hypothesised distribution is correct or not. Use the formula above. For example, we want to test if something fits a Poisson distribution with a value supplied for <span>$\lambda$</span>. We calculate the expected values (based on the Poisson distribution) for each value of <span>$x$</span> - <span>$n_i \cdot P(X = i)$</span> - then we just use Pearson's chi-square statistic with <span>$k-1$</span> degrees of freedom. If <span>$\chi_2 \ geq \chi^2_{\alpha, k-1}$</span> then we reject <span>$H_0$</span>. (We can combine cells or something. Not really sure when it's necessary or why it's done, but it's doable.)</p>
+<p>If we just want to test whether it fits a Poisson distribution without a value for <span>$\lambda$</span>, then we estimate <span>$\lambda$</span> with the sample mean <span>$\overline x$</span>. Then, same idea, and since we had to estimate one parameter we drop the d.f. by one more (so now it's <span>$k-2$</span>).</p>
+<p>In any case, even if we can't reject <span>$H_0$</span> (the fit hypothesis, not sure why it's not a null hypothesis ...), we can't actually <em>accept</em> it. All we can say is the distribution with whatever parameter provides a good fit to the data or that the data are not inconsistent with the assumption of a whatever distribution with whatever parameter.</p>
+<p>An example (<span>$n = 100, \alpha = 0.05$</span>):</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Cell</th>
+<th># of hours</th>
+<th><span>$n_i$</span></th>
+<th><span>$e_i$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0 - 5</td>
+<td>37</td>
+<td>39.34</td>
+</tr>
+<tr>
+<td>2</td>
+<td>5-10</td>
+<td>20</td>
+<td>23.87</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10-15</td>
+<td>17</td>
+<td>14.47</td>
+</tr>
+<tr>
+<td>4</td>
+<td>15-20</td>
+<td>13</td>
+<td>8.78</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20-25</td>
+<td>8</td>
+<td>5.32</td>
+</tr>
+<tr>
+<td>6</td>
+<td>25+</td>
+<td>5</td>
+<td>8.20</td>
+</tr>
+</tbody>
+</table>
+<p>where the <span>$e_i$</span>s come from the exponential distribution, by integrating over the limits given in the "# of hours" column, where we estimate <span>$\hat \theta = \overline x = 10$</span> (why is it that??? oh okay multiply the midpoint of the number of hours by <span>$n_i$</span>, with the last column pretended to be <span>$25-30$</span>). We then find the chi-square statistic:</p>
+<p><span>$$\chi^2 = \sum_{i=1}^6 \left ( \frac{(n_i - e_i)^2}{n_i} \right ) = \frac{2.34^2}{37} + \frac{3.87^2}{20} + \frac{2.53^2}{17} + \frac{4.22^2}{13} + \frac{2.68^2}{8} + \frac{3.20^2}{5} = 5.84$$</span></p>
+<p>Now, <span>$\chi_{0.05, 4} = 9.49$</span> (4 degrees of freedom because, <span>$k-1$</span>, then subtract another 1 because of the estimated parameter) so we can't reject the hypothesis.</p>
+<h3 class="header"><i>7.4</i>Contingency tables<a class="headerlink" href="#contingency-tables" name="contingency-tables">&para;</a></h3>
+<p>Example:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>--</th>
+<th>Low interest in mathematics</th>
+<th>Average ""</th>
+<th>High ""</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low ability in stats</td>
+<td>65</td>
+<td>40</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Avg ""</td>
+<td>54</td>
+<td>63</td>
+<td>29</td>
+</tr>
+<tr>
+<td>High ""</td>
+<td>12</td>
+<td>45</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+<p>We want to test <span>$H_0:$</span> ability in stats and interest in math are independent and <span>$H_1:$</span> not <span>$H_0$</span>. So what we do first is calculate the row and column sums and write those down in the table margins:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>--</th>
+<th>Low interest in mathematics</th>
+<th>Average ""</th>
+<th>High ""</th>
+<th>Row sums</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low ability in stats</td>
+<td>65</td>
+<td>40</td>
+<td>15</td>
+<td>120</td>
+</tr>
+<tr>
+<td>Avg ""</td>
+<td>54</td>
+<td>63</td>
+<td>29</td>
+<td>146</td>
+</tr>
+<tr>
+<td>High ""</td>
+<td>12</td>
+<td>45</td>
+<td>27</td>
+<td>84</td>
+</tr>
+<tr>
+<td>Column sums</td>
+<td>131</td>
+<td>148</td>
+<td>71</td>
+</tr>
+</tbody>
+</table>
+<p>Then we make an expected cell frequency table, where each cell is the product of its row and column sums, divided by <span>$n$</span> (350 in this case):</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>--</th>
+<th>Low interest in mathematics</th>
+<th>Average ""</th>
+<th>High ""</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Low ability in stats</td>
+<td>44.91</td>
+<td>50.74</td>
+<td>24.34</td>
+</tr>
+<tr>
+<td>Avg ""</td>
+<td>54.65</td>
+<td>61.74</td>
+<td>29.62</td>
+</tr>
+<tr>
+<td>High ""</td>
+<td>31.44</td>
+<td>35.52</td>
+<td>17.04</td>
+</tr>
+</tbody>
+</table>
+<p>Then we calculate the chi-square statistic:</p>
+<p><span>$$\chi^2 = \sum_{i=1}^r \sum_{j=1}^c \frac{(n_{ij} - e_{ij})^2}{e_{ij}}$$</span></p>
+<p>which is pretty much the same thing as before (remember to divide BY THE EXPECTED, as is usual). We then just compare it with <span>$\chi^2_{\alpha, (r-1)(c-1)}$</span>.</p>
+<p>In this specific case it should be <span>$\chi^2 = 35.26$</span>, <span>$\chi_{0.01, 4} = 13.28$</span> so we <em>reject</em> <span>$H_0$</span> meaning they are probably not independent. The notes say <span>$\chi^2 = 31.67$</span> but I think this is wrong?</p>
+<h2 class="header"><i>8</i>Non-parametric methods of inference<a class="headerlink" href="#non-parametric-methods-of-inference" name="non-parametric-methods-of-inference">&para;</a></h2>
+<p>IGNORED THANK GOD</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

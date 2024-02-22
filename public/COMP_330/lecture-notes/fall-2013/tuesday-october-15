@@ -1,0 +1,196 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, October 15, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, October 15, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Context-free languages
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>THESE NOTES HAVE NOT BEEN VERIFIED BY THE INSTRUCTOR. USE AT YOUR OWN RISK.</strong></p>
+<p>New subject: context-free languages.</p>
+<div class="toc">
+<ul>
+<li><a href="#introduction-to-context-free-languages">1 Introduction to context-free languages</a><ul>
+<li><a href="#definition">1.1 Definition</a><ul>
+<li><a href="#simple-example">1.1.1 Simple example</a></li>
+<li><a href="#example-with-arithmetic-expressions">1.1.2 Example with arithmetic expressions</a></li>
+</ul>
+</li>
+<li><a href="#some-notes-on-the-limitations-of-cfls">1.2 Some notes on the limitations of CFLs</a></li>
+<li><a href="#chomsky-normal-form">1.3 Chomsky normal form</a><ul>
+<li><a href="#converting-a-grammar-to-cnf">1.3.1 Converting a grammar to CNF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Introduction to context-free languages<a class="headerlink" href="#introduction-to-context-free-languages" name="introduction-to-context-free-languages">&para;</a></h2>
+<p>Today, we'll start a new subject: context-free languages (CFL). All regular languages are CFLs; not all CFLs are regular (for example: <span>$\{a^nb^n \mid n \geq 0\}$</span> is a CFL, as we'll see later, but is not regular, as we saw previously). Unlike in the previous subject, we will focus on the problem of <em>generating</em>, rather than <em>recognising</em>, strings, starting with a grammar. Though there are obvious parallels between the two, the problem of generation is somewhat richer and more interesting than recognition.</p>
+<h3 class="header"><i>1.1</i>Definition<a class="headerlink" href="#definition" name="definition">&para;</a></h3>
+<p>A context-free language is defined by the following:</p>
+<ul>
+<li>A set of terminal symbols (we'll use lowercase letters to denote them)</li>
+<li>A language <span>$L \subseteq \Sigma^*$</span></li>
+<li>A set of auxiliary symbols, <span>$V$</span>, called variables or non-terminal symbols (denoted by capital letters)</li>
+<li>A finite set of rules (productions) (e.g., <span>$A \to \alpha \in (\Sigma \cup V)^*$</span>)</li>
+<li>A special variable <span>$S \in V$</span> called the start symbol</li>
+</ul>
+<h4 class="header"><i>1.1.1</i>Simple example<a class="headerlink" href="#simple-example" name="simple-example">&para;</a></h4>
+<p>To generate <span>$\{a^nb^n\}$</span>, we let <span>$\Sigma = \{a, b\}$</span> and <span>$V = \{S\}$</span>, and create the following rules: <span>$S \to \epsilon$</span>, and <span>$S \to aSb$</span>. This is sufficient for generating any string of the form <span>$a^nb^n$</span>, <span>$n \geq 0$</span>.</p>
+<p>Note that if the <span>$S \to \epsilon$</span> rule were <em>not</em> present, then we would never be able to terminate our usage of <span>$S \to aSb$</span>; since we would never be able to get rid of <span>$S$</span>, we'd never produce a valid string. Thus the only language we would be able to generate is the empty set.</p>
+<p>Also note that the given grammar is merely <em>an</em> example. As we'll see later, there can be many valid grammars for generating the same language.</p>
+<h4 class="header"><i>1.1.2</i>Example with arithmetic expressions<a class="headerlink" href="#example-with-arithmetic-expressions" name="example-with-arithmetic-expressions">&para;</a></h4>
+<p>Consider the following grammar for generating arithmetic expressions.</p>
+<ul>
+<li><span>$V = \{\text{&lt;EXP&gt;}, \text{&lt;NUM&gt;}, \text{&lt;NZ&gt;}, \text{&lt;N&gt;}\}$</span></li>
+<li><span>$\displaystyle \Sigma = \{0, \ldots, 9, \underbrace{(, ), +, \times}_{\text{nonterminals}}\}$</span><sup id="fnref:ops"><a href="#fn:ops" rel="footnote" title="The reason we have $+$ and $\times$ as different s...">1</a></sup></li>
+<li>Rules: <span>$\text{&lt;EXP&gt;} \to \text{&lt;EXP&gt;} + \text{&lt;EXP&gt;} \mid \text{&lt;EXP&gt;} \times \text{&lt;EXP&gt;} \mid (\text{&lt;EXP&gt;})$</span> (where <span>$\mid$</span> is a shortcut for specifying multiple rules with the same LHS), <span>$\text{&lt;EXP&gt;} \to \text{&lt;NUM&gt;}$</span>, and <span>$\text{&lt;NUM&gt;} \to \ldots$</span> (omitted)</li>
+</ul>
+<p>Consider the expression <span>$2 \times 3 + 5$</span>. Here's one possible derivation tree (with some steps omitted):</p>
+<p><img alt="Derivation tree for 2 * 3 + 5" src="http://i.imgur.com/yVTrV3W.png" /></p>
+<p>This derivation tree implicitly follows the premise that <span>$\times$</span> takes precedence over <span>$+$</span>, since this is the mathematical convention. And yet, there is nothing in the grammar that requires this. The following derivation tree would be just as reasonable, given the grammar:</p>
+<p><img alt="Alternative derivation tree for 2 * 3 + 5" src="http://i.imgur.com/XgXqe1w.png" /></p>
+<p>It only looks wrong due to our a priori knowledge of the precedence of <span>$\times$</span> and <span>$+$</span>. Can we adjust the grammar to take into account what we know about operator precedence? As it turns out, we can indeed! Let's add the following non-terminals to <span>$V$</span>: <span>$\text{&lt;TERM&gt;}$</span>, and <span>$\text{&lt;FACTOR&gt;}$</span>. Next, let's get rid of the rules for <span>$\text{&lt;EXP&gt;}$</span> and add the following:</p>
+<ul>
+<li><span>$\text{&lt;EXP&gt;} \to \text{&lt;EXP&gt;} + \text{&lt;TERM&gt;} \mid \text{&lt;TERM&gt;}$</span></li>
+<li><span>$\text{&lt;TERM&gt;} \to \text{&lt;TERM&gt;} \times \text{&lt;FACTOR&gt;} \mid \text{&lt;FACTOR&gt;}$</span></li>
+<li><span>$\text{&lt;FACTOR&gt;} \to \text{&lt;NUM&gt;} \mid \cdots \text{(omitted)} \cdots \mid (\text{&lt;EXP&gt;})$</span></li>
+</ul>
+<p>Then, the only derivation tree for <span>$2 \times 3 + 5$</span> is the following:</p>
+<p><img alt="Derivation tree for 2 * 3 + 5, using a new grammar" src="http://i.imgur.com/tKMJ5kj.png" /></p>
+<p>We couldn't generate a different tree for the expression if we tried - if we tried to group it the other way as we did above (by evaluating <span>$3+5$</span> first), then we would generate the expression <span>$2 \times (3 + 5)$</span>, which is not the same string.</p>
+<h3 class="header"><i>1.2</i>Some notes on the limitations of CFLs<a class="headerlink" href="#some-notes-on-the-limitations-of-cfls" name="some-notes-on-the-limitations-of-cfls">&para;</a></h3>
+<p>It was mentioned earlier that CFLs are more powerful than regular languages. But of course, there are languages that even CFLs can't handle.</p>
+<p>Example: <span>$\{a^nb^nc^n \mid n \geq 0\}$</span>. This is provably not context-free; we'll see the proof next week, via the pumping lemma of CFLs.</p>
+<p>So the hierarchy looks something like this (where <span>$\subset$</span> means a strict subset):</p>
+<p><span>$$\text{Regular languages} \subset \text{context-free languages} \subset \text{context-sensitive languages} \subset \text{phrase-structured grammars}$$</span></p>
+<p>We won't study either context-sensitive languages or phrase-structured grammars. (Incidentally, PSGs are the most powerful things in this space; they have the same power as Turing machines.)</p>
+<h3 class="header"><i>1.3</i>Chomsky normal form<a class="headerlink" href="#chomsky-normal-form" name="chomsky-normal-form">&para;</a></h3>
+<p>A context-free grammar is said to be in <strong>Chomsky normal form</strong> (CNF) if every rule is in one of the following formats:</p>
+<ul>
+<li><span>$A \to a$</span></li>
+<li><span>$A \to BC$</span> (where neither <span>$B$</span> nor <span>$C$</span> is <span>$S$</span>)</li>
+</ul>
+<p>Note that <span>$A \to \epsilon$</span> is not allowed except when <span>$A = S$</span>.</p>
+<p>CNFs are actually quite ugly - they're not useful for compilers or anything - but they'll be useful for proving the pumping lemma later on.</p>
+<h4 class="header"><i>1.3.1</i>Converting a grammar to CNF<a class="headerlink" href="#converting-a-grammar-to-cnf" name="converting-a-grammar-to-cnf">&para;</a></h4>
+<blockquote>
+<p>Theorem: every CFL <span>$L$</span> has a grammar <span>$G$</span> in CNF, such that <span>$L(G) = L$</span>.</p>
+</blockquote>
+<p>Sketch of the proof:</p>
+<p>The "bad" rules (i.e., the ones not in CNF, that we need to remove) are rules like <span>$A \to \epsilon$</span>, <span>$A \ to B$</span>, <span>$A \to uAvBwC$</span>, etc.</p>
+<p>First, let's get rid of <span>$A \to \epsilon$</span>. For any rules for which <span>$A$</span> is on the RHS, replace that rule with <span>$2^n-1$</span> (with <span>$n$</span> being the number of <span>$A$</span>'s in the original rule) rules, which are identical except with the <span>$A$</span>'s removed, in every possible combination. For example: <span>$B \to abAbcA$</span> would become <span>$B \to abAbc \mid abbcA \mid abbc$</span>.</p>
+<p>Next, let's get rid of rules of the form <span>$A \to B$</span>. For any rules for which <span>$B$</span> is on the LHS of the form <span>$B \to \alpha$</span>, replace that rule with <span>$B \to \alpha$</span>.</p>
+<p>Finally: consider <span>$A \to abXcY$</span>. This requires us to introduce new variables, whose only purpose will be to generate a terminal letter. We can replace this rule by the following: <span>$A \to A_aA_1$</span>, <span>$A_1 \to A_bA_2$</span>, <span>$A_2 \to XA_3$</span>, <span>$A_3 \to A_cY$</span>, <span>$A_a \to a$</span>, <span>$A_b \to b$</span>, <span>$A_c \to c$</span></p>
+<p><em>Note: if you ever need to generate something in CNF for an assignment or exam, do not use this algorithm. It is a waste of your time (and the grader's time) and there are better ways of doing it. This algorithm is presented solely for proof purposes.</em></p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:ops">
+<p>The reason we have <span>$+$</span> and <span>$\times$</span> as different symbols, as opposed to just having <span>$\text{&lt;OP&gt;}$</span>, is due to the fact that these operators have different precedence, by convention. We'll address this explicitly later on.&#160;<a href="#fnref:ops" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,601 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_223/">
+                MATH 223
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Problems
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Problems
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Part of the "How to solve every problem" series for <a class="wikilink" href="/MATH_223/">MATH 223</a> problems (as opposed to proofs, the page for which hasn't been transferred over to the beta yet). Created in April 2011 for Loveys' class by <a href="/users/dellsystem">@dellsystem</a>, with some contributions from <a href="/users/tahnok">@tahnok</a>, <a href="/users/clarle">@clarle</a>, and one anonymous user. Unfortunately, as of this writing, the page has never been updated by anyone in Jonsson's class, so if there are new types of problems that students are expected to be familiar with for Jonsson's version of the course they won't yet appear here (but please add them if you can). Still, the information presented here should be timeless, as the methods of solving the problems listed below are unlikely to change.</p>
+<div class="toc">
+<ul>
+<li><a href="#finding-the-inverse-product-of-elementary-matrices">1 Finding the inverse, product of elementary matrices</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-null-row-and-column-spaces">2 Finding the null, row and column spaces</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#change-of-basis-matrix-between-ordered-bases">3 Change-of-basis matrix between ordered bases</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#linear-operators-the-associated-matrix-kernel-imagespace">4 Linear operators: the associated matrix, kernel, imagespace</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#determining-if-a-transformation-is-linear">5 Determining if a transformation is linear</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-non-recursive-formula-for-a-sequence">6 Finding the non-recursive formula for a sequence</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#diagonalising-matrices">7 Diagonalising matrices</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#semi-diagonalising-non-diagonalisable-matrices">8 Semi-diagonalising non-diagonalisable matrices</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#defining-integral-functions-as-inner-products">9 Defining integral functions as inner products</a><ul>
+<li><a href="#general-solution_8">9.1 General solution</a></li>
+<li><a href="#examples_8">9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#solving-systems-of-differential-equations">10 Solving systems of differential equations</a><ul>
+<li><a href="#general-solution_9">10.1 General solution</a></li>
+<li><a href="#examples_9">10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-determinant-of-large-unwieldy-matrices">11 Finding the determinant of large, unwieldy matrices</a><ul>
+<li><a href="#general-solution_10">11.1 General solution</a></li>
+<li><a href="#examples_10">11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-determinant-of-a-matrix-using-other-relevant-matrices">12 Finding the determinant of a matrix using other relevant matrices</a><ul>
+<li><a href="#general-solution_11">12.1 General solution</a></li>
+<li><a href="#examples_11">12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-bases-for-the-sum-and-intersection-of-two-subspaces">13 Finding bases for the sum and intersection of two subspaces</a><ul>
+<li><a href="#general-solution_12">13.1 General solution</a></li>
+<li><a href="#examples_12">13.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#determining-if-subsets-are-subspaces-or-not">14 Determining if subsets are subspaces or not</a><ul>
+<li><a href="#general-solution_13">14.1 General solution</a></li>
+<li><a href="#examples_13">14.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-orthonormal-bases-for-a-subspace-and-its-perpendicular">15 Finding orthonormal bases for a subspace and its perpendicular</a><ul>
+<li><a href="#general-solution_14">15.1 General solution</a></li>
+<li><a href="#examples_14">15.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-an-orthogonal-or-unitary-matrix-to-diagonalise">16 Finding an orthogonal or unitary matrix to diagonalise</a><ul>
+<li><a href="#general-solution_15">16.1 General solution</a></li>
+<li><a href="#example">16.2 Example</a></li>
+</ul>
+</li>
+<li><a href="#determining-if-a-function-is-an-inner-product">17 Determining if a function is an inner product</a><ul>
+<li><a href="#general-solution_16">17.1 General solution</a></li>
+<li><a href="#examples_15">17.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#quadratic-forms">18 Quadratic forms</a><ul>
+<li><a href="#general-solution_17">18.1 General solution</a></li>
+<li><a href="#examples_16">18.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Finding the inverse, product of elementary matrices<a class="headerlink" href="#finding-the-inverse-product-of-elementary-matrices" name="finding-the-inverse-product-of-elementary-matrices">&para;</a></h2>
+<blockquote>
+<p>Given a large, complex matrix:</p>
+<ul>
+<li>(a) Express it as a product of elementary matrices</li>
+<li>(b) Find its inverse, and express the inverse as a product of elementary matrices</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>First, row-reduce the matrix to the identity matrix, using an augmented matrix with the identity matrix on the right. Once the matrix has been row-reduced to the identity, whatever the matrix on the right looks like is the inverse matrix. Make sure you keep track of the row operations that have been done to get it to the identity. To get the inverse matrix as the product of elementary matrices, take the product of each elementary matrix resulting from the aforementioned row operations, in reverse order. To get the original matrix as a product of elementary matrices, take the inverse of the above elementary matrices, and reverse the order again.</p>
+<p>In shorthand notation, with <span>$E_1$</span> being the elementary matrix resulting from the first row operation above, etc:</p>
+<p><span>$A = E^{-1}_1 E^{-1}_2 E^{-1}_3 E^{-1}_4 ... E^{-1}_n$</span> (i.e. inverses in regular order)</p>
+<p><span>$A^{-1} = E_n ... E_4 E_3 E_2 E_1$</span> (i.e. not the inverse, unless you mean the order)</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 4</li>
+</ul>
+<h2 class="header"><i>2</i>Finding the null, row and column spaces<a class="headerlink" href="#finding-the-null-row-and-column-spaces" name="finding-the-null-row-and-column-spaces">&para;</a></h2>
+<blockquote>
+<p>Given a large, complex matrix:</p>
+<ul>
+<li>(a) Find bases for the null space, row space, and column space</li>
+<li>(b) Express each row and column as a linear combination of the vectors in the respective spaces</li>
+<li>(c) Find its rank</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>First, row-reduce the matrix to RREF. The row space is easily obtained from the RREF matrix - just take the rows with leading ones in them. To get the column space, find the <strong>columns</strong> in the RREF matrix that contain leading ones, then find the corresponding columns in the original matrix, and take those columns. To find the null space, solve the homogeneous system. (That should be easy enough by now - look at the examples for more.) Expressing each row and column as a linear combination is also easy, you can often just look at the relationship between the rows/columns that you found either in the RREF matrix or through the process of row-reducing. The rank of the matrix is just equal to the number of linearly independent rows (i.e. the number of vectors in your row space).</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-1">Fall 2010 final, question 1</a></li>
+<li>Winter 2010 final, question 1</li>
+<li>Fall 2007 final, question 1</li>
+<li>Assignment 3, question 2</li>
+<li>Assignment 4, question 1</li>
+</ul>
+<h2 class="header"><i>3</i>Change-of-basis matrix between ordered bases<a class="headerlink" href="#change-of-basis-matrix-between-ordered-bases" name="change-of-basis-matrix-between-ordered-bases">&para;</a></h2>
+<blockquote>
+<p>Given two sets of vectors:</p>
+<ul>
+<li>(a) Verify that they are ordered bases</li>
+<li>(b) Find the change-of-basis matrix from one basis to another (and the other way around too)</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>To show that they are ordered bases, just show that the vectors in each basis are independent. This can be done by representing them as column vectors in a 3x3 matrix and row-reducing to get the identity.</p>
+<p>To find the change-of-basis matrix from basis B to basis A, first try to express each vector in basis A as a linear combination of the vectors in basis B. Let <span>$\vec v_1, \vec v_2, \vec v_3$</span> be the basis vectors of A and let <span>$\vec v_4, \vec v_5, \vec v_6$</span> be the basis vectors of B. So we try to solve this system of equations:</p>
+<p><span>$$\vec v_1 = \alpha_1 \vec v_4 + \alpha_2 \vec v_5 + \alpha_3 \vec v_6$$</span></p>
+<p><span>$$\vec v_2 = \alpha_4 \vec v_4 + \alpha_5 \vec v_5 + \alpha_6 \vec v_6$$</span></p>
+<p><span>$$\vec v_3 = \alpha_7 \vec v_4 + \alpha_8 \vec v_5 + \alpha_9 \vec v_6$$</span></p>
+<p>which in matrix form can be written as</p>
+<p><span>$$\begin{pmatrix} \vec v_1 \\ \vec v_2 \\ \vec v_3 \end{pmatrix} = \begin{pmatrix} \alpha_1 &amp; \alpha_2 &amp; \alpha_3 \\ \alpha_4 &amp; \alpha_5 &amp; \alpha_6 \\ \alpha_7 &amp; \alpha_8 &amp; \alpha_9 \end{pmatrix} \begin{pmatrix} \vec v_4 \\ \vec v_5 \\ \vec v_6 \end{pmatrix}$$</span></p>
+<p>To solve, we use an augmented matrix to represent the basis vectors of A on the left, B on the right. We then row-reduce the left to the identity, then take the transpose of the matrix on the right. That matrix gives you the alphas. The original (non-transposed) matrix is the change of basis matrix. I wrote a proof in my assignment but don't feel like proving it again.</p>
+<p>Note that the change of basis matrix from A to B is the inverse of the change of basis matrix from B to A.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 4</li>
+</ul>
+<h2 class="header"><i>4</i>Linear operators: the associated matrix, kernel, imagespace<a class="headerlink" href="#linear-operators-the-associated-matrix-kernel-imagespace" name="linear-operators-the-associated-matrix-kernel-imagespace">&para;</a></h2>
+<blockquote>
+<p>Given a transformation T over the real vector space of polynomials/matrices/regular vectors:</p>
+<ul>
+<li>(a) Verify that it is a linear operator</li>
+<li>(b) Given a basis B, find <span>$[T]_B$</span></li>
+<li>(c) Find a basis for the kernel and imagespace of T</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>(a) Show that it preserves vector addition, and scalar multiplication. Easy enough, just make sure that you don't do something silly like <span>$f(x + y)$</span> or <span>$f(\alpha x)$</span>.</p>
+<p>(b) Evaluate T for each vector in the basis, and express the result as a coefficient column vector, in terms of the basis. These column vectors correspond to the basis vectors of T. Note that if you're using a nonstandard basis, you will of course have to express the coefficients in terms of that basis and not the standard basis. See examples.</p>
+<p>(c) To find the kernel, find the nullspace, then express it in terms of the vector space being used. To find the image space, just find the columns with leading ones in the RREF matrix and take the corresponding columns in the original matrix, then express it in terms of the vector space being used.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-2">Fall 2010 final, question 2</a></li>
+<li>Winter 2010 final, question 2</li>
+<li>Fall 2009 final, question 2</li>
+<li>Winter 2008 final, question 2</li>
+<li>Fall 2007 final, question 4</li>
+<li>Assignment 5, question 1</li>
+<li>Assignment 5, question 2</li>
+</ul>
+<h2 class="header"><i>5</i>Determining if a transformation is linear<a class="headerlink" href="#determining-if-a-transformation-is-linear" name="determining-if-a-transformation-is-linear">&para;</a></h2>
+<blockquote>
+<p>Given several transformations <span>$T: V \to V$</span>, decide if they are linear transformations or not.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>For each transformation, check if it preserves vector addition and scalar multiplication. If not, it's not a linear transformation.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 5</li>
+</ul>
+<h2 class="header"><i>6</i>Finding the non-recursive formula for a sequence<a class="headerlink" href="#finding-the-non-recursive-formula-for-a-sequence" name="finding-the-non-recursive-formula-for-a-sequence">&para;</a></h2>
+<blockquote>
+<p>Give an explicit, non-recursive formula for something defined recursively.</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>Let's say you're given the following recursive formula: <span>$x_{n+2} = a x_{n+1} + b x_n$</span></p>
+<p>First set up a matrix in this form to represent the system:</p>
+<p><span>$$\begin{pmatrix} x_{n+2} \\ x_{n+1} \end{pmatrix} = \begin{pmatrix} a &amp; b \\ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} x_{n+1} \\ x_n \end{pmatrix}$$</span></p>
+<p>Then, find the characteristic polynomial, and from that get the eigenvalues: <span>$\lambda_1, \lambda_2$</span>. The formula for <span>$x_n$</span> can then be magically given by the formula <span>$x_n = \alpha \lambda_1^n + \beta \lambda_2^n$</span>.</p>
+<p>We can solve for alpha and beta using <span>$x_0$</span> and <span>$x_1$</span> which will be given. That's it.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-4">Fall 2010 final, question 4</a></li>
+<li>Winter 2010 final, question 4</li>
+<li>Fall 2009 final, question 5</li>
+<li>Winter 2008 final, question 4</li>
+<li>Assignment 7, question 1</li>
+<li>Assignment 6, question 3 (to an extent)</li>
+</ul>
+<h2 class="header"><i>7</i>Diagonalising matrices<a class="headerlink" href="#diagonalising-matrices" name="diagonalising-matrices">&para;</a></h2>
+<blockquote>
+<p>Given a diagonalisable matrix A:</p>
+<ul>
+<li>(a) Find its characteristic and minimal polynomals</li>
+<li>(b) Find an invertible matrix P blah blah</li>
+<li>(c) Find A to the power of some large integer</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>(a) Finding the characteristic polynomial is easy enough, just solve for <span>$\det(A- \lambda I) = \det(\lambda I - A) = 0$</span> (the two are equivalent, so either one works, although the second form is often nicer as you don't get negative signs in front of your lambdas). To find the minimal polynomial, just remember this - the minimal polynomial will only have repeated roots if the matrix is NOT diagonalisable. (This is just useful to know in general.) As this matrix is diagonalisable, it will not have repeated roots, so get rid of any eigenvalues with algebraic multiplicity &gt; 1 in your characteristic polynomial and you're set.</p>
+<p>(b) Find the eigenvalues (from above). Find the associated eigenvectors. Put the eigenvectors, as column vectors, into a matrix - that forms P.</p>
+<p>(c) We know that <span>$D = P^{-1}AP$</span> where D is a diagonal matrix with the eigenvalues of A being the diagonal elements, in the same order as the associated eigenvectors of P. So <span>$A = PDP^{-1}$</span> and <span>$A^n = P D^n P^{-1}$</span>. To find <span>$D^n$</span> just raise each diagonal element to the power of n. So to find A to the power of n just multiply out the above matrices, and that's it.</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-6">Fall 2010 final, question 6</a></li>
+<li>Winter 2008 final, question 3</li>
+<li>Fall 2007 final, question 3</li>
+<li>Assignment 6, question 2</li>
+</ul>
+<h2 class="header"><i>8</i>Semi-diagonalising non-diagonalisable matrices<a class="headerlink" href="#semi-diagonalising-non-diagonalisable-matrices" name="semi-diagonalising-non-diagonalisable-matrices">&para;</a></h2>
+<blockquote>
+<p>Given a NON-diagonalisable matrix A:</p>
+<ul>
+<li>(a) Find its characteristic and minimal polynomials</li>
+<li>(b) Find A to the power of some large integer (it's doable)</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>(a) As above, the minimal polynomial will only have repeated roots if it's not diagonalisable. This matrix is not diagonalisable, so the characteristic and minimal polynomials should be the same.</p>
+<p>(b) We derived the solution to this in assignment 7. Here's the derivation:</p>
+<p>Start with <span>$J = \begin{pmatrix} \lambda &amp; 1 \\ 0 &amp; \lambda \end{pmatrix}$</span>. Now <span>$J^2 = \begin{pmatrix} \lambda^2 &amp; 2 \lambda \\ 0 &amp; \lambda^2 \end{pmatrix}, \, J^3 = \begin{pmatrix} \lambda^3 &amp; 3\lambda^2 \\ 0 &amp; \lambda^3 \end{pmatrix} \,...\,\, J^n = \begin{pmatrix} \lambda^n &amp; n\lambda^{n-1} \\ 0 &amp; \lambda^n \end{pmatrix}$</span></p>
+<p>This may seem irrelevant, but it's not, just wait. Now we find the eigenvalues for matrix A. Let's assume that this is a 2 by 2 matrix and there is only one distinct eigenvalue. We find the associated eigenvector (there can only be one) for that eigenvalue, and put that eigenvector into the matrix P, so that it looks like this (where the eigenvector has entries <span>$\vec v_1, \vec v_2$</span>:</p>
+<p><span>$$P = \begin{pmatrix} \vec v_1 &amp; 1 \\ \vec v_2 &amp; 0 \end{pmatrix}$$</span></p>
+<p>So when we do <span>$P^{-1}AP$</span> we get the matrix J that we defined above. So calculate J to the power of n. Then <span>$A^n = PJ^nP^{-1}$</span>, so just multiply it out to find A to the power of n.</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Assignment 7, question 2</li>
+</ul>
+<p>This hasn't actually appeared on any past exams that I've seen, but it seems like an interesting problem, and who knows, it might show up.</p>
+<h2 class="header"><i>9</i>Defining integral functions as inner products<a class="headerlink" href="#defining-integral-functions-as-inner-products" name="defining-integral-functions-as-inner-products">&para;</a></h2>
+<blockquote>
+<p>Given, basically, an integral function:</p>
+<ul>
+<li>(a) Show that this defines an inner product space</li>
+<li>(b) Use Cauchy-Schwarz to prove a given inequality, and identify the functions for which equality holds</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>(a) We just need to show that it respects linearity in the first argument, conjugate symmetry, and positive definiteness.</p>
+<p>Linearity: prove that it respects vector addition and scalar multiplication.</p>
+<p>Conjugate symmetry: just switch the order around. May be real symmetry.</p>
+<p>Positive definiteness: usually for integrals this just involves noting that as long as f(x) is not 0, the integrand is non-negative everywhere and positive for at least some small interval, and so the integral is positive.</p>
+<p>(b) Identify the two functions you need to take the inner product of - usually one will be f, the other will be whatever you need to make up what the left side appears to be (hard to explain, take a look at the examples if you want to see how this works). Recall that Cauchy-Schwarz (don't misspell this, k) states that <span>$| \langle \vec v, \vec w \rangle | \le \left \| \vec v \right \| \left \| \vec w \right \|$</span>  with equality only if the two inputs are scalar multiples of each other. So you end up evaluating one integral, and use that to prove the inequality, and then state that equality only holds when one input is a scalar multiple of the other.</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-9">Fall 2010 final, question 9</a></li>
+<li>Winter 2010 final, question 9</li>
+<li>Fall 2009 final, question 3</li>
+<li>Fall 2007 final, question 7</li>
+<li>Assignment 9, question 1</li>
+<li>Assignment 8, question 5 (to an extent)</li>
+</ul>
+<h2 class="header"><i>10</i>Solving systems of differential equations<a class="headerlink" href="#solving-systems-of-differential-equations" name="solving-systems-of-differential-equations">&para;</a></h2>
+<blockquote>
+<p>Give the general solution to a system of differential equations.</p>
+</blockquote>
+<h3 class="header"><i>10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h3>
+<p>We have a pair of differential equations in the form</p>
+<p><span>$$y_1' = ay_1 +by_2$$</span><br />
+<span>$$y_2' = cy_1 + dy_2$$</span></p>
+<p>We can represent this with the coefficient matrix <span>$A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}$</span></p>
+<p>Diagonalise this matrix - find the eigenvalues, then the eigenvectors, then P, P inverse, and D.</p>
+<p>We then make the substitution <span>$\vec z = P^{-1} \vec y$</span> so <span>$\begin{pmatrix} z_1' \\ z_2' \end{pmatrix} = D\vec z$</span>. Let the diagonal matrix be <span>$\begin{pmatrix} \lambda_1 &amp; 0 \\ 0 &amp; \lambda_2 \end{pmatrix}$</span>. So we get <span>$z_1' = \lambda_1 z_1,\,z_2' = \lambda_2 z_2$</span>. To solve for z, we use euler's constant: <span>$z_1 = c_1 e^{\lambda_1 x}, \, z_2 = c_2 e^{\lambda_2 x}$</span>. Now that we have solved for z, we can multiply it by P on the left to get y. From the resulting matrix you get functions (with arbitrary constants) for <span>$y_1$</span> and <span>$y_2$</span> and there you go.</p>
+<h3 class="header"><i>10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<ul>
+<li>Winter 2010 final, question 3</li>
+<li>Assignment 7, question 3 (method derived and proved in this assignment)</li>
+</ul>
+<h2 class="header"><i>11</i>Finding the determinant of large, unwieldy matrices<a class="headerlink" href="#finding-the-determinant-of-large-unwieldy-matrices" name="finding-the-determinant-of-large-unwieldy-matrices">&para;</a></h2>
+<blockquote>
+<p>Given a large &gt;3x3 square matrix, find its determinant.</p>
+</blockquote>
+<h3 class="header"><i>11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h3>
+<p>Row-reduce it, keeping track of which row operations alter the determinant. Once you get a triangular matrix, just multiply the elements along the main diagonal, and apply any necessary changes due to row operations, and there you go.</p>
+<h3 class="header"><i>11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h3>
+<ul>
+<li>Assignment 7, question 4.</li>
+</ul>
+<p>Couldn't find any examples from past exams, but there's an example in the lecture notes from March 7, 2011. Will add link later.</p>
+<h2 class="header"><i>12</i>Finding the determinant of a matrix using other relevant matrices<a class="headerlink" href="#finding-the-determinant-of-a-matrix-using-other-relevant-matrices" name="finding-the-determinant-of-a-matrix-using-other-relevant-matrices">&para;</a></h2>
+<blockquote>
+<p>Given three matrices, one of which is a sort of combination of the rows of the other two (whose determinants are known), find the determinant of the other matrix.</p>
+</blockquote>
+<h3 class="header"><i>12.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h3>
+<p>Perform row operations / tranposes etc as necessary to get the two matrices whose determinants are known into the form you want them to be. Calculate the determinants of the resulting matrices, then when they differ by only one row - and the sum of those rows is equal to the relevant row in the matrix whose determinant you want to find - add the determinants together. Check out the examples.</p>
+<h3 class="header"><i>12.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h3>
+<ul>
+<li>Winter 2010 final, question 7</li>
+<li>Winter 2008 final, question 7</li>
+<li>Fall 2007 final, question 6</li>
+<li>Assignment 8, question 1</li>
+</ul>
+<h2 class="header"><i>13</i>Finding bases for the sum and intersection of two subspaces<a class="headerlink" href="#finding-bases-for-the-sum-and-intersection-of-two-subspaces" name="finding-bases-for-the-sum-and-intersection-of-two-subspaces">&para;</a></h2>
+<blockquote>
+<p>Given two subspaces of a field, find a basis for each of them, then a basis for their sum and a basis for their intersection.</p>
+</blockquote>
+<h3 class="header"><i>13.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h3>
+<p>Put all the basis vectors in a big matrix and row-reduce. A basis for each subspace is given by the largest set of independent vectors from the spanning vectors. To find a basis for their sum, take the column vectors from the original matrix corresponding to the ones containing leading ones in the RREF matrix. To find a basis for their intersection, you need to find a relationship between the column vectors, so that you find a vector (or more than one) that is a linear combination of both vectors from the first subspace (only) and vectors from the second subspace (only). Remember dimsum - <span>$dim(W_1 + W_2) + dim(W_1 \cap W_2) = dim(W_1) + dim(W_2)$</span>.</p>
+<h3 class="header"><i>13.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h3>
+<ul>
+<li>Fall 2009 final, question 1</li>
+<li>Assignment 4, question 2</li>
+<li>Assignment 4, question 3</li>
+</ul>
+<h2 class="header"><i>14</i>Determining if subsets are subspaces or not<a class="headerlink" href="#determining-if-subsets-are-subspaces-or-not" name="determining-if-subsets-are-subspaces-or-not">&para;</a></h2>
+<blockquote>
+<p>Given several subsets of a vector space, decide if they are subspaces or not</p>
+</blockquote>
+<h3 class="header"><i>14.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h3>
+<ul>
+<li>Check to see if the subset contains the zero vector</li>
+<li>Check to see if it respects vector addition</li>
+<li>See if it respects scalar multiplication</li>
+</ul>
+<p>Checking for the zero vector is pretty simple. Checking vector addition is a little more tricky. You have to show that for any 2 arbitrary vectors from the subset the result of adding them is still in the subset. The same thing is true of scalar multiplication. You have to be able to choose any scalar and show that any vector times that scalar is still in the subset.</p>
+<h3 class="header"><i>14.2</i>Examples<a class="headerlink" href="#examples_13" name="examples_13">&para;</a></h3>
+<ul>
+<li>Winter 2008 final, question </li>
+<li>Fall 2007 final, question 2</li>
+<li>Assignment 2, question 1</li>
+<li>Assignment 2, question 2</li>
+<li>Assignment 3, question 1</li>
+</ul>
+<h2 class="header"><i>15</i>Finding orthonormal bases for a subspace and its perpendicular<a class="headerlink" href="#finding-orthonormal-bases-for-a-subspace-and-its-perpendicular" name="finding-orthonormal-bases-for-a-subspace-and-its-perpendicular">&para;</a></h2>
+<blockquote>
+<p>Given a subspace W:</p>
+<ul>
+<li>(a) Find an orthonormal basis for both W and <span>$W^{\perp}$</span></li>
+<li>(b) Find the projection vectors onto both W and <span>$W^{\perp}$</span></li>
+</ul>
+</blockquote>
+<h3 class="header"><i>15.1</i>General solution<a class="headerlink" href="#general-solution_14" name="general-solution_14">&para;</a></h3>
+<p>(a) Use the Gram-Schmidt orthogonalisation process to get basis vectors for W that are orthogonal. For example, if there are two vectors in W:</p>
+<ul>
+<li>Set <span>$\vec w_1 = \vec v_1$</span></li>
+<li>Let <span>$\vec w_2 = \vec v_2 - \frac{\langle v_2, w_1 \rangle}{\langle w_1, w_1 \rangle} \vec w_1$</span></li>
+</ul>
+<p>Solve for the second basis vector, and you get the orthogonal basis for W. Now you just need to normalise it - divide it by its length (which you can find by taking the inner product of it with itself and square rooting that). That gives you the orthonormal basis.</p>
+<p>To find an orthonormal basis for <span>$W^{\perp}$</span>, solve the homogeneous equation <span>$Ax = 0$</span>, where A is just the the basis vectors for W turned on their side (so each basis vector becomes a row of A). Row-reduce A to get the basis vectors for the null space. We then take their <strong>conjugates</strong> (important) and normalise them to get the orthonormal basis for W.</p>
+<p>(b) Let <span>$\{ \vec u_1, \vec u_2 \}$</span> be the basis vectors for W that we found above. (We don't have to take the normalised ones.)</p>
+<p><span>$$Proj_{W} (v) = \frac{\langle v, u_1 \rangle}{\langle u_1, u_1 \rangle} u_1 + \frac{\langle v, u_2 \rangle}{\langle u_2, u_2 \rangle} u_2$$</span></p>
+<p>The projection onto <span>$W^{\perp}$</span> is just v minus the above projection vector: <span>$Proj_{W^{\perp}}(v) = \vec v - Proj_{W} (v)$</span>.</p>
+<h3 class="header"><i>15.2</i>Examples<a class="headerlink" href="#examples_14" name="examples_14">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-7">Fall 2010 final, question 7</a></li>
+<li>Winter 2010 final, question 6</li>
+<li>Fall 2009 final, question 6</li>
+<li>Winter 2008 final, question 6</li>
+<li>Fall 2007 final, question 8</li>
+<li>Assignment 9, question 2</li>
+</ul>
+<p>Loveys also works out an example (and explains the method) in his notes for inner product spaces 1.</p>
+<h2 class="header"><i>16</i>Finding an orthogonal or unitary matrix to diagonalise<a class="headerlink" href="#finding-an-orthogonal-or-unitary-matrix-to-diagonalise" name="finding-an-orthogonal-or-unitary-matrix-to-diagonalise">&para;</a></h2>
+<blockquote>
+<p>Given a real symmetric or Hermitian or whatever matrix:</p>
+<ul>
+<li>(a) Find an orthogonal/unitary matrix P such that <span>$P^TAP$</span> is diagonal</li>
+<li>(b) Find the diagonal matrix</li>
+</ul>
+</blockquote>
+<h3 class="header"><i>16.1</i>General solution<a class="headerlink" href="#general-solution_15" name="general-solution_15">&para;</a></h3>
+<p>(a) First, find the eigenvalues and associated eigenvectors for this matrix. Often, you'll be given an eigenvalue and can figure out the other eigenvalue from the trace of the matrix. Once you have the eigenvectors, orthogonalise them via Gram-Schmidt, then normalise them to get the orthogonal (if it's real) or unitary (if it's complex) matrix.</p>
+<p>(b) A diagonal matrix with the eigenvalues along the main diagonal. Same order as the eigenvectors in P.</p>
+<h3 class="header"><i>16.2</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h3>
+<ul>
+<li><a href="/MATH_223/past-exam/fall-2010/final#question-8">Fall 2010 final, question 8</a></li>
+<li>Winter 2010 final, question 8</li>
+<li>Fall 2009 final, question 7</li>
+<li>Winter 2008 final, question 8</li>
+<li>Fall 2007 final, question 9</li>
+<li>Assignment 9, question 3</li>
+</ul>
+<h2 class="header"><i>17</i>Determining if a function is an inner product<a class="headerlink" href="#determining-if-a-function-is-an-inner-product" name="determining-if-a-function-is-an-inner-product">&para;</a></h2>
+<blockquote>
+<p>Given several matrices over the real or complex fields, decide if the function defined by <span>$\langle v, w \rangle =  v^T A \overline{w} $</span> is an inner product on the field.</p>
+</blockquote>
+<h3 class="header"><i>17.1</i>General solution<a class="headerlink" href="#general-solution_16" name="general-solution_16">&para;</a></h3>
+<p>For something to define an inner product, it has to fulfill three conditions: linearity in the first argument, conjugate symmetry, and positive definiteness.</p>
+<p>If the matrix is over the real numbers, then linearity is fine for any matrix, but symmetry only occurs when the matrix is symmetric. Positive definiteness occurs if for any non-zero vector v, <span>$\langle \vec v^T A \vec v \rangle$</span> is positive. We can also determine positive definiteness from the eigenvalues of a real symmetric matrix - such a matrix is positive definite <strong>iff</strong> all the eigenvalues are positive. So as long as the matrix is symmetric and positive definite, it will result in an inner product over the reals. (If the matrix is the identity matrix, you get the standard inner product.)</p>
+<p>If we're working over the complex field, then again linearity is true for any matrix. However, although we could ignore the bar over the w when working over the reals, we have to take it into account over the complex field - if it weren't there, <span>$\vec v^T I \vec w$</span> wouldn't even give an inner product. So when do we get conjugate symmetry? Well, we want it so that <span>$\langle w, v \rangle = \overline{\langle v, w \rangle}$</span>. That is, we want <span>$\vec w^T A \overline{\vec v} = \overline{\vec v^T T \overline{\vec w}}$</span>. Since the result is essentially a 1 by 1 matrix ("essentially") then it's equal to its own transpose - so <span>$\overline{\vec v^T T \overline{\vec w}} = \vec w^T \overline{A^T \vec v}$</span>. So to get conjugate symmetry we need <span>$A = \overline{A^T}$</span>, meaning the matrix must be equal to its conjugate transpose (i.e. the matrix must be Hermitian). For positive definiteness, we again need all positive eigenvalues.</p>
+<p>So, if we're given a real matrix:</p>
+<ul>
+<li>Check if it's symmetric. If yes, continue.</li>
+<li>Check the eigenvalues. If they're all positive real numbers, then you win.</li>
+</ul>
+<p>If we're given a complex (I actually almost wrote fake) matrix:</p>
+<ul>
+<li>Check if it's Hermitian (i.e. if its conjugate transpose is equal to itself ... should be easy)</li>
+<li>If so, check the eigenvalues. If they're all positive real numbers, then you win.</li>
+</ul>
+<h3 class="header"><i>17.2</i>Examples<a class="headerlink" href="#examples_15" name="examples_15">&para;</a></h3>
+<ul>
+<li>Assignment 8, question 3</li>
+</ul>
+<p>I couldn't find a relevant question on any past exams, but this seems like a good candidate for a multiple choice question this year. Loveys explains this pretty well in his notes for inner product spaces 1.</p>
+<h2 class="header"><i>18</i>Quadratic forms<a class="headerlink" href="#quadratic-forms" name="quadratic-forms">&para;</a></h2>
+<blockquote>
+<p>Given a "quadratic form" <span>$Q(x, y, z)$</span> determine the shape of the graph of <span>$Q(x, y, z) = 1$</span>.</p>
+</blockquote>
+<h3 class="header"><i>18.1</i>General solution<a class="headerlink" href="#general-solution_17" name="general-solution_17">&para;</a></h3>
+<p>From the quadratic form, put the coefficients of the form into the values of a matrix as such:</p>
+<ul>
+<li>The coefficients of the variables with <strong>degree 2</strong> (example: <span>$x^2, y^2, z^2$</span> should go on the diagonal of the matrix.</li>
+<li>The coefficients of the variables that are a combination of each other (for lack of a better term, example: <span>$xy, yz, xz$</span>) should have their value, divided by 2, put into the values adjacent to the diagonal.</li>
+</ul>
+<p>To explain it better with an example, say you have the quadratic form <span>$2x^2 + 2xy + 3y^2 + 4xz + 8yz + 5z^2$</span>:</p>
+<ul>
+<li>The coefficients of the variables with degree 2 will go into the diagonal: <span>$\displaystyle B=\begin{pmatrix}2 &amp; \cdots &amp; \cdots\\\vdots &amp; 3 &amp; \cdots\\\vdots &amp; \vdots &amp; 5\\\end{pmatrix}$</span></li>
+<li>The coefficients of the variables that are combinations, with their value divided by 2, should be put into the values adjacent to the diagonal. For <span>$xy$</span>, that would be <span>$2/2 = 1$</span>; for <span>$xz$</span>, that would be <span>$4/2 = 2$</span>; for <span>$yz$</span>, that would be <span>$8/2 = 4$</span>.</li>
+<li>These will go into the matrix as shown. Note that the matrix will always be symmetric:<br />
+<span>$$B=\begin{pmatrix}2 &amp; 1 &amp; 2\\1 &amp; 3 &amp; 4\\2 &amp; 4 &amp; 5\\\end{pmatrix}$$</span></li>
+</ul>
+<p>After obtaining your matrix, simply calculate your eigenvalues (technically you don't even really need to have to calculate them all, just make sure you know what the signs of your eigenvalues are).</p>
+<p>Now use the following table to determine what the shape of your graph will be:</p>
+<table class="sort iris">
+<thead>
+<tr>
+<th>Number of negative eigenvalues</th>
+<th>Number of zero eigenvalues</th>
+<th>Number of positive eigenvalues</th>
+<th>Shape of graph</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 (negative or zero)<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="As in, none of the 3 eigenvalues are positive; the...">1</a></sup></td>
+<td>See previous</td>
+<td>0</td>
+<td>Empty graph</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>1</td>
+<td>Two sheets</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>Hyperbolic cylinder</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>2</td>
+<td>Hyperboloid or one sheet</td>
+</tr>
+<tr>
+<td>0</td>
+<td>2</td>
+<td>1</td>
+<td>Two planes</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Elliptic cylinder</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>3</td>
+<td>Ellipsoid</td>
+</tr>
+</tbody>
+</table>
+<p>And that's it.</p>
+<h3 class="header"><i>18.2</i>Examples<a class="headerlink" href="#examples_16" name="examples_16">&para;</a></h3>
+<p>None on actual exams, but the last question of Assignment 9 focuses on these.  I highly recommend knowing the shapes of everything given the eigenvalue signs though.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>As in, none of the 3 eigenvalues are positive; there are no other restrictions.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

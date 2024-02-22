@@ -1,0 +1,944 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/BIOL_112/">
+                BIOL 112
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Sample lab questions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Sample lab questions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Some sample questions to ponder based on lab material for <a class="wikilink" href="/BIOL_112/">BIOL 112</a> (Winter 2011). The actual exam will consist of 14 multiple choice questions, and below you'll find several multiple choice questions for each lab, to test your understanding of the material. Click on the "Show answer" link below each question to view its answer. If you have any issues with the questions as they're presented or the suggested answers/explanations, please contact <a href="/users/dellsystem">@dellsystem</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#lab-1">1 Lab 1</a><ul>
+<li><a href="#the-compound-microscope">1.1 The compound microscope</a></li>
+<li><a href="#plant-and-animal-cells">1.2 Plant and animal cells</a></li>
+<li><a href="#controls">1.3 Controls</a></li>
+</ul>
+</li>
+<li><a href="#lab-2">2 Lab 2</a><ul>
+<li><a href="#introduction-to-bacteria">2.1 Introduction to bacteria</a></li>
+<li><a href="#bacterial-colonies">2.2 Bacterial colonies</a></li>
+<li><a href="#bacterial-morphology">2.3 Bacterial morphology</a></li>
+<li><a href="#bacterial-growth">2.4 Bacterial growth</a></li>
+</ul>
+</li>
+<li><a href="#lab-3">3 Lab 3</a><ul>
+<li><a href="#passive-transport">3.1 Passive transport</a></li>
+<li><a href="#active-transport">3.2 Active transport</a></li>
+</ul>
+</li>
+<li><a href="#lab-4">4 Lab 4</a><ul>
+<li><a href="#benedicts-test">4.1 Benedict's test</a></li>
+<li><a href="#iodine-test">4.2 Iodine test</a></li>
+<li><a href="#starch-and-cellulose">4.3 Starch and cellulose</a></li>
+<li><a href="#enzymes">4.4 Enzymes</a></li>
+</ul>
+</li>
+<li><a href="#lab-5">5 Lab 5</a><ul>
+<li><a href="#aerobic-respiration">5.1 Aerobic respiration</a></li>
+<li><a href="#anaerobic-respiration">5.2 Anaerobic respiration</a></li>
+</ul>
+</li>
+<li><a href="#lab-6">6 Lab 6</a><ul>
+<li><a href="#introduction-to-photosynthesis">6.1 Introduction to photosynthesis</a></li>
+<li><a href="#rate-of-photosynthesis-under-varying-light-conditions">6.2 Rate of photosynthesis under varying light conditions</a></li>
+<li><a href="#ascending-paper-chromatography-of-plant-pigments">6.3 Ascending paper chromatography of plant pigments</a></li>
+<li><a href="#the-necessity-of-light-for-chlorophyll-formation">6.4 The necessity of light for chlorophyll formation</a></li>
+<li><a href="#formation-of-starch-in-photosynthesis">6.5 Formation of starch in photosynthesis</a></li>
+</ul>
+</li>
+<li><a href="#lab-7">7 Lab 7</a><ul>
+<li><a href="#growth-cycle-of-bacteria">7.1 Growth cycle of bacteria</a></li>
+<li><a href="#effects-of-radiation-on-bacteria">7.2 Effects of radiation on bacteria</a></li>
+<li><a href="#drosophila-practice">7.3 Drosophila practice</a></li>
+</ul>
+</li>
+<li><a href="#lab-8">8 Lab 8</a><ul>
+<li><a href="#cell-cycle">8.1 Cell cycle</a></li>
+<li><a href="#genetic-nomenclature-and-mendelism">8.2 Genetic nomenclature and Mendelism</a></li>
+<li><a href="#monohybrid-cross-in-corn">8.3 Monohybrid cross in corn</a></li>
+<li><a href="#sex-linked-cross-drosophila">8.4 Sex-linked cross Drosophila</a></li>
+</ul>
+</li>
+<li><a href="#lab-9">9 Lab 9</a><ul>
+<li><a href="#human-genetics">9.1 Human genetics</a></li>
+<li><a href="#salivary-chromosomes">9.2 Salivary chromosomes</a></li>
+</ul>
+</li>
+<li><a href="#lab-10">10 Lab 10</a><ul>
+<li><a href="#bioinformatics">10.1 Bioinformatics</a></li>
+<li><a href="#recombination">10.2 Recombination</a></li>
+</ul>
+</li>
+<li><a href="#lab-11">11 Lab 11</a><ul>
+<li><a href="#dna-electrophoresis">11.1 DNA electrophoresis</a></li>
+<li><a href="#double-recombination">11.2 Double recombination</a></li>
+</ul>
+</li>
+<li><a href="#lab-12">12 Lab 12</a></li>
+<li><a href="#user-comments">13 User comments</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Lab 1<a class="headerlink" href="#lab-1" name="lab-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>The compound microscope<a class="headerlink" href="#the-compound-microscope" name="the-compound-microscope">&para;</a></h3>
+<ol>
+<li>Why is oil immersion necessary when viewing a slide using the 100x objective lens? <ul>
+<li>(A) Oil has a lower refractive index than air, thus allowing light rays to bend more, so we get a sharper image</li>
+<li>(B) Oil has a higher refractive index than air, thus allowing light rays to bend more, so we get a sharper image</li>
+<li>(C) Oil has a higher magnification than air, allowing us to achieve 100x magnification</li>
+<li>(D) The bottom of the objective lens needs to be in contact with the slide through a medium other than air in order for an image to form at this magnification, and since water is not viscous enough, we use oil</li>
+<li>ANSWER: (B). Oil does have a higher refractive index than air, so (A) is incorrect; (C) is wrong because oil doesn't affect the magnification (according to the magnification formula anyway) and (D) is just nonsensical.</li>
+</ul>
+</li>
+<li>Which part of the microscope does NOT contribute to the magnification in the formula for total magnification? <ul>
+<li>(A) Eyepiece</li>
+<li>(B) The objective lens</li>
+<li>(C) The condenser lens</li>
+<li>(D) The body tube</li>
+<li>ANSWER: (C). The magnification formula involves the eyepiece, objective lens, and body tube only.</li>
+</ul>
+</li>
+<li>Which of the objective lenses below is not correctly matched to its magnification? <ul>
+<li>(A) Scanning objective - 5x</li>
+<li>(B) Low power objective - 10x</li>
+<li>(C) High power objective - 40x</li>
+<li>(D) Oil immersion objective - 100x</li>
+<li>ANSWER: (A). The magnification of the scanning objective is 3.2x.</li>
+</ul>
+</li>
+<li>Why would you adjust the condenser front lens? <ul>
+<li>(A) It does not need to be adjusted during the course of ordinary microscope usage</li>
+<li>(B) It needs to be tilted up for the scanning and low-power objectives</li>
+<li>(C) It needs to be tilted up for the oil immersion object only</li>
+<li>(D) It needs to be tilted up for the low power, high power, and oil immersion objectives</li>
+<li>ANSWER: (D). See the lab manual if you disagree.</li>
+</ul>
+</li>
+<li>Which of the below gives the correct magnification for a microscope with given stats: eyepiece = 10x, using the scanning objective, with a binocular tube magnification of 10x? <ul>
+<li>(A) 100x</li>
+<li>(B) 1000x</li>
+<li>(C) 320x</li>
+<li>(D) 500x</li>
+<li>ANSWER: (C) Magnification formula = eyepiece x objective x body/binocular tube = 10 x 3.2 x 10. So 320x.</li>
+</ul>
+</li>
+<li>What's one reason why we typically only use the fine-focus knob for higher (40x, 100x) power objectives? <ul>
+<li>(A) If we used the coarse-focus knob, we might break the cover slide</li>
+<li>(B) The coarse-focus knob is deactivated on the higher power objectives</li>
+<li>(C) The fine-focus knob allows us to better focus the light coming through the front condenser lens, so we get a sharper image in the higher objectives</li>
+<li>(D) There is no other knob to use</li>
+<li>ANSWER: (A). Although (A) seems less scientific than the others, it's actually the right answer. (C) means nothing, (B) is untrue, and (D) is also untrue except maybe in an existentialist sense.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.2</i>Plant and animal cells<a class="headerlink" href="#plant-and-animal-cells" name="plant-and-animal-cells">&para;</a></h3>
+<ol>
+<li>How might you check if the plant cell you are looking at under the microscope is alive or dead? <ul>
+<li>(A) Observe the colour - if it's a faded green with dark streaks, it's likely dead</li>
+<li>(B) Check for the absence of chloroplasts moving around the cell</li>
+<li>(C) Check for the absence of lignified cell walls</li>
+<li>(D) Poke it and see if it pokes you back</li>
+<li>ANSWER: (B). In living plant cells you should be able to observe cytoplasmic streaming through the movement of chloroplasts around the cell. (A) means nothing. (C) also means nothing - even dead plant cells typically still have cell walls. (D) would be creepy.</li>
+</ul>
+</li>
+<li>Choose the best description of cytoplasmic streaming in a plant cell and how you might view it <ul>
+<li>(A) Cytoplasmic streaming is the presence of cytoplasms in the cell - look for cytoplasms</li>
+<li>(B) Cytoplasmic streaming is the directed flow of the cytosol - look for chloroplasts moving around</li>
+<li>(C) Cytoplasmic streaming is due to Brownian motion within the cell - add a drop of dye to observe it</li>
+<li>(D) Cytoplasmic streaming only occurs in animal cells, not plant cells</li>
+<li>ANSWER: (B). (A) no, (C) is a red herring, (D) is patently untrue.</li>
+</ul>
+</li>
+<li>Why do we draw iodine solution through the leaf? Choose the best answer. <ul>
+<li>(A) So we can kill it ... otherwise the leaf will move around, be hard to view</li>
+<li>(B) To view pyrenoids (starch-containing bodies) more clearly</li>
+<li>(C) To preserve it, prevent damage through oxidation</li>
+<li>(D) To stain cell walls, view them more clearly</li>
+<li>ANSWER: (B). Iodine selectively stains for starch-containing bodies. (A) is obviously a made-up answer, (C) is a red herring, and iodine does not stain cell walls, as in (D).</li>
+</ul>
+</li>
+<li>Which of the following is NOT a difference between animal and plant cells? <ul>
+<li>(A) Plant cells have a thick cellulose cell wall; animals have only a thin plasma membrane around their cytoplasm</li>
+<li>(B) Plants have chloroplasts; animals do not</li>
+<li>(C) Animals have mitochondria; plants do not</li>
+<li>(D) While both have vacuoles, plant cells typically have larger vacuoles than do animal cells</li>
+<li>ANSWER: (C). Animals and plants both have mitochondria. There was a similar question in the review questions, which I didn't actually realise when I made this; the suggested answer implied that animals don't have vacuoles. This was amended in the review session on March 14 - animals do indeed have vacuoles, they just don't have a central vacuole. tl;dr my answer is right</li>
+</ul>
+</li>
+<li>What is the main purpose of staining in the observation of tissues? <ul>
+<li>(A) Because we don't want our deposit back</li>
+<li>(B) To increase the visibility of specific types of cell structures</li>
+<li>(C) To make the cell in general brighter and clearer under the microscope</li>
+<li>(D) To kill the plant</li>
+<li>ANSWER: (B). Doesn't really need an explanation.</li>
+</ul>
+</li>
+<li>Which of the cell components below is correctly matched to the stain it is best known for taking up? <ul>
+<li>(A) Lignified cell walls - safranin</li>
+<li>(B) Starch grains - fast violet</li>
+<li>(C) Cellulose cell walls - methyl blue</li>
+<li>(D) Chloroplasts - crystal green</li>
+<li>ANSWER: (A). Starch grains are stained by crystal violet, not fast violet (A); cellulose cell walls are stained by fast green, not methyl blue (C); and chloroplasts don't really need staining, they're already green.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.3</i>Controls<a class="headerlink" href="#controls" name="controls">&para;</a></h3>
+<ol>
+<li>Which of the below is a good example of a positive control in an experiment intended to determine if spraying insect repellent on yourself is better than spraying yourself with Axe at attracting girls? <ul>
+<li>(A) Spraying lots of Axe on your body</li>
+<li>(B) Not showering for a week and spraying nothing on your body</li>
+<li>(C) Spraying lots of insect repellent on your body</li>
+<li>(D) Spraying both Axe and insect repellent on your body</li>
+<li>ANSWER: (A). See the lab summary for lab 1.</li>
+</ul>
+</li>
+<li>Which of the below is a good example of a negative control in an experiment intended to determine whether using sugar produces better-tasting cookies than using sand? <ul>
+<li>(A) Baking cookies using lots of sugar</li>
+<li>(B) Baking cookies using lots of sand</li>
+<li>(C) Baking cookies using both sand and sugar</li>
+<li>(D) Baking cookies using neither sand nor sugar</li>
+<li>ANSWER: (D). See the lab summary for lab 1.</li>
+</ul>
+</li>
+<li>You have set up an experiment to determine if drinking bleach for breakfast is better for you than drinking milk. You have one group of people drinking milk, one group of people drinking bleach, and one group of people drinking nothing. Which of the following best describes the role of the people drinking milk? <ul>
+<li>(A) Positive control</li>
+<li>(B) Negative control</li>
+<li>(C) The experiment</li>
+<li>(D) None of the above</li>
+<li>ANSWER: (A). The people drinking milk serve as a positive control, to ensure that drinking milk does provide a result.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>2</i>Lab 2<a class="headerlink" href="#lab-2" name="lab-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Introduction to bacteria<a class="headerlink" href="#introduction-to-bacteria" name="introduction-to-bacteria">&para;</a></h3>
+<ol>
+<li>Which of the bacterial species below is NOT correctly matched with its probable shape? <ul>
+<li>(A) Staphylococcus aureus - rods</li>
+<li>(B) Bacillus subtilis - rods</li>
+<li>(C) Streptococcus pneumoniae - little balls</li>
+<li>(D) Spirillum volutans - helical rods</li>
+<li>ANSWER: (A). Pretty obviously. Cocci = balls, not rods. Don't mind my terminology.</li>
+</ul>
+</li>
+<li>Which of the following is the best description of the purpose of Gram staining? <ul>
+<li>(A) To make the cell walls of bacteria more visible by staining them a deep purple</li>
+<li>(B) To classify bacteria into different categories depending on the thickness of their cell wall</li>
+<li>(C) Each distinct specie reacts differently to gram staining, so we can identify species based on their gram stain</li>
+<li>(D) There is no purpose to Gram staining</li>
+<li>ANSWER: (B). Obviously. (C) is untrue and (A) is too specific to be true.</li>
+</ul>
+</li>
+<li>Which of the following is NOT a commonly-used sterile technique for plating bacteria? <ul>
+<li>(A) When pipetting, make sure to draw up some of the solution into the pipetting aid</li>
+<li>(B) Holding the test tube at a 45 degree angle in the air when removing the lid</li>
+<li>(C) Heating the inoculating loop over a flame until red-hot before using it to transfer bacteria</li>
+<li>(D) Storing the spreader in ethanol</li>
+<li>ANSWER: (A). Make sure you DON'T draw up any o the solution into the pipetting aid.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.2</i>Bacterial colonies<a class="headerlink" href="#bacterial-colonies" name="bacterial-colonies">&para;</a></h3>
+<ol>
+<li>Which of the following looks like a possible description of <strong>colony</strong> of ''Bacillus subtilis''? <ul>
+<li>(A) Small, little balls, yellowish</li>
+<li>(B) Large, reddish, rod-shaped, hard-looking</li>
+<li>(C) Large, flat, round, yellow-ish</li>
+<li>(D) Small, reddish, curved rods, mucoid</li>
+<li>ANSWER: (C). It's a description of a colony, as I so helpfully bolded. The others are more descriptions of the actual bacteria under a microscope.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.3</i>Bacterial morphology<a class="headerlink" href="#bacterial-morphology" name="bacterial-morphology">&para;</a></h3>
+<ol>
+<li>What is the correct order of the solutions we use in Gram staining? <ul>
+<li>(A) Gram's iodine; methyl blue; tap water and ethanol; carbol fuchsin</li>
+<li>(B) Gentian violet; gram's iodine; methyl blue; tap water and ethanol</li>
+<li>(C) Gram's iodine; tap water and ethanol; gentian violet; carbol fuchsin</li>
+<li>(D) Gentian violet; Gram's iodine; tap water and ethanol; carbol fuchsin</li>
+<li>ANSWER: (D). Remember it as GV, GI, T/E, CF or something.</li>
+</ul>
+</li>
+<li>Staphylococcus aureus is a gram-positive bacterium. Let's say you wanted to carry out Gram-staining in such a way as to make it appear gram-negative. How might you accomplish this? <ul>
+<li>(A) Omit the carbol fuchsin</li>
+<li>(B) Leave it flooded with ethanol for longer than a minute</li>
+<li>(C) Squirt it with methyl blue at the end</li>
+<li>(D) This is not possible</li>
+<li>ANSWER: (B). This is a pretty good question if I do say so myself. Leaving it decolourised for a long enough period of time will cause it to take up the counterstain (carbol fuchsin) and thus appear Gram negative.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>2.4</i>Bacterial growth<a class="headerlink" href="#bacterial-growth" name="bacterial-growth">&para;</a></h3>
+<ol>
+<li>Which of the following is the best explanation of generation time? <ul>
+<li>(A) The rate at which bacteria grow during their exponential phase</li>
+<li>(B) The time taken for the number of bacteria to double during lag phase</li>
+<li>(C) The time taken for the number of bacteria to double during exponential phase</li>
+<li>(D) The time it takes to form one new generation of bacteria during any phase</li>
+<li>ANSWER: (C). (A) is not even a time, (B) is a red herring, and (D) seems suspiciously correct but is really not when you think about it.</li>
+</ul>
+</li>
+<li>Which of the phases below is not well matched with its description? <ul>
+<li>(A) Lag phase - cells are adjusting to the new environment, most of them are not dividing yet</li>
+<li>(B) Exponential phase - population growing exponentially</li>
+<li>(C) Stationary phase - the population numbers stay constant as bacteria are no longer dividing</li>
+<li>(D) Death phase - overall population numbers go down</li>
+<li>ANSWER: (C). This is a tricky one but during the stationary phase some bacteria may still be dividing - it's just that the overall population numbers remain constant, as other bacteria are dying.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>3</i>Lab 3<a class="headerlink" href="#lab-3" name="lab-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Passive transport<a class="headerlink" href="#passive-transport" name="passive-transport">&para;</a></h3>
+<ol>
+<li>Which of the below is the best description of Brownian motion? <ul>
+<li>(A) The movement of the molecules of a fluid due to their kinetic energy; a stochastic process</li>
+<li>(B) The movement of gas particles due to an outside energy source</li>
+<li>(C) The movement of particles placed in a fluid due to the kinetic energy of the particles of the fluid</li>
+<li>(D) The movement of dye particles in a liquid due to the kinetic energy of the dye particles</li>
+<li>ANSWER: (C). (A) is a red herring (suspiciously correct, but it's actually the movement of particles placed in the fluid, not the particles of the fluid itself); (B) means nothing; and (D) is too specific and is also incorrect.</li>
+</ul>
+</li>
+<li>Which of the following is the best description of a dynamic equilibrium? <ul>
+<li>(A) There are more particles moving in one direction than other</li>
+<li>(B) The rate of movement of particles is the same for both directions</li>
+<li>(C) Particles are no longer moving</li>
+<li>(D) I'm out of ideas</li>
+<li>ANSWER: (B). Obviously. (A) is clearly wrong, (C) is more static equilibrium, and (D) is me being out of ideas.</li>
+</ul>
+</li>
+<li>Which of the following statements about osmosis in living cells is false? <ul>
+<li>(A) Plasma membranes of cells have hydrophobic domains</li>
+<li>(B) The substance that typically passes through the cell membrane in the greatest quantities is water</li>
+<li>(C) The net flow of water is towards the less concentrated solution</li>
+<li>(D) Plasma membranes contain pores formed by proteins (aquaporins) to facilitate the movement of water</li>
+<li>ANSWER: (C). Accidentally screwed this question up at first. But yeah water moves towards the more concentrated solution. The others are true. I think. Please leave a note on the talk page if something is messed up here.</li>
+</ul>
+</li>
+<li>A cell containing more solute per unit volume than the solution it is placed in begins to shrink as water rushes out of the cell. Relative to the surrounding medium, this cell is: <ul>
+<li>(A) Hypertonic</li>
+<li>(B) Hypotonic</li>
+<li>(C) Isotonic</li>
+<li>(D) This would never happen, wtf?</li>
+<li>ANSWER: (D). lol</li>
+</ul>
+</li>
+<li>A cell containing less solute per unit volume than the solution it is placed in begins to shrink as water rushes out of the cell. Relative to the surrounding medium, this cell is: <ul>
+<li>(A) Hypertonic</li>
+<li>(B) Hypotonic</li>
+<li>(C) Isotonic</li>
+<li>(D) This would also never happen, wtf</li>
+<li>ANSWER: (B). The cell is hypotonic relative to the solution, as the concentration of solute is lower; water will thus leave the cell to try and get rid of the difference. In a manner of speaking.</li>
+</ul>
+</li>
+<li>Which of the following statements is not true about the penetration of alcohol into beet cells experiment? <ul>
+<li>(A) Alcohol that penetrated the cell resulted in the release of the pigment betacyanin</li>
+<li>(B) At the higher concentrations, all of the alcohols were able to penetrate the cell</li>
+<li>(C) At the lower concentrations, only ethanol was able to penetrate the cell</li>
+<li>(D) The longer the carbon chain, the greater the fat solubility and so the greater the penetration</li>
+<li>ANSWER: (C). Should be only 1-propanol. The others are true.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>3.2</i>Active transport<a class="headerlink" href="#active-transport" name="active-transport">&para;</a></h3>
+<ol>
+<li>Which of the following is false about active transport? <ul>
+<li>(A) It requires energy, often in the form of ATP</li>
+<li>(B) Increases with temperature up until about 100 degrees Celsius</li>
+<li>(C) It can result in the movement of ions against a concentration gradient</li>
+<li>(D) It is responsible for the conservation of glucose and amino acids in your kidneys</li>
+<li>ANSWER: (B). It's up to 37 degrees Celsius. The others are true.</li>
+</ul>
+</li>
+<li>Which of the following was used as a negative control in the turnip and potassium chloride experiment? <ul>
+<li>(A) The batch of turnip cells soaked in potassium chloride and kept at room temperature</li>
+<li>(B) The batch of turnip cells soaked in potassium chloride and kept at just above freezing</li>
+<li>(C) The batch of untreated turnip cells</li>
+<li>(D) The solution of potassium chloride</li>
+<li>ANSWER: (C). According to the lab manual, anyway. If you have issues with this question please bring it up on the talk page.</li>
+</ul>
+</li>
+<li>Why was the turnip boiled in the turnip and potassium chloride experiment? <ul>
+<li>(A) Boiled turnip tastes better</li>
+<li>(B) To destroy the cell membrane to allow potassium chloride to be released</li>
+<li>(C) To remove the effects of passive transport through the cell membrane from the experiment</li>
+<li>(D) We didn't have to boil the turnip what are you talking about</li>
+<li>ANSWER: (B). (C) doesn't really mean anything, and the others are just silly.</li>
+</ul>
+</li>
+<li>How was the concentration of chloride in the cell determined in the turnip and potassium chloride experiment? <ul>
+<li>(A) Through titration with potassium chromate, using silver nitrate as an indicator</li>
+<li>(B) Through titration with silver nitrate, using potassium chromate as an indicator</li>
+<li>(C) Through titration with potassium chromate, with phenolphthalein as an indicator</li>
+<li>(D) Through boiling the turnip and using an indicator to draw out the chloride</li>
+<li>ANSWER: (B). The others are trick answers. (D) means nothing.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>4</i>Lab 4<a class="headerlink" href="#lab-4" name="lab-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Benedict's test<a class="headerlink" href="#benedicts-test" name="benedicts-test">&para;</a></h3>
+<ol>
+<li>Which of the following statements about Benedict's test is FALSE? <ul>
+<li>(A) A solution needs to be heated for about 5 minutes in a 100 C water bath first</li>
+<li>(B) The purpose of the test is to check for the presence of reducing sugars; an orange-red colour change indicates a positive result</li>
+<li>(C) Any molecules possessing aldehyde or ketone groups will test positive</li>
+<li>(D) Glucose, maltose and lactose will all test positive; sucrose will test negative</li>
+<li>ANSWER: (C). Tricky, but yeah. (A) is true; (B) is true; (D) is true. (C) is not true because if it were, sucrose would test positive; if "molecules" were to be replaced by "monosaccharides", this statement would be true.</li>
+</ul>
+</li>
+<li>Which of the following is a correct explanation of why sucrose will test negative? <ul>
+<li>(A) Sucrose consists of beta bonds between its monomers, which cannot be broken down</li>
+<li>(B) Sucrose does not contain aldehyde or ketone</li>
+<li>(C) The monomers that sucrose is composed of are bonded at their reducing ends, so sucrose cannot be reduced</li>
+<li>(D) The glycosidic linkage between sucrose monomers is too strong and cannot be broken down</li>
+<li>ANSWER: (C). (A) is a trick answer, and relies on you remembering something about beta bonds (actually applicable to cellulose) but not remembering what they're for; (B) is incorrect; and (D) has nothing to do with it (in fact, the bond CAN be broken down, but then it's not sucrose any more).</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>4.2</i>Iodine test<a class="headerlink" href="#iodine-test" name="iodine-test">&para;</a></h3>
+<ol>
+<li>Which of the following statements about the iodine test is FALSE? <ul>
+<li>(A) The purpose of the test is to check for the presence of starch</li>
+<li>(B) If positive, it will turn black/blue/purple</li>
+<li>(C) A solution that you want to test needs to be heated in a 100 C water bath first</li>
+<li>(D) A cotton ball will test negative, as it does not contain any starch</li>
+<li>ANSWER: (C). Nope. That's that Benedict's test.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>4.3</i>Starch and cellulose<a class="headerlink" href="#starch-and-cellulose" name="starch-and-cellulose">&para;</a></h3>
+<ol>
+<li>Which of the following correctly identifies a difference between starch and cellulose? <ul>
+<li>(A) Starch is a monosaccharide; cellulose is a polysaccharide</li>
+<li>(B) Starch is composed of glucose monomers; cellulose is composed of alternating glucose and fructose monomers</li>
+<li>(C) Starch contains alpha-bonds while cellulose contains beta-bonds</li>
+<li>(D) THEY ARE EXACTLY THE SAME</li>
+<li>ANSWER: (C). The others are wrong; both are polysaccharides composed of glucose monomers, and are clearly not exactly the same.</li>
+</ul>
+</li>
+<li>Which of the following incorrectly pairs a starch solution with its Benedict's test result? <ul>
+<li>(A) Starch + water at room temperature = NEGATIVE</li>
+<li>(B) Starch + water at 100 C = NEGATIVE</li>
+<li>(C) Starch + amylase at 37 C = NEGATIVE</li>
+<li>(D) Starch + hydrochloric acid at 100 C = POSITIVE</li>
+<li>ANSWER: (C). Amylase + heat will break down starch into glucose, so it should test positive.</li>
+</ul>
+</li>
+<li>Which of the following incorrectly pairs a starch solution with its iodine test result? <ul>
+<li>(A) Starch + water at room temperature = POSITIVE</li>
+<li>(B) Starch + water at 100 C = NEGATIVE</li>
+<li>(C) Starch + amylase at 37 C = NEGATIVE</li>
+<li>(D) Starch + hydrochloric acid at 100 C = NEGATIVE</li>
+<li>ANSWER: (B). Should test positive, because water + heat isn't enough to break down starch into glucose. It'll still be starch.</li>
+</ul>
+</li>
+<li>Which of the following incorrectly pairs a cellulose solution (or cotton ball + water) with its Benedict's test result? <ul>
+<li>(A) Cellulose + water at room temperature = NEGATIVE</li>
+<li>(B) Cellulose + water at 100 C = NEGATIVE</li>
+<li>(C) Cellulose + amylase at 37 C = NEGATIVE</li>
+<li>(D) Cellulose + sulfuric acid at 100 C = NEGATIVE</li>
+<li>ANSWER: (D). Only acid + high heat was sufficient to break cellulose into glucose monomers.</li>
+</ul>
+</li>
+<li>Which of the following statements about the starch/cellulose experiment is false? <ul>
+<li>(A) Cellulose did not react positively to an iodine test no matter what we did</li>
+<li>(B) A positive Benedict's test was always accompanied by a negative iodine test</li>
+<li>(C) We had to add sodium hydroxide to neutralise the acid because the iodine test is always negative in acidic conditions</li>
+<li>(D) The test tubes with water acted as a control</li>
+<li>ANSWER: (C). Tricky, but it's actually Benedict's test that is negative in acidic conditions. (A) is true because cellulose != starch, (B) is true because starch != glucose, and (D) is true because it's true.</li>
+</ul>
+</li>
+<li>Which of the following statements incorrectly summarises something we learned from the experiment? <ul>
+<li>(A) Both cellulose and starch are composed of glucose monomers</li>
+<li>(B) Acid and high heat resulted in breaking down both starch and cellulose into their constituents</li>
+<li>(C) Amylase was only capable of breaking down starch and not cellulose, due to differences in their chemical structures</li>
+<li>(D) Can't think of anything else</li>
+<li>ANSWER: (C). Again tricky, but they have the same chemical structures; only their geometric structures differ. (A) and (B) are true. Ignore (D). If there are issues with this question please comment on the talk page.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>4.4</i>Enzymes<a class="headerlink" href="#enzymes" name="enzymes">&para;</a></h3>
+<ol>
+<li>Which of the following is false about dehydrogenation in living cells? <ul>
+<li>(A) Can only occur in the absence of oxygen</li>
+<li>(B) Catalysed by enzymes called dehydrogenases</li>
+<li>(C) Hydrogen is transferred from one hydrogen-carrier to another until it combines with oxygen to form water</li>
+<li>(D) If an artificial hydrogen carrier is introduced, hydrogen may be diverted to it instead of the oxygen</li>
+<li>ANSWER: (A). Only our experiment with DCIP had to occur in the absence of oxygen. In living cells, there can be all the oxygen you like.</li>
+</ul>
+</li>
+<li>Which of the following statements about competitive inhibitors is false? <ul>
+<li>(A) They usually chemically resemble the enzyme</li>
+<li>(B) If we add enough inhibitor, the reaction may not proceed at all</li>
+<li>(C) Malonate, the competitive inhibitor we used, cannot be dehydrogenated due to its chemical structure</li>
+<li>(D) Competitive inhibitors compete with the natural substrate to bind to the active site on the enzyme</li>
+<li>ANSWER: (A). It's the succinate, not the enzyme, that they chemically resemble. The others are true.</li>
+</ul>
+</li>
+<li>Which of the following correctly identifies the role of something we used in this experiment? <ul>
+<li>(A) Spectrophotometer, to determine the concentration of DCIP (as % transmittance is proportional to the concentration of DCIP)</li>
+<li>(B) Azide was used in all the test tubes to provide an oxygen-free environment</li>
+<li>(C) Mitochondrial suspension was placed in all the test tubes primarily to provide a substrate that the enzymes could bind to</li>
+<li>(D) DCIP was used to catalyse the reaction; the concentration of it indicated how much was left unchanged, and thus how quickly the reaction proceeded</li>
+<li>ANSWER: (B). (A) is false because transmittance is NOT proportional to the concentration of DCIP - rather, absorbance, which is obtained logarithmically from the transmittance, is. (C) is false because the mitochondrial suspension was mainly there to provide the enzyme. (D) is just false; DCIP is not a catalsyt afaik.</li>
+</ul>
+</li>
+<li>Which of the following statements about the results of the experiment is false? <ul>
+<li>(A) Initial rate of reaction was proportional to the amount of enzyme present</li>
+<li>(B) The test tube with no succinate experienced little to no reaction</li>
+<li>(C) The test tube with malonate experienced little to no reaction</li>
+<li>(D) The test tube with boiled mitochondria experienced a higher rate of reaction than the others</li>
+<li>ANSWER: (D). The others are true, and boiling mitochondria should denature the enzymes, so that little to no reaction occurs. An easy question.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>5</i>Lab 5<a class="headerlink" href="#lab-5" name="lab-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Aerobic respiration<a class="headerlink" href="#aerobic-respiration" name="aerobic-respiration">&para;</a></h3>
+<ol>
+<li>Which of the following statements about respiratory quotients is true? <ul>
+<li>(A) Respiratory quotient = volume of carbon dioxide consumed / volume of oxygen produced</li>
+<li>(B) Different substances have different respiratory quotients</li>
+<li>(C) Peas should have a respiratory quotient of greater than one, since they are composed of multiple substances</li>
+<li>(D) Carbohydrates have a respiratory quotient of 0 since there is no gas produced</li>
+<li>ANSWER: (B). The simplest answer is correct, in this case. (A) is incorrect because it should be carbon eliminated / oxygen consumed; (C) is incorrect because you can't have a respiratory quotient of greater than one; and (D) makes no sense (carbohydrates have an RQ of 1).</li>
+</ul>
+</li>
+<li>Which of the following statements about the aerobic respiration experiment is false? <ul>
+<li>(A) We determined the respiratory quotient of peas to be somewhere between 0.7 and 1.0</li>
+<li>(B) We used an empty test tube with no peas to control for atmospheric pressure or temperature changes (thermobarometer)</li>
+<li>(C) If the peas were composed solely of carbohydrates, the test tube with sulfuric acid would experience little to no volume change</li>
+<li>(D) The majority of the volume change in the tube with sodium hydroxide was due to the carbon dioxide consumed</li>
+<li>ANSWER: (D). It was actually due to the oxygen consumed.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>5.2</i>Anaerobic respiration<a class="headerlink" href="#anaerobic-respiration" name="anaerobic-respiration">&para;</a></h3>
+<ol>
+<li>Which of the following is not a product of fermentation in yeast? <ul>
+<li>(A) Ethanol</li>
+<li>(B) Carbon dioxide</li>
+<li>(C) Water</li>
+<li>(D) ATP</li>
+<li>ANSWER: (C). Just know how fermentation works.</li>
+</ul>
+</li>
+<li>Which of the following statements about the fermentation experiment is true? <ul>
+<li>(A) Glucose and galactose are STRUCTURAL isomers, and although yeast can respire glucose, it lacks the enzyme to convert galactose into glucose</li>
+<li>(B) Sodium fluoride acted as an inhibitor, because the sodium binds with magnesium, thus preventing it from acting as a cofactor for the enzyme</li>
+<li>(C) Both glucose and galactose can be respired by yeast, but galactose is respired much more slowly because its intermolecular bonds are stronger</li>
+<li>(D) We produced a lot of pure ethanol that we later consumed and received alcohol poisoning from</li>
+<li>ANSWER: (A). (B) is false because sodium can't bind with magnesium (T_T) - it's the fluoride that does; (C) is false because it's false; and (D) is false because that never happened.</li>
+</ul>
+</li>
+<li>Which of the following incorrectly matches a test tube with its volume change and explanation? <ul>
+<li>(A) Only yeast and water - little change, possibly due to residual glucose in the yeast</li>
+<li>(B) Yeast and glucose - the largest change, because glucose is easily respired by yeast</li>
+<li>(C) Yeast, glucose, and sodium fluoride - little change, because the sodium fluoride inhibited the respiration reaction</li>
+<li>(D) Yeast and galactose - a moderate volume change, because galactose is respired more slowly than glucose</li>
+<li>ANSWER: (D). The others are correct. Galactose should not be respired at all - has nothing to do with a lower rate of respiration or anything.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>6</i>Lab 6<a class="headerlink" href="#lab-6" name="lab-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Introduction to photosynthesis<a class="headerlink" href="#introduction-to-photosynthesis" name="introduction-to-photosynthesis">&para;</a></h3>
+<ol>
+<li>Which of the following statements about photosynthesis is false? <ul>
+<li>(A) The rate of photosynthesis can be measured by the rate of production of oxygen</li>
+<li>(B) Water molecules are split by light energy, and are the source of the oxygen evolved</li>
+<li>(C) Light energy is captured by plant pigments and converted to chemical energy</li>
+<li>(D) Pigments are found in organelles called chlorophylls</li>
+<li>ANSWER: (D). Chloroplasts, lol.</li>
+</ul>
+</li>
+<li>Which of the following statements about pigments is false? <ul>
+<li>(A) Accessory pigments are less effective at energy conversion than the green chlorophylls</li>
+<li>(B) Green chlorophylls primarily absorb light in the green region of the spectrum</li>
+<li>(C) Accessory pigments can come in various colours</li>
+<li>(D) Green chlorophylls come in two forms: a and b</li>
+<li>ANSWER: (B). They reflect light in the green region and absorb in the blue and red regions.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>6.2</i>Rate of photosynthesis under varying light conditions<a class="headerlink" href="#rate-of-photosynthesis-under-varying-light-conditions" name="rate-of-photosynthesis-under-varying-light-conditions">&para;</a></h3>
+<ol>
+<li>Which of the following statements correctly describes a result of this experiment? (See section title) <ul>
+<li>(A) More carbon dioxide was evolved when the plant was closer to the light</li>
+<li>(B) More oxygen was evolved when the plant was at 30cm from the light than at 5cm from the light</li>
+<li>(C) The rate of photosynthesis should have been highest with the blue filter (assuming equal filter thicknesses)</li>
+<li>(D) It was important to begin each experiment with a filter immediately after ending the previous one</li>
+<li>ANSWER: (C). Blue light is of lower wavelength and thus higher energy than red light, and green light is not as well absorbed. (A) is false because it's oxygen that is evolved and (B) is false because it has it backwards and (D) is false because we actually had to wait 5 minutes between each filter experiment.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>6.3</i>Ascending paper chromatography of plant pigments<a class="headerlink" href="#ascending-paper-chromatography-of-plant-pigments" name="ascending-paper-chromatography-of-plant-pigments">&para;</a></h3>
+<ol>
+<li>Which statement about this experiment is true blah blah <ul>
+<li>(A) Fluorescence: when a substance absorbs radiant energy, immediately emits light of a lower wavelength</li>
+<li>(B) The distance travelled by each component of the pigment solution is dependent upon that component's solubility in the solvent</li>
+<li>(C) If we had used water as our solvent, the components would not separate at all</li>
+<li>(D) If we had used a pigment that was not soluble in the solvent, the bands would be farther apart from each other</li>
+<li>ANSWER: (B). (A) is false because light emitted is of a higher wavelength (thus lower energy, which makes sense); (C) is false because the components would separate, only differently; and (D) is false because the bands wouldn't separate at all.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>6.4</i>The necessity of light for chlorophyll formation<a class="headerlink" href="#the-necessity-of-light-for-chlorophyll-formation" name="the-necessity-of-light-for-chlorophyll-formation">&para;</a></h3>
+<ol>
+<li>Which of the following statements is true <ul>
+<li>(A) Plants grown in the darkness usually have shorter stems and lack leaves</li>
+<li>(B) Green light is responsible for inducing "greening"</li>
+<li>(C) Some plants can form chlorophyll even without light</li>
+<li>(D) The longer a plant has been grown in the dark, the more light exposure it needs before chlorophyll can be formed</li>
+<li>ANSWER: (C). (A) is false because they would have longer stems, usually, because light inhibits stem growth (has to do with hormones, something something BIOL 111). (B) is false because red and blue light are responsible for greening. (D) is false because time spent in darkness doesn't ... it's just false.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>6.5</i>Formation of starch in photosynthesis<a class="headerlink" href="#formation-of-starch-in-photosynthesis" name="formation-of-starch-in-photosynthesis">&para;</a></h3>
+<ol>
+<li>Starch molecules: <ul>
+<li>(A) Are readily degraded to sugar in plant stems, thus producing energy</li>
+<li>(B) Are too large to readily diffuse from light-receiving parts of leaves to other parts</li>
+<li>(C) Can only be formed in the presence of light</li>
+<li>(D) Are used up during photosynthesis</li>
+<li>ANSWER: (B). They're degraded to sugar in LEAVES, not stems, and can be formed in the absence of light (see tubers or something) and are formed, not used up, during photosynthesis.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>7</i>Lab 7<a class="headerlink" href="#lab-7" name="lab-7">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Growth cycle of bacteria<a class="headerlink" href="#growth-cycle-of-bacteria" name="growth-cycle-of-bacteria">&para;</a></h3>
+<ol>
+<li>Which of the following is false about experiment blah blah <ul>
+<li>(A) Clear plaques on the agar plate represented areas where bacteria were killed (graves if you will)</li>
+<li>(B) The growth cycle of bacteriophage can be divided into latent, rise, and lag periods</li>
+<li>(C) The control plate in the experiment contained no E. coli</li>
+<li>(D) T4 causes the host cell to burst open (lyse) when released</li>
+<li>ANSWER: (C). The control plate just contained no T4; it did contain E. coli.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>7.2</i>Effects of radiation on bacteria<a class="headerlink" href="#effects-of-radiation-on-bacteria" name="effects-of-radiation-on-bacteria">&para;</a></h3>
+<ol>
+<li>Which of the following about the radiation experiment is true <ul>
+<li>(A) The survival rate of bacteria should increase with increased exposure to UV light</li>
+<li>(B) UV light can increase the incidence of mutation in a population through damaging DNA</li>
+<li>(C) The control in this experiment was the plate with no bacteria</li>
+<li>(D) Can't think of any more</li>
+<li>ANSWER: (B). Don't know why I have (C) here again. (A) is false because survival rate should decrease with increased exposure unless you're doing something weird with antibiotics and mutants or whatever.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>7.3</i>Drosophila practice<a class="headerlink" href="#drosophila-practice" name="drosophila-practice">&para;</a></h3>
+<ol>
+<li>Which of the following is NOT a generally-accepted characteristic of wild-type flies? (Referring to the in-lab exercises) <ul>
+<li>(A) Red eyes</li>
+<li>(B) Rounded posterior</li>
+<li>(C) Wings longer than the abdomen</li>
+<li>(D) Grey body colour</li>
+<li>ANSWER: (B). That's a male characteristic.</li>
+</ul>
+</li>
+<li>Which of the following IS a generally-accepted characteristic of mutant-type flies? <ul>
+<li>(A) Black body colour</li>
+<li>(B) Striped and pointed posterior</li>
+<li>(C) Wings longer than the abdomen</li>
+<li>(D) White eyes</li>
+<li>ANSWER: (D). Others are wrong.</li>
+</ul>
+</li>
+<li>Which of the following is NOT a way of distinguishing between male and female flies? <ul>
+<li>(A) Rounded vs. pointed posterior</li>
+<li>(B) Size</li>
+<li>(C) Presence of sex combs</li>
+<li>(D) Length of wings (longer vs. shorter than abdomen)</li>
+<li>ANSWER: (D) That's wild type vs. mutant.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>8</i>Lab 8<a class="headerlink" href="#lab-8" name="lab-8">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Cell cycle<a class="headerlink" href="#cell-cycle" name="cell-cycle">&para;</a></h3>
+<ol>
+<li>Which is NOT a stage of interphase? <ul>
+<li>(A) Growth phase 1 - cells actively growing and metabolising but not replicating</li>
+<li>(B) Synthesis phase - Each chromosome replicates, producing sister chromatids</li>
+<li>(C) Separation phase - The chromosomes separate onto opposite sides of the nucleus</li>
+<li>(D) Growth phase 2 - chromosomes begin to condense, tubulin synthesised</li>
+<li>ANSWER: (C). Not even close.</li>
+</ul>
+</li>
+<li>Which is a difference between mitosis in animal cells and plant cells? <ul>
+<li>(A) There are two centrioles that begin to move apart just before mitosis in plant cells only</li>
+<li>(B) A cell plate is formed in plant cells, whereas cytokinesis occurs by cleavage-furrow in animal cells</li>
+<li>(C) A cellulose cell wall is formed on each side of the middle lamella in animal cells</li>
+<li>(D) Mitosis typically results in haploid gametes in animals, whereas for plants, the daughter cells usually contribute to the haplontic lifecycle</li>
+<li>ANSWER: (B). (A) is only true in animal cells.</li>
+</ul>
+</li>
+<li>Which stage of mitosis is NOT correctly linked to its defining characteristics? <ul>
+<li>(A) Prophase: chromosomes condense, microtubules attach to centromeres, nuclear membrane breaks down</li>
+<li>(B) Metaphase: chromosomes drawn by microtubules to equator of spindle, divide at centromere into chromatids</li>
+<li>(C) Anaphase: spindle poles move apart, pulling apart attached chromatids</li>
+<li>(D) Telophase: The two sets of chromatids are at opposite poles; cells enter prophase</li>
+<li>ANSWER: (D). Stupid, but couldn't think of a better way to approach this question. Amendments are welcome.</li>
+</ul>
+</li>
+<li>Which of the following is false? <ul>
+<li>(A) Cytokinesis: division of the cytoplasm to form two daughter cells</li>
+<li>(B) Homologous chromosomes are separated during anaphase I and II of meiosis</li>
+<li>(C) Meiosis results in the production of 4 haploid daughter cells, often gives rise to gametes</li>
+<li>(D) Mitosis results in the production of 2 diploid somatic daughter cells</li>
+<li>ANSWER: (B). Just anaphase I. Was a question on the lab quizzes.</li>
+</ul>
+</li>
+<li>At what phase does genetic recombination in meiosis occur? <ul>
+<li>(A) Prophase I</li>
+<li>(B) Metaphase I</li>
+<li>(C) Prophase II</li>
+<li>(D) Metaphase II</li>
+<li>ANSWER: (A). Yep.</li>
+</ul>
+</li>
+<li>What is the purpose of the Feulgen reaction? <ul>
+<li>(A) To stain chromosomes a deep violet so they can be more easily observed</li>
+<li>(B) To hydrolyse something showing mitotic activity</li>
+<li>(C) To prevent chromosomes from undergoing mitosis</li>
+<li>(D) To ensure that cells undergo cytokinesis</li>
+<li>ANSWER: (A). (B) is a method, not a purpose. (C) and (D) make no sense.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>8.2</i>Genetic nomenclature and Mendelism<a class="headerlink" href="#genetic-nomenclature-and-mendelism" name="genetic-nomenclature-and-mendelism">&para;</a></h3>
+<ol>
+<li>Which of the following is false? <ul>
+<li>(A) Allosomes = sex chromosomes; autosomes = non-sex chromosomes</li>
+<li>(B) Homozygous = two different alleles; heterozygous = two identical alleles; hemizygous = only one copy of the allele</li>
+<li>(C) The wild-type allele is usually denoted by a +</li>
+<li>(D) Genes on the same chromosome are separated by commas; different chromosomes, semi-colons</li>
+<li>ANSWER: (B). Homo/hetero are mixed up. Hemi is right.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>8.3</i>Monohybrid cross in corn<a class="headerlink" href="#monohybrid-cross-in-corn" name="monohybrid-cross-in-corn">&para;</a></h3>
+<ol>
+<li>We have a homozygous chlorophyll-producing plant (green) and an albino (homozygous recessive) plant. If we crossed them, which of the following statements about the progeny is TRUE? <ul>
+<li>(A) The F1 offspring will be 3/4 green and 1/4 albino</li>
+<li>(B) The F2 offspring will all have the same genotype</li>
+<li>(C) The F2 offspring will all have the same phenotype</li>
+<li>(D) The F2 offspring will be 3/4 green and 1/4 albino</li>
+<li>ANSWER: (D). The others are wrong.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>8.4</i>Sex-linked cross Drosophila<a class="headerlink" href="#sex-linked-cross-drosophila" name="sex-linked-cross-drosophila">&para;</a></h3>
+<ol>
+<li>Which statement best describes our sex-linked cross experiment? <ul>
+<li>(A) First cross: 5 wild type males with 5 wild type females</li>
+<li>(B) F1 generation: wild-type females and white miniature males</li>
+<li>(C) F2 generation: all had the same phenotype</li>
+<li>(D) Crossover occurred only in the male Drosophila</li>
+<li>ANSWER: (B). (A) is wrong; females were white miniature. (C) is clearly wrong otherwise we wouldn't have done this experiment. (D) is wrong - only occurred in the females (it's an X-linked trait).</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>9</i>Lab 9<a class="headerlink" href="#lab-9" name="lab-9">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Human genetics<a class="headerlink" href="#human-genetics" name="human-genetics">&para;</a></h3>
+<ol>
+<li>Which is true? <ul>
+<li>(A) The ability to taste PTC is a non-sex-linked recessive trait.</li>
+<li>(B) Colour-blindness is a sex-linked dominant trait.</li>
+<li>(C) Test crosses are used for finding the genotype of a wild-type organism by mating it with a homozygous recessive organism</li>
+<li>(D) I think Mendel was a really cool guy</li>
+<li>ANSWER: (C). PTC tasting is dominant. Colour-blindness is recessive. Mendel was afraid of pea plants.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>9.2</i>Salivary chromosomes<a class="headerlink" href="#salivary-chromosomes" name="salivary-chromosomes">&para;</a></h3>
+<ol>
+<li>Which is false? <ul>
+<li>(A) Polytene chromosomes are the result of repeated chromosome replication without subsequent separation</li>
+<li>(B) Chromocentre: all four pairs of chromosomes attached by centromeres</li>
+<li>(C) Polytene chromosomes have a banded appearance because they are alternatingly extended and coiled</li>
+<li>(D) It was important to anaesthesise the larvae after removing their chromosomes so they could be easily replaced.</li>
+<li>ANSWER: (D) We kind of had to decapitate them first, so, no.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>10</i>Lab 10<a class="headerlink" href="#lab-10" name="lab-10">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Bioinformatics<a class="headerlink" href="#bioinformatics" name="bioinformatics">&para;</a></h3>
+<ol>
+<li>If the probability of finding a &gt;60 amino acid ORF by chance in a random sequence is 1/20, how many such ORFs would you expect to find in a sequence consisting of 300 base pairs? <ul>
+<li>(A) 1/20</li>
+<li>(B) 5</li>
+<li>(C) 15</li>
+<li>(D) 20</li>
+<li>ANSWER: (B). 300 base pairs = 100 amino acids so an expected value of 5</li>
+</ul>
+</li>
+<li>Which of the following is false? <ul>
+<li>(A) Probability-wise, one is likely to encounter ~20 amino acids before encountering a stop codon just by chance</li>
+<li>(B) All genes start with the methionine/start codon (ATG)</li>
+<li>(C) An open reading frame ends with a stop codon (TAG etc)</li>
+<li>(D) Organisms have only one DNA polymerase</li>
+<li>ANSWER: (D). Stupid question. Needs improvement.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>10.2</i>Recombination<a class="headerlink" href="#recombination" name="recombination">&para;</a></h3>
+<ol>
+<li>Which is false? <ul>
+<li>(A) The least common class of progeny is usually the result of recombination</li>
+<li>(B) When two genes are recombined x% of the time, they are considered x map units and thus x loci apart</li>
+<li>(C) Cis arrangement: a+b/a+b; trans arrangement: a+b+/ab</li>
+<li>(D) Genes that are closer together on the same chromosome are less likely to be recombined</li>
+<li>ANSWER: (C). Other way around.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>11</i>Lab 11<a class="headerlink" href="#lab-11" name="lab-11">&para;</a></h2>
+<h3 class="header"><i>11.1</i>DNA electrophoresis<a class="headerlink" href="#dna-electrophoresis" name="dna-electrophoresis">&para;</a></h3>
+<ol>
+<li>What is the purpose of DNA electrophoresis? <ul>
+<li>(A) To stain DNA and make it easier to observe under a microscope</li>
+<li>(B) To separate different fragments of DNA by their size for identification purposes</li>
+<li>(C) To preserve DNA and prevent it from going bad</li>
+<li>(D) To clone DNA into a plasmid</li>
+<li>ANSWER: (B). Others are wrong.</li>
+</ul>
+</li>
+<li>Purpose of bromophenol blue? <ul>
+<li>(A) To monitor the progress of the electrophoresis</li>
+<li>(B) To selectively stain the DNA fragments</li>
+<li>(C) To act as an indicator in the titration</li>
+<li>(D) We never used bromophenol blue what are you talking about</li>
+<li>ANSWER: (A). Others wrong. What titration?</li>
+</ul>
+</li>
+<li>Larger fragments of DNA: <ul>
+<li>(A) Get stuck between the comb teeth in the gel</li>
+<li>(B) Move more slowly than smaller fragments and so travel the smallest distance</li>
+<li>(C) Have more kinetic energy than smaller fragments and so travel the greatest distance</li>
+<li>(D) Tend to get broken up into smaller fragments</li>
+<li>ANSWER: (B).</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>11.2</i>Double recombination<a class="headerlink" href="#double-recombination" name="double-recombination">&para;</a></h3>
+<ol>
+<li>Which is false about double recombination blah <ul>
+<li>(A) Double recombinants can be identified by finding the two least frequent classes of progeny</li>
+<li>(B) Double recombination occurs less frequently than expected (by multiplying frequency of single recombination events) due to interference</li>
+<li>(C) Double recombination accounts for the "unexpected" progeny that result from the mating of two homozygous individuals</li>
+<li>(D) The distance between the middle gene and one outer gene can be calculated from the frequency of that outer gene switching.</li>
+<li>ANSWER: (C) ... it doesn't. the others are true</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>12</i>Lab 12<a class="headerlink" href="#lab-12" name="lab-12">&para;</a></h2>
+<ol>
+<li>Approximately how many flies died during the course of these last few labs? <ul>
+<li>(A) None, flies are invincible</li>
+<li>(B) ~36, which is coincidentally the same as the distance between the white and miniature genes (in map units)</li>
+<li>(C) 7</li>
+<li>(D) 9001</li>
+<li>ANSWER: (D) I don't know. Can't think of any questions for this lab.</li>
+</ul>
+</li>
+</ol>
+<h2 class="header"><i>13</i>User comments<a class="headerlink" href="#user-comments" name="user-comments">&para;</a></h2>
+<blockquote>
+<p>I am amused by this quiz.</p>
+</blockquote>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

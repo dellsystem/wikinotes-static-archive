@@ -1,0 +1,583 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_303/">
+                COMP 303
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#class-design-and-encapsulation">1 Class design and encapsulation</a><ul>
+<li><a href="#example-javautildate">1.1 Example: java.util.Date</a></li>
+<li><a href="#designing-a-day-class">1.2 Designing a Day Class</a></li>
+<li><a href="#operator-overloading">1.3 Operator Overloading</a></li>
+<li><a href="#three-implementations-of-the-day-class">1.4 Three Implementations of the Day Class</a></li>
+<li><a href="#importance-of-encapsulation">1.5 Importance of Encapsulation</a><ul>
+<li><a href="#accessors-and-mutators">1.5.1 Accessors and Mutators</a></li>
+<li><a href="#final-instance-fields">1.5.2 Final Instance Fields</a></li>
+<li><a href="#separation-of-accessors-and-mutators">1.5.3 Separation of Accessors and Mutators</a></li>
+<li><a href="#side-effects">1.5.4 Side Effects</a></li>
+<li><a href="#the-law-of-demeter">1.5.5 The Law of Demeter</a></li>
+</ul>
+</li>
+<li><a href="#analyzing-the-quality-of-an-interface">1.6 Analyzing the Quality of an Interface</a><ul>
+<li><a href="#cohesion">1.6.1 Cohesion</a></li>
+<li><a href="#completeness">1.6.2 Completeness</a></li>
+<li><a href="#convenience">1.6.3 Convenience</a></li>
+<li><a href="#clarity">1.6.4 Clarity</a></li>
+<li><a href="#consistency">1.6.5 Consistency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cloning">2 Cloning</a></li>
+<li><a href="#design-by-contract">3 Design by Contract</a><ul>
+<li><a href="#preconditions">3.1 Preconditions</a></li>
+<li><a href="#assertions">3.2 Assertions</a></li>
+<li><a href="#exceptions-in-the-contract">3.3 Exceptions in the Contract</a></li>
+<li><a href="#postconditions">3.4 Postconditions</a></li>
+<li><a href="#class-invariants">3.5 Class Invariants</a></li>
+</ul>
+</li>
+<li><a href="#unit-testing">4 Unit Testing</a></li>
+<li><a href="#interface-types-and-polymorphism">5 Interface Types and polymorphism</a><ul>
+<li><a href="#polymorphism">5.1 Polymorphism</a></li>
+<li><a href="#the-comparable-interface-type">5.2 The Comparable Interface Type</a></li>
+<li><a href="#the-comparator-interface-type">5.3 The Comparator Interface Type</a></li>
+<li><a href="#anonymous-classes">5.4 Anonymous Classes</a></li>
+</ul>
+</li>
+<li><a href="#object-oriented-design-with-uml">6 Object-oriented design with UML</a><ul>
+<li><a href="#uml-class-diagrams">6.1 UML Class Diagrams</a></li>
+<li><a href="#sequence-diagrams">6.2 Sequence Diagrams</a></li>
+<li><a href="#state-diagrams">6.3 State Diagrams</a></li>
+</ul>
+</li>
+<li><a href="#design-patterns-observer-and-strategy">7 Design Patterns: Observer and Strategy</a><ul>
+<li><a href="#the-iterator-as-a-pattern">7.1 The Iterator as a Pattern</a></li>
+<li><a href="#the-pattern-concept">7.2 The Pattern Concept</a></li>
+<li><a href="#the-observer-pattern">7.3 The Observer Pattern</a></li>
+<li><a href="#layout-managers-and-the-strategy-pattern">7.4 Layout Managers and the Strategy Pattern</a></li>
+</ul>
+</li>
+<li><a href="#design-patterns-composite-and-decorator">8 Design Patterns: Composite and Decorator</a><ul>
+<li><a href="#components-containers-and-the-composite-pattern">8.1 Components, Containers, and the Composite Pattern</a></li>
+<li><a href="#scroll-bars-and-the-decorator-pattern">8.2 Scroll Bars and the Decorator Pattern</a></li>
+<li><a href="#how-to-recognize-patterns">8.3 How to Recognize Patterns</a></li>
+<li><a href="#putting-patterns-to-work">8.4 Putting Patterns to Work</a></li>
+</ul>
+</li>
+<li><a href="#inheritance-based-reuse">9 Inheritance-based reuse</a><ul>
+<li><a href="#the-concept-of-inheritance">9.1 The Concept of Inheritance</a><ul>
+<li><a href="#using-inheritance-for-modeling-specialization">9.1.1 Using Inheritance for Modeling Specialization</a></li>
+<li><a href="#the-supersub-terminology">9.1.2 The Super/Sub Terminology</a></li>
+<li><a href="#inheritance-hierarchies">9.1.3 Inheritance Hierarchies</a></li>
+<li><a href="#the-substitution-principle">9.1.4 The Substitution Principle</a></li>
+<li><a href="#invoking-superclass-methods">9.1.5 Invoking Superclass Methods</a></li>
+<li><a href="#invoking-superclass-constructors">9.1.6 Invoking Superclass Constructors</a></li>
+<li><a href="#preconditions-and-postconditions-of-inherited-methods">9.1.7 Preconditions and Postconditions of Inherited Methods</a></li>
+</ul>
+</li>
+<li><a href="#graphics-programming-with-inheritance">9.2 Graphics Programming with Inheritance</a><ul>
+<li><a href="#designing-subclasses-of-the-jcomponent-class">9.2.1 Designing Subclasses of the JComponent Class</a></li>
+<li><a href="#listener-interface-types-and-adapter-classes">9.2.2 Listener Interface Types and Adapter Classes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#abstract-classes-and-the-template-method-design-pattern">10 Abstract Classes and the Template Method design pattern</a><ul>
+<li><a href="#abtract-classes">10.1 Abtract Classes</a></li>
+<li><a href="#the-template-method-pattern">10.2 The Template Method Pattern</a></li>
+<li><a href="#protected-interfaces">10.3 Protected Interfaces</a></li>
+<li><a href="#the-hierarchy-of-swing-components">10.4 The Hierarchy of Swing Components</a></li>
+<li><a href="#the-hierarchy-of-standard-geometric-shapes">10.5 The Hierarchy of Standard Geometric Shapes</a></li>
+<li><a href="#when-not-to-use-inheritance">10.6 When Not to Use Inheritance</a><ul>
+<li><a href="#points-and-circles">10.6.1 Points and Circles</a></li>
+<li><a href="#vectors-and-stacks">10.6.2 Vectors and Stacks</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#error-handing">11 Error Handing</a><ul>
+<li><a href="#the-hierarchy-of-exception-classes">11.1 The Hierarchy of Exception Classes</a></li>
+</ul>
+</li>
+<li><a href="#facade-singleton-command-prototype-patterns">12 Facade, Singleton, Command, Prototype Patterns</a><ul>
+<li><a href="#the-facade-pattern">12.1 The Facade Pattern</a></li>
+<li><a href="#the-singleton-pattern">12.2 The Singleton Pattern</a></li>
+<li><a href="#the-command-pattern">12.3 The Command Pattern</a></li>
+<li><a href="#the-prototype-pattern">12.4 The Prototype Pattern</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Class design and encapsulation<a class="headerlink" href="#class-design-and-encapsulation" name="class-design-and-encapsulation">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Example: java.util.Date<a class="headerlink" href="#example-javautildate" name="example-javautildate">&para;</a></h3>
+<p><code>boolean after(Date when)</code> and <code>boolean before(Date when)</code> provide a total ordering of the class. <code>long getTime()</code> and <code>void setTime(long time)</code> provides conversion between Date objects and the number of milliseconds from the "epoch". In order to know the specific month/day of a Date, the <code>GregorianCalendar</code> class has to be used to assign descriptions to points in time. The Java library designers provide a superclass <code>Calendar</code> so you can implement many different types of calendars.</p>
+<h3 class="header"><i>1.2</i>Designing a Day Class<a class="headerlink" href="#designing-a-day-class" name="designing-a-day-class">&para;</a></h3>
+<p>We want to design a class to answer these questions:</p>
+<ul>
+<li>How many days are there between now and the end of the year?</li>
+<li>What day is 100 days from now?</li>
+</ul>
+<p>We can design methods like <code>int daysFrom(Day day)</code> and <code>Day addDays(int n)</code>. We also observe that addition and subtraction can be applied to Days.</p>
+<p>We also want a constructor that constructs a <code>Day</code> Object from a given year, month and day, and we want methods to obtain these attributes.</p>
+<h3 class="header"><i>1.3</i>Operator Overloading<a class="headerlink" href="#operator-overloading" name="operator-overloading">&para;</a></h3>
+<p>In some languages (C++, python) you can overload the behavior of operators such as <code>+</code> and <code>-</code> for specific classes. In java, you can't, because some bitch thought it'd make the language too hard for noobs.</p>
+<h3 class="header"><i>1.4</i>Three Implementations of the Day Class<a class="headerlink" href="#three-implementations-of-the-day-class" name="three-implementations-of-the-day-class">&para;</a></h3>
+<p>The first implementation stores the year, month, and day in separate variables. This is bad because it is very inefficient to do computation on the day.<br />
+The second implementation stores the day as the julian day, which is the number of days from Jan 1, 4713 BC. Computations on the day become efficient, but obtaining the month/year of the day becomes inefficient.<br />
+The third implementation combines the first two implementations, and stores both informations, and lazily converts them (only when necessary).</p>
+<h3 class="header"><i>1.5</i>Importance of Encapsulation<a class="headerlink" href="#importance-of-encapsulation" name="importance-of-encapsulation">&para;</a></h3>
+<h4 class="header"><i>1.5.1</i>Accessors and Mutators<a class="headerlink" href="#accessors-and-mutators" name="accessors-and-mutators">&para;</a></h4>
+<dl>
+<dt>Mutator method</dt>
+<dd>Modifies the state of an object</dd>
+<dt>Accesor method</dt>
+<dd>Reads the state of an object</dd>
+</dl>
+<ul>
+<li>Not every field needs a getter and a setter</li>
+<li>You can share references for immutable classes</li>
+<li>For attributes which you don't want people to change via accessor classes, you should clone them before getting the state of it.</li>
+</ul>
+<h4 class="header"><i>1.5.2</i>Final Instance Fields<a class="headerlink" href="#final-instance-fields" name="final-instance-fields">&para;</a></h4>
+<p>The <code>final</code> keyword is used to express that the variable is immutable, but it only refers to the value of the variable, not the reference of it.</p>
+<h4 class="header"><i>1.5.3</i>Separation of Accessors and Mutators<a class="headerlink" href="#separation-of-accessors-and-mutators" name="separation-of-accessors-and-mutators">&para;</a></h4>
+<p>Accessors should not change the state of the object whenever it's called. A method that changes the object state should ideally not return anything.</p>
+<p>Exception: The <code>Scanner.next()</code> method returns the next token from the input, at the same time it mutates the <code>Scanner</code> object so the next time you call it, a different token is returned. Why did the designers do it this way? Probably because they're bad.</p>
+<p>Exception: The <code>Queue.remove()</code> method modifies the state of the queue by removing the head, but it also returns whatever is removed.</p>
+<h4 class="header"><i>1.5.4</i>Side Effects<a class="headerlink" href="#side-effects" name="side-effects">&para;</a></h4>
+<dl>
+<dt>Side Effect</dt>
+<dd>Data modification that is observed when the method is called.</dd>
+</dl>
+<p>A method can modify the implicit parameter, explicit parameter, and accessible static fields.</p>
+<h4 class="header"><i>1.5.5</i>The Law of Demeter<a class="headerlink" href="#the-law-of-demeter" name="the-law-of-demeter">&para;</a></h4>
+<p>A method should only use:</p>
+<ul>
+<li>Instance fields of its class</li>
+<li>Parameters</li>
+<li>Objects that it constructs with new</li>
+</ul>
+<h3 class="header"><i>1.6</i>Analyzing the Quality of an Interface<a class="headerlink" href="#analyzing-the-quality-of-an-interface" name="analyzing-the-quality-of-an-interface">&para;</a></h3>
+<h4 class="header"><i>1.6.1</i>Cohesion<a class="headerlink" href="#cohesion" name="cohesion">&para;</a></h4>
+<p>A class is cohesive if all of its methods are related to a single abstraction.</p>
+<h4 class="header"><i>1.6.2</i>Completeness<a class="headerlink" href="#completeness" name="completeness">&para;</a></h4>
+<p>A class should support all the operations that are part of the abstraction that the class represents.</p>
+<h4 class="header"><i>1.6.3</i>Convenience<a class="headerlink" href="#convenience" name="convenience">&para;</a></h4>
+<p>A class should make common tasks easy to do.</p>
+<h4 class="header"><i>1.6.4</i>Clarity<a class="headerlink" href="#clarity" name="clarity">&para;</a></h4>
+<p>A class should make its methods easy to understand and intuitive to use.</p>
+<h4 class="header"><i>1.6.5</i>Consistency<a class="headerlink" href="#consistency" name="consistency">&para;</a></h4>
+<p>Operations in a class should be consistent with each other with respect to names, parameters, return values, and behavior. E.g. 0-indexed counts and 1-indexed counts.</p>
+<h2 class="header"><i>2</i>Cloning<a class="headerlink" href="#cloning" name="cloning">&para;</a></h2>
+<p>A cloning method is expected to fulfill these three conditions:</p>
+<ul>
+<li><code>x.clone() != x</code></li>
+<li><code>x.clone().equals(x)</code></li>
+<li><code>x.clone.getClass() == x.getClass()</code></li>
+</ul>
+<p>Any objects that is willing to be cloned must implement the <code>Cloneable</code> interface. The <code>Cloneable</code> interface has no method, thus it is a "tagging" interface type, it is only used in code such as:</p>
+<div class="codehilite"><pre>if (x instanceof Cloneable) {}
+</pre></div>
+
+
+<p>A <code>CloneNotSupportedException</code> is thrown if an object cannot be cloned, it is a checked exception so any cloning operations must be caught.</p>
+<p><code>Object.clone()</code> makes a <strong>shallow</strong> copy. If the fields are references, the references aren't copied. To implement a deep or sufficiently deep copy, you must implement it yourself.</p>
+<h2 class="header"><i>3</i>Design by Contract<a class="headerlink" href="#design-by-contract" name="design-by-contract">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Preconditions<a class="headerlink" href="#preconditions" name="preconditions">&para;</a></h3>
+<p>Something that must be true before the method carries out its operations, it is specified by the <code>@precondition</code> tag in the javadoc.</p>
+<h3 class="header"><i>3.2</i>Assertions<a class="headerlink" href="#assertions" name="assertions">&para;</a></h3>
+<p><code>assert statement</code> throws an <code>AssertionError</code> if <code>statement</code> evaluates to false.</p>
+<p><code>assert statement: "explanation"</code> throws an <code>AssertError</code> and provides the explanation for the error thrown</p>
+<h3 class="header"><i>3.3</i>Exceptions in the Contract<a class="headerlink" href="#exceptions-in-the-contract" name="exceptions-in-the-contract">&para;</a></h3>
+<p>Sometimes instead of using asserts, you throw exceptions. This, unlike assertions, cannot be turned off and incurs a small performance penalty.</p>
+<h3 class="header"><i>3.4</i>Postconditions<a class="headerlink" href="#postconditions" name="postconditions">&para;</a></h3>
+<p>Something that a method promises to fulfill after it carried out its operation. It is specified by the <code>@postcondition</code> javadoc tag. If a postcondition is not fulfilled, do not throw an exception because you're the one who fucked up.</p>
+<h3 class="header"><i>3.5</i>Class Invariants<a class="headerlink" href="#class-invariants" name="class-invariants">&para;</a></h3>
+<p>A logical condition that holds for all objects of the class that is not undergoing mutation - conditions that must be true before and after every method call, but it can be violated inside the method call.</p>
+<p>To prove a class invariant, you must check</p>
+<ul>
+<li>It is true after every constructor finished execution</li>
+<li>Every mutator preserves it</li>
+</ul>
+<p>Interface invariants are conditions that involve only the public interface of a class. Implementation invariants involve the details of a particular implementation.</p>
+<h2 class="header"><i>4</i>Unit Testing<a class="headerlink" href="#unit-testing" name="unit-testing">&para;</a></h2>
+<p>Do it</p>
+<h2 class="header"><i>5</i>Interface Types and polymorphism<a class="headerlink" href="#interface-types-and-polymorphism" name="interface-types-and-polymorphism">&para;</a></h2>
+<p>If a method has an interface as a parameter, you can supply an object of any class that implements it.<br />
+An interface type has no implementation, it merely specifies a set of methods. All methods are automatically public. An interface type cannot specify instance variables.<br />
+Any variable which is specified in the interface are automatically declared as <code>public static final</code>.<br />
+Interfaces can extend other interfaces.</p>
+<h3 class="header"><i>5.1</i>Polymorphism<a class="headerlink" href="#polymorphism" name="polymorphism">&para;</a></h3>
+<p>Type of an object is never an interface type, but the type of a variable can be an interface type. This variable contains reference to an object whose class implements that interface.</p>
+<p>Polymorphism refers to the ability to run different code according to the actual type of an object. If a call is made to one of an interface type variable's methods, different code will be ran depending on the implementing class of that interface variable.</p>
+<h3 class="header"><i>5.2</i>The Comparable Interface Type<a class="headerlink" href="#the-comparable-interface-type" name="the-comparable-interface-type">&para;</a></h3>
+<p>The call <code>object1.compareTo(object2)</code> have three possible return values.</p>
+<ul>
+<li>negative value, if <code>object1</code> comes before <code>object2</code></li>
+<li>zero, if the objects are equal</li>
+<li>positive value, otherwise.</li>
+</ul>
+<p><code>Collections.sort()</code> requires the object to be sorted to implement <code>Comparable</code> in order to have a natural ordering.</p>
+<h3 class="header"><i>5.3</i>The Comparator Interface Type<a class="headerlink" href="#the-comparator-interface-type" name="the-comparator-interface-type">&para;</a></h3>
+<p>Sometimes you want to sort a collection by different ways. For example, you want to sort students in lexical order of their family name and also of their given name. It is impractical to rewrite the <code>compareTo()</code> method every time, thus you can supply an object which implements the <code>Comparator&lt;T&gt;</code> interface type, which specifies how two objects of type <code>T</code> is compared.</p>
+<p>Example</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentGivenNameComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Student</span> <span class="n">student1</span><span class="o">,</span> <span class="n">Student</span> <span class="n">student2</span><span class="o">){</span>
+        <span class="c1">//implement it</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">StudentFamilyNameComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Student</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Student</span> <span class="n">student1</span><span class="o">,</span> <span class="n">Student</span> <span class="n">student2</span><span class="o">){</span>
+        <span class="c1">//implement it</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>5.4</i>Anonymous Classes<a class="headerlink" href="#anonymous-classes" name="anonymous-classes">&para;</a></h3>
+<p>They are classes that are not explicitly named and declared. It is declared if you only need the object once. The syntax to do so is:</p>
+<div class="codehilite"><pre>    <span class="n">MyClass</span> <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MyInterface</span><span class="o">(){</span>
+        <span class="c1">// implementation of anonymous class</span>
+    <span class="o">};</span>
+</pre></div>
+
+
+<h2 class="header"><i>6</i>Object-oriented design with UML<a class="headerlink" href="#object-oriented-design-with-uml" name="object-oriented-design-with-uml">&para;</a></h2>
+<h3 class="header"><i>6.1</i>UML Class Diagrams<a class="headerlink" href="#uml-class-diagrams" name="uml-class-diagrams">&para;</a></h3>
+<p>The UML format is <code>attributeName : Type</code>. For methods, it is <code>methodName() : returnType</code></p>
+<p><img alt="" src="http://i.imgur.com/i3j1N.jpg" title="i'm copyrighted" /></p>
+<p>For the 'has' relationship, multiplicity is written on the end points of the connection, the common choices are:</p>
+<ul>
+<li>Any number: <code>*</code></li>
+<li>One or more: <code>1..*</code></li>
+<li>Zero or one: <code>0..1</code></li>
+<li>Exactly one: <code>1</code></li>
+</ul>
+<dl>
+<dt>Dependency</dt>
+<dd>A class depends on another class if it uses objects of the other class</dd>
+<dt>Aggregation</dt>
+<dd>A class aggregates another if its objects contain objects of the other class</dd>
+<dt>Inheritance</dt>
+<dd>If you don't know this, consider dropping this course</dd>
+<dt>Composition</dt>
+<dd>Stronger form of aggregation where contained objects do not have an existence outside of their container</dd>
+<dt>Association</dt>
+<dd>Very general relationship between two classes, you can write roles at the end of lines</dd>
+<dt>Directed association</dt>
+<dd>One way association, e.g. A message queue needs to know about the message it contains, but the message doesn't need to know anything about its message queue.</dd>
+<dt>Interface Type Implementation</dt>
+<dd>Implements the interface</dd>
+</dl>
+<h3 class="header"><i>6.2</i>Sequence Diagrams<a class="headerlink" href="#sequence-diagrams" name="sequence-diagrams">&para;</a></h3>
+<p>A sequence diagram shows the time ordering of a sequence of method calls. Sequence diagrams describe interactions between objects. Underline is used to distinguish object rectangles from class rectangles. The vertical line that emanates from the object is called the <em>lifeline</em>. In some object-oriented programming languages, objects can be explicitly destroyed. The rectangles along the lifelines are called activation bars, they show when the scope is inside the object. Activation bars start at the end of the call arrow, and ends when the method returns.<br />
+If a method constructs a new object, you draw a line with <code>&lt;&lt;create&gt;&gt;</code> written on top of it to indicate the timing of the creation.</p>
+<h3 class="header"><i>6.3</i>State Diagrams<a class="headerlink" href="#state-diagrams" name="state-diagrams">&para;</a></h3>
+<p>A state diagram shows the states of an object and the transitions between states. They are just boxes with states written inside it, and labelled directed edges that indicate transition. If you have taken <code>COMP 330</code> and did finite state automata, they are very similar.</p>
+<h2 class="header"><i>7</i>Design Patterns: Observer and Strategy<a class="headerlink" href="#design-patterns-observer-and-strategy" name="design-patterns-observer-and-strategy">&para;</a></h2>
+<h3 class="header"><i>7.1</i>The Iterator as a Pattern<a class="headerlink" href="#the-iterator-as-a-pattern" name="the-iterator-as-a-pattern">&para;</a></h3>
+<p>Iterators do not expose the internal structure of a collection class. Iterators are superior to cursors as you can attach more than one iterator to a collection.</p>
+<h3 class="header"><i>7.2</i>The Pattern Concept<a class="headerlink" href="#the-pattern-concept" name="the-pattern-concept">&para;</a></h3>
+<p>Every pattern has:</p>
+<ul>
+<li>A short <em>name</em></li>
+<li>A brief description of the <em>context</em></li>
+<li>A lengthy description of the <em>problem</em></li>
+<li>A prescription for a <em>solution</em></li>
+</ul>
+<p>A design pattern gives advice about a problem in software design. The <code>Iterator</code> pattern teaches how to access the elements of an aggregate object.</p>
+<p>Example:</p>
+<p>Iterator pattern:</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>An object (aggregate) contains other objects (elements)</li>
+<li>Clients (methods that use the aggregate) need access to the elements</li>
+<li>The aggregate should not expose its internal structure</li>
+<li>There may be multiple clients that need simultaneous access</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an interator class that fetches one element at a time</li>
+<li>Each iterator object needs to keep track of the position of the next element to fetch</li>
+<li>If there are several variations of the aggregate and iterator classes, it is best if they implement common interface types.</li>
+</ol>
+<p><img alt="" src="http://i.imgur.com/jds0n.jpg" title="i am stolen" /></p>
+<h3 class="header"><i>7.3</i>The Observer Pattern<a class="headerlink" href="#the-observer-pattern" name="the-observer-pattern">&para;</a></h3>
+<p>The key to implementing this behavior is the *model/view/controller architecuture". The model holds the information in some data structures, the view draws the visible parts of the data that is displayed, and each view has a controller, which is an object that processes user interaction.</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>An object (subject) is the source of events</li>
+<li>One or more objects (observers) wants to know when an event occurs</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an observer interface type</li>
+<li>Subject maintains a collection of observer objects</li>
+<li>Subject class supplies methods for attaching observers</li>
+<li>Whenever an event occurs, the subject notifies all observers</li>
+</ol>
+<h3 class="header"><i>7.4</i>Layout Managers and the Strategy Pattern<a class="headerlink" href="#layout-managers-and-the-strategy-pattern" name="layout-managers-and-the-strategy-pattern">&para;</a></h3>
+<p>You add user interface components to a container (buttons, textfields). A layout manager arranges the components in a container.</p>
+<p>The strategy pattern teaches how to supply variants of an algorithm. A layout manager tells a container how to arrange its components. The pattern tells us to put the algorithm in a strategy interface type, by supplying objects of different classes that implement the strategy interface type, the algorithm can be varied.</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>A class (context) can benefit from variants of an algorithm</li>
+<li>Clients of the context class sometimes want to supply custom versions of the algorithm</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an interface type that is an abstraction for the algorithm (strategy)</li>
+<li>Concrete strategy classes implement this interface</li>
+<li>Client supplies a concrete strategy object to the context class</li>
+<li>Whenever the algorithm is executed, the context class calls the appropriate methods of the strategy object</li>
+</ol>
+<h2 class="header"><i>8</i>Design Patterns: Composite and Decorator<a class="headerlink" href="#design-patterns-composite-and-decorator" name="design-patterns-composite-and-decorator">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Components, Containers, and the Composite Pattern<a class="headerlink" href="#components-containers-and-the-composite-pattern" name="components-containers-and-the-composite-pattern">&para;</a></h3>
+<p>The composite pattern teaches how to combine several objects into an object that has the same behavior as its parts.</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>Primitive objects that can be combined into composite objects.</li>
+<li>Clients treat a composite object as a primitive object.</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an interface that is an abstraction for the primitive object</li>
+<li>A composite object contains a collection of primitive objects</li>
+<li>Both primitive classes and composite classes implement that interface type</li>
+<li>When implementing a method from the interface type, the composite class applies the method to its primitive objects and combines the results.</li>
+</ol>
+<h3 class="header"><i>8.2</i>Scroll Bars and the Decorator Pattern<a class="headerlink" href="#scroll-bars-and-the-decorator-pattern" name="scroll-bars-and-the-decorator-pattern">&para;</a></h3>
+<p>The Decorator pattern teaches how to form a class that adds functionality to another class while keeping its interface.</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>You want to enhance the behavior of a class (component class)</li>
+<li>Decorated component can be used in the same way as a plain component</li>
+<li>Component class does not take on the responsibility of the decoration</li>
+<li>Open ended set of possible decorations</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an interface type that is an abstraction for the component</li>
+<li>Concrete component classes implement this interface type</li>
+<li>Decorator classes also implement this interface type</li>
+<li>Decorator object manages the component object it decorates</li>
+</ol>
+<h3 class="header"><i>8.3</i>How to Recognize Patterns<a class="headerlink" href="#how-to-recognize-patterns" name="how-to-recognize-patterns">&para;</a></h3>
+<p>Just memorize them</p>
+<h3 class="header"><i>8.4</i>Putting Patterns to Work<a class="headerlink" href="#putting-patterns-to-work" name="putting-patterns-to-work">&para;</a></h3>
+<p>Memorize them harder</p>
+<h2 class="header"><i>9</i>Inheritance-based reuse<a class="headerlink" href="#inheritance-based-reuse" name="inheritance-based-reuse">&para;</a></h2>
+<h3 class="header"><i>9.1</i>The Concept of Inheritance<a class="headerlink" href="#the-concept-of-inheritance" name="the-concept-of-inheritance">&para;</a></h3>
+<h4 class="header"><i>9.1.1</i>Using Inheritance for Modeling Specialization<a class="headerlink" href="#using-inheritance-for-modeling-specialization" name="using-inheritance-for-modeling-specialization">&para;</a></h4>
+<p>Specialized subclasses inherit from superclasses that represent more general concepts. A subclass adds more methods and fields, and it extends the capabilities of the superclass. Subclasses can override methods and giving new behavior to a method taht exists in the superclass. Subclass automatically inherits the methods in the superclass.<br />
+A <code>final</code> method cannot be overridden. A <code>final</code> class cannot be extended.</p>
+<h4 class="header"><i>9.1.2</i>The Super/Sub Terminology<a class="headerlink" href="#the-supersub-terminology" name="the-supersub-terminology">&para;</a></h4>
+<p>Superclass = general, subclass = specific</p>
+<h4 class="header"><i>9.1.3</i>Inheritance Hierarchies<a class="headerlink" href="#inheritance-hierarchies" name="inheritance-hierarchies">&para;</a></h4>
+<p>Sets of classes can form inheritance hierarchies</p>
+<h4 class="header"><i>9.1.4</i>The Substitution Principle<a class="headerlink" href="#the-substitution-principle" name="the-substitution-principle">&para;</a></h4>
+<dl>
+<dt>Liskov Substitution Principle</dt>
+<dd>You can substitute a subclass object whenever a superclass object is expected, since a subclass inherits the behavior of its superclass.</dd>
+</dl>
+<h4 class="header"><i>9.1.5</i>Invoking Superclass Methods<a class="headerlink" href="#invoking-superclass-methods" name="invoking-superclass-methods">&para;</a></h4>
+<p>You can't access features that are labeled <code>private</code> in the superclass, you can however do so, if the features are labelled as <code>protected</code> in the super class.</p>
+<h4 class="header"><i>9.1.6</i>Invoking Superclass Constructors<a class="headerlink" href="#invoking-superclass-constructors" name="invoking-superclass-constructors">&para;</a></h4>
+<p>Use <code>super()</code> to invoke the superclass constructor. If the subclass does not call a superclass constructor, the superclass constructor with no parameters is called automatically.</p>
+<h4 class="header"><i>9.1.7</i>Preconditions and Postconditions of Inherited Methods<a class="headerlink" href="#preconditions-and-postconditions-of-inherited-methods" name="preconditions-and-postconditions-of-inherited-methods">&para;</a></h4>
+<p>A subclass method can only require a precondition that is at most as strong as the precondition of the method that it overrides. A subclass method must ensure a postcondition that is at least as strong as the postcondition of the method that it overrides.</p>
+<p>In general, when you override a method, you cannot make it less accessible, or throw more checked exceptions than are already declared in the superclass method.</p>
+<h3 class="header"><i>9.2</i>Graphics Programming with Inheritance<a class="headerlink" href="#graphics-programming-with-inheritance" name="graphics-programming-with-inheritance">&para;</a></h3>
+<h4 class="header"><i>9.2.1</i>Designing Subclasses of the JComponent Class<a class="headerlink" href="#designing-subclasses-of-the-jcomponent-class" name="designing-subclasses-of-the-jcomponent-class">&para;</a></h4>
+<p>Drawing shapes, subclass the <code>JComponent</code> class and override the <code>paintComponent()</code> method.</p>
+<h4 class="header"><i>9.2.2</i>Listener Interface Types and Adapter Classes<a class="headerlink" href="#listener-interface-types-and-adapter-classes" name="listener-interface-types-and-adapter-classes">&para;</a></h4>
+<p>Listener interfaces have empty methods for all the behaviors, Adapter classes all implement the Listener interfaces, but provide an empty method body for each method. To define a new listener, just extend an adapter class and only overrried the behaviors required.</p>
+<h2 class="header"><i>10</i>Abstract Classes and the Template Method design pattern<a class="headerlink" href="#abstract-classes-and-the-template-method-design-pattern" name="abstract-classes-and-the-template-method-design-pattern">&para;</a></h2>
+<h3 class="header"><i>10.1</i>Abtract Classes<a class="headerlink" href="#abtract-classes" name="abtract-classes">&para;</a></h3>
+<p>Abstract methods are undefined and must be defined in a subclass. A class with one or more abstract methods must be declared as abstract.<br />
+Objects of an abstract class cannot be constructed. Abstract classes can have instance fields and methods. </p>
+<h3 class="header"><i>10.2</i>The Template Method Pattern<a class="headerlink" href="#the-template-method-pattern" name="the-template-method-pattern">&para;</a></h3>
+<p>The Template Method pattern teaches how to supply an algorithm for multiple types, provided that the sequence of steps does not depend on the type.</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>An algorithm is applicable for multiple types</li>
+<li>The algorithm can be broken down into <em>primitive operations</em>. The primitive operations can be abstract</li>
+<li>Order of the primitive ops doesn't depend on the type</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define an abstract superclass that has a method for the algorithm and abstract methods for the primitive operations</li>
+<li>Implement the algorithm to call the primitive operations in the appropriate order</li>
+<li>Do not define the primitive operations, or define them to have appropriate default behavior</li>
+<li>Each subclass defines the primitive operations but not the algorithm</li>
+</ol>
+<h3 class="header"><i>10.3</i>Protected Interfaces<a class="headerlink" href="#protected-interfaces" name="protected-interfaces">&para;</a></h3>
+<p>A protected feature can be accessed by methods of all the subclasses. Protected fields should be avoided because they have the same disadvantages as public fields. Classes in the same package also has access to protected features, even if they don't belong in subclasses.</p>
+<h3 class="header"><i>10.4</i>The Hierarchy of Swing Components<a class="headerlink" href="#the-hierarchy-of-swing-components" name="the-hierarchy-of-swing-components">&para;</a></h3>
+<p><img alt="" src="http://i.imgur.com/31Y8s.jpg" title="kill me" /></p>
+<h3 class="header"><i>10.5</i>The Hierarchy of Standard Geometric Shapes<a class="headerlink" href="#the-hierarchy-of-standard-geometric-shapes" name="the-hierarchy-of-standard-geometric-shapes">&para;</a></h3>
+<p><img alt="" src="http://img1.uploadscreenshot.com/images/orig/10/29704504159-orig.jpg" title="kill me" /></p>
+<h3 class="header"><i>10.6</i>When Not to Use Inheritance<a class="headerlink" href="#when-not-to-use-inheritance" name="when-not-to-use-inheritance">&para;</a></h3>
+<h4 class="header"><i>10.6.1</i>Points and Circles<a class="headerlink" href="#points-and-circles" name="points-and-circles">&para;</a></h4>
+<p>Inheritance is used for is-a relationships, and aggregation is used for has-a relationships. A circle is not a subclass of a point.</p>
+<h4 class="header"><i>10.6.2</i>Vectors and Stacks<a class="headerlink" href="#vectors-and-stacks" name="vectors-and-stacks">&para;</a></h4>
+<p>A stack is not a subclass of a vector because not all methods for a vector makes sense for a stack. A stack inherits all methods of the vector class. Don't use inheritance if it violates the Liskov substitution principle.</p>
+<h2 class="header"><i>11</i>Error Handing<a class="headerlink" href="#error-handing" name="error-handing">&para;</a></h2>
+<h3 class="header"><i>11.1</i>The Hierarchy of Exception Classes<a class="headerlink" href="#the-hierarchy-of-exception-classes" name="the-hierarchy-of-exception-classes">&para;</a></h3>
+<p><img alt="" src="http://img1.uploadscreenshot.com/images/orig/10/29704541482-orig.jpg" title="kill me" /></p>
+<p>Subclasses of Error describe fatal errors, such as memory exhaustion or assertion failure. RuntimeException are unchecked exceptions.<br />
+A catch clause catches exceptions of a given class or any of its subclasses.</p>
+<h2 class="header"><i>12</i>Facade, Singleton, Command, Prototype Patterns<a class="headerlink" href="#facade-singleton-command-prototype-patterns" name="facade-singleton-command-prototype-patterns">&para;</a></h2>
+<h3 class="header"><i>12.1</i>The Facade Pattern<a class="headerlink" href="#the-facade-pattern" name="the-facade-pattern">&para;</a></h3>
+<p><strong>Context</strong></p>
+<ol>
+<li>A subsystem consists of multiple classes, making it complicated for clients to use</li>
+<li>The implementation of the subsystem is subject to change, but the functionality that it provides is stable</li>
+<li>In order to provide the reuse of components, you want to give a coherent entry point to the capabilities of the subsystem</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define a facade class that exposes all capabilities of the subsystem as methods</li>
+<li>The facade methods delegate requests to the subsystem classes</li>
+<li>The subsystem classes do not know about the facade class</li>
+</ol>
+<h3 class="header"><i>12.2</i>The Singleton Pattern<a class="headerlink" href="#the-singleton-pattern" name="the-singleton-pattern">&para;</a></h3>
+<p>A singleton class has exactly one instance. The singleton pattern teaches how to implement a class that has exactly one instance</p>
+<p><strong>Context</strong></p>
+<ol>
+<li>All clients need to access a single shared instance of a class</li>
+<li>You want to ensure that no additional instances can be created accidentally</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define a class with a private constructor</li>
+<li>The class constructs a single instance of itself</li>
+<li>Supply a static method that returns a reference to the single instance</li>
+</ol>
+<h3 class="header"><i>12.3</i>The Command Pattern<a class="headerlink" href="#the-command-pattern" name="the-command-pattern">&para;</a></h3>
+<p><strong>Context</strong></p>
+<ol>
+<li>You want to implement commands that behave like objects, either because commands store information, or they're to be collected</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define a command interface type with a method to execute the command</li>
+<li>Supply methods in the command interface to manipulate the state of command object</li>
+<li>Each concrete command class implements the command interface type</li>
+<li>To invoke the command, call the execute method</li>
+</ol>
+<h3 class="header"><i>12.4</i>The Prototype Pattern<a class="headerlink" href="#the-prototype-pattern" name="the-prototype-pattern">&para;</a></h3>
+<p><strong>Context</strong></p>
+<ol>
+<li>A system needs to create several kinds of objects whose classes are not known when the system is built</li>
+<li>You do not want to require a separate class for each kind of object</li>
+<li>You want to avoid a separate hiearchy of classes whose responsibility it is to create the objects</li>
+</ol>
+<p><strong>Solution</strong></p>
+<ol>
+<li>Define a prototype interface that is common to all created objects</li>
+<li>Supply a prototype object for each kind of object that the system creates</li>
+<li>Clone the prototype object whenever a new object of the given kind is required</li>
+</ol>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

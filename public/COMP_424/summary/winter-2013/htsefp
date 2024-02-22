@@ -1,0 +1,251 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_424/">
+                COMP 424
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Tips for problem-solving and material we've encountered in problems. Sources: midterms, past finals, assignments, sample questions.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#search-and-game-playing">1 Search and game-playing</a><ul>
+<li><a href="#heuristics">1.1 Heuristics</a></li>
+<li><a href="#genetic-algorithms">1.2 Genetic algorithms</a></li>
+<li><a href="#alpha-beta">1.3 Alpha-beta</a></li>
+<li><a href="#monte-carlo-tree-search">1.4 Monte Carlo tree search</a></li>
+<li><a href="#uniform-cost-search">1.5 Uniform cost search</a></li>
+<li><a href="#beam-search">1.6 Beam search</a></li>
+<li><a href="#simulated-annealing">1.7 Simulated annealing</a></li>
+<li><a href="#minimax-trees">1.8 Minimax trees</a></li>
+<li><a href="#constraint-satisfaction">1.9 Constraint satisfaction</a></li>
+<li><a href="#iterative-deepening">1.10 Iterative deepening</a></li>
+</ul>
+</li>
+<li><a href="#machine-learning">2 Machine learning</a><ul>
+<li><a href="#linear-perceptron">2.1 Linear perceptron</a></li>
+<li><a href="#sigmoid-neuron">2.2 Sigmoid neuron</a></li>
+<li><a href="#decision-trees">2.3 Decision trees</a></li>
+<li><a href="#gradient-descent-for-training-neural-networks">2.4 Gradient descent for training neural networks</a></li>
+<li><a href="#function-approximation">2.5 Function approximation</a></li>
+</ul>
+</li>
+<li><a href="#probability">3 Probability</a><ul>
+<li><a href="#basic-probability-calculations">3.1 Basic probability calculations</a></li>
+<li><a href="#maximum-likelihood-estimation">3.2 Maximum likelihood estimation</a></li>
+<li><a href="#drawing-bayes-nets">3.3 Drawing Bayes nets</a></li>
+<li><a href="#bayes-theorem">3.4 Bayes theorem</a></li>
+<li><a href="#utility-theory">3.5 Utility theory</a></li>
+<li><a href="#bandit-problems">3.6 Bandit problems</a></li>
+</ul>
+</li>
+<li><a href="#logic">4 Logic</a><ul>
+<li><a href="#converting-to-cnf">4.1 Converting to CNF</a></li>
+<li><a href="#translating-into-first-order-logic">4.2 Translating into first-order logic</a></li>
+<li><a href="#proving-statements-from-first-order-logic">4.3 Proving statements from first-order logic</a></li>
+</ul>
+</li>
+<li><a href="#mdps">5 MDPs</a><ul>
+<li><a href="#describing-an-mdp">5.1 Describing an MDP</a></li>
+<li><a href="#optimal-policies-and-values">5.2 Optimal policies and values</a></li>
+<li><a href="#bellman-equations">5.3 Bellman equations</a></li>
+<li><a href="#temporal-difference-learning">5.4 Temporal difference learning</a></li>
+</ul>
+</li>
+<li><a href="#problem-formulation">6 Problem formulation</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Search and game-playing<a class="headerlink" href="#search-and-game-playing" name="search-and-game-playing">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Heuristics<a class="headerlink" href="#heuristics" name="heuristics">&para;</a></h3>
+<p>Admissible = optimistic about the distance left (so <span>$h \leq e$</span> where <span>$e$</span> is the actual distance). The closer it is to the actual distance, the more useful the heuristic for all kinds of search algoriths.</p>
+<h3 class="header"><i>1.2</i>Genetic algorithms<a class="headerlink" href="#genetic-algorithms" name="genetic-algorithms">&para;</a></h3>
+<p>For optimisation. Can maintain multiple solutions, not guaranteed to converge to correct answer. Describe the individuals, fitness functions, operations, population, etc.</p>
+<p>Crossover: easy, just cross at the specified point</p>
+<h3 class="header"><i>1.3</i>Alpha-beta<a class="headerlink" href="#alpha-beta" name="alpha-beta">&para;</a></h3>
+<p>Doing it to depth <span>$k+1$</span> instead of <span>$k$</span> might be better, but it depends on the heuristic function.</p>
+<p>Needs a good move-ordering for efficiency.</p>
+<p>Only leads to optimal play against an opponent using the same heuristic function, if the function is good enough (like, not trivial). If the heuristic is shitty then who knows what will happen.</p>
+<h3 class="header"><i>1.4</i>Monte Carlo tree search<a class="headerlink" href="#monte-carlo-tree-search" name="monte-carlo-tree-search">&para;</a></h3>
+<p>Works well with high branching factor. Not necessarily optimal (depends on the policy for generating trajectories, and how many were generated)</p>
+<h3 class="header"><i>1.5</i>Uniform cost search<a class="headerlink" href="#uniform-cost-search" name="uniform-cost-search">&para;</a></h3>
+<p>If we add a positive number to all edges this could change the result</p>
+<h3 class="header"><i>1.6</i>Beam search<a class="headerlink" href="#beam-search" name="beam-search">&para;</a></h3>
+<p>Not guaranteed to converge on an optimal solution even for an admissible heuristic, unless the beam is wide enough to include all successor nodes every time; space and time are <span>$O(k^d)$</span>; lower memory requirement than A*.</p>
+<h3 class="header"><i>1.7</i>Simulated annealing<a class="headerlink" href="#simulated-annealing" name="simulated-annealing">&para;</a></h3>
+<p>For optimisation. Only keeps one best solution, guaranteed to converge with the right choice of parameters. If you lower the temp too quickly, you might get stuck in a local optimum; if you lower it too slowly it could take longer to reach the optimum than it will take to get our midterms back.</p>
+<h3 class="header"><i>1.8</i>Minimax trees<a class="headerlink" href="#minimax-trees" name="minimax-trees">&para;</a></h3>
+<p>Self-explanatory. To ensure the maximum amount of pruning, sort it in increasing order at min nodes, decreasing at max.</p>
+<h3 class="header"><i>1.9</i>Constraint satisfaction<a class="headerlink" href="#constraint-satisfaction" name="constraint-satisfaction">&para;</a></h3>
+<p>Useful when you just want to find a valid solution, not necessarily the optimal solution. Describe with variables, domains, and constraints. Should indicate how the problem can be solved, too (e.g., depth-first search with backtracking).</p>
+<h3 class="header"><i>1.10</i>Iterative deepening<a class="headerlink" href="#iterative-deepening" name="iterative-deepening">&para;</a></h3>
+<p>Depth-limited search but you increase the depth and start again if there's still time. Leads to duplicated work but better memory requirements (linear). Good for large state spaces.</p>
+<p>Can be done for game-tree search. The con is that a lot of work gets duplicated.</p>
+<h2 class="header"><i>2</i>Machine learning<a class="headerlink" href="#machine-learning" name="machine-learning">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Linear perceptron<a class="headerlink" href="#linear-perceptron" name="linear-perceptron">&para;</a></h3>
+<p>Can learn AND, OR, but not XOR (not linearly separable)</p>
+<p>Take a vector of weights, find its dot product with some input vector, return yes if the output is above a certain threshold and no otherwise. Can be used to take a majority vote.</p>
+<p>To represent XOR, you need multiple perceptrons:</p>
+<p><img alt="From wikimedia commons" src="http://upload.wikimedia.org/wikipedia/en/7/7b/XOR_perceptron_net.png" /></p>
+<p>To represent some boolean formula, use +1 for positive literals, -1 for negative, and an appropriate threshold. Just try all values I guess</p>
+<h3 class="header"><i>2.2</i>Sigmoid neuron<a class="headerlink" href="#sigmoid-neuron" name="sigmoid-neuron">&para;</a></h3>
+<p>Also a binary classifier, also not linearly separable, but if we form a network with a single hidden layer we can represent any sort of boolean function; number of hidden units required is exponential in the number of inputs.</p>
+<h3 class="header"><i>2.3</i>Decision trees<a class="headerlink" href="#decision-trees" name="decision-trees">&para;</a></h3>
+<p>Not good for taking a majority vote</p>
+<h3 class="header"><i>2.4</i>Gradient descent for training neural networks<a class="headerlink" href="#gradient-descent-for-training-neural-networks" name="gradient-descent-for-training-neural-networks">&para;</a></h3>
+<p>To compute the weight update rule: <span>$w = w - \alpha\nabla J$</span> where <span>$J$</span> is some least squares bullshit and <span>$\nabla$</span> is the gradient of <span>$o$</span> wrt <span>$w$</span></p>
+<p>Can we replace this with simulated annealing? Yes, if we let the algorithm move upward with some small probability, but it would be slower, less optimal, etc.</p>
+<h3 class="header"><i>2.5</i>Function approximation<a class="headerlink" href="#function-approximation" name="function-approximation">&para;</a></h3>
+<dl>
+<dt>Training error</dt>
+<dd>error rate on the training set.</dd>
+<dt>Testing error</dt>
+<dd>error rate on the test set.</dd>
+<dt>Overfitting</dt>
+<dd>When the error rate on the training set is low but the testing error is high</dd>
+<dt>k-fold cross-validation</dt>
+<dd>train on <span>$9/k$</span>, test on <span>$1/k$</span>, repeat <span>$k$</span> times</dd>
+</dl>
+<h2 class="header"><i>3</i>Probability<a class="headerlink" href="#probability" name="probability">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Basic probability calculations<a class="headerlink" href="#basic-probability-calculations" name="basic-probability-calculations">&para;</a></h3>
+<p>If you don't know this already then you'll probably fail the exam</p>
+<h3 class="header"><i>3.2</i>Maximum likelihood estimation<a class="headerlink" href="#maximum-likelihood-estimation" name="maximum-likelihood-estimation">&para;</a></h3>
+<p>Find the event that is most likely to lead to a specific outcome. Take the log of the likelihood function (the product of the density function <span>$n$</span> times), find its derivative, set to 0 (to find an optimum). This can also be done with gradient descent (guess and check)</p>
+<h3 class="header"><i>3.3</i>Drawing Bayes nets<a class="headerlink" href="#drawing-bayes-nets" name="drawing-bayes-nets">&para;</a></h3>
+<p>Draw a circle for an event, arrows to indicate influence, then write the probabilities (given any influencing events) next to each event.</p>
+<h3 class="header"><i>3.4</i>Bayes theorem<a class="headerlink" href="#bayes-theorem" name="bayes-theorem">&para;</a></h3>
+<p><span>$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$</span></p>
+<h3 class="header"><i>3.5</i>Utility theory<a class="headerlink" href="#utility-theory" name="utility-theory">&para;</a></h3>
+<dl>
+<dt>Value of information</dt>
+<dd>Expected value of best action with the information - expected value of best action with the information</dd>
+</dl>
+<h3 class="header"><i>3.6</i>Bandit problems<a class="headerlink" href="#bandit-problems" name="bandit-problems">&para;</a></h3>
+<p>Difference between UCB and epsilon-greedy: the former wants to reduce uncertainty, the latter is just greedy (with some small probability for non-greediness); the differences even out over time</p>
+<h2 class="header"><i>4</i>Logic<a class="headerlink" href="#logic" name="logic">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Converting to CNF<a class="headerlink" href="#converting-to-cnf" name="converting-to-cnf">&para;</a></h3>
+<p>ands of ors. The harder one. It looks like <span>$\to$</span> can be left as-is, though, judging from the solutions to 4b for the <a href="http://www.cs.mcgill.ca/~dprecup/courses/AI/sample_questions_answers.pdf">sample questions</a></p>
+<p>Skolemisation lets you replace an existential quantifier with some arbitrary variable, say <span>$X0$</span>.</p>
+<h3 class="header"><i>4.2</i>Translating into first-order logic<a class="headerlink" href="#translating-into-first-order-logic" name="translating-into-first-order-logic">&para;</a></h3>
+<p>Use variables for things if necessary (like "Bob").</p>
+<p>Note that you can't do things like "most" in FOL. You can represent a finite, constant number though, like "there are two different boys in the world" (just state that they're not equal)</p>
+<h3 class="header"><i>4.3</i>Proving statements from first-order logic<a class="headerlink" href="#proving-statements-from-first-order-logic" name="proving-statements-from-first-order-logic">&para;</a></h3>
+<p>Use skolemisation. Resolution: if <span>$a \to b$</span> and <span>$b \to c$</span> then <span>$a \to c$</span> (transitivity). Unification: replace a variable by something else (like a skolem constant)</p>
+<h2 class="header"><i>5</i>MDPs<a class="headerlink" href="#mdps" name="mdps">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Describing an MDP<a class="headerlink" href="#describing-an-mdp" name="describing-an-mdp">&para;</a></h3>
+<p>States, actions, transition probabilities, rewards</p>
+<h3 class="header"><i>5.2</i>Optimal policies and values<a class="headerlink" href="#optimal-policies-and-values" name="optimal-policies-and-values">&para;</a></h3>
+<dl>
+<dt>Policy</dt>
+<dd>Whatever gets the highest reward.</dd>
+<dt>Value at a state</dt>
+<dd>Compute the reward accumulated by that state if we behave acc. to the optimal policy</dd>
+<dt>Optimal value function</dt>
+<dd><span>$V^*(n)$</span>, a function indicating the optimal value if we start at state <span>$n$</span> (and continue until the end of time). It looks like we can leave it in recurrence relation form, judging from the solutions to 6c for the <a href="http://www.cs.mcgill.ca/~dprecup/courses/AI/sample_questions_answers.pdf">sample questions</a></dd>
+<dt>Value iteration, <span>$V_n(k)$</span></dt>
+<dd>later</dd>
+</dl>
+<h3 class="header"><i>5.3</i>Bellman equations<a class="headerlink" href="#bellman-equations" name="bellman-equations">&para;</a></h3>
+<p>fuck this</p>
+<h3 class="header"><i>5.4</i>Temporal difference learning<a class="headerlink" href="#temporal-difference-learning" name="temporal-difference-learning">&para;</a></h3>
+<p>later</p>
+<h2 class="header"><i>6</i>Problem formulation<a class="headerlink" href="#problem-formulation" name="problem-formulation">&para;</a></h2>
+<p>Basically an essay question. Given a problem, how would you solve it using AI techniques, etc. MDPs are a good bet. Describe rewards, transition models, states, etc. For optimisation problems, </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

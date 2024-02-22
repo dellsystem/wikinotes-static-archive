@@ -1,0 +1,666 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Digital logic - combinational logic
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Digital logic - combinational logic
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#drawing-combinational-logic-circuits">1 Drawing combinational logic circuits</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#writing-out-truth-tables">2 Writing out truth tables</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#sums-of-products-and-products-of-sums">3 Sums of products and products of sums</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a><ul>
+<li><a href="#sums-of-products">3.1.1 Sums of products</a></li>
+<li><a href="#products-of-sums">3.1.2 Products of sums</a></li>
+</ul>
+</li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#read-only-memory">4 Read-only memory</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#drawing-circuits-of-multiplexors">5 Drawing circuits of multiplexors</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#labeling-wires-in-a-circuit">6 Labeling wires in a circuit</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a><ul>
+<li><a href="#carrying-out-addition-with-a-circuit">6.1.1 Carrying out addition with a circuit</a></li>
+<li><a href="#subtraction-and-circuits">6.1.2 Subtraction and circuits</a></li>
+<li><a href="#labeling-an-addersubtractor-circuit">6.1.3 Labeling an adder/subtractor circuit</a></li>
+<li><a href="#truth-tables-and-addersubtractor-circuits">6.1.4 Truth tables and adder/subtractor circuits</a></li>
+<li><a href="#overflow-and-adder-circuits">6.1.5 Overflow and adder circuits</a></li>
+</ul>
+</li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#encoder-truth-tables">7 Encoder truth tables</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#decoder-circuit-diagrams">8 Decoder circuit diagrams</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Drawing combinational logic circuits<a class="headerlink" href="#drawing-combinational-logic-circuits" name="drawing-combinational-logic-circuits">&para;</a></h2>
+<blockquote>
+<p>Given an expression, draw a combinational logic circuit that implements it. Optionally: use only a subset of the available logic gates.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>The logic gates appear as follows:</p>
+<table class="fresh">
+<thead>
+<tr>
+<th>Type</th>
+<th>Shape</th>
+<th>Expression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td><img alt="AND gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/and_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$A \cdot B$</span></td>
+</tr>
+<tr>
+<td>OR</td>
+<td><img alt="OR gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/or_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$A + B$</span></td>
+</tr>
+<tr>
+<td>NOT</td>
+<td><img alt="NOT gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/not_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$\overline A$</span></td>
+</tr>
+<tr>
+<td>NAND</td>
+<td><img alt="NAND gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/nand_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$\overline{(A \cdot B})$</span></td>
+</tr>
+<tr>
+<td>NOR</td>
+<td><img alt="NOR gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/nor_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$\overline{(A + B)} = \overline A \cdot \overline B$</span></td>
+</tr>
+<tr>
+<td>XOR</td>
+<td><img alt="XOR gate" src="http://cs.mcgill.ca/~wliu65/media/comp273/xor_gate.png" title="Taken from Wikipedia Commons - public domain" /></td>
+<td><span>$A \oplus B = (A \cdot \overline B) + (\overline A \cdot B)$</span></td>
+</tr>
+</tbody>
+</table>
+<p>Just remember what each gate looks like and you should be set. To branch a wire into two, use a black dot.</p>
+<p>If you can only use certain gates, for example only NAND gates, then write out the truth tables for the allowed gates and think about how to use them. </p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Exercises 2, questions 1 (a) and 4</li>
+</ul>
+<h2 class="header"><i>2</i>Writing out truth tables<a class="headerlink" href="#writing-out-truth-tables" name="writing-out-truth-tables">&para;</a></h2>
+<blockquote>
+<p>Given an expression, write out its truth table.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>Kind of like writing <a href="/MATH_318/lecture-notes/fall-2011/friday-september-2#truth-tables">truth tables for propositional formulas</a>, only with different notation for the operators (+ instead of <span>$\lor$</span>, <span>$\cdot$</span> instead of <span>$\land$</span>, <span>$\overline{A}$</span> instead of <span>$\neg A$</span>, etc).</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Exercises 2, question 1 (b)</li>
+</ul>
+<h2 class="header"><i>3</i>Sums of products and products of sums<a class="headerlink" href="#sums-of-products-and-products-of-sums" name="sums-of-products-and-products-of-sums">&para;</a></h2>
+<blockquote>
+<p>Given an expression <span>$Y$</span>, write it out as a sum of products and/or as a product of sums.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Sums of products<a class="headerlink" href="#sums-of-products" name="sums-of-products">&para;</a></h4>
+<p>Identify the rows that result in a 1 in the truth table. Same concept as <a href="/MATH_318/summary/fall-2011/htsefp-propositional-logic#truth-tables-and-normal-forms">finding the disjunctive normal form</a> in propositional logic.</p>
+<h4 class="header"><i>3.1.2</i>Products of sums<a class="headerlink" href="#products-of-sums" name="products-of-sums">&para;</a></h4>
+<p>Identify the rows that result in a 0 in the truth table, and write it as <span>$\overline{Y} = (\overline A \cdot B \cdot C) + (...)$</span> or whatever. Then take the negative and apply De Morgan's laws recursively until the expression is a product of sums. As an example (taken from exercises 2, question 1):</p>
+<p><span>$$Y = (A \cdot B) + \overline{(A \cdot C)} \cdot \overline{B}$$</span></p>
+<p>The truth table appears as follows:</p>
+<table class="clear">
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th><span>$A \cdot B$</span></th>
+<th><span>$\overline{(A \cdot C)} \cdot \overline B$</span></th>
+<th><span>$Y$</span></th>
+<th><span>$\overline{Y}$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The relevant rows are the third, the fifth, and the sixth, which can be written as follows:</p>
+<p><span>$$\overline{Y} = (A \cdot \overline B \cdot C) + (\overline A \cdot B \cdot C) + (\overline A \cdot B \cdot \overline C)$$</span></p>
+<p>We then negate both sides:</p>
+<p><span>$$\begin{align}Y &amp; = \overline{(A \cdot \overline B \cdot C) + (\overline A \cdot B \cdot C) + (\overline A \cdot B \cdot \overline C)} \\\ &amp; = \overline{(A \cdot \overline B \cdot C)} \cdot \overline{(\overline A \cdot B \cdot C)} \cdot \overline{(\overline A \cdot B \cdot \overline C)} \\ &amp; = (\overline A + B + \overline C) \cdot (A + \overline B + \overline C) \cdot (A + \overline B + C)
+\end{align}$$</span></p>
+<p>and so the final line is the product-of-sums representation.</p>
+<p>The sum-of-products representation is much easier - one step, usually. In this case, it's <span>$(A \cdot B \cdot C) + (A \cdot B \cdot \overline C) + (A \cdot \overline B \cdot \overline C) + (\overline A \cdot \overline B \cdot C) + (\overline A \cdot \overline B \cdot \overline C)$</span>.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Exercises 2, questions 1 (c) and (d), 2, 3 and 5 (a) and (b)</li>
+</ul>
+<h2 class="header"><i>4</i>Read-only memory<a class="headerlink" href="#read-only-memory" name="read-only-memory">&para;</a></h2>
+<blockquote>
+<p>Explain how a circuit can be used as a read-only memory (ROM).</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>If the inputs are ordered, then the sequence of bits representing their values (e.g. 1000 if there are four inputs and only the first one is on) can be thought of as a memory address. The sequence of bits representing the output variables - <span>$Y_0, Y_1, Y_2$</span> etc - can be thought of as the value at that memory address. Since the gates are fixed, the same input bit sequence results in the same output bit sequence every time, and so this is read-only.</p>
+<p>Note that both the input and the output variables are ordered in a ROM.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Exercises 2, question 5 (c)</li>
+</ul>
+<h2 class="header"><i>5</i>Drawing circuits of multiplexors<a class="headerlink" href="#drawing-circuits-of-multiplexors" name="drawing-circuits-of-multiplexors">&para;</a></h2>
+<blockquote>
+<p>Given some sort of multiplexor situation and specific inputs, draw out the combinational logic circuit.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>A <strong>multiplexor</strong> is a circuit in which one or more of the input variables acts as a <em>selector</em>, essentially choosing which of the other input variables to allow through.</p>
+<p>If an input is not a single bit, but rather composed of many bits (e.g. an integer greater than, well, 1) then we draw a slash through the wire and write out the number of bits used. This shouldn't really change anything.</p>
+<p>In any case, draw a box for the decoder (drawing the entire diagram shouldn't be required, but if it is, <a href="#decoder-circuit-diagrams">that section is below</a>), and draw some input and some output wires for it. If there are <span>$n$</span> input variables, then the decoder should have <span>$n$</span> output wires and <span>$\log_2 n$</span> input wires (e.g. 1-to-2, 2-to-4, 3-to-8, 4-to-16, etc). Each of the wires from the decoder should be ANDed with one of the input variables, with a 1 for wire ANDed with the selected variable and a 0 for all the others. Then, all the AND gates should be ORed. The final output should be the same as that of the selected variable. This is quite straightforward; see the examples below.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Exercises 2, questions 6 and 9</li>
+</ul>
+<h2 class="header"><i>6</i>Labeling wires in a circuit<a class="headerlink" href="#labeling-wires-in-a-circuit" name="labeling-wires-in-a-circuit">&para;</a></h2>
+<blockquote>
+<p>Given an adder/subtractor circuit diagram and the input numbers, label all the wires or fill in some truth table about the circuit.</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Carrying out addition with a circuit<a class="headerlink" href="#carrying-out-addition-with-a-circuit" name="carrying-out-addition-with-a-circuit">&para;</a></h4>
+<p>First, a bit of a background. We can figure out the type of circuit needed to perform addition by drawing the truth table for the first sum and carry bit:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$A_0$</span></th>
+<th><span>$B_0$</span></th>
+<th><span>$S_0$</span> (sum)</th>
+<th><span>$C_0$</span> (carry)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>From the truth table, it's clear that <span>$S_0$</span> can be produced using an XOR gate, and <span>$C_0$</span> can be produced using an AND gate. This circuit (known as a <strong>half adder</strong>) looks something like this:</p>
+<p><img alt="Circuit diagram for the first sum and carry bits in addition (half adder)" src="http://cs.mcgill.ca/~wliu65/media/comp273/addition.png" title="Original diagram using public domain AND and XOR gate images from Wikipedia Commons" /></p>
+<p>We can then compute the truth table for the <span>$i$</span>th sum and <span>$i+1$</span>th carry bit, with <span>$A_i$</span>, <span>$B_i$</span>, and the previous carry bit given as input, as follows:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$A_i$</span></th>
+<th><span>$B_i$</span></th>
+<th><span>$C_i$</span></th>
+<th><span>$S_i$</span></th>
+<th><span>$C_{i+1}$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>The <span>$i$</span>th sum bit can be represented by:</p>
+<p><span>$$S_i = (A_i \cdot B_i \cdot C_i) + (A_i \cdot \overline B_i \cdot \overline C_i) + (\overline A_i \cdot B_i \cdot \overline C_i) + (\overline A_i \cdot \overline B_i \cdot C_i)$$</span></p>
+<p>and the <span>$i+1$</span>th carry bit can be represented by:</p>
+<p><span>$$C_i = (A_i \cdot B_i \cdot C_i) + (A_i \cdot B_i \cdot \overline C_i) + (A_i \cdot \overline B_i \cdot C_i) + (\overline A_i \cdot B_i \cdot C_i)$$</span></p>
+<p>The combinational circuitry (known as the <strong>full adder</strong>) for representing the above truth table might look like this:</p>
+<p><img alt="Circuit diagram for the full adder" src="http://cs.mcgill.ca/~wliu65/media/comp273/addition_full.png" title="Original diagram using public domain AND and XOR gate images from Wikipedia Commons" /></p>
+<p>We then connect the <span>$C_{i+1}$</span> output to the full adder for the next <span>$i$</span>, resulting in a <strong>ripple adder</strong><sup id="fnref:ripple adder"><a href="#fn:ripple adder" rel="footnote" title="Since the changes have to propagate from one full ...">1</a></sup> (as diagrammed in the lecture notes for lecture 4).</p>
+<p>(We can represent the above circuit diagram as a big box with + written inside it and the necessary inputs and outputs, since it's too complex to have to draw multiple times for every ripple adder.)</p>
+<h4 class="header"><i>6.1.2</i>Subtraction and circuits<a class="headerlink" href="#subtraction-and-circuits" name="subtraction-and-circuits">&para;</a></h4>
+<p>Instead of building a whole other circuit for subtraction, we use the fact that <span>$A-B = A + (-B)$</span> and simply add <span>$A$</span> and the negative of <span>$B$</span>. To add the negative of B, we take its two's complement, which can be done mechanically by flipping all the bits and adding one (by setting the initial carry bit to 1). To flip all the bits and set the initial carry bit to 1, we use a variable called <strong>Binvert</strong><sup id="fnref:binvert"><a href="#fn:binvert" rel="footnote" title="Not sure if this is a real term lol">2</a></sup>, which specifies whether we're doing addition or subtraction and selects accordingly. (If it's 1, we're subtracting; if it's 0, we're adding.)</p>
+<h4 class="header"><i>6.1.3</i>Labeling an adder/subtractor circuit<a class="headerlink" href="#labeling-an-addersubtractor-circuit" name="labeling-an-addersubtractor-circuit">&para;</a></h4>
+<p>Write the numbers A and B in binary, using twos complement. For each bit, figure out the sum and the carry bit. If it's a subtraction, set Binvert to 1 and allow the required bit-flipping and initial carry to propagate.</p>
+<h4 class="header"><i>6.1.4</i>Truth tables and adder/subtractor circuits<a class="headerlink" href="#truth-tables-and-addersubtractor-circuits" name="truth-tables-and-addersubtractor-circuits">&para;</a></h4>
+<p>Same idea as labeling, only write it in a table. For example, in exercises 2, question 7, we get the following truth table for the entire operation:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$i$</span></th>
+<th><span>$C_i$</span></th>
+<th><span>$A_i$</span></th>
+<th><span>$B_i$</span></th>
+<th><span>$S_i$</span></th>
+<th><span>$C_{i+1}$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>So the sum of 98 and 25 is 1111011<sub>two</sub>, which is 123 in decimal, exactly as it should be.</p>
+<p>Note that this could be computed simply by converting the numbers to signed binary (same number of bits) and adding them, since that is what an adder circuit purports to do anyway.</p>
+<h4 class="header"><i>6.1.5</i>Overflow and adder circuits<a class="headerlink" href="#overflow-and-adder-circuits" name="overflow-and-adder-circuits">&para;</a></h4>
+<p>We can mechanically determine the situations in which overflows happen by first constructing a truth table for this. Overflows can only happen when A and B are the same sign and the sum is the opposite sign. We can then draw a 16-line truth table in 4 variables (Binvert, <span>$A_{n-1}$</span>, <span>$A_{n-1}$</span>, and <span>$S_{n-1}$</span>) with the output variable being overflow detection (1 if there is an overflow, 0 if there is not.) The solution for question 11 in exercises 2 explains this pretty well.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Exercises 2, questions 7, 8 and 11</li>
+</ul>
+<h2 class="header"><i>7</i>Encoder truth tables<a class="headerlink" href="#encoder-truth-tables" name="encoder-truth-tables">&para;</a></h2>
+<blockquote>
+<p>Given the situation for an encoder, draw the truth table.</p>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>Easy enough. Just figure out the mapping from each input to each output and construct the truth table from that. See the example below. (Note that in the example, 9 can be drawn in two ways: with <span>$L_3$</span>, and without. Both should be correct.)</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Exercises 2, question 10</li>
+</ul>
+<h2 class="header"><i>8</i>Decoder circuit diagrams<a class="headerlink" href="#decoder-circuit-diagrams" name="decoder-circuit-diagrams">&para;</a></h2>
+<blockquote>
+<p>Given the truth table for a decoder, draw the circuit diagram.</p>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>For each output variable <span>$Y_i$</span>, find the logic gate (or series of logic gates) best suited to represent that variable from the input parameters. This is pretty simple - the trick is to treat each output variable separately. For example, for the 1-to-2 decoder mentioned in the notes for lecture 4, we have the following truth table:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$A$</span></th>
+<th><span>$Y_1$</span></th>
+<th><span>$Y_2$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>and so we can easily see that <span>$Y_1 = \overline A$</span> and <span>$Y_2 = A$</span>, resulting in the following circuit diagram:</p>
+<p><img alt="Circuit diagram for a 1-to-2 decoder" src="http://cs.mcgill.ca/~wliu65/media/comp273/decoder_1_to_2.png" title="Original diagram using public domain AND and XOR gate images from Wikipedia Commons" /></p>
+<p>For the 2-to-4 decoder mentioned on the same page of the lecture notes, we have the following truth table:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$A$</span></th>
+<th><span>$B$</span></th>
+<th><span>$Y_1$</span></th>
+<th><span>$Y_2$</span></th>
+<th><span>$Y_3$</span></th>
+<th><span>$Y_4$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p><span>$Y_1$</span> can be produced using a NOR gate, <span>$Y_2$</span> with <span>$(\overline A \cdot B)$</span>, <span>$Y_3$</span> with <span>$(A \cdot \overline B)$</span>, and <span>$Y_4$</span> with an AND gate, resulting in the following circuit diagram:</p>
+<p><img alt="Circuit diagram for a 2-to-4 decoder" src="http://cs.mcgill.ca/~wliu65/media/comp273/decoder_2_to_4.png" title="Original diagram using public domain AND and XOR gate images from Wikipedia Commons" /></p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Just the lecture notes</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:ripple adder">
+<p>Since the changes have to propagate from one full adder to the next, this circuit operates fairly slowly -  in linear time, to be more precise. We could build a faster addition circuit, a <strong>fast adder</strong>, by splitting up the job into multiple circuits (sort of like divide and conquer); this results in an <span>$O(\log n)$</span> runtime. Details omitted in the lecture notes and thus here as well.&#160;<a href="#fnref:ripple adder" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:binvert">
+<p>Not sure if this is a real term lol&#160;<a href="#fnref:binvert" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

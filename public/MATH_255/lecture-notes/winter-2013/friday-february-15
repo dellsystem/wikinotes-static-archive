@@ -1,0 +1,145 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, February 15, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, February 15, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Riemann Criterion, and some results about integrability
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Riemann Criterion for Integrability</strong></p>
+<p>Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be a bounded function on <span>$I$</span>. <span>$f$</span> is Riemann integrable on <span>$I \iff \epsilon &gt; 0$</span> given there exists a partition <span>$P_\epsilon$</span> of <span>$I$</span> such that <span>$U_f(P_\epsilon) - L_f(P_\epsilon) &lt; \epsilon$</span></p>
+<p><strong>Proof:</strong> (<span>$\Rightarrow$</span>) if <span>$f$</span> is Riemann integrable, then <span>$L(f) = U(f)$</span>. <span>$U(f) = \inf\{U_f(P):P \text{ is a partition of } I\}$</span>. If <span>$\epsilon &gt; 0$</span> is given, then <span>$U(f) + \epsilon / 2$</span> is no longer a lower bound. Thus there exists a partition <span>$P_1$</span> of <span>$I$</span> such that <span>$U_f(P_1) &lt; U(f) + \epsilon / 2$</span>. Similarly, by the properties of the supremum, there exists a partition <span>$P_2$</span> of <span>$I$</span> such that <span>$L(f) - \epsilon / 2 &lt; L_f(P_2)$</span>. Let <span>$P_\epsilon = P_1 \cup P_2$</span>, a refinement of <span>$P_1$</span> and <span>$P_2$</span>. Thus <span>$L(f) - \epsilon / 2 &lt; L_f(P_2) \leq L_f(P_\epsilon)$</span> and <span>$U_f(P_\epsilon) \leq U_f(P_1) &lt; U(f) + \epsilon / 2$</span>. Thus <span>$U_f(P_\epsilon) - L_f(P_\epsilon) &lt; U(f) + \epsilon / 2 - (L(f) - \epsilon / 2) = \epsilon$</span>.</p>
+<p>(<span>$\Leftarrow$</span>) Let <span>$\epsilon &gt; 0$</span> be given, there exists <span>$P_\epsilon$</span> a partition of <span>$I$</span> such that <span>$U_f(P_\epsilon) - L_f(P_\epsilon) &lt; \epsilon$</span>. But as you know, <span>$L_f(P_\epsilon) \leq L(f) \leq U(f) \leq U_f(P_\epsilon)$</span> so <span>$U(f) - L(f) \leq U_f(P_\epsilon) - L_f(P_\epsilon) &lt; \epsilon$</span>, i.e. <span>$0 \leq U(f) - L(f) &lt; \epsilon$</span> for all <span>$\epsilon &gt; 0$</span> thus <span>$U(f) - L(f) = 0$</span>. Thus <span>$U(f) = L(f)$</span> and <span>$f$</span> is Riemann integrable. <span>$\blacksquare$</span></p>
+<p><strong>Corollary:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be a bounded function on <span>$I$</span>. If <span>$\{P_n\}$</span> is a sequence of partitions of <span>$I$</span> such that <span>$\displaystyle \lim_{n \to \infty} U_f(P_n) - L_f(P_n) = 0$</span> then <span>$f$</span> is Riemann integrable on <span>$I$</span> and <span>$\displaystyle\int_a^b f = \lim_{n \to \infty} U_f(P_n) = \lim_{n \to \infty} L_f(P_n)$</span>.</p>
+<p><strong>Proof:</strong> If <span>$\epsilon &gt; 0$</span> is given there exists some <span>$N \in \mathbb{N}$</span> such that if <span>$n \geq N$</span>, <span>$U_f(P_n) - L_f(P_n) &lt; \epsilon$</span> (as <span>$\lim U_f(P_n) - L_f(P_n) = 0$</span>). Thus by Riemann Criterion, <span>$f$</span> is integrable on <span>$I$</span>. To show that <span>$\displaystyle\int_a^b f = \lim_{n \to \infty} U_f(P_n)$</span> we note that <span>$L_f(P_n) \leq L(f) \leq U(f) \leq U_f(P_n)$</span> thus <span>$0 \leq U_f(P_n) - U(f) \leq U_f(P_n) - L_f(P_n) &lt; \epsilon$</span> for <span>$n \geq N$</span> thus <span>$\lim U_f(P_n) = U(f) = \int_a^b f$</span>. The proof follows similarly for <span>$\lim L_f(P_n) = L(f) = \int_a^b f$</span>.</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be a monotone function, then <span>$f$</span> is Riemann integrable on <span>$I$</span>.</p>
+<p><strong>Proof:</strong> Let <span>$f$</span> be monotone increasing and let <span>$P_n = \{ x_0, x_1, \ldots, x_n \}$</span> be a regular partition of <span>$I$</span> into <span>$n$</span> equal parts of length <span>$\frac{b - a}{n}$</span>. Since <span>$f$</span> is monotone increasing, </p>
+<p><span>$$
+\sup \{ f(x) : x \in [x_{k-1}, x_k] \} = f(x_k) \text{ and } \inf \{ f(x) : x \in [x_{k-1}, x_k] \} = f(x_{k-1})
+$$</span></p>
+<p>so</p>
+<p><span>$\begin{align}
+U_f(P_n) &amp;= \sum_{k=1}^n f(x_k)(x_k - x_{k-1}) \\
+&amp;= \sum_{k=1}^n f(x_k)\frac{b-a}{n} \\
+&amp;= \left(\frac{b-a}{n}\right)(f(x_1) + f(x_2) + \ldots + f(x_n))
+\end{align}$</span></p>
+<p>and similarly <span>$\displaystyle L_f(P_n) = \left(\frac{b-a}{n}\right)(f(x_0) + f(x_2) + \ldots + f(x_{n-1}))$</span> so <span>$U_f(P_n) - L_f(P_n) = \left(\frac{b-a}{n}\right)(f(x_n) - f(x_0)) = \left(\frac{b-a}{n}\right)(f(b) - f(a))$</span>. For any given <span>$\epsilon &gt; 0$</span>, for <span>$\displaystyle n &gt; \frac{(b-a)(f(b)-f(a))}{\epsilon}$</span> it follows that </p>
+<p><span>$$
+\frac{(b-a)(f(b)-f(a))}{n} &lt; \epsilon
+$$</span></p>
+<p>i.e. <span>$U_f(P_n) - L_f(P_n) &lt; \epsilon$</span> so <span>$f$</span> is Riemann integrable on <span>$I$</span>. The proof for <span>$f$</span> monotone decreasing follows similarly.</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> continuous on <span>$I$</span>. Then <span>$f$</span> is Riemann integrable on <span>$I$</span>.</p>
+<p><strong>Proof:</strong> As <span>$f$</span> is continuous on a closed and bounded interval <span>$I$</span> then <span>$f$</span> is uniformly continuous on <span>$I$</span>. Thus for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$\delta &gt; 0$</span> such that if <span>$|x - y| &lt; \delta$</span> then <span>$|f(x) - f(y)| &lt; \epsilon / (b - a)$</span>. Let <span>$P_n = \{ x_0, x_1, \ldots, x_n \}$</span> be a regular partition of <span>$I$</span> into subintervals of length <span>$(b-a) / n$</span>. Then for <span>$n &gt; \frac{b-a}{\delta}$</span> (i.e., making sure that <span>$\frac{b-a}{n} &lt; \delta$</span>) <span>$f$</span> is continuous on <span>$[x_{k-1}, x_k]$</span> and there exist <span>$u_k, v_k \in [x_{k-1}, x_k]$</span> such that <span>$M_k = \sup\{f(x) : x \in [x_{k-1}, x_k]\} = f(v_k)$</span> and <span>$m_k = \inf\{f(x) : x \in [x_{k-1}, x_k]\} = f(u_k)$</span>. Then <span>$|u_k - v_k| &lt; \delta$</span> thus </p>
+<p><span>$$
+|f(u_k) - f(v_k)| = M_k - m_k &lt; \frac{\epsilon}{b-a}
+$$</span><br />
+thus </p>
+<p><span>$\begin{align}
+U_f(P_n) - L_f(P_n) &amp;= \sum_{k=1}^n M_k(x_k - x_{k-1}) - \sum_{k=1}^n m_k(x_k - x_{k-1}) \\
+&amp;= \sum_{k=1}^n (M_k-m_k)(x_k - x_{k-1}) \\
+&amp;&lt; \sum_{k=1}^n \frac{\epsilon}{b-a}(x_k - x_{k-1}) \\
+&amp;= \frac{\epsilon}{b-a} \sum_{k=1}^n x_k - x_{k-1} \\
+&amp;= \frac{\epsilon}{b-a} (x_n - x_0) = \frac{\epsilon}{b-a}(b - a) = \epsilon
+\end{align}$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

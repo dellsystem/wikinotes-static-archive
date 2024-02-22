@@ -1,0 +1,162 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, February 4, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, February 4, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Planar duals
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#planar-duals">1 Planar duals</a><ul>
+<li><a href="#bipartite-graphs-and-eulerian-duals">1.1 Bipartite graphs and Eulerian duals</a></li>
+<li><a href="#graph-minors">1.2 Graph minors</a><ul>
+<li><a href="#kuratowskis-theorem">1.2.1 Kuratowski's theorem</a></li>
+</ul>
+</li>
+<li><a href="#the-hadwiger-conjecture">1.3 The Hadwiger conjecture</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Planar duals<a class="headerlink" href="#planar-duals" name="planar-duals">&para;</a></h2>
+<p>Any planar drawing <span>$G$</span> has a corresponding a <strong>dual</strong> (also planar), which we'll call <span>$H$</span>.</p>
+<p>To find the dual: draw the vertices for <span>$H$</span> in the faces of <span>$G$</span>, and connect them if there's an edge between the faces.</p>
+<p>Thus <span>$V(H) = F(G)$</span>, <span>$E(H) = E(G)$</span> and <span>$(f_1, f_2) \in E(H) \iff f_1, f_2$</span> are adjacent faces in <span>$G$</span>.</p>
+<p>Incidentally, the dual of the octahedron is actually the graph of the cube. The dual of the icosahedron is the dodecahedron, and the dual of the tetrahedron is itself (<strong>wow</strong>).</p>
+<p>Also, colouring a map is equivalent to colouring the dual of the graph.</p>
+<p>Observe that the drawing of the dual graph, <span>$H$</span>, depends on the drawing of <span>$G$</span>. We define the term <span>$k$</span>-connected: a graph <span>$G$</span> is <span>$k$</span>-connected if <span>$\forall u, v, \in V(G)$</span>, there exist at least <span>$k$</span> vertex-disjoint paths between <span>$u$</span> and <span>$v$</span> (i.e., at least <span>$k$</span> different ways of going from <span>$u$</span> to <span>$v$</span>).</p>
+<p>We claim that if <span>$G$</span> is 3-connected and planar then it has a unique dual. On the other hand, if a graph is not 3-connected, it may have 2 or more dual graphs, depending on the way we draw the original graph.</p>
+<p>For example:</p>
+<p><a href=""><img alt="A graph with multiple distinct duals" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Noniso_dual_graphs.svg/200px-Noniso_dual_graphs.svg.png" title="From Wikimedia commons" /></a></p>
+<p>We can be certain that these are two different graphs (and not just the same graph drawn in a slightly different way) by looking at the distribution of degrees.</p>
+<h3 class="header"><i>1.1</i>Bipartite graphs and Eulerian duals<a class="headerlink" href="#bipartite-graphs-and-eulerian-duals" name="bipartite-graphs-and-eulerian-duals">&para;</a></h3>
+<blockquote>
+<p>Theorem: <span>$G$</span> is bipartite <span>$\iff$</span> its dual <span>$H$</span> is Eulerian.</p>
+</blockquote>
+<p>Proof left as an exercise.</p>
+<h3 class="header"><i>1.2</i>Graph minors<a class="headerlink" href="#graph-minors" name="graph-minors">&para;</a></h3>
+<p>We say <span>$H$</span> is a minor of <span>$G$</span> if it can be obtained from <span>$G$</span> by applying a sequence of the following operations:</p>
+<ol>
+<li>Edge deletion: remove an edge <span>$e$</span> (<span>$G-e$</span>)</li>
+<li>Vertex deletion: remove a vertex and all of its adjacent edges</li>
+<li>Edge contraction: contract an edge <span>$e=(i, j)$</span> by combining <span>$i$</span> and <span>$j$</span> and removing loops and multiple edges (<span>$G/e$</span>).</li>
+</ol>
+<p>If <span>$H$</span> is a minor of <span>$G$</span> we write <span>$H \preccurlyeq G$</span>. The minor property is transitive.</p>
+<p>Suppose we're given a particular graph <span>$H$</span> and we're trying to see if we can find it as as minor in <span>$G$</span>. The way to do this is to look for trees in <span>$G$</span> that correspond to the vertices of <span>$H$</span>, and then just contract the trees. Note that they have to be <em>trees</em>, and not <em>cycles</em>; contracting cycles doesn't give you anything you couldn't get by contracting a tree.</p>
+<h4 class="header"><i>1.2.1</i>Kuratowski's theorem<a class="headerlink" href="#kuratowskis-theorem" name="kuratowskis-theorem">&para;</a></h4>
+<p>Here's why minors are useful:</p>
+<blockquote>
+<p>Theorem: <span>$G$</span> is planar <span>$\iff$</span> <span>$G$</span> does not contain a <span>$K_5$</span> minor or a <span>$K_{3,3}$</span> minor.</p>
+</blockquote>
+<p>Proof: By Euler's formula, if <span>$G$</span> contains a <span>$K_{3,3}$</span> or <span>$K_5$</span> subgraph, then it is clearly not planar. Similarly, if they're contained as minors, then <span>$G$</span> can't be planar either - for example, if <span>$K_5$</span> is present as a minor, then <span>$G$</span> has 5 trees, all of which are completely connected. (It seems obvious from this that <span>$G$</span> is therefore not planar, but I'm not sure how to formalise that.)</p>
+<p>Suppose, instead, that <span>$G$</span> has neither a <span>$K_5$</span> minor nor a <span>$K_{3,3}$</span> minor. How can we show that <span>$G$</span> is planar? (Note: this is probably one of the hardest theorems in the course.) We can prove this as follows: suppose the theorem is false. In that case, there must be at least one counterexample. Consider the smallest counterexample <span>$G$</span> (so the smallest graph <span>$G$</span> which has neither a <span>$K_5$</span> nor a <span>$K_{3,3}$</span> as a minor and yet is not planar). This will be a proof by contradiction, making use of the fact that any smaller graph is <em>not</em> a counterexample.</p>
+<p>Take an arbitrary edge <span>$e = (u, v)$</span> in <span>$G$</span>, and contract it to produce <span>$G' = G\setminus e$</span>. The resulting graph <span>$G'$</span> is planar, since it has no <span>$K_{5}$</span> or <span>$K_{3,3}$</span> minor (by transitivity) and is smaller than <span>$G$</span> (otherwise, it would contradict the fact that <span>$G$</span> is the smallest counterexample).</p>
+<p>Now let's add back <span>$e$</span> to <span>$G'$</span>, which will give us a graph that is equivalent to the original <span>$G$</span>. We'll now show that the resulting graph <span>$G$</span> is planar.</p>
+<p>First, we show that <span>$G$</span> is 4-connected. To do so, take any planar drawing of <span>$G'$</span>. Look at the face <span>$F$</span> containing the contracted supernode <span>$(u, v)$</span>. I don't really understand the rest of this proof, so fuck it.</p>
+<h3 class="header"><i>1.3</i>The Hadwiger conjecture<a class="headerlink" href="#the-hadwiger-conjecture" name="the-hadwiger-conjecture">&para;</a></h3>
+<p><span>$$\chi(G) \geq t \; \implies K_t \preccurlyeq G$$</span></p>
+<p>So if I need <span>$t$</span> colours to colour graph <span>$G$</span>, then <span>$G$</span> contains a clique of size <span>$t$</span> as a minor.</p>
+<p>Remains an open problem. For <span>$k=5$</span>, this implies the four colour theorem, which is kind of neat.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

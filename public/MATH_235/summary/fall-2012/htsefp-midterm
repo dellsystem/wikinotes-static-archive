@@ -1,0 +1,286 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>A guide to solving the various types of problems encountered in this course.</p>
+<div class="toc">
+<ul>
+<li><a href="#proving-a-theorem">1 Proving a theorem</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#other-proofs">2 Other proofs</a><ul>
+<li><a href="#general-solution_1">2.1 General solution.</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#cardanos-formula">3 Cardano's formula</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#invertible-elements">4 Invertible elements</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#modular-arithmetic">5 Modular arithmetic</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#modular-proofs">6 Modular proofs</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#congruence-relations">7 Congruence relations</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#complex-integers">8 Complex integers</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-the-gcd-of-integers">9 Computing the gcd of integers</a><ul>
+<li><a href="#general-solution_8">9.1 General solution</a></li>
+<li><a href="#examples_8">9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-the-gcd-of-polynomials">10 Computing the gcd of polynomials</a><ul>
+<li><a href="#general-solution_9">10.1 General solution</a></li>
+<li><a href="#examples_9">10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#polynomial-division">11 Polynomial division</a><ul>
+<li><a href="#general-solution_10">11.1 General solution</a></li>
+<li><a href="#examples_10">11.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Proving a theorem<a class="headerlink" href="#proving-a-theorem" name="proving-a-theorem">&para;</a></h2>
+<blockquote>
+<p>Prove some theorem we saw in class.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>Depends on the theorem. See the <a href="/MATH_235/summary/fall-2012/midterm-review#theorems-seen-in-class">review notes</a></p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li><a href="http://e-exams.library.mcgill.ca.proxy2.library.mcgill.ca/december2005/MATH235.pdf">Fall 2005 final, question 3</a></li>
+<li><a href="http://www.math.mcgill.ca/darmon/courses/algebra/sample.pdf">Sample midterm, question 4</a> (essentially Euclid's lemma)</li>
+<li><a href="http://e-exams.library.mcgill.ca.proxy2.library.mcgill.ca/december2009/MATH235.pdf">Fall 2009 final, question 2(a)</a> (Chinese remainder theorem)</li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-2">Fall 2012 midterm, question 2</a> (Bézout's identity)</li>
+</ul>
+<h2 class="header"><i>2</i>Other proofs<a class="headerlink" href="#other-proofs" name="other-proofs">&para;</a></h2>
+<blockquote>
+<p>Prove something that is not a theorem seen in class.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution.<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>See the <a href="/MATH_235/summary/fall-2012/midterm-review#theorems-seen-in-class">list of proof techniques</a></p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li><a href="http://www.math.mcgill.ca/darmon/courses/algebra/sample.pdf">Sample midterm, question 1</a></li>
+<li>Assignment 2, question 7</li>
+</ul>
+<h2 class="header"><i>3</i>Cardano's formula<a class="headerlink" href="#cardanos-formula" name="cardanos-formula">&para;</a></h2>
+<blockquote>
+<p>Use Cardano's formula to find the roots for some cubic equation.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>idk</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 1</li>
+</ul>
+<h2 class="header"><i>4</i>Invertible elements<a class="headerlink" href="#invertible-elements" name="invertible-elements">&para;</a></h2>
+<blockquote>
+<p>Find all the invertible elements in <span>$\mathbb{Z}/n\mathbb{Z}$</span> where <span>$n$</span> is given. Also, find the primitive roots.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>List all the elements that are relatively prime to <span>$n$</span>. If <span>$n$</span> is simply prime, then all the elements in the ring (which is in fact a field) are invertible.</p>
+<p>Finding primitive roots: try every number (start from 2). Note that for non-prime <span>$n$</span>, there are no primitive roots.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 8</li>
+<li>Assignment 2, question 6</li>
+</ul>
+<h2 class="header"><i>5</i>Modular arithmetic<a class="headerlink" href="#modular-arithmetic" name="modular-arithmetic">&para;</a></h2>
+<blockquote>
+<p>Calculate <span>$a^b \pmod c$</span> where <span>$a$</span>, <span>$b$</span> and <span>$c$</span> are given and <span>$b$</span> is typically very large.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>First, break down <span>$a$</span> into its prime divisors. Then, use the Chinese remainder theorem, and solve for <span>$a$</span>. Fermat's little theorem is very useful. Not too difficult usually.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li><a href="http://www.math.mcgill.ca/darmon/courses/algebra/sample.pdf">Sample midterm, question 3</a></li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-3">Fall 2012 midterm, question 3</a></li>
+</ul>
+<h2 class="header"><i>6</i>Modular proofs<a class="headerlink" href="#modular-proofs" name="modular-proofs">&para;</a></h2>
+<blockquote>
+<p>Show that <span>$a^x \equiv a \pmod y$</span> for all <span>$a$</span>, where <span>$x$</span> and <span>$y$</span> are given.</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>Break <span>$a$</span> down into its prime divisors if it's not prime (if it is, this trivially uses FLT and so is unlikely to be asked). Then, use the Chinese remainder theorem, and FLT on each part.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 11</li>
+<li>Assignment 2, question 5</li>
+</ul>
+<h2 class="header"><i>7</i>Congruence relations<a class="headerlink" href="#congruence-relations" name="congruence-relations">&para;</a></h2>
+<blockquote>
+<p>Solve a congruence relation.</p>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>Trial and error</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li><a href="http://e-exams.library.mcgill.ca.proxy2.library.mcgill.ca/december2005/MATH235.pdf">Fall 2005 final, question 2</a></li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-4">Fall 2012 midterm, question 4</a></li>
+</ul>
+<h2 class="header"><i>8</i>Complex integers<a class="headerlink" href="#complex-integers" name="complex-integers">&para;</a></h2>
+<blockquote>
+<p>Show that a complex number is an integer.</p>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>First, find the polar representation of the complex number. Then, use Euler's identity (twice if necessary). You'll get sin(x) where x comes out to a multiple of pi and so the complex coefficient will be 0.</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 4</li>
+<li><a href="/MATH_235/past-exam/fall-2012/midterm#question-1">Fall 2012 midterm, question 1</a></li>
+</ul>
+<h2 class="header"><i>9</i>Computing the gcd of integers<a class="headerlink" href="#computing-the-gcd-of-integers" name="computing-the-gcd-of-integers">&para;</a></h2>
+<blockquote>
+<p>Given two (typically large) integers, compute their gcd</p>
+</blockquote>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>Use the Euclidean algorithm. It's pretty easy.</p>
+<p>To confirm, divide each number by its proposed gcd. If it works, it's definitely a common divisor (although it may not be the <em>greatest</em> if you made a mistake somewhere). If it doesn't divide evenly, then you definitely made a mistake somewhere.</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li><a href="http://www.math.mcgill.ca/darmon/courses/algebra/sample.pdf">Sample midterm, question 2</a></li>
+<li>Assignment 1, question 6</li>
+</ul>
+<h2 class="header"><i>10</i>Computing the gcd of polynomials<a class="headerlink" href="#computing-the-gcd-of-polynomials" name="computing-the-gcd-of-polynomials">&para;</a></h2>
+<blockquote>
+<p>Given two polynomials, compute their gcd.</p>
+</blockquote>
+<h3 class="header"><i>10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h3>
+<p>Same as the previous one, except with polynomial division. Shouldn't be too hard.</p>
+<h3 class="header"><i>10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<p>N/A</p>
+<h2 class="header"><i>11</i>Polynomial division<a class="headerlink" href="#polynomial-division" name="polynomial-division">&para;</a></h2>
+<blockquote>
+<p>Divide two polynomials</p>
+</blockquote>
+<h3 class="header"><i>11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h3>
+<p>Just use polynomial long division</p>
+<h3 class="header"><i>11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h3>
+<ul>
+<li>Assignment 3, some questions I forget which</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

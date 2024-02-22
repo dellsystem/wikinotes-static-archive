@@ -1,0 +1,391 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: How to solve every problem
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: How to solve every problem
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#graph-matchings">1 Graph matchings</a><ul>
+<li><a href="#perfect-matchings">1.1 Perfect matchings</a><ul>
+<li><a href="#general-solution">1.1.1 General solution</a></li>
+<li><a href="#examples">1.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#presence-of-perfect-matchings">1.2 Presence of perfect matchings</a><ul>
+<li><a href="#general-solution_1">1.2.1 General solution</a></li>
+<li><a href="#examples_1">1.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#halls-theorem">1.3 Hall's theorem</a><ul>
+<li><a href="#general-solution_2">1.3.1 General solution</a></li>
+<li><a href="#examples_2">1.3.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#planar-graphs">2 Planar graphs</a><ul>
+<li><a href="#kuratowskis-theorem">2.1 Kuratowski's theorem</a><ul>
+<li><a href="#general-solution_3">2.1.1 General solution</a></li>
+<li><a href="#examples_3">2.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#eulers-formula">2.2 Euler's formula</a><ul>
+<li><a href="#general-solution_4">2.2.1 General solution</a></li>
+<li><a href="#examples_4">2.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#planarity-proofs">2.3 Planarity proofs</a><ul>
+<li><a href="#general-solution_5">2.3.1 General solution</a></li>
+<li><a href="#examples_5">2.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#determining-planarity">2.4 Determining planarity</a><ul>
+<li><a href="#general-solution_6">2.4.1 General solution</a></li>
+<li><a href="#examples_6">2.4.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#probability">3 Probability</a><ul>
+<li><a href="#bayes-theorem">3.1 Bayes theorem</a><ul>
+<li><a href="#general-solution_7">3.1.1 General solution</a></li>
+<li><a href="#examples_7">3.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#coins-or-dice">3.2 Coins or dice</a><ul>
+<li><a href="#general-solution_8">3.2.1 General solution</a></li>
+<li><a href="#examples_8">3.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#booles-inequality">3.3 Boole's inequality</a><ul>
+<li><a href="#general-solution_9">3.3.1 General solution</a></li>
+<li><a href="#examples_9">3.3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#chernoff-bound">3.4 Chernoff bound</a><ul>
+<li><a href="#general-solution_10">3.4.1 General solution</a></li>
+<li><a href="#examples_10">3.4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#graph-probability">3.5 Graph probability</a><ul>
+<li><a href="#general-solution_11">3.5.1 General solution</a></li>
+<li><a href="#examples_11">3.5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#balls-and-bins">3.6 Balls and bins</a><ul>
+<li><a href="#general-solution_12">3.6.1 General solution</a></li>
+<li><a href="#examples_12">3.6.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#combinatorics">4 Combinatorics</a><ul>
+<li><a href="#binomial-theorem">4.1 Binomial theorem</a><ul>
+<li><a href="#general-solution_13">4.1.1 General solution</a></li>
+<li><a href="#examples_13">4.1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#proving-binomial-equalities">4.2 Proving binomial equalities</a><ul>
+<li><a href="#general-solution_14">4.2.1 General solution</a></li>
+<li><a href="#examples_14">4.2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#generating-expressions">4.3 Generating expressions</a><ul>
+<li><a href="#general-solution_15">4.3.1 General solution</a></li>
+<li><a href="#examples_15">4.3.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Graph matchings<a class="headerlink" href="#graph-matchings" name="graph-matchings">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Perfect matchings<a class="headerlink" href="#perfect-matchings" name="perfect-matchings">&para;</a></h3>
+<blockquote>
+<p>What is a perfect matching?</p>
+</blockquote>
+<h4 class="header"><i>1.1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h4>
+<p>A matching <span>$M$</span> in a graph <span>$G$</span> is a set of vertex-disjoint edges. A matching <span>$M$</span> is <strong>perfect</strong> if it covers all the vertices in the graph, i.e., every vertex in <span>$G$</span> is incident to some edge <span>$M$</span></p>
+<h4 class="header"><i>1.1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 1 (a)</li>
+</ul>
+<h3 class="header"><i>1.2</i>Presence of perfect matchings<a class="headerlink" href="#presence-of-perfect-matchings" name="presence-of-perfect-matchings">&para;</a></h3>
+<blockquote>
+<p>Given a description of some graph, can this graph contain a perfect matching?</p>
+</blockquote>
+<h4 class="header"><i>1.2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h4>
+<p>Just think about it. For example, non-bipartite graphs can contain PMs - <span>$K_4$</span>, for example, definitely does (and it's definitely not bipartite).</p>
+<p>If there's a vertex with degree 0, there cannot be a PM.</p>
+<p>To prove, in the general case, that there is a PM, either use Hall's condition or show that it is <span>$n$</span>-regular.</p>
+<h4 class="header"><i>1.2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 1 (b) (bipartite graphs)</li>
+<li>Practice Exam 2, question 2 (b)-(d) (describing the degree of each node)</li>
+</ul>
+<h3 class="header"><i>1.3</i>Hall's theorem<a class="headerlink" href="#halls-theorem" name="halls-theorem">&para;</a></h3>
+<blockquote>
+<p>State it and prove it.</p>
+</blockquote>
+<h4 class="header"><i>1.3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h4>
+<p>A bipartite graph with <span>$|X| = |Y|$</span> has a perfect matching <span>$\iff$</span> for all <span>$A \subseteq X$</span>, <span>$|\Gamma(A)| \geq |A|$</span>.</p>
+<p>Proof: <span>$\Rightarrow$</span> is trivial. For <span>$\Leftarrow$</span>, suppose Hall's condition is satisfied but there is no perfect matching. Consider some maximal matching <span>$M$</span>. Since it's not perfect, there must be some unmatched vertex <span>$x_1 \in X$</span>. It must have at least one neighbour, <span>$y_1$</span>. <span>$y_1$</span> must be matched to something, otherwise <span>$M$</span> wouldn't be maximal (we could just add the <span>$x_1$</span>-<span>$y_1$</span> edge). Repeat this argument until we conclude that there's an alternating path between vertices in <span>$X$</span>. Keep going, but since the graph is finite, this process cannot go on forever. So there can be unmatched vertex <span>$x_1$</span>.</p>
+<h4 class="header"><i>1.3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 1 (c)</li>
+<li>Practice Exam 2, question 2 (a) (just stating it)</li>
+</ul>
+<h2 class="header"><i>2</i>Planar graphs<a class="headerlink" href="#planar-graphs" name="planar-graphs">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Kuratowski's theorem<a class="headerlink" href="#kuratowskis-theorem" name="kuratowskis-theorem">&para;</a></h3>
+<blockquote>
+<p>State it</p>
+</blockquote>
+<h4 class="header"><i>2.1.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h4>
+<p>A graph is planar <span>$\iff$</span> it contains no <span>$K_5$</span> minor and no <span>$K_{3,3}$</span> minor.</p>
+<h4 class="header"><i>2.1.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 2 (a) (i)</li>
+<li>Practice Exam 2, question 1 (a)</li>
+</ul>
+<h3 class="header"><i>2.2</i>Euler's formula<a class="headerlink" href="#eulers-formula" name="eulers-formula">&para;</a></h3>
+<blockquote>
+<p>State it</p>
+</blockquote>
+<h4 class="header"><i>2.2.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h4>
+<p>A connected planar graph satisfies <span>$2 + m = n + f$</span> where <span>$n$</span> = number of vertices, <span>$m$</span> = number of edges, and <span>$f$</span> = number of faces.</p>
+<h4 class="header"><i>2.2.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 2 (a) (ii) and (b)</li>
+</ul>
+<h3 class="header"><i>2.3</i>Planarity proofs<a class="headerlink" href="#planarity-proofs" name="planarity-proofs">&para;</a></h3>
+<blockquote>
+<p>Prove that some general class of graphs is or is not planar.</p>
+</blockquote>
+<h4 class="header"><i>2.3.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h4>
+<p>To prove that a graph with <span>$\leq 8$</span> edges is planar, use the fact that <span>$K_5$</span> has 10 edges and <span>$K_{3,3}$</span> has 9 edges.</p>
+<h4 class="header"><i>2.3.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 2 (b)</li>
+</ul>
+<h3 class="header"><i>2.4</i>Determining planarity<a class="headerlink" href="#determining-planarity" name="determining-planarity">&para;</a></h3>
+<blockquote>
+<p>Given a graph (drawn), determine whether or not it is planar.</p>
+</blockquote>
+<h4 class="header"><i>2.4.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h4>
+<p>Does this graph satisfy <span>$m\leq 3n-6$</span> (<span>$m \leq 2n-4$</span> if the graph is bipartite)? If not, it's definitely not planar. Otherwise, it could still be planar. Try to draw it as a planar graph. If that fails, try to find a <span>$K_5$</span> minor or a <span>$K_{3, 3}$</span> minor. For <span>$K_5$</span>, we need 4 vertices, each of which must have 4 neighbours; for <span>$K_{3,3}$</span>, we need 6, each of which must have 3 neighbours (all in a different partition).</p>
+<h4 class="header"><i>2.4.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 2 (c)</li>
+<li>Practice Exam 2, question 1 (b)</li>
+</ul>
+<h2 class="header"><i>3</i>Probability<a class="headerlink" href="#probability" name="probability">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Bayes theorem<a class="headerlink" href="#bayes-theorem" name="bayes-theorem">&para;</a></h3>
+<blockquote>
+<p>State it, use it</p>
+</blockquote>
+<h4 class="header"><i>3.1.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h4>
+<p>For any two events <span>$A$</span> and <span>$B$</span>,</p>
+<p><span>$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$</span></p>
+<p>To use it, just use it.</p>
+<h4 class="header"><i>3.1.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h4>
+<ul>
+<li>Practice Exam 2, question 3 (a)</li>
+</ul>
+<h3 class="header"><i>3.2</i>Coins or dice<a class="headerlink" href="#coins-or-dice" name="coins-or-dice">&para;</a></h3>
+<blockquote>
+<p>Some question about tossing coins or rolling dice</p>
+</blockquote>
+<h4 class="header"><i>3.2.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h4>
+<p>Might need to use Bayes' formula.</p>
+<p>Don't forget linearity of expectation.</p>
+<h4 class="header"><i>3.2.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 3</li>
+<li>Practice Exam 2, question 3 (b)</li>
+</ul>
+<h3 class="header"><i>3.3</i>Boole's inequality<a class="headerlink" href="#booles-inequality" name="booles-inequality">&para;</a></h3>
+<blockquote>
+<p>State it (also known as union bound)</p>
+</blockquote>
+<h4 class="header"><i>3.3.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h4>
+<p><span>$$P\left ( \cup_i X_i \right ) \leq \sum_{i} P(X_i)$$</span></p>
+<h4 class="header"><i>3.3.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h4>
+<ul>
+<li>Practice Exam 2, question 4 (a) (i)</li>
+</ul>
+<h3 class="header"><i>3.4</i>Chernoff bound<a class="headerlink" href="#chernoff-bound" name="chernoff-bound">&para;</a></h3>
+<blockquote>
+<p>Let <span>$X_1, X_2, \ldots, X_n$</span> be independent Bernoulli trials with <span>$P(X_i = 1) = p_i$</span>. Let <span>$X = \sum X_i$</span> and <span>$\mu = E(X)$</span>. Then, if <span>$\delta &gt; 0$</span>:</p>
+</blockquote>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \left ( \frac{e^\delta}{(1+\delta)^{(1+\delta)}} \right )^\mu$$</span></p>
+<p>Corollaries:</p>
+<p>If <span>$\delta &gt; 1$</span>, we have the weaker bound <span>$\displaystyle P(X &gt; (1+\delta)\mu) \leq e^{-1/3\mu\delta^2}$</span>.</p>
+<p>For below the mean, we have <span>$\displaystyle P(X &lt; (1-\delta)\mu) \leq e^{-1/2\mu\delta^2}$</span></p>
+<p>If <span>$b\geq 6\mu$</span>, then we have <span>$\displaystyle P(X &gt; b) \leq 2^{-b}$</span>.</p>
+<h4 class="header"><i>3.4.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h4>
+<h4 class="header"><i>3.4.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 4 (a)</li>
+<li>Practice Exam 2, question 4 (a) (ii)</li>
+</ul>
+<h3 class="header"><i>3.5</i>Graph probability<a class="headerlink" href="#graph-probability" name="graph-probability">&para;</a></h3>
+<blockquote>
+<p>Some probability question related to graphs</p>
+</blockquote>
+<h4 class="header"><i>3.5.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h4>
+<p>Use the Chernoff and union bounds. Also just use your brain.</p>
+<h4 class="header"><i>3.5.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h4>
+<ul>
+<li>Practice Exam 2, question 4 (b)</li>
+</ul>
+<h3 class="header"><i>3.6</i>Balls and bins<a class="headerlink" href="#balls-and-bins" name="balls-and-bins">&para;</a></h3>
+<blockquote>
+<p>Some question about it</p>
+</blockquote>
+<h4 class="header"><i>3.6.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h4>
+<p>If we need to give an upper bound on the probability of something, use Chernoff or a corollary.</p>
+<p>Expected number of balls to throw before every bin contains one ball: <span>$nH_n$</span>, use linearity of expectation and shit</p>
+<h4 class="header"><i>3.6.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 4 (b)</li>
+</ul>
+<h2 class="header"><i>4</i>Combinatorics<a class="headerlink" href="#combinatorics" name="combinatorics">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Binomial theorem<a class="headerlink" href="#binomial-theorem" name="binomial-theorem">&para;</a></h3>
+<blockquote>
+<p>State it</p>
+</blockquote>
+<h4 class="header"><i>4.1.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h4>
+<p><span>$$(1+x)^n = \sum_{n=0}^n \binom{n}{k}x^k \quad \text{or} \quad (x+y)^n = \sum_{n=0}^n\binom{n}{k}x^ky^{n-k}$$</span></p>
+<h4 class="header"><i>4.1.2</i>Examples<a class="headerlink" href="#examples_13" name="examples_13">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 5 (a)</li>
+</ul>
+<h3 class="header"><i>4.2</i>Proving binomial equalities<a class="headerlink" href="#proving-binomial-equalities" name="proving-binomial-equalities">&para;</a></h3>
+<blockquote>
+<p>Given some equality, prove it twice, first using the binomial theorem (or algebraically), then combinatorially.</p>
+</blockquote>
+<h4 class="header"><i>4.2.1</i>General solution<a class="headerlink" href="#general-solution_14" name="general-solution_14">&para;</a></h4>
+<p>To prove it using the binomial theorem, you probably just have to plug in some value for <span>$x$</span> (and maybe <span>$y$</span>).</p>
+<p>To prove it algebraically, use the fact that</p>
+<p><span>$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$</span></p>
+<p>To prove it combinatorially, explain what each sides counts. Give an example using balls or something.</p>
+<h4 class="header"><i>4.2.2</i>Examples<a class="headerlink" href="#examples_14" name="examples_14">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 5 (b), (c)</li>
+<li>Practice Exam 2, question 5 (a), (b)</li>
+</ul>
+<h3 class="header"><i>4.3</i>Generating expressions<a class="headerlink" href="#generating-expressions" name="generating-expressions">&para;</a></h3>
+<blockquote>
+<p>How many ways are there of doing something for a specific case? If given a recurrence relation, prove that it holds. For the general case, find the gf, then a simple expression for the number.</p>
+</blockquote>
+<h4 class="header"><i>4.3.1</i>General solution<a class="headerlink" href="#general-solution_15" name="general-solution_15">&para;</a></h4>
+<p>The specific case should be obvious, just brute force it.</p>
+<p>To prove that a recurrence relation holds, try to find a sub-problem within it which you know how to count, and smuggle that into the recurrence relation somehow.</p>
+<p>To find the gf, use the recurrence, and various tricks for manipulating sequences that we saw in class and in the assignments.</p>
+<p>To get <span>$f(n)$</span>, you may have to use partial fractions. Basically just figure out the coefficient for <span>$x^n$</span>.</p>
+<h4 class="header"><i>4.3.2</i>Examples<a class="headerlink" href="#examples_15" name="examples_15">&para;</a></h4>
+<ul>
+<li>Practice Exam 1, question 6</li>
+<li>Practice Exam 2, question 6</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

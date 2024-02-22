@@ -1,0 +1,159 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, November 21, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, November 21, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Universal computable functions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Any errors in the final exam due to the use of these notes will not be given any special consideration. Prakash has not endorsed these notes and is not responsible for any mistakes in them.</strong> You can find Prakash's own notes on this topic <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/comp-notes-2.pdf">here</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#introduction">1 Introduction</a></li>
+<li><a href="#universal-functions">2 Universal functions</a><ul>
+<li><a href="#implications-for-non-terminating-programs">2.1 Implications for non-terminating programs</a></li>
+<li><a href="#godel-numbering">2.2 Gödel numbering</a></li>
+<li><a href="#composing-functions">2.3 Composing functions</a></li>
+<li><a href="#godel-universal-functions">2.4 Gödel universal functions</a><ul>
+<li><a href="#proof-of-existence">2.4.1 Proof of existence</a></li>
+<li><a href="#relation-to-function-composition">2.4.2 Relation to function composition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Introduction<a class="headerlink" href="#introduction" name="introduction">&para;</a></h2>
+<p>The foundation of modern programming languages was pioneered both by Alan Turing, with his idea of an universal Turing machine that can take an algorithm as input and execute it, and by Alonzo Church, with his <span>$\lambda$</span>-calculus. These days, algorithms have become such a natural concept that it seems strange to think that when we devise an algorithm, we are creating the most complex thing envisioned by the human mind. And indeed, the typical algorithm is so complex that we can only understand it via compositionality — by understanding the individual elements, and composing them together accordingly.</p>
+<p>To that end, we will now study Gödel universal functions. We'll see that we can take programs and combine them to create more programs in a computable way.</p>
+<h2 class="header"><i>2</i>Universal functions<a class="headerlink" href="#universal-functions" name="universal-functions">&para;</a></h2>
+<p>Consider a binary function <span>$U: \mathbb{N}^2 \to \mathbb{N}$</span>. <span>$U$</span> is <strong>universal</strong> for unary computable functions if:</p>
+<ol>
+<li>For all computable functions <span>$f: \mathbb N \to \mathbb N$</span>, there exists an <span>$n$</span> such that <span>$U_n = f$</span>, i.e., <span>$\forall xU_n(x) = U(n,x)=f(x)$</span> (so every function is encoded within <span>$U$</span>).</li>
+<li><span>$U$</span> is itself computable.</li>
+</ol>
+<p>Of course, simply defining a term does not guarantee that such a thing exists! It so happens that universal functions do, in fact, exist. However, we will not be proving that in this lecture. (To convince yourself, think about the fact that interpreters exist.)</p>
+<h3 class="header"><i>2.1</i>Implications for non-terminating programs<a class="headerlink" href="#implications-for-non-terminating-programs" name="implications-for-non-terminating-programs">&para;</a></h3>
+<p>What if we could write a programming language that prevents you from writing programs that never terminate? In fact, we <em>can</em> write such a language, simply by incorporating strict typing in a particular way (e.g., strictly-typed lambda calculus). But there aren't any programming languages like this in use. Why not? Well, if we eliminated the possibility of being able to write programs that never terminate, we would necessarily eliminate the possibility of writing certain programs that <em>do</em> terminate.</p>
+<p>This arises as a result of the fact that any total computable function of 2 arguments cannot be universal for all total unary computable functions, which we can prove by contradiction: Suppose there is a <span>$U$</span> that is universal for all total unary computable functions. We define a total computable function <span>$d: \mathbb N \to \mathbb N$</span> by <span>$d(n) = U(n, n) + 1$</span>. Because <span>$U$</span> is total, <span>$d$</span> will terminate. But <span>$d$</span> is not reproduced within <span>$U$</span>, via this simple diagonal argument. Thus <span>$d(n)$</span> cannot be realised by <span>$U$</span>!</p>
+<p><em>TODO: Clarify the link between the first and second paragraphs.</em></p>
+<h3 class="header"><i>2.2</i>Gödel numbering<a class="headerlink" href="#godel-numbering" name="godel-numbering">&para;</a></h3>
+<p>If <span>$S$</span> is any set, then a map <span>$V$</span> of the form <span>$V:\mathbb N \to S$</span> is called a <strong>numbering</strong>. We define <span>$V$</span> to be a function, so that each <span>$n \in \mathbb N$</span> is associated with exactly one element in <span>$S$</span>; however, it is not necessarily injective, so there can be multiple numbers associated with each element in <span>$S$</span><sup>needs confirmation</sup>.</p>
+<p>Any universal function defines a numbering of unary computable functions.</p>
+<h3 class="header"><i>2.3</i>Composing functions<a class="headerlink" href="#composing-functions" name="composing-functions">&para;</a></h3>
+<p>We now turn our attention to the problem of <strong>composing</strong> functions. That is, we want to create a total computable function <span>$C$</span> which takes two functions as input and returns one function which is equivalent to running both input functions. In mathematical notation:</p>
+<p><span>$$\forall p, q, x \; (U_P\circ U_q)(x) = U(p, U(q, x)) = U_{C(p, q)}(x) = U(C(p, q), x) \tag{is this correct?}$$</span></p>
+<h3 class="header"><i>2.4</i>Gödel universal functions<a class="headerlink" href="#godel-universal-functions" name="godel-universal-functions">&para;</a></h3>
+<p>A <strong>Gödel universal function</strong> (GUF) is a binary universal function for the class of unary computable functions such that for any binary computable function <span>$V$</span>, there exists a total computable function <span>$\sigma$</span> such that <span>$\forall x, m, V(m, x) = G(\sigma(m), x)$</span>. So it must be universal in the usual sense, but it must also be able to simulate all binary functions in conjunction with some unary function.</p>
+<h4 class="header"><i>2.4.1</i>Proof of existence<a class="headerlink" href="#proof-of-existence" name="proof-of-existence">&para;</a></h4>
+<p>As with universal functions, we need to prove that such a thing exists. To do so, consider the fact that we can easily create an injective, surjective and computable function, which we'll call <span>$\tau$</span>, from <span>$\mathbb N^2$</span> to <span>$\mathbb N$</span> and vice versa. (The construction of <span>$\tau$</span> is omitted in these notes because the one given in class doesn't quite work. Left as an exercise for the reader.) Suppose <span>$\tau(i, j) = $</span> some function involving <span>$i$</span> and <span>$j$</span>. Then, to invert this, we define the functions <span>$\text{fst}:\mathbb N \to \mathbb N$</span> and <span>$\text{snd}: \mathbb N \to \mathbb N$</span> such that <span>$\tau(\text{fst}(n), \text{snd}(n)) = n$</span>, <span>$\text{fst}(\tau(i, j)) = i$</span> and <span>$\text{snd}(\tau(i, j)) = j$</span>.</p>
+<p>Next, given any universal computable function <span>$U$</span>, we define some function <span>$G: \mathbb N^2 \to \mathbb N$</span> by</p>
+<p><span>$$G(n, x) = U(\text{fst}(n), \tau(\text{snd}(n), x))$$</span></p>
+<p>We need to show that <span>$G$</span> is indeed a GUF. Let <span>$V$</span> be a binary computable function. We define <span>$f: \mathbb N \to \mathbb N$</span> by</p>
+<p><span>$$f(k) = V(\text{fst}(k), \text{snd}(k))$$</span></p>
+<p>Now, we need to find a total computable function <span>$\sigma: \mathbb N \to \mathbb N$</span> such that <span>$V(m, x) = G(\sigma(m), x)$</span>. <span>$U$</span> is universal, so there exists some <span>$i$</span> such that <span>$f(k) = U(i, k)$</span>. We define <span>$\sigma$</span> by <span>$\sigma(m) = \tau(i, m)$</span>. Then: <span>$G(\sigma(m), x) = G(\tau(i, m), x) = U(i, \tau(m, x) = f(\tau(m, x)) = V(m, x)$</span>.  <span>$\blacksquare$</span></p>
+<h4 class="header"><i>2.4.2</i>Relation to function composition<a class="headerlink" href="#relation-to-function-composition" name="relation-to-function-composition">&para;</a></h4>
+<p>Let <span>$G$</span> be a GUF. Then there exists a <span>$C: \mathbb N^2 \to \mathbb N$</span> such that <span>$C$</span> is a total computable function and <span>$\forall p, q, x$</span>, <span>$(G_p\circ G_q)(x) = G(p, G(q, x)) = G(C(p, q), x)$</span>. Define <span>$V(m, x) = G(\text{fst}(m), G(\text{snd}(m), x))$</span>. (Alternatively, and equivalently, we could define <span>$V$</span> by <span>$V(\tau(m, n), x) = G(m, G(n, x))$</span>). Then there exists <span>$\sigma$</span> such that <span>$V(m, x) = G(\sigma(m), x))$</span> by the definition of a GUF. Thus GUFs immediately give computable compositions of codes, allowing us to abstract complicated algorithms into their functional specs. This in turn allows us to think of functions as black boxes, whereby we only need to know their inputs and expected outputs and don't have to know their implementations at all.</p>
+<p>Of course, not all functions can be thought of this way. Particularly, once you introduce non-determinism into the mix, it becomes clear that a program's functional spec is nowhere near sufficient to accurately represent the program.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

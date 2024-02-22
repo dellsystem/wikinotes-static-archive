@@ -1,0 +1,317 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 4, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 4, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                What is concurrency?
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#what-is-concurrency">1 What is concurrency?</a><ul>
+<li><a href="#parallelism">1.1 Parallelism</a><ul>
+<li><a href="#metaphor-of-a-sports-team">1.1.1 Metaphor of a Sports team</a></li>
+</ul>
+</li>
+<li><a href="#concurrent-programming">1.2 Concurrent Programming</a><ul>
+<li><a href="#sports-team-metaphor">1.2.1 Sports team metaphor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#multithreading-vs-multiprocessing">2 Multithreading vs multiprocessing</a><ul>
+<li><a href="#processes">2.1 Processes</a></li>
+<li><a href="#threads">2.2 Threads</a><ul>
+<li><a href="#issues">2.2.1 Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#what-is-a-thread">3 What is a thread?</a><ul>
+<li><a href="#lightweight-processes-lwp">3.1 Lightweight processes (~ LWP)</a></li>
+<li><a href="#role-of-the-os">3.2 Role of the OS</a></li>
+<li><a href="#thread-context">3.3 Thread context</a><ul>
+<li><a href="#things-they-own">3.3.1 Things they own</a></li>
+<li><a href="#things-they-share">3.3.2 Things they share</a></li>
+</ul>
+</li>
+<li><a href="#scheduling-issues">3.4 Scheduling issues</a></li>
+<li><a href="#thread-mappings">3.5 Thread mappings</a></li>
+<li><a href="#what-are-threads-good-for">3.6 What are threads good for?</a><ul>
+<li><a href="#speedup-amdahls-law">3.6.1 Speedup: Amdahl's Law</a><ul>
+<li><a href="#example">3.6.1.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#hiding-latency">3.6.2 Hiding Latency</a></li>
+<li><a href="#appropriate-paradigm">3.6.3 Appropriate paradigm</a></li>
+</ul>
+</li>
+<li><a href="#difficulties">3.7 Difficulties</a><ul>
+<li><a href="#programming-spectrum">3.7.1 Programming spectrum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>What is concurrency?<a class="headerlink" href="#what-is-concurrency" name="what-is-concurrency">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Parallelism<a class="headerlink" href="#parallelism" name="parallelism">&para;</a></h3>
+<p>Things happen at the same time</p>
+<ul>
+<li>Multiple processes</li>
+<li>User-controlled, directed</li>
+<li>Interaction is fully determined</li>
+</ul>
+<h4 class="header"><i>1.1.1</i>Metaphor of a Sports team<a class="headerlink" href="#metaphor-of-a-sports-team" name="metaphor-of-a-sports-team">&para;</a></h4>
+<ul>
+<li>The <strong>user</strong> is the <strong>coach</strong></li>
+<li>The <strong>team's players</strong> are the <strong>processes</strong></li>
+<li>The coach gives a <strong>precise plan</strong> for the players to follow</li>
+<li><strong>Cooperative</strong></li>
+</ul>
+<h3 class="header"><i>1.2</i>Concurrent Programming<a class="headerlink" href="#concurrent-programming" name="concurrent-programming">&para;</a></h3>
+<p>Things might happen at the same time</p>
+<ul>
+<li>User initiates processes but has no precise control</li>
+<li>Barriers and constraints are added to achieve indirect control</li>
+</ul>
+<h4 class="header"><i>1.2.1</i>Sports team metaphor<a class="headerlink" href="#sports-team-metaphor" name="sports-team-metaphor">&para;</a></h4>
+<ul>
+<li>The <strong>programmer</strong> is the <strong>referee</strong></li>
+<li>The referee simply says the <strong>rules of the game</strong></li>
+<li><strong>Competitive</strong></li>
+</ul>
+<h2 class="header"><i>2</i>Multithreading vs multiprocessing<a class="headerlink" href="#multithreading-vs-multiprocessing" name="multithreading-vs-multiprocessing">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Processes<a class="headerlink" href="#processes" name="processes">&para;</a></h3>
+<p>A process is large and heavyweight, a major task.<br />
+It has:</p>
+<ul>
+<li>its own address space</li>
+<li>its own I/O</li>
+<li>...</li>
+</ul>
+<p>Context switching is pretty slow, because of all the exclusivity.</p>
+<p>Inter-process communication is possible thanks to:</p>
+<ul>
+<li>Pipes</li>
+<li>File System</li>
+<li>Shared memory</li>
+<li>etc.</li>
+</ul>
+<h3 class="header"><i>2.2</i>Threads<a class="headerlink" href="#threads" name="threads">&para;</a></h3>
+<p>A thread is lightweight.</p>
+<ul>
+<li>Shared address space</li>
+<li>Shared file handles</li>
+</ul>
+<p>As such, context switching is fast.</p>
+<p>Communication amongst threads is easy and fast.</p>
+<h4 class="header"><i>2.2.1</i>Issues<a class="headerlink" href="#issues" name="issues">&para;</a></h4>
+<ul>
+<li>Asynchronous: no direct control on the speed</li>
+<li>Synchronization: the way to set up rules/barriers is not always obvious</li>
+<li>Resource-consistency</li>
+<li>Fairness</li>
+</ul>
+<h2 class="header"><i>3</i>What is a thread?<a class="headerlink" href="#what-is-a-thread" name="what-is-a-thread">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Lightweight processes (~ LWP)<a class="headerlink" href="#lightweight-processes-lwp" name="lightweight-processes-lwp">&para;</a></h3>
+<blockquote>
+<p>"An independent flow of control within a process composed of a context (including registers and program counter) and a sequence of instructions to execute."</p>
+</blockquote>
+<h3 class="header"><i>3.2</i>Role of the OS<a class="headerlink" href="#role-of-the-os" name="role-of-the-os">&para;</a></h3>
+<ul>
+<li>Maintain thread structure</li>
+<li>Give threads IDs</li>
+<li>Apply a scheduling policy (which may be unique to threads)</li>
+<li>Apply priorities to threads</li>
+<li>Honor signal masks (thus allowing certain signals to be ignored)</li>
+</ul>
+<h3 class="header"><i>3.3</i>Thread context<a class="headerlink" href="#thread-context" name="thread-context">&para;</a></h3>
+<h4 class="header"><i>3.3.1</i>Things they own<a class="headerlink" href="#things-they-own" name="things-they-own">&para;</a></h4>
+<ul>
+<li>Registers</li>
+<li>Program counter</li>
+<li>Stack pointer (each thread has its own stack)</li>
+</ul>
+<h4 class="header"><i>3.3.2</i>Things they share<a class="headerlink" href="#things-they-share" name="things-they-share">&para;</a></h4>
+<ul>
+<li>Code space (they come from the same program)</li>
+<li>Global/static data</li>
+<li>Heap, dynamic data (allocated memory)</li>
+<li>File handles</li>
+</ul>
+<h3 class="header"><i>3.4</i>Scheduling issues<a class="headerlink" href="#scheduling-issues" name="scheduling-issues">&para;</a></h3>
+<p>The OS may or may not schedule threads at the same time or concurrently.</p>
+<p><strong>It is our role to make programs correct, no matter how the OS handles threads.</strong></p>
+<h3 class="header"><i>3.5</i>Thread mappings<a class="headerlink" href="#thread-mappings" name="thread-mappings">&para;</a></h3>
+<dl>
+<dt>1-to-1</dt>
+<dd>Create a thread; create a process</dd>
+<dd>"True concurrency" can be achieved this way</dd>
+<dt>n-to-1</dt>
+<dd>All threads are in one process</dd>
+<dd>Threads are time-sliced (mini scheduling)</dd>
+<dt>n-to-n</dt>
+<dd>The OS decides</dd>
+<dd>Some threads are mapped to some processes</dd>
+</dl>
+<h3 class="header"><i>3.6</i>What are threads good for?<a class="headerlink" href="#what-are-threads-good-for" name="what-are-threads-good-for">&para;</a></h3>
+<h4 class="header"><i>3.6.1</i>Speedup: Amdahl's Law<a class="headerlink" href="#speedup-amdahls-law" name="speedup-amdahls-law">&para;</a></h4>
+<p><span>$$t = s + \frac{p}{n}$$</span><br />
+Where:</p>
+<ul>
+<li><span>$t$</span>: Total time</li>
+<li><span>$s$</span>: Time of the sequential part</li>
+<li><span>$p$</span>: Time of the parallel part</li>
+<li><span>$n$</span>: Number of processors</li>
+</ul>
+<p>The measure of speedup is calculated as the following ratio:<br />
+<span>$$\text{Speedup} = \frac{\text{old time}}{\text{new time}}$$</span></p>
+<p>Amdahl's Law can also be normalized:<br />
+<span>$$ 
+\begin{equation}
+  \begin{split}
+    \text{Let }  t &amp;= 1 \\
+    \text{ie } s+p &amp;= 1 \\
+                 s &amp;= 1-p \\
+                 p &amp;= 1-s \\
+   \text{Speedup} &amp;= \frac{1}{(1-p) + \frac{p}{n}}
+  \end{split}
+\end{equation}
+$$</span></p>
+<h5 class="header"><i>3.6.1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h5>
+<p>Say <span>$75\%$</span> of a program is parallelizable.<br />
+<span>$$ \text{Speedup} = \frac{1}{0.25 + \frac{0.75}{n}} $$</span></p>
+<p><span>$$ 
+\begin{equation}
+  \begin{split}
+    \text{Let }  n = 1 &amp;\Rightarrow \text{Speedup } = 1 \\
+                 n = 3 &amp;\Rightarrow \text{Speedup } = 2 \\
+                 n = 75 &amp;\Rightarrow \text{Speedup } = \frac{1}{0.26} \\
+                 n \rightarrow \infty &amp;\Rightarrow \text{Speedup } = \frac{1}{0.25 + 0_+} &lt; 4
+  \end{split}
+\end{equation}
+$$</span></p>
+<p><img alt="Ahmdal's Law graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-01.png" title="Fact: The super-linear area is where unicorns roam." /></p>
+<p><strong>Note:</strong> The practical line being lower than the Ahmdal's Law line, and then decreasing is due to overhead adding up.</p>
+<h4 class="header"><i>3.6.2</i>Hiding Latency<a class="headerlink" href="#hiding-latency" name="hiding-latency">&para;</a></h4>
+<p>Programs have "pauses".</p>
+<ul>
+<li>I/O</li>
+<li>Cache misses</li>
+<li>Pipeline stalls</li>
+<li>etc.</li>
+</ul>
+<p>To avoid such blocking, another thread can keep the CPU active and/or the interface responsive.</p>
+<h4 class="header"><i>3.6.3</i>Appropriate paradigm<a class="headerlink" href="#appropriate-paradigm" name="appropriate-paradigm">&para;</a></h4>
+<p>Some problems are better solved as a multithreaded program. Using threads thus becomes the best way to write the program.</p>
+<h3 class="header"><i>3.7</i>Difficulties<a class="headerlink" href="#difficulties" name="difficulties">&para;</a></h3>
+<ul>
+<li>There <strong>is</strong> overhead.</li>
+<li>It takes more programming effort</li>
+</ul>
+<h4 class="header"><i>3.7.1</i>Programming spectrum<a class="headerlink" href="#programming-spectrum" name="programming-spectrum">&para;</a></h4>
+<p><img alt="Programming spectrum graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-02.png" title="Fact: Only two people have ever truly mastered MT and you are not one of them." /></p>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_09-04" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

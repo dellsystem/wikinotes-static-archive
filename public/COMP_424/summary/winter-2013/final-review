@@ -1,0 +1,2079 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_424/">
+                COMP 424
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The final examination will take place on Friday, April 26, at 2pm, in the FDA auditorium. I misread the schedule at first and thought it was in the Cineplex, which was pretty exciting because I've never written an exam in a movie theatre before. That would have been something to tell my grandchildren. Alas, it is not to be.</p>
+<p>Lectures 12 and 13 are omitted because they were guest lectures that will not be on the exam.</p>
+<p>No cheat sheets allowed.</p>
+<div class="toc">
+<ul>
+<li><a href="#lecture-1-introduction-to-ai">1 Lecture 1: Introduction to AI</a></li>
+<li><a href="#lecture-2-uninformed-search-methods">2 Lecture 2: Uninformed search methods</a><ul>
+<li><a href="#defining-a-search-problem">2.1 Defining a search problem</a><ul>
+<li><a href="#examples">2.1.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#search-algorithms">2.2 Search algorithms</a><ul>
+<li><a href="#search-graphs-and-trees">2.2.1 Search graphs and trees</a></li>
+<li><a href="#generic-algorithm">2.2.2 Generic algorithm</a></li>
+<li><a href="#implementation-details">2.2.3 Implementation details</a></li>
+<li><a href="#properties-of-search-algorithms">2.2.4 Properties of search algorithms</a></li>
+<li><a href="#search-performance">2.2.5 Search performance</a></li>
+<li><a href="#breadth-first-search">2.2.6 Breadth-first search</a></li>
+<li><a href="#depth-first-search">2.2.7 Depth-first search</a></li>
+<li><a href="#revisiting-states">2.2.8 Revisiting states</a></li>
+<li><a href="#informed-search-and-heuristics">2.2.9 Informed search and heuristics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-3-informed-heuristic-search">3 Lecture 3: Informed (heuristic) search</a><ul>
+<li><a href="#best-first-search">3.1 Best-first search</a></li>
+<li><a href="#heuristic-search">3.2 Heuristic search</a><ul>
+<li><a href="#admissible-heuristics">3.2.1 Admissible heuristics</a></li>
+<li><a href="#a42">3.2.2 A*</a></li>
+<li><a href="#real-time-search">3.2.3 Real-time search</a></li>
+<li><a href="#abstraction-and-decomposition">3.2.4 Abstraction and decomposition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-4-search-for-optimisation-problems">4 Lecture 4: Search for optimisation problems</a><ul>
+<li><a href="#optimisation-problems">4.1 Optimisation problems</a></li>
+<li><a href="#local-search">4.2 Local search</a><ul>
+<li><a href="#hill-climbing">4.2.1 Hill-climbing</a></li>
+<li><a href="#simulated-annealing">4.2.2 Simulated annealing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-5-genetic-algorithms-and-constraint-satisfaction">5 Lecture 5: Genetic algorithms and constraint satisfaction</a><ul>
+<li><a href="#genetic-algorithms">5.1 Genetic algorithms</a></li>
+<li><a href="#constraint-satisfaction-problems">5.2 Constraint satisfaction problems</a><ul>
+<li><a href="#csp-algorithms">5.2.1 CSP algorithms</a></li>
+<li><a href="#heuristics-and-other-techniques-for-csps">5.2.2 Heuristics and other techniques for CSPs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lectures-6-and-7-game-playing">6 Lectures 6 and 7: Game playing</a><ul>
+<li><a href="#basics-of-game-playing">6.1 Basics of game playing</a></li>
+<li><a href="#minimax">6.2 Minimax</a></li>
+<li><a href="#alpha-beta-pruning">6.3 Alpha-beta pruning</a></li>
+<li><a href="#monte-carlo-tree-search">6.4 Monte Carlo tree search</a><ul>
+<li><a href="#rapid-action-value-estimate">6.4.1 Rapid Action-Value Estimate</a></li>
+<li><a href="#comparisons-with-alpha-beta-search">6.4.2 Comparisons with alpha-beta search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-8-logic-and-planning">7 Lecture 8: Logic and planning</a><ul>
+<li><a href="#planning">7.1 Planning</a></li>
+<li><a href="#logic">7.2 Logic</a></li>
+<li><a href="#propositional-logic">7.3 Propositional logic</a></li>
+<li><a href="#planning-with-propositional-logic">7.4 Planning with propositional logic</a><ul>
+<li><a href="#satplan">7.4.1 SatPlan</a></li>
+<li><a href="#graphplan">7.4.2 GraphPlan</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-9-first-order-logic-and-planning">8 Lecture 9: First-order logic and planning</a><ul>
+<li><a href="#first-order-logic">8.1 First-order logic</a><ul>
+<li><a href="#proofs">8.1.1 Proofs</a></li>
+</ul>
+</li>
+<li><a href="#planning_1">8.2 Planning</a></li>
+</ul>
+</li>
+<li><a href="#lecture-10-introduction-to-reasoning-under-uncertainty">9 Lecture 10: Introduction to reasoning under uncertainty</a><ul>
+<li><a href="#uncertainty">9.1 Uncertainty</a><ul>
+<li><a href="#probabilistic-models">9.1.1 Probabilistic models</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-11-bayes-nets">10 Lecture 11: Bayes nets</a></li>
+<li><a href="#lecture-14-reasoning-under-uncertainty">11 Lecture 14: Reasoning under uncertainty</a><ul>
+<li><a href="#axioms-of-utility-theory">11.1 Axioms of utility theory</a></li>
+<li><a href="#utility-function">11.2 Utility Function</a></li>
+<li><a href="#utility-models">11.3 Utility Models</a></li>
+<li><a href="#acting-under-uncertainty">11.4 Acting under uncertainty</a></li>
+<li><a href="#decision-graphs">11.5 Decision graphs</a></li>
+<li><a href="#information-gathering">11.6 Information gathering</a><ul>
+<li><a href="#example">11.6.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#value-of-perfect-information">11.7 Value of perfect information</a></li>
+</ul>
+</li>
+<li><a href="#lecture-15-bandit-problems-and-markov-processes">12 Lecture 15: Bandit problems and Markov processes</a><ul>
+<li><a href="#bandit-problems">12.1 Bandit Problems</a><ul>
+<li><a href="#estimating-action-values">12.1.1 Estimating action values</a></li>
+</ul>
+</li>
+<li><a href="#exploration-exploitation-trade-off">12.2 Exploration-exploitation trade-off</a><ul>
+<li><a href="#epsilon-greedy-action-selection">12.2.1 $\epsilon$-greedy action selection</a></li>
+<li><a href="#softmax-action-selection">12.2.2 Softmax action selection</a></li>
+<li><a href="#optimism-in-the-face-of-uncertainty-optimistic-initialization">12.2.3 Optimism in the face of uncertainty (optimistic initialization)</a></li>
+<li><a href="#confidence-intervals">12.2.4 Confidence intervals</a></li>
+<li><a href="#upper-confidence-bounds">12.2.5 Upper Confidence Bounds</a></li>
+</ul>
+</li>
+<li><a href="#contextual-bandits">12.3 Contextual bandits</a></li>
+<li><a href="#sequential-decision-making">12.4 Sequential Decision Making</a></li>
+<li><a href="#markov-chains">12.5 Markov Chains</a></li>
+<li><a href="#markov-decision-processes-mdps">12.6 Markov Decision Processes (MDPs)</a><ul>
+<li><a href="#returns">12.6.1 Returns</a></li>
+<li><a href="#formulating-problems-as-mdps">12.6.2 Formulating problems as MDPs</a></li>
+<li><a href="#policies">12.6.3 Policies</a></li>
+<li><a href="#value-function">12.6.4 Value Function</a></li>
+<li><a href="#computing-the-value-of-policy-pi">12.6.5 Computing the value of policy $\pi$</a></li>
+<li><a href="#iterative-policy-evalution">12.6.6 Iterative Policy Evalution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-16-markov-decision-processes-policies-and-value-functions">13 Lecture 16: Markov decision processes, policies and value functions</a><ul>
+<li><a href="#searching-for-a-good-policy">13.1 Searching for a good policy</a></li>
+<li><a href="#policy-iteration-algorithm">13.2 Policy iteration algorithm</a></li>
+<li><a href="#computing-optimal-values-value-iteration">13.3 Computing Optimal Values: Value iteration</a></li>
+<li><a href="#a-more-efficient-algorithm">13.4 A more efficient algorithm</a></li>
+</ul>
+</li>
+<li><a href="#lecture-17-reinforcement-learning">14 Lecture 17: Reinforcement learning</a><ul>
+<li><a href="#how-good-is-a-parameter-set">14.1 How good is a parameter set?</a></li>
+<li><a href="#maximum-likelihood-estimation-mle">14.2 Maximum Likelihood Estimation (MLE)</a></li>
+<li><a href="#mle-for-multinomial-distribution">14.3 MLE for multinomial distribution</a></li>
+<li><a href="#mle-for-bayes-nets">14.4 MLE for Bayes Nets</a></li>
+<li><a href="#consistency-of-mle">14.5 Consistency of MLE</a><ul>
+<li><a href="#detour-into-information-theory">14.5.1 Detour into information theory</a></li>
+</ul>
+</li>
+<li><a href="#interpretation-of-kl-divergence">14.6 Interpretation of KL divergence</a></li>
+<li><a href="#properties-of-mle">14.7 Properties of MLE</a></li>
+<li><a href="#model-based-reinforcement-learning">14.8 Model based reinforcement learning</a></li>
+<li><a href="#monte-carlo-methods">14.9 Monte Carlo Methods</a></li>
+<li><a href="#temporal-difference-td-prediction">14.10 Temporal-Difference (TD) prediction</a></li>
+<li><a href="#td-learning-algorithm">14.11 TD Learning Algorithm</a></li>
+</ul>
+</li>
+<li><a href="#lecture-18-function-approximation">15 Lecture 18: Function approximation</a><ul>
+<li><a href="#linear-hypothesis">15.1 Linear hypothesis</a></li>
+<li><a href="#error-minimization">15.2 Error minimization</a><ul>
+<li><a href="#least-mean-squares">15.2.1 Least mean squares</a></li>
+</ul>
+</li>
+<li><a href="#polynomial-fits">15.3 Polynomial fits</a></li>
+<li><a href="#overfitting">15.4 Overfitting</a><ul>
+<li><a href="#leave-one-out-cross-validation">15.4.1 Leave-one-out cross-validation</a></li>
+</ul>
+</li>
+<li><a href="#cross-validation">15.5 Cross-validation</a></li>
+<li><a href="#different-way-of-finding-parameters">15.6 Different way of finding parameters</a><ul>
+<li><a href="#gradient-descent">15.6.1 Gradient descent</a></li>
+</ul>
+</li>
+<li><a href="#convergence">15.7 Convergence</a><ul>
+<li><a href="#robbins-monroe-conditions">15.7.1 Robbins-Monroe conditions</a></li>
+<li><a href="#local-minima">15.7.2 Local minima</a></li>
+</ul>
+</li>
+<li><a href="#batch-vs-on-line-optimization">15.8 Batch vs On-line optimization</a><ul>
+<li><a href="#batch-gradient-descent">15.8.1 Batch gradient descent</a></li>
+<li><a href="#on-line-incremental-gradient-descent">15.8.2 On-line (incremental) gradient descent</a></li>
+</ul>
+</li>
+<li><a href="#td-learning-with-function-approximation">15.9 TD learning with function approximation</a></li>
+</ul>
+</li>
+<li><a href="#lecture-19-neural-networks">16 Lecture 19: Neural networks</a><ul>
+<li><a href="#linear-models-for-classification">16.1 Linear models for classification</a></li>
+<li><a href="#the-need-for-networks">16.2 The Need for networks</a></li>
+<li><a href="#signoid-unit-neuro">16.3 Signoid Unit (neuro)</a></li>
+<li><a href="#sigmoid-hypothesis">16.4 Sigmoid Hypothesis</a><ul>
+<li><a href="#sigmoid-units-vs-perceptron">16.4.1 Sigmoid units vs perceptron</a></li>
+</ul>
+</li>
+<li><a href="#feed-forward-neural-networks">16.5 Feed-Forward Neural Networks</a><ul>
+<li><a href="#computing-the-output-of-the-network">16.5.1 Computing the output of the network</a></li>
+<li><a href="#learning-in-feed-forward-neural-networks">16.5.2 Learning in Feed-Forward neural networks</a></li>
+<li><a href="#gradient-descent-update-for-neural-networks">16.5.3 Gradient Descent Update for Neural Networks</a></li>
+<li><a href="#backpropagation-algorithm">16.5.4 Backpropagation Algorithm</a></li>
+<li><a href="#backpropagation-algorithm-in-detail">16.5.5 Backpropagation Algorithm in Detail</a></li>
+<li><a href="#expressiveness-of-feed-forward-neural-networks">16.5.6 Expressiveness of feed-forward neural networks</a></li>
+<li><a href="#backpropagation-variations">16.5.7 Backpropagation Variations</a></li>
+<li><a href="#convergence-of-backpropagation">16.5.8 Convergence of Backpropagation</a></li>
+</ul>
+</li>
+<li><a href="#overfitting-in-feed-forward-networks">16.6 Overfitting in feed-forward networks</a></li>
+<li><a href="#practical-issues">16.7 Practical Issues</a></li>
+<li><a href="#more-practical-issues">16.8 More practical issues</a></li>
+<li><a href="#when-to-use-neural-networks">16.9 When to use neural networks</a></li>
+</ul>
+</li>
+<li><a href="#lecture-20-clustering">17 Lecture 20: Clustering</a><ul>
+<li><a href="#unsupervised-learning">17.1 Unsupervised Learning</a></li>
+<li><a href="#k-means-clustering">17.2 K-means clustering</a></li>
+<li><a href="#what-if-we-dont-know-what-k-is">17.3 What if we don't know what K is?</a></li>
+<li><a href="#why-the-sum-of-squared-euclidean-distances">17.4 Why the sum of squared euclidean distances?</a></li>
+<li><a href="#does-k-means-clustering-terminate">17.5 Does K means clustering terminate??</a></li>
+<li><a href="#does-k-means-always-find-the-same-answer">17.6 Does K means always find the same answer?</a></li>
+<li><a href="#finding-good-initial-configurations">17.7 Finding good initial configurations:</a></li>
+<li><a href="#choosing-the-number-of-clusters">17.8 Choosing the number of clusters</a></li>
+<li><a href="#k-means-like-clustering-in-general">17.9 K-means-like clustering in general</a><ul>
+<li><a href="#distance-metrics">17.9.1 Distance metrics</a></li>
+<li><a href="#scoring-functions">17.9.2 Scoring functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#lecture-21-games">18 Lecture 21: Games</a></li>
+<li><a href="#lecture-22-natural-language-processing">19 Lecture 22: Natural language processing</a></li>
+<li><a href="#lecture-23-conclusion">20 Lecture 23: Conclusion</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Lecture 1: Introduction to AI<a class="headerlink" href="#lecture-1-introduction-to-ai" name="lecture-1-introduction-to-ai">&para;</a></h2>
+<ul>
+<li>Two views of the goals of AI:<ul>
+<li>Duplicating what the human brain does (Turing test)</li>
+<li>Duplicating what the human brain should do (rationality)</li>
+<li>We'll focus on the latter (a more rigorous definition, can be analysed mathematically)</li>
+</ul>
+</li>
+<li>Agent: entity that perceives and acts<ul>
+<li>Function that maps a percept (input) to actions (output)</li>
+<li>A rational agent maximises performance according to some criterion</li>
+<li>Our goal: find the best function given that computational resources are limited</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Lecture 2: Uninformed search methods<a class="headerlink" href="#lecture-2-uninformed-search-methods" name="lecture-2-uninformed-search-methods">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Defining a search problem<a class="headerlink" href="#defining-a-search-problem" name="defining-a-search-problem">&para;</a></h3>
+<dl>
+<dt>State space</dt>
+<dd>the set of all possible configurations of the domain of interest</dd>
+<dt>Start state</dt>
+<dd>a state in the state space that you start from</dd>
+<dt>Goal states</dt>
+<dd>the set of states that we want to reach (can be defined by a test rather an explicit set)</dd>
+<dt>Operators</dt>
+<dd>actions that can be applied on states to get to successor states</dd>
+<dt>Path</dt>
+<dd>a sequence of states and the operators for transitioning between states</dd>
+<dt>Path cost</dt>
+<dd>a number (that we usually want to minimise) associated with a path</dd>
+<dt>Solution of a search problem</dt>
+<dd>a path from a start state to a goal state</dd>
+<dt>Optimal solution</dt>
+<dd>a path with the least cost</dd>
+</dl>
+<h4 class="header"><i>2.1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p><strong>Eight-puzzle</strong></p>
+<ul>
+<li>The configurations of the board are the <strong>states</strong></li>
+<li>The configurations that we want are the <strong>goal states</strong></li>
+<li>The legal <strong>operators</strong> are moving a tile into a blank space</li>
+<li>The <strong>path cost</strong> is the number of operators (moves) applied to get to the final state</li>
+</ul>
+<p><strong>Robot navigation</strong></p>
+<ul>
+<li>The <strong>states</strong> may consist of various things including the robot's current position, its velocity, where it is on the map, its position in relation to obstacles</li>
+<li>The <strong>goals states</strong> are the ones where the robot is at a target position and has not crashed</li>
+<li>The legal <strong>operators</strong> are usually taking a step in a particular direction</li>
+<li>The <strong>path cost</strong> can be any number of things including the amount of energy consumed, the distance travelled, etc</li>
+</ul>
+<h3 class="header"><i>2.2</i>Search algorithms<a class="headerlink" href="#search-algorithms" name="search-algorithms">&para;</a></h3>
+<p>First, we make some assumptions:</p>
+<ul>
+<li>The environment is <em>static</em></li>
+<li>The environment is <em>observable</em></li>
+<li>The state space is <em>discrete</em></li>
+<li>The environment is <em>deterministic</em></li>
+</ul>
+<h4 class="header"><i>2.2.1</i>Search graphs and trees<a class="headerlink" href="#search-graphs-and-trees" name="search-graphs-and-trees">&para;</a></h4>
+<ul>
+<li>We can represent the search through a state space in terms of a <em>directed graph</em> (tree, since there is a root, and there are no cycles)<ul>
+<li>Vertices represent states (and also contain other information: pointer to the parent, cost of the depth so far, maybe the depth of the node, etc)</li>
+<li>Edges are operators</li>
+</ul>
+</li>
+<li>To find a solution, build the search tree, and traverse it - starting from the root - to find the path to a goal state</li>
+<li><strong>Expanding a node</strong> means applying all the legal operators to it and getting a bunch of descendent nodes (for all the successor states)</li>
+</ul>
+<h4 class="header"><i>2.2.2</i>Generic algorithm<a class="headerlink" href="#generic-algorithm" name="generic-algorithm">&para;</a></h4>
+<ul>
+<li>Initialise the search tree with the root</li>
+<li>While there are unexpanded nodes in the tree:<ul>
+<li>Choose a leaf node according to some search strategy</li>
+<li>If the node contains a goal state, return the path to that node</li>
+<li>Otherwise, expand the node by applying each operator and thus generating all successor states, and add corresponding nodes to the tree (as the node's descendents)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.3</i>Implementation details<a class="headerlink" href="#implementation-details" name="implementation-details">&para;</a></h4>
+<ul>
+<li>To keep track of the nodes that have yet to be expanded (also known as the <strong>frontier</strong> or <strong>open list</strong>), we can use a priority queue</li>
+<li>When the queue is empty, there are no unexpanded nodes in the tree, obviously</li>
+<li>Otherwise, remove the node at the head, check if it contains a goal state, and if not, expand the node, and insert the resulting nodes into the queue</li>
+<li>The particular queueing function being used depends on the specific algorithm</li>
+<li>The simplest search is an uninformed (blind) search<ul>
+<li>Just wander (in a systematic way though) between states until we find a goal</li>
+<li>The opposite is an informed search, which uses heuristics to "guess" which states are closer to goal states (and thus would be better to expand)</li>
+<li>No problem-specific knowledge is assumed</li>
+<li>The various methods really on differ in the order in which states are considered</li>
+<li>Always have exponential complexity in the worst case</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.4</i>Properties of search algorithms<a class="headerlink" href="#properties-of-search-algorithms" name="properties-of-search-algorithms">&para;</a></h4>
+<dl>
+<dt>Completeness</dt>
+<dd>If a solution exists, are we guaranteed to find it?</dd>
+<dt>Space complexity</dt>
+<dd>How much storage space is needed?</dd>
+<dt>Time complexity</dt>
+<dd>How many operations are needed?</dd>
+<dt>Solution quality</dt>
+<dd>How good is the solution?</dd>
+</dl>
+<p>Other properties that we may wish to consider:</p>
+<ul>
+<li>Does the algorithm provide an immediate solution? (If it were stopped halfway, would it give us a reasonable answer?)</li>
+<li>Can poor solutions be refined over time?</li>
+<li>Does work done in one search get duplicated, or can it be reused for another search?</li>
+</ul>
+<h4 class="header"><i>2.2.5</i>Search performance<a class="headerlink" href="#search-performance" name="search-performance">&para;</a></h4>
+<dl>
+<dt>Branching factor (<span>$b$</span>)</dt>
+<dd>The (maximum) number of operators that can be applied to a given state. For the eight-puzzle problem, the branching factor is 4, since for any state there are at most 4 adjacent tiles that can be moved into the blank space (usually there are only 2 or 3, but 4 is still considered the branching factor).</dd>
+<dt>Solution depth (<span>$d$</span>)</dt>
+<dd>The (minimum) length from the initial state to a goal state.</dd>
+</dl>
+<h4 class="header"><i>2.2.6</i>Breadth-first search<a class="headerlink" href="#breadth-first-search" name="breadth-first-search">&para;</a></h4>
+<ul>
+<li>A form of uninformed search (no heuristic)</li>
+<li>New nodes are enqueued at the end of the queue</li>
+<li>All nodes at a particular level are expanded before the nodes in the next level</li>
+<li>Complete, since it will end up searching the entire graph until it finds a solution</li>
+<li>The solution quality may vary, though, since it will return as soon as it finds a path</li>
+<li>Thus, while it will always return the <em>shallowest</em> path, it may not necessarily return the <em>best</em> path</li>
+<li>However, the algorithm can be fixed to always return the best path</li>
+<li>Time complexity: exponential - <span>$O(b^d)$</span> (the same as all uninformed search methods)</li>
+<li>Space complexity: also exponential - <span>$O(b^d)$</span> since you potentially need to store all of the nodes in memory</li>
+<li>We can fix this by using a priority queue<ul>
+<li>Instead of inserting nodes based on their "level" (i.e., the length of the parent chain), we insert them by the cost of the path so far, ascending</li>
+<li>Thus the cheapest paths are investigated first, as we desired</li>
+<li>This guarantees an optimal solution</li>
+<li>Called <strong>uniform-cost search</strong></li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.7</i>Depth-first search<a class="headerlink" href="#depth-first-search" name="depth-first-search">&para;</a></h4>
+<ul>
+<li>New nodes are enqueued at the front</li>
+<li>Backtracks when a leaf node is reached</li>
+<li>Space complexity: <span>$O(bd)$</span></li>
+<li>Easily to implement recursively (no queue structure needed)</li>
+<li>This is more efficient than BFS in the case where many paths lead to one solution</li>
+<li>Time complexity: exponential (<span>$O(b^d)$</span>), as with all uninformed search methods</li>
+<li>May not terminate, if you have (say) infinitely deep trees? Is that possible? Can you have infinitely wide trees? If so, why is it not mentioned in the slides that BFS may not terminate? ???? Or maybe the branching factor has to be finite because we assume that the number of operators is finite, for simplicity. I don't know.</li>
+<li>A variant to ensure that it terminates: <strong>depth-limited search</strong><ul>
+<li>Stop when you've reached a maximum depth (treat it as a leaf node basically)</li>
+<li>Always terminates, but still not complete, since the goal may be hidden somewhere underneath a pile of pseudo-leaves and you may have to return empty-handed</li>
+</ul>
+</li>
+<li>A variant to ensure completeness: <strong>iterative-deepening</strong><ul>
+<li>Do depth-limited search, but increase the depth whenever you've gone through everything you can and still haven't found a goal</li>
+<li>Results in some nodes being expanded numerous times (time complexity is the same though for some reason)</li>
+<li>This version is complete</li>
+<li>Memory requirements: linear</li>
+<li>Preferred solution for a large state space, when we don't know the maximum depth</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.8</i>Revisiting states<a class="headerlink" href="#revisiting-states" name="revisiting-states">&para;</a></h4>
+<ul>
+<li>How should we deal with revisiting a state that has already been expanded?</li>
+<li>One solution: maintain a list of expanded nodes<ul>
+<li>Useful for problems where states are often repeated</li>
+<li>Time and space complexity is linear in the number of states</li>
+<li>Then, when you revisit a state, you compare the cost of the new path with the cost in the list, and update the list with the best one (since the second visit might well produce a better path)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.9</i>Informed search and heuristics<a class="headerlink" href="#informed-search-and-heuristics" name="informed-search-and-heuristics">&para;</a></h4>
+<ul>
+<li>Uninformed search methods only know the distance to a node from the start, so that's what the order of expansion is based on</li>
+<li>However, this doesn't always lead to the best solution, as we've seen</li>
+<li>The alternative is to expand based on the distance to the <em>goal</em><ul>
+<li>Of course, we don't always know this, which is what makes this problem challenging</li>
+<li>However, sometimes we can approximate this with a <strong>heuristic</strong></li>
+<li>Some examples of heuristics:<ul>
+<li>For the distance to a street corner in a city with one-way streets: the straight-line distance, or the Manhattan distance (neither is 100% accurate but both are reasonable approximations)</li>
+<li>For the eight-puzzle: the number of misplaced tiles, or the total Manhattan distance from each tile to its desired location (the latter is probably better)</li>
+</ul>
+</li>
+<li>Heuristics arise from prior knowledge about the problem domain</li>
+<li>Often they are based on relaxed versions of the problem (e.g., can travel south along a northbound street, or we can move a tile to any adjacent square)</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Lecture 3: Informed (heuristic) search<a class="headerlink" href="#lecture-3-informed-heuristic-search" name="lecture-3-informed-heuristic-search">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Best-first search<a class="headerlink" href="#best-first-search" name="best-first-search">&para;</a></h3>
+<ul>
+<li>Expand the node with the lowest heuristic value (where the heuristic value represents "distance to a goal" in some form or the other and so we want to minimise it)</li>
+<li>Time complexity: <span>$O(b^d)$</span></li>
+<li>If the heuristic is the same for every node, then this is really the same as BFS, so the space complexity is exponential in the worst case</li>
+<li>But if the heuristic is more varied, then the expansion may be closer to DFS (so space complexity of <span>$O(bd)$</span>)</li>
+<li>Not generally complete:<ul>
+<li>If the state space is infinite, it may never terminate</li>
+<li>Even if the state space is finite, it can get caught in loops unless we do that <a href="#revisiting-states">closed list</a> thing</li>
+</ul>
+</li>
+<li>Not always optimal (this depends on the heuristic)</li>
+<li>This is a <strong>greedy</strong> search technique, wherein long-term disadvantages are ignored in favour of short-term benefits (sort of like putting off studying for the AI midterm until the night before)</li>
+<li>In fact, this is often <em>too greedy</em><ul>
+<li>The cost so far is not taken into account!</li>
+<li>Let's consider another algorithm that does take this into account.</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.2</i>Heuristic search<a class="headerlink" href="#heuristic-search" name="heuristic-search">&para;</a></h3>
+<ul>
+<li>If <span>$g$</span> is the cost of the path so far, and <span>$h$</span> is the heuristic function (estimated cost remaining), then heuristic search is really just best-first but with the heuristic being <span>$f = g + h$</span></li>
+<li>Where <span>$f$</span> is clearly just an estimate of the total cost of the path</li>
+<li>The priority function is then <span>$f$</span></li>
+<li>So the successors of a node are enqueued according to the cost of getting to that successor plus the estimated cost from the successor to a goal state</li>
+<li>Optimality depends on the heuristic!</li>
+</ul>
+<h4 class="header"><i>3.2.1</i>Admissible heuristics<a class="headerlink" href="#admissible-heuristics" name="admissible-heuristics">&para;</a></h4>
+<ul>
+<li>To guarantee optimality, we'll need to use an <strong>admissible heuristic</strong></li>
+<li>For a heuristic to be admissible, it must be that <span>$h(n)$</span> for any node does not exceed the lowest cost among all paths from <span>$n$</span> to a goal state</li>
+<li>Basically, such heuristics are optimistic (they underestimate the cost to go)</li>
+<li>Corollary: <span>$h$</span> for any goal state must be 0 (of course)</li>
+<li>A trivial example of an admissible heuristic is the zero heuristic (in which case heuristic search devolves into uniform-cost search)</li>
+<li>Examples of admissible heuristics:<ul>
+<li>Straight-line distance to goal (in robot/car navigation)</li>
+<li>Eight-puzzle: number of misplaced tiles, or the sum of the Manhattan distances for each tile</li>
+<li>Generally, relaxed versions of problems will give us admissible heuristics</li>
+<li>Time from now until the start of the exam (when trying to figure out how much time you have to study; clearly this is wildly optimistic)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.2.2</i>A*<a class="headerlink" href="#a42" name="a42">&para;</a></h4>
+<ul>
+<li>This is simply heuristic search with an admissible heuristic, but it deserves its own section because 1) it's important and 2) I didn't want the lists to be too deep</li>
+<li>The priority function is simply <span>$f = g + h$</span> where <span>$h$</span> is admissible</li>
+<li>Pseudocode: (nothing new, just piecing it all together)<ul>
+<li>Initialise priority queue with <span>$(s_0, f(s_0))$</span> where <span>$s_0$</span> is the start state</li>
+<li>While the queue is not empty:<ul>
+<li>Pop the node with the lowest <span>$f$</span>-value <span>$(s, f(s))$</span></li>
+<li>If <span>$s$</span> is a goal state, do a backtrace to obtain the path, and return that</li>
+<li>Otherwise, compute all the successor states</li>
+<li>For each successor state <span>$s'$</span>:<ul>
+<li>Compute <span>$f(s') = g(s') + h(s') = g(s) + \text{cost}(s, s') + h(s')$</span></li>
+<li>If <span>$s'$</span> has not been expanded, put <span>$(s', f(s'))$</span> in the queue</li>
+<li>If it has been expanded and the new <span>$f(s')$</span> is smaller, update the list of expanded nodes and add <span>$(s', f(s'))$</span> to the queue</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Consistent heuristics:<ul>
+<li>An admissible heuristic is <strong>consistent</strong> if for every state <span>$s$</span> and every successor <span>$s'$</span> of <span>$s$</span>, <span>$h(s) \leq \text{cost}(s, s') + h(s')$</span>.</li>
+<li>In other words, the difference between the heuristic for one state and the heuristic for its successor does not exceed the cost</li>
+<li>That probably didn't help. It's sort of like, the heuristic value differences are optimistic with regards to the actual cost</li>
+<li>Heuristics that are consistent are known as <strong>metrics</strong></li>
+<li>Incidentally, if <span>$h$</span> is monotone, and all costs are non-zero, then <span>$f$</span> cannot ever decrease</li>
+</ul>
+</li>
+<li>Completeness:<ul>
+<li>If <span>$h$</span> is monotone, then <span>$f$</span> is non-decreasing</li>
+<li>Consequently, a node cannot be re-expanded</li>
+<li>Then, if a solution exists, its costs must be bounded</li>
+<li>Hence A* will find it. Thus A* is complete assuming a monotone heuristic</li>
+</ul>
+</li>
+<li>Inconsistent heuristics<ul>
+<li>What if we have a heuristic that may not be consistent?</li>
+<li>In that case, we make a small change to the heuristic function:<ul>
+<li>Use <span>$f(s) = \max(g(s') + h(s'), f(s))$</span></li>
+<li>Then, <span>$f$</span> is now non-decreasing, so A* is again complete</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Optimality:<ul>
+<li>Suppose we've found a suboptimal goal state <span>$G_1$</span>, and a node for it is in the queue</li>
+<li>Let <span>$n$</span> be an unexpanded node on a more optimal path, which ends at the goal state <span>$G_1$</span></li>
+<li>Then <span>$f(G_2) = g(G_2)$</span> since <span>$h(G_2) = 0$</span>. And <span>$g(G_2) &gt; g(G_1)$</span> since <span>$G_2$</span> is suboptimal. But then that <span>$\geq f(n)$</span> by the admissibility of <span>$h$</span>.</li>
+<li>Thus <span>$f(G_2) &gt; f(n)$</span> and A* will expand <span>$n$</span> before expanding <span>$G_2$</span>.</li>
+<li>Since <span>$n$</span> was arbitrary, it follows that for <em>any</em> node on an optimal path will be expanded before a suboptimal goal</li>
+<li>Thus A* is optimal</li>
+</ul>
+</li>
+<li>Dominance<ul>
+<li>If <span>$h_1$</span> and <span>$h_2$</span> are both admissible heuristics and <span>$h_2(n) \geq h_1(n)$</span> for all <span>$n$</span>, then <span>$h_2$</span> <strong>dominates</strong> <span>$h_1$</span></li>
+<li>Then A* will expand more nodes using <span>$h_2$</span> than using <span>$h_1$</span> (a superset)</li>
+</ul>
+</li>
+<li>Optimal efficiency:<ul>
+<li>No other search algorithm can do better than A* for a given heuristic <span>$h$</span> (i.e., reach the optimum while expanding fewer nodes)</li>
+</ul>
+</li>
+<li>Iterative-deepening A* (IDA*)<ul>
+<li>Same as the previous iterative-deepending one, except you use <span>$f$</span> as the priority function</li>
+<li>Instead of a depth limit, we use a limit on the <span>$f$</span>-value, and keep track of the next limit to consider (to ensure that we search at least one more node each time)</li>
+<li>Same properties as A*, but with less memory used</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.2.3</i>Real-time search<a class="headerlink" href="#real-time-search" name="real-time-search">&para;</a></h4>
+<ul>
+<li>Useful for dynamic environments, where you may not have enough time to complete the search</li>
+<li>So we compromise by searching a little bit, then choosing the path that seems best out of the ones we've looked at</li>
+<li>The main difficulty is in avoiding cycles, if we can't spare the time or memory needed to mark states as visited or unvisited</li>
+<li>Real-time A*:<ul>
+<li>Backtracking only occurs when the cost of backtracking to <span>$s$</span> and proceeding from there is better than remaining where we are</li>
+<li>Korf's solution for this: make <span>$g$</span> the cost from the current state, not from the start state (to simulate the cost of backtracking)</li>
+<li>Deciding the best direction:<ul>
+<li>Don't need to investigate the whole frontier in order to choose the best node to expand, if we have a monotone function for <span>$f$</span></li>
+<li>Bounding: move one step towards the node on the frontier with the lowest <span>$f$</span>-value</li>
+<li><span>$\alpha$</span>-pruning: Store the lowest <span>$f$</span>-value of any node we're currently investigating as <span>$\alpha$</span></li>
+<li>Don't expand any nodes with cost higher than <span>$\alpha$</span>, and update <span>$\alpha$</span> as necessary</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.2.4</i>Abstraction and decomposition<a class="headerlink" href="#abstraction-and-decomposition" name="abstraction-and-decomposition">&para;</a></h4>
+<ul>
+<li>Consider a search problem like a Rubik's cube puzzle</li>
+<li>Since there are so many individual states, we can think in terms of <strong>subgoals</strong> instead of states and operators</li>
+<li>Reach a subgoal, then solve the subgoal, then choose the next subgoal, etc</li>
+<li>Thus we take a complicated problem and decompose it into smaller, simpler parts</li>
+<li><strong>Abstraction</strong>: methods that ignore specific information in order to speed up computation (like focusing on patterns instead of the individual tiles in a Rubik's cube)<ul>
+<li>Thus many states are considered equivalent (the same abstract state)</li>
+</ul>
+</li>
+<li><strong>Macro-action</strong>: a sequence of actions (e.g., swapping two tiles in the eight-puzzle, or making a particular shape with a Rubik's cube)</li>
+<li>Cons of abstraction: may give up optimality<ul>
+<li>However, it's better than not being able to solve something</li>
+<li>Often, subgoals have very general solutions that can be stored somewhere</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>4</i>Lecture 4: Search for optimisation problems<a class="headerlink" href="#lecture-4-search-for-optimisation-problems" name="lecture-4-search-for-optimisation-problems">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Optimisation problems<a class="headerlink" href="#optimisation-problems" name="optimisation-problems">&para;</a></h3>
+<ul>
+<li>There is a cost function, which we want to optimise (max or min, it depends)</li>
+<li>There may also be certain constraints that need to be satisfied</li>
+<li>Simply enumerating all the possible solutions and checking their cost is usually not feasible, due to the size of the state space</li>
+<li>Examples:<ul>
+<li>Traveling salesman: Find the shortest path that goes through each vertex exactly once</li>
+<li>Scheduling: Given a set of tasks to be completed, with durations and constraints, output the shortest schedule</li>
+<li>Circuit board design: Given a board with components and connections, maximise energy efficiency, minimise production cost, etc</li>
+<li>Recommendation engines: Given customer purchase and personal information, give recommendations that will maximise your sales/profit</li>
+</ul>
+</li>
+<li>Characterisation of optimisation problems<ul>
+<li>Described by a set of <strong>states</strong> or <strong>configurations</strong>, and an <strong>evaluation function</strong> that we are optimising<ul>
+<li>In TSP, the states are the tours, and the evaluation function outputs the length of a tour</li>
+</ul>
+</li>
+<li>State space is too large to enumerate all possibilities (<span>$(n-1)!/2$</span> for TSP, for example)</li>
+<li>We don't care about the path to the solution, we just want the best solution</li>
+<li>Usually, finding <em>a</em> solution is easy, it's finding the best that is hard (sometimes NP-hard)</li>
+</ul>
+</li>
+<li>Types of search methods<ul>
+<li>Constructive: Start from scratch and build a solution (local)</li>
+<li>Iterative: Start with some solution, and improve on it (local)</li>
+<li>Global (we won't look at this today)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.2</i>Local search<a class="headerlink" href="#local-search" name="local-search">&para;</a></h3>
+<p>Basic algorithm:</p>
+<ul>
+<li>Start from some configuration</li>
+<li>Generate its neighbours, find their cost</li>
+<li>Choose one of the neighours</li>
+<li>Repeat until we're happy with the solution</li>
+</ul>
+<h4 class="header"><i>4.2.1</i>Hill-climbing<a class="headerlink" href="#hill-climbing" name="hill-climbing">&para;</a></h4>
+<ul>
+<li>Also known as gradient descent/ascent (form of greedy local search)</li>
+<li>Choose the successor with the best cost at each step, and use that</li>
+<li>If we get to a local optimum, return the state</li>
+<li>Benefits:<ul>
+<li>Easy to write</li>
+<li>No backtracking needed</li>
+</ul>
+</li>
+<li>Example:<ul>
+<li>TSP, where "successors" are the tours that arise from swapping the order of two nodes</li>
+<li>The size of the neighbourhood is <span>$O(n^2)$</span> (since there are <span>$\displaystyle \binom{n}{2}$</span> possible distinct swappings)</li>
+<li>If we swapped three nodes, it would be <span>$O(n^3)$</span></li>
+</ul>
+</li>
+<li>Neighbourhood trade-offs<ul>
+<li>Smaller neighbourhood: cheaper computation, but less reliable solutions</li>
+<li>Larger neighbourhood: more expensive, but a better result usually</li>
+<li>Defining the set of neighbours is a design choice that strongly influences overall performance (there are often multiple valid definitions)</li>
+</ul>
+</li>
+<li>Problems:<ul>
+<li>Can get stuck at local optima (there's some relevant aphorism here involving either molehills or forests or something)</li>
+<li>Can get stuck on plateaus</li>
+<li>Requires a good neighbourhood function and a good evaluation function</li>
+</ul>
+</li>
+<li><strong>Randomised hill-climbing</strong>:<ul>
+<li>Instead of picking the best move, randomly pick any move that produces an improvement</li>
+<li>Doesn't allow us to pick moves that don't give improvements</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>4.2.2</i>Simulated annealing<a class="headerlink" href="#simulated-annealing" name="simulated-annealing">&para;</a></h4>
+<ul>
+<li>A form of hill-climbing, but it's important so it gets its own section.</li>
+<li>Allows "bad moves" at the beginning</li>
+<li>The frequency and size of allowed bad moves decrease over time (according to the "temperature")</li>
+<li>If a successor has better cost, we always move to it</li>
+<li>Otherwise, if the cost is <em>not</em> better, we move to it with a certain probability</li>
+<li>We keep track of the best solution we've found so far</li>
+<li>The probability of moving to a worse neighbour is determined by the difference in cost (higher difference -&gt; lower probability) and the temperature (lower temperature -&gt; lower probability)</li>
+<li>Consider the entirely plausible situation where you are given the task of finding the highest peak in a city in Nunavut. At first, the sun is up, and it's not that cold, so you just wander around, exploring peaks without a care in the world, sometimes taking a descending route just in case it leads to a higher peak. (Though you're always wary of descending any exceptionally steep slopes.) But then the sun starts to set. The light begins to fade from the sky, and with it, you feel your warmth slowly leaving your body. Your breath is starting to form ice droplets on your scarf. You can no longer feel your toes. You don't have time to "explore" anymore. You just want to find the peak and get out of here. So you limit your search to slopes that seem promising, though you still hold dear in your heart those early days when you were young and carefree. And warm.</li>
+<li>Anyway, the probability is given by <span>$\displaystyle \exp(\frac{E_i-E}{T})$</span> where <span>$E_i$</span> is the value of the successor we're considering and <span>$E$</span> is the value of our current state (Boltzmann distribution)</li>
+<li><span>$T$</span> is the temperature, if you couldn't tell</li>
+<li>Usually starts high, then decreases over time towards 0 (so probability starts high and decreases)</li>
+<li>When <span>$T$</span> is high, <strong>exploratory phase</strong></li>
+<li>When <span>$T$</span> is low, <strong>exploitation phase</strong></li>
+<li>If <span>$T$</span> is decreased slowly enough, simulated annealing <em>will</em> find the optimal solution (eventually)</li>
+<li>Controlling the temperature annealing schedule is difficult<ul>
+<li>Too fast, and we might get stuck at a local optimum</li>
+<li>Too slow, and, well, it's too slow</li>
+</ul>
+</li>
+<li>Example of randomised search (also known as Monte Carlo search), where we randomly explore the environment; can be very useful for large state spaces<ul>
+<li>Randomisation techniques are very useful for escaping local optima</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>5</i>Lecture 5: Genetic algorithms and constraint satisfaction<a class="headerlink" href="#lecture-5-genetic-algorithms-and-constraint-satisfaction" name="lecture-5-genetic-algorithms-and-constraint-satisfaction">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Genetic algorithms<a class="headerlink" href="#genetic-algorithms" name="genetic-algorithms">&para;</a></h3>
+<ul>
+<li>Patterned after evolutionary techniques (the terminology is too, you'll see)</li>
+<li><strong>Individual</strong>: A candidate solution (e.g., a tour)</li>
+<li><strong>Fitness</strong>: some value proportional to the evaluation function</li>
+<li><strong>Population</strong>: set of individuals</li>
+<li><strong>Operations</strong>: selection, mutation, and crossover (can be applied to individuals to produce new generations)</li>
+<li>Higher fitness -&gt; higher chance of survival and reproduction</li>
+<li>Individuals are usually represented by binary strings</li>
+<li>Algorithm:<ul>
+<li>Create a population <span>$P$</span> with <span>$p$</span> randomly-generated individuals</li>
+<li>For each individual in the population, compute its fitness level</li>
+<li>If its fitness exceeds a certain pre-determined threshold, return that individual</li>
+<li>Otherwise, generate a new generation through:<ul>
+<li>Selection: Choose certain members of this generation for survival, according to some implementation (discussed later)</li>
+<li>Crossover: randomly select some pairs and perform crossover; the offspring are now part of the new generation</li>
+<li>Mutation: randomly select some individuals and flip a random bit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types of operations<ul>
+<li>Mutation:<ul>
+<li>Injecting random changes (flipping bits, etc)</li>
+<li><span>$\mu$</span> = the probability that a mutation will occur in an individual</li>
+<li>Mutation can occur in all individuals, or only in offspring, if we so decide</li>
+</ul>
+</li>
+<li>Crossover:<ul>
+<li>Cut at a certain point and swap</li>
+<li>Can use a crossover mask, e.g., <span>$m=11110000$</span> to crossover at the halfway point of an 8-bit string</li>
+<li>If parents are <span>$i$</span> and <span>$j$</span>, the offspring are generated by <span>$(i \land m) \lor (j \land \neg m)$</span> and <span>$(i \land \neg m) \lor (j \land m)$</span></li>
+<li>If we want to implement multi-point crossovers, we can just use arbitrary masks</li>
+<li>Sometimes we have to restrict crossovers to "legal" ones to prevent unviable offspring</li>
+</ul>
+</li>
+<li>Selection:<ul>
+<li>Fitness proportionate selection: take the one with the best absolute value for fitness</li>
+<li>Tournament selection: pick two individuals at random and choose the fitter one</li>
+<li>Rank selection: sort hypotheses by fitness, and choose based on rank (higher rank -&gt; higher probability)</li>
+<li>Softmax (Boltmann) distribution: probability is given by <span>$e$</span> to the power of the fitness over some temperature, divided by the sum of <span>$e$</span> to the fitness (divided by <span>$T$</span>) for all the individuals (not going to write the formula because it's kind of ugly)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>"Elitism"<ul>
+<li>Of course, the best individual can die during evolution</li>
+<li>One workaround is to keep track of the best individual so far, and clone it back into the population for each generation</li>
+</ul>
+</li>
+<li>As a search problem<ul>
+<li>We can think of this as a search problem</li>
+<li>States are individuals</li>
+<li>Operators are mutation, crossover, selection</li>
+<li>This is parallel search, since we maintain <span>$|P|$</span> solutions simultaneously</li>
+<li>Sort of like randomised hill-climbing on the fitness function, except gradient is ignored, and it's global not local</li>
+</ul>
+</li>
+<li>TSP<ul>
+<li>Individuals: tours</li>
+<li>Mutation: swaps a pair of edges (the canonical definition)</li>
+<li>Crossover: currents the parents in two and swaps them <em>if</em> the resulting offspring is viable (i.e., a legal tour)</li>
+<li>Fitness: length of the tour</li>
+</ul>
+</li>
+<li>Benefits<ul>
+<li>If it works, it works</li>
+</ul>
+</li>
+<li>Downsides<ul>
+<li>Must choose the way the problem is encoded very carefully (difficult)</li>
+<li>Lots of parameters to play around with</li>
+<li>Lots of things to watch out for (like overcrowding - when genetic diversity is low)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>5.2</i>Constraint satisfaction problems<a class="headerlink" href="#constraint-satisfaction-problems" name="constraint-satisfaction-problems">&para;</a></h3>
+<ul>
+<li>Need to find a solution that satisfies some particular constraints</li>
+<li>Like a cost function with a minimum value at the solution, and a much larger value everywhere else</li>
+<li>Hard to apply optimisation algorithms directly, since there may not be many legal solutions</li>
+<li>Examples:<ul>
+<li>Graph colouring with 3 colours<ul>
+<li>Variables: nodes</li>
+<li>Domains: the colours (say, red, green, and blue)</li>
+<li>Constraints: no adjacent nodes can have the same colour</li>
+</ul>
+</li>
+<li>4 queens on a chessboard<ul>
+<li>Put one queen on each column, such that no row has two queens and no queens are in the same diagonal</li>
+<li>Variables: the 4 queens</li>
+<li>Domain: rows 1-4 (<span>$\{1, 2,3,4\}$</span>)</li>
+</ul>
+</li>
+<li>Solving a Sudoku puzzle</li>
+<li>Exam scheduling</li>
+<li>Map colouring with 3 colours<ul>
+<li>Actually, this can be reduced to graph-colouring fairly easily - just put an edge between any two bordering countries (the constraint graph)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Definition of a CSP<ul>
+<li>A set of variables, each of which can take on values from a given domain</li>
+<li>A set of constraints, specifying what combinations of values are allowed for certain subsets of the variables<ul>
+<li>Can be represented explicitly, e.g., as a list</li>
+<li>Or, as a boolean function</li>
+</ul>
+</li>
+<li>A solution is an assignment of values such that all the constraints are satisfied</li>
+<li>We are usually content with finding merely any solution (or reporting that none exists, if such is the case)</li>
+</ul>
+</li>
+<li><strong>Binary CSP</strong>: Each constraint governs no more than 2 variables<ul>
+<li>Can be used to produce a <strong>constraint graph</strong>: nodes are variables, edges indicate constraints</li>
+</ul>
+</li>
+<li>Types of variables<ul>
+<li>Boolean (e.g., satisfiability)</li>
+<li>Finite domain, discrete variables (e.g., colouring)</li>
+<li>Infinite domain, discrete variables (e.g., scheduling times)</li>
+<li>Continuous variables</li>
+</ul>
+</li>
+<li>Types of constraints: unary, binary, higher-order<ul>
+<li><strong>Soft constraints</strong> (preferences): can be represented using costs, leading to constrained optimisation problems</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>5.2.1</i>CSP algorithms<a class="headerlink" href="#csp-algorithms" name="csp-algorithms">&para;</a></h4>
+<ul>
+<li>A <strong>constructive approach</strong> standard search algorithm:<ul>
+<li>States are assignments of values</li>
+<li>Initial state: no variables are assigned</li>
+<li>Operators lead to an unassigned variable being assigned a new value</li>
+<li>Goals: states where all variables are assigned and no constraints have been violated</li>
+<li>Example, with map 3-colouring<ul>
+<li>Consider a DFS</li>
+<li>Since the depth is finite, this is complete</li>
+<li>However, the branching factor is high - the total number of domain sizes (among all the variables)</li>
+<li>Still, since order doesn't matter, many paths are equivalent</li>
+<li>Also, we know that adding assignments can't fix a constraint that has already been violated, so we can prune some paths</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Backtracking search<ul>
+<li>Like depth-first search, but the order of assignments is fixed (then the branching factor is just the number of values in the domain for a particular variable)</li>
+<li>Algorithm:<ul>
+<li>Take the next variable that we need to assign</li>
+<li>For each value in the domain that satisfies all constraints, assign it, and break</li>
+<li>If there are no such assignments, go back a variable, and try a different value for it</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Forward-checking<ul>
+<li>Keep track of legal values for unassigned variables (how the typical person<sup id="fnref:typical"><a href="#fn:typical" rel="footnote" title="i.e., me.">1</a></sup> plays Sudoku)</li>
+<li>When assigning a value for a variable <span>$X$</span>, look at each unassigned <span>$Y$</span> variable connected to <span>$X$</span> by a constraint</li>
+<li>Then, delete from <span>$Y$</span>'s domain any values that would violate a constraint</li>
+</ul>
+</li>
+<li>Iterative improvement<ul>
+<li>Start with a complete assignment that may or may not violate constraints</li>
+<li>Randomly select a variable that breaks a constraint</li>
+<li>Operators: Assign a new value based on some heuristic (e.g., the value that violates the fewest constraints)<ul>
+<li>So this is sort of like gradient descent on the number of violated constraints</li>
+<li>We could even use simulated annealing if we were so inclined ha get it inclined ok no</li>
+</ul>
+</li>
+<li>Example: <span>$n$</span> queens<ul>
+<li>Operators: move queen to another position</li>
+<li>Goal: satisfy all the constraints</li>
+<li>Evaluation function: the number of constraints violated</li>
+<li>This approach can solve this in almost constant-time (relative to <span>$n$</span>) with high probability</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>5.2.2</i>Heuristics and other techniques for CSPs<a class="headerlink" href="#heuristics-and-other-techniques-for-csps" name="heuristics-and-other-techniques-for-csps">&para;</a></h4>
+<ul>
+<li>Choosing values for each variable<ul>
+<li>The least-constraining value?</li>
+</ul>
+</li>
+<li>Choosing variables to assign to<ul>
+<li>The most-constrained variable? and then the most constraining</li>
+</ul>
+</li>
+<li>Break the forest up into trees (disjoint components)<ul>
+<li>Then, complexity is <span>$O(nd^2)$</span> and not <span>$O(d^n)$</span> where <span>$d$</span> is the number of possible values and <span>$n$</span> is the number of variables</li>
+<li>If we don't quite have trees, but it's close, we can use cutset-conditioning<ul>
+<li>Complexity: <span>$O(d^c(n-c)d^2)$</span></li>
+<li>Find a set of variables <span>$S$</span> which, when removed, turns the graph into a tree</li>
+<li>Assign all the possibillities to <span>$S$</span></li>
+<li>If <span>$c$</span> is the size of <span>$S$</span>, this works best when <span>$c$</span> is small</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>6</i>Lectures 6 and 7: Game playing<a class="headerlink" href="#lectures-6-and-7-game-playing" name="lectures-6-and-7-game-playing">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Basics of game playing<a class="headerlink" href="#basics-of-game-playing" name="basics-of-game-playing">&para;</a></h3>
+<dl>
+<dt>Imperfect vs perfect information</dt>
+<dd>Some info is hidden (e.g., poker). Compare with perfect information (e.g., chess)</dd>
+<dt>Stochastic vs deterministic</dt>
+<dd>poker (chance is involved) vs chess (changes in state are fully determined by players' moves)</dd>
+</dl>
+<ul>
+<li>Game playing as search (2-player, perfect information, deterministic)<ul>
+<li>State: state of the board</li>
+<li>Operators: legal moves</li>
+<li>Goal: states in which the game is has ended</li>
+<li>Cost: +1 a winning game, -1 for a losing game, 0 for a draw (the simplest version)</li>
+<li>Need to find: a way of picking moves to increase utility (the cost?)</li>
+<li>Also, we have to simulate the malicious opponent, who is against us at every time</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>6.2</i>Minimax<a class="headerlink" href="#minimax" name="minimax">&para;</a></h3>
+<ul>
+<li>So we look at utility from the persective of a single agent</li>
+<li>Max player: wants to maximise the utility (you)</li>
+<li>Min player: wants to minimise it (the opponent)</li>
+<li><strong>Minimax search</strong>: expand a search tree until you reach the leaves, and compute their utilities; for min nodes, take the min utility among all the children, and the opposite for max nodes</li>
+<li>So, take the move that maximises utility assuming your opponent tries to minimise it at each step</li>
+<li>If the game is finite, this search is complete</li>
+<li>Against an optimal opponent, we'll find the optimal solution</li>
+<li>Time complexity: <span>$O(b^m)$</span></li>
+<li>Space complexity: <span>$O(bm)$</span> (depth-first, at each of the <span>$m$</span> levels we keep <span>$b$</span> possible moves)</li>
+<li>Can't use this for something like chess (constants too high)</li>
+<li>Dealing with resource limitations<ul>
+<li>If we have limited time to make a move, we can either use a cutoff test (such as one based on depth)</li>
+<li>Or, use an evaluation function (basically a heuristic) for determining if we cut off a node or not, based on the chance of winning from a given position</li>
+<li>Sort of like real-time search</li>
+</ul>
+</li>
+<li>Choosing an evaluation function<ul>
+<li>If we can judge various aspects of the board independently, then we could use a weighted linear function of all the features (with various constants, where the constants are either given or learned)<ul>
+<li>Example: chess; the various features include the number of white queens - the number of black queens, the number of available moves, score of the values of all the pieces I have or that I have won, etc</li>
+</ul>
+</li>
+<li>Exact values of the evaluation function don't matter, it's just the ranking (relative to other values)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>6.3</i>Alpha-beta pruning<a class="headerlink" href="#alpha-beta-pruning" name="alpha-beta-pruning">&para;</a></h3>
+<p>Basically you remove the branches that the root would never consider. Used in deterministic, perfect-information games. Like alpha pruning, except it also keeps track of the best value for min (<span>$\beta)$</span> in addition to the best value for max (<span>$\alpha$</span>).</p>
+<p>Order matters: if we order the leaf nodes from low to high and the ones above in the opposite order, we can prune more. With bad ordering, the complexity is approximately <span>$O(b^m)$</span>; with perfect ordering, complexity is approximately <span>$O(b^{m/2})$</span> (on average, closer to <span>$O(b^{3m/4})$</span>). Randomising the ordering can achieve the average case. We can get a good initial ordering with the help of the evaluation function.</p>
+<h3 class="header"><i>6.4</i>Monte Carlo tree search<a class="headerlink" href="#monte-carlo-tree-search" name="monte-carlo-tree-search">&para;</a></h3>
+<ul>
+<li>Recall that alpha-beta pruning is only optimal if the opponent behaves optimally</li>
+<li>If heuristics are incorporated, this means that the opponent must behave according to the same heuristic as the player</li>
+<li>To avoid this, we introduce Monte Carlo tree search</li>
+<li>Moves are chosen stochastically, sampled from some distribution, for both players</li>
+<li>Play many times, and the value of a node is the average of the evaluations obtained at the end of the game</li>
+<li>Then we pick the move with the best average values</li>
+<li>Sort of like simulated annealing. First, minimax, look mostly at promising moves but occasionally look at less promising moves.<ul>
+<li>As time goes on, focus more on the promising ones</li>
+</ul>
+</li>
+<li>Algorithm: building a tree<ul>
+<li><strong>Descent phase</strong>: Pick the optimal move for both players (can be based on the value of the child, or some extra info)</li>
+<li><strong>Rollout phase</strong>: Reached a leaf? Use Monte-Carlo simulation to the end of the game (or some set depth)</li>
+<li><strong>Update phase</strong>: update statistics for all nodes visited during descent</li>
+<li><strong>Growth phase</strong>: Add the first state of the rollout to the tree, along with its statistics</li>
+</ul>
+</li>
+<li>Example: Maven, for Scrabble<ul>
+<li>For each legal move, rollout: imagine <span>$n$</span> steps of self-play, dealing tiles at random</li>
+<li>Evaluate the resulting position by score (of words on the board) plus the value of rack (based on the presence of various combinations; weights trained by playing many games by itself)</li>
+<li>Set the score of the move itself to be the average evaluation over the rollouts</li>
+<li>Then, play the move with the highest score.</li>
+</ul>
+</li>
+<li>Example: Go<ul>
+<li>We can evaluate a position based on the percentage of wins</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>6.4.1</i>Rapid Action-Value Estimate<a class="headerlink" href="#rapid-action-value-estimate" name="rapid-action-value-estimate">&para;</a></h4>
+<ul>
+<li>Assume that the value of move is the same no matter when it is played<ul>
+<li>This introduces some bias but reduces variability (and probably speeds it up too)</li>
+</ul>
+</li>
+<li>Does pretty well at Go</li>
+</ul>
+<h4 class="header"><i>6.4.2</i>Comparisons with alpha-beta search<a class="headerlink" href="#comparisons-with-alpha-beta-search" name="comparisons-with-alpha-beta-search">&para;</a></h4>
+<ul>
+<li>Less pessimistic than alpha-beta</li>
+<li>Converges to the minimax solution in the limit (so: theoretically)</li>
+<li><strong>Anytime algorithm</strong>: can return a solution at any time, but the solution gets better over time</li>
+<li>Unaffected by branching factor</li>
+<li>Can be easily parallelised</li>
+<li>May miss optimal moves</li>
+<li>Choose a good policy for picking moves at random</li>
+</ul>
+<h2 class="header"><i>7</i>Lecture 8: Logic and planning<a class="headerlink" href="#lecture-8-logic-and-planning" name="lecture-8-logic-and-planning">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Planning<a class="headerlink" href="#planning" name="planning">&para;</a></h3>
+<ul>
+<li><strong>Plan</strong>: set of actions to perform some task</li>
+<li>AI's goal is to automatically generate plans</li>
+<li>Can't use the aforementioned search algorithms because<ul>
+<li>High branching factor</li>
+<li>Good heuristic functions are hard to find</li>
+</ul>
+</li>
+<li>We don't want to search over individual states, we want to search over "beliefs"</li>
+<li><strong>The declarative approach</strong><ul>
+<li>Tell the agent what it needs to know (knowledge base)</li>
+<li>The agent uses its rules of inference to deduce new information (using an inference engine)</li>
+</ul>
+</li>
+<li>Wumpus World example lol<ul>
+<li>static, actions have deterministic effects, world is only partially observable</li>
+<li>agent has to figure things out using local perception</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>7.2</i>Logic<a class="headerlink" href="#logic" name="logic">&para;</a></h3>
+<ul>
+<li>Sentences<ul>
+<li><strong>Valid</strong>: True in all interpretations</li>
+<li><strong>Satisfiable</strong>: True in at least one</li>
+<li><strong>Unsatisfiable</strong>: False in all</li>
+</ul>
+</li>
+<li>Entailment and inference<ul>
+<li><strong>Entailment</strong>: <span>$KB \models \alpha$</span> if <span>$\alpha$</span> is true given the knowledge base <span>$KB$</span> (or, true in all worlds where <span>$KB$</span> is true)</li>
+<li>Ex: <span>$KB$</span> contains "I am dead", which entails "I am either dead or heavily sedated"</li>
+<li><strong>Inference</strong>: <span>$KB \vdash_i \alpha$</span> if <span>$\alpha$</span> can be derived from <span>$KB$</span> using an inference procedure <span>$i$</span></li>
+<li>We want any inference procedure to be:<ul>
+<li>Sound: whenever <span>$KB \vdash_i \alpha$</span>, <span>$KB \models \alpha$</span> (so we only infer things that are necessary truths)</li>
+<li>Completeness: whenever <span>$KB \models \alpha$</span>, <span>$KB \vdash_i \alpha$</span> (so we infer all necessary truths)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Model-checking<ul>
+<li>Can only be done in finite worlds</li>
+<li>Does <span>$KB \models \alpha$</span>? Enumerate all the possibilities I guess</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>7.3</i>Propositional logic<a class="headerlink" href="#propositional-logic" name="propositional-logic">&para;</a></h3>
+<ul>
+<li><strong>Validity</strong>: a sentence is valid if it is true in all models (i.e., in all lines of the full truth table)<ul>
+<li><strong>The deduction theorem</strong>: <span>$KB \to \alpha$</span> if and only if <span>$KB \to \alpha$</span> is valid</li>
+</ul>
+</li>
+<li><strong>Satisfiability</strong>: <span>$KB \models \alpha$</span> if and only if <span>$KB \land \neg \alpha$</span> is unsatisfiable (proof by contradiction basically)</li>
+<li>Inference proof methods<ul>
+<li>Model checking: enumerate the lines of the truth table (sound and complete for prop logic)<ul>
+<li>Or, heuristic search in model space (sound but incomplete)</li>
+</ul>
+</li>
+<li>Applying inference rules<ul>
+<li>Sound generation of new sentences from old</li>
+<li>We can even use these as operators in a standard search algo!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Normal forms<ul>
+<li><strong>Conjunctive normal form</strong>: conjunction of disjuncts (ands of ors)</li>
+<li><strong>Disjunctive normal form</strong>: disjunction of conjuncts (ors of ands)</li>
+<li><strong>Horn form</strong>: conjunction of Horn clauses (max 1 positive literal in each clause; often written as implications)</li>
+</ul>
+</li>
+<li>Inference rules for propositional logic<ul>
+<li><strong>Resolution</strong>: Basically <span>$\alpha \to \beta$</span> and <span>$\beta \to \gamma$</span> imply <span>$\alpha \to \gamma$</span></li>
+<li><strong>Modus Ponens</strong> (for clauses in Horn form): If we know a bunch of things are true, and their conjunction implies something else, that something else is true too</li>
+<li><strong>And-elimination</strong>: we know a conjunction is true, so all the literals are true</li>
+<li><strong>Implication-elimination</strong>: <span>$\alpha \to \beta$</span> is equivalent to <span>$\neg \alpha \lor \beta$</span></li>
+</ul>
+</li>
+<li><strong>Forward-chaining</strong>:<ul>
+<li>When a new sentence is added to the <span>$KB$</span>:<ul>
+<li>Look for all sentences that share literals with it</li>
+<li>Perform resolution if possible</li>
+<li>Add new sentences to the <span>$KB$</span></li>
+<li>Continue</li>
+</ul>
+</li>
+<li>This is data-driven; it infers things from data</li>
+<li><strong>Eager</strong> method: new facts are inferred as soon as we are able</li>
+<li>Results in a better understanding of the world</li>
+</ul>
+</li>
+<li><strong>Backward chaining</strong>:<ul>
+<li>When a query is asked:<ul>
+<li>Check if it's in the knowledge base</li>
+<li>Otherwise, use resolution for it with other sentences (backwards), continue</li>
+</ul>
+</li>
+<li>Goal-driven, lazy</li>
+<li>Cheaper computation, usually (more efficient)</li>
+<li>Usually used in proof by contradiction</li>
+</ul>
+</li>
+<li><strong>Complexity of inference</strong><ul>
+<li>Verifying the validity of a sentence of <span>$n$</span> literals takes <span>$2^n$</span> checks</li>
+<li>However, if we expressed sentences only in terms of Horn clauses, inference term becomes polynomial</li>
+<li>That is because each Horn clause adds exactly one fact, and we can add all the facts to the <span>$KB$</span> in <span>$n$</span> steps</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>7.4</i>Planning with propositional logic<a class="headerlink" href="#planning-with-propositional-logic" name="planning-with-propositional-logic">&para;</a></h3>
+<p>Sort of like a search problem, except:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>.</th>
+<th>Search</th>
+<th>Planning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>States</td>
+<td>Data structures</td>
+<td>Logical sentences</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>Code</td>
+<td>Outcomes</td>
+</tr>
+<tr>
+<td>Goal</td>
+<td>Some goal test</td>
+<td>A logical sentence</td>
+</tr>
+<tr>
+<td>Plan</td>
+<td>A sequence starting from the start state</td>
+<td>Constraints on actions</td>
+</tr>
+</tbody>
+</table>
+<p>So we represent states using propositions, and use logical inference (forward/backward chaining) to find sequences of actions (?)</p>
+<h4 class="header"><i>7.4.1</i>SatPlan<a class="headerlink" href="#satplan" name="satplan">&para;</a></h4>
+<ul>
+<li>Take a planning problem and generate all the possibilities</li>
+<li>Use a SAT solver to get a plan</li>
+<li>NP-hard and also PSPACE</li>
+</ul>
+<h4 class="header"><i>7.4.2</i>GraphPlan<a class="headerlink" href="#graphplan" name="graphplan">&para;</a></h4>
+<ul>
+<li>Construct a graph which encodes the constraints on plans, so that only valid plans will be possible (and all valid plans)</li>
+<li>Search the graph (guaranteed to be complete)</li>
+<li>Can be built in polynomial time</li>
+<li>Describe goal in CNF</li>
+<li>Nodes can be propositions or actions (arranged in alternating levels)</li>
+<li>Three types of edges between levels:<ul>
+<li><strong>Precondition</strong>: edge from <span>$P$</span> to <span>$A$</span> if <span>$P$</span> is required for <span>$A$</span></li>
+<li><strong>Add</strong>: edge from <span>$A$</span> to <span>$P$</span> if <span>$A$</span> causes <span>$P$</span></li>
+<li><strong>Delete</strong>: edge from <span>$A$</span> to <span>$\neg P$</span> if <span>$A$</span> makes <span>$P$</span> impossible</li>
+</ul>
+</li>
+<li>Edges between nodes on the same levels indicate mutual exclusion (<span>$p \land \neg p$</span> or two actions we can't do at the same time)<ul>
+<li>For actions, this can occur because of<ul>
+<li>Inconsistent effects: an effect of one negates the effect of another (like taking a shower while drying your hair)</li>
+<li>Interference: one negatives a prereq for another (like sleeping and taking an exam)</li>
+<li>Competing needs: mutex preconditions</li>
+</ul>
+</li>
+<li>For propositions:<ul>
+<li>One is a negation of the other</li>
+<li>Inconsistent support: all ways of achieving these are pairwise mutex</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Actions include actions from previous levels that are still possible, plus "do nothing" actions</li>
+<li>Constructing the planning graph<ul>
+<li>Initialise <span>$P_1$</span> (first level) with literals from initial state</li>
+<li>Add in <span>$A_i$</span> if preconditions are present in <span>$P_i$</span></li>
+<li>Add <span>$P_{i+1}$</span> if some action (or inaction) in <span>$A_i$</span> results in it</li>
+<li>Draw in exclusionary edges</li>
+</ul>
+</li>
+<li>Results in the number of propositions and actions always increasing, while the number of propositions and actions that are mutex decreases (since we have more propositions)<ul>
+<li>After a while, the levels will converge; mutexes will not reappear after they disappear</li>
+</ul>
+</li>
+<li><strong>Valid plan</strong>: a subgraph of the planning graph<ul>
+<li>All goal propositions are satisfied in the last levels</li>
+<li>No goal propositions are mutex</li>
+<li>Actions at the same level are not mutex</li>
+<li>Preconditions of each action are satisfied</li>
+<li>Algorithm:<ul>
+<li>Keep constructing the planning graph until all goal props are reachable (and not mutex)</li>
+<li>If the graph converges to a steady state before this happens, no valid plan exists</li>
+<li>Otherwise, look for a valid graph</li>
+<li>None found? Add another level, try again</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>8</i>Lecture 9: First-order logic and planning<a class="headerlink" href="#lecture-9-first-order-logic-and-planning" name="lecture-9-first-order-logic-and-planning">&para;</a></h2>
+<h3 class="header"><i>8.1</i>First-order logic<a class="headerlink" href="#first-order-logic" name="first-order-logic">&para;</a></h3>
+<dl>
+<dt>Predicates</dt>
+<dd>e.g., <span>$\text{IsSuperEffectiveAgainst}(\text{Electric}, \text{Water})$</span><sup id="fnref:mudkip"><a href="#fn:mudkip" rel="footnote" title="Unless you're mudkip">2</a></sup>, or <span>$&gt;$</span>, or <span>$\text{CannotBeIgnored}(\text{GarysGirth})$</span></dd>
+<dt>Quantifiers</dt>
+<dd><span>$\forall, \exists$</span></dd>
+<dt>Atomic sentence</dt>
+<dd>either a predicate of terms of a comparison of two terms with <span>$=$</span> (which might technically be a predicate)</dd>
+<dt>Complex sentence</dt>
+<dd>atomic sentences joined via connectives</dd>
+<dt>Equivalence of quantifiers</dt>
+<dd><span>$\forall x \forall y = \forall y \forall x$</span>, <span>$\exists x \exists y = \exists y \exists x$</span>, but <span>$\forall x \exists y \neq \exists y \forall x$</span></dd>
+<dt>Quantifier duality</dt>
+<dd><span>$\forall x P(x) = \neg \exists x \neg P(x)$</span> and <span>$\exists x P(x) = \neg \forall \neg P(x)$</span>.</dd>
+<dt>Equality</dt>
+<dd><span>$A = B$</span> is satisfiable; <span>$2 = 2$</span> is valid</dd>
+</dl>
+<h4 class="header"><i>8.1.1</i>Proofs<a class="headerlink" href="#proofs" name="proofs">&para;</a></h4>
+<ul>
+<li>Proving things is basically a search in which the operators are inference rules and states are sets of sentences and a goal is any state that contains the query sentence</li>
+<li>Inferences rules:<ul>
+<li>Modus Ponens: <span>$\alpha$</span> and <span>$\alpha \to \beta$</span> implies <span>$\beta$</span></li>
+<li>And-introduction: just put an and between two things</li>
+<li>Universal elimination: given some forall, you can replace the quantified variable with any object</li>
+</ul>
+</li>
+<li>AI, UE, MP = common inference pattern<ul>
+<li>But the branching factor can be huge, especially for UE</li>
+<li>Instead, we find a substitution that serves as a single, more powerful inference rule</li>
+</ul>
+</li>
+<li><strong>Unification</strong>: replace some variable by an object (we can write <span>$x/\tau$</span> where <span>$\tau$</span> is an object and <span>$x$</span> is the unquantified variable)</li>
+<li><strong>Generalised Modus Ponens</strong>: given a bunch of definite clauses (containing exactly 1 positive literal), and the fact that all the premises imply a conclusion, conclude it and substitute whatever you want (see unification)<ul>
+<li>A procedure <span>$i$</span> is complete if and only if <span>$KB \vdash_i \alpha$</span> whenever <span>$KB \models \alpha$</span></li>
+<li>GMP is complete for <span>$KB$</span>s of universally quantified definite clases only</li>
+</ul>
+</li>
+<li><strong>Resolution</strong>:<ul>
+<li>Entailment is <strong>semi-decidable</strong> - can't always prove that <span>$KB \not\models \alpha$</span> (halting problem)</li>
+<li>But there is a sound and complete inference procedure: resolution, to prove that <span>$KB \models \alpha$</span> (by showing that <span>$KB \land \neg \alpha$</span> is unsatisfiable)<ul>
+<li>Where <span>$KB$</span> and <span>$\neg \alpha$</span> are expressed with universal quantifiers and in CNF</li>
+<li>Combines 2 clauses to form a new one</li>
+<li>We keep inferring things until we get an empty clause</li>
+<li>Same as the propositional logic version: <span>$a \to b$</span> and <span>$b\to c$</span> means <span>$a \to c$</span>, and we can substitute</li>
+<li>So, to prove something, negate it, convert to CNF, add the result to <span>$KB$</span>, and infer a contradiction (empty claus)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Skolemisation: to get rid of existential quantifiers<ul>
+<li>Just replace the variable with some random object (called a <strong>Skolem constant</strong>)</li>
+<li>If it's inside a forall, create a new function and put the variable in it (like <span>$f(x)$</span>)</li>
+</ul>
+</li>
+<li>Resolution strategies (heuristics for imposing an order on resolutions)<ul>
+<li><strong>Unit resolution</strong>: prefer shorter clauses</li>
+<li><strong>Set of support</strong>: choose a random small subset of KB. Each resolution will take a clause from that set and resolve it with another sentence, then add it to the set of support (can be incomplete)</li>
+<li><strong>Input resolution</strong>: Combine a sentence from the query or KB with another sentence (not complete in general; MP is a form of this)</li>
+<li><strong>Linear resolution</strong>: resolve <span>$P$</span> and <span>$Q$</span> if <span>$P$</span> is in the original KB OR is an ancestor of <span>$Q$</span></li>
+<li><strong>Subsumption</strong>: eliminate sentences that are more specific than one we already have</li>
+<li><strong>Demodulation and paramodulation</strong>: special rules for treatment of equality</li>
+</ul>
+</li>
+<li>STRIPS (an intelligent robot)<ul>
+<li>Domain: set of typed objects, given as propositions</li>
+<li>States: first-order predicates over objects (as conjunctions), using a <strong>closed-world assumption</strong> (everything not stated is false, and the only objects that exist are the ones defined)</li>
+<li>Goals: conjunctions of literals</li>
+<li>Actions/operators: Preconditions given as conjunctions, effects given as literals<ul>
+<li>If an action cannot be applied (precondition not met), the action does not have any effect</li>
+<li>Actions come with a "delete list" and an "add list"</li>
+<li>To carry it out, first we delete the items in the delete list, then add from the add list</li>
+</ul>
+</li>
+<li>Pros:<ul>
+<li>Inference is efficient</li>
+<li>Operators are simple</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>Actions have small side effects</li>
+<li>Limited language</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.2</i>Planning<a class="headerlink" href="#planning_1" name="planning_1">&para;</a></h3>
+<ul>
+<li><strong>State-space planning</strong>: thinking in terms of states and operators<ul>
+<li>To find a plan, we do a search through the state space, from the start state to a goal state</li>
+<li>Basically constructive search</li>
+<li><strong>Progression planners</strong>: begin at start state, find operators that can be applied (by matching preconditions), update KB, etc</li>
+<li><strong>Regression planners</strong>: begin at goal state, find actions that will lead to the goal (by matching effects), update KB, etc<ul>
+<li><strong>Goal regression</strong>: pick an action that satisfies some parts of the goal. Make a new goal by removing the conditions satisfied by this action and adding the action's preconditions.</li>
+<li><strong>Linear planning</strong>: Like goal regression but it uses a stack of goals (not complete, but sound)</li>
+<li><strong>Non-linear planning</strong>: same as above but set, not stack (complete and sound, but expensive)</li>
+</ul>
+</li>
+<li><strong>Prodigy planning</strong>: progression and regression at the same time, along with domain-specific heuristics (general heuristics don't work well in this domain due to all the subgoal interactions)</li>
+</ul>
+</li>
+<li><strong>Plan-state planning</strong>: search through the space of plans (iterative)<ul>
+<li>Start with a plan<ul>
+<li>Let's say it fails because a precondition for the second action is not satisfied after the first</li>
+<li>So we do something</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Partial-order planning</strong>: search in plan space, be uncommitted about the order. Outputs a plan.<ul>
+<li>Plan:<ul>
+<li>Set of actions/operators</li>
+<li>Set of ordering constraints (a partial order)</li>
+<li>A set of assignments ("bindings")</li>
+<li>A set of casual links, which explains why the ordering is the way it is</li>
+</ul>
+</li>
+<li>Advantages:<ul>
+<li>Steps can be unordered (will be ordered before execution)</li>
+<li>Can handle concurrent plans</li>
+<li>Can be more efficient</li>
+<li>Sound and complete</li>
+<li>Usually produces the optimal plan</li>
+</ul>
+</li>
+<li>Disadvantages<ul>
+<li>Large search space, complex, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Problems with the real world<ul>
+<li>Incomplete information (things we don't know)</li>
+<li>Incorrect information (things we think we know)</li>
+<li>Qualification problem: preconditions/effects not denumerable</li>
+</ul>
+</li>
+<li>Solutions<ul>
+<li>Contingency planning (sub-plans created for emergencies using "if"; expensive)</li>
+<li>Monitoring during execution</li>
+</ul>
+</li>
+<li>Replanning (when we're monitoring and something fails)<ul>
+<li>Backtrack, or, replan (former is better)</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>9</i>Lecture 10: Introduction to reasoning under uncertainty<a class="headerlink" href="#lecture-10-introduction-to-reasoning-under-uncertainty" name="lecture-10-introduction-to-reasoning-under-uncertainty">&para;</a></h2>
+<h3 class="header"><i>9.1</i>Uncertainty<a class="headerlink" href="#uncertainty" name="uncertainty">&para;</a></h3>
+<ul>
+<li>In plans and actions and stuff</li>
+<li>We could ignore it, or build procedures that are robust against it</li>
+<li>Or, we could build a model of the world that incorporates the uncertainty, and reason correspondingly</li>
+<li>Can't use first-order logic; it's either too certain or too specific (lots of "if"s)</li>
+<li>Let's use probability.</li>
+<li><strong>Belief</strong>: some probability given our curent state of knowledge; can change with new evidence and can differ among agents</li>
+<li><strong>Utility theory</strong>: for inferring preferences</li>
+<li><strong>Decision theory</strong>: Combination of utility theory and probability theory for making a decision</li>
+<li><strong>Random variables</strong></li>
+<li><strong>Sample space <span>$S$</span> (or domain) for a variable</strong>: all possible values of that variable</li>
+<li><strong>Event</strong>: subset of <span>$S$</span></li>
+<li>Axioms of probability: 0 to 1, exclusion, whatever</li>
+</ul>
+<h4 class="header"><i>9.1.1</i>Probabilistic models<a class="headerlink" href="#probabilistic-models" name="probabilistic-models">&para;</a></h4>
+<ul>
+<li>The world, a set of random variables.</li>
+<li>A probabilistic model, an encoding of beliefs that let us compute the probability of any event in the world.</li>
+<li>A state, a truth assignment.</li>
+<li>Joint probability distributions - marginals are 1</li>
+<li>Product rule for conditional probability: <span>$P(A \land B) = P(A|B)P(B) = P(B|A)P(A)$</span></li>
+<li>Bayes rule: <span>$\displaystyle P(A|B) = \frac{P(B|A)P(A)}{P(B)}$</span></li>
+<li>Joint distributions are often too big to handle (large probability tables - have to sum out over many hidden variables)</li>
+<li>Independence: knowledge of one doesn't change knowledge of the other</li>
+<li><strong>Conditional independence</strong>: <span>$X$</span> and <span>$Y$</span> are conditionally independent given <span>$Z$</span> is knowing <span>$Y$</span> doesn't change predictions of <span>$X$</span>, given <span>$Z$</span>. Or: <span>$P(x|y, z) = P(x|z)$</span><ul>
+<li>Ex: having a cough is conditionally independent of having some other symptom, given that you know the underlying disease</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>10</i>Lecture 11: Bayes nets<a class="headerlink" href="#lecture-11-bayes-nets" name="lecture-11-bayes-nets">&para;</a></h2>
+<h2 class="header"><i>11</i>Lecture 14: Reasoning under uncertainty<a class="headerlink" href="#lecture-14-reasoning-under-uncertainty" name="lecture-14-reasoning-under-uncertainty">&para;</a></h2>
+<dl>
+<dt>Probability theory</dt>
+<dd>Describes what the agent should believe based on the evidence</dd>
+<dt>Utility theory</dt>
+<dd>Describes what the agent wants</dd>
+<dt>Decision theory</dt>
+<dd>Describes what a rational agent should do</dd>
+</dl>
+<p>To evaluate a decision, we have to know:</p>
+<ul>
+<li>A set of consequences <span>$C = \{c_1, ... c_n\}$</span>, this is also called the payoffs or the rewards</li>
+<li>Probability distributions over the consequences <span>$P(c_i)$</span>.</li>
+</ul>
+<p>The pair <span>$L = (C, P)$</span> is called a lottery.</p>
+<p><span>$A \succ B$</span> - A preferred to B<br />
+<span>$A \sim B$</span> -indifference<br />
+<span>$A \succsim B$</span> - A not preferred to B</p>
+<p>Preference is transitive</p>
+<h3 class="header"><i>11.1</i>Axioms of utility theory<a class="headerlink" href="#axioms-of-utility-theory" name="axioms-of-utility-theory">&para;</a></h3>
+<ol>
+<li>Orderability: A linear and transitive preference relation must exist between the prizes of any lottery.</li>
+<li>Continuity: If <span>$A \succ B \succ C$</span>, then there exists a lottery L with prizes A and C that is equivalent to receiving B.</li>
+<li>Substitutability: Adding the same prize with the same probability to two equivalent lotteries does not change the preferences between them.</li>
+<li>Monotonicity: If two lotteries have the same prizes, the one producing the best prize most often is preferred.</li>
+<li>Reduction of compound lotteries: Choosing between two lotteries is the same as making a "big" lottery with all the probabilities of the two lotteries combined, and choosing in that.</li>
+</ol>
+<h3 class="header"><i>11.2</i>Utility Function<a class="headerlink" href="#utility-function" name="utility-function">&para;</a></h3>
+<p>(mistake on lecture slides?)</p>
+<p><span>$A \sim B$</span> iff <span>$U(A) \geq U(B)$</span></p>
+<p><span>$U(L) = \sum p_iU(C_i)$</span></p>
+<p>Utilities map outcomes to real numbers. Given a preference behavior, the utility function is not unique. </p>
+<h3 class="header"><i>11.3</i>Utility Models<a class="headerlink" href="#utility-models" name="utility-models">&para;</a></h3>
+<p>Capture preferences towards rewards and resource consumption and capture risk attitudes. e.g. If you don't care about risk 50% chance of getting 10 mil is the same as 100% chance of getting 5 mil, but most people prefer getting the 100% chance for 5 mil as people are generally risk averse.</p>
+<p>It's very hard to define utility values for things.</p>
+<h3 class="header"><i>11.4</i>Acting under uncertainty<a class="headerlink" href="#acting-under-uncertainty" name="acting-under-uncertainty">&para;</a></h3>
+<p>MEU model: Choose the action with the highest expected utility<br />
+Random choice model: Choose the action with the highest expected utility most of the time, but keep non-zero probabilities for other actions - avoids being predictable, and allows for exploration</p>
+<h3 class="header"><i>11.5</i>Decision graphs<a class="headerlink" href="#decision-graphs" name="decision-graphs">&para;</a></h3>
+<p>We can represent a decision problem graphically. Random variables are represented by oval nodes, decisions are represented as rectangles, utilities are represented as diamonds. Utilities have no out-going arcs, decision notes have no incoming arcs.</p>
+<h3 class="header"><i>11.6</i>Information gathering<a class="headerlink" href="#information-gathering" name="information-gathering">&para;</a></h3>
+<p>In an environment with hidden information, an agent can choose to perform information gathering actions. Such actions have an associated cost, and the acquired information in turn provides value.</p>
+<dl>
+<dt>Value of information</dt>
+<dd>expected value of best action given the information - expected value of best action without the </dd>
+</dl>
+<h4 class="header"><i>11.6.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>A lottery ticket costs \$10. Choose the right number between 0 and 9 (assumed to be chosen randomly) and you'll win \$100. You find out that someone can tell you what the right number is. What is the value of that information?</p>
+<p>Well, there is a 10% chance of getting it right just by guessing (i.e., without knowing the right number). So the expected value is <span>$10 * (0.1 * 100) = 0$</span>. If you know what the right answer is, however, you'll be out \$10 but you'll win \$100, for a net gain of \$90. So the value of this information is \$90. Of course, if you actually <em>pay</em> \$90, then it's pretty much useless because you might as well not even buy a lottery ticket at all. Kind of like if the reward is 0. Lotteries are stupid.</p>
+<h3 class="header"><i>11.7</i>Value of perfect information<a class="headerlink" href="#value-of-perfect-information" name="value-of-perfect-information">&para;</a></h3>
+<ul>
+<li>Nonnegative: <span>$\forall X, E VPI_E(X) \geq 0$</span> VPI is an expectation, but depending on the actual value we find for X, there can be a loss in total utility.</li>
+<li>Nonadditive: <span>$VPI_E(X,Y) \neq VPI_E(X) + VPI_E(Y)$</span></li>
+<li>Order-independent: <span>$VPI_E(X,Y) = VPI_E(X) + VPI_{E,X}(Y) = VPI_E(Y) + VPI_{E,Y}(X)$</span></li>
+</ul>
+<h2 class="header"><i>12</i>Lecture 15: Bandit problems and Markov processes<a class="headerlink" href="#lecture-15-bandit-problems-and-markov-processes" name="lecture-15-bandit-problems-and-markov-processes">&para;</a></h2>
+<h3 class="header"><i>12.1</i>Bandit Problems<a class="headerlink" href="#bandit-problems" name="bandit-problems">&para;</a></h3>
+<p>A k-armed bandit is a collection of k actions (arms), each having a lottery associated with it, but the utilities of each lottery is unknown. Best action must be determined by trying out lotteries.</p>
+<p>You can choose repeatedly among the k actions, each choice is called a play. After each play the machine gives a reward from the distribution associated with that action. The objective is to play in a way that maximizes reward obtained in the long run. </p>
+<h4 class="header"><i>12.1.1</i>Estimating action values<a class="headerlink" href="#estimating-action-values" name="estimating-action-values">&para;</a></h4>
+<p>The value of an action is the sample average of the rewards obtained from it, the estimate becomes more accurate as the action is taken more.<br />
+To estimate <span>$Q_n(a)$</span> we just need to keep a running average:<br />
+<span>$Q_{n+1}(a) = Q_n(a) + \frac{1}{n+1}(r_{n+1}-Q_n(a))$</span></p>
+<p>First term is old value estimate, second term is error.</p>
+<p>This works if the action's rewards stay the same. Sometimes it may change over time, so we want the most recent rewards to be emphasized. Instead of using 1/n, we use a constant step size <span>$\alpha \in (0,1)$</span> in the value updates.</p>
+<h3 class="header"><i>12.2</i>Exploration-exploitation trade-off<a class="headerlink" href="#exploration-exploitation-trade-off" name="exploration-exploitation-trade-off">&para;</a></h3>
+<p>On one hand we need to explore actions to find out which one is best, but we also want to exploit the knowledge we already have by picking the best action we currently know.</p>
+<p>We cannot explore all the time or exploit all the time. If the environment stays the same we want to stop exploring after a while, otherwise we can never stop exploring.</p>
+<h4 class="header"><i>12.2.1</i>$\epsilon$-greedy action selection<a class="headerlink" href="#epsilon-greedy-action-selection" name="epsilon-greedy-action-selection">&para;</a></h4>
+<ol>
+<li>Pick <span>$\epsilon \in (0,1)$</span>, usually small (0.1)</li>
+<li>On every play, with probability <span>$\epsilon$</span> you pull a random arm</li>
+<li>Otherwise pick the best arm according to current estimates</li>
+<li><span>$\epsilon$</span> can change over time</li>
+</ol>
+<p>Advantages: very simple<br />
+Disadvantages: leads to discontinuities (what the fuck does this mean)</p>
+<p>If <span>$\epsilon = 0$</span>, converges to a sub-optimal strategy.<br />
+If <span>$\epsilon$</span> is too low, convergence is slow<br />
+If <span>$\epsilon$</span> is too high, rewards received during learning may be too low, and have a high variance</p>
+<h4 class="header"><i>12.2.2</i>Softmax action selection<a class="headerlink" href="#softmax-action-selection" name="softmax-action-selection">&para;</a></h4>
+<p>Make the action probabilities a function of the current action values, like simulated annealing, we use the Boltzman distribution. At time <span>$t$</span> we choose action <span>$a$</span> with probability proportional to <span>$e^{Qt(a)/\tau}$</span>. Normalize probabilities so they sum to 1 over the actions. <span>$\tau$</span> is a temperature paramter. The higher <span>$\tau$</span> is, the more variance there is in the choices as the function goes towards 1 as <span>$\tau$</span> approaches 0.</p>
+<h4 class="header"><i>12.2.3</i>Optimism in the face of uncertainty (optimistic initialization)<a class="headerlink" href="#optimism-in-the-face-of-uncertainty-optimistic-initialization" name="optimism-in-the-face-of-uncertainty-optimistic-initialization">&para;</a></h4>
+<ol>
+<li>Initialize all actions with a super high value</li>
+<li>Always pick the action with the best current estimate</li>
+</ol>
+<p>Leads to more rapid exploration than <span>$\epsilon$</span>-greedy. Once the optimal strategy is found, it stays there.</p>
+<h4 class="header"><i>12.2.4</i>Confidence intervals<a class="headerlink" href="#confidence-intervals" name="confidence-intervals">&para;</a></h4>
+<p>Add one stddev to the mean of an action, and choose actions greedily wrt this bound.</p>
+<h4 class="header"><i>12.2.5</i>Upper Confidence Bounds<a class="headerlink" href="#upper-confidence-bounds" name="upper-confidence-bounds">&para;</a></h4>
+<p>Pick greedily wrt:<br />
+<span>$$Q(a) + \sqrt{2\log n / n(a)}$$</span><br />
+where <span>$n$</span> is the total number of actions executed so far and <span>$n(a)$</span> is the number of times action <span>$a$</span> was picked</p>
+<p>UCB has the fastest convergence when considering regret, but when considering a finite training period after which the greedy policy is used forever, the simple strategies often perform much better.</p>
+<h3 class="header"><i>12.3</i>Contextual bandits<a class="headerlink" href="#contextual-bandits" name="contextual-bandits">&para;</a></h3>
+<p>Usual bandit problem has no notion of "state", we just observe some interactions and payoffs. Contextual bandits have some state information summarized in a vector of measurement (<span>$s$</span>). The value of an action <span>$a$</span> will now be dependent on the state: <span>$Q(s,a) = w_a^Ts$</span>.</p>
+<h3 class="header"><i>12.4</i>Sequential Decision Making<a class="headerlink" href="#sequential-decision-making" name="sequential-decision-making">&para;</a></h3>
+<p>In bandit problems the assumption is of repeated action with an unknown environment over time. But once an action is taken, the environment is still the same.</p>
+<p>Markov Decision Processes provide a framework for modelling sequential decision making, where the environment has different states which change over time as a result of the agent's actions.</p>
+<h3 class="header"><i>12.5</i>Markov Chains<a class="headerlink" href="#markov-chains" name="markov-chains">&para;</a></h3>
+<ul>
+<li>A set of states <span>$S$</span></li>
+<li>Transition probabilities: <span>$T : S \times S \rightarrow [0,1]$</span></li>
+<li>Initial state distributions: <span>$P_0: S \rightarrow [0,1]$</span></li>
+</ul>
+<p>Things that can be computed:</p>
+<ul>
+<li>Expected number of steps to reach a state for the first time</li>
+<li>Probability of being in a given state s at a time t</li>
+<li>After t time steps, what's the probability that we have ever been in a given state s?</li>
+</ul>
+<h3 class="header"><i>12.6</i>Markov Decision Processes (MDPs)<a class="headerlink" href="#markov-decision-processes-mdps" name="markov-decision-processes-mdps">&para;</a></h3>
+<p>A set of states S, A finite set of actions A, <span>$\gamma$</span>, a discount factor for future rewards. Two interpretations: At each time step, there is a <span>$P = 1 - \gamma$</span> probability that the agent dies, and does not receive rewards afterwards, or rewards decay at the rate of <span>$\gamma$</span>.</p>
+<p>Markov assumptions: <span>$s_{t+1}$</span> and <span>$r_{t+1}$</span> depend only on s<sub>t</sub> and a~t but not on anything else before it.</p>
+<p>an MDP can be completely described by:</p>
+<ul>
+<li>Reward function r: <span>$S \times A \rightarrow \mathbb{R}$</span>, <span>$r_a(s)$</span> is the immediate reward if the agent is in state s and takes action a. This is the short term utility of the action</li>
+<li>Transition model (dynamics): <span>$T: S\times A \times S \rightarrow [0,1]$</span>, <span>$T_a(s,s')$</span> is the probability of going from <span>$s$</span> to <span>$s'$</span> under action <span>$a$</span>.</li>
+</ul>
+<p>These form the model of the environment.</p>
+<p>The goal of an agent is to maximize its expected utility, or to maximize long-term utility, also called return.</p>
+<h4 class="header"><i>12.6.1</i>Returns<a class="headerlink" href="#returns" name="returns">&para;</a></h4>
+<p>The return <span>$R_t$</span> for a trajectory, starting from time step t, can be defined depending on the type of task</p>
+<p>Episodic tasks (finite):<br />
+<span>$$R_t = r_{t+1} + r_{t+2} ... r_T$$</span><br />
+where <span>$T$</span> is the time when the terminal state is reached</p>
+<p>Continuing tasks (infinite):<br />
+<span>$$R_t = \sum_{k=1}^\infty \gamma^{t+k-1}r_{t+k}$$</span></p>
+<p>Discount factor <span>$\gamma &lt; 1$</span> ensure that return is finite.</p>
+<h4 class="header"><i>12.6.2</i>Formulating problems as MDPs<a class="headerlink" href="#formulating-problems-as-mdps" name="formulating-problems-as-mdps">&para;</a></h4>
+<p>Rewards are objective, they are intended to capture the goal for the problem. If we don't care about the length of the task, then <span>$\gamma = 1$</span>. Reward can be +1 for achieving the goal, and 0 for everything else.</p>
+<h4 class="header"><i>12.6.3</i>Policies<a class="headerlink" href="#policies" name="policies">&para;</a></h4>
+<p>The goal of the agent is to find a way of behaving, called a policy. </p>
+<dl>
+<dt>Policy</dt>
+<dd>a way of choosing actions based on the state</dd>
+</dl>
+<p>Stochastic policy: in a given state, the agent can roll a die and choose different actions</p>
+<p>Deterministic policy: in each state the agent chooses a unique action.</p>
+<h4 class="header"><i>12.6.4</i>Value Function<a class="headerlink" href="#value-function" name="value-function">&para;</a></h4>
+<p>We want to find a policy which maximizes the expected return. It is a good idea to estimate the expected return. Value functions represent the expected return for every state, given a certain policy.</p>
+<p>The state value function of a policy <span>$\pi$</span> is a function <span>$V^\pi: S \rightarrow \mathbb{R}$</span>.<br />
+The value of state <span>$s$</span> under policy <span>$\pi$</span> is the expected return if the agent starts from state <span>$s$</span> and picks actions according to policy <span>$\pi$</span>: <span>$V^\pi(s) = E_\pi[R_t|s_t=s]$</span></p>
+<p>For a finite state space we can represent this as an array, with one entry for every state.</p>
+<h4 class="header"><i>12.6.5</i>Computing the value of policy $\pi$<a class="headerlink" href="#computing-the-value-of-policy-pi" name="computing-the-value-of-policy-pi">&para;</a></h4>
+<p>The return is:</p>
+<p><span>$$R_t = r_{t+1} + \gamma R_{t+1}$$</span></p>
+<p>Based on this observation, <span>$V^\pi$</span> becomes:<br />
+<span>$$V^\pi(s) = E_\pi[R_t|s_t=s]=E_\pi[r_{t+1}+\gamma R_{t+1}|s_t=s]$$</span></p>
+<p>Recall: Expectations are additive, but not multiplicative.</p>
+<p>We can re-write the value function as:</p>
+<p><span>$$\begin{align}
+V^\pi(s) &amp;= E_\pi[R_t|s_t=s]=E_\pi[r_{t+1}+\gamma R_{t+1}|s_t=s]\\
+&amp;=E_\pi[r_{t+1}] + \gamma E[R_{t+1}|s_t=s] \tag{by linearity of expectation}\\
+&amp;= \sum_{a \in A} \pi(s,a)r_a(s) + \gamma E[R_{t+1}|s_t=s] \tag{by definitions}
+\end{align}$$</span></p>
+<p><span>$E[R_{t+1}|s_t=s]$</span> is conditioned on <span>$s_t=s$</span>, we can change it so it's conditioned on <span>$s_{t+1}$</span> instead of <span>$s_t$</span>:<br />
+<span>$$E[R_{t+1}|s_t=s] = \sum_{a \in A}\pi(s,a)\sum_{s' \in S}T_a(s,s')E[R_{t+1}|s_{t+1} = s']$$</span><br />
+<span>$T_a(s,s')E[R_{t+1}|s_{t+1} = s']$</span> is really <span>$V^\pi(s')$</span>.</p>
+<p>Putting it all back together, we get:</p>
+<p><span>$$V^\pi(s) = \sum_{a \in A}\pi(s,a)(r_a(s)+\gamma\sum_{s' \in S} T_a(s,s')V^\pi(s'))$$</span></p>
+<p>This is a system of linear equations whose unique solution is <span>$V^\pi$</span>. </p>
+<h4 class="header"><i>12.6.6</i>Iterative Policy Evalution<a class="headerlink" href="#iterative-policy-evalution" name="iterative-policy-evalution">&para;</a></h4>
+<p>Turn the system of equations into update rules.</p>
+<ol>
+<li>start with some initial guess <span>$V_0$</span></li>
+<li>every iteration, update the value function for all states:<br />
+<span>$$V_{k+1}(s) \leftarrow \sum_{a \in A}\pi(s,a)(r_a(s)+\gamma\sum_{s' \in S} T_a(s,s')V_k(s')), \forall s$$</span></li>
+<li>stop when the change between two iterations is smaller than a desired threshold.</li>
+</ol>
+<p>This is a bootstrapping algorithm: the value of one state is updated based on the current estimates of the values of successor states. This is a dynamic programming algorithm.</p>
+<h2 class="header"><i>13</i>Lecture 16: Markov decision processes, policies and value functions<a class="headerlink" href="#lecture-16-markov-decision-processes-policies-and-value-functions" name="lecture-16-markov-decision-processes-policies-and-value-functions">&para;</a></h2>
+<h3 class="header"><i>13.1</i>Searching for a good policy<a class="headerlink" href="#searching-for-a-good-policy" name="searching-for-a-good-policy">&para;</a></h3>
+<p>We say that <span>$\pi &gt; \pi'$</span> if <span>$V^\pi(s) \geq V^{\pi'}(s) \forall s \in S$</span>. This gives a partial ordering of policies: if one policy is better at one state but worse at another, the two policies are incomparable. Since we know how to compute values for policies, we can search through the space of policies using local search.</p>
+<p><span>$$V^\pi(s)=\sum_{a \in A}\pi(s,a)(r_a(s)+\gamma\sum_{s' \in S} T_a(s,s')V^\pi(s'))$$</span></p>
+<p>Suppose that there is some action <span>$a*$</span> such that:<br />
+<span>$$r(s,a*) + \gamma \sum_{s'\in S} p(s,a*,s')V^\pi(s') &gt; V^\pi(s)$$</span></p>
+<p>Then if we set <span>$\pi(s,a*) \leftarrow 1$</span>, the value of state s will increase, because if we are taking <span>$a*$</span> 100% of the time, we will always have a greater value than the old <span>$V^\pi(s)$</span>, so the new policy using <span>$a*$</span> is better than the initial policy <span>$\pi$</span></p>
+<p>More generally, we can change the policy <span>$\pi$</span> to a new policy <span>$\pi'$</span>, which is greedy with respect to the computed values <span>$V^\pi$</span>, aka we look through each step, and pick the action which gives us the best return for that step, and make that the new policy.</p>
+<p>This gives us a local search through the space of policies. We stop when the values of two successive policies are identical.</p>
+<h3 class="header"><i>13.2</i>Policy iteration algorithm<a class="headerlink" href="#policy-iteration-algorithm" name="policy-iteration-algorithm">&para;</a></h3>
+<ol>
+<li>start with an initial policy <span>$\pi_0$</span></li>
+<li>repeat:<br />
+    a. Compute <span>$V^{\pi_i}$</span> using policy evaluation<br />
+    b. Compute a new policy <span>$\pi_{i+1}$</span> that is greedy with respect to <span>$V^{\pi_i}$</span> until <span>$V^{\pi_i} = V^{\pi_{i+1}}$</span></li>
+</ol>
+<p>We can compute the value just to some approximation, and make the policy greedy only at some states, not all states.</p>
+<p>If the state and action sets are finite, there is a very large but finite number of deterministic policies. Policy iteration is a greedy local search in this finite set, so the algorithm has to terminate.</p>
+<p>In a finite MDP, there exists a unique optimal value function, and there is at least one deterministic optimal policy.</p>
+<p>The value of a state under the optimal policy must be equal to the expected return for the best action in the state:</p>
+<p><span>$$V*(s) = max_a(r(s,a) +\gamma \sum_{s'}T_a(s,s')V*(s'))$$</span></p>
+<p><span>$V*$</span> is the unique solution of this sytem of non-linear equations (one per state). Any policy that is greedy wrt <span>$V*$</span> is an optimal policy. If we know <span>$V*$</span> and the model of the environment, one step of look-ahead will tell us what the optimal action is:</p>
+<p><span>$$\pi*(s) = arg max_a(r(s,) + \gamma \sum_{s'}T_a(s,s')V*(s'))$$</span></p>
+<h3 class="header"><i>13.3</i>Computing Optimal Values: Value iteration<a class="headerlink" href="#computing-optimal-values-value-iteration" name="computing-optimal-values-value-iteration">&para;</a></h3>
+<p>Main idea: turn the bellman optimality equation into an update rule</p>
+<ol>
+<li>start with an arbitrary initial approximation <span>$V_0$</span></li>
+<li>On each iteration, update the value function estimate:</li>
+</ol>
+<p><span>$$V_{k+1}(s) \leftarrow max_a(r(s,a)+\gamma \sum_{s'}T_a(s,s')V_k(s')), \forall s$$</span></p>
+<ol>
+<li>Stop when the maximum value change between iterations is below a threshold.</li>
+</ol>
+<p>The algorithm converges to the true <span>$V*$</span></p>
+<h3 class="header"><i>13.4</i>A more efficient algorithm<a class="headerlink" href="#a-more-efficient-algorithm" name="a-more-efficient-algorithm">&para;</a></h3>
+<p>Instead of updating all states on every iteration, focus on important states</p>
+<p>We can define important as visited often</p>
+<p><em>Asynchronous dynamic programming</em>:</p>
+<ul>
+<li>Generate trajectories through the MDP</li>
+<li>Update states whenever they appear on such a trajectory</li>
+</ul>
+<p>How is learning tied with DP?</p>
+<p>Observe transitions in the environment, learn an approximate model.</p>
+<ul>
+<li>Use maximum likelihood to compute probabilities</li>
+<li>Use supervised learning for the rewards</li>
+</ul>
+<p>Pretend the approximate model is correct and use it for any DP method. This approach is called model-based reinforced learning.</p>
+<h2 class="header"><i>14</i>Lecture 17: Reinforcement learning<a class="headerlink" href="#lecture-17-reinforcement-learning" name="lecture-17-reinforcement-learning">&para;</a></h2>
+<p>Simplest case: we have a coin X that can land either head or tail, we don't know the probability of the coin landing head (<span>$\theta$</span>).</p>
+<p>In this case X is a Bernoulli random variable.</p>
+<p>Given a sequence of independent tosses <span>$x_1, x_2 ... x_m$</span> we want to estimate <span>$\theta$</span>. They are <em>independently identically distributed (i.i.d)</em>:</p>
+<ul>
+<li>The set of possible values for each variable in each instance is known</li>
+<li>Each instance is obtained independently of the other instances</li>
+<li>Each instance is sampled from the same distribution</li>
+</ul>
+<p>Find a set of parameters <span>$\theta$</span> such that the data can be summarized by a probability <span>$P(x_j|\theta)$</span></p>
+<h3 class="header"><i>14.1</i>How good is a parameter set?<a class="headerlink" href="#how-good-is-a-parameter-set" name="how-good-is-a-parameter-set">&para;</a></h3>
+<p>Depends on how likely it is to generate the observed data. Let <span>$D$</span> be the data set, the likelihood of parameter set <span>$\theta$</span> given data set <span>$D$</span> is defined as:<br />
+<span>$$L(\theta|D) = P(D|\theta)$$</span></p>
+<p>If the instances are iid, we have:<br />
+<span>$$L(\theta|D) = P(D|\theta) = \prod_{j=1}^mP(x_j|\theta)$$</span></p>
+<p>Suppose we flip the coin a number of times, the likelihood for a parameter <span>$\theta$</span> that describes the true probability of the coin is equal to:<br />
+<span>$$L(\theta|D) = \theta^{N_H}(1-\theta)^{N_T}$$</span></p>
+<p>To compute the likelihood in the coin tossing example, we only need to known <span>$N(H)$</span> and <span>$N(T)$</span>. We say that <span>$N(H)$</span> and <span>$N(T)$</span> are sufficient statistics for this probabilistic model.</p>
+<h3 class="header"><i>14.2</i>Maximum Likelihood Estimation (MLE)<a class="headerlink" href="#maximum-likelihood-estimation-mle" name="maximum-likelihood-estimation-mle">&para;</a></h3>
+<p>Choose parameters that maximize the likelihood function</p>
+<p>Thus we want to maximize: <span>$L(\theta|D) = \prod_{j=1}^m P(x_j|\theta)$</span>. Products are hard to maximize, so we try to maximize the log instead:<br />
+<span>$$\log L(\theta|D) = \sum_{j=1}^m\log P(x_j|\theta)$$</span><br />
+To maximize we take the derivatives of this function wrt <span>$\theta$</span> and set them to 0</p>
+<p>Apply it back to the coin toss example:</p>
+<p>The likelihood is <span>$L(\theta|D) = \theta^{N(H)}(1-\theta)^{N(T)}$</span><br />
+The log likelihood is <span>$\log L(\theta|D) = N(H)\log \theta + N(T) \log(1-\theta)$</span><br />
+We then take the derivative of the log likelihood and set it to 0:<br />
+<span>$$\frac{\delta}{\delta\theta}\log L(\theta|D) = 0$$</span><br />
+After mathemagics, we get: <span>$\theta = \frac{N(H)}{N(H)+N(T)}$</span></p>
+<p>Sometimes there isn't enough mathemagics for us to find <span>$\theta$</span>. In those cases we use gradient descent (guess and check):<br />
+1. Start with some guess <span>$\hat{\theta}$</span><br />
+2. Update <span>$\hat{\theta}$</span>: <span>$\hat{\theta}: \hat{\theta} + \alpha \frac{\delta}{\delta\theta}\log L(\theta|D)$</span>, where <span>$\alpha$</span> is the learning rate between 0 and 1.<br />
+3. Go back to 2 and repeat until <span>$\theta$</span> stops changing.</p>
+<h3 class="header"><i>14.3</i>MLE for multinomial distribution<a class="headerlink" href="#mle-for-multinomial-distribution" name="mle-for-multinomial-distribution">&para;</a></h3>
+<p>Suppose that instead of tossing a coin, we roll a K-faced die. The set of parameters in this case is the probability to obtain each side. The log likelihood in this case is:<br />
+<span>$$\log L(\theta|D) = \sum_k N_k \log\theta_k$$</span><br />
+Where <span>$N_k$</span> is the number of times value <span>$k$</span> appears in the data</p>
+<p>We want to maximize the likelihood, but now this is a constrained optimization problem. The best parameters are given by the "empirical frequencies":<br />
+<span>$$\hat{\theta}_k = \frac{N_k}{\sum_k N_k}$$</span></p>
+<h3 class="header"><i>14.4</i>MLE for Bayes Nets<a class="headerlink" href="#mle-for-bayes-nets" name="mle-for-bayes-nets">&para;</a></h3>
+<p>The likelihood is just <span>$L(\theta|D) = \prod_{i=1}^n L(\theta_i|D)$</span>, where <span>$\theta_i$</span> are the parameters associated with node <span>$i$</span> in the Bayes Net.</p>
+<h3 class="header"><i>14.5</i>Consistency of MLE<a class="headerlink" href="#consistency-of-mle" name="consistency-of-mle">&para;</a></h3>
+<p>We want the parameters to converge to the "best possible" values as the number of examples grows. We need to define what "best" means.</p>
+<p>Let <span>$p$</span> and <span>$q$</span> be two probability distributions over <span>$X$</span>. The <strong>Kullback-Leibler divergence</strong> between <span>$p$</span> and <span>$q$</span> is defined as:<br />
+<span>$$KL(p,q) = \sum_x p(x) \log{\frac{p(x)}{q(x)}}$$</span></p>
+<h4 class="header"><i>14.5.1</i>Detour into information theory<a class="headerlink" href="#detour-into-information-theory" name="detour-into-information-theory">&para;</a></h4>
+<p>Expected message length if optimal encoding was used will equal to the entropy of <span>$p$</span> where <span>$p_i$</span> is the probability of each letter. Entropy = <span>$-\sum_i p_i \log_2 p_i$</span></p>
+<h3 class="header"><i>14.6</i>Interpretation of KL divergence<a class="headerlink" href="#interpretation-of-kl-divergence" name="interpretation-of-kl-divergence">&para;</a></h3>
+<p>Suppose we believe the letters are distributed according to <span>$q$</span>, but actually they are distributed according to <span>$p$</span>, but I'm using <span>$q$</span> to make my optimal encoding.<br />
+The expected length of my messages will be <span>$-\sum_i p_i \log_2 q_i$</span>. The amount of bits I waste with this encoding is equal to <span>$KL(p,q)$</span></p>
+<h3 class="header"><i>14.7</i>Properties of MLE<a class="headerlink" href="#properties-of-mle" name="properties-of-mle">&para;</a></h3>
+<p>MLE is a consistent estimator in the sense that the more we try, the closer <span>$\theta$</span> is to the best <span>$\theta$</span>.</p>
+<h3 class="header"><i>14.8</i>Model based reinforcement learning<a class="headerlink" href="#model-based-reinforcement-learning" name="model-based-reinforcement-learning">&para;</a></h3>
+<p>Very simple outline:</p>
+<ul>
+<li>Learn a model of the reward</li>
+<li>Learn a model of the probability distribution (using MLE)</li>
+<li>Do dynamic programming updates using the learned model as if it were true, to obtain a value function and policy.</li>
+</ul>
+<p>Works well if we have to optimize many reward functions in the same environment, but the probability distribution is quadratic in the number of states. And obtaining the value of a fixed policy is then the cubic in the number of states, and then we have to run for multiple iterations -&gt; too slow.</p>
+<h3 class="header"><i>14.9</i>Monte Carlo Methods<a class="headerlink" href="#monte-carlo-methods" name="monte-carlo-methods">&para;</a></h3>
+<p>Suppose we have an episodic task: the agent interacts with the environment in trials or episodes, which terminates at some point. The agent behaves according to some policy <span>$\pi$</span> for a while, generating several trajectories.</p>
+<p>We can compute <span>$V^\pi(s)$</span> by averaging the observed returns after s on the trajectories in which s was visited. Like in bandits, we can do this incrementally:<br />
+<span>$$V(s_t) \leftarrow V(s_t) + \alpha(R_t - V(s_t))$$</span><br />
+<span>$\alpha \in (0,1)$</span> is the learning rate parameter.</p>
+<h3 class="header"><i>14.10</i>Temporal-Difference (TD) prediction<a class="headerlink" href="#temporal-difference-td-prediction" name="temporal-difference-td-prediction">&para;</a></h3>
+<p>Monte Carlo uses the actual return as a target estimate for the value function:<br />
+<span>$$V(s_t) \leftarrow V(s_t) + \alpha(R_t - V(s_t))$$</span></p>
+<p>The simplest TD method, TD(0), uses instead an estimate of the return<br />
+<span>$$V(s_t) \leftarrow V(s_t) + \alpha[r_{t+1} \gamma V(s_{t+1}) -V(s_t))$$</span><br />
+If <span>$V(s_t+1)$</span> this would be like a dynamic programming target</p>
+<p>TD is like DP in that it bootstraps (computes the value of a state based on estimates of the successors), like MC, it estimates expected values by sampling.</p>
+<h3 class="header"><i>14.11</i>TD Learning Algorithm<a class="headerlink" href="#td-learning-algorithm" name="td-learning-algorithm">&para;</a></h3>
+<ol>
+<li>Initialize the value function, <span>$V(s) = 0, \forall s$</span></li>
+<li>Repeat:<br />
+    a. Pick a start state <span>$s$</span> for the current trial<br />
+    b. Repeat for every time step <span>$t$</span><br />
+        i. Choose action <span>$a$</span> based on policy <span>$\pi$</span> and the current state<br />
+        ii. Take actiona. observed reward <span>$r$</span> and new state <span>$s'$</span><br />
+        iii. Compute the <span>$TD$</span> error: <span>$\delta \leftarrow r + \gamma V(s') - V(s)$</span><br />
+        iv. Update the value function <span>$V(s) \leftarrow V(s) + \alpha_s \delta$</span><br />
+        v. <span>$s \leftarrow s'$</span><br />
+        vi. If <span>$s'$</span> is not a terminal state, <code>goto</code> i</li>
+</ol>
+<p>(look at the slides for the example question to fully understand it)</p>
+<p>Advantages: No model of environment is required, TD only needs experience with the environment. <br />
+Online, incremental learning, can learn before knowing the final outcome. Both TD and MC converge, but TD usually learns faster</p>
+<h2 class="header"><i>15</i>Lecture 18: Function approximation<a class="headerlink" href="#lecture-18-function-approximation" name="lecture-18-function-approximation">&para;</a></h2>
+<ul>
+<li>Represent the state as a set of features \phi(s)</li>
+<li>Approximate the value function <span>$V(s)$</span> as a function of these features and a set of parameters</li>
+<li>Learn good values for the parameters</li>
+<li>This helps learn a heuristic function to be used in further search</li>
+</ul>
+<p>Given: a set of labeled examples of the form <span>$x_1,x_2...x_n,y$</span>, where <span>$x_i$</span> are values for input variables and <span>$y$</span> is the desired output</p>
+<p>We want to learn: a function f: <span>$X_1 \times X_2 ... \times X_n \rightarrow Y$</span>, which maps the input variables onto the output domain</p>
+<p>For the case of utilities, <span>$Y = \mathbb{R}$</span>, and <span>$X_1, .. X_n$</span> are the domains of the random variables describing states and actions.</p>
+<p>Input variables are features/attributes. Output variables are targets.</p>
+<p>Each input/output data point is called a training example/instance. All datapoints are called the data set.</p>
+<p>If <span>$Y$</span> is discrete then it's classification, if it has 2 elements, then it's called binary classification, otherwise it's regression.</p>
+<h3 class="header"><i>15.1</i>Linear hypothesis<a class="headerlink" href="#linear-hypothesis" name="linear-hypothesis">&para;</a></h3>
+<p>If <span>$y$</span> was a linear function of <span>$x$</span>:<br />
+<span>$$h_w(x) = w_0 + w_1x_1 ... + w_nx_n$$</span><br />
+<span>$W_i$</span> are called parameters or weights. There is always a bias term or intercept term where <span>$x_0 = 1$</span></p>
+<h3 class="header"><i>15.2</i>Error minimization<a class="headerlink" href="#error-minimization" name="error-minimization">&para;</a></h3>
+<p>We want to pick a set of <span>$w$</span> so the predictions are close to the true values of <span>$y$</span>. We will define an error function/cost function to measure how much the predictions differs from the true answer.</p>
+<h4 class="header"><i>15.2.1</i>Least mean squares<a class="headerlink" href="#least-mean-squares" name="least-mean-squares">&para;</a></h4>
+<p>We choose <span>$w$</span> such that <span>$J(w) = \frac{1}{2}\sum_{i=1}^m(h_w(x_i)-y_i)^2$</span> is minimized. One way to do it would be to take the derivative of this function and set it to 0.</p>
+<p><span>$$\frac{\delta}{\delta w_j}J(w) = \sum_{i=1}^m (h_w(x_i)-y_i)x_{i,j}$$</span><br />
+Setting all the partial derivatives to 0, we get a system with (n+1) equations and (n+1) unknowns.</p>
+<h3 class="header"><i>15.3</i>Polynomial fits<a class="headerlink" href="#polynomial-fits" name="polynomial-fits">&para;</a></h3>
+<p>We can fit higher-degree polynomial to the data, just treat <span>$x^2$</span> as another input variable.</p>
+<h3 class="header"><i>15.4</i>Overfitting<a class="headerlink" href="#overfitting" name="overfitting">&para;</a></h3>
+<p>We can always find a hypothesis that predicts perfectly the training data but does not generalize well to new data. If we have two hypothesis <span>$h_1$</span> and <span>$h_2$</span> and <span>$h_1$</span> has a lower training error, but <span>$h_2$</span> has a lower true error, then <span>$h_1$</span> is overfitting. </p>
+<h4 class="header"><i>15.4.1</i>Leave-one-out cross-validation<a class="headerlink" href="#leave-one-out-cross-validation" name="leave-one-out-cross-validation">&para;</a></h4>
+<p>We can leave one instance out from the training set, to estimate the true prediction error. Use the other data items to find w, then test the error with the left out instance.</p>
+<h3 class="header"><i>15.5</i>Cross-validation<a class="headerlink" href="#cross-validation" name="cross-validation">&para;</a></h3>
+<p>Split available data into two parts, a training set and a test set to be used after <span>$h$</span> is found to figure out how good it is. The testing set must be untouched during the process of looking for <span>$h$</span>.</p>
+<h3 class="header"><i>15.6</i>Different way of finding parameters<a class="headerlink" href="#different-way-of-finding-parameters" name="different-way-of-finding-parameters">&para;</a></h3>
+<h4 class="header"><i>15.6.1</i>Gradient descent<a class="headerlink" href="#gradient-descent" name="gradient-descent">&para;</a></h4>
+<p>The gradient of <span>$J$</span> at a point <span>$w$</span> can be thought of as a vector indicating which way is uphill. If this is an error function, we want to move downhill on it.</p>
+<p>The gradient descent algorithm:</p>
+<p>Given a random <span>$w^0$</span>, repeat:<br />
+<span>$$w^{(i+1)} = w^i - \alpha_i\nabla J(w^i)$$</span><br />
+Where <span>$\alpha_i &gt; 0$</span> is the learning rate for iteration <span>$i$</span>.</p>
+<p>To decide when to stop, basically don't stop til you get enough. Or:</p>
+<ol>
+<li>Run until <span>$||\nabla f||$</span> is smaller than some threshold</li>
+<li>Run it for as long as you can stand</li>
+<li>Run it for a short time from 100 different starting points and see which one is doing the best.</li>
+</ol>
+<h3 class="header"><i>15.7</i>Convergence<a class="headerlink" href="#convergence" name="convergence">&para;</a></h3>
+<p>Convergence depends on <span>$\alpha$</span>. If it's too big, oscillation or bubbling may occur (this suggests that <span>$\alpha_i$</span> should tend to zero as <span>$i -&gt; \infty$</span>). If it's too small, the <span>$w^i$</span> may not move far enough to reach a local minimum.</p>
+<h4 class="header"><i>15.7.1</i>Robbins-Monroe conditions<a class="headerlink" href="#robbins-monroe-conditions" name="robbins-monroe-conditions">&para;</a></h4>
+<p>The <span>$\alpha_i$</span> are a Robbins-Monroe sequence if:<br />
+<em> <span>$\sum_{i=0}^\infty \alpha_i = +\infty$</span><br />
+</em> <span>$\sum_{i=0}^\infty \alpha_i^2 &lt; \infty$</span><br />
+e.g. <span>$\alpha_i=\frac{1}{i+1}$</span></p>
+<p>These conditions, along with appropriate conditions on <span>$f$</span> are sufficent to ensure the convergence of <span>$u^i$</span> to a local minimum of <span>$f$</span>.</p>
+<h4 class="header"><i>15.7.2</i>Local minima<a class="headerlink" href="#local-minima" name="local-minima">&para;</a></h4>
+<p>Convergence is only to a local minimum. For linear functions approximators using LMS error there is only one global (local?) minimum. Random restarting can help.</p>
+<h3 class="header"><i>15.8</i>Batch vs On-line optimization<a class="headerlink" href="#batch-vs-on-line-optimization" name="batch-vs-on-line-optimization">&para;</a></h3>
+<p>The error function is often a sum of errors attributed to each data instance (<span>$J = J_1 + J_2 + ... J_m$</span>)</p>
+<p>In batch gradient descent, the true gradient is computed at each step, based on all data points of the training set:<br />
+<span>$$\nabla J = \nabla J_1 + \nabla J_2 ... \nabla J_m$$</span></p>
+<p>In online gradient descent, at each iteration one instance, <span>$i \in {1,...,m}$</span> is chosen at random and only <span>$\nabla J_i$</span> is used.</p>
+<p>Batch is simple, repeatable (deterministic)<br />
+Online requires less computation, randomization may help escape poor local minima, allows working with a stream of data rather than a static set.</p>
+<h4 class="header"><i>15.8.1</i>Batch gradient descent<a class="headerlink" href="#batch-gradient-descent" name="batch-gradient-descent">&para;</a></h4>
+<p><span>$$w_j \leftarrow w_j + \alpha \sum_{i=1}^m(y_i-h_w(x_i))x_{i,j}$$</span><br />
+Repeat until satisfied. Known as LMS update rule or Widrow-Hoff learning rule</p>
+<h4 class="header"><i>15.8.2</i>On-line (incremental) gradient descent<a class="headerlink" href="#on-line-incremental-gradient-descent" name="on-line-incremental-gradient-descent">&para;</a></h4>
+<p><span>$$w_j \leftarrow w_j +\alpha(y-h_w(x))x_j, \forall j = 0...n$$</span></p>
+<p>Repeat at will.</p>
+<h3 class="header"><i>15.9</i>TD learning with function approximation<a class="headerlink" href="#td-learning-with-function-approximation" name="td-learning-with-function-approximation">&para;</a></h3>
+<ul>
+<li>Compute the features <span>$\phi_j(s)$</span>, <span>$\phi_j(s')$</span></li>
+<li>Compute the values <span>$V(s) \leftarrow \sum_jw_j\phi_j(s), V(s')\leftarrow \sum_jw_j\phi_j(s')$</span></li>
+<li>Compute the TD-error <span>$\phi \leftarrow r+\gamma V(s') - V(s)$</span></li>
+<li>Update the weights based on this example:<br />
+<span>$$w_j \leftarrow w_j + \alpha\delta\phi_j(s) \forall j=0...n$$</span></li>
+</ul>
+<h2 class="header"><i>16</i>Lecture 19: Neural networks<a class="headerlink" href="#lecture-19-neural-networks" name="lecture-19-neural-networks">&para;</a></h2>
+<p>Properties of artificial neural nets:</p>
+<ul>
+<li>Many neuron-like threshold switching units</li>
+<li>Many weighted interconnections among units</li>
+<li>Highly parallel, distributed process</li>
+<li>Emphasis on tuning weights automatically</li>
+</ul>
+<h3 class="header"><i>16.1</i>Linear models for classification<a class="headerlink" href="#linear-models-for-classification" name="linear-models-for-classification">&para;</a></h3>
+<p>We want to solve a binary classification problem. The outputs take one of two discrete values, either {0,1} or {-1, +1}</p>
+<p>We can take a linear combination and threshold it:<br />
+<span>$$h_w(x) = sgn(x \cdot w) = x \cdot w &gt; 0 ? +1 : -1$$</span><br />
+This is called a perceptron.<br />
+The output is taken as the predicted class.</p>
+<p>We can represent all boolean operators except XOR because XOR isn't linear separable (we can't draw a line to separate all points of (<span>$x_1$</span>, <span>$x_2$</span>) which XOR to true and all points which XOR to false, but we can for AND/OR/NOT)</p>
+<h3 class="header"><i>16.2</i>The Need for networks<a class="headerlink" href="#the-need-for-networks" name="the-need-for-networks">&para;</a></h3>
+<p>Perceptrons have a very simple decision surface (only linearly separable functions). If we connect them into networks, the error surface for the network is not differentiable because it's discrete.</p>
+<p>We cannot apply gradient descent to find a good set of weights.</p>
+<h3 class="header"><i>16.3</i>Signoid Unit (neuro)<a class="headerlink" href="#signoid-unit-neuro" name="signoid-unit-neuro">&para;</a></h3>
+<p><span>$\sigma(x)$</span> is the sigmoid function: <span>$\frac{1}{1+e^{-x}}$</span>, it possesses the property of:<br />
+<span>$$\frac{d\sigma(x)}{dx} = \sigma(x)(1-\sigma(x))$$</span></p>
+<p>We can derive gradient descent rules to train:</p>
+<ul>
+<li>One sigmoid unit</li>
+<li>Multi-layer networks of sigmoid units (called Backpropagation)</li>
+</ul>
+<h3 class="header"><i>16.4</i>Sigmoid Hypothesis<a class="headerlink" href="#sigmoid-hypothesis" name="sigmoid-hypothesis">&para;</a></h3>
+<p><span>$$h_w(x) = \sigma(w \cdot x) = \frac{1}{1+e^{-w\cdot x}}$$</span><br />
+We want to determine a good weight vector <span>$w$</span><br />
+We want to minimize the sum-squared error<br />
+If the output is predicted correctly the error is 0, otherwise the error is 1</p>
+<p>The function looks like this (so it's easy to see why we are using it for binary classification):<br />
+<img alt="" src="http://i.imgur.com/JjyujBl.png" title="" /><br />
+Error function:<br />
+<span>$$J(w) = 1/2\sigma_i(y_i - h_W(x_i))^2$$</span><br />
+Gradient of the error:<br />
+<span>$$\nabla J = -\sum_i(y_i - h_W(x_i))\nabla h_W(x_i)$$</span><br />
+For sigmoid hypothesis we have:<br />
+<span>$$\nabla h_W(x_i) = h_W(x_i)(1-h_W(x_i))x_i$$</span><br />
+We can do gradient descent on:<br />
+<span>$$w \leftarrow w+ \alpha \sigma_i(y_i - h_W(x_i))h_w(x_i)(1-h_w(x_i))x_i$$</span><br />
+batch or online updates</p>
+<h4 class="header"><i>16.4.1</i>Sigmoid units vs perceptron<a class="headerlink" href="#sigmoid-units-vs-perceptron" name="sigmoid-units-vs-perceptron">&para;</a></h4>
+<p>Sigmoid units provide soft threshold, perceptron provides "hard" threshold. Both of them are limited to linearly separable instances.</p>
+<p>In order to learn in data sets that are not linearly separable, we need networks of sigmoid units.</p>
+<h3 class="header"><i>16.5</i>Feed-Forward Neural Networks<a class="headerlink" href="#feed-forward-neural-networks" name="feed-forward-neural-networks">&para;</a></h3>
+<p>A collection of units with sigmoid activation, arranged in layers.<br />
+Layers 0 is the input layer, its units just copy the inputs.<br />
+Last layer, K, is called output layer, its units provide the output.<br />
+Layers 1...K-1 are hidden layers, cannot be detected outside of the network</p>
+<p>In feed-forward networks the output of units in layer <span>$i$</span> becomes an input for units in layers <span>$i+1, i+2... K$</span>.<br />
+There is no backward ("recurrent") connections from layers downstream<br />
+Typically, units in layer k provide niput to units in layer k+1 only<br />
+In fully connected networks, all units in layer k are connected to all units in layer k+1</p>
+<p><img alt="" src="http://i.imgur.com/X2bLow2.png" title="" /></p>
+<p><span>$w_{ji}$</span> is the weight on the connection from unit <span>$i$</span> to unit <span>$j$</span><br />
+By convention, <span>$x_{j,0} = 1, \forall j$</span><br />
+The output of unit <span>$j$</span>, denoted <span>$o_j$</span>, is computed using a sigmoid: <span>$o_j = \sigma(W_j \cdot x_j)$</span> where <span>$w_j$</span> is vector of weights entering unit <span>$j$</span> and <span>$x_j$</span> is vector of inputs to unit <span>$j$</span><br />
+<span>$x_{j,i} = o_i$</span></p>
+<h4 class="header"><i>16.5.1</i>Computing the output of the network<a class="headerlink" href="#computing-the-output-of-the-network" name="computing-the-output-of-the-network">&para;</a></h4>
+<p>Suppose that we want the network to make a prediction for instance <span>$&lt;x,y&gt;$</span>. In a feed-forward network, this can be done in a single forward pass</p>
+<p>For layer k=1 to K<br />
+1. Compute the output of all neurons in layer k:<br />
+<span>$$o_j = \sigma(w_j \cdot x_j), \forall j \in \text{Layer }k$$</span><br />
+2. Copy this output as inputs to the next layer:<br />
+<span>$$x_j,i = o_i, \forall i \in \text{Layer }k, \forall j \in \text{Layer }k+1$$</span></p>
+<h4 class="header"><i>16.5.2</i>Learning in Feed-Forward neural networks<a class="headerlink" href="#learning-in-feed-forward-neural-networks" name="learning-in-feed-forward-neural-networks">&para;</a></h4>
+<p>Assuming the network structure is given<br />
+The learning problem is finding a good set of weights<br />
+The answer: gradient descent, because the hypothesis formed by the network <span>$h_w$</span> is differentiable and very complex.</p>
+<h4 class="header"><i>16.5.3</i>Gradient Descent Update for Neural Networks<a class="headerlink" href="#gradient-descent-update-for-neural-networks" name="gradient-descent-update-for-neural-networks">&para;</a></h4>
+<p>Assume we have a fully connected network:</p>
+<ul>
+<li>N input units (indexed 1,... N)</li>
+<li>One hidden layer with H hidden units (index N+1, ... N+H)</li>
+<li>One output unit (indexed N+H+1)</li>
+</ul>
+<p>Suppose we want to compute the weight update after seeing instance <span>$&lt;x,y&gt;$</span><br />
+Let <span>$o_i, i= 1,...N+H+1$</span> be the outputs of all the units in the network for the given input x<br />
+The sum-squared error function is:<br />
+<span>$$J(w)=1/2(y-h_w(x))^2 = 1/2(y-o_{N+H+1})^2$$</span></p>
+<p>The derivative with respect to weights <span>$w_{N+H+1,j}$</span> entering <span>$o_{N+H+1}$</span> is computed as usual:<br />
+<span>$$\frac{\delta J}{\delta W_{N+H+1,j}} = -(y-o_{N+H+1}o_{N+H+1}(1-o_{N+H+1}x_{N+H+1}$$</span><br />
+a lot of math later and you'll end up with an equation that you probably won't remember so fuck that</p>
+<h4 class="header"><i>16.5.4</i>Backpropagation Algorithm<a class="headerlink" href="#backpropagation-algorithm" name="backpropagation-algorithm">&para;</a></h4>
+<p>Just do gradient descent over all the weights in the network</p>
+<ol>
+<li>Forward pass: compute the outputs of all the units in the network, going in increasing order of layers</li>
+<li>Backward pass: compute the gradient descend updates described from before, going in decreasing order of layers</li>
+<li>Update to all the weights in the network</li>
+</ol>
+<h4 class="header"><i>16.5.5</i>Backpropagation Algorithm in Detail<a class="headerlink" href="#backpropagation-algorithm-in-detail" name="backpropagation-algorithm-in-detail">&para;</a></h4>
+<p>Initialize all weights to small random numbers</p>
+<p>Repeat until satisfied:</p>
+<ol>
+<li>Pick a training example</li>
+<li>Input example to the network and compute output</li>
+<li>For the output unit, compute the correction</li>
+<li>For each hidden unit h, compute its share of the correction</li>
+<li>Update each network weight</li>
+</ol>
+<h4 class="header"><i>16.5.6</i>Expressiveness of feed-forward neural networks<a class="headerlink" href="#expressiveness-of-feed-forward-neural-networks" name="expressiveness-of-feed-forward-neural-networks">&para;</a></h4>
+<p>A single sigmoid neuron has the same representational power as a perceptron: Boolean AND, OR, NOT, but not XOR<br />
+Every boolean function can be represented by a network with a single hidden layer, but might require a number of hidden units taht is exponential in the number of inputs<br />
+Every bounded continuous function can be approximated with arbitrary precision by a network with one, sufficiently large hidden layer.<br />
+Any function can be approximated to arbitrary accuracy by a network with two hidden layers</p>
+<h4 class="header"><i>16.5.7</i>Backpropagation Variations<a class="headerlink" href="#backpropagation-variations" name="backpropagation-variations">&para;</a></h4>
+<p>Previous version corresponds to incremental gradient descent. An analogous batch version can be used as well:<br />
+loop through the training data, accumulating weight changes, update weights.</p>
+<p>One pass through the data set is called an epoch</p>
+<p>Algorithm can be easily generalized to predict probabilities, instead of minimizing sum-squared error. </p>
+<p>It can also be generalized to arbitrary direct graphs</p>
+<h4 class="header"><i>16.5.8</i>Convergence of Backpropagation<a class="headerlink" href="#convergence-of-backpropagation" name="convergence-of-backpropagation">&para;</a></h4>
+<p>Backpropagation performs gradient descent over all the parameters in the network, the algorithm is guaranteed to converge to a local minimum. There can be many local minimums<br />
+Solution is random restarts and train multiple nets with different initial weights.</p>
+<h3 class="header"><i>16.6</i>Overfitting in feed-forward networks<a class="headerlink" href="#overfitting-in-feed-forward-networks" name="overfitting-in-feed-forward-networks">&para;</a></h3>
+<p>Overfitting in neural nets come from three sources:</p>
+<ul>
+<li>Too many weights</li>
+<li>Training for too long</li>
+<li>Weights that have become too extreme</li>
+</ul>
+<p>Coincidentally, this is also a problem for many weightlifters.</p>
+<p>Use a validation set to decide when to stop training!</p>
+<h3 class="header"><i>16.7</i>Practical Issues<a class="headerlink" href="#practical-issues" name="practical-issues">&para;</a></h3>
+<p>The choice of initial weights have great impact on convergence</p>
+<p>If the input size is N, and N is large, a good heuristic is to choose initial weights between -1/N and 1/N</p>
+<p>Backpropagation is very sensitive to learning rate</p>
+<p>If it's too large, the weights diverge, if it's too small, the convergence is too slow</p>
+<p>Sometimes it's appropriate to use different learning rates for different layers and units.</p>
+<h3 class="header"><i>16.8</i>More practical issues<a class="headerlink" href="#more-practical-issues" name="more-practical-issues">&para;</a></h3>
+<p>It's bad to have inputs of many magnitude. We can re-encode the input variables:</p>
+<ul>
+<li>
+<p>1-of-n encoding: create bitbuckets for values of x, if x falls between 0-1000, use 10 bits for x, so if x is 250, x-&gt;0010000000, x is 50, x-&gt; 1000000000</p>
+</li>
+<li>
+<p>Thermometer, same as 1-of-n, but the previous bits are set to 1 as well, x = 250, x-&gt; 1110000000</p>
+</li>
+</ul>
+<p>Thermometer is better NO IDEA WHY</p>
+<p>Too many hidden units hurt, and too many hidden layers hurt. Two layers are usually enough.</p>
+<h3 class="header"><i>16.9</i>When to use neural networks<a class="headerlink" href="#when-to-use-neural-networks" name="when-to-use-neural-networks">&para;</a></h3>
+<p>Input is high-dimensional discrete or real-valued<br />
+Output is discrete or real values, or a vector of values<br />
+Possibly noisy data<br />
+Training time is unimportant<br />
+Form of target function is unknown<br />
+Human readability of results is unimportant<br />
+Computation of the output based on the input has to be fast</p>
+<h2 class="header"><i>17</i>Lecture 20: Clustering<a class="headerlink" href="#lecture-20-clustering" name="lecture-20-clustering">&para;</a></h2>
+<h3 class="header"><i>17.1</i>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" name="unsupervised-learning">&para;</a></h3>
+<p>In supervised learning, data is in the form of pairs (x,y) where y = f(x), the goal is to approximate f well.</p>
+<p>In unsupervised the data just contains x</p>
+<p>Goal is to summarize or find patterns or structure in the data.</p>
+<p>A variety of problems and uses:</p>
+<ul>
+<li>Clustering</li>
+<li>Density estimation</li>
+<li>Dimensionality reduction</li>
+</ul>
+<p>The definition of ground truth is often missing<br />
+Useful in exploratory data analysis, and as a pre-processing step for supervised learning.</p>
+<p>What is clustering?</p>
+<p>Clustering is grouping similar objects together.<br />
+- To establish prototypes, or detect outliers<br />
+- To simply data for further analysis/learning<br />
+- To visualize data</p>
+<p>Clusterings are usually not "right" or 'wrong" - different clusterings/clustering criteria can reveal different things about the data</p>
+<p>Clustering algorithms:<br />
+Employ some notion of distance between objects<br />
+Have an explicit or implicit criterion defining what a good cluster is<br />
+Heuristically optimize that criterion to determine clustering.</p>
+<h3 class="header"><i>17.2</i>K-means clustering<a class="headerlink" href="#k-means-clustering" name="k-means-clustering">&para;</a></h3>
+<p>Commonly used clustering algorithms, because it is easy to implement and quick to run. Assume the objects to be clustered are n-dimensional vectors. Uses a distance measure between the distances (typically euclidian distance).</p>
+<p>The goal is to partition the data into K disjoint subsets</p>
+<p>Input: a set of n-dimensional real vectors, K, the desired number of clusters<br />
+Output: A mapping of vectors into K clusters (C)</p>
+<p>The algorithm:</p>
+<ol>
+<li>Initialize C randomly</li>
+<li>Repeat:<br />
+    a. compute the centroid of each cluster<br />
+    b. reassign each instance to the cluster with closest centroid<br />
+    c. goto a until C stops changing</li>
+</ol>
+<h3 class="header"><i>17.3</i>What if we don't know what K is?<a class="headerlink" href="#what-if-we-dont-know-what-k-is" name="what-if-we-dont-know-what-k-is">&para;</a></h3>
+<p>We assess the quality of the clustering by measuring how thick, solid, tight each cluster is.<br />
+It can be measured by:</p>
+<ul>
+<li>Minimum distance between points in different clusters</li>
+<li>Maximum distance between points in the same cluster</li>
+<li>Average distance between points in the same cluster</li>
+</ul>
+<p>These measures usually favour large number of clusters, so some form of regularization or description length penalty is necessary</p>
+<h3 class="header"><i>17.4</i>Why the sum of squared euclidean distances?<a class="headerlink" href="#why-the-sum-of-squared-euclidean-distances" name="why-the-sum-of-squared-euclidean-distances">&para;</a></h3>
+<p>Maximum likelihood principle. Suppose the data really does divide into K clusters, and data in each cluster is generated by independent samples from a multivariate gaussian distribution, where:</p>
+<ul>
+<li>The mean of the gaussian is the centroid of the cluster</li>
+<li>The covariance matrix is of the form <span>$\sigma^2I$</span></li>
+</ul>
+<p>Then the probability of the data is highest when the sum of square euclidean distances is smallest.</p>
+<p>Why not the sum of squared euclidean distances?</p>
+<p>Differently scaled axes can dramatically affect results. There may be symbolic attributes, which have to be treated differently</p>
+<h3 class="header"><i>17.5</i>Does K means clustering terminate??<a class="headerlink" href="#does-k-means-clustering-terminate" name="does-k-means-clustering-terminate">&para;</a></h3>
+<p>Yes.</p>
+<h3 class="header"><i>17.6</i>Does K means always find the same answer?<a class="headerlink" href="#does-k-means-always-find-the-same-answer" name="does-k-means-always-find-the-same-answer">&para;</a></h3>
+<p>No.</p>
+<h3 class="header"><i>17.7</i>Finding good initial configurations:<a class="headerlink" href="#finding-good-initial-configurations" name="finding-good-initial-configurations">&para;</a></h3>
+<p>Place first center on top of a randomly chosen data point, place second center on a data point as far away as possible from the first one, place ith center as far away as possible from the closest of centers 1 through i -1.</p>
+<h3 class="header"><i>17.8</i>Choosing the number of clusters<a class="headerlink" href="#choosing-the-number-of-clusters" name="choosing-the-number-of-clusters">&para;</a></h3>
+<p>A difficult problem. Delete clusters that cover too few points, split clusters that cover too many points. Add extra clusters for outliers. </p>
+<h3 class="header"><i>17.9</i>K-means-like clustering in general<a class="headerlink" href="#k-means-like-clustering-in-general" name="k-means-like-clustering-in-general">&para;</a></h3>
+<p>Given a set of instances</p>
+<ul>
+<li>Choose a notion of pairwise distance/similarity between instances</li>
+<li>Choose a scoring function for the clustering</li>
+<li>Optimize the scoring function to find a good clustering</li>
+</ul>
+<p>For most choices, the optimization problem will be intractable. Local optimization is often necessary.</p>
+<h4 class="header"><i>17.9.1</i>Distance metrics<a class="headerlink" href="#distance-metrics" name="distance-metrics">&para;</a></h4>
+<p>Euclidean distance, Hamming distance, travel distance along a manifold, tempo/rhythm similarity, shared keywords</p>
+<h4 class="header"><i>17.9.2</i>Scoring functions<a class="headerlink" href="#scoring-functions" name="scoring-functions">&para;</a></h4>
+<p>Minimize: summed distances between all pairs of instances in the same cluster<br />
+Minimize: Maximum distance between any two instances in the same cluster<br />
+Maximize: minimum distance between any two instances in different clusters</p>
+<h2 class="header"><i>18</i>Lecture 21: Games<a class="headerlink" href="#lecture-21-games" name="lecture-21-games">&para;</a></h2>
+<p>Probably not on the final</p>
+<h2 class="header"><i>19</i>Lecture 22: Natural language processing<a class="headerlink" href="#lecture-22-natural-language-processing" name="lecture-22-natural-language-processing">&para;</a></h2>
+<p>Probably not in the final</p>
+<h2 class="header"><i>20</i>Lecture 23: Conclusion<a class="headerlink" href="#lecture-23-conclusion" name="lecture-23-conclusion">&para;</a></h2>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:typical">
+<p>i.e., me.&#160;<a href="#fnref:typical" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:mudkip">
+<p>Unless you're mudkip&#160;<a href="#fnref:mudkip" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 26, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 26, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Applications of the FTA; introduction to relations
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for lecture #10 of MATH 235, normally taught by <a href="http://www.math.mcgill.ca/darmon/">Henri Darmon</a>, but with <a href="http://www.math.mcgill.ca/brakocevic/">Miljan Brakočević</a> temporarily filling in while Darmon is away for a week. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<p>In this lecture, we covered section 10.1 and started chapter 12 of the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/Goren-Notes.pdf">notes</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#applications-of-the-fundamental-theorem-of-arithmetic">1 Applications of the fundamental theorem of arithmetic</a><ul>
+<li><a href="#proposition-1011">1.1 Proposition 10.1.1</a><ul>
+<li><a href="#proving-the-leftward-implication">1.1.1 Proving the leftward implication</a></li>
+<li><a href="#proving-the-rightward-implication">1.1.2 Proving the rightward implication</a></li>
+</ul>
+</li>
+<li><a href="#corollary-1012">1.2 Corollary 10.1.2</a></li>
+<li><a href="#proposition-1013">1.3 Proposition 10.1.3</a><ul>
+<li><a href="#proving-the-existence-property">1.3.1 Proving the existence property</a></li>
+<li><a href="#proving-the-uniqueness-property">1.3.2 Proving the uniqueness property</a></li>
+</ul>
+</li>
+<li><a href="#proposition-1014">1.4 Proposition 10.1.4</a></li>
+</ul>
+</li>
+<li><a href="#introduction-to-relations">2 Introduction to relations</a><ul>
+<li><a href="#properties-of-relations">2.1 Properties of relations</a><ul>
+<li><a href="#transitivity">2.1.1 Transitivity</a></li>
+<li><a href="#partial-ordering">2.1.2 Partial ordering</a></li>
+<li><a href="#linear-ordering">2.1.3 Linear ordering</a></li>
+<li><a href="#equivalence">2.1.4 Equivalence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Applications of the fundamental theorem of arithmetic<a class="headerlink" href="#applications-of-the-fundamental-theorem-of-arithmetic" name="applications-of-the-fundamental-theorem-of-arithmetic">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Proposition 10.1.1<a class="headerlink" href="#proposition-1011" name="proposition-1011">&para;</a></h3>
+<blockquote>
+<p>Let <span>$a, b \in \mathbb{Z} \setminus \{0\}$</span>. Then <span>$a$</span> divides <span>$b$</span> if and only if <span>$a = \varepsilon p_1^{a_1} \ldots p_m^{a_m}$</span> and <span>$b = \mu p_2^{a_1'}\ldots p_m^{a_m'} q_1^{b_1}\ldots q_t^{b_t}$</span>, where <span>$a_i' \geq a_i$</span> for all <span>$i$</span> and all the exponents are integers.</p>
+<p>In other words, this means that if <span>$a$</span> divides <span>$b$</span>, then all of <span>$a$</span>'s prime factors are contained in <span>$b$</span>; and, if all of <span>$a$</span>'s prime factors are contained in <span>$b$</span>, then <span>$a$</span> necessarily divides <span>$b$</span>.</p>
+</blockquote>
+<h4 class="header"><i>1.1.1</i>Proving the leftward implication<a class="headerlink" href="#proving-the-leftward-implication" name="proving-the-leftward-implication">&para;</a></h4>
+<p>First, we prove the <span>$\leftarrow$</span> implication. This is fairly straightforward; fro the given factorisations, it's quite easy to see that <span>$a\mid b$</span>:</p>
+<p><span>$$\frac{b}{a} = \frac{\varepsilon}{\mu} p_1^{a_1'-a_1} \ldots p_m^{a_m' - a_m} q_1^{b_1} \ldots q_t^{b_t} \in \mathbb{Z} \setminus \{0\}$$</span></p>
+<p>The fraction <span>$\frac{b}{a}$</span> must be an integer, because all the bases are integers and their exponents are also all integers.</p>
+<h4 class="header"><i>1.1.2</i>Proving the rightward implication<a class="headerlink" href="#proving-the-rightward-implication" name="proving-the-rightward-implication">&para;</a></h4>
+<p>Now we prove the <span>$\to$</span> implication. This one is a bit more involved. From the fundamental theorem of arithmetic, we can write a prime factorisation for <span>$a$</span>:</p>
+<p><span>$$a = \varepsilon p_1^{a_1} \ldots p_m^{a_m}$$</span></p>
+<p>Now, because <span>$\frac{b}{a}$</span> is an integer (given that <span>$a \mid b$</span>), we can write a prime factorisation for that too:</p>
+<p><span>$$\frac{b}{a} = \upsilon p_1^{a_1''}\ldots p_m^{a_m''} q_1^{b_1} \ldots q_t^{b_t}$$</span></p>
+<p>This is valid because we set <span>$a_i'' \geq 0$</span> for all <span>$i$</span>, which allows <span>$p_i^{a_i''} = p_i^0 = 1$</span>.</p>
+<p>We then multiply <span>$a$</span> and <span>$\frac{b}{a}$</span>:</p>
+<p><span>$$b = a \cdot \frac{b}{a} = \epsilon \upsilon p_1^{a_1 + a_1''} \ldots p_m^{a_m + a_m''} q_1^{b_1} \ldots q_t^{b_t}$$</span></p>
+<p>We simply have to set <span>$a_i' = a_i + a_i''$</span> to get the prime factorisation for <span>$b$</span> that we were trying to reach. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.2</i>Corollary 10.1.2<a class="headerlink" href="#corollary-1012" name="corollary-1012">&para;</a></h3>
+<blockquote>
+<p>If <span>$a = p_1^{a_1} \ldots p_m^{a_m}$</span>, and <span>$b = p_1^{b_1} \ldots p_m^{b_m}$</span>, then the following is true:</p>
+<p><span>$$\gcd(a, b) = p_1^{\min(a_1, b_1)} \ldots p_m^{\min(a_m, b_m)}$$</span></p>
+</blockquote>
+<p>This is a general result that follows from the <a href="proposition-1011">previous proposition</a>. We can derive it as follows: let <span>$d$</span> be a divisor of <span>$a$</span> and <span>$b$</span>. Then we can write <span>$d$</span> as <span>$d = p_1^{c_1} \ldots p_m^{c_m}$</span>. But since <span>$d \mid a$</span> and <span>$d \mid b$</span>, then we must have that <span>$c_i \leq a_i$</span> and <span>$c_i \leq b_i$</span> for all <span>$i$</span>. To <em>maximise</em> <span>$d$</span> (and thus find the greatest common divisor), we can set <span>$c_i$</span> equal to the lesser of <span>$a_i$</span> and <span>$b_i$</span>, i.e., <span>$\min(a_i, b_i)$</span>.</p>
+<p>We can apply this result to any <span>$a, b \in \mathbb{N}$</span>, even numbers that don't have any prime factors in common, using the same trick where we set the exponent to 0 that we used above. For instance, if <span>$a = 21$</span> and <span>$b = 55$</span>, then:</p>
+<p><span>$$21 = 3 \cdot 7 = 3^1 \cdot 7^1 \qquad 55 = 5 \cdot 11 = 5^1 \cdot 11^1$$</span></p>
+<p>But we can also write their factorisations as:</p>
+<p><span>$$21 = 3^1 \cdot 5^0 \cdot 7^1 \cdot 11^0 \qquad 55 = 3^0 \cdot 5^1 \cdot 7^0 \cdot 11^1$$</span></p>
+<p>So their <span>$\gcd$</span> would be <span>$3^0\cdot 5^0 \cdot 7^0 \cdot 11^0 = 1$</span>.</p>
+<h3 class="header"><i>1.3</i>Proposition 10.1.3<a class="headerlink" href="#proposition-1013" name="proposition-1013">&para;</a></h3>
+<blockquote>
+<p>Any non-zero rational number <span>$q$</span> can be written as</p>
+<p><span>$$q = \varepsilon p_1^{a_1} \ldots p_m^{a_m}$$</span></p>
+<p>where <span>$\varepsilon = \pm 1$</span> as usual, the <span>$p$</span>s are distinct prime numbers, and <span>$a_i \in \mathbb{Z} \setminus \{0\}$</span> (so the exponents can be negative, which is not covered by the fundamental theorem of arithmetic). Moreover, this expansion is unique.</p>
+</blockquote>
+<h4 class="header"><i>1.3.1</i>Proving the existence property<a class="headerlink" href="#proving-the-existence-property" name="proving-the-existence-property">&para;</a></h4>
+<p>First, we have to show that such an expansion exists for <span>$q$</span>. Let <span>$q = \frac{a}{b}$</span>, where <span>$a, b \in \mathbb{Z} \setminus \{0\}$</span>. Using the fundamental theorem of arithmetic we can write factorisations for <span>$a$</span> and <span>$b$</span>:</p>
+<p><span>$$a = \varepsilon_a r_1^{s_1} \ldots r_n^{s_n} \qquad b = \varepsilon_b r_1^{t_1} \ldots r_n^{t_n}$$</span></p>
+<p>where <span>$s_i, t_i \geq 0$</span>, using the same trick we used above. So <span>$q$</span> is given by</p>
+<p><span>$$q = \frac{a}{b} = \frac{\varepsilon_a}{\varepsilon_b} r_1^{s_1 - t_1} \ldots r_n^{s_n-t_n}$$</span></p>
+<p>Note that the exponents here can be negative.</p>
+<p>In any case, we know have the factorisation we wanted (just replace <span>$r$</span> by <span>$p$</span>, and let <span>$a_i = s_i - t_i$</span>). <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.3.2</i>Proving the uniqueness property<a class="headerlink" href="#proving-the-uniqueness-property" name="proving-the-uniqueness-property">&para;</a></h4>
+<p>Assume that we have two different factorisations for <span>$q$</span>:</p>
+<p><span>$$q = \varepsilon p_1^{a_1} \ldots p_m^{a_m} = \varepsilon' p_1^{a_1'} \ldots p_m^{a_m'}$$</span></p>
+<p>Again, we can say that the <span>$p$</span>s (the prime bases) are the same for both sides because the exponent can always be 0.</p>
+<p>Right away, we can conclude that <span>$\varepsilon = \varepsilon'$</span> (since they just indicate the sign). Then we can divide both sides of the equation (the one relating the two factorisations of <span>$q$</span>) by <span>$p_1^{a_1'} \ldots p_m^{a_m'}$</span>:</p>
+<p><span>$$1 = p_1^{a_1 - a_1'} \ldots p_m^{a_m - a_m'} = p_1^{c_1} \ldots p_m^{c_m}$$</span></p>
+<p>Now we sort the terms in the multiplication in ascending order, so that all the negative exponents are to the left of term <span>$t$</span> (inclusive). We can divide the equation above by the negative exponents, resulting in:</p>
+<p><span>$$\underbrace{p_1^{-c_1} \ldots p_t^{-c_i}}_{\text{positive exponents}} = p_{t+1}^{c_{t+1}} \ldots p_m^{c_m}$$</span></p>
+<p>Since we now have only positive exponents, we can use the uniqueness property of the fundamental theorem of arithmetic to conclude that this could only happen if <span>$c_i = 0$</span> for all <span>$i$</span>. Which means that <span>$a_i = a_i'$</span> for all <span>$i$</span>, and so the two "different" factorisations for <span>$q$</span> are really the same factorisation.</p>
+<h3 class="header"><i>1.4</i>Proposition 10.1.4<a class="headerlink" href="#proposition-1014" name="proposition-1014">&para;</a></h3>
+<blockquote>
+<p>The square root of 2 is irrational.</p>
+</blockquote>
+<p>The proof given in class is actually kind of neat, and uses the fundamental theorem of arithmetic (which makes sense, given the section this is in), as opposed to the more-or-less standard proof using properties of odd and even numbers. As usual, we prove by contradiction: assume <span>$\sqrt{2} \in \mathbb{Q}$</span>. So by proposition 10.1.3, we can write it as</p>
+<p><span>$$\sqrt{2} = p_1^{a_1} \ldots p_m^{a_m}$$</span></p>
+<p>where all the exponents <span>$a_i$</span> are, of course, integers. If we square both sides of the equation, we get:</p>
+<p><span>$$(\sqrt{2})^2 = 2 = p_1^{2a_1} \ldots p_m^{2a_m}$$</span></p>
+<p>By the fundamental theorem of arithmetic (?), we know that 2 is a prime number which is divisible by only 1 and 2. So it must be that the <span>$p$</span>s are 1 and 2. WLOG, let <span>$p_1 = 2$</span> and <span>$2a_1 = 1$</span>, and <span>$p_2 = 1$</span> and <span>$2a_1 = 1$</span>. But then <span>$a_1 = a_2 = \frac{1}{2}$</span>, contradicting our original premise that all the exponents <span>$a_i$</span> are integers. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Introduction to relations<a class="headerlink" href="#introduction-to-relations" name="introduction-to-relations">&para;</a></h2>
+<p>Now we begin a really fun topic: <strong>relations</strong><sup id="fnref:fun"><a href="#fn:fun" rel="footnote" title="For a preview of the awesomeness that is relations...">1</a></sup>. We define a relation on a set <span>$S$</span> as a subset <span>$\Gamma \subseteq S \times S$</span>. <span>$s$</span> is related to <span>$t$</span> under this relation if and only if <span>$(s, t) \in \Gamma$</span>. We use the notation <span>$s \sim t$</span> to say that <span>$s$</span> is related to <span>$t$</span>.</p>
+<p>The implication, of course, is that any subset of <span>$S \times S$</span> could be a relation. Even the empty subset.</p>
+<p>Note that a relation is <em>not</em> the same as a function, for obvious reasons; an element in the "domain" of a relation could be related to multiple elements.</p>
+<h3 class="header"><i>2.1</i>Properties of relations<a class="headerlink" href="#properties-of-relations" name="properties-of-relations">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Transitivity<a class="headerlink" href="#transitivity" name="transitivity">&para;</a></h4>
+<p>If <span>$a \sim b$</span> and <span>$b \sim c$</span>, then <span>$a \sim c$</span>.</p>
+<h4 class="header"><i>2.1.2</i>Partial ordering<a class="headerlink" href="#partial-ordering" name="partial-ordering">&para;</a></h4>
+<p>A <strong>partial order</strong> is a relation that is transitive (defined above), as well as antisymmetric (if <span>$a \sim b$</span> and <span>$b \sim a$</span>, then <span>$a = b$</span>). Reflexivity is also necessary (for every <span>$a$</span> we have <span>$a \sim a$</span>), although it was not mentioned in class.</p>
+<h4 class="header"><i>2.1.3</i>Linear ordering<a class="headerlink" href="#linear-ordering" name="linear-ordering">&para;</a></h4>
+<p>A <strong>linear (or total) order</strong> has all the properties of a partial order with one more: <strong>totality</strong>, which means that given any <span>$a$</span> and <span>$b$</span>, either <span>$a \sim b$</span> or <span>$b \sim a$</span>.</p>
+<h4 class="header"><i>2.1.4</i>Equivalence<a class="headerlink" href="#equivalence" name="equivalence">&para;</a></h4>
+<p>An <strong>equivalence relation</strong> is reflexive, transitive, and symmetric<sup id="fnref:symmetry"><a href="#fn:symmetry" rel="footnote" title="Note that antisymmetry is not the opposite of symm...">2</a></sup> (if <span>$a \sim b$</span>, then <span>$b \sim a$</span>). For example, a simple equivalent relation would be having the same birthday as someone else. I obviously have the same birthday as myself (reflexivity); if I have the same birthday as Alice, and Alice has the same birthday as Bob, then I have the same birthday as Bob (transitivity); and if Alice has the same birthday as me, then I have the same birthday as Alice (symmetry).</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:fun">
+<p>For a preview of the awesomeness that is relations, see the lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/monday-september-12#the-basics-of-relations">MATH 318</a> from Fall 2011. The terminology is slightly different &#160;<a href="#fnref:fun" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:symmetry">
+<p>Note that antisymmetry is not the opposite of symmetry in this context. In fact, you can have a relation that is both symmetric and antisymmetric; all this would entail is that you never have <span>$a \sim b$</span> and <span>$b \sim a$</span> when <span>$a \neq b$</span>.&#160;<a href="#fnref:symmetry" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

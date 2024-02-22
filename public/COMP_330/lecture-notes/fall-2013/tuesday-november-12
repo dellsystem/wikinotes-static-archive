@@ -1,0 +1,228 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, November 12, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, November 12, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The structural theory of computability
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The structural theory of computability continued, and how all the different levels of undecidability fit together (it's not just an infinite ladder, it's infinitely many infinite ladders).</p>
+<p><a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/tue_nov12.pdf">Hand-written notes available on the instructor's website</a></p>
+<div class="toc">
+<ul>
+<li><a href="#reductions-continued">1 Reductions continued</a><ul>
+<li><a href="#mapping-reductions">1.1 Mapping reductions</a><ul>
+<li><a href="#some-theorems">1.1.1 Some theorems</a></li>
+<li><a href="#relation-to-previous-reductions">1.1.2 Relation to previous reductions</a></li>
+<li><a href="#reductions-for-eq_tm">1.1.3 Reductions for $EQ_{TM}$</a></li>
+</ul>
+</li>
+<li><a href="#rices-theorem">1.2 Rice's theorem</a><ul>
+<li><a href="#functional-equivalence">1.2.1 Functional equivalence</a></li>
+<li><a href="#extensional-properties">1.2.2 Extensional properties</a></li>
+<li><a href="#statement-of-the-theorem">1.2.3 Statement of the theorem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#degrees-of-undecidability">2 Degrees of undecidability</a><ul>
+<li><a href="#naming-the-hierarchy">2.1 Naming the hierarchy</a><ul>
+<li><a href="#relation-to-the-computational-complexity">2.1.1 Relation to the computational complexity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Reductions continued<a class="headerlink" href="#reductions-continued" name="reductions-continued">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Mapping reductions<a class="headerlink" href="#mapping-reductions" name="mapping-reductions">&para;</a></h3>
+<p><em>aka many-to-one reductions, but "mapping" is a better name</em></p>
+<p><span>$A \leq_m B$</span> means that there exists a function <span>$f: \Sigma^* \to \Sigma^*$</span> (a string transformation) such that <span>$f$</span> is total computable (so there is an algorithm, guaranteed to terminate, that can compute <span>$f$</span>) and <span>$w \in A$</span> <span>$\Leftrightarrow$</span> <span>$f(w) \in B$</span>.</p>
+<p>Note that this is a directional concept - the function goes from <span>$A$</span> to <span>$B$</span>, not <span>$B$</span> to <span>$A$</span>.</p>
+<p>If <span>$A \leq_m B$</span>, then <span>$\overline{A} \leq_m \overline{B}$</span> also holds.</p>
+<p>This concept will be useful when exploring the hierarchy of undecidability and for making finer distinctions than just decidable vs. undecidable.</p>
+<h4 class="header"><i>1.1.1</i>Some theorems<a class="headerlink" href="#some-theorems" name="some-theorems">&para;</a></h4>
+<blockquote>
+<p>If <span>$A \leq_m B$</span> and <span>$A$</span> is not RE, then <span>$B$</span> cannot be RE.</p>
+<p>If <span>$A \leq_m B$</span> and <span>$A$</span> is undecidable, then so is <span>$B$</span>.</p>
+</blockquote>
+<p>Proofs omitted since they are obvious.</p>
+<h4 class="header"><i>1.1.2</i>Relation to previous reductions<a class="headerlink" href="#relation-to-previous-reductions" name="relation-to-previous-reductions">&para;</a></h4>
+<p>Recall the language <span>$A_{TM} = \{\langle M, w \rangle \mid w \in L(m) \}$</span>. We know that this is RE but not decidable. Also, <span>$E_{TM} = \{\langle M \rangle \mid L(M) = \varnothing \}$</span>. Recall our reduction for <span>$A_{TM} \leq E_{TM}$</span>. We started with <span>$\langle M, w \rangle$</span> and we constructed a machine <span>$M'$</span> such that <span>$M$</span> accepts <span>$w$</span> <span>$\Leftrightarrow$</span> <span>$L(M') \neq \varnothing$</span>. This is clearly total and computable. However, it's <em>not</em> a mapping reduction from <span>$A_{TM}$</span> to <span>$E_{TM}$</span> - rather, it's a mapping reduction for <span>$A_{TM} \leq_m \overline{E_{TM}}$</span>.</p>
+<p>In fact, there is <em>no</em> mapping reduction from <span>$A_{TM}$</span> to <span>$E_{TM}$</span>. The proof runs as follows: Suppose there is a function <span>$f$</span> such that <span>$x \in A_{TM} \Leftrightarrow f(x) \in E_{TM}$</span>. In other words, <span>$x \notin A_{TM} \Leftrightarrow f(x) \notin E_{TM}$</span>, <span>$\therefore$</span> <span>$x \in \overline{A_{TM}} \Leftrightarrow f(x) \in \overline{E_{TM}}$</span>.</p>
+<p>Now, <span>$\overline{E_{TM}}$</span> is RE - given some machine <span>$M$</span>, we can just try it on every possible word by dovetailing, and if there is a word that <span>$M$</span> accepts, we will find it eventually. However, we know that <span>$\overline{A_{TM}}$</span> is <em>not</em> RE. By the first theorem <a href="#some-theorems">above</a>, it must be that no such <span>$f$</span> exists. <span>$\blacksquare$</span></p>
+<p>(Remember that if a language and its complement are <em>both</em> RE, then the language is decidable. But <span>$A_{TM}$</span> is RE and not decidable. So <span>$\overline{A_{TM}}$</span> can't be RE.)</p>
+<h4 class="header"><i>1.1.3</i>Reductions for $EQ_{TM}$<a class="headerlink" href="#reductions-for-eq_tm" name="reductions-for-eq_tm">&para;</a></h4>
+<p>Consider <span>$EQ_{TM} = \{\langle M_1, M_2 \rangle \mid L(M_1) = L(M_2)\}$</span>. This language happens to be neither RE nor co-RE. To prove this, we'd have to show that <span>$A_{TM} \leq_m EQ_{TM}$</span> and that <span>$\overline{A_{TM}} \leq_m EQ_{TM}$</span>. </p>
+<p>Proof: Let <span>$R$</span> be a decider for <span>$EQ_{TM}$</span>. Let <span>$M_1$</span> be a TM accepting NOTHING, ABSOLUTELY NOTHING AT ALL. Given a TM <span>$M$</span>, let <span>$S$</span> be a TM that simulates <span>$R$</span> on input <span>$&lt;M_1, M&gt;$</span>, and accepts if and only if <span>$R$</span> accepts. But then <span>$S$</span> decides <span>$E_{TM}$</span>, which is a gigantic contradiction to everything we've been raised to believe.</p>
+<h3 class="header"><i>1.2</i>Rice's theorem<a class="headerlink" href="#rices-theorem" name="rices-theorem">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Functional equivalence<a class="headerlink" href="#functional-equivalence" name="functional-equivalence">&para;</a></h4>
+<p>Let <span>$P$</span> be a program in some Turing-complete language. Every program has an associated RE set <span>$⟦P⟧ = \{(x, y) \mid P(x) = y \}$</span>, which is just the table of input/output correspondences.</p>
+<p>We say that two programs are <strong>functionally equivalent</strong> by some equivalence relation <span>$\sim$</span> if they have the same spec, i.e., the same input/output table. So <span>$P_1 \sim P_2 \Leftrightarrow ⟦P_1⟧ = ⟦P_2⟧$</span>.</p>
+<h4 class="header"><i>1.2.2</i>Extensional properties<a class="headerlink" href="#extensional-properties" name="extensional-properties">&para;</a></h4>
+<p>An <strong>extensional property</strong> of programs is a map</p>
+<p><span>$$Q: \text{Program} \to \{\text{T}, \text{F}\} \tag{T = true, F = false}$$</span></p>
+<p>such that if <span>$P_1 \sim P_2$</span>, then <span>$Q(P_1) = Q(P_2)$</span>.</p>
+<p>Thus, if any two languages are functionally equivalent, any extensional property that holds for one must also hold for the other. We can think of these properties as properties of RE sets.</p>
+<p>Some extensional properties are trivial - for example, the property "F". No program can change "F" into "T". Clearly this property is unsatisfiable, and so the set of programs satisfying this property is empty. On the other hand, the property "T" is satisfied by <em>all</em> programs.</p>
+<h4 class="header"><i>1.2.3</i>Statement of the theorem<a class="headerlink" href="#statement-of-the-theorem" name="statement-of-the-theorem">&para;</a></h4>
+<blockquote>
+<p>Every non-trivial extensional property is undecidable<sup id="fnref:undecidable"><a href="#fn:undecidable" rel="footnote" title="If this seems to be in contradiction with what you...">1</a></sup>.</p>
+</blockquote>
+<p>Proof: let <span>$Q$</span> be a nontrivial extensional property of RE sets. We will show that <span>$Q$</span> is undecidable via a mapping reduction to <span>$A_{TM}$</span>. Assume that if <span>$L(M) = \varnothing$</span>, then <span>$Q(M)$</span> is not true<sup id="fnref:assume"><a href="#fn:assume" rel="footnote" title="We can assume this because we know that $Q$ is not...">3</a></sup>. Since <span>$Q$</span> is non-trivial, there must be at least <em>one</em> program that satisfies it, which we'll call <span>$M_0$</span>. So <span>$Q(M_0) = \text{T}$</span>.</p>
+<p>Let's now define the following set: <span>$L_Q = \{\langle M \rangle \mid Q(M) \text{ holds}\}$</span>. We want to show that <span>$A_{TM} \leq_m L_Q$</span>. Given <span>$\langle M, w\rangle$</span>, we construct a new Turing machine <span>$M'$</span>. On input <span>$x$</span>, <span>$M'$</span> simulates <span>$M$</span> on <span>$w$</span>. If <span>$M$</span> accepts <span>$w$</span>, <span>$M'$</span> will simulate <span>$M_0$</span> on <span>$x$</span>, and the result will be either accepting, rejecting, or an infinite loop. If <span>$M$</span> does not accept <span>$w$</span>, then <span>$M'$</span> just rejects <span>$w$</span>.</p>
+<p>Now we claim that <span>$\langle M, w \rangle \in A_{TM}$</span> holds if and only if <span>$Q(M')$</span> holds. Proof of this: if <span>$M$</span> accepts <span>$w$</span>, then <span>$M'$</span> will just run <span>$M_0$</span>. So <span>$L(M') = L(M_0)$</span>. Thus <span>$Q(M_0)$</span> holds if and only if <span>$Q(M_0) \Leftrightarrow Q(M')$</span>. If <span>$M$</span> does NOT accept <span>$w$</span>, however, then <span>$L(M') = \varnothing$</span>, so <span>$Q(M')$</span> does not hold. Thus the mapping reduction is complete. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Degrees of undecidability<a class="headerlink" href="#degrees-of-undecidability" name="degrees-of-undecidability">&para;</a></h2>
+<p><span>$A_{TM}$</span> happens to be the most undecidable RE set you can find. We can call it RE-complete - every other RE set can be reduced to it. So if <span>$B$</span> is RE, then we can say that <span>$B \leq_m A_{TM}$</span>. (The parallels with NP-completeness are pretty striking. Indeed, the notions of NP-completeness came about as a conscious imitation of the concepts here.)</p>
+<p>There are also undecidable problems that are NOT RE-complete. In fact, there are many different degrees of undecidability! We'll talk about these more complex problems now.</p>
+<p>Stephen Kleene proved that there exists a total computable function <span>$T$</span> which takes as input <span>$(k, m, n)$</span> and reports whether or not the <span>$k$</span><sup>th</sup> Turing machine (assuming some effective enumeration of Turing machines, which is possible since there are countably many) with input <span>$m$</span> halts within <span>$n$</span> steps. We assume that <span>$m \in \mathbb N$</span> since it's convenient to work with integers, but it would work just as well with strings.</p>
+<p>We define the following set:</p>
+<p><span>$$H_{TM} = \{(k, m) \mid \exists m \text{ such that } T(k, m, n)\}$$</span></p>
+<p>This set essentially existentially qualifies the halting problem (think of it as the set of machine-word pairs for which the machine will halt on that word). This set is undecidable but RE.</p>
+<p>Now consider <span>$\neg H_{TM} = \{(k, m) \mid \forall n \neg T(k, m, n) \}$</span> (so the <span>$k$</span><sup>th</sup> Turing machine does not ever halt on input <span>$m$</span>). This is co-RE.</p>
+<p>Now consider the following set:</p>
+<p><span>$$\{ k \mid \forall m \forall n \neg T(k, m, n)\}$$</span></p>
+<p>i.e., the set of Turing machines that never halt for any input. This is equivalent to <span>$E_{TM}$</span>, which is co-RE.</p>
+<p>So there's something more subtle involved than merely counting quantifiers if we want to determine the degree of complexity of a problem. Indeed, it has to do with the number of <em>alternations</em> of quantifiers. Consider the following set:</p>
+<p><span>$$TOTAL_{TM} = \{k \mid \forall m \exists n T(k, m, n) \}$$</span></p>
+<p>i.e., the set of machines that eventually halt for every input. Both <span>$H_{TM}$</span> and <span>$\overline{H_{TM}}$</span> can be reduced to this set (which is neither RE nor co-RE); these reductions are left as an exercise for the reader.</p>
+<p>Here's another set to think about:</p>
+<p><span>$$FIN_{TM} = \{k \mid \exists m \text{ such that }\forall x, n, \text{ if } x &gt; m, \text{ then } \neg T(k, x, n) \}$$</span></p>
+<p>So if <span>$M \in FIN_{TM}$</span> then <span>$L(M)$</span> is finite. It so happens that <span>$FIN_{TM}$</span> is neither RE nor co-RE but also not equivalent to <span>$TOTAL_{TM}$</span>.</p>
+<h3 class="header"><i>2.1</i>Naming the hierarchy<a class="headerlink" href="#naming-the-hierarchy" name="naming-the-hierarchy">&para;</a></h3>
+<p><span>$$\Sigma_n^0$$</span></p>
+<p>The <span>$\Sigma$</span> refers to sets that can be defined by formulas that start with the <span>$\exists$</span> quantifier; the 0 refers to sets that contain only first-order quantifiers<sup id="fnref:first-order"><a href="#fn:first-order" rel="footnote" title="As in, quantifiers over integers only. No quantifi...">2</a></sup>; and the <span>$n$</span> indicates that there are <span>$n-1$</span> alternations.</p>
+<p><span>$$\Pi_n^0$$</span></p>
+<p>The <span>$\Pi$</span> refers to sets that can be defined by formulas that start with the <span>$\forall$</span> quantifier; the <span>$n$</span> and 0 mean the same as before.</p>
+<p><span>$$\Delta_n^0$$</span></p>
+<p>The <span>$\Delta$</span> refers to sets that can be defined by both formulas that start with <span>$\forall$</span> and formulas that start with <span>$\exists$</span>; the <span>$n$</span> and the <span>$0$</span> mean the same as before.</p>
+<p>Here's a diagram for this infinite hierarchy (with the 0 superscript, this is called the <strong>arithmetic hierarchy</strong>):</p>
+<p><img alt="The arithmetic hierarchy" src="http://i.imgur.com/kbIoebs.png" title="Original diagram, released under CC0" /></p>
+<p>Some properties:</p>
+<ul>
+<li><span>$\forall n: \Sigma_n^0 \subset \Sigma_{n+1}^0$</span></li>
+<li><span>$\forall n: \Pi_n^0 \subset \Pi_{n+1}^0$</span></li>
+<li><span>$\forall n: \Delta_n^0 \subset \Pi_n^0$</span> and <span>$\Delta_n^0 \subset \Sigma_n^0$</span></li>
+<li><span>$\forall n, i: \Sigma_n^i \subset \Pi_{n+1}^0$</span></li>
+<li><span>$\forall n, i: \Pi_n^i \subset \Sigma_{n+1}^0$</span></li>
+</ul>
+<p>At every level of this hierarchy, there are ?-complete problems.</p>
+<p>Note that <span>$\Sigma_n^1$</span>, <span>$\Pi_n^1$</span> allow quantification over numerical functions. This results in <em>another</em> infinite hierarchy, which is called the analytical hierarchy. Higher-order unification is one example of a problem that falls within the analytical hierarchy. Problems like deadlock detection are even <em>more</em> undecidable.</p>
+<h4 class="header"><i>2.1.1</i>Relation to the computational complexity<a class="headerlink" href="#relation-to-the-computational-complexity" name="relation-to-the-computational-complexity">&para;</a></h4>
+<p>Incidentally, if you limit it so that the quantification is only over finite structures, you get the complexity theory hierarchy (with <span>$P$</span> and <span>$NP$</span> and all that), except that we don't know if containment is strict or not.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:undecidable">
+<p>If this seems to be in contradiction with what you know about compilers and other similar tools, keep in mind that such tools can only ever make approximations and guesses on this subject.&#160;<a href="#fnref:undecidable" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:first-order">
+<p>As in, quantifiers over integers only. No quantification over relations.&#160;<a href="#fnref:first-order" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:assume">
+<p>We can assume this because we know that <span>$Q$</span> is not trivial, which means there must be at least <em>one</em> machine for which it is not true. If <span>$Q$</span> does actually hold for <span>$L(M) = \varnothing$</span>, then we can just take the machine <span>$M_1$</span> for which <span>$Q$</span> does <em>not</em> hold (which must exist), and ensure that the language recognised by our new machine <span>$M'$</span> is <span>$L(M_1)$</span> instead of <span>$\varnothing$</span>.&#160;<a href="#fnref:assume" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

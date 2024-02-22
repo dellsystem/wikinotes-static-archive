@@ -1,0 +1,117 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, October 21, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, October 21, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Model theory
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Model theory stuff<a class="headerlink" href="#model-theory-stuff" name="model-theory-stuff">&para;</a></h2>
+<p>Terms - defined inductively (recursively), use constants, and function symbols</p>
+<p>Example with the natural numbers: <span>$\mathcal{N} = \{\mathbb{N}, S^{\mathcal{N}}, +^{\mathcal{N}}, *^{\mathcal{N}}, &lt;^{\mathcal{N}}, 0^{\mathcal{N}} \}$</span>. Let <span>$t^{\mathcal{N}}(x_1, x_2, x_3) = S(x_1, x_2) + (S0 + x_3)$</span>. So to evaluate <span>$t^{\mathcal{N}}(3, 5, 2)$</span>, we do it recursively or something ... <span>$t_1^{\mathcal{N}}(3, 5, 2) = 0^{\mathcal{N}}$</span>, <span>$t_2^{\mathcal{N}}(x_1, x_2, x_3) = S0 = 1$</span>, etc. I'm missing something here.</p>
+<p>The <span>$\models$</span> ("models") symbol means that the formula <span>$\sigma$</span> is true within the structure <span>$\mathcal{M}$</span> in the expression <span>$\mathcal{M} \models \sigma$</span>.</p>
+<p>Twin primes conjecture: does <span>$\mathcal{N} \models \forall z ( \exists x (z &lt; x \land \Pi(x) \land \Pi(SSx)))$</span>? That is, is that sentence true for the natural numbers? Status: unknown. </p>
+<p>Say <span>$M = \{ \alpha, \beta, \gamma, \delta \}$</span> (trying to prove the twin primes conjecture for this set, instead of <span>$\mathbb{N}$</span>, and let <span>$\Sigma = \{ P, f, c \}$</span> (a binary predicate symbol, a unary function symbol and a constant symbol, respectively). Let <span>$P^{\mathcal{N}}$</span> be such that everything is related to everything else.</p>
+<p>This is a toy structure to be continued next class.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

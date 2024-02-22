@@ -1,0 +1,293 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 6, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 6, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Elimination stack, General approach to a lock-free data structure and OpenMP
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#continuation-of-linked-list">1 Continuation of linked list</a></li>
+<li><a href="#openmp">2 OpenMP</a><ul>
+<li><a href="#structured-parallelism">2.1 Structured Parallelism</a></li>
+<li><a href="#nested-parallelism">2.2 Nested Parallelism</a></li>
+<li><a href="#parallel-sections">2.3 Parallel sections</a></li>
+<li><a href="#data-model">2.4 Data Model</a></li>
+<li><a href="#synchronization">2.5 Synchronization</a><ul>
+<li><a href="#mastersingle">2.5.1 Master/Single</a></li>
+<li><a href="#critical">2.5.2 Critical</a></li>
+<li><a href="#barriers">2.5.3 Barriers</a></li>
+<li><a href="#atomic">2.5.4 Atomic</a></li>
+<li><a href="#flush">2.5.5 Flush</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Continuation of linked list<a class="headerlink" href="#continuation-of-linked-list" name="continuation-of-linked-list">&para;</a></h2>
+<p>(Someone clean this note because I have no idea what it is)</p>
+<p>Harris -&gt; Lazy solution -&gt; make nodes that are being deleted before deleting them (AtomicMarkableReference?)</p>
+<div class="codehilite"><pre><span class="n">tryAdd</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">,</span> <span class="n">Node</span> <span class="n">prev</span><span class="o">)</span> 
+  <span class="n">n</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">prev</span><span class="o">.</span><span class="na">next</span>
+  <span class="k">return</span> <span class="nf">CAS</span><span class="o">(</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">n</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span> <span class="c1">// n.next, false -&gt; old reference</span>
+                                                     <span class="c1">// n, false -&gt; new reference</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span class="n">tryRemove</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">,</span> <span class="n">Node</span> <span class="n">prev</span><span class="o">)</span>
+  <span class="n">Node</span> <span class="n">succ</span> <span class="o">=</span> <span class="n">n</span><span class="o">.</span><span class="na">next</span>
+  <span class="k">if</span><span class="o">(</span><span class="n">CAS</span><span class="o">(</span><span class="n">n</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">succ</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="n">succ</span><span class="o">,</span> <span class="kc">true</span><span class="o">))</span>
+    <span class="n">CAS</span><span class="o">(</span><span class="n">prev</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">n</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="n">succ</span><span class="o">,</span> <span class="kc">false</span><span class="o">)</span> <span class="c1">// don’t care if succeeds</span>
+    <span class="k">return</span> <span class="kc">true</span>
+  <span class="k">return</span> <span class="kc">false</span>
+</pre></div>
+
+
+<p>P1: T0 trying to remove x<br />
+      T1 try to insert where w between x and y<br />
+H -&gt; x -&gt; y -&gt; z -&gt; T</p>
+<p>T0<br />
+CAS(x.next, y, false, y, false)<br />
+CAS(H.next, x, false, y, false)</p>
+<p>T1<br />
+3) CAS(x.next, y, false, w, false)</p>
+<p>P2: T0 remove x<br />
+       T1 remove y<br />
+H -&gt; x -&gt; y -&gt; z -&gt; T</p>
+<p>T0<br />
+CAS(x.next, y, false, y, done)<br />
+CAS(H.next, x, false, y, false)</p>
+<p>T1<br />
+3) CAS(y.next, z, false, z, true)<br />
+4) CAS(x.next, y, false, z, false)</p>
+<p>if 4 &lt; 1 -&gt; x.next = z and T0 fails<br />
+if 1 &lt; 4 -&gt; 4 fails</p>
+<p>something has to clean up and delete marked nodes</p>
+<div class="codehilite"><pre><span class="n">find</span><span class="o">(</span><span class="kt">int</span> <span class="n">data</span><span class="o">)</span>
+  <span class="nl">restart:</span> <span class="k">while</span><span class="o">(</span><span class="kc">true</span><span class="o">)</span>
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">J</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="na">next</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">cur</span> <span class="o">!=</span> <span class="n">T</span><span class="o">)</span>
+      <span class="n">succ</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">next</span>
+      <span class="k">while</span><span class="o">(</span><span class="n">cur</span><span class="o">.</span><span class="na">marked</span><span class="o">)</span>
+        <span class="k">if</span><span class="o">(!</span><span class="n">CAS</span><span class="o">(</span><span class="n">pred</span><span class="o">.</span><span class="na">next</span><span class="o">,</span> <span class="n">cur</span><span class="o">,</span> <span class="kc">false</span><span class="o">,</span> <span class="n">succ</span><span class="o">,</span> <span class="kc">false</span><span class="o">))</span>
+          <span class="k">continue</span> <span class="n">restart</span>
+        <span class="n">cur</span> <span class="o">=</span> <span class="n">succ</span>
+        <span class="n">succ</span> <span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="na">next</span>
+      <span class="k">if</span><span class="o">(</span><span class="n">cur</span><span class="o">.</span><span class="na">data</span> <span class="o">==</span> <span class="n">data</span><span class="o">)</span>
+        <span class="k">return</span> <span class="n">cur</span>
+      <span class="n">pred</span> <span class="o">=</span> <span class="n">cur</span>
+      <span class="n">cur</span> <span class="o">=</span> <span class="n">succ</span>
+    <span class="k">return</span> <span class="kc">null</span>
+</pre></div>
+
+
+<h2 class="header"><i>2</i>OpenMP<a class="headerlink" href="#openmp" name="openmp">&para;</a></h2>
+<p><strong>OpenMP</strong> is typically regarded as a <em>"language"</em> for concurrent programming, although not really a separate language. Rather, it is a set of directives that sits on top of another language.</p>
+<p>While the language could theoretically be arbitrary, in practice, C/C++ and Fortran are the ones which work with OpenMP. There is also a version of OpenMP working with Java, but considering that Java already has concurrency, it is not very useful.</p>
+<p>In C/C++, OpenMP works by inserting <strong>pragma</strong> instructions. As they appear as comments, compiling code with such instructions on a normal compiler normally results in a sequential program. On an OpenMP compiler, the pragmas are honored and tell the compiler how certain segments of code are to be executed in parallel.</p>
+<h3 class="header"><i>2.1</i>Structured Parallelism<a class="headerlink" href="#structured-parallelism" name="structured-parallelism">&para;</a></h3>
+<p>OpenMP allows to achieve <strong>structured parallelism</strong>. That is, starting with a for loop, each iteration is executed in parallel and joined at the end, following a fork/join model where the beginning and end are well defined.</p>
+<p>It is not very flexible, but it is an easy way to parallelize programs.</p>
+<div class="codehilite"><pre><span class="cp">#pragma omp parallel for</span>
+<span class="p">{</span>
+    <span class="k">for</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// A thread team is created to execute the for loop in parallel.</span>
+</pre></div>
+
+
+<p>Other times, we might want all the threads to do the same instruction(s). </p>
+<div class="codehilite"><pre><span class="cp">#pragma omp parallel</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// The team of threads all execute the above statement</span>
+</pre></div>
+
+
+<p>The number of threads can be chosen by the system, but it may also be passed as a parameter at the very beginning of the program, or on a statement by statement basis.</p>
+<h3 class="header"><i>2.2</i>Nested Parallelism<a class="headerlink" href="#nested-parallelism" name="nested-parallelism">&para;</a></h3>
+<p>We can also have nested parallelism. That is a parallel section, inside a parallel section, in which case the number of threads executing may not be obvious.</p>
+<h3 class="header"><i>2.3</i>Parallel sections<a class="headerlink" href="#parallel-sections" name="parallel-sections">&para;</a></h3>
+<p>Separate parallel sections can be defined.</p>
+<div class="codehilite"><pre><span class="cp">#pragma omp section</span>
+<span class="p">{</span>
+    <span class="c1">// Executed by one thread</span>
+<span class="p">}</span>
+
+<span class="cp">#pragma omp section</span>
+<span class="p">{</span>
+    <span class="c1">// Executed by another</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This is a bit like unstructured parallelism, although a bit awkward. The goal of OpenMP is not to give fine-grained control over concurrency, but rather to achieve it easily.</p>
+<p>Each thread team has a <strong>master</strong>, one privileged thread which can be specialized.</p>
+<div class="codehilite"><pre><span class="cp">#pragma omp master</span>
+<span class="p">{</span>
+    <span class="c1">// Only the master thread executes this.</span>
+<span class="p">}</span>
+
+<span class="cp">#pragma omp single</span>
+<span class="p">{</span>
+    <span class="c1">// Only one thread executes this</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>A task model can also be used.</p>
+<h3 class="header"><i>2.4</i>Data Model<a class="headerlink" href="#data-model" name="data-model">&para;</a></h3>
+<p>Out of OpenMP, we get a pretty neat data model. Shared data (heap/static) is the default, but one of the things we can do is declare data to be private.</p>
+<div class="codehilite"><pre><span class="k">private</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+</pre></div>
+
+
+<p>With this, each thread has its own copy (even if x, y, z have a non-local scope). Each thread ends up using its own copy of the data. However, how is it initialized? There are several initialization models.</p>
+<dl>
+<dt>First private</dt>
+<dd>The value is inherited from the parent, or a default value is used.</dd>
+</dl>
+<p>What happens to the private data once the thread is finished? We could have it disappear, but why lose the work?</p>
+<dl>
+<dt>Last private</dt>
+<dd>Thread submits its value back to the parent scope.</dd>
+</dl>
+<p>With multiple threads, the last one is the one to succeeds. However, a <strong>reduction operator</strong> can also be used: <code>(op; list)</code>.</p>
+<p>Maybe 10 threads are used to compute some value, but we are interested in the sum. In this case, the operator is <code>+</code> and the values in the list are summed. The initial value is assumed to be 0. With <code>*</code>, the default value is 1.</p>
+<h3 class="header"><i>2.5</i>Synchronization<a class="headerlink" href="#synchronization" name="synchronization">&para;</a></h3>
+<h4 class="header"><i>2.5.1</i>Master/Single<a class="headerlink" href="#mastersingle" name="mastersingle">&para;</a></h4>
+<p>For a critical section, only the master, or only one thread executes it.</p>
+<h4 class="header"><i>2.5.2</i>Critical<a class="headerlink" href="#critical" name="critical">&para;</a></h4>
+<p>All the threads execute the critical section, but only one at a time.</p>
+<h4 class="header"><i>2.5.3</i>Barriers<a class="headerlink" href="#barriers" name="barriers">&para;</a></h4>
+<p>All the threads in the pool must arrive at that point, before any leaves.</p>
+<h4 class="header"><i>2.5.4</i>Atomic<a class="headerlink" href="#atomic" name="atomic">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Atomic Read</th>
+<th>Atomic write</th>
+<th>Atomic update</th>
+<th>Atomic capture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>... = x;</code></td>
+<td><code>x = ...;</code></td>
+<td><code>x++;</code></td>
+<td><code>... = x++;</code> (kind of like <code>FA</code>)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Nb</strong>: Variables are not atomic by default; the above must be used.</p>
+<h4 class="header"><i>2.5.5</i>Flush<a class="headerlink" href="#flush" name="flush">&para;</a></h4>
+<p><code>flush(a, b, c);</code> synchronizes <code>a</code>, <code>b</code>, and <code>c</code> with main memory. This ends up being the main mechanism for actually making things consistent between different threads.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm will take place on Tuesday, December 11, at 9am. No notes, no calculators, no textbooks.</p>
+<p>This page will contain a brief overview of the material covered this semester, in the order given in <a href="http://www.math.mcgill.ca/goren/AlgebraI09-10/CourseNotesMath235.2009.pdf">Goren's notes</a>. For a listing of the types of problems likely to be encountered on the final, along with guided general solutions and links to examples, see <a href="/MATH_235/summary/fall-2012/htsefp-final">the "How to solve every problem" guide for the final</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#arithmetic-in-the-integers">1 Arithmetic in the integers</a></li>
+<li><a href="#congruences-and-modular-arithmetic">2 Congruences and modular arithmetic</a></li>
+<li><a href="#polynomials-and-their-arithmetic">3 Polynomials and their arithmetic</a></li>
+<li><a href="#rings">4 Rings</a></li>
+<li><a href="#groups">5 Groups</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Arithmetic in the integers<a class="headerlink" href="#arithmetic-in-the-integers" name="arithmetic-in-the-integers">&para;</a></h2>
+<p>Division with remainder. The "divides" relation.</p>
+<p>GCD, and Bezout's identity. Proof: using the well-ordering principle (the minimal element of a set) and proof by contradiction. </p>
+<p>Euclid's lemma: if <span>$a \mid bc$</span> and <span>$\gcd(a, b) = 1$</span>, then <span>$a \mid c$</span>. Alternately: if a prime <span>$p$</span> divides <span>$ab$</span>, then it divides <span>$a$</span> or <span>$b$</span>. Proof: using Bezout's identity.</p>
+<p>Euclidean algorithm: divide by the previous remainder. When the remainder is 0, the previous remainder is the gcd. Proof: by induction. Using the Euclidean algorithm to find <span>$u, v$</span> in Bezout's identity: rearrange the equations. Keep the last non-zero remainder (the gcd) on one side.</p>
+<p>Fundamental theorem of arithmetic: any non-zero integer can be uniquely factored as a product of primes. Proof of existence: well-ordering principle, contradiction (assume that the set of numbers that can't be written as a product of primes is not empty, so there's a minimal element that is composite, etc). Proof of uniqueness: by induction, making use of the fact that <span>$p$</span> is prime <span>$\iff$</span> (<span>$p \mid ab \to p \mid a$</span> or <span>$p \mid b$</span>); we impose an ordering on two prime factorisations, then show that they are equal.</p>
+<p>Infinitely many primes: by contradiction. Assume that you can enumerate all the primes (order them). Then their product + 1 is greater than the largest prime, and so it can't be prime. But it is, because the gcd of it and any other prime is 1.</p>
+<p>Proof that <span>$\sqrt{2}$</span> is irrational: using the FTA, we can try to write it as the product of primes. Then, square both sides, and since 2 is prime, we get that there is one prime (2) and its exponent is 1/2, which is impossible. (The other proof uses divisibility by 2 and stuff but apparently the first proof is nicer.)</p>
+<h2 class="header"><i>2</i>Congruences and modular arithmetic<a class="headerlink" href="#congruences-and-modular-arithmetic" name="congruences-and-modular-arithmetic">&para;</a></h2>
+<p>Equivalence relations: reflexive, transitive, symmetric. Two equivalence classes are eitehr disjoint or equal, and their disjoint union forms the whole set.</p>
+<p><span>$\mathbb Z/n\mathbb Z$</span> is a field if and only if <span>$n$</span> is prime. Proof: need to show that if it's prime, every element has an inverse. Then we list <span>$n+1$</span> elements (<span>$\{1, a, a^2, \ldots, a^n\}$</span>) and since at least two of them are the same, we have that <span>$a^i = a^j$</span>, then divide both sides by <span>$a^j$</span>, and that's equal to 1. So every element has an inverse! If it's not prime, then there are zero divisors, and so we get a contradiction.</p>
+<p>Fermat's little theorem: <span>$a^p = a \pmod p$</span>. Proof: first prove a lemma showing that <span>$p$</span> divides the binomial coefficient (<span>$p$</span> on top, anything from 1 to <span>$p$</span> on the bottom). Then, prove the theorem itself by induction.</p>
+<p>Wilson's theorem (not in notes): <span>$p$</span> is prime <span>$\iff$</span> <span>$p \mid (p-1)! + 1$</span>. Proof for <span>$\to$</span>: assume <span>$p$</span> is prime. Then <span>$x^2=1\pmod p$</span> has solutions 1, -1. So 1 and -1 are their own inverses. Then if we look at the expanded version of <span>$(p-1)!$</span> we see that everything has an inverse except <span>$p-1$</span>, which is incidentally equal to -1 mod p. So <span>$(p-1)! = -1 \pmod p$</span>. Then, yeah. For the other direction: prove the contrapositive, get a contradiction.</p>
+<h2 class="header"><i>3</i>Polynomials and their arithmetic<a class="headerlink" href="#polynomials-and-their-arithmetic" name="polynomials-and-their-arithmetic">&para;</a></h2>
+<p>GCD. <em>Monic</em> polynomial of largest degree.</p>
+<p>Irreducible: same as prime. All linear polynomials are.</p>
+<p>Roots: correspond to factors. Everything is a root for <span>$x^p - x \pmod p$</span> by FLT.</p>
+<h2 class="header"><i>4</i>Rings<a class="headerlink" href="#rings" name="rings">&para;</a></h2>
+<p>Ring. Has addition and multiplication. Addition: assoc, commut, identity, inverse; multiplication: assoc, identity; distributivity. If it's a commutative ring, then multiplication is commutative as well. If it's a field, there there exist multiplicative inverses for all non-zero elements. Matrices (n by n) form a ring, but not a commutative or division ring.</p>
+<p>The ring of dual numbers. <span>$\epsilon^2=0$</span>. <span>$\epsilon$</span> is obviously a zero divisor. Every element in the form <span>$a + b\epsilon$</span> where <span>$a \neq 0$</span> has an inverse.</p>
+<p>Subring. Properties: contains 0 and 1, closed under addition, closed under multiplication. Subrings are of course rings. Examples: <span>$\mathbb Q \subseteq \mathbb R$</span>.</p>
+<p>Ideals. <span>$0 \in I$</span>, closed under ideal addition, closed under ring multiplication. The trivial ideals are <span>$\{0\}$</span> and the whole ring. In a division ring, any ideal is trivial. Why? Well, if we multiply an element by its inverse, we get 1, which must be in the ideal. Then if 1 is in the ideal, everything is (due to closure under ring multiplication).</p>
+<p>Principal ideals. In a commutative ring only. If every ideal is principal in this ring, it's a principal ideal ring (didn't see that coming). Example: <span>$\mathbb Z$</span>. Proof: the ideals are just <span>$(0), (1), (2)$</span>, which we can show using division with remainder (conclude that <span>$r=0$</span>, etc). Another example: the ring of dual numbers. The ideals are <span>$(0), (1), (\epsilon)$</span>.</p>
+<p>Two ideals generated by polynomials in the principal ideal ring <span>$\mathbb F[x]$</span> are equal if and only if the polynomials are equal. Proof: division with remainder.</p>
+<p>Homomorphisms. Preserves the identity, addition, multiplication. The image of a homomorphism is always a subring of the target ring.</p>
+<p>Kernel of a homormophism. This is an ideal, and the homo is injective iff the ideal is (0).</p>
+<p>Units. Denoted <span>$R^{\times}$</span>. Elements with an inverse. In a field, this is all the non-zero elements. Closed under multiplication.</p>
+<p>Cosets. <span>$a + I = \{a + i: i \in I\}$</span>. Every element belongs to a coset, and two cosets are either equal or disjoint. In fact, the entire ring is a disjoint union of cosets (there is in fact an equivalence relation associated with this).</p>
+<p>Quotient rings. Modding out by an ideal. <span>$\mathbb Z / (0)$</span> (the trivial ideal) then this is just isomorphic to <span>$\mathbb Z$</span>.</p>
+<p>Modding out by an irreducible polynomial results in a field. Proof: Bezout's identity, gcd is 1, from this we can find an inverse for any non-zero element.</p>
+<p>Creating finite fields. In fact, any finite field has cardinality <span>$p^a$</span> where <span>$p$</span> is some prime. (Not proved here.) To create, work in <span>$\mathbb Z / p\mathbb Z$</span> and pick an irreducible polynomial of degree <span>$a$</span>.</p>
+<p>Every polynomial has roots in a bigger field.</p>
+<p>Isomorphism is an equivalence relation on rings!!! Verify the properties if you wish.</p>
+<p>The first isomorphism theorem: <span>$f: R \to S$</span> is a surjective homo, <span>$I = \ker(f)$</span>. Then <span>$R/I \cong S$</span>. Proof: define a new function making use of <span>$f$</span>, and verify that it is an isomorphism.</p>
+<p>The Chinese remainder theorem. If <span>$\gcd(m, n) = 1$</span>, then <span>$\mathbb Z / mn \mathbb Z \cong \mathbb Z / m \mathbb Z \times \mathbb Z / n\mathbb Z$</span>. Proof: define a function taking <span>$a$</span> to <span>$(a\mod m, a\mod n)$</span> and prove that it is a bijective ring homo.</p>
+<p>Maximal ideal: no ideals between it and <span>$R$</span> (and not <span>$R$</span>). Prime ideal: <span>$ab \in I$</span> implies <span>$a \in I$</span> or <span>$b \in I$</span>. Prime ideals <span>$\iff$</span> integral domains, maximal ideals <span>$\iff$</span> the corresponding quotient ring is a field. Maximal ideals are prime ideals (but not vice versa, except in some cases).</p>
+<h2 class="header"><i>5</i>Groups<a class="headerlink" href="#groups" name="groups">&para;</a></h2>
+<p>Definition: non-empty set with an operation. Properties: associativity, identity, inverse. Trivial group: just the identity, multiplication law. Ring of units: a group.</p>
+<p>Subgroup: subset of a group with the identity, closure under multiplication, and existence of inverses. Also a group. Example: in <span>$\mathbb C^{\times}$</span>, the subset of all complex numbers of absolute value 1.</p>
+<p>Cyclic group: if there is an element <span>$g$</span> that functions as a <strong>generator</strong>, such that any element in the group can be expressed as a power of <span>$g$</span>. Examples: <span>$\mathbb Z$</span> under addition, with 1 or -1 as a generator; <span>$\mathbb Z/p \mathbb Z$</span> (not cyclic for non-prime <span>$p$</span>).</p>
+<p>Permutation groups: <span>$S_n$</span>, with <span>$n$</span> letters and cardinality <span>$n!$</span>. This is a group under (right-to-left) function composition.</p>
+<p>Order of a group: number of elements in that group. Order of an element: the order of the cyclic group generated by <span>$g$</span>. Of course, if the element is a generator, it will be the same as the order of the group. Otherwise, it will be less (for the identity, it's 1). Incidentally, the order <span>$k = \text{ord}(g)$</span> is also the least positive integer such that <span>$g^k = e$</span>. Proof of this: write out the first <span>$k + 1$</span> elements, conclude that there is a duplicate, do the <span>$g^{i-j} = 1$</span> trick for one direction, use division with residue for the exponent for the other direction.</p>
+<p>Cycles: any permutation can be decomposed into cycles. A 2-cycle is called a transposition.  The order of a cycle is its length. Two cycles are disjoint if they don't contain common elements. The order of a composition of disjoint cycles is their lcm. We can write any permutation as a composition of disjoint cycles.</p>
+<p>Dihedral groups: a polygon, with all the rotations that preserve its shape. For a square, there are 8 (<span>$D_8$</span>): identity, rotation by 90/180/270 degrees, and the four reflections. If <span>$x$</span> is a reflection and <span>$y$</span> is a rotation, then we have that <span>$x^2 = y^n = 1$</span> and <span>$xyxy=1$</span>. <span>$D_n$</span> has <span>$2n$</span> elements.</p>
+<p>Cosets. A left coset of subgroup <span>$H &lt; G$</span> is given by <span>$gH = \{gh: h \in H\}$</span>. <span>$g$</span> is the representative of the coset <span>$gH$</span>. Two cosets are either equal or disjoint. Also, the following are equivalent: <span>$g_1H = g_2H$</span>; <span>$g_1 \in g_2H$</span>; <span>$g_2^{-1}g_1 \in H$</span>. <span>$G$</span> is a disjoint union of cosets. Note that in non-abelian groups, the intersection of the left and right cosets may not be a coset itself.</p>
+<p>Lagrange's theorem: <span>$|H|$</span> divides <span>$|G|$</span>. Also, the cardinality of a complete set of representatives for the cosets has cardinality <span>$|G|/|H|$</span>, and this number is called the <strong>index</strong> of <span>$|H|$</span> in <span>$|G|$</span>. Proof: we show that every coset has the same number of elements by creating a bijection <span>$f: aH \to bH$</span>, <span>$x \mapsto ba^{-1}x$</span>, and since <span>$eH = H$</span> is a coset, then <span>$|G| = |H| \cdot |I|$</span>.</p>
+<p>Applications of Lagrange's: a finite group of prime order <span>$p$</span> is cyclic, for the order of the subgroup generated by any element (other than the identity) must be <span>$p$</span> (since it's greater than 1). So any element other than the identity generates the entire group!</p>
+<p>Group homomorphism: <span>$G$</span> and <span>$H$</span> are homomorphic if there is a function <span>$f: G \to H$</span> that respects the group operations, i.e., <span>$f(g_1g_2) = f(g_1)f(g_2)$</span> for all <span>$g_1, g_2 \in G$</span>. The kernel of <span>$f$</span> is everything in <span>$G$</span> that is mapped to the identity, and is in fact a subgroup. <span>$f$</span> is injective if and only if the kernel is trivial.</p>
+<p>Isomorphism: Any two cyclic groups, <span>$G$</span> and <span>$H$</span>, of order <span>$n$</span> are isomorphic. Proof: define <span>$f: G \to H$</span> with <span>$f(g^a) = h^a$</span> where <span>$a$</span> is some integer, show that it's well-defined, use division by remainder for the exponents to show that it's a surjective homomorphism, then show injectivity. In fact, any cyclic group of order <span>$n$</span> is isomorphic to <span>$(\mathbb Z/n\mathbb Z, +)$</span>. (Note that <span>$\mathbb Z/n\mathbb Z$</span> when <span>$n$</span> is not prime is not a cyclic group.)</p>
+<p>Normal subgroup: <span>$gH = Hg$</span> for every <span>$g \in G$</span> makes the subgroup <span>$H$</span> normal. We could also write this as <span>$gHg^{-1} = H$</span>, so, <span>$ghg^{-1} \in H$</span> for all <span>$g \in G$</span>, <span>$h\in H$</span>. The kernel of a group homomorphism is always a normal subgroup. Proof: let <span>$h \in \ker(f)$</span>, <span>$g \in G$</span>. <span>$f(ghg^{-1}) = f(g)f(h)f(g^{-1}) = f(g)e f(g^{-1}) = f(g)f(g^{-1}) = f(gg^{-1}) = f(e) = e$</span>. In an abelian group, all subgroups are normal.</p>
+<p>Quotient groups. <span>$G/H$</span> where <span>$G$</span> is a group and <span>$H$</span> is a normal subgroup of <span>$G$</span>. This is the collection of left cosets of <span>$H$</span>.</p>
+<p>The first isomorphism theorem for groups. If <span>$f: G \to H$</span> is a surjective group homo, then there is an isomorphism from <span>$G/\ker(f) \to H$</span>. Proof: define a function <span>$g$</span> that maps <span>$[a]$</span> to <span>$f(a)$</span>. This is well defined, because if <span>$[a] = [b]$</span> then <span>$b^{-1}a \in \ker(f)$</span> so it's okay. It's a homomorphism (verify), it's surjective because <span>$f$</span> is, and it's injective because if something maps to the identity then it must be in the kernel of <span>$f$</span> and so it must be the identity in the quotient ring.</p>
+<p>Groups of low order, a table:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Order</th>
+<th>Group(s) that are not isomorphic to each other</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span>$\{e\}$</span> (only group)</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span>$\mathbb Z/2\mathbb Z$</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span>$\mathbb Z/3\mathbb Z$</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td><span>$\mathbb Z/4\mathbb Z$</span>, <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/2 \mathbb Z$</span> (CRT does not apply since <span>$\gcd(2, 2) \neq 1)$</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td><span>$\mathbb Z/5 \mathbb Z$</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td><span>$\mathbb Z/6 \mathbb Z$</span> (isomorphic to <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/3 \mathbb Z$</span>), <span>$S_3$</span> (not Abelian; symmetric to the dihedral group <span>$D_6$</span> with 6 elements)</td>
+</tr>
+<tr>
+<td>7</td>
+<td><span>$\mathbb Z/7 \mathbb Z$</span></td>
+</tr>
+<tr>
+<td>8</td>
+<td><span>$\mathbb Z/8 \mathbb Z$</span>, <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/2 \mathbb Z \times \mathbb Z/2 \mathbb Z$</span>, <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/4 \mathbb Z$</span>, <span>$D_8$</span>, quaternions (lol what)</td>
+</tr>
+<tr>
+<td>...</td>
+<td>To generate groups of higher order, take the product of things with order equal to the factors (keep in mind the CRT), and use symmetric groups, and dihedral groups, and matrices.</td>
+</tr>
+</tbody>
+</table>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

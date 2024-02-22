@@ -1,0 +1,275 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_350/">
+                COMP 350
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Summary of Final Exam Topics
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Summary of Final Exam Topics
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>IEEE floating-point arithmetic<a class="headerlink" href="#ieee-floating-point-arithmetic" name="ieee-floating-point-arithmetic">&para;</a></h2>
+<h3 class="header"><i>1.1</i>IEEE floating-point representation<a class="headerlink" href="#ieee-floating-point-representation" name="ieee-floating-point-representation">&para;</a></h3>
+<ul>
+<li>
+<p>Single</p>
+</li>
+<li>
+<p>Double</p>
+</li>
+<li>
+<p>Hidden bit techniques</p>
+</li>
+<li>
+<p>subnormal numbers</p>
+</li>
+<li>
+<p>normalized numbers</p>
+</li>
+<li>
+<p>machine epsilon</p>
+</li>
+<li>
+<p>gap between two consecutive floating point numbers</p>
+</li>
+<li>
+<p>rounding for different modes</p>
+</li>
+<li>
+<p>bounds on absolute error</p>
+</li>
+<li>
+<p>bounds on relative error</p>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>IEEE rules<a class="headerlink" href="#ieee-rules" name="ieee-rules">&para;</a></h3>
+<ul>
+<li>
+<p>Computed value of sum/difference/production/difference of x and y<br />
+    is the rounded value of the theoretical operation.</p>
+</li>
+<li>
+<p>Numerical cancellation</p>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Solving linear equations<a class="headerlink" href="#solving-linear-equations" name="solving-linear-equations">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Algorithms<a class="headerlink" href="#algorithms" name="algorithms">&para;</a></h3>
+<ul>
+<li>
+<p>GENP</p>
+</li>
+<li>
+<p>GEPP</p>
+</li>
+<li>
+<p>cost analysis for GENP and GEPP</p>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Theoretical results<a class="headerlink" href="#theoretical-results" name="theoretical-results">&para;</a></h3>
+<ul>
+<li>if we use GEPP, then usually the residual<br />
+<span>$|| r|| \leq o(\epsilon)||A||||x_c||$</span>. where <span>$r = b-Ax_c$</span>, and that<br />
+<span>$\frac{||x-x_c||}{||x||} = o(\epsilon ||A||\cdot||A^{-1}||$</span></li>
+</ul>
+<h3 class="header"><i>2.3</i>Algorithms for tridiagonal linear system<a class="headerlink" href="#algorithms-for-tridiagonal-linear-system" name="algorithms-for-tridiagonal-linear-system">&para;</a></h3>
+<ul>
+<li>
+<p>Algorithm design for tridiagonal linear system.</p>
+</li>
+<li>
+<p>If tridiagonal matrix is strictly dominant by column GEPP same as<br />
+    GENP.</p>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Solving $f(x) = 0$<a class="headerlink" href="#solving-fx-0" name="solving-fx-0">&para;</a></h2>
+<ul>
+<li>
+<p>Why iterative methods</p>
+</li>
+<li>
+<p>3 methods</p>
+<ul>
+<li>
+<p>Bisection: should know formula &lt;- linear convergence rate</p>
+</li>
+<li>
+<p>Newton method: should know how to prove convergence, "usually"<br />
+    quadratic convergence rate.</p>
+</li>
+<li>
+<p>Secant: should also know the formula &lt;- super linear convergence<br />
+    rate</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Comparison of the three methods. The advantages of each of them. (i.e.,<br />
+    rate of convergence)</p>
+</li>
+</ul>
+<h2 class="header"><i>4</i>Polynomial interpolation<a class="headerlink" href="#polynomial-interpolation" name="polynomial-interpolation">&para;</a></h2>
+<p><span>$P(x) = y_i, i= 0,1,\dots,n$</span> , need to know the existence and uniqueness<br />
+of the polynomial interpolation</p>
+<h3 class="header"><i>4.1</i>Mehods of interpolation<a class="headerlink" href="#mehods-of-interpolation" name="mehods-of-interpolation">&para;</a></h3>
+<ul>
+<li>
+<p>Vandermonde approach</p>
+</li>
+<li>
+<p>Lagrange approach</p>
+</li>
+<li>
+<p>Newton approach</p>
+</li>
+</ul>
+<h3 class="header"><i>4.2</i>Polynomial evaluation<a class="headerlink" href="#polynomial-evaluation" name="polynomial-evaluation">&para;</a></h3>
+<p>Idea of nested multiplication. given some x’s, give an efficient method to<br />
+evaluate the polynomial.</p>
+<h3 class="header"><i>4.3</i>Runge function $f(x) = \frac{1}{1+25x^2}, x\in [-1,1] $<a class="headerlink" href="#runge-function-fx-frac1125x2-xin-11" name="runge-function-fx-frac1125x2-xin-11">&para;</a></h3>
+<p>We showed that as the degree of the polynomial increases, the<br />
+interpolation gets worse. This function indicates that high-degree<br />
+polynomial interpolation is dangerous.</p>
+<h2 class="header"><i>5</i>Spline interpolation<a class="headerlink" href="#spline-interpolation" name="spline-interpolation">&para;</a></h2>
+<p>Linear spline and cubic spline.</p>
+<h2 class="header"><i>6</i>Least square approximation<a class="headerlink" href="#least-square-approximation" name="least-square-approximation">&para;</a></h2>
+<p><span>$\min_c \sum_{i=0}^m (y_i - \sum_{j=0}^n c_j \phi_j (x_i))^2 = ||y-Ac||_2^2$</span></p>
+<p>The LS solution satisifies normal equation <span>$A^T Ac = A^T y$</span></p>
+<h2 class="header"><i>7</i>Numerical integration<a class="headerlink" href="#numerical-integration" name="numerical-integration">&para;</a></h2>
+<p><span>$$I = \int_a^b f(x)dx$$</span></p>
+<ul>
+<li>
+<p>Rectangle Rule: need to know how to derive</p>
+</li>
+<li>
+<p>Trapezoid Rule: need to know how to derive</p>
+</li>
+<li>
+<p>Midpoint Rule: need to know how to derive</p>
+</li>
+<li>
+<p>Simpson's Rule: need to know how to derive</p>
+</li>
+<li>
+<p>Adaptive Simpson's Rule: need to know the motivation and idea (how does<br />
+    it work)</p>
+</li>
+<li>
+<p>Gaussian quadratic rule: method of derivation, and advantages</p>
+</li>
+</ul>
+<p>Need to know order of error for all of these. Need to know how to prove<br />
+the error for the rectangle rule using the mean value theorem.</p>
+<h2 class="header"><i>8</i>Numerical solution for ODEs<a class="headerlink" href="#numerical-solution-for-odes" name="numerical-solution-for-odes">&para;</a></h2>
+<ul>
+<li>
+<p>Euler’s method: need to know error analysis and derivation</p>
+</li>
+<li>
+<p>Trapezoidal Euler’s method: need to know derivation</p>
+</li>
+<li>
+<p>Midpoint Euler’s method: need to know derivation</p>
+</li>
+<li>
+<p>Taylor series method (not tested)</p>
+</li>
+<li>
+<p>Runge-Kutta methods of order 2 and 4 (advantages of this)</p>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, January 16, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, January 16, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                How 2 sell house
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#the-house-selling-problem">1 The house-selling problem</a><ul>
+<li><a href="#market-clearing-prices">1.1 Market-clearing prices</a><ul>
+<li><a href="#generation-algorithm">1.1.1 Generation algorithm</a></li>
+<li><a href="#economic-efficiency">1.1.2 Economic efficiency</a></li>
+<li><a href="#the-optimal-perfect-matching">1.1.3 The optimal perfect matching</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The house-selling problem<a class="headerlink" href="#the-house-selling-problem" name="the-house-selling-problem">&para;</a></h2>
+<p>Suppose we have <span>$n$</span> buyers and <span>$n$</span> sellers. Each buyer <span>$i \in B$</span> has a value <span>$v_j \geq 0$</span> for the house of seller <span>$j \in S$</span>.</p>
+<p>We can model this problem using a complete bipartite graph. A <strong>set of trades</strong> is a matching <span>$M$</span>. If all houses are sold, we have a perfect matching. (Assume that each buyer only wants one house.) But who should get to buy which house, and at what price?</p>
+<p>This is one of very few problems in economics for which we can actually generate an equilibrium. First, though, we'll look at what happens when the sellers fix the prices. Suppose the house sold by seller <span>$j$</span> is <span>$p_j$</span>. Each buyer wants to maximise the value <span>$(v_i - p_i)$</span> for the house he buys (call it <span>$i$</span>) and will choose <span>$i$</span> accordingly. Essentially, each buyer wants to pick the most "profitable" house for him. This is also known as the <strong>best response</strong> for buyer <span>$i$</span> at prices <span>$\vec p$</span> (a vector containing <span>$p_0$</span>, <span>$p_1$</span>, etc). Note that there can be multiple most profitable houses for a given buyer.</p>
+<h3 class="header"><i>1.1</i>Market-clearing prices<a class="headerlink" href="#market-clearing-prices" name="market-clearing-prices">&para;</a></h3>
+<p>We can view the best responses as a subgraph <span>$H_p$</span> of <span>$K_{n,n}$</span> (the complete bipartite graph with <span>$n$</span> vertices in each bipartition). If <span>$H_p$</span> contains a perfect matching <span>$M$</span> then <span>$p$</span> is a set of market-clearing prices (MCPs).</p>
+<p>Properties of market-clearing prices:</p>
+<ul>
+<li>There is no excess demand (i.e., 2 people don't want to buy the same house)</li>
+<li>There is no excess supply (i.e., all houses are sold)</li>
+<li>Each buyer gets one of his most profitable (aka most preferred) houses at prices <span>$p$</span></li>
+</ul>
+<p>When does <span>$H_p$</span> have a perfect matching? Precisely when Hall's condition holds. We say that some subset <span>$A \subseteq B$</span> is unsuppliable or unmatchable when <span>$|\Gamma(A)| &lt; |A|$</span>. If we can find such a set, then the prices of <span>$\Gamma(A)$</span> can go up; the prices of undemanded houses should go down.</p>
+<h4 class="header"><i>1.1.1</i>Generation algorithm<a class="headerlink" href="#generation-algorithm" name="generation-algorithm">&para;</a></h4>
+<p>Here is an algorithm for generating a set of MCPs:</p>
+<ul>
+<li>Set <span>$p=0$</span>. If <span>$H_p$</span> has a perfect matching <span>$M_p$</span>, output <span>$M_p$</span>. Otherwise:<ul>
+<li>Find an unsuppliable set <span>$A$</span> in <span>$H_p$</span></li>
+<li>Increase by \$1 the price of each house in <span>$\Gamma(A)$</span> (assuming integer prices)</li>
+<li>If <span>$p_{\text{min}} &gt; 0$</span>, reduce all prices by \$1</li>
+</ul>
+</li>
+<li>Continue until a perfect matching exists.</li>
+</ul>
+<p>We can prove that this algorithm always terminates with a set of MCPs using a "potential energy" argument. This proof is a little advanced, so we can ignore some of the details, but the basic idea is important.</p>
+<p>Let <span>$\phi$</span> be a potential energy function, defined as follows:</p>
+<p><span>$$\phi = \sum_{i \in B} u_i(p) + \sum_{j \in S} p_j$$</span></p>
+<p>where <span>$\displaystyle u_i(p) = \max_{j \in S}(v_{ij} - p_j)$</span> represents the maximum utility (or "profit") that buyer <span>$i$</span> can obtain among all the houses.</p>
+<p>At the start, when all the prices are zero, <span>$\vec p = \vec 0$</span> and so</p>
+<p><span>$$\phi(\vec 0) = \sum_{i\in B}\max_{j\in S}v_{ij}$$</span></p>
+<p>The potential function decreases at each step, by at least 1. It can't ever be negative, though<sup>why?</sup>. So the loop must terminate eventually.</p>
+<p>Here's why the potential function decreases in each iteration. Since we're increasing the price of each house in <span>$\Gamma(A)$</span> by \$1, the price of every most profitable house for any <span>$i \in A$</span> increases by 1 and thus <span>$u_i(p)$</span> falls by 1. So <span>$\phi$</span> falls by <span>$\geq |A|$</span>. But <span>$\displaystyle \sum_{j\in S} p_j$</span> increases by <span>$|\Gamma(A)|$</span> and so <span>$\phi$</span> increases by <span>$|\Gamma(A)|$</span>. But <span>$|\Gamma(A)| &lt; |A|$</span>. Thus <span>$\phi$</span> decreases by <span>$\geq 1$</span>. On the other hand, if we need to reduce all prices by \$1, then <span>$\phi$</span> falls by <span>$n$</span>?<sup id="fnref:potential"><a href="#fn:potential" rel="footnote" title="I don't really know what's going on here to be hon...">1</a></sup></p>
+<h4 class="header"><i>1.1.2</i>Economic efficiency<a class="headerlink" href="#economic-efficiency" name="economic-efficiency">&para;</a></h4>
+<p>Recall that the algorithm was constructed so that it would only stop when there's a perfect matching. Here's a surprising property. Not only does the resulting set of prices form an equilibrium (so that everyone gets his most preferred house), but this equilibrium is the optimal solution to the system. It also maximises "economic efficiency", i.e., maximises the sum of all the utilities (social welfare, etc). This can also be thought of as maximising the sum of all the values along the edges of the graph.</p>
+<p>In fact, the actual prices don't even matter when considering the economic efficiency. If prices are high, seller utility will be high, yes, but this is offset by the lower utility for the buyers. In fact, it cancels out exactly. Recall that utility for buyers is given by <span>$u_{ij} = v_{ij} - p_j$</span>, and utility for sellers is given by <span>$p_{ij}$</span>, so their sum is just <span>$v_{ij}$</span>, which doesn't even take the price into consideration at all. So price doesn't matter, because if one person gains a dollar, another loses a dollar (zero-sum game).</p>
+<h4 class="header"><i>1.1.3</i>The optimal perfect matching<a class="headerlink" href="#the-optimal-perfect-matching" name="the-optimal-perfect-matching">&para;</a></h4>
+<blockquote>
+<p>Theorem: If there are market-clearing prices, then <span>$M_p$</span> is an optimal perfect matching.</p>
+</blockquote>
+<p>Proof: Let <span>$M^*$</span> be an optimal perfect matching. Observe that <span>$M^*$</span> need not be a subset of <span>$H_p$</span>. <span>$M_p$</span> is a perfect matching in the best response graph, <span>$H_p$</span>.</p>
+<p>However, for any edge <span>$ij \in M^*$</span>, we have that</p>
+<p><span>$$v_{ij} - p_j \leq u_i(p) = \max_{j\in S} v_{ij} - p_j$$</span></p>
+<p>Thus, economic efficiency, or value, for <span>$M^*$</span>, is given by</p>
+<p><span>$$\begin{align} v(M^*) &amp; = \sum_{ij \in M^*} v_{ij} = \sum_{ij \in M^*} (v_{ij} - p_j + p_j) = \sum_{ij \in M^*} (v_{ij} - p_j) + \sum_{ij \in M^*} p_j \\
+&amp; \leq \sum_{i\in B} u_i(\vec p) + \sum_{ij \in M^*} p_j = \phi(\vec p) = v(M_p) = \sum_{ij \in M^*} v_{ij}\end{align}$$</span></p>
+<p>So <span>$v(M_p) = v(M^*)$</span> and <span>$M_p$</span> maximises economic efficiency.</p>
+<p>Also, when you have a perfect matching, <span>$\phi$</span> is equal to the economic efficiency.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:potential">
+<p>I don't really know what's going on here to be honest, it's just taken directly from my notes. Feel free to rewrite this section if you do know what's going on.&#160;<a href="#fnref:potential" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

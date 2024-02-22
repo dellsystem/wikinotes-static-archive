@@ -1,0 +1,319 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>How to solve every problem. Will draw on examples from past finals, the 3 in-class tests, and assignments.</p>
+<h2 class="header"><i>1</i>Preliminaries<a class="headerlink" href="#preliminaries" name="preliminaries">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Sets and functions<a class="headerlink" href="#sets-and-functions" name="sets-and-functions">&para;</a></h3>
+<h3 class="header"><i>1.2</i>Mathematical induction<a class="headerlink" href="#mathematical-induction" name="mathematical-induction">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h4>
+<blockquote>
+<p>Prove something by induction</p>
+</blockquote>
+<h5 class="header"><i>1.2.1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h5>
+<p>Easy</p>
+<h5 class="header"><i>1.2.1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h5>
+<h2 class="header"><i>2</i>The real numbers<a class="headerlink" href="#the-real-numbers" name="the-real-numbers">&para;</a></h2>
+<h3 class="header"><i>2.1</i>The algebraic and order properties of R<a class="headerlink" href="#the-algebraic-and-order-properties-of-r" name="the-algebraic-and-order-properties-of-r">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Proving that a square root is irrational<a class="headerlink" href="#proving-that-a-square-root-is-irrational" name="proving-that-a-square-root-is-irrational">&para;</a></h4>
+<p><span>$\sqrt{a}$</span></p>
+<h5 class="header"><i>2.1.1.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h5>
+<p>Proof by contradiction, assume rational (use a fraction in lowest form). Use divisibility by <span>$a$</span>, show that the numerator/denominator is a number is both divisible by <span>$a$</span> and not.</p>
+<h4 class="header"><i>2.1.2</i>The arithmetic-geometric mean inequality<a class="headerlink" href="#the-arithmetic-geometric-mean-inequality" name="the-arithmetic-geometric-mean-inequality">&para;</a></h4>
+<blockquote>
+<p>Prove it</p>
+</blockquote>
+<h5 class="header"><i>2.1.2.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h5>
+<p>Use the fact that <span>$(\sqrt{a} - \sqrt{b})^2 &gt; 0$</span>. Multiply that out, move things around.</p>
+<h4 class="header"><i>2.1.3</i>Bernoulli's inequality<a class="headerlink" href="#bernoullis-inequality" name="bernoullis-inequality">&para;</a></h4>
+<blockquote>
+<p>Prove it</p>
+</blockquote>
+<h5 class="header"><i>2.1.3.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h5>
+<p>By induction. Easy.</p>
+<h3 class="header"><i>2.2</i>Absolute value and the real line<a class="headerlink" href="#absolute-value-and-the-real-line" name="absolute-value-and-the-real-line">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Finding an upper bound over an interval<a class="headerlink" href="#finding-an-upper-bound-over-an-interval" name="finding-an-upper-bound-over-an-interval">&para;</a></h4>
+<blockquote>
+<p>Find a constant <span>$M$</span> such that <span>$|f(x)| \leq M$</span> for all <span>$x$</span> in that interval.</p>
+</blockquote>
+<h5 class="header"><i>2.2.1.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h5>
+<p>Usually <span>$f(x)$</span> will will be a fraction. Then we just use techniques like the triangle inequality, multiplying by the conjugate, etc. We find an upper bound for the numerator, and a lower bound for the denominator, then take the reciprocal of the denominator and turn the lower bound into an upper bound. Then we just multiply the two upper bounds together.</p>
+<h3 class="header"><i>2.3</i>The completeness property of R<a class="headerlink" href="#the-completeness-property-of-r" name="the-completeness-property-of-r">&para;</a></h3>
+<h4 class="header"><i>2.3.1</i>Finding the supremum of a set<a class="headerlink" href="#finding-the-supremum-of-a-set" name="finding-the-supremum-of-a-set">&para;</a></h4>
+<blockquote>
+<p>Given a set, find its sup or inf.</p>
+</blockquote>
+<h5 class="header"><i>2.3.1.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h5>
+<h3 class="header"><i>2.4</i>Applications of the supremum property<a class="headerlink" href="#applications-of-the-supremum-property" name="applications-of-the-supremum-property">&para;</a></h3>
+<h4 class="header"><i>2.4.1</i>The Archimedean property<a class="headerlink" href="#the-archimedean-property" name="the-archimedean-property">&para;</a></h4>
+<blockquote>
+<p>State and prove it. Using this property, show that the inf of <span>$\{1/n\}$</span> is 0.</p>
+</blockquote>
+<h5 class="header"><i>2.4.1.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h5>
+<p>Property: for every <span>$x \in \mathbb R$</span> there exists <span>$n \in \mathbb N$</span> such that <span>$n \geq x$</span>.</p>
+<p>Proof: by contradiction. Assume that <span>$\mathbb N$</span> is bounded above, and thus has a supremum <span>$x \in \mathbb R$</span>. Consider <span>$x-1$</span>. This is less than the supremum and so there's some <span>$m \in\mathbb N$</span> such that <span>$m &gt; x-1$</span>, so <span>$m + 1&gt; x$</span>. But <span>$m \in \mathbb N$</span>. So <span>$x$</span> is not an upper bound of <span>$\mathbb N$</span>.</p>
+<p>Inf: since the set is non-empty, and bounded below by 0, it must have an infimum. Show that there exists <span>$n$</span> such that <span>$n &gt; 1/\epsilon$</span> for any <span>$\epsilon &gt; 0$</span> and then <span>$1/n &lt; \epsilon$</span>, so <span>$0 \leq \inf &lt; \epsilon$</span> which means <span>$\inf = 0$</span>.</p>
+<h4 class="header"><i>2.4.2</i>The existence of irrationals<a class="headerlink" href="#the-existence-of-irrationals" name="the-existence-of-irrationals">&para;</a></h4>
+<blockquote>
+<p>Prove that <span>$\sqrt{a}$</span> exists in <span>$\mathbb R$</span>.</p>
+</blockquote>
+<h5 class="header"><i>2.4.2.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h5>
+<p>Use the supremum property: <span>$\{s \geq 0, s \in \mathbb R: s^2 \leq a\}$</span> has a supremum <span>$x$</span> in <span>$\mathbb R$</span>. We show that it's not &gt; or &lt; <span>$\sqrt{a}$</span>: if <span>$x^2 &lt; a$</span>, then <span>$x+1/n$</span> is in the set by the Archimedean property (show this). Similarly for <span>$x^2 &gt; a$</span>, except we show that there's an upper bound less than <span>$x$</span> in that case.</p>
+<h4 class="header"><i>2.4.3</i>The density theorem<a class="headerlink" href="#the-density-theorem" name="the-density-theorem">&para;</a></h4>
+<blockquote>
+<p>State and prove the density theorem for rationals and irrationals.</p>
+</blockquote>
+<h5 class="header"><i>2.4.3.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h5>
+<p>Rationals: If <span>$x, y \in \mathbb R$</span> with <span>$x &lt; y$</span>, there exists <span>$r \in \mathbb Q$</span> such that <span>$x &lt; r &lt; y$</span>. Proof: <span>$y-x &gt; 0$</span>, and by the Archimedean property there exists <span>$n$</span> such that <span>$y-x &gt; 1/n$</span>. So <span>$ny - nx &gt; 1$</span>, and <span>$ny &gt; nx + 1$</span>. Also, there exists <span>$m$</span> such that <span>$m-1 \leq nx &lt; m$</span>, so <span>$m \leq nx + 1 &lt; m + 1$</span>. So <span>$ny &gt; nx + 1 &gt; m$</span>, and <span>$ny &gt; m &gt; nx$</span>. Divide by <span>$n$</span> and we get <span>$y &gt; m/n &gt; x$</span> where <span>$m/n$</span> is rational.</p>
+<p>Irrationals: also dense. Apply the density theorem above to <span>$x/\sqrt{2}$</span> and <span>$y/\sqrt{2}$</span>, then <span>$r' = r\sqrt{2}$</span> is irrational and is in between <span>$x$</span> and <span>$y$</span>.</p>
+<h4 class="header"><i>2.4.4</i>The uncountability of R<a class="headerlink" href="#the-uncountability-of-r" name="the-uncountability-of-r">&para;</a></h4>
+<blockquote>
+<p>Prove the uncountability of <span>$\mathbb R$</span> in two ways.</p>
+</blockquote>
+<h5 class="header"><i>2.4.4.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h5>
+<p>Cantor's diagonal argument</p>
+<p>Nested intervals thing (choose an interval that does not contain something in the list each time)</p>
+<h2 class="header"><i>3</i>Sequences and series<a class="headerlink" href="#sequences-and-series" name="sequences-and-series">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Sequences and their limits<a class="headerlink" href="#sequences-and-their-limits" name="sequences-and-their-limits">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Uniqueness of limits<a class="headerlink" href="#uniqueness-of-limits" name="uniqueness-of-limits">&para;</a></h4>
+<blockquote>
+<p>Prove that the limit of a sequence is unique.</p>
+</blockquote>
+<p>Suppose both <span>$x'$</span> and <span>$x''$</span> are limits. Then we have <span>$|x_n - x'| &lt; \epsilon/2$</span> for all <span>$n \geq K'$</span>, and <span>$|x_n - x''| &lt; \epsilon / 2$</span> for all <span>$n \geq K''$</span>. Let <span>$K$</span> be the larger of <span>$K'$</span> and <span>$K''$</span>. Then, by the triangle inequality, for <span>$n \geq K$</span>:</p>
+<p><span>$$|x' - x''| = |x' - x_n + x_n - x''| \leq |x' - x_n'| + |x_n - x''| &lt; \epsilon/2 + \epsilon/2 = \epsilon$$</span></p>
+<p>Hence <span>$x' - x'' = 0$</span> and so <span>$x' = x''$</span>.</p>
+<h4 class="header"><i>3.1.2</i>Finding the limit of a sequence using epsilon<a class="headerlink" href="#finding-the-limit-of-a-sequence-using-epsilon" name="finding-the-limit-of-a-sequence-using-epsilon">&para;</a></h4>
+<p>Use inequalities, and the Archimedean property usually. Or, the theorem that if <span>$|x_n - x| \leq Ca_n$</span> where <span>$a_n$</span> converges to 0, then <span>$(x_n)$</span> converges to <span>$x$</span>.</p>
+<h4 class="header"><i>3.1.3</i>Disproving convergence<a class="headerlink" href="#disproving-convergence" name="disproving-convergence">&para;</a></h4>
+<p>Find some epsilon such that no matter what values we use for <span>$K$</span>, <span>$|x_n - x| \geq \epsilon$</span></p>
+<h3 class="header"><i>3.2</i>Limit theorems<a class="headerlink" href="#limit-theorems" name="limit-theorems">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>Convergent sequences are bounded<a class="headerlink" href="#convergent-sequences-are-bounded" name="convergent-sequences-are-bounded">&para;</a></h4>
+<blockquote>
+<p>prove this</p>
+</blockquote>
+<h5 class="header"><i>3.2.1.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h5>
+<p>To prove that convergent sequences are bounded, let <span>$\epsilon = 1$</span> (or just let <span>$\epsilon$</span> remain <span>$\epsilon$</span>, up to you). So we know that <span>$|x_n - x| &lt; 1$</span> for all <span>$n \geq K$</span>. Then, applying the triangle inequality to the following, we get: <span>$|x_n| = |x_n - x + x| \leq |x_n - x| + |x| &lt; 1 + |x|$</span>. So if we take the sup of <span>$|x_1|$</span>, <span>$|x_2|$</span>, etc, and <span>$1+|x|$</span>, then <span>$|x_n| \leq M$</span> for all <span>$n$</span>. <span>$\blacksquare$</span></p>
+<h5 class="header"><i>3.2.1.2</i>The limit of the product of two sequences<a class="headerlink" href="#the-limit-of-the-product-of-two-sequences" name="the-limit-of-the-product-of-two-sequences">&para;</a></h5>
+<blockquote>
+<p>Prove that it's preserved, etc</p>
+</blockquote>
+<p><span>$|x_ny_n - xy| = |(x_ny_n - x_ny) + (x_ny - xy)| \leq |x_n(y_n-y)| + |(x_n-x)y| = |x_n||y_n-y| + |x_n-x||y|$</span>. We know that <span>$|x_n|$</span> has an upper bound <span>$M_1$</span>. So let <span>$M = \sup\{M_1, |y|\}$</span>. So then we have <span>$|x_ny_n - xy| \leq M|y_n-y| + M|x_n-x|$</span> and using <span>$\epsilon/(2M)$</span> we get <span>$|x_ny_n - xy| &lt; M(\epsilon/(2M)) + M(\epsilon/(2M)) = \epsilon$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>3.2.2</i>Squeeze theorem<a class="headerlink" href="#squeeze-theorem" name="squeeze-theorem">&para;</a></h4>
+<blockquote>
+<p>State and prove it.</p>
+</blockquote>
+<h5 class="header"><i>3.2.2.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h5>
+<p>State: If <span>$X = (x_n)$</span> and <span>$Y = (y_n)$</span> with <span>$\lim X = \lim Y = z$</span>, then <span>$Z = (z_n)$</span> where <span>$x_n \leq z_n \leq y_n$</span> holds for all <span>$n \in \mathbb N$</span> has a limit of <span>$z$</span>. </p>
+<p>Proof: If <span>$w$</span> is the limit, then <span>$|x_n-w| &lt; \epsilon$</span>, and <span>$|z_n -w| &lt;\epsilon$</span>. From the inequality in the hypothesis, we have that <span>$x_n-w \leq y_n- w \leq z_n-w$</span>. Also, <span>$-\epsilon &lt; x_n - w &lt; \epsilon$</span> and <span>$-\epsilon &lt; z_n -w &lt; \epsilon$</span>. So then <span>$-\epsilon &lt; y_n-w &lt; \epsilon$</span> and so <span>$|y_n-w| &lt; \epsilon$</span> for all <span>$\epsilon$</span> which shows that <span>$w$</span> is the limit.</p>
+<h4 class="header"><i>3.2.3</i>The ratio test<a class="headerlink" href="#the-ratio-test" name="the-ratio-test">&para;</a></h4>
+<blockquote>
+<p>State and prove it.</p>
+</blockquote>
+<p>State: If <span>$\lim(x_{n+1}/x_n) &lt; 1$</span>, then the limit of <span>$(x_n)$</span> is 0.</p>
+<p>Proof: Let <span>$r$</span> be a number such that <span>$L &lt; r &lt; 1$</span>, and let <span>$\epsilon = r - L &gt; 0$</span>. Then there exists <span>$K \in \mathbb N$</span> such that if <span>$n \geq K$</span>, <span>$|x_{n+1}/x_n - L| &lt; \epsilon$</span>. Then, if we add <span>$L$</span> to both sides and use the triangle inequality, we get</p>
+<p><span>$$\frac{x_{n+1}}{x_n} &lt; L+ \epsilon = L + (r-L) = r$$</span></p>
+<p>So then we have <span>$0 &lt; x_{n+1} &lt; x_nr &lt; x_{n-1}r^2 &lt; \ldots x_Kr^{n-K+1}$</span>. Then if we set <span>$C = x_K / r^K$</span>, we see that <span>$0 &lt; x_{n+1} &lt; Cr^{n+1}$</span>. Since <span>$0 &lt; r &lt; 1$</span>, then <span>$\lim(r^n) = 0$</span> and so <span>$\lim(x_n) = 0$</span> (since the sequence of <span>$|x_n - x|$</span> is less than a constant multiple of another one that does converge to zero).</p>
+<h3 class="header"><i>3.3</i>Monotone sequences<a class="headerlink" href="#monotone-sequences" name="monotone-sequences">&para;</a></h3>
+<h4 class="header"><i>3.3.1</i>The monotone convergence theorem<a class="headerlink" href="#the-monotone-convergence-theorem" name="the-monotone-convergence-theorem">&para;</a></h4>
+<blockquote>
+<p>State and prove it.</p>
+</blockquote>
+<h5 class="header"><i>3.3.1.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h5>
+<p>State: A monotone sequence <span>$X$</span> is convergent if and only if it's bounded.</p>
+<p>Proof: If <span>$X$</span> is bounded and increasing, there exists <span>$M \in \mathbb R$</span> such that <span>$x_n \leq M$</span>. Also, according to the completeness property of <span>$\mathbb R$</span>, the set <span>$\{x_n:n\in \mathbb N\}$</span> has a supremum in <span>$\mathbb R$</span>, which we will call <span>$x^*$</span>. We will show that <span>$x^* = \lim(x_n)$</span>. Given <span>$\epsilon &gt; 0$</span>, <span>$x^*-\epsilon$</span> is not an upper bound of the set, by definition of the supremum; consequently, there exists <span>$x_k$</span> such that <span>$x^*-\epsilon &lt; x_k$</span>. Also, we have that <span>$x_k \leq x_n$</span> whenever <span>$n \geq k$</span> since the sequence is increasing. Consequently, we have:</p>
+<p><span>$$x^*-\epsilon &lt; x_k \leq x_n \leq x^* \leq x^* + \epsilon, \quad n \geq k$$</span></p>
+<p>and so <span>$-\epsilon &lt; x_n - x^* &lt; \epsilon$</span> which means that <span>$|x_n-x^*| &lt; \epsilon$</span>. So the sequence converges to <span>$x^*$</span>.</p>
+<p>For decreasing sequences, we can use the negative of the sup to get the inf, or we can just prove it in the same way.</p>
+<h4 class="header"><i>3.3.2</i>Proving convergence of a monotone sequence<a class="headerlink" href="#proving-convergence-of-a-monotone-sequence" name="proving-convergence-of-a-monotone-sequence">&para;</a></h4>
+<blockquote>
+<p>Given a sequence (probably inductively-defined), prove that it's monotone and then that it is bounded, then use that to prove that it's convergent.</p>
+</blockquote>
+<h5 class="header"><i>3.3.2.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h5>
+<p>Show monotone by induction, then find a bound and prove it by induction. Then use the monotone convergence theorem.</p>
+<p>For Euler's number, we use the binomial theorem, and the fact that <span>$2^{p-1} \leq p!$</span>.</p>
+<h4 class="header"><i>3.3.3</i>Calculating square roots<a class="headerlink" href="#calculating-square-roots" name="calculating-square-roots">&para;</a></h4>
+<blockquote>
+<p>Write a sequence that converges to <span>$\sqrt{a}$</span>.</p>
+</blockquote>
+<p><span>$s_1 = 1$</span> (arbitrary). <span>$s_{n+1} = 1/2(s_n + a/s_n)$</span>.</p>
+<h3 class="header"><i>3.4</i>Subsequences and the Bolzano-Weierstrass theorem<a class="headerlink" href="#subsequences-and-the-bolzano-weierstrass-theorem" name="subsequences-and-the-bolzano-weierstrass-theorem">&para;</a></h3>
+<h4 class="header"><i>3.4.1</i>Criteria for divergent subsequences<a class="headerlink" href="#criteria-for-divergent-subsequences" name="criteria-for-divergent-subsequences">&para;</a></h4>
+<blockquote>
+<p>State and prove the equivalency</p>
+</blockquote>
+<p>TFAE:</p>
+<p>(i) A sequence <span>$X = (x_n)$</span> does not converge to <span>$x$</span>.<br />
+(ii) There exists an <span>$\epsilon &gt; 0$</span> such that for any <span>$k \in \mathbb{N}$</span>, there exists <span>$n_k \in \mathbb{N}$</span> such that <span>$n_k \geq k$</span> and <span>$|x_{n_k} - x| \geq \epsilon$</span>.<br />
+(iii) There exists an <span>$\epsilon &gt; 0$</span> and a subsequence <span>$(x_{n_k})$</span> of <span>$X$</span> such that <span>$|x_{n_k} - x| \geq \epsilon$</span> for all <span>$k \in \mathbb{N}$</span>.</p>
+<p>Proof for (i) <span>$\to$</span> (ii): just the definition of converging to a limit.</p>
+<p>Proof for (ii) <span>$\to$</span> (iii): Just find terms that fit the definition and make a subsequence out of them.</p>
+<p>Proof for (iii) <span>$\to$</span> (i): A subsequence satisfying the condition in (iii) (meaning that it does <em>not</em> converge to <span>$x$</span>) exists. So, the sequence as a whole cannot converge to <span>$x$</span> either.</p>
+<h4 class="header"><i>3.4.2</i>Monotone subsequences<a class="headerlink" href="#monotone-subsequences" name="monotone-subsequences">&para;</a></h4>
+<blockquote>
+<p>Prove that every sequence (even sequences that are not themselves monotone) has a monotone subsequence. </p>
+</blockquote>
+<p>Proof: Consider the concept of a "peak" (a term in a sequence that is greater than everything that follows it). Any given sequence <span>$X$</span> can have either finitely many (including zero) or infinitely many peaks. In the first case, we can simply take the first term after the last peak. Since this term is not a peak, there must be a term after it that is greater than it, and so on, until we get an increasing subsequence. In the second case, the subsequence of peaks is decreasing and thus monotone.</p>
+<h4 class="header"><i>3.4.3</i>The Bolzano-Weierstrass theorem<a class="headerlink" href="#the-bolzano-weierstrass-theorem" name="the-bolzano-weierstrass-theorem">&para;</a></h4>
+<blockquote>
+<p>State and prove</p>
+<p>A bounded sequence of real numbers has a convergent subsequence.</p>
+</blockquote>
+<p>Proof: By the monotone subsequence theorem, this sequence must contain a monotone subsequence. Since it's also bounded, we can use the monotone convergence theorem to show that this subsequence is convergent as well.</p>
+<h3 class="header"><i>3.5</i>The Cauchy criterion<a class="headerlink" href="#the-cauchy-criterion" name="the-cauchy-criterion">&para;</a></h3>
+<h4 class="header"><i>3.5.1</i>Cauchy sequences<a class="headerlink" href="#cauchy-sequences" name="cauchy-sequences">&para;</a></h4>
+<blockquote>
+<p>State what it means for a sequence to be Cauchy. Prove it.</p>
+</blockquote>
+<p>State: for every <span>$\epsilon&gt; 0$</span>, there exists <span>$H$</span> such that for all  <span>$m, n \geq H$</span>, we have that <span>$|x_m - x_n| &lt; \epsilon$</span>.</p>
+<p>To show a sequence is Cauchy: inequalities, etc. To show that a sequence is not: find an epsilon (win the game)</p>
+<h4 class="header"><i>3.5.2</i>Convergence and Cauchy sequences<a class="headerlink" href="#convergence-and-cauchy-sequences" name="convergence-and-cauchy-sequences">&para;</a></h4>
+<blockquote>
+<p>Prove that they're equivalent (convergence implies Cauchy and vice-versa)</p>
+</blockquote>
+<p>Lemma: if a sequence of real numbers is convergent, it is a Cauchy sequence. Proof: <span>$\epsilon$</span> definition, using <span>$|x_n - x| &lt; \epsilon/2$</span> and <span>$|x_m - x| &lt; \epsilon/2$</span>.</p>
+<p>For →, we use the previous lemma. For ←, we first note that a Cauchy sequence is bounded (second lemma in previous section). By Bolzano-Weierstrass, there is a subsequence that converges to some number <span>$x'$</span>. We then use the <span>$\epsilon$</span> definition for the sequence and the subsequence, and then we can sort of combine the two and then use the triangle inequality to conclude that the sequence itself converges to <span>$x'$</span>, and so the sequence is convergent. (Use <span>$\epsilon/2$</span>.)</p>
+<h3 class="header"><i>3.6</i>Properly divergent sequences<a class="headerlink" href="#properly-divergent-sequences" name="properly-divergent-sequences">&para;</a></h3>
+<h4 class="header"><i>3.6.1</i>Definition of proper divergence<a class="headerlink" href="#definition-of-proper-divergence" name="definition-of-proper-divergence">&para;</a></h4>
+<blockquote>
+<p>Give it. Use it to prove that <span>$(n)$</span> diverges.</p>
+</blockquote>
+<p><span>$(x_n)$</span> tends to infinity if for every <span>$\alpha \in \mathbb R$</span> there exists <span>$K \in \mathbb N$</span> such that if <span>$n \geq K$</span>, then <span>$x_n \geq \alpha$</span>. By the Archimedean property, <span>$(n)$</span> diverges.</p>
+<h2 class="header"><i>4</i>Limits<a class="headerlink" href="#limits" name="limits">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Limits of functions<a class="headerlink" href="#limits-of-functions" name="limits-of-functions">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>The epsilon-delta definition of limit<a class="headerlink" href="#the-epsilon-delta-definition-of-limit" name="the-epsilon-delta-definition-of-limit">&para;</a></h4>
+<blockquote>
+<p>Give it</p>
+</blockquote>
+<p>The function <span>$f:A \to \mathbb R$</span> has a limit <span>$L$</span> at the cluster point <span>$c$</span> if, for every <span>$\epsilon &gt; 0$</span>, there exists <span>$\delta &gt; 0$</span> such that for all <span>$x$</span> satisfying <span>$0 &lt; |x-c| &lt; \delta$</span>, we have <span>$|f(x) - L| &lt; \epsilon$</span>.</p>
+<h4 class="header"><i>4.1.2</i>The sequential criterion<a class="headerlink" href="#the-sequential-criterion" name="the-sequential-criterion">&para;</a></h4>
+<blockquote>
+<p>State and prove</p>
+</blockquote>
+<p>TFAE:</p>
+<p>(i) <span>$\displaystyle \lim_{x \to c} f = L$</span><br />
+(ii) For every sequence <span>$(x_n)$</span> in <span>$A$</span> that converges to <span>$c$</span> (with <span>$x_n \neq c$</span>), then the sequence <span>$(f(x_n))$</span> also converges to <span>$L$</span>.</p>
+<p>Proof: (→) it involves <span>$\delta$</span> and <span>$\epsilon$</span> and <span>$K$</span> (the definitions). ← contrapositive, look at neighbourhoods.</p>
+<h4 class="header"><i>4.1.3</i>Divergence critera<a class="headerlink" href="#divergence-critera" name="divergence-critera">&para;</a></h4>
+<blockquote>
+<p>State</p>
+</blockquote>
+<ul>
+<li>If there exists a sequence where <span>$x_n \neq c$</span> but the sequence converges to <span>$c$</span>, and <span>$(f(x_n))$</span> does not converge to <span>$L$</span>, then <span>$f$</span> does not converge to <span>$L$</span> at <span>$c$</span></li>
+<li>If the sequence <span>$(f(x_n))$</span> does not converge at all at <span>$c$</span>, neither does <span>$f$</span> at <span>$c$</span></li>
+</ul>
+<h3 class="header"><i>4.2</i>Limit theorems<a class="headerlink" href="#limit-theorems_1" name="limit-theorems_1">&para;</a></h3>
+<p>Nah</p>
+<h3 class="header"><i>4.3</i>Some extensions of the limit concept<a class="headerlink" href="#some-extensions-of-the-limit-concept" name="some-extensions-of-the-limit-concept">&para;</a></h3>
+<p>Nope</p>
+<h2 class="header"><i>5</i>Continuous functions<a class="headerlink" href="#continuous-functions" name="continuous-functions">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Continuous functions<a class="headerlink" href="#continuous-functions_1" name="continuous-functions_1">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>The epsilon-delta definition of continuity<a class="headerlink" href="#the-epsilon-delta-definition-of-continuity" name="the-epsilon-delta-definition-of-continuity">&para;</a></h4>
+<blockquote>
+<p>Give it</p>
+</blockquote>
+<p>The function <span>$f: \to \mathbb R$</span> is continuous at the cluster point <span>$c$</span> if, for every <span>$\epsilon&gt; 0$</span>, there exists <span>$\delta &gt; 0$</span> such that for all <span>$x$</span> satisfying <span>$0 &lt; |x-c| &lt; \delta$</span>, we have <span>$f(x) - f(c)| &lt; \epsilon$</span>.</p>
+<p>If <span>$c$</span> is a cluster point, then the limit at <span>$c$</span> must be equal to <span>$f(c)$</span> (must be defined).</p>
+<h3 class="header"><i>5.2</i>Combinations of continuous functions<a class="headerlink" href="#combinations-of-continuous-functions" name="combinations-of-continuous-functions">&para;</a></h3>
+<p>eh</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

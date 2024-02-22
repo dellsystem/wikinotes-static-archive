@@ -1,0 +1,176 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, September 24, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, September 24, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Right invariance, isomorphisms
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The Myhill-Nerode theorem. Right-invariant equivalence relations. Isomorphisms on machines.</p>
+<p><a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/myhill_nerode.pdf">View the professor's notes on this lecture</a></p>
+<div class="toc">
+<ul>
+<li><a href="#the-myhill-nerode-theorem">1 The Myhill-Nerode theorem</a><ul>
+<li><a href="#right-invariant-equivalence-relations">1.1 Right-invariant equivalence relations</a></li>
+<li><a href="#an-equivalence-relation-on-machines">1.2 An equivalence relation on machines</a></li>
+<li><a href="#an-equivalence-relation-on-languages">1.3 An equivalence relation on languages</a></li>
+<li><a href="#statement-of-the-theorem">1.4 Statement of the theorem</a></li>
+<li><a href="#proof-of-the-theorem">1.5 Proof of the theorem</a></li>
+<li><a href="#isomorphisms-on-machines">1.6 Isomorphisms on machines</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The Myhill-Nerode theorem<a class="headerlink" href="#the-myhill-nerode-theorem" name="the-myhill-nerode-theorem">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Right-invariant equivalence relations<a class="headerlink" href="#right-invariant-equivalence-relations" name="right-invariant-equivalence-relations">&para;</a></h3>
+<p>A <strong>right-invariant equivalence relation</strong> <span>$R$</span> on <span>$\Sigma^*$</span> satisfies the following property: <span>$\forall x, y \in \Sigma^*$</span> such that <span>$xRy$</span>, then <span>$\forall z \in \Sigma^*$</span>, <span>$xzR yz$</span>. This will be important for our study of regular languages.</p>
+<h3 class="header"><i>1.2</i>An equivalence relation on machines<a class="headerlink" href="#an-equivalence-relation-on-machines" name="an-equivalence-relation-on-machines">&para;</a></h3>
+<p>Consider a DFA <span>$M = (Q, q_0, \delta, F)$</span>. We now define an equivalence relation <span>$\sim_M$</span> on <span>$\Sigma^*$</span> based on this machine. Recall that <span>$\delta^*$</span> is a function from <span>$Q \to \Sigma^* \to Q$</span>. Then <span>$x\sim_M y$</span> if <span>$\delta^*(q_0,x) = \delta^*(q_0,y)$</span>. (It was defined differently in class, but that was a mistake; this is the correct definition.) So two strings are equivalent if they result in the same transitions in a machine.</p>
+<p>Recall that a crucial aspect of DFAs is history independence: it doesn't matter how you get to a state. Knowing this, we see easily that our relation, <span>$\sim_M$</span>, is right-invariant. We can prove this as follows: suppose <span>$x \sim_M y$</span> and <span>$z \in \Sigma^*$</span>. We want to show that <span>$\delta^*(q, xz) = \delta^*(q, yz)$</span> for all <span>$q$</span>. Then, we have that <span>$\delta^*(q, xz) = \delta^*(\delta^*(q, x), z) = \delta^*(\delta^*(q, y), z) = \delta^*(q, yz)$</span> by the  definition of <span>$\delta^*$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>An equivalence relation on languages<a class="headerlink" href="#an-equivalence-relation-on-languages" name="an-equivalence-relation-on-languages">&para;</a></h3>
+<p>Now, consider a language <span>$L$</span>, which may or may not be regular. We define the equivalence relation <span>$\equiv_L$</span> as follows: <span>$x\equiv_L y$</span> if for all <span>$z \in \Sigma^*$</span>, <span>$xz \in L \iff yz \in L$</span>. This is again clearly right-invariant. Proof: assume that <span>$x \equiv_L y$</span> and <span>$z \in \Sigma^*$</span>. We want to show that <span>$xz = yz$</span>. Consider any <span>$u \Sigma^*$</span>. Suppose <span>$(xz)u \in L$</span>. Then <span>$x(zu) \in L$</span> (associativity). Since <span>$x \equiv_L y$</span>, then <span>$y(zu) \in L$</span>, i.e., <span>$(yz)u \in L$</span>. Then <span>$xy \equiv_L yz$</span>. <span>$\blacksquare$</span><sup id="fnref:qed"><a href="#fn:qed" rel="footnote" title="We'd actually also need to check the $\notin$ case...">1</a></sup></p>
+<h3 class="header"><i>1.4</i>Statement of the theorem<a class="headerlink" href="#statement-of-the-theorem" name="statement-of-the-theorem">&para;</a></h3>
+<p>What exactly is the link between the above equivalence relations? Well, that's exactly what the Myhill-Nerode theorem address. The statement of the Myhill-Nerode is as follows:</p>
+<blockquote>
+<p>The following are equivalent (TFAE):</p>
+<ol>
+<li><span>$L$</span> is regular</li>
+<li><span>$L$</span> is the union of the equivalence classes of some right-invariant equivalence relation of finite index<sup id="fnref:index"><a href="#fn:index" rel="footnote" title="Index = number of equivalence classes.">2</a></sup></li>
+<li><span>$\equiv_L$</span> has finite index</li>
+</ol>
+</blockquote>
+<p>Note that minimality is lurking within this theorem. We'll address that more later.</p>
+<h3 class="header"><i>1.5</i>Proof of the theorem<a class="headerlink" href="#proof-of-the-theorem" name="proof-of-the-theorem">&para;</a></h3>
+<p>(1) <span>$\Rightarrow$</span> (2): Since <span>$L$</span> is regular, it must be recognised by some DFA <span>$M = (Q, q_0, \delta, F)$</span>. Consider the right-invariant equivalence relation <span>$\sim_M$</span>, which we defined earlier. We know that this relation has finite index - specifically, its index is <span>$|Q|^{|Q|}$</span>, i.e., the number of possible functions from <span>$Q$</span> to <span>$Q$</span>). Like any equivalence relation, <span>$\sim_M$</span> divides <span>$\Sigma^*$</span> into equivalence classes. The claim that we need to prove is that if we take some (not necessarily all) of these equivalence classes, we get <span>$L$</span>.</p>
+<p>Now, <span>$\displaystyle L = \bigcup_{x \in \Sigma^*} \{[x] \mid \delta^*(q_0, x) \in F\}$</span> by the definition of the DFA. Since it's a finite state machine, this union is finite. This is all we needed to show. <span>$\blacksquare$</span>.</p>
+<div class="ui divider"></div>
+<p>(2) <span>$\Rightarrow$</span> (3): Let <span>$R$</span> be the right-invariant equivalence relation from (2). We will show that <span>$xRy$</span> implies that <span>$x \equiv_L y$</span>. (This has the effect of showing that any equivalence class of <span>$R$</span> is fully inside an equivalence class of <span>$\equiv_L$</span>, thus, <span>$\equiv_L$</span> has bigger equivalence classes, and each class is a disjoint union of <span>$R$</span> classes. Then <span>$R$</span> has more equivalence classes than <span>$\equiv_L$</span> does, and since <span>$R$</span> is finite, then <span>$\equiv_L$</span> also has finite index.)</p>
+<p>Now we just need to show that <span>$xRy$</span> implies <span>$x\equiv_Ly$</span>. But this follows directly from right invariance! If <span>$xRy$</span>, <span>$z \in \Sigma^*$</span>, and <span>$xz \in L$</span>, we want to show that <span>$yz \in L$</span>. But then <span>$xz$</span> belongs to the equivalence class of <span>$R$</span>, and <span>$xz R yz$</span> by right ivnariance, so then <span>$yz$</span> is in the same class. So it's also in <span>$L$</span> by (2). <span>$\blacksquare$</span></p>
+<div class="ui divider"></div>
+<p>(3) <span>$\Rightarrow$</span> (1): Given <span>$\equiv_L$</span>, we construct a DFA for <span>$L$</span>!! Let <span>$M = (Q, q_0, \delta, F)$</span>:</p>
+<ul>
+<li><span>$Q$</span>: the equivalence classes of <span>$\equiv_L$</span> (<span>$\Sigma^*/\equiv_L$</span>)</li>
+<li><span>$q_0$</span>: <span>$[\varepsilon]$</span> since <span>$\varepsilon$</span> definitely takes you to the start state</li>
+<li><span>$\delta([x], a) ] [xa]$</span> (this is well-defined due to right-invariance)</li>
+<li><span>$F = \{[x] \mid x \in L\} \subseteq Q$</span> (this is a finite set since <span>$\equiv_L$</span> has finite index)</li>
+</ul>
+<p>Indeed, this machine is as small as possible! Reasoning: if there were a smaller machine (with fewer states), then, well, just look at the proof for (2) <span>$\Rightarrow$</span> (3); the fact that <span>$R$</span> has more classes gives us a <span>$\leq$</span> relation, so yeah, this is the minimal machine.</p>
+<h3 class="header"><i>1.6</i>Isomorphisms on machines<a class="headerlink" href="#isomorphisms-on-machines" name="isomorphisms-on-machines">&para;</a></h3>
+<p>Let <span>$M_1 = (Q_1, q_1, \delta_1, F_1)$</span> and <span>$M_2 = (Q_2, q_2, \delta_2, F_2)$</span>. An isomorphism <span>$\varphi$</span> between <span>$M_1$</span> and <span>$M_2$</span> is a bijection from <span>$Q_1 \to Q_2$</span> such that <span>$\varphi(q_1) = \varphi(q_2)$</span>, <span>$\varphi(f_1) \in F_2 \forall f_1 \in F_1$</span>, and <span>$\forall s \in Q$</span>, <span>$a \in \Sigma$</span>, <span>$\varphi(\delta_1(s, a)) = \delta_2(\varphi(s), a)$</span>.</p>
+<p>Note that if it's not just a bijection it's just a homomorphism (as usual).</p>
+<p>Now, the machine defined in (3) <span>$\Rightarrow$</span> (1) is <em>the</em> unique machine of that size (up to isomorphism) for recognising <span>$L$</span>. Proof: suppose <span>$M = (Q, q_0, \delta, F)$</span> also recognises <span>$L$</span> and has the same number of states as <span>$(\Sigma^*/\equiv_L, [\varepsilon], \delta_L, F_l)$</span>. We will show that there is an isomorphism between the two machines. (We only care about when they have the same number of states, since we just want to show that the minimal machine is unique, and we know that the machine constructed has the minimal number of states.)</p>
+<p>Let <span>$\varphi: Q \to \Sigma^*/\equiv_L$</span>. Let <span>$q \in Q$</span>. There must be some <span>$x \in \Sigma^*$</span> such that <span>$\delta^*(q_0, x) = q$</span> (otherwise it would be an unreachable state, and we could remove <span>$q$</span> from the machine to get a smaller machine without affecting the language that it recognises). So we define <span>$\varphi(q) = [x]$</span>. Then, <span>$\varphi(\delta(q, a)) = [xa]$</span>. I guess we don't need to prove that this is an isomorphism.</p>
+<p>Sidenote on regular expressions: how can we check if two regular expressions define the same language? The easiest way is to construct NFAs for each, convert them to DFAs, then check if the minimal DFAs are isomorphic. This is in fact superior to algebraic manipulation, in the general case.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:qed">
+<p>We'd actually also need to check the <span>$\notin$</span> case but it's easy, the procedure is the same.&#160;<a href="#fnref:qed" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:index">
+<p>Index = number of equivalence classes.&#160;<a href="#fnref:index" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 20, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 20, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Transactional Memory
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#graham-brent-theorem-continued">1 Graham Brent theorem (continued)</a><ul>
+<li><a href="#proof">1.1 Proof</a></li>
+</ul>
+</li>
+<li><a href="#work-stealing">2 Work stealing</a><ul>
+<li><a href="#cilk-language">2.1 Cilk++ language</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Graham Brent theorem (continued)<a class="headerlink" href="#graham-brent-theorem-continued" name="graham-brent-theorem-continued">&para;</a></h2>
+<p>2 kinds of steps:<br />
+- complete steps: &gt;= p tasks available<br />
+- incomplete steps: &lt; p tasks available</p>
+<p><span>$T_p &lt;= T_1/p + T_\infty$</span></p>
+<p><span>$T_1/p$</span>: complete<br />
+<span>$T_\infty$</span>: incomplete</p>
+<p>“an application with p processors at most would take time that is addition of sequential time / p and critical path time”</p>
+<h3 class="header"><i>1.1</i>Proof<a class="headerlink" href="#proof" name="proof">&para;</a></h3>
+<p><span>$T_p^* &gt;= max(T_1/p, T_\infty)$</span>   (1)<br />
+<span>$and\ T_1/p &lt;= max(T_1/p, T_\infty)$</span>   (2)<br />
+<span>$T_\infty &lt;= max(T_1/p, t_\infty)$</span>   (3)</p>
+<p><span>$T_p &lt;= T_1/p + t_\infty$</span>   (0)<br />
+<span>$&lt;= max(T_1/p, t_\infty) + max(T_1/p, T_\infty)$</span>   (3)<br />
+<span>$&lt;= 2max(T_1/p, T_\infty)$</span><br />
+<span>$&lt;= 2T_P^*$</span></p>
+<p>No more than 2x the optimal time</p>
+<h2 class="header"><i>2</i>Work stealing<a class="headerlink" href="#work-stealing" name="work-stealing">&para;</a></h2>
+<p>Have a task queue<br />
+If threads have their own queue, they need a way to distribute the work</p>
+<h3 class="header"><i>2.1</i>Cilk++ language<a class="headerlink" href="#cilk-language" name="cilk-language">&para;</a></h3>
+<p>Queue and tasks for each processors<br />
+<img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5159070/281dfbcc-7325-11e4-9207-d13bff3bb6ad.png" /><br />
+(<span>$T_1$</span> stole from <span>$T_2$</span>)<br />
+If empty, pop from somewhere else<br />
+If tasks live in stack frames (like C), then some code needs to grow stack and some doesn’t <br />
+e.g.</p>
+<div class="codehilite"><pre><span class="n">main</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">A</span><span class="o">()</span>
+<span class="o">}</span>
+<span class="n">A</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">spawn</span> <span class="nf">B</span><span class="o">()</span>
+  <span class="n">spawn</span> <span class="nf">C</span><span class="o">()</span>
+  <span class="o">-</span><span class="n">sync</span><span class="o">-</span>
+<span class="o">}</span>
+<span class="n">B</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">spawn</span> <span class="nf">D</span><span class="o">()</span>
+  <span class="n">spawn</span> <span class="nf">E</span><span class="o">()</span>
+  <span class="o">-</span><span class="n">sync</span><span class="o">-</span>
+  <span class="n">foo</span><span class="o">()</span> <span class="c1">// regular function</span>
+<span class="o">}</span>
+<span class="n">C</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">spawn</span> <span class="nf">F</span><span class="o">()</span>
+  <span class="n">spawn</span> <span class="nf">G</span><span class="o">()</span>
+  <span class="o">-</span><span class="n">sync</span><span class="o">-</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5159076/7419527e-7325-11e4-95a1-867b7f7223e7.png" /><br />
+This gives a cactus stack<br />
+<img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5159080/87bcc5b8-7325-11e4-8320-3abed282030e.png" /><br />
+<img alt="" src="https://cloud.githubusercontent.com/assets/1909539/5159083/94ac39ac-7325-11e4-9f63-d5b22f3e401a.png" /><br />
+In a concurrent program, there may have more than one active.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

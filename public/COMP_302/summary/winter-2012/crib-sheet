@@ -1,0 +1,287 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_302/">
+                COMP 302
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Crib sheet
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Crib sheet
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>This is just a bunch of information that may or may not be useful on a crib sheet</p>
+<h2 class="header"><i>1</i>Datatypes<a class="headerlink" href="#datatypes" name="datatypes">&para;</a></h2>
+<p><code>datatype</code> for creating new, custom datatypes (e.g. <code>datatype suit = Spades | Clubs | Hearts | Diamonds</code>); <code>type</code> for aggregating existing types (e.g. <code>type complex = int * int</code>)</p>
+<h2 class="header"><i>2</i>Recursive functions<a class="headerlink" href="#recursive-functions" name="recursive-functions">&para;</a></h2>
+<p>Anonymous functions can only be recursive if you use the <code>rec</code> keyword:</p>
+<div class="codehilite"><pre><span class="kr">val</span> <span class="nv">rec</span> <span class="n">factorial</span> <span class="p">=</span> <span class="kr">fn</span> <span class="mi">0</span> <span class="p">=&gt;</span> <span class="mi">1</span> <span class="n">|</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">n</span> <span class="n">*</span> <span class="n">factorial</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Otherwise, recursive functions can be implemented using the <code>fun</code> keyword:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">factorial</span> <span class="mi">0</span> <span class="p">=</span> <span class="mi">1</span> <span class="p">|</span> <span class="nf">factorial</span> <span class="n">n</span> <span class="p">=</span> <span class="n">n</span> <span class="n">*</span> <span class="n">factorial</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 class="header"><i>3</i>Pattern matching<a class="headerlink" href="#pattern-matching" name="pattern-matching">&para;</a></h2>
+<p>Can: tuples, constructors, lists, records (<code>val {first, last} = {first="Ash", last="Ketchum"}</code>)<br />
+Cannot: non-constructor functions (e.g. <code>!</code>, <code>str</code>)</p>
+<h2 class="header"><i>4</i>Higher-order functions<a class="headerlink" href="#higher-order-functions" name="higher-order-functions">&para;</a></h2>
+<ul>
+<li><code>List.concat</code> (<code>@</code>) - <code>'a list list -&gt; 'a list</code></li>
+<li><code>List.map</code> (<code>map</code>) - <code>('a -&gt; 'b) -&gt; 'a list -&gt; 'b list</code></li>
+<li><code>List.filter</code> - <code>('a -&gt; bool) -&gt; 'a list -&gt; 'a list</code></li>
+<li><code>List.foldl</code> - <code>('a * 'b -&gt; 'b) -&gt; 'b -&gt; 'a list -&gt; 'b list</code>; starts from the left</li>
+<li><code>List.foldr</code> - <code>('a * 'b -&gt; 'b) -&gt; 'b -&gt; 'a list -&gt; 'b list</code>; starts from the right</li>
+<li><code>List.exists</code> - <code>('a -&gt; bool) -&gt; 'a list -&gt; bool</code></li>
+<li><code>List.all</code> - <code>('a -&gt; bool) -&gt; 'a list -&gt; bool</code></li>
+<li><code>curry</code> - <code>((’a  ’b) -&gt; ’c) -&gt; (’a -&gt; ’b -&gt; ’c)</code> (code: <code>fun curry f = (fn x =&gt; fn y =&gt; f (x,y))</code>)</li>
+<li><code>uncurry</code> - <code>(’a -&gt; ’b -&gt; ’c) -&gt; ((’a  ’b) -&gt; ’c) )</code> (code: <code>fun uncurry f = (fn (y,x) =&gt; f y x)</code>)</li>
+</ul>
+<h2 class="header"><i>5</i>Lazy programming<a class="headerlink" href="#lazy-programming" name="lazy-programming">&para;</a></h2>
+<p>SML is call-by-value - when we use <code>val</code>, we evaluate the expression before binding it etc (eager). Call-by-name doesn't evaluate it until it's used, but if it's used twice, it's evaluated twice etc. Lazy programming is call-by-name, but it memoises as well. Useful for generating things, like generators in python.</p>
+<p>Uses continuations - doesn't actually call the function until you pass it to <code>force</code> (this works because you never evaluate inside a function body until it's actually applied)</p>
+<div class="codehilite"><pre><span class="kr">datatype</span> <span class="nd">&#39;a</span> <span class="kt">susp</span> <span class="p">=</span> <span class="nc">Susp</span> <span class="kr">of</span> <span class="p">(</span><span class="n">unit</span> <span class="p">-&gt;</span> <span class="nd">&#39;a</span><span class="p">)</span>
+
+<span class="cm">(* delay: (unit -&gt; &#39;a) -&gt; &#39;a susp *)</span>
+<span class="kr">fun</span> <span class="nf">delay</span> <span class="n">c</span> <span class="p">=</span> <span class="n">Susp</span> <span class="n">c</span>
+<span class="cm">(* forces computation of inner function *)</span>
+<span class="kr">fun</span> <span class="nf">force</span> <span class="p">(</span><span class="n">Susp</span> <span class="n">c</span><span class="p">)</span> <span class="p">=</span> <span class="n">c</span> <span class="p">()</span>
+
+<span class="kr">fun</span> <span class="nf">numsFrom</span> <span class="n">n</span> <span class="p">=</span> <span class="n">Susp</span><span class="p">(</span><span class="kr">fn</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">Cons</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">numsFrom</span><span class="p">(</span><span class="n">n+</span><span class="mi">1</span><span class="p">)))</span>
+
+<span class="kr">fun</span> <span class="nf">smap</span> <span class="n">f</span> <span class="n">s</span> <span class="p">=</span>
+  <span class="kr">let</span>
+    <span class="kr">fun</span> <span class="nf">mapStr</span> <span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">=</span> <span class="n">mapStr&#39;</span><span class="p">(</span><span class="n">force</span> <span class="n">s</span><span class="p">)</span>
+    <span class="kr">and</span> <span class="nf">mapStr&#39;</span><span class="p">(</span><span class="n">Cons</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span> <span class="p">=</span> <span class="n">delay</span><span class="p">(</span><span class="kr">fn</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="n">Cons</span><span class="p">((</span><span class="n">f</span> <span class="n">x</span><span class="p">),</span> <span class="n">mapStr</span><span class="p">(</span><span class="n">s</span><span class="p">)))</span>
+  <span class="kr">in</span>
+    <span class="n">mapStr</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+  <span class="kr">end</span>
+</pre></div>
+
+
+<h2 class="header"><i>6</i>Exceptions<a class="headerlink" href="#exceptions" name="exceptions">&para;</a></h2>
+<p>Cannot be polymorphic. Declare with <code>exception NotFound of string</code>; raise with <code>raise NotFound "lol"</code>; handle with <code>handle NotFound "lol" =&gt; print "lol" | NotFound x =&gt; print "problem"</code></p>
+<h2 class="header"><i>7</i>Closures as objects<a class="headerlink" href="#closures-as-objects" name="closures-as-objects">&para;</a></h2>
+<p>Done using partial evaluation/staging</p>
+<p>Continuation: stack of functions. Can be used as function generators:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">powG</span> <span class="mi">0</span> <span class="p">=</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+  <span class="p">|</span> <span class="nf">powG</span> <span class="n">k</span> <span class="p">=</span> <span class="kr">let</span>
+      <span class="kr">val</span> <span class="nv">cont</span> <span class="p">=</span> <span class="n">powG</span> <span class="p">(</span><span class="n">k-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="kr">in</span>
+      <span class="kr">fn</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">n</span> <span class="n">*</span> <span class="p">(</span><span class="n">cont</span> <span class="n">n</span><span class="p">)</span>
+    <span class="kr">end</span>
+</pre></div>
+
+
+<p>(so <code>powG 2</code> will generate a function that will square an input, etc)</p>
+<p>Failure continuation: controls what to do when we have failed and need to keep going (e.g. in a <code>find</code> function in a binary tree, would keep track of what we still need to traverse in the tree)<br />
+Success continuation: controls what to do upon success (i.e. when we can return)</p>
+<p>Usually: pass the identity function when initially calling it; will call all the functions that have built up on the way down (if necessary)</p>
+<p>Staging to avoid having to do something more than once (from the <a href="http://cs.mcgill.ca/~cs302/handouts/hofun.pdf">notes on higher-order functions</a>):</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">testCorrect</span> <span class="n">x</span> <span class="p">=</span>
+  <span class="kr">let</span>
+    <span class="kr">val</span> <span class="nv">z</span> <span class="p">=</span> <span class="n">horribleComp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+  <span class="kr">in</span>
+    <span class="p">(</span><span class="kr">fn</span> <span class="n">y</span> <span class="p">=&gt;</span> <span class="n">z</span> <span class="n">+</span> <span class="n">y</span><span class="p">)</span>
+  <span class="kr">end</span>
+</pre></div>
+
+
+<p>Save the function returned by testCorrect and you can call it without having to call horribleComp again.</p>
+<h2 class="header"><i>8</i>References<a class="headerlink" href="#references" name="references">&para;</a></h2>
+<p><code>!</code> is a built-in function of type <code>fn : 'a ref -&gt; 'a</code>. <code>:=</code> is an infix operator, and not a built-in function.</p>
+<h2 class="header"><i>9</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h2>
+<p>Make sure to state properties used, e.g. associativity or commutativity or whatever of operators.</p>
+<h3 class="header"><i>9.1</i>Tail recursion proofs<a class="headerlink" href="#tail-recursion-proofs" name="tail-recursion-proofs">&para;</a></h3>
+<p>Lemma: figure out where to put the acc on the non-tr side (there should only be one place that makes sense - e.g. <code>acc @ (map f t)</code> or <code>(range (n-1)) @ acc</code> or <code>sum l + acc</code> or <code>(rev l) @ acc</code>). Induction should be on the list <code>l</code> or the number or whatever (NOT the acc)</p>
+<p>Base case: [] or 1 or 0 or whatever. Induction hypothesis: n-1 or t or whatever. Induction step: n or (h::t) or whatever. By the induction hypothesis, using whatever for the <code>acc</code> (and probably associativity/commutativity etc on the way), the two sides are equal so the lemma is true.</p>
+<p>Then prove the main theorem, using [] or 0 or whatever for the acc.</p>
+<h2 class="header"><i>10</i>Environment diagrams<a class="headerlink" href="#environment-diagrams" name="environment-diagrams">&para;</a></h2>
+<p>structured collection of frames, each of which is a box containing at most one name-variable binding pair etc and has a pointer to its enclosing environment</p>
+<p>From assignment 5:</p>
+<div class="codehilite"><pre><span class="kr">let</span>
+  <span class="kr">val</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">1</span>
+  <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">2</span>
+<span class="kr">in</span>
+  <span class="kr">let</span>
+    <span class="kr">val</span> <span class="nv">f</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="n">y</span> <span class="kr">in</span> <span class="kr">fn</span> <span class="n">u</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">u</span> <span class="n">+</span> <span class="n">x</span> <span class="n">+</span> <span class="n">y</span><span class="p">)</span> <span class="kr">end</span>
+  <span class="kr">in</span>
+    <span class="kr">let</span> <span class="kr">val</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">4</span> <span class="kr">in</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<p><img alt="lol another env diagram" src="http://cs.mcgill.ca/~wliu65/media/comp302/env.png" title="original diagram etc" /></p>
+<h3 class="header"><i>10.1</i>With references<a class="headerlink" href="#with-references" name="with-references">&para;</a></h3>
+<p>From the end of the lecture notes:</p>
+<div class="codehilite"><pre><span class="kr">let</span> <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">5</span>
+    <span class="kr">val</span> <span class="nv">r</span> <span class="p">=</span> <span class="n">ref</span><span class="p">(</span><span class="mi">10</span><span class="n">+x</span><span class="p">)</span>
+    <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">1</span>
+    <span class="kr">fun</span> <span class="nf">foo</span> <span class="n">x</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">10</span> <span class="kr">in</span> <span class="n">!r</span> <span class="n">+</span> <span class="n">x</span> <span class="kr">end</span>
+    <span class="kr">val</span> <span class="p">_</span> <span class="p">=</span> <span class="p">(</span><span class="n">r</span> <span class="n">:=</span> <span class="n">x+</span><span class="mi">1</span><span class="p">)</span>
+<span class="kr">in</span>
+    <span class="n">foo</span><span class="p">(</span><span class="n">x</span> <span class="n">+</span> <span class="n">!r</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<p><img alt="lol env diagram" src="http://cs.mcgill.ca/~ejanco/envi.png" /></p>
+<p>Although it should actually be an arrow to a separate box for the ref cell. Don't track the intermediate steps (or if you do, cross them out or something)</p>
+<h2 class="header"><i>11</i>Theoretical aspects<a class="headerlink" href="#theoretical-aspects" name="theoretical-aspects">&para;</a></h2>
+<p><strong>Type safety</strong>. If a program is well-typed, then every intermediate state during evaluation is defined and well-typed (so an expression has the same type as what it evaluates to - types are preserved). Progress means either it has a type or we can evaluate it further until it does, preservation means types are preserved etc</p>
+<p><strong>Types classify expressions according to their value.</strong> If we know what values there are in a language, we know what types there are.</p>
+<p><strong>Type annotations</strong>: useful when we cannot infer the type of something directly (e.g. <code>fn x =&gt; x</code>)</p>
+<p><strong>Value soundness</strong>: when everything evaluates to a value, happens when there are only bools and ints lol</p>
+<p><strong>Determinacy</strong>: each expression evaluates to only one value (same every time)</p>
+<p><strong>Principle type</strong>: a general type from which all others can be derived - <span>$\alpha$</span>!</p>
+<h3 class="header"><i>11.1</i>Free and bound variables<a class="headerlink" href="#free-and-bound-variables" name="free-and-bound-variables">&para;</a></h3>
+<p>Free variables: variables that are not defined in the given context</p>
+<p>e.g. in <code>let val x = 5 in x + y end</code>, <code>y</code> is not defined in the context, so it's free</p>
+<p>Rules:</p>
+<ul>
+<li><code>FV(n) = {}</code> where <code>n</code> is a number.</li>
+<li><code>FV(x) = {x}</code> where <code>x</code> is a variable presumably</li>
+<li><code>FV(e1 op e2) = FV(e1) ∪ FV(e2)</code></li>
+<li><code>FV(let x = e1 in e2 end) = FV(e1) ∪ F(e2) \ {x}</code></li>
+</ul>
+<h4 class="header"><i>11.1.1</i>Substitution<a class="headerlink" href="#substitution" name="substitution">&para;</a></h4>
+<p>Substitution syntax: <code>[x/y]e</code> means replace all instances of <code>y</code> with <code>x</code> (in <code>e</code>)</p>
+<ul>
+<li><code>[e/x] n = n</code></li>
+<li><code>[e/x] x = e</code></li>
+<li><code>[e/x] y = y</code></li>
+<li><code>[e/x] (e1 op e2) = [e/x] e1 op [e/x] e2</code></li>
+<li><code>[e/x] (let y=e1 in e2 end) =</code><br />
+<code>let y = [e/x] e1 in [e/x] e2 end</code><br />
+  if <code>y</code> <span>$\notin$</span> <code>FV(e)</code></li>
+</ul>
+<p>Must be capture-avoiding - rename (<span>$\alpha$</span>-conversion, change of bound variables)</p>
+<h3 class="header"><i>11.2</i>Type inference<a class="headerlink" href="#type-inference" name="type-inference">&para;</a></h3>
+<p>Should be able to infer the type of something following the process given in class, although there's no need to memorise any specific type inference rules (they'll be given if necessary).</p>
+<p><strong>Hindley-Milner type inference</strong>: infer the most general type of an expression without type annotations. Requires unification (complicated to implement), does not scale to richer types</p>
+<p><strong>Unification</strong>: for solving constraints</p>
+<h3 class="header"><i>11.3</i>Type checking<a class="headerlink" href="#type-checking" name="type-checking">&para;</a></h3>
+<p>e.g. for if/else expressions:</p>
+<p><span>$$\frac{e_0 \Downarrow true \quad e_1 \Downarrow v}{if \,e_0\, then\, e_1\, else \,e_2 \,\Downarrow v}$$</span></p>
+<h4 class="header"><i>11.3.1</i>Bi-directional type checking<a class="headerlink" href="#bi-directional-type-checking" name="bi-directional-type-checking">&para;</a></h4>
+<p>Check that the expression has the required type. Then synthesise the type for it.</p>
+<h3 class="header"><i>11.4</i>Subtyping<a class="headerlink" href="#subtyping" name="subtyping">&para;</a></h3>
+<p>e.g. <code>int</code> is a subtype of <code>real</code>. Something that is an <code>int</code> is also a <code>real</code>. This is not true in SML, though it is true in general (which is almost the opposite of subtyping, I think). Upcasting (from int to real) is safe; downcasting is not generally safe. You can't provide a real whenever an int is required, though you can provide an int when a real is required since ints are reals etc etc</p>
+<p>Products: covariant; records: more fields is a subtype of fewer fields (width subtyping instead of depth); functions: contravariant in input type, covariant in output type:</p>
+<p><span>$$\frac{T_1 \leq S_1 \quad S_2 \leq T_2}{S_1 \rightarrow S_2 \leq T_1 \rightarrow T_2} \text{ (for functions)}$$</span></p>
+<p>No subtyping on references - they are <em>invariant</em>.</p>
+<h3 class="header"><i>11.5</i>Overloading vs polymorphism<a class="headerlink" href="#overloading-vs-polymorphism" name="overloading-vs-polymorphism">&para;</a></h3>
+<dl>
+<dt>Overloading</dt>
+<dd>same name, different method signature due to different arguments (Java)</dd>
+<dt>Polymorphism</dt>
+<dd>A function that can operate on input arguments of different types (e.g. <code>fn x =&gt; x</code>, <code>fn x =&gt; (x, "lol")</code>)</dd>
+</dl>
+<h2 class="header"><i>12</i>Miscellaneous<a class="headerlink" href="#miscellaneous" name="miscellaneous">&para;</a></h2>
+<p><strong>Function application</strong>: left-associative (<code>f g "test"</code> equivalent to <code>(f g) test</code>)<br />
+<strong>Function types</strong>: right-associative (<code>int -&gt; int -&gt; bool</code> equivalent to <code>int -&gt; (int -&gt; bool)</code>)</p>
+<h3 class="header"><i>12.1</i>Modules<a class="headerlink" href="#modules" name="modules">&para;</a></h3>
+<p>Modules: two parts - signature and structure</p>
+<dl>
+<dt>Signature</dt>
+<dd>interface of a structure</dd>
+<dt>Structure</dt>
+<dd>program consisting of declarations, can have more components than a signature, can have more general types (e.g. <code>'a</code> instead of <code>int</code>), can use concrete datatypes without having to expose their workings through the signature`</dd>
+</dl>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

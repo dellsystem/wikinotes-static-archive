@@ -1,0 +1,337 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Part one of the "How to solve every problem" series for MATH 324. Covers chapter 1, 2 and 3 of the syllabus, which is what will be tested on the midterm.</p>
+<div class="toc">
+<ul>
+<li><a href="#f-distributions">1 F-distributions</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-the-mle">2 Finding the MLE</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#method-of-moments-estimators">3 Method-of-moments estimators</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#deriving-the-posterior-distribution">4 Deriving the posterior distribution</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#unbiased-estimators">5 Unbiased estimators</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#estimators-and-minimising-variance">6 Estimators and minimising variance</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#identifying-estimator-bias">7 Identifying estimator bias</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-efficiency">8 Computing efficiency</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#consistent-estimators">9 Consistent estimators</a><ul>
+<li><a href="#general-solution_8">9.1 General solution</a></li>
+<li><a href="#examples_8">9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#determining-sufficiency">10 Determining sufficiency</a><ul>
+<li><a href="#general-solution_9">10.1 General solution</a></li>
+<li><a href="#examples_9">10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-an-mvue">11 Finding an MVUE</a><ul>
+<li><a href="#general-solution_10">11.1 General solution</a></li>
+<li><a href="#examples_10">11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#errors-of-estimation">12 Errors of estimation</a><ul>
+<li><a href="#general-solution_11">12.1 General solution</a></li>
+<li><a href="#examples_11">12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#pivotal-quantities">13 Pivotal quantities</a><ul>
+<li><a href="#general-solution_12">13.1 General solution</a></li>
+<li><a href="#examples_12">13.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>F-distributions<a class="headerlink" href="#f-distributions" name="f-distributions">&para;</a></h2>
+<blockquote>
+<p>Given two random samples from a chi-square distribution - <span>$S_1^2$</span>, with <span>$n_1$</span> values and a variance of <span>$\sigma_1^2$</span>, and <span>$S_2^2$</span>, with <span>$n_2$</span> values and a variance of <span>$\sigma_2^2$</span> - find:</p>
+<p>a) a number <span>$b$</span> such that <span>$\displaystyle P\left ( \frac{S_1^2}{S_2^2} \leq b \right ) = x$</span> (where <span>$x$</span> is some number between 0 and 1);<br />
+b) a number <span>$a$</span> such that <span>$\displaystyle P \left ( a \leq \frac{S_1^2}{S_2^2} \right ) = y$</span> (where <span>$y$</span> is again some number between 0 and 1);<br />
+c) <span>$\displaystyle P \left (  a \leq \frac{S_1^2}{S_2^2} \leq b \right )$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>This is explained in the textbook, starting from definition 7.3. First, we notice that</p>
+<p><span>$$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}$$</span></p>
+<p>is an F-distribution with <span>$n_1 - 1$</span> numerator degrees of freedom and <span>$n_2-1$</span> denominator degrees of freedom. Now, we substitute in the variance for each random sample (it may be that the ratio and not the values themselves is given) to obtain something in the form</p>
+<p><span>$$\alpha \frac{S_1^2}{S_2^2}$$</span></p>
+<p>where <span>$\alpha$</span> is some constant specific to the question.</p>
+<p>For part (a), we can then multiply both sides of the <span>$\leq$</span> sign within the probability function by <span>$\alpha$</span>, resulting in</p>
+<p><span>$$P\left ( \alpha \frac{S_1^2}{S_2^2} \leq \alpha b \right ) = x$$</span></p>
+<p>Now, we simply need to use the provided table for F distributions (table 7 appendix 3 of the textbook) to identify the value of <span>$\alpha b$</span> cutting off an upper-tail area of <span>$1 - x$</span>, and then divide that by <span>$\alpha$</span> to obtain the true value of <span>$b$</span>.</p>
+<p>For part (b), we first have to use the identity</p>
+<p><span>$$P(U_1/U_2 \leq k) = P(U_2/U_1 \geq \frac{1}{k}$$</span></p>
+<p>and after substituting and multiplying both sides by <span>$\alpha$</span> we have</p>
+<p><span>$$P\left ( \alpha \frac{S_2^2}{S_1^2} \geq \alpha \frac{1}{a} \right ) = P \left ( \alpha \frac{1}{a} \leq \alpha \frac{S_2^2}{S_1^2} \right )$$</span></p>
+<p>Using the table mentioned above, we identify the value of <span>$\alpha/a$</span> cutting off an upper-tail area of <span>$1-y$</span>, and divide <span>$\alpha$</span> by that value to obtain the true value of <span>$a$</span>.</p>
+<p>For part (c), the answer is <span>$1 - (1-x) - (1-y)$</span>. Should be obvious.</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 1</li>
+</ul>
+<h2 class="header"><i>2</i>Finding the MLE<a class="headerlink" href="#finding-the-mle" name="finding-the-mle">&para;</a></h2>
+<blockquote>
+<p>Given a probability density function, find the maximum likelihood estimate for the parameter <span>$\theta$</span>. Optionally:</p>
+<p>a) Find the expected value and the variance for the MLE of <span>$\theta$</span>, <span>$\hat \theta$</span>;<br />
+b) Given a value for <span>$\theta$</span>, give the approximate bounds for the error of estimation;<br />
+b) Find the MLE for the variance.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>Find the likelihood function (given by the joint density of the random sample), then find the maximum of the logarithm of it (by finding the point at which the derivative is equal to 0). </p>
+<p>a) The expected value and variance for <span>$\hat \theta$</span> can be found using the MLE obtained above and the formulas for the expected value and variance of the given probability distribution, respectively. Use the rules of arithmetic manipulation of the expected value and variance functions if necessary.</p>
+<p>b) The approximate bounds are given by <span>$2\sqrt{V(\hat \theta)}$</span>. Simply substitute the given value of <span>$\theta$</span> in the formula for <span>$V(\hat \theta)$</span>.</p>
+<p>c) Substitute the given value for the MLE in the formula for <span>$V(Y)$</span>.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 2 and 3</li>
+</ul>
+<h2 class="header"><i>3</i>Method-of-moments estimators<a class="headerlink" href="#method-of-moments-estimators" name="method-of-moments-estimators">&para;</a></h2>
+<blockquote>
+<p>Given random sample(s) from a distribution, find the method-of-moments estimators for something (mean, variance, some random parameter, etc).</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>The first two moments for the distribution are <span>$E(Y)$</span> and <span>$E(Y^2)$</span>, respectively; for instance, for the normal distribution, these come out to <span>$E(Y) = \mu$</span> and <span>$E(Y^2) = \sigma^2 + \mu^2$</span>. The corresponding sample moments are <span>$m_1' = \displaystyle \frac{1}{n} \sum_{i=1}^n Y_i = \overline Y$</span> and <span>$\displaystyle m_2' = \frac{1}{n} Y_i^2$</span>. To find the method-of-moments estimator for <span>$\mu$</span> or <span>$\sigma^2$</span>, we simply equate <span>$E(Y)$</span> and <span>$m_1'$</span> and <span>$E(Y^2)$</span> and <span>$m_2'$</span> to solve for <span>$\hat \mu$</span> and <span>$\hat \sigma^2$</span>, respectively.</p>
+<p>If finding the estimator for a parameter <span>$\alpha$</span>, then first find the expected value by integrating <span>$yf(y)$</span> (which should be a function of <span>$\alpha$</span>) and set that equal to the first sample moment, <span>$\overline Y$</span>, then solve for <span>$\alpha$</span>.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 4 and 5</li>
+</ul>
+<h2 class="header"><i>4</i>Deriving the posterior distribution<a class="headerlink" href="#deriving-the-posterior-distribution" name="deriving-the-posterior-distribution">&para;</a></h2>
+<blockquote>
+<p>Derive the posterior distribution for something</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>wat</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 6</li>
+</ul>
+<h2 class="header"><i>5</i>Unbiased estimators<a class="headerlink" href="#unbiased-estimators" name="unbiased-estimators">&para;</a></h2>
+<blockquote>
+<p>Show that the estimator <span>$\hat \theta$</span> is an unbiased estimator for <span>$\theta$</span>.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>To show that <span>$\hat \theta$</span> is an unbiased estimator of <span>$\theta$</span>, we simply have to show that <span>$E(\hat \theta) = \theta$</span>. Assuming that <span>$\hat \theta$</span> is a function of other estimators whose expected values are given, we can use the rules of arithmetic with the expected value function to show that <span>$E(\hat \theta)$</span> simplifies to <span>$\theta$</span>.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 7 (a)</li>
+</ul>
+<h2 class="header"><i>6</i>Estimators and minimising variance<a class="headerlink" href="#estimators-and-minimising-variance" name="estimators-and-minimising-variance">&para;</a></h2>
+<blockquote>
+<p>Given that the estimator <span>$\hat \theta$</span> is a function of several other estimators whose variance is given, which are independent, and a constant <span>$a$</span>, how should the constant <span>$a$</span> be chosen in order to minimise variance?</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>First, we can determine the variance of the estimator <span>$\hat \theta$</span> using the rules of arithmetic with the variance function. We should obtain the variance of <span>$\hat \theta$</span> in terms of the variance for the other estimators and the constant <span>$a$</span>. Then, we find the minimum of this function, which can be done by finding the point at which the derivative of the function (with respect to <span>$a$</span>) is equal to 0.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 7 (b)</li>
+</ul>
+<h2 class="header"><i>7</i>Identifying estimator bias<a class="headerlink" href="#identifying-estimator-bias" name="identifying-estimator-bias">&para;</a></h2>
+<blockquote>
+<p>Given several random samples from some distribution <span>$f(y)$</span> and a number of estimators of <span>$\theta$</span> based on those random samples, classify each estimator as biased or unbiased. Find the variance for each of the unbiased estimators.</p>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>If the expected value of the estimator is equal to <span>$\theta$</span>, then it's unbiased; else, it is biased. We can find the expected value of any estimator by integrating <span>$yf(y)$</span> (if the estimator involves only one of the aforementioned random samples) or by substituting the expected values of each of the estimators it's a function of (if the estimator involves several random samples). Note that if the estimator involves the min or max or two or more of the random samples, then it's going to be biased.</p>
+<p>To find the variance of each random sample, use the identity <span>$V(Y) = E(Y^2) - (E(Y))^2$</span> and calculate <span>$E(Y^2)$</span> by integrate <span>$y^2f(y)$</span>. Then, determine the variance of each estimator using the rules of arithmetic with the variance function.</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 8</li>
+</ul>
+<h2 class="header"><i>8</i>Computing efficiency<a class="headerlink" href="#computing-efficiency" name="computing-efficiency">&para;</a></h2>
+<blockquote>
+<p>Given the formulas for two unbiased estimators, find the efficiency of one estimator to the other.</p>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>The efficiency of <span>$\hat \theta_1$</span> to <span>$\hat \theta_2$</span> is given by:</p>
+<p><span>$$\text{eff}(\hat \theta_1, \hat \theta_2) = \frac{V(\hat \theta_2)}{V(\hat \theta_1)}$$</span></p>
+<p>So we just need to find the variance for each estimator. If min/max functions are involved, we can use order statistics and transform coordinates in order to get a more convenient integrand.</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 1</li>
+</ul>
+<h2 class="header"><i>9</i>Consistent estimators<a class="headerlink" href="#consistent-estimators" name="consistent-estimators">&para;</a></h2>
+<blockquote>
+<p>Show that something is a consistent estimator for some parameter.</p>
+</blockquote>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>Take the limit as some variable in the estimator function goes to infinity. This should approach zero.</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 2</li>
+</ul>
+<h2 class="header"><i>10</i>Determining sufficiency<a class="headerlink" href="#determining-sufficiency" name="determining-sufficiency">&para;</a></h2>
+<blockquote>
+<p>Determine whether or not some estimator is sufficient for some parameter in some random sample from some probability distribution.</p>
+</blockquote>
+<h3 class="header"><i>10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h3>
+<p>Find the likelihood function (product of the joint densities). Split it as the product of two functions - one (<span>$g(\overline y, p)$</span>) that is a function of <span>$\overline y$</span> and <span>$p$</span>, the other (<span>$h(y_1, \ldots y_n)$</span>) that is a function of the random sample stuff etc. If both are non-negative, then by theorem 9.4 in the textbook, we have that the estimator is sufficient for the relevant parameter.</p>
+<h3 class="header"><i>10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 3 and 4</li>
+</ul>
+<h2 class="header"><i>11</i>Finding an MVUE<a class="headerlink" href="#finding-an-mvue" name="finding-an-mvue">&para;</a></h2>
+<blockquote>
+<p>Find an MVUE of some parameter <span>$\theta$</span> using some function. Optionally: find the variance of the MVUE.</p>
+</blockquote>
+<h3 class="header"><i>11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h3>
+<p>Find the expected value of the given function (possibly by integrating, as is standard), which should be a function of <span>$\theta$</span> and some other variables. Isolate <span>$\theta$</span>; the MVUE is the function whose expected value is equal to <span>$\theta$</span>.</p>
+<p>If you need to show that something is an MVUE, recall that it must be a function of the <a href="#determining-sufficien">sufficient statistic</a> and must be unbiased.</p>
+<p>Find the variance using the identities for the variance and expected value functions and then differentiating the moment-generating function 4 times (result of using the identities).</p>
+<h3 class="header"><i>11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 5 and 6</li>
+</ul>
+<h2 class="header"><i>12</i>Errors of estimation<a class="headerlink" href="#errors-of-estimation" name="errors-of-estimation">&para;</a></h2>
+<blockquote>
+<p>Given <span>$n$</span> random samples and values for the observed mean and standard deviation (or just raw values for calculating them), estimate the mean for the population as a whole and a place a 2-standard-error bound on the error of estimation.</p>
+</blockquote>
+<h3 class="header"><i>12.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h3>
+<p>The best population mean estimate is the observed mean from the random samples. The 2-standard-error bound is given by <span>$2\sigma_p$</span>. This indicates that that the probability that the error of estimation is less than <span>$2\sigma_p$</span> is approximately 0.95.</p>
+<p>If the standard deviation is not given, note that <span>$\sigma_p = \sqrt{p(1-p)/n}$</span> where <span>$p$</span> is the mean or whatever.</p>
+<p>See also example 8.2 from chapter 8 of the textbook.</p>
+<h3 class="header"><i>12.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 7</li>
+</ul>
+<h2 class="header"><i>13</i>Pivotal quantities<a class="headerlink" href="#pivotal-quantities" name="pivotal-quantities">&para;</a></h2>
+<blockquote>
+<p>Show that some quantity is a pivotal quantity for some distribution. Use this to a find a particular lower/upper confidence limit for some parameter.</p>
+</blockquote>
+<h3 class="header"><i>13.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h3>
+<p>Transform coordinates - set <span>$U$</span> to the proposed pivotal quantity and rewrite the density function in terms of <span>$u$</span>. The result should be independent of the original variable, proving that the proposed quantity is a pivotal quantity.</p>
+<p>Now, to find the lower confidence limit for some parameter, we need to find the value of <span>$\alpha$</span> such that the probability of U being less than or greater than <span>$\alpha$</span> is whatever the desired probability is. To solve for <span>$\alpha$</span>, we simply rewrite the probability function as an integration of the density function (in terms of <span>$u$</span>) with the bounds being 0 to <span>$\alpha$</span> or whatever. Then, we rewrite the equation based on the relationship between <span>$U$</span> and <span>$Y$</span> to get the bound for <span>$\theta$</span>.</p>
+<h3 class="header"><i>13.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 8</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

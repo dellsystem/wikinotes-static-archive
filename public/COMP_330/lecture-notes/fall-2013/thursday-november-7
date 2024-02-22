@@ -1,0 +1,201 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, November 7, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, November 7, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Reductions and PCP
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Reductions. The Post correspondence problem.</p>
+<div class="toc">
+<ul>
+<li><a href="#reductions">1 Reductions</a><ul>
+<li><a href="#reduction-for-e_tm">1.1 Reduction for $E_{TM}$</a></li>
+<li><a href="#reduction-for-reg_tm">1.2 Reduction for $REG_{TM}$</a></li>
+<li><a href="#reduction-for-eq_tm">1.3 Reduction for $EQ_{TM}$</a></li>
+<li><a href="#the-post-correspondence-problem">1.4 The Post correspondence problem</a><ul>
+<li><a href="#examples">1.4.1 Examples</a></li>
+<li><a href="#proof-of-undecidability">1.4.2 Proof of undecidability</a><ul>
+<li><a href="#simulating-computations">1.4.2.1 Simulating computations</a></li>
+<li><a href="#forcing-the-start-state">1.4.2.2 Forcing the start state</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Reductions<a class="headerlink" href="#reductions" name="reductions">&para;</a></h2>
+<p>We say <span>$P \leq Q$</span> if a solution to <span>$Q$</span> produces a solution to <span>$P$</span>.</p>
+<h3 class="header"><i>1.1</i>Reduction for $E_{TM}$<a class="headerlink" href="#reduction-for-e_tm" name="reduction-for-e_tm">&para;</a></h3>
+<p>Suppose that <span>$L(M) = \{w \in \Sigma^* \mid M \text{ halts and accepts } w\}$</span> (in other words, the language recognised by machine <span>$M$</span>). We define the following set:</p>
+<p><span>$$E_{TM} = \{\langle M \rangle \mid L(M) = \varnothing\} \tag{where $\langle M \rangle$ is an encoding of $M$}$$</span></p>
+<p>Also, recall (from last lecture):</p>
+<p><span>$$A_{TM} = \{\langle M, w\rangle \mid w \in L(M)\}$$</span></p>
+<p>This set is RE but not decidable.</p>
+<p>Now let's perform the following reduction: <span>$A_{TM} \leq E_{TM}$</span>. Assuming we have a recogniser (which we can treat as a black box) for <span>$E_{TM}$</span>, we need to effectively transform it into a solution for <span>$A_{TM}$</span>.</p>
+<p>Given <span>$(M, w)$</span> we define a new TM <span>$M'$</span>, which ignores its input and runs <span>$M$</span> on <span>$w$</span>. (In Python, <span>$M'$</span> would be defined as <code>lambda x: M(w)</code> where <code>M</code> and <code>w</code> are pre-defined.) If <span>$M$</span> accepts <span>$w$</span>, then <span>$M'$</span> accepts its input. Then we feed <span>$\langle M' \rangle$</span><sup id="fnref:M'"><a href="#fn:M'" rel="footnote" title="Note that since we're just feeding the _source cod...">1</a></sup> to the supposed recogniser for <span>$E_{TM}$</span>. If <span>$M$</span> accepts <span>$w$</span>, then <span>$L(M') = \Sigma^*$</span>; otherwise, it is just <span>$\varnothing$</span>. Thus if (and only if) our recogniser tells us that <span>$L(M') = \Sigma^*$</span>, then we would know that <span>$M$</span> accepts <span>$w$</span>, which in turns gives us a decision procedure for <span>$A_{TM}$</span>.</p>
+<p>We saw, in <a href="/COMP_330/lecture-notes/fall-2013/tuesday-november-5#recursively-enumerable-sets">the previous lecture</a>, a proof that <span>$A_{TM}$</span> is not decidable. What we showed above is that if a recogniser for <span>$E_{TM}$</span> exists, we would be able to create a valid recogniser for <span>$A_{TM}$</span>, which we know to be impossible. Thus <span>$E_{TM}$</span> is also undecidable.</p>
+<p>Incidentally, note that while <span>$\overline{E_{TM}}$</span> is an RE set, <span>$E_{TM}$</span> is not even RE.</p>
+<h3 class="header"><i>1.2</i>Reduction for $REG_{TM}$<a class="headerlink" href="#reduction-for-reg_tm" name="reduction-for-reg_tm">&para;</a></h3>
+<p>Consider the following set:</p>
+<p><span>$$REG_{TM} = \{ \langle M \rangle \mid L(M) \text{ is regular} \}$$</span></p>
+<p>This is undecidable, which we will prove by reducing <span>$A_{TM}$</span> to <span>$REG_{TM}$</span> (<span>$A_{TM} \leq REG_{TM}$</span>).</p>
+<p>Suppose we have a recogniser for <span>$REG_{TM}$</span> and we are given <span>$\langle M \rangle$</span> and <span>$w$</span>. Define a new Turing machine <span>$M'$</span> which, when given some input <span>$x \in \Sigma^*$</span>, first checks if <span>$x$</span> is of the form <span>$a^nb^n$</span>. If so, we accept, otherwise, simulate <span>$M(w)$</span> and accept if and only if <span>$M$</span> accepts <span>$w$</span>.</p>
+<p>Next, we feed <span>$\langle M' \rangle$</span> as input to our recogniser for <span>$REG_{TM}$</span>. If <span>$M$</span> accepts <span>$w$</span>, then <span>$M'$</span> will accept anything (i.e., <span>$L(M') = \Sigma^*$</span>, which is regular); otherwise, <span>$M'$</span> will only words in the form <span>$a^nb^n$</span> for some <span>$n$</span> (i.e., <span>$L(M') = \{a^nb^n\}$</span>, which is not regular). Thus if (and only if) our recogniser tells us that <span>$L(M')$</span> is regular, then we would know that <span>$M$</span> accepts <span>$w$</span>, which in turns gives us a decision procedure for <span>$A_{TM}$</span>. This is a contradiction as we know there does not exist a decision procedure for <span>$A_{TM}$</span>, so <span>$REG_{TM}$</span> is also undecidable.</p>
+<h3 class="header"><i>1.3</i>Reduction for $EQ_{TM}$<a class="headerlink" href="#reduction-for-eq_tm" name="reduction-for-eq_tm">&para;</a></h3>
+<p>Consider the following set:</p>
+<p><span>$$EQ_{TM} = \{\langle M_1, M_2 \rangle \mid L(M_1) = L(M_2)\}$$</span></p>
+<p>In other words, given the description of two Turing machines, we check if they recognise the same language.</p>
+<p>This is of course undecidable. We can prove it by reducing <span>$A_{TM}$</span> to this (<span>$A_{TM} \leq EQ_{TM}$</span>). Given <span>$M, w$</span>, construct two new Turing machines: one, <span>$M_1$</span>, which rejects everything; and one, <span>$M_2$</span>, which rejects everything if and only if <span>$M$</span> accepts <span>$w$</span> and accepts everything otherwise. Then, <span>$L(M_1) = L(M_2)$</span> if and only if <span>$M$</span> accepts <span>$w$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.4</i>The Post correspondence problem<a class="headerlink" href="#the-post-correspondence-problem" name="the-post-correspondence-problem">&para;</a></h3>
+<p>Now we'll introduce the Post correspondence problem, which will be a very powerful tool in our reduction arsenal.</p>
+<p>The statement of the problem is as follows: we are given a finite set of pairs of strings, <span>$S = \{\alpha_1, \beta_1), (\alpha_2, \beta_2), \ldots\}$</span>. We can think of them as dominoes, with the <span>$\alpha$</span>'s on top and the <span>$\beta$</span>'s on the bottom. Our goal is to find a sequence of dominoes (with repeats allowed) for which the string formed by the strings on the top and that formed by the strings on the bottom are equal. Formally, a solution for an instance of PCP is a sequence of integers <span>$i_1, \ldots, i_m \in \{1, n\}$</span> such that</p>
+<p><span>$$\alpha_{i_1}\alpha_{i_2} \alpha_{i_3} \cdots \alpha_{i_m} = \beta_{i_1} \beta_{i_2} \beta_{i_3} \cdots \beta_{i_m}$$</span></p>
+<h4 class="header"><i>1.4.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p>Here's an example:</p>
+<p><span>$$S = \{(b, bbb), (babbb, ba), (ba, a)\}$$</span></p>
+<p>One valid solution is <span>$2, 1, 1, 3$</span>, for then we would get <span>$babbbbbba$</span> on both the top and the bottom.</p>
+<p>Another example:</p>
+<p><span>$$S = \{(a, bb), (b, aaa), (bab, aaab)\}$$</span></p>
+<p>This clearly has no solutions, since the strings on the bottom are all longer than the strings on the top. In general, however, these problems are not decidable.</p>
+<h4 class="header"><i>1.4.2</i>Proof of undecidability<a class="headerlink" href="#proof-of-undecidability" name="proof-of-undecidability">&para;</a></h4>
+<p>Next, we'll construct a proof that PCP is undecidable.</p>
+<p>Consider a Turing machine which encodes sequences of configurations separated by a <span>$\#$</span> such that successive configurations represent transitions of the Turing machine. A <strong>valid computation</strong> of a Turing machine is a finite sequence of configurations <span>$\alpha_0\#\alpha_1\#\alpha_2\#\cdots\#\alpha_k$</span> such that</p>
+<ol>
+<li><span>$\alpha_0$</span> is a start configuration (i.e., the start state, <span>$q_0$</span>, must be the leftmost symbol);</li>
+<li><span>$\alpha_k$</span> is an end configuration (where the Turing machine has reached an accept/reject state and has stopped);</li>
+<li><span>$\forall i &lt; k$</span>, <span>$\alpha_i \to \alpha_{i+1}$</span> reflects a possible transition for <span>$\delta$</span>. (For example, if we had <span>$abaqabb$</span>, and <span>$\delta(q, a) = (q', b, L)$</span>, then the only possible next configuration would be <span>$abaq'abbb$</span>.)</li>
+</ol>
+<p>The crucial thing to note here is that changes between configurations (if any) are localised to a small region, of 3 spaces, because the machine can only move left or right one space at a time.</p>
+<h5 class="header"><i>1.4.2.1</i>Simulating computations<a class="headerlink" href="#simulating-computations" name="simulating-computations">&para;</a></h5>
+<p>Now we can perform the reduction. We will show that if we solve PCP, we would be able to construct valid computations, and thus simulate the computation of a Turing machine on arbitrary input, which is not possible (see: <a href="/COMP_330/lecture-notes/fall-2013/tuesday-november-5#the-halting-problem">the halting problem</a>). In order to perform the reduction, we need to carefully design our dominoes so that when we go from one to the next, we only get possible transitions. We'll use a slightly modified version of PCP (called MPCP), adding the requirement that the first tile<sup id="fnref:tile"><a href="#fn:tile" rel="footnote" title="Tile and domino are used interchangeably in these ...">2</a></sup> must be a particular tile: <span>$(\#, \#q_0w_0,\cdots,w_n\#)$</span> (where the bottom is some start configuration).</p>
+<p>We also enforce the following condition: if <span>$\delta(q, a) = (q', b, R)$</span> and <span>$q'$</span> is not a reject state, the next domino must be <span>$(qa, bq')$</span>. Similarly, if <span>$\delta(q, a) = (r, b, L)$</span> then the next domino must be <span>$(cqa, rcb)$</span> for any <span>$c \in \Sigma$</span>.</p>
+<p>Then, for every <span>$a \in \Gamma$</span>, we create a tile of the form <span>$(a, a)$</span>, as well as tiles of the form <span>$(aq_{\text{accept}}, q_{\text{accept}})$</span>, <span>$(q_{\text{accept}}a, q_{\text{accept}})$</span> and <span>$(q_{\text{accept}}\#\#, \#)$</span>. We also need the special tiles <span>$(\#, \#)$</span> and <span>$(\#, \sqcup\#)$</span>.</p>
+<p>Here's an example. Suppose that <span>$\Gamma = \{0, 1, 2\}$</span> and that <span>$w = 0100$</span>. We begin at the start state, and read a 0. Suppose <span>$\delta(q_0, 0) = (q_7, 2, R)$</span>. Then our first domino would look like <span>$(\#, \#q_00100\#)$</span>. We would also have a domino that looks like <span>$(q_0, 2q_7)$</span>, and we'd have to put this next to it (since there wouldn't be any other tile that begins with <span>$q_0$</span>). Then we'd match on all the remaining symbols at the bottom of the first domino, using the tiles <span>$(1, 1)$</span> and <span>$(0, 0)$</span>, resulting in <span>$\#q_00100\#$</span> at the top and <span>$\#q_001000\#2q_7100\#$</span> at the bottom.</p>
+<h5 class="header"><i>1.4.2.2</i>Forcing the start state<a class="headerlink" href="#forcing-the-start-state" name="forcing-the-start-state">&para;</a></h5>
+<p>Now we will show that we can force the start state to be the desired one rather than making that one of the requirements.</p>
+<p>We create the following new symbols (where <span>$*$</span> is also a new symbol):</p>
+<p><span>$$\begin{align}
+\overrightarrow{u} &amp; = u_1u_2\ldots u_n \\
+* \overrightarrow{u} &amp; = * u_1* u_2* \ldots* u_n \\
+\overrightarrow{u}* &amp; = u_1*u_2*\ldots *u_n* \\
+*\overrightarrow{u}* &amp; = *u_1*u_2*\ldots *u_n*
+\end{align}$$</span></p>
+<p>Given tiles <span>$(t_1, b_1)$</span>, <span>$(t_2, b_2)$</span>, etc, we want to force starting with <span>$(t_1, b_1)$</span>. To do so, we can transform it into <span>$(*t_1, *b_1*)$</span>. Then we transform the other dominoes so that they look like <span>$(*t_2, b_2*)$</span>, <span>$(*t_3, b_3*)$</span>, etc.</p>
+<p>We also add a new tile <span>$(*\diamondsuit, \diamondsuit)$</span> where <span>$\diamondsuit$</span> is a new symbol. This will be used as the ending tile.</p>
+<p>Thus, we're forced to start with <span>$(*t_1, *b_1*)$</span> since nothing else starts with a <span>$*$</span> on the bottom. So PCP is unsolvable, since it can encode generic Turing machine computations.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:M'">
+<p>Note that since we're just feeding the <em>source code</em> for <span>$M'$</span>, and not <span>$M'$</span> itself, as input to <span>$E_{TM}$</span>, we don't need to worry about the fact that <span>$M'$</span> might go into an infinite loop.&#160;<a href="#fnref:M'" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:tile">
+<p>Tile and domino are used interchangeably in these notes.&#160;<a href="#fnref:tile" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

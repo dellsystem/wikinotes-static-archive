@@ -1,0 +1,165 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, February 18, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, February 18, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Linearity of the integral
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span> and <span>$f,g : I \to \mathbb{R}$</span> be Riemann integrable on <span>$I$</span>. Then for <span>$k \in \mathbb{R}$</span>, <span>$kf$</span> and <span>$f + g$</span> are Riemann integrable on <span>$I$</span> and </p>
+<p><span>$$ \int_a^b kf = k \int_a^b f \quad \text{and} \quad \int_a^b f + g = \int_z^b f + \int_a^b g $$</span></p>
+<p><strong>Proof:</strong> Trivial if <span>$k = 0$</span>. Assume <span>$k &lt; 0$</span>. Let <span>$P = \{x_0, x_1, \ldots, x_n\}$</span> be a partition of <span>$I$</span>. Since <span>$k &lt; 0$</span>,</p>
+<p><span>$$ \inf\{kf(x) : x \in [x_{j-1}, x_j]\} = k\cdot\sup\{f(x) : x \in [x_{j-1}, x_j]\} $$</span></p>
+<p>Thus if we multiply by <span>$(x_j - x_{j-1})$</span> and add these up, we can conclude that <span>$L_{kf}(P) = kU_f(P)$</span>. Again, since <span>$k &lt; 0$</span>,</p>
+<p><span>$$\begin{align}
+&amp;\sup\{L_{kf}(P) : P\text{ is a partition of }I\} \\
+=&amp;\sup\{kU_f(P) : P\text{ is a partition of }I\} \\
+=&amp;k\cdot\inf\{U_f(P) : P\text{ is a partition of }I\}
+\end{align}$$</span></p>
+<p>i.e. <span>$L(kf) = kU(f)$</span>.</p>
+<p>Similarly, we can show that <span>$U(kf) = kL(f)$</span>. As <span>$f$</span> is Riemann integrable, <span>$L(f) = U(f)$</span>. Thus <span>$L(kf) = U(kf)$</span> and <span>$kf$</span> is Riemann integrable. In fact, <span>$L(kf) = \int_a^b kf = kU(f) = k\int_a^b f$</span>.</p>
+<p>For the claim concerning <span>$f + g$</span>, recall that </p>
+<p><span>$$ \inf\{f(x) : x \in [x_{j-1}, x_j]\} + \inf\{g(x) : x \in [x_{j-1}, x_j]\} \leq \inf\{f(x) + g(x) : x \in [x_{j-1}, x_j]\} $$</span></p>
+<p>And similarly</p>
+<p><span>$$ \sup\{f(x) : x \in [x_{j-1}, x_j]\} + \sup\{g(x) : x \in [x_{j-1}, x_j]\} \geq \sup\{f(x) + g(x) : x \in [x_{j-1}, x_j]\} $$</span></p>
+<p>Thus it follows that <span>$L_f(P) + L_g(P) \leq L_{f+g}(P)$</span> and <span>$U_f(P) + U_g(P) \geq U_{f+g}(P)$</span>. Let <span>$\epsilon &gt; 0$</span>. Since <span>$f$</span> and <span>$g$</span> are integrable, by the Riemann criterion there exists some <span>$P_{f, \epsilon}$</span> and <span>$P_{g,\epsilon}$</span>, partitions of <span>$I$</span>, such that </p>
+<p><span>$$ U_f(P_{f,\epsilon}) &lt; L_f(P_{f,\epsilon}) + \frac{\epsilon}{2} $$</span></p>
+<p>and</p>
+<p><span>$$ U_g(P_{g,\epsilon}) &lt; U_f(P_{g,\epsilon}) + \frac{\epsilon}{2} $$</span></p>
+<p>Let <span>$P_\epsilon = P_{f,\epsilon} \cup P_{g, \epsilon}$</span>, a refinement of both <span>$P_{f, \epsilon}$</span> and <span>$P_{g, \epsilon}$</span>.</p>
+<p>Then <span>$U_f(P_\epsilon) &lt; L_f(P_\epsilon) + \frac{\epsilon}{2}$</span> and <span>$U_g(P_\epsilon) &lt; L_g(P_\epsilon) + \frac{\epsilon}{2}$</span> so that</p>
+<p><span>$$ U_{f+g}(P_\epsilon) \leq U_f(P_\epsilon) + U_g(P_\epsilon) &lt; L_f(P_\epsilon) + \frac{\epsilon}{2} + L_g(P_\epsilon) + \frac{\epsilon}{2} \leq L_{f+g}(P_\epsilon) + \epsilon $$</span></p>
+<p>i.e. <span>$U_{f+g}(P_\epsilon) &lt; L_{f+g}(P_\epsilon) + \epsilon \implies U_{f+g}(P_\epsilon) - L_{f+g}(P_\epsilon) &lt; \epsilon$</span>.</p>
+<p>Thus <span>$f+g$</span> is Riemann integrable by the Riemann Criterion. Observe that </p>
+<p><span>$$
+\begin{align*}
+\int_a^b f + g &amp;= U(f+g) \\
+&amp;\leq U_{f+g}(P_\epsilon) \\
+&amp;\leq U_f(P_\epsilon) + U_g(P_\epsilon) \\
+&amp;\leq L_f(P_\epsilon) + L_g(P_\epsilon) + \epsilon \\
+&amp;\leq L(f) + L(g) + \epsilon \\
+&amp;= \int_a^b f + \int_a^b g \quad + \epsilon
+\end{align*}
+$$</span></p>
+<p>For <span>$\epsilon &gt; 0$</span> arbitrary, we conclude that</p>
+<p><span>$$ \int_a^b f + g \leq \int_a^b f + \int_a^b g $$</span></p>
+<p>Similarly</p>
+<p><span>$$
+\begin{align*}
+\int_a^b f + \int_a^b g &amp;= U(f) + U(g) \\
+&amp;\leq U_f(P_\epsilon) + U_g(P_\epsilon) \\
+&amp;&lt; L_f(P_\epsilon) + L_g(P_\epsilon) + \epsilon \\
+&amp;\leq L_{f+g}(P_\epsilon) + \epsilon \\
+&amp;\leq L(f+g) + \epsilon \\
+&amp;= \int_a^b f + g \quad+ \epsilon
+\end{align*}
+$$</span></p>
+<p>So <span>$\int_a^b f + \int_a^b g \leq \int_a^b f + g$</span> and so </p>
+<p><span>$$ \int_a^b f + g = \int_a^b f + \int_a^b g $$</span></p>
+<p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be integrable on <span>$I$</span>. If <span>$f \geq 0$</span> on <span>$I$</span> then <span>$\int_a^b f \geq 0$</span>.</p>
+<p><strong>Proof:</strong> Recall that if <span>$m \leq f(c) \leq M$</span> on <span>$I$</span>, then <span>$m(b-a) \leq \int_a^b f \leq M(b-a)$</span>. In this case, <span>$m \geq 0$</span>. Thus, we're done.</p>
+<p><strong>Corollary:</strong> If <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> is Riemann integrable, then if <span>$f$</span> is bounded by <span>$k$</span> on <span>$I$</span>, </p>
+<p><span>$$ \left| \int_a^b f \right| \leq k(b-a) $$</span></p>
+<p><strong>Proof:</strong> <span>$|f(x)| \leq k \iff -k \leq f(c) \leq k$</span>. By previous observations, <span>$-k(b-a) \leq \int_a^b f \leq k(b-a)$</span> so <span>$|\int_a^b f| \leq k(b-a)$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

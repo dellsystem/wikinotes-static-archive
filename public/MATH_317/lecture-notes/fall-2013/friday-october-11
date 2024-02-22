@@ -1,0 +1,199 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, October 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, October 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Numerical differentiation
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#numerical-differentation">1 Numerical differentation</a><ul>
+<li><a href="#3-point-formula">1.1 3-point formula</a></li>
+<li><a href="#taylor-series-approach">1.2 Taylor series approach</a><ul>
+<li><a href="#notes-on-roundoff-errors">1.2.1 Notes on roundoff errors</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Numerical differentation<a class="headerlink" href="#numerical-differentation" name="numerical-differentation">&para;</a></h2>
+<p>Recall that earlier we looked at the limit definition of derivatives:</p>
+<p><span>$$\lim_{h \to 0} \frac{\partial f}{\partial x}$$</span></p>
+<p>There is a range of <span>$h$</span> for which you get a good approximation. However, as <span>$h$</span> gets too small, then you get wildly unstable (oscillating) results due to truncation<sup id="fnref:truncation"><a href="#fn:truncation" rel="footnote" title="Truncation or roundoff? Or both?">1</a></sup> errors, and as <span>$h$</span> gets too large, the approximation slowly loses accuracy.</p>
+<p>If we take a small but finite value of <span>$h$</span>, <span>$\displaystyle \frac{\partial f}{\partial x}$</span> is called a <strong>finite difference</strong>. Then we can interpolate <span>$f(x)$</span> at various points and calculate <span>$\displaystyle \frac{d}{dx}$</span> for the interpolating function. Suppose that</p>
+<p><span>$$f(x) = \sum_{k=0}^n f(x_k)L_k(x) + \frac{(x-x_0)(x-x_1)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)$$</span></p>
+<p>Then, differentiating the above, we get:</p>
+<p><span>$$\frac{df}{dx} = \sum_{k=0}^n f(x_n)L'_k(x) + \frac{d}{dx} \left [ \frac{(x-x_0)\cdots(x-x_n)}{(n+1)!} f^{(n+1)}(\xi)\right ]$$</span></p>
+<p>Then, if we want <span>$\displaystyle \frac{df}{dx} (x_j)$</span> (i.e., the derivative at one of the points):</p>
+<p><strong>[NEEDS VERIFICATION]</strong></p>
+<p><span>$$\frac{df}{dx}(x_j) = \sum_{k=0}^n f(x_j) L'_k(x_j) + \frac{f^{(n+1)}(\xi)}{(n+1)!} \tag{called the $(n+1)$ point formula}$$</span></p>
+<p>Usually, we use either 3 or 5 points.</p>
+<h3 class="header"><i>1.1</i>3-point formula<a class="headerlink" href="#3-point-formula" name="3-point-formula">&para;</a></h3>
+<p>Consider the case where <span>$n=2$</span>, and so we have 3 equally spaced points, <span>$x_0$</span>, <span>$x_1 = x_0 + h$</span>, and <span>$x_2 = x_0 + 2h = x_1 + h$</span>.</p>
+<p>Then, the interpolating function (Lagrange) looks like:</p>
+<p><span>$$f(x) = \frac{(x-x_1)(x-x_2)}{(x_0-x_2)(x_0-x_2)} f(x_0) + \frac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)}f(x_1) + \frac{(x-x_0)(x-x_1)}{(x_2-x_0)(x_2-x_1)} f(x_2) + \,\text{error}$$</span></p>
+<p>Now let's calculate the derivative:</p>
+<p><span>$$f'(x) = \frac{(x-x_2) + (x-x_1)}{(x_0-x_1)(x_0-x_2)} f(x_0) + \frac{(x-x_2) + (x-x_0)}{(x_1-x_0)(x_1-x_2)} f(x_1) + \frac{(x-x_1) + (x-x_0)}{(x_2-x_0)(x_2-x_1)}f(x_2) + \,\text{error}$$</span></p>
+<p>Let's say we want the derivative at <span>$x_0$</span>. Recall that the difference between any two adjacent points is some number <span>$h$</span>, due to equidistant points. Then:</p>
+<p><span>$$\begin{align}
+f'(x_0) &amp; = \frac{(-2h) + (-h)}{(-h)(-2h)} f(x_0) + \frac{(-2h) + 0}{(h)(-h)} f(x_1) + \frac{(-h) + 0}{(2h)(h)}f(x_2) \\
+&amp; = \frac{1}{h} \left [ -\frac{3}{2}f(x_0) + 2f(x_1) - \frac{1}{2} f(x_0) \right ]
+\end{align}$$</span></p>
+<p>The error function, at <span>$n=2$</span>, is given by</p>
+<p><span>$$\frac{f'''(\xi)}{6} \frac{d}{dx} (x-x_0)(x-x_1)(x-x_2) = \frac{f'''(\xi)}{6} [(x-x_1)(x-x_2) + (x-x_0)(x-x_2) + (x-x_2)(x-x_2)]$$</span></p>
+<p>So at <span>$x = x_0$</span>, the error function is</p>
+<p><span>$$\frac{f'''(\xi)}{6}2h^2$$</span></p>
+<p>(He wrote down some other stuff at this point that I omitted .)</p>
+<p>Think of <span>$x_0$</span> and <span>$x_2$</span> as endpoints for an interval, with <span>$x_1$</span> as the midpoint.</p>
+<p>Now let's do a change of variables in the definition of <span>$f'(x_1)$</span>, such that</p>
+<ul>
+<li><span>$x_1$</span>, which is equivalent to <span>$x_0 + h$</span>, is now called <span>$x_0$</span></li>
+<li><span>$x_0$</span> is now called <span>$x_0 - h$</span> (referring to the new <span>$x_0$</span>)</li>
+<li><span>$x_2$</span> is now called <span>$x_0 + h$</span> (referring to the new <span>$x_0$</span>)</li>
+</ul>
+<p>Then:</p>
+<p><span>$$f'(x_0) = \frac{1}{2h} [-f(x_0 - h) + f(x_0 + h)] = \frac{h^2}{6} f'''(\xi)$$</span></p>
+<p>Next, we perform a change of variables to get <span>$f'(x_2)$</span>:</p>
+<ul>
+<li><span>$x_2$</span>, which is equivalent to <span>$x_0 + 2h$</span>, is now called <span>$x_0$</span></li>
+<li><span>$x_1$</span>, which is equivalent to <span>$x_0 + h$</span>, is now called called <span>$x_0 - h$</span></li>
+<li><span>$x_0$</span> is now called <span>$x_0 - 2h$</span></li>
+</ul>
+<p>Then:</p>
+<p><span>$$f'(x_2) = \frac{1}{2h} [f(x_0 -2h) - 4f(x_0-h) + 3f(x_0) ] + \frac{h^2}{3} f'''(\xi)$$</span></p>
+<p>So <span>$f'(x_0)$</span> and <span>$f'(x_2)$</span> are essentially equivalent (technically, symmetric: <span>$h$</span> versus <span>$-h$</span>). This makes sense, since they're both endpoints. Thus there are only two independent approximations here: one for the endpoints (called the 3-point endpoint rule), and one for the midpoint (called the 3-point endpoint rule). For both rules, the error terms are proportional to <span>$h^2$</span>; notably, however, the error for the midpoint is that half that for the endpoints.</p>
+<p>The analogous derivations for the 5-point rule are left as an exercise for the reader. Note that we use an odd number of points to ensure that there is a midpoint.</p>
+<h3 class="header"><i>1.2</i>Taylor series approach<a class="headerlink" href="#taylor-series-approach" name="taylor-series-approach">&para;</a></h3>
+<p>Here's an alternate approach using Taylor series. First, we note the following equations:</p>
+<p><span>$$f(x_0 + h) = f(x_0) + f'(x_0)h + f''(x_0) \frac{h^2}{2} + f'''(x_0)\frac{h^3}{6} + \cdots \tag{1}$$</span></p>
+<p><span>$$f(x_0 - h) = f(x_0) - f'(x_0)h + f''(x_0)\frac{h^2}{2} - f'''(x_0)\frac{h^3}{6} + \cdots \tag{2}$$</span></p>
+<p>Let's solve for the derivative by rewriting <span>$(1)$</span>:</p>
+<p><span>$$f'(x_0) = \underbrace{\frac{f(x_0 + h) - f(x_0)}{h}}_{\text{finite-difference approximation}} - \underbrace{\frac{f''(x_0)h^2}{2} + \cdots}_{\text{error}}$$</span></p>
+<p>This scheme is called <strong>forward difference</strong>, or <strong>forward Euler</strong>. Similarly, for (2), we can write:</p>
+<p><span>$$f'(x_0) = \frac{f(x_0) -f(x_0 - h)}{h} + \frac{f''(x_0)h^2}{2} + \cdots$$</span></p>
+<p>This scheme is called <strong>backward difference</strong> of <strong>backward Euler</strong>.</p>
+<p>Now consider <span>$(1) - (2)$</span>. All the odd derivatives are doubled, and all the even derivatives vanish. So we get:</p>
+<p><span>$$(1) - (2) = f(x_0 + h) - f(x_0 - h) = 2f'(x_0)h + \frac{f'''(x_0)h^3}{3} + \cdots$$</span></p>
+<p>Thus we can solve for <span>$f'(x_0)$</span>:</p>
+<p><span>$$f'(x_0) = \frac{f(x_0 + h) - f(x_0 - h)}{2h} - \frac{f'''(x_0)h^2}{6} + \cdots$$</span></p>
+<p>This results in a much better scheme, since here the error is proportional to <span>$h^2$</span>. Thus, convergence is faster. This method is called <strong>centered difference</strong>, or, "leapfrog" (to get the derivative at one point, you use the points on either side). Incidentally, this is exactly the same equation as the midpoint rule that we derived using Lagrange interpolation above. However, this method is easier to derive.</p>
+<h4 class="header"><i>1.2.1</i>Notes on roundoff errors<a class="headerlink" href="#notes-on-roundoff-errors" name="notes-on-roundoff-errors">&para;</a></h4>
+<p>Note that at small values of <span>$h$</span>, we get roundoff errors. Say we have an analytic function <span>$f(x)$</span>, our approximation for it is <span>$\tilde{f}(x)$</span>, and our rounding error is given by <span>$e(x) = f(x) - \tilde{f}(x)$</span>. Then, <span>$f(x_0 \pm h) = \tilde{f}(x_0 \pm h) + e(x_0 \pm h)$</span>. Using centered difference, we get:</p>
+<p><span>$$f'(x_0) = \frac{1}{2h}(f(x_0 \pm h) - f(x_0 - h)) - \frac{h^2f'''(\xi)}{6} \tag{no idea what's going on here}$$</span></p>
+<p>This is derived by replacing <span>$f$</span> with its definition in terms of <span>$\tilde{f}$</span> and <span>$e$</span>?????</p>
+<p>So the error in the first derivative is given by (something).</p>
+<p>Suppose that <span>$|e(x_0+h) - e(x_0 - h)|$</span> is bounded above by <span>$\epsilon$</span>, and <span>$f'''(\xi)$</span> is bounded above by <span>$M$</span>. Then:</p>
+<p><span>$$|\text{error}| \leq \underbrace{\left | \frac{\epsilon}{2h} \right |}_{\text{round-off error}} + \underbrace{\left | \frac{h^2M}{6} \right |}_{\text{truncation error}}$$</span></p>
+<p>Round-off error dominates when <span>$h$</span> is small, and truncation error dominates when <span>$h$</span> is large.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:truncation">
+<p>Truncation or roundoff? Or both?&#160;<a href="#fnref:truncation" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

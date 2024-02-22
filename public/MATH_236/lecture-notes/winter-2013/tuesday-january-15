@@ -1,0 +1,166 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 15, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 15, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Bases
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this class, we fleshed out the proof for <a href="/MATH_236/lecture-notes/winter-2013/monday-january-14#theorem-26">Theorem 2.6</a>, and started our discussion of bases.</p>
+<div class="toc">
+<ul>
+<li><a href="#proof-for-theorem-26">1 Proof for Theorem 2.6</a><ul>
+<li><a href="#alternative-proof">1.1 Alternative proof</a></li>
+<li><a href="#proposition-27">1.2 Proposition 2.7</a></li>
+</ul>
+</li>
+<li><a href="#bases">2 Bases</a><ul>
+<li><a href="#proposition-28">2.1 Proposition 2.8</a></li>
+<li><a href="#theorem-210">2.2 Theorem 2.10</a><ul>
+<li><a href="#corollary">2.2.1 Corollary</a></li>
+</ul>
+</li>
+<li><a href="#theorem-212">2.3 Theorem 2.12</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Proof for Theorem 2.6<a class="headerlink" href="#proof-for-theorem-26" name="proof-for-theorem-26">&para;</a></h2>
+<p>Let <span>$(u_1, \ldots, u_m)$</span> be a linearly independent set, and let <span>$(v_1, \ldots, v_n)$</span> be a set that spans all of <span>$V$</span>, as before. The idea: for each <span>$u$</span> in the independent set, we add it to the spanning set and delete a <span>$v$</span> such that the list still spans <span>$V$</span>. For <span>$u_1$</span>, since <span>$u_1 \in V$</span>, we can write it as a linear combination of vectors in the spanning set: <span>$u_1 = a_1v_1 + \ldots + a_nv_n$</span> where the coefficients come from the field and at least one <span>$a_k \neq 0$</span> (since if they were all zero, we would just get the zero vector, which can't be part of a linearly independent set). Then we swap <span>$u_1$</span> and <span>$a_kv_k$</span>, and divide both sides by <span>$a_k$</span>. Without loss of generality, we can re-order the vectors and coefficients such that <span>$k=1$</span>, and then replace the new coefficients with <span>$b$</span>'s, so we that we have <span>$v_1 = u_1 + b_1v_2 + \ldots + b_nv_n$</span>. I'll finish this later.</p>
+<h3 class="header"><i>1.1</i>Alternative proof<a class="headerlink" href="#alternative-proof" name="alternative-proof">&para;</a></h3>
+<p>Here's an alternative proof, which uses proof-by-contradiction techniques. As before, <span>$(u_1, \ldots, u_m)$</span> is a linearly independent set of vectors in <span>$V$</span>, and <span>$(v_1, \ldots, v_n)$</span> is a set that spans all of <span>$V$</span>. Assume that <span>$m &gt; n$</span>. Then we can write our linearly independent set as <span>$(u_1, \ldots, u_n, \ldots, u_m)$</span>. Let's replace each vector <span>$u$</span> by a linear combination of <span>$v$</span>s, since we know that we can write any <span>$v \in V$</span> as such a linear combination. So our set becomes <span>$((a_{1,1}v_1 + \ldots + a_{1,n}v_n), \ldots, (a_{n, 1}v_1 + \ldots + a_{n, n}v_n), \ldots, (a_{m, 1}v_1 + \ldots + a_{m, n}v_n))$</span>. We also know that for each of the <span>$m$</span> linear combinations, at least one of the coefficients is non-zero (because otherwise that would imply that the zero vector is in our linearly independent set, which is not possible from the definition of linear independence). Since we have <span>$n$</span> vectors in spanning set, by the pigeonhole principle, we know that there is at least one vector <span>$v_k$</span> such that two of its associated coefficients are non-zero.</p>
+<p>Actually, never mind, I don't like this proof anymore.</p>
+<h3 class="header"><i>1.2</i>Proposition 2.7<a class="headerlink" href="#proposition-27" name="proposition-27">&para;</a></h3>
+<blockquote>
+<p>Every subspace of a finite-dimensional vector space is finite-dimensional.</p>
+</blockquote>
+<p>Proof: left as an exercise.</p>
+<h2 class="header"><i>2</i>Bases<a class="headerlink" href="#bases" name="bases">&para;</a></h2>
+<p>A <strong>basis</strong> is a linearly independent list of vectors in <span>$V$</span> whose span is <span>$V$</span>. The standard basis for <span>$\mathbb F^3$</span>, for instance, is <span>$((1, 0, 0), (0, 1, 0), (0, 0, 1))$</span> (also known as <span>$i, j, k$</span>); for <span>$P_n(\mathbb F)$</span>, the standard basis is <span>$(1, z, \ldots, z^n)$</span>.</p>
+<h3 class="header"><i>2.1</i>Proposition 2.8<a class="headerlink" href="#proposition-28" name="proposition-28">&para;</a></h3>
+<blockquote>
+<p><span>$(v_1, \ldots, v_n)$</span> is a basis for <span>$V$</span> if and only if every <span>$v \in V$</span> can be written uniquely as a linear combination of those vectors.</p>
+</blockquote>
+<p>Proof: (<span>$\to$</span>) Assume that <span>$(v_1, \ldots, v_n)$</span> is a basis. By definition, it is a spanning set, and so every <span>$v \in V$</span> can be written as a linear combination of vectors in the basis. We just need to show that there is a unique linear combination for each <span>$v$</span>. Assume that there are two ways of writing <span>$v$</span>: <span>$v = a_1v_1 + \ldots + a_nv_n$</span> and <span>$v = b_1v_1 + \ldots + b_nv_n$</span>. Then <span>$0 = v - v = (a_1v_1 + \ldots + a_nv_n) - (b_1v_1 + \ldots + b_nv_n) = (a_1-b_1)v_1 + \ldots + (a_n-b_n)v_n$</span>. But we know that <span>$(v_1, \ldots, v_n)$</span> is linearly independent, which means that the coefficients must be 0 if the linear combination results in the zero vector. So we have that <span>$a_1 - b_1 = 0$</span>, <span>$\ldots$</span>, <span>$a_n-b_n = 0$</span> which then tells us that <span>$a_1 = b_1$</span>, <span>$\ldots$</span>, <span>$a_n=b_n$</span>. So there is only one unique way of writing each vector <span>$v$</span> as a linear combination of the vectors in the basis.</p>
+<p>(<span>$\rightarrow$</span>) Assume that every <span>$v \in V$</span> can be written uniquely as a linear combination of <span>$(v_1, \ldots, v_n)$</span>. In particular, the zero vector can be written uniquely as a linear combination: <span>$0 = a_1v_1 + \ldots + a_nv_n$</span>. We know that if we set <span>$a_1 = \ldots = a_n = 0$</span> then we have a valid solution. By the uniqueness property, this must be the <em>only</em> solution. This guarantees that <span>$(v_1, \ldots, v_n)$</span> is linearly independent. Also, since every vector <span>$v \in V$</span> can be written as a linear combination of <span>$(v_1, \ldots, v_n)$</span>, then <span>$\text{span}(v_1, \ldots, v_n) = V$</span>. This concludes the proof. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>2.2</i>Theorem 2.10<a class="headerlink" href="#theorem-210" name="theorem-210">&para;</a></h3>
+<p>Given a list of vectors that we know spans some vector space <span>$V$</span>, we can reduce this list to a basis simply by removing the ones that make it linearly dependent (while preserving the property that it spans <span>$V$</span>). Here's an example. Let's say we have the following vectors, whose span is <span>$\mathbb F^3$</span>:</p>
+<p><span>$$((1, 0, 6), (i/2, 0, 3i), (1, 0, 0), (0, 1, 0)) = (v_1, v_2, v_3, v_4)$$</span></p>
+<p>So let's go through the vectors in the list:</p>
+<ul>
+<li>Since <span>$v_1$</span> is not the zero vector, keep it.</li>
+<li>Is <span>$v_2 \in \text{span}(v_1)$</span>? Yes - if <span>$a_1 = i/2$</span>, <span>$v_2 = a_1v_1$</span>. So we discard it.</li>
+<li>Is <span>$v_3 \in \text{span}(v_1)$</span>? Clearly not. (Proof left as an exercise for the reader.)</li>
+<li>Is <span>$v_4 \in \text{span}(v_1, v_3)$</span>? Again, clearly not. (Proof left again as an exercise.)</li>
+</ul>
+<p>The resulting basis would be <span>$((1, 0, 6), (1, 0, 0), (0, 1, 0))$</span>, which is indeed a linearly independent spanning set.</p>
+<p>The proof of the theorem is left as an exercise for the reader.</p>
+<h4 class="header"><i>2.2.1</i>Corollary<a class="headerlink" href="#corollary" name="corollary">&para;</a></h4>
+<blockquote>
+<p>Every finite-dimensional vector space has a basis.</p>
+</blockquote>
+<p>The proof is pretty trivial - a finite dimensional vector space is one that can be spanned by a finite list of vectors. If we simply remove the vectors that make it linearly dependent (if any), using the above algorithm, then the result would be a linearly independent spanning set - i.e., a basis.</p>
+<h3 class="header"><i>2.3</i>Theorem 2.12<a class="headerlink" href="#theorem-212" name="theorem-212">&para;</a></h3>
+<p>Every linearly independent list of vectors can be extended to a basis of a vector space <span>$V$</span>, if we have a spanning set for <span>$V$</span> as a reference. This is sort of the "opposite" of the previous theorem. Example: let <span>$((1, 1, 1))$</span> be our linearly independent list of vectors, and let the spanning set be as in the previous section. This actually uses the same sort of algorith as in the previous section - just keep adding vectors from the spanning set unless they result in linear dependence. The proof for this is again left as an exercise.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Review questions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Review questions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Some review questions that were created by the professor and provided (in the form of handouts) in-class on several occasions. The answers are student-created and have not been verified, so use at your own risk. It is strongly recommended that you attempt to answer all the questions first before checking the solutions below (if they exist).</p>
+<p>The content on this page is solely intended to function as a study aid for students and should constitute fair dealing under <a href="http://laws-lois.justice.gc.ca/eng/acts/C-42/page-19.html#h-27">section 29.21 of the Canadian Copyright Act</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#thursday-january-31">1 Thursday, January 31</a><ul>
+<li><a href="#question-1">1.1 Question 1</a></li>
+<li><a href="#question-2">1.2 Question 2</a></li>
+<li><a href="#question-3">1.3 Question 3</a></li>
+<li><a href="#question-4">1.4 Question 4</a></li>
+</ul>
+</li>
+<li><a href="#tuesday-february-19">2 Tuesday, February 19</a><ul>
+<li><a href="#question-1_1">2.1 Question 1</a><ul>
+<li><a href="#answers">2.1.1 Answers</a></li>
+</ul>
+</li>
+<li><a href="#question-2_1">2.2 Question 2</a><ul>
+<li><a href="#answer">2.2.1 Answer</a></li>
+<li><a href="#accuracy-and-discussion">2.2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3_1">2.3 Question 3</a><ul>
+<li><a href="#answer_1">2.3.1 Answer</a></li>
+</ul>
+</li>
+<li><a href="#question-4_1">2.4 Question 4</a><ul>
+<li><a href="#answer_2">2.4.1 Answer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Thursday, January 31<a class="headerlink" href="#thursday-january-31" name="thursday-january-31">&para;</a></h2>
+<p><a href="http://thales.math.uqam.ca/~tosun/Review-1.pdf">Questions</a></p>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<ol>
+<li>By rank-nullity</li>
+<li>No, not necessarily</li>
+</ol>
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<ol>
+<li><span>$$\begin{pmatrix} 3 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}$$</span></li>
+<li><span>$v-3w$</span></li>
+</ol>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<ol>
+<li>Yes</li>
+<li>No. Put them in a matrix, row-reduce</li>
+</ol>
+<h3 class="header"><i>1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h3>
+<ol>
+<li>Yes</li>
+<li>I think so.</li>
+<li>I don't think so. What if <span>$T=0$</span>? Then <span>$S$</span> could be anything.</li>
+</ol>
+<h2 class="header"><i>2</i>Tuesday, February 19<a class="headerlink" href="#tuesday-february-19" name="tuesday-february-19">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<p>Let <span>$T$</span> be a linear operator on <span>$\mathbb R^3$</span> defined by</p>
+<p><span>$$T(x_1, x_2, x_3) = (3x_1 + x_3, -2x_1 + x_2, -x_1+2x_2 +4x_3)$$</span></p>
+<p>(1) What is the matrix of <span>$T$</span> in the standard ordered basis for <span>$\mathbb R^3$</span>?<br />
+(2) What is the matrix of <span>$T$</span> in the ordered basis <span>$\{\alpha_1, \alpha_2, \alpha_3\}$</span> where <span>$\alpha_1 = (1, 0, 1)$</span>, <span>$\alpha_2 = (-1, 2, 1)$</span> and <span>$\alpha_3 = (2, 1, 1)$</span>?<br />
+(3) Provide a rule for <span>$T^{-1}$</span> like the one which defines <span>$T$</span>.</p>
+<h4 class="header"><i>2.1.1</i>Answers<a class="headerlink" href="#answers" name="answers">&para;</a></h4>
+<p>(1) <span>$$\begin{pmatrix} 3 &amp; 0 &amp; 1 \\ -2 &amp; 1 &amp; 0 \\ -1 &amp; 2 &amp; 4 \end{pmatrix}$$</span></p>
+<p>(Just take the coefficients for each dimension of the vector and make them into the rows of the matrix).</p>
+<div class="ui divider"></div>
+<p>(2) First, we determine the effect of <span>$T$</span> on each vector in the basis:</p>
+<p><span>$$T\alpha_1 = (4, -2, 3) \quad T\alpha_2 = (-2, 4, 9) \quad T\alpha_3 = (7, -3, 4)$$</span></p>
+<p>So the matrix is just</p>
+<p><span>$$\begin{pmatrix} 4 &amp; -2 &amp; 3 \\ -2 &amp; 4 &amp; 9 \\ 7 &amp; -3 &amp; 4 \end{pmatrix}^T$$</span></p>
+<div class="ui divider"></div>
+<p>(3) The inverse of the matrix in (1) is</p>
+<p><span>$$\frac{1}{9}\begin{pmatrix} 4 &amp; 2 &amp; -1 \\ 8 &amp; 13 &amp; -2 \\ -3 &amp; -6 &amp; 3 \end{pmatrix}$$</span></p>
+<p>(Determined computationally. Check it by hand if you wish.) Thus the rule is</p>
+<p><span>$$T(x_1, x_2, x_3) = (\frac{4}{9}x_1 + \frac{2}{9}x_2 - \frac{1}{9}x_3, \frac{8}{9}x_1 + \frac{13}{9}x_2 -\frac{2}{9}x_3, -\frac{3}{9}x_1 - \frac{6}{9}x_2 + \frac{3}{9}x_3)$$</span></p>
+<p>To prove that it works, we take the output of <span>$T$</span> given <span>$(x_1, x_2, x_3)$</span>, and hope that <span>$T^{-1}$</span> applied to this will give us <span>$(x_1, x_2, x_3)$</span> again:</p>
+<p><span>$$\begin{align}
+T(3x_1+x_3, -2x_1+x_2, -x_1+2x_2+4x_3) = &amp; \bigg ( \frac{4}{9}(3x_1 + x_3) + \frac{2}{9}(-2x_1+x_2) - \frac{1}{9}(-x_1 +2x_2+4x_3), \\
+&amp; \frac{8}{9}(3x_1+x_3) + \frac{13}{9}(-2x_1+x_2) - \frac{2}{9}(-x_1+2x_2+4x_3), \\
+&amp; -\frac{3}{9}(3x_1+x_3) - \frac{6}{9}(-2x_1+x_2) + \frac{3}{9}(-x_1+2x_2+4x_3) \bigg ) \\
+= &amp; \bigg ( \left(\frac{12}{9} -\frac{4}{9} +\frac{1}{9} \right )x_1 + \left ( \frac{2}{9}-\frac{2}{9} \right )x_2 + \left ( \frac{4}{9} -\frac{4}{9} \right )x_3, \\
+&amp;  \left ( \frac{24}{9} - \frac{26}{9} + \frac{2}{9} \right )x_1 + \left ( \frac{13}{9} - \frac{4}{9} \right )x_2 + \left ( \frac{8}{9} - \frac{8}{9} \right )x_3 \\
+&amp; \left ( -\frac{9}{9} +\frac{12}{9} -\frac{3}{9}\right)x_1 + \left ( -\frac{6}{9}+\frac{6}{9} \right )x_2 + \left ( -\frac{3}{9} + \frac{12}{9} \right )x_3 \bigg ) \\
+= &amp; (x_1, x_2, x_3) \; \blacksquare
+\end{align}$$</span></p>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h3>
+<p>Consider the transformation <span>$T$</span> which is represented by the matrix</p>
+<p><span>$$A = \begin{pmatrix} 2 &amp; 6 &amp; -6 \\ 0 &amp; 5 &amp; -2 \\ 0 &amp; 0 &amp; 4 \end{pmatrix}$$</span></p>
+<p>(1) Find its eigenvalues.<br />
+(2) Is this matrix diagonalisable? If so, diagonalise it. (Recall that a matrix <span>$A$</span> is called diagonalisable if there exists a diagonal matrix <span>$D$</span> and an invertible matrix <span>$P$</span> such that <span>$A = PDP^{-1}$</span>.</p>
+<h4 class="header"><i>2.2.1</i>Answer<a class="headerlink" href="#answer" name="answer">&para;</a></h4>
+<p>(1) 2, 5, and 4. Since the matrix is upper triangular, the eigenvalues are just the values along the diagonal (Proposition 5.18),</p>
+<div class="ui divider"></div>
+<p>(2) Yes, since there are 3 distinct eigenvalues. Let's find the eigenvectors for each.</p>
+<p>For <span>$\lambda_1 = 2$</span>:</p>
+<p><span>$$T-\lambda_1 I = A - 2I = \begin{pmatrix} 0 &amp; 6 &amp; -6 \\ 0 &amp; 3 &amp; -2 \\ 0 &amp; 0 &amp; 2 \end{pmatrix} \mapsto \begin{pmatrix} 0 &amp; 1 &amp; -1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} \quad \therefore v_1 = \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}$$</span></p>
+<p>For <span>$\lambda_2 = 5$</span>:</p>
+<p><span>$$T-\lambda_2 I = A-5I = \begin{pmatrix} -3 &amp; 6 &amp; -6 \\ 0 &amp; 0 &amp; -2 \\ 0 &amp; 0 &amp; -1 \end{pmatrix} \mapsto \begin{pmatrix} 1 &amp; -2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} \quad \therefore v_2 = \begin{pmatrix} 2 \\ 1 \\ 0 \end{pmatrix}$$</span></p>
+<p>For <span>$\lambda_3 = 4$</span>:</p>
+<p><span>$$T-\lambda_3 I = A-4I = \begin{pmatrix} -2 &amp; 6 &amp; -6 \\ 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} \mapsto \begin{pmatrix} 1 &amp; 0 &amp; -3 \\ 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} \quad \therefore v_3 = \begin{pmatrix} 3 \\ 2 \\ 1 \end{pmatrix}$$</span></p>
+<p>Then we make these the column vectors of <span>$P$</span>, and calculate <span>$P^{-1}$</span>:</p>
+<p><span>$$P = \begin{pmatrix}1 &amp; 2 &amp; 3 \\ 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 1 \end{pmatrix} \quad P^{-1} = \begin{pmatrix} 1 &amp; -2 &amp; 1 \\ 0 &amp; 1 &amp; -2 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}$$</span></p>
+<p><span>$D$</span>, of course, is just a diagonal matrix with the eigenvalues of <span>$A$</span> along its diagonal (in the same order as the corresponding eigenvectors):</p>
+<p><span>$$D = \begin{pmatrix} 2 &amp; 0 &amp; 0 \\ 0 &amp; 5 &amp; 0 \\ 0 &amp; 0 &amp; 4 \end{pmatrix}$$</span></p>
+<p>Source: <a href="/MATH_223/summary/winter-2011/htsefp-problems#diagonalising-matrices">MATH 223 HTSEFP</a>. I missed the lectures where we talked about diagonalising for this course.</p>
+<h4 class="header"><i>2.2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h4>
+<p>(1) and (2): <a href="http://www.wolframalpha.com/input/?i=eigenvectors+%7B%7B2%2C+6%2C+-6%7D%2C+%7B0%2C+5%2C+-2%7D%2C+%7B0%2C+0%2C+4%7D%7D">Wolfram|Alpha</a> confirms.</p>
+<h3 class="header"><i>2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h3>
+<p>Let <span>$\mathcal M_{2\times 2}(\mathbb R)$</span> be the vector space of all <span>$2 \times 2$</span> matrices with real entries. Let</p>
+<p><span>$$B = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}$$</span></p>
+<p>and let <span>$T$</span> be the linear map on <span>$\mathcal M_{2\times 2}(\mathbb R)$</span> defined by <span>$T(A) = AB - BA$</span>.</p>
+<p>(1) Find the bases for the null space of <span>$T$</span> and the range of <span>$T$</span>.<br />
+(2) Verify the rank-nullity theorem. (Note that the dimension of the range of <span>$T$</span> is called the <strong>rank</strong> of <span>$T$</span> and the dimension of the nullspace of <span>$T$</span> is called the nullity of <span>$T$</span>.)</p>
+<h4 class="header"><i>2.3.1</i>Answer<a class="headerlink" href="#answer_1" name="answer_1">&para;</a></h4>
+<p>(1) Just apply <span>$T$</span> to an arbitrary matrix <span>$A \in V$</span>:</p>
+<p><span>$$T(A) = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix} - \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}\begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix} = \begin{pmatrix}a &amp; 2b \\ c &amp; 2d \end{pmatrix} - \begin{pmatrix} a &amp; b \\ 2c &amp; 2d \end{pmatrix} = \begin{pmatrix} 0 &amp; b \\ -c &amp; 0 \end{pmatrix}$$</span></p>
+<p>So a suitable basis for the range is</p>
+<p><span>$$\left \{ \begin{pmatrix} 0 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}, \begin{pmatrix} 0 &amp; 0 \\ 1 &amp; 0 \end{pmatrix} \right \}$$</span></p>
+<p>For the nullspace, it is clear that we need <span>$b = 0$</span> and <span>$c = 0$</span>. <span>$a$</span> and <span>$d$</span> can be anything. So a suitable basis for the nullspace is:</p>
+<p><span>$$\left \{ \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}, \begin{pmatrix} 0 &amp; 0 \\ 0 &amp; 1\end{pmatrix} \right \}$$</span></p>
+<div class="ui divider"></div>
+<p>(2) Yep. The rank is 2 and the nullity is 2. The dimension of the vector space is 4. <span>$2+2=4 \;\checkmark$</span></p>
+<h3 class="header"><i>2.4</i>Question 4<a class="headerlink" href="#question-4_1" name="question-4_1">&para;</a></h3>
+<p>Let <span>$T \in \mathcal L(\mathbb R^2)$</span> which is represented in the standard basis by the matrix <span>$\displaystyle B =\begin{pmatrix}1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix}$</span>. Let <span>$W$</span> be the subspace of <span>$\mathbb R^2$</span> spanned by <span>$e_1 = (1, 0)$</span>.</p>
+<p>(1) Prove that <span>$W$</span> is invariant under <span>$W$</span>.<br />
+(2) Prove that there is no <span>$W'$</span> invariant under <span>$T$</span> such that <span>$\mathbb R^2 = W \oplus W'$</span>. (Note that in this form, the question cannot be answered, due to a typo somewhere.)</p>
+<h4 class="header"><i>2.4.1</i>Answer<a class="headerlink" href="#answer_2" name="answer_2">&para;</a></h4>
+<p>(1) Let <span>$w = (a, 0) \in W$</span> (where <span>$a \in \mathbb R$</span>). Then</p>
+<p><span>$$Tw = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 2 \end{pmatrix} \cdot \begin{pmatrix} a \\ 0 \end{pmatrix} = \begin{pmatrix} a \\ 0 \end{pmatrix} \in W \; \blacksquare$$</span></p>
+<p>(2) No can do</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

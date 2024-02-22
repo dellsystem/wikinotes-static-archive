@@ -1,0 +1,690 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review: Memory and I/O
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review: Memory and I/O
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Introduction to memory<a class="headerlink" href="#introduction-to-memory" name="introduction-to-memory">&para;</a></h2>
+<ul>
+<li>many different processes, have to fit them all into memory<ul>
+<li>many processes - might need more memory than is available</li>
+<li>overlapping addresses, e.g. multiple copies of the same program running at once</li>
+<li>but at any given point in time, the registers/etc contain values for just one process</li>
+<li>how to allow multiple processes to run at once?</li>
+<li>answer: see next section</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Virtual memory<a class="headerlink" href="#virtual-memory" name="virtual-memory">&para;</a></h3>
+<ul>
+<li>program addresses (virtual addresses) are mapped to physical addresses by the OS (kernel)</li>
+<li>benefits:<ul>
+<li>multiple processes can share one processor (and thus one memory space thing)</li>
+<li>separates the program address space and the physical address space<ul>
+<li>so processors don't need to be geared for specific amounts of memory (e.g. 2GB or 4GB or whatevr)</li>
+<li>adds an abstract layer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Physical memory<a class="headerlink" href="#physical-memory" name="physical-memory">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Units of memory<a class="headerlink" href="#units-of-memory" name="units-of-memory">&para;</a></h4>
+<p>Some units in the world of memory and their meanings:</p>
+<dl>
+<dt>kilobyte:</dt>
+<dd>1024 (2<sup>10</sup>) or 1000 (10<sup>3</sup>) bytes, depending on the definition; the former is often used with KiB, but that hasn't really caught on</dd>
+<dt>megabyte:</dt>
+<dd>1048576 (2<sup>20</sup>) or 1000000 (10<sup>6</sup>) bytes</dd>
+<dt>gigabyte:</dt>
+<dd>1073741824 (2<sup>30</sup>) or 1000000000 (10<sup>9</sup>) bytes</dd>
+<dt>terabyte:</dt>
+<dd>same idea</dd>
+<dt>gigabyte:</dt>
+<dd>etc</dd>
+</dl>
+<p>Note that since one byte = 8 bits, one megabyte (1 MB) = 8 megabits (8 Mb).</p>
+<p>MIPS memory is 2<sup>32</sup> bytes, which is about 8 GB (8 GiB to be exact).</p>
+<h4 class="header"><i>1.2.2</i>Disk memory<a class="headerlink" href="#disk-memory" name="disk-memory">&para;</a></h4>
+<p>Some types of disk memory:</p>
+<ul>
+<li>floppy disks, 1.44 MB, magnetic - not used lol</li>
+<li>CDs, less than 1 GB, optical</li>
+<li>DVDs, several GB, optical</li>
+<li>hard disk drives, often several hundred GB, magnetic</li>
+</ul>
+<p>Access time for disk memories is slow, as there is an actual spinning disk involved, and as data can only be read/written at the read/write head it may take millions of clock cycles to access the desired location in memory. Clearly, relying solely on disk memory would be extremely inefficient; consequently, there is another solution - internal memory, which we'll discuss later.</p>
+<h4 class="header"><i>1.2.3</i>Flash memory<a class="headerlink" href="#flash-memory" name="flash-memory">&para;</a></h4>
+<p>This is another type of external memory. There are no moving parts, and access is much faster than with disk memory (also, lookup times are uniform). Both of these types of memory are non-volative (i.e. turn off the power won't erase anything).</p>
+<h4 class="header"><i>1.2.4</i>Random access memory<a class="headerlink" href="#random-access-memory" name="random-access-memory">&para;</a></h4>
+<p>This is internal memory. The "random" part means that lookup time is constant (uniform), independent of the address. There are two types of RAM: SRAM (static), and dynamic (DRAM); the former is more expensive, but faster, and hence it is used in smaller quantities for the cache. DRAM is used for main memory.</p>
+<h3 class="header"><i>1.3</i>Memory hierarchy<a class="headerlink" href="#memory-hierarchy" name="memory-hierarchy">&para;</a></h3>
+<ul>
+<li>cache (SRAM) on top, since it's the fastest, but also the smallest</li>
+<li>main memory (DRAM) beneath, pretty fast, moderately large</li>
+<li>HDD/SSD on the bottom, slower, huge</li>
+</ul>
+<h3 class="header"><i>1.4</i>Page tables<a class="headerlink" href="#page-tables" name="page-tables">&para;</a></h3>
+<ul>
+<li>virtual and physical address spaces partitioned into chunks, called <strong>pages</strong></li>
+<li>a specific byte is then identified by its <strong>page number</strong> as well as its <strong>page offset number</strong> (e.g. 12 bits into the page)</li>
+<li>so the program address (of 32 bits) needs to encode that information somehow</li>
+<li>it could use the lower bits (0-11) for the page offset, and the upper bits (12-31) for the page number</li>
+<li>now, this virtual page number needs to correspond to a physical page number</li>
+<li>this virtual-to-physical page number mapping is stored in a <strong>page table</strong></li>
+<li>use the virtual page number as the index into the page table (which can be thought of as an array, with the value being the physical page number)</li>
+<li>each page table entry also has a <strong>valid bit</strong></li>
+<li>indicates whether it's in RAM (1) or on the hard disk (0)</li>
+<li>an example: 1 GB of (D)RAM and so there are 2<sup>30</sup> bytes and thus 2<sup>30</sup> bit addresses<ul>
+<li>let's say each page is 4 KB in size (so 2<sup>12</sup> bytes)</li>
+<li>then we would need <span>$2^{30}/2^{12} = 2^{18}$</span> pages total</li>
+<li>so we would need 18 bits to specify the page number</li>
+<li>and 12 to specify the offset</li>
+</ul>
+</li>
+<li>page table may contain other info as well - if that page is read/write protected, last access time, etc</li>
+<li>to keep the page tables small, kernel uses a "clever" data structure like a hash table</li>
+<li>each process has its own page table, with up to 2<sup>30</sup> entries<sup>confirm?</sup></li>
+<li>ways of organising the page tables:<ul>
+<li>store it in a part of main memory that is reserved for the kernel</li>
+<li>by keeping them in main memory, they don't themselves need to be paged</li>
+<li>so we keep them in a non-paged section of main memory, and use a fixed translation from virtual kernel address to physical kernel address</li>
+<li>there is an alternative way of storing them using paged memory, which will be introduced later</li>
+</ul>
+</li>
+<li>each process has its own associated page table; the kernel also has a process ID table, which stores the address of the page table for every process</li>
+</ul>
+<h4 class="header"><i>1.4.1</i>Page faults<a class="headerlink" href="#page-faults" name="page-faults">&para;</a></h4>
+<p>A <strong>page fault</strong> occurs when a program tries to access something in memory but the valid bit of the page it is on is 0 (indicating that the desired page is on the hard disk and not in main memory). When this happens, the page is <strong>swapped</strong> back into main memory, often replacing another page in the process. This is taken care of by the <strong>page fault handler</strong> (a kernel program that functions as an exception handler, which takes care of updating and managing the page tables).</p>
+<ul>
+<li>for the TLB miss handler to get the translation, needs to access system bus</li>
+<li>if the bus is being used, kernel may just stop the process</li>
+</ul>
+<h4 class="header"><i>1.4.2</i>Page tables in paged memory<a class="headerlink" href="#page-tables-in-paged-memory" name="page-tables-in-paged-memory">&para;</a></h4>
+<ul>
+<li>say we have a 4 MB page table (2<sup>20</sup> entries, 4 bytes each - this is a simplification and possibly an overestimation)</li>
+<li>split the table itself up into 2<sup>10</sup> pages, with 2<sup>12</sup> bytes (4 KB) per page</li>
+<li>we then must use another table (the "page table table" lol) with a 10-bit index to keep track of where these pages are<ul>
+<li>each line in this table stores the physical address of the relevant page table page</li>
+<li>there must also be a 10-bit offset, used to index this chunk of the page table</li>
+<li>and a 12-bit offset to index into the physical page, which gives the original byte you're looking for</li>
+</ul>
+</li>
+<li>theoretically, all pages with content in the page table should be in main memory (otherwise you would generate a page fault just to access the page table)</li>
+<li>there is one page table per process</li>
+<li>the kernel then needs to keep track of memory usage and page tables for each process, decide when to swap etc</li>
+<li>LRU policy: kernel keeps a sorted list of when things were last accessed, those at the back at the list get swapped eventually etc</li>
+</ul>
+<h2 class="header"><i>2</i>Caching<a class="headerlink" href="#caching" name="caching">&para;</a></h2>
+<p>When discussing datapaths, we assumed that reading from and writing to memory was nearly instantaneous, such that it could be done within a single clock cycle. We now know that that is not the case - not only does accessing an entry in main memory actually require <em>two</em> accesses (one to get its physical address, the other to get the entry), but this process can be very slow if the page is not in main memory.</p>
+<p>The solution to this is to use a <strong>cache</strong> - a small but extremely quick storage in main memory (SRAM) to hold frequently accessed data and instructions. Such caches can be accessed within a single clock cycle. We now proceed to <strong>translation lookaside buffers</strong>, a very fundamental type of cache.</p>
+<h3 class="header"><i>2.1</i>Translation lookaside buffers<a class="headerlink" href="#translation-lookaside-buffers" name="translation-lookaside-buffers">&para;</a></h3>
+<p>All memory accesses require first looking up the translation of a virtual memory address to a physical memory address. Since this is so commonly done, we can speed up this process by implementing a cache for the translations themselves. Here's how it integrates with the previously mentioned datapaths:</p>
+<ul>
+<li>instruction fetch (current instruction is read from memory): TLB hit to get the physical memory address, then instruction cache hit using that address to get the actual instruction (assuming both cache accesses are hits and not misses, this can be done in one clock cycle)</li>
+<li>data memory access (MEM stage): TLB to get the physical memory address, data cache hit using that address to get the data<ul>
+<li>note that in a pipelined system, TLB would have to be split ino two parts - one for instructions, one for data</li>
+<li>this would be done for the same reason that we have one instruction cache and one data cache (i.e. so that different pipeline stages can access each)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.1.1</i>TLB organisation<a class="headerlink" href="#tlb-organisation" name="tlb-organisation">&para;</a></h4>
+<p>How is the TLB organised? In fact, they are organised in a manner similar to that of hash tables. Let's say there are 2<sup>9</sup> entries in the TLB, and that page numbers are 20 bits. Now, all the TLB really needs to do is provide the physical memory address associated with any virtual address. To speed this up a bit, we separate the 20-bit page number into a 9-bit index and a 11-bit tag. If the tag in the TLB for a certain 9-bit index matches the tag we're looking for, then the physical address we need is indeed in the cache; else, it's a cache miss.</p>
+<p>We also must consider that the TLB may contain translations from different processes. The standard way of distinguishing between different processes' translations is by adding a "Process ID" column, and only proceeding with the cache lookup if the process ID of the current process (stored in a special register) matches the one in the cache.</p>
+<p>Each entry in the TLB also contains a "valid bit" column, which is set to 1 when the process is running and 0 once it has stopped running.</p>
+<p>To summarise, the following conditions must be met for a cache hit to occur:</p>
+<div class="codehilite"><pre>* The process IDs must match
+* The valid bit must be 1
+* The 11-bit tag must match the upper 11 bits of the page number
+</pre></div>
+
+
+<p>The physical page number stored in the TLB is then concatenated with the page offset, and this physical address is used to access the relevant entry in memory. This all happens in one clock cycle.</p>
+<p>Note that the TLB can only contain translations for addresses whose pages are held in main memory, not the hard disk. If a page is not in main memory when its number is being looked up in the TLB, a page fault will occur and the newly acquired address of the page in main memory will be stored in the TLB.</p>
+<p>(A diagram of the circuit may be useful here, if there is time.)</p>
+<h4 class="header"><i>2.1.2</i>TLB misses<a class="headerlink" href="#tlb-misses" name="tlb-misses">&para;</a></h4>
+<ul>
+<li>if a TLB miss occurs, program jumps to exception handler, and a special kernel program (the TLB miss handler) takes over<ul>
+<li>program checks the page table of the current process, to see if the desired word/byte/etc is in memory (i.e. valid bit of 1)</li>
+<li>if yes, TLB refill, sets TLB valid bit to 1, return control to program</li>
+<li>else, program is on hard disk and not main memory - page fault handler is called, which updates things</li>
+<li>upon page swap completion, return to miss handler, which copies the page table entry in the TLB; then, return to program</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Data and instruction caches - direct mapping<a class="headerlink" href="#data-and-instruction-caches-direct-mapping" name="data-and-instruction-caches-direct-mapping">&para;</a></h3>
+<p>The data cache and the instructions cache differ in that while the former is read/write, the latter is read-only (during runtime) <sup>confirm?</sup>.</p>
+<p>Let the cache size be 128 KB (2<sup>17</sup> bytes). There are several ways of organising the cache:</p>
+<h4 class="header"><i>2.2.1</i>One byte per entry<a class="headerlink" href="#one-byte-per-entry" name="one-byte-per-entry">&para;</a></h4>
+<ul>
+<li>same concept as the direct mapping approach used for the TLB</li>
+<li>here the input is a physical memory address and the output is the byte we want to access (of data, or part of an instruction)</li>
+<li>the columns would be:<ul>
+<li>the 17-bit index</li>
+<li>the upper 13 bits of the physical address used as the tag</li>
+<li>the byte of data</li>
+<li>valid bit - 1 if there is indeed something stored in here, 0 if the contents are junk (left over from a previous process for example)</li>
+<li>dirty bit - 1 if the byte has been written to since it was brought into the cache</li>
+</ul>
+</li>
+<li>no process ID field needed, as multiple processes can and should have access to the same byte (e.g. an instruction)</li>
+<li>here's what happens:<ul>
+<li>the lower 17 bits of the 30-bit physical address are used as an index into the cache</li>
+<li>the upper 13 bits of the physical address are compared with the 13-bit tag</li>
+<li>if the above match, and the valid bit is on, then we take the byte in the cache</li>
+<li>otherwise, a cache miss occurs and the cache entry needs to be refilled</li>
+<li>more on the use of the dirty bit later</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.2</i>One word per entry<a class="headerlink" href="#one-word-per-entry" name="one-word-per-entry">&para;</a></h4>
+<ul>
+<li>another method: same as above, except instead of storing a byte in each cache entry, store a word (since words are used so often)</li>
+<li>if the size of the cache is the same (128 KB), then we would have 2<sup>15</sup> lines in the cache<ul>
+<li>so we need 15 bits to index</li>
+<li>and since there are 2<sup>28</sup> words, we need a 13-bit tag</li>
+</ul>
+</li>
+<li>byte offset: lowest 2 bits of an address; for the bytes in a word, they should be 00, 01, 10, 11 (in that order<sup>confirm?</sup>)<ul>
+<li>according to the diagram, they are actually separate bits; this is kind of ambiguous in the lecture notes though</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.3</i>One block per entry<a class="headerlink" href="#one-block-per-entry" name="one-block-per-entry">&para;</a></h4>
+<ul>
+<li>the above took advantage of spatial locality through the use of words</li>
+<li>another way of using spatial locality is through recognising that instructions are typically executed in sequence (branches/jumps are the exception, and they're less common)</li>
+<li>so when an instruction is copied into the cache, we can copy the neighbours as well</li>
+<li>we can do the same for data - this is useful for arrays, for instance</li>
+<li>to implement this, we can allow each cache entry to hold a <strong>block</strong>, that is, a certain number of words that are consecutive in memory</li>
+<li>a 128 KB cache can hold up to 2<sup>13</sup> 4-word blocks<ul>
+<li>so we need 13 bits to index</li>
+<li>and since there are 2<sup>26</sup> such blocks, we again need a 13-bit tag</li>
+</ul>
+</li>
+<li>we also need a byte offset, and a block offset (to specify the word within the block)<ul>
+<li>again, whether these are part of the 13-bit index or whether they are independent of it is ambiguous in the lecture notes</li>
+<li>in any case, to read a word out of memory, we use the block offset as a selector for one of four words</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>2.2.4</i>Cache hits and misses<a class="headerlink" href="#cache-hits-and-misses" name="cache-hits-and-misses">&para;</a></h4>
+<ul>
+<li>instructions cache is fairly simple, same concept as the TLB cache hit/miss system</li>
+<li>for teh data cache, since we can read and write to it, it often happen that the contents of the data cache aren't the same as that in memory</li>
+<li>so there are two policies for dealing with this - write through and write back<ul>
+<li>write through: ensures cache block is consistent with corresponding memory block<ul>
+<li>updates the cache to reflect the value in memory if there is a miss</li>
+<li>when writing a word, write through then copies the value both to the cache AND to the location in memory</li>
+<li>if there is a miss while writing, the word is copied from main memory to the cache, then the above process occurs</li>
+<li>which seems kind of silly but whatever</li>
+</ul>
+</li>
+<li>write back policy: avoids copying the updated code block back unless absolutely necessary<ul>
+<li>the cache holds the most updated version</li>
+<li>we only write it back to main memory when some other block wants to use this entry (i.e. there is a miss)</li>
+<li>the dirty bit is used to keep track of whether the cache is more updated than the version in main memory or not</li>
+<li>in this scheme, "write hit" is cheaper and "read miss" is more expensive, because you have to write back the value of the thing currently occupying the cache line</li>
+<li>write-back is usually better for large caches</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.3</i>Fully associative caches<a class="headerlink" href="#fully-associative-caches" name="fully-associative-caches">&para;</a></h3>
+<ul>
+<li>the direct mapping scheme above doesn't give the best performance</li>
+<li>one reason: many different physical addresses that can map to one cache line (<strong>collisions</strong>)<ul>
+<li>but, there can only be one such entry in the cache at any given time</li>
+<li>you could end up with two instructions, both used very frequently, but they must keep replacing each other in the cache</li>
+<li>results in many cache misses</li>
+</ul>
+</li>
+<li>fully associative cache: pretty much the exact opposite; get rid of the index, tag is the entire 26-bit address (for a 4-word block)</li>
+<li>to find a block, we search through the entire cache, looking for the line with the same tag</li>
+<li>this allows blocks to be anywhere in the cache</li>
+<li>downsides: need special circiuts to check if the tag matches at each cache line<ul>
+<li>to fit this design on the chip, we need to use fewer blocks, and hence store fewer things in the cache</li>
+<li>we also need to develop a scheme on how to remove items from the cache (the least recently used, etc)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.4</i>N-way set associative cache<a class="headerlink" href="#n-way-set-associative-cache" name="n-way-set-associative-cache">&para;</a></h3>
+<ul>
+<li>compromise between direct mapping and fully associative cache</li>
+<li>the idea is to use N direct mapped caches, so that a block can be stored in any of the N</li>
+<li>or, you can think of it as having (number of blocks in cache) / N direct mapped caches (sets) - we'll use this definition</li>
+<li>for example, if N = 2, and our cache can hold 13 blocks, then we can have 2<sup>12</sup> sets, each of which can hold 2 blocks</li>
+<li>we can index this cache by taking the block number, mod the set number (?)</li>
+<li>so either the block we want can be in a specific place in any of the direct maps, or in any place in a specific section<ul>
+<li>seems like we're using the former for this course - see diagram in <a href="http://www.cim.mcgill.ca/~langer/273/18-cache1-slides.pdf">lecture slides</a></li>
+<li>good explanation of the latter: <a href="http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Memory/set.html">http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Memory/set.html</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>I/O<a class="headerlink" href="#io" name="io">&para;</a></h2>
+<h3 class="header"><i>3.1</i>System bus<a class="headerlink" href="#system-bus" name="system-bus">&para;</a></h3>
+<ul>
+<li>way of connecting CPU, main memory, and I/O devices</li>
+<li>bus: set of wires for transmitting information, shared by many devices</li>
+<li>assume there is only one system bus, for simplicity (modern computers have multiple)</li>
+<li>advantage: reduces the number of connections in computer<ul>
+<li>no need for each I/O device to have a direct connection to the CPU/main memory</li>
+</ul>
+</li>
+<li>disadvantages:<ul>
+<li>only one signal can be carried at a time</li>
+<li>reduces perform, because any one component must wait until the bus is free before it can start using it</li>
+<li>communication about who gets the use the bus takes time too</li>
+<li>requires a slower clock speed than the CPU, as components on the bus are far away from each other, due to the speed of light<ul>
+<li>e.g. if the processor is 3 GHz, voltages travel at most 10 cm per clock pulse, which isn't large enough</li>
+<li>also doesn't take into account the time needed to read/write from/to the bus, or for circuits to stabilise</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>components:<ul>
+<li>data bus</li>
+<li>address bus</li>
+<li>control bus</li>
+</ul>
+</li>
+<li>how it works, with <code>lw</code> as an example:<ul>
+<li>CPU puts physical address of new block onto address bus</li>
+<li>CPU sets control signals (ReadMem = 1, WriteMem = 0) on the control bus</li>
+<li>main memory puts the requested block onto the data bus (takes several bus cycles, as every word is sent separately)</li>
+<li>CPU reads the data bus, block written into the data cache</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.2</i>I/O controllers<a class="headerlink" href="#io-controllers" name="io-controllers">&para;</a></h3>
+<ul>
+<li>electronics, inside the computer case, responsible for read/write with system bus</li>
+<li>might contain: clock, registers, ROM circuits, memory, PC, etc</li>
+<li>the software equivalent is device drivers, which are part of the kernel and which reside in main memory or on disk</li>
+<li>external devices (peripheral) - outside the case, don't plug directly into the system bus, but instead into a port (part of the I/O controller sitting on the motherboard?)</li>
+<li>need a tri-state buffer for the system bus, as only one can device write to it at a time</li>
+<li>input devices:<ul>
+<li>keyboard<ul>
+<li>one byte of data entered at a time</li>
+<li>address of I/O device is stored in an IOdeviceID register</li>
+<li>would put it byte of data on the data bus IF the ReadIO control signal = 1 AND address of I/O devices matches lower 7 bits of address on bus AND a key is pressed</li>
+</ul>
+</li>
+<li>mouse<ul>
+<li>converts mechanical action into packets of data which are decoded by the controller</li>
+<li>packets written into buffers, which are then sent over bus</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>output devices:<ul>
+<li>printers<ul>
+<li>often use postscript</li>
+<li>instructions interpreted, converted into raster</li>
+<li>doesn't put anything on data bus, so doesn't need a tri-state buffer</li>
+<li>to check when incoming data is meant for the printer: read from all the buses, only take data if the control signal is set and the address matches the printer address</li>
+</ul>
+</li>
+<li>monitor<ul>
+<li>rectangular array of <strong>pixels</strong> (picture elements)</li>
+<li>each has numbers stored: red, green, and blue</li>
+<li>each number represents the brightness of that colour, from 0 to 255 (0 to FF, or, 00000000 to 11111111 so one byte per colour)</li>
+<li>for a monitor of 1024 by 768 pixels, 3 bytes per pixel, that's about 3 MB just for the image display of the monitor</li>
+<li>these pixel values are stored in the frame buffer (we pretend it's in main memory, even though modern computers have it on the graphics card)</li>
+<li>frame buffer is read at the monitor refresh rate (e.g. every 1/60th of a second)</li>
+<li>so pixels would have to be read from memory at 50 million pixels or 150 MB per second</li>
+<li>which is unfeasible - system bus would have to spend much time just transferring pixels</li>
+<li>one solution: dedicated, read-only bus ("video bus") to carry pixels</li>
+<li>still, pixel values need to be computed for each frame - this had to be done by the CPU in the past, and the CPU still had to use the system bus to send the pixel values to the frame buffer, which clogged up the system bus and slowed down the CPU</li>
+<li>solution to that: graphics processing unit (GPU)</li>
+<li>second processor, specialised for making images</li>
+<li>instructions having to do with graphics (e.g. to draw a line on the monitor or something) are sent to the GPU</li>
+<li>GPU takes care of all the graphics stuff, has its own frame buffer and RAM (together with those, called the <strong>graphics card</strong>)</li>
+<li>but the more complex the GPU is, the more complex the design has to be - own registers and controls, own FPU, own instructions; must be pipelined, etc; makes the cards expensive</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>two distinct methods of addressing I/O devices from an assembly language<ul>
+<li>first, <strong>isolated I/O</strong>: special instructions for I/O operations in the assembly language itself</li>
+<li>second, <strong>memory-mapped I/O</strong>: addresses of the registers/memory for each I/O devide are in a dedicated region of the virtual address space, so that you can use things like <code>lw</code> and <code>sw</code> to access them<ul>
+<li>this keeps instruction sets small, which is one of the goals of MIPS</li>
+</ul>
+</li>
+<li>note: syscall, while capable of doing I/O, is neither of the above; it simply branches to the kernel, which then determines whether isolated or memory-mapping is used</li>
+<li>memory-mapped I/O in spim:<ul>
+<li>one input device (keyboard)</li>
+<li>one output device (display)</li>
+<li>each device has 2 registers - control, and data<ul>
+<li>control's LSB indicates whether the corresponding data register is ready (i.e. character has been typed, and is contained in the data register for the input, or that the output data register is ready to receive a byte from the CPU)</li>
+</ul>
+</li>
+<li>addresses in kernel's address space</li>
+<li>this is fairly limited</li>
+<li>real MIPS processors would have several I/O devices, many registers, addresses, local memories etc</li>
+</ul>
+</li>
+<li>to load some byte from the memory-mapped I/O region:<ul>
+<li>use <code>lb</code> etc</li>
+<li>the hardware must recognise that the desired address is not part of the cache, but rather in the I/O device's memory</li>
+<li>kind of like a cache miss, except the actual data is found withiin the I/O device</li>
+<li>so the CPU puts the address of the required device on the address bus, sets controls on the control bus indicating the CPU wants data from that device</li>
+<li>I/O controller reads the bus, responds with the data</li>
+<li>quite similar in concept to getting data from main memory</li>
+<li>same idea with output</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.3</i>Polling<a class="headerlink" href="#polling" name="polling">&para;</a></h3>
+<ul>
+<li>wait until the input device is ready before getting its data</li>
+<li>can be done by repeatedly checking the input control register bit until it's 1</li>
+<li>use a fairly simple mips loop (<code>lw</code>, <code>andi</code> to clear all bits except LSB, <code>beq</code>; if it's not zero, then read from the data register, at least in the case of memory-mapped I/O; the instructions are different for isolated I/O)</li>
+<li>not efficient, with many cycles wasted just looping nd waiting for the ready bit</li>
+<li>more efficient: finite for loop<ul>
+<li>time spent looping depends on the number of other processes, the importance of having I/O etc</li>
+</ul>
+</li>
+<li>buffered input:<ul>
+<li>circular array to store characters entered by user</li>
+<li>front and back registers, to hold number of characters entered and number read by CPU</li>
+<li>when the char buffer is full, further keystrokes are ignored</li>
+<li>when it's not fll, ready to provide chars to CPU</li>
+<li>could be a circuit to test for these conditions</li>
+<li>can cause delays for the user, for example if the system bus is being used by something else, so buffer fills up as the user keeps typing, but the CPU can't read from the input and send it to the output until the sytem bus is available</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.4</i>Direct memory access<a class="headerlink" href="#direct-memory-access" name="direct-memory-access">&para;</a></h3>
+<ul>
+<li>another I/O mechanism</li>
+<li>communication between memory and I/O device</li>
+<li>specialised set of circuits, registers, local memory, communicate with main memory over system bus</li>
+<li>called DMA controller - so the CPU doesn't have to do this</li>
+<li>CPU controller only needs to tell DMA controller what to do, then the CPU can do other stuff while the DMA controller uses the bus</li>
+<li>for example, when a page fault occurs, CPU tells the DMA controller of the hard disk:<ul>
+<li>physical page address in main memory to swap out</li>
+<li>physical page address on the hard disk</li>
+<li>control signals (what to do)</li>
+<li>these are set by placing values in various registers</li>
+<li>CPU does this by putting address of register on address bus, and value on data bus, and control signals (for writing)</li>
+<li>then, DMA controller can initiate the memory transfer, by copying the values from main memory (using the bus) to local memory, then writing to disk</li>
+</ul>
+</li>
+<li>how the CPU and DMA decide who gets to use the bus at any given time - must communicate<ul>
+<li>bus request (BR) line, DMA to CPU</li>
+<li>bus granted (BG) line, CPU to DMA</li>
+<li>if CPU is using the bus, BG = 0; else, BG = 1 (disconnects from bus - shuts down tri-state buffers, stops writing)</li>
+<li>when DMA is ready to use the bus, BR = 1, and CPU lets it take over after</li>
+<li>these are obviously not sent along the system bus - separate direct lines, must always be available</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.5</i>Hard disk performance<a class="headerlink" href="#hard-disk-performance" name="hard-disk-performance">&para;</a></h3>
+<ul>
+<li>hard disk controller has local memory (DRAM), called disk cache</li>
+<li>when pages are read from disk, first put in cache, then main memory; when written to disk, first written to cache, then moved to disk itself</li>
+<li>could read neighbouring physical pages as well, at the same time, to improve performance</li>
+<li>disk fragmentation:<ul>
+<li>after a while, disk might not have large intervals, so you can't store large blocks</li>
+<li>we can periodically degragment the disk, increase the number of large empty gaps</li>
+</ul>
+</li>
+<li>instead of performing r/w in order of request (when there are several), sort the list so that they could be accessed in one spin</li>
+</ul>
+<h3 class="header"><i>3.6</i>Interrupts<a class="headerlink" href="#interrupts" name="interrupts">&para;</a></h3>
+<ul>
+<li>more efficient than polling at coordinating CPU and I/O</li>
+<li>similar to bus requests, but different - bus request asks CPU to get off the bus so DMA can use it</li>
+<li>interrupt asks CPU to stop what it's doing and do something for the DMA instead</li>
+<li>can occur from input or output devices</li>
+<li>example of input interrupt: mouse click, keyboard press, or Ctrl+Alt+Delete</li>
+<li>output: printer runs out of paper, etc, so the CPU can send a message to the user</li>
+<li>mechanism: similar to bus request, a control signal called IRQ is set to 1<ul>
+<li>if the CPU does not ignore it (which can occur sometimes), CPU sets IACK to 1 (interupt acknowledge)</li>
+<li>CPU then stops writing on system bus (turns off tristate gates)</li>
+<li>I/O observes that IACK is 1, so it can start writing to bus</li>
+</ul>
+</li>
+<li>could have separate IRQ and IACK lines for each I/O device, or, have all the I/O devices to share one IRQ line, then have the CPU ask all the I/O devices which one sent the interrupt</li>
+<li>better method: daisy chaining, so I/O devices coordinate which one of them can interrupt the CPU at any given time<ul>
+<li>priority ordering, so lower priority devices cannot interrupt higher ones that are interrupting the CPU</li>
+<li>physical ordering, based on OR gates</li>
+<li>each I/O device: IACKin, IACKout lines (IACKin of one connected to IACKout out of higher priority device)</li>
+<li>any device can interrupt, CPU responds with IACK of 1 to the highest priority I/O device</li>
+<li>if a device requested the interrupt, IACKout set to 0; else, set to 1 (continues)</li>
+<li>whenever IACKin switches from 0 to 1, sets IACKout = 0 if it requested interrupt, or 1 if it did not</li>
+<li>this is done so that two I/O devices don't simultaneously write to the system bus</li>
+<li>if low priority device's interrupt is interrupted by a higher priority one, lower one killed first by the high priority one changing its IACKout to 0 (mimicking the CPU ignoring it basically), so the low priority one finishes up, sets IRQ to 0, so CPU sets IACK back to 0, then high priority time</li>
+<li>when a device gets acknowledged, it writes its address on the system bus</li>
+<li>CPU reads it, takes appropriate action (may ignore it if it's low priority etc)</li>
+<li>so, steps:<ul>
+<li>IRQ 0-&gt;1: I/O device sends interrupt signal</li>
+<li>IACK 0-&gt;1: CPU responds, asking what the I/O device wants and what it is</li>
+<li>System bus, device number written: I/O devices identifies itself, states what it wants (control line maybe?)</li>
+<li>IACK 1-&gt;0: CPU will ignore interrupt request</li>
+<li>Otherwise, if not set, it might send a message back on system bus; I/O device must tri-state to listen to CPU's response</li>
+<li>Daisy chaining can be used with DMA, only instead of IRQ and IACK, use BR and BG signals</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>interrupt handlers:<ul>
+<li>when interrupts occur during program execution, process branches to exception handler in kernel</li>
+<li>kernel examines the cause and status registers, and handles the interrupt if necessary</li>
+<li>similar in nature to function calls</li>
+<li>kernel disables other interrupts, and saves state information (EPC, etc) allowing you to go back to the prior state of execution</li>
+<li>interrupts can be nested</li>
+<li>priority ordering imposed on kernel routines and possible interrupts</li>
+<li>for example, kernel should not be interrupted while saving state information, so it should be unnterruptable</li>
+<li>also, lower priority I/O should not interrupt higher priority interrupt handlers, but the other way around is okay</li>
+<li>so, kernel needs to:<ul>
+<li>disable interrupts while saving process state</li>
+<li>then, enable higher-priority interrupts</li>
+<li>deal with interrupt</li>
+<li>restore process state</li>
+<li>return from interrupt, enable interrupts again</li>
+</ul>
+</li>
+<li>bitwise, we can disable interrupts by turning off certain interrupt enable bits in the status register, with <code>ori</code> and <code>and</code> etc</li>
+</ul>
+</li>
+<li>process scheduling: CPU timer, keeps track of how many clock cycles the current process is using<ul>
+<li>when it has used enough, interrupt occurs, kernel saves state of current process, switches to another one</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.7</i>Exceptions during pipelining<a class="headerlink" href="#exceptions-during-pipelining" name="exceptions-during-pipelining">&para;</a></h3>
+<ul>
+<li>IF stage: page faults, memory protection violation</li>
+<li>ID: invalid op code</li>
+<li>ALU: arithmetic exception (div by 0, integer overflow)</li>
+<li>MEM: page fault, mem protection violation</li>
+<li>WB: none</li>
+<li>if there is an exception at one stage, the instruction just ahead in the pipeline would be allowed to finish</li>
+<li>then, process is paused, state of the process is saved</li>
+<li>exception is handled, process state restored, pipeline continues (at the beginning)</li>
+</ul>
+<h3 class="header"><i>3.8</i>System bus synchronisation<a class="headerlink" href="#system-bus-synchronisation" name="system-bus-synchronisation">&para;</a></h3>
+<ul>
+<li>though the clock speed is lower than that of the CPU, there is still a clock, and things are done synchronously</li>
+<li>but synchronous system buses don't work so well when there are large distances to travel</li>
+<li>in that case, use asynchronous I/O</li>
+<li>two methods: handshaking, serial I/O</li>
+</ul>
+<h4 class="header"><i>3.8.1</i>Handshaking<a class="headerlink" href="#handshaking" name="handshaking">&para;</a></h4>
+<ul>
+<li>source-initiated handshaking: sender sends a "data request" control signal, then puts data on the line (usually multiple parallel lines)<ul>
+<li>receiver reads control, reads data, replies with "data acknowledge" control signal</li>
+<li>source receives acknowledgement, stops writing data, resets data request line to 0, resets data acknowledge line to 0</li>
+</ul>
+</li>
+<li>destination-initiated handshaking: receiver initiates it by settings its data request control signal to 1<ul>
+<li>source reads it, puts data on line, sends data ready signal</li>
+<li>receiver reads data ready signal, reads data, resets the data request signal to 0</li>
+<li>sender turns off data ready signal, stops writing data</li>
+</ul>
+</li>
+<li>no clock involved - all asynchronous, waits for the other side to be done etc</li>
+<li>example of this scheme: parallel port, for printin<ul>
+<li>a bunch of different wires, some of which are output only (e.g. source ready, data), others are input only (e.g. ACK, busy, no paper)</li>
+<li>source-initiated handshaking method (so CPU tells printer controller when it needs to print something)</li>
+<li>CPU sends data, printer reads, then sets ACK to 1, then controller stops sending data; if it cannot keep up with the data ready signals, the printer sets BUSY to 1, and the controller waits before trying again</li>
+</ul>
+</li>
+<li>you can use an asynchronous, handshaking scheme for the system bus itself (source- or destination- initiated)<ul>
+<li>for a shared bus, one device must be the one deciding who gets to to write to each line of the bus (CPU - master/slave)</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.8.2</i>Serial bus<a class="headerlink" href="#serial-bus" name="serial-bus">&para;</a></h4>
+<ul>
+<li>completely different - sequence of signal pulses traveling down a wire</li>
+<li>clock is necessary since you have to time the reads of the pulses, but data is not constant over the bus</li>
+<li>frequency of serial bus measured in bits per second (bauds)</li>
+<li>clock speed much slower than the CPU</li>
+<li>how the receiver reads from the serial bus:<ul>
+<li>sender/receiver have agreed on a bit duration T, and the number to be transmitted</li>
+<li>sender sets wire to 1 for the normal, non-transmitting state, then switches it to 0 (start bit) to indicate that data is about to be transferred</li>
+<li>receiver waits half the bit duration, checks that the signal is still 0 (to make sure it wasn't just noise)</li>
+<li>then, 1 T later, it samples the signal, repeatedly sampling every T for as many bits as it's expecting</li>
+<li>samples from the middle of the pulse - avoids transition at boundaries</li>
+<li>after reading all the expected bits, it reads a stop bit (1) - necessary to ensure some spacing between bytes</li>
+<li>receiver only starts sampling again when it transitions from 1 to 0 (again)</li>
+<li>sender and receiver each have their own clock, which can be of different speeds (clock cycles much shorter than T)</li>
+</ul>
+</li>
+<li>mechanisms for error-checking (noise, etc):<ul>
+<li>parity bits: even parity bit, set to 1 if there is an even number of 1s, set to 0 otherwise; if there's one error, it will be detected</li>
+</ul>
+</li>
+<li>hardware-wise:<ul>
+<li>sender must be able to convert bytes -&gt; bit sequences (parallel-in serial-out shift register)</li>
+<li>receiver: bit sequences -&gt; bytes (serial-in parallel out shift register)</li>
+<li>UART: I/O controller that can convert serial/parallel to parallel/serial (does the bit/byte conversion)<ul>
+<li>has several registers, for communicating with other devices</li>
+<li>also has special circuits to remove the start/stop bits, check for parity</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>USB (universal serial bus)<ul>
+<li>USB devices connect to a computer in a tree structure</li>
+<li>root is the USB controller, inside the computer (host)<ul>
+<li>single host can have up to 127 devices connected to it</li>
+<li>uses polling to communicate with devices</li>
+<li>can handle very fast data transfer (500 Mbits/sec for example)</li>
+</ul>
+</li>
+<li>drivers usually included in OS already, or downloaded automatically etc ("plug and play")</li>
+<li>reasons for safely removing hardware:<ul>
+<li>any changes written to a file may not have been saved to the USB device itself (more recent version in the cache etc, not written back - only for the write back policy)</li>
+<li>voltage fluctuations</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

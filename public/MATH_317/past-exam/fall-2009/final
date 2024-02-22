@@ -1,0 +1,354 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2009 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2009 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><a href="http://s3.amazonaws.com/docuum/attachments/7653/Fall%202009%20Final.pdf">View the exam on docuum</a></p>
+<p>Coming soon.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a><ul>
+<li><a href="#part-a">1.1.1 Part (a)</a></li>
+<li><a href="#part-b">1.1.2 Part (b)</a></li>
+<li><a href="#part-c">1.1.3 Part (c)</a></li>
+<li><a href="#part-d">1.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a><ul>
+<li><a href="#part-a_1">2.1.1 Part (a)</a></li>
+<li><a href="#part-b_1">2.1.2 Part (b)</a></li>
+<li><a href="#part-c_1">2.1.3 Part (c)</a></li>
+<li><a href="#part-d_1">2.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a><ul>
+<li><a href="#part-a_2">3.1.1 Part (a)</a></li>
+<li><a href="#part-b_2">3.1.2 Part (b)</a></li>
+<li><a href="#part-c_2">3.1.3 Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a><ul>
+<li><a href="#part-a_3">4.1.1 Part (a)</a></li>
+<li><a href="#part-b_3">4.1.2 Part (b)</a></li>
+<li><a href="#part-c_3">4.1.3 Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a><ul>
+<li><a href="#part-a_4">5.1.1 Part (a)</a></li>
+<li><a href="#part-b_4">5.1.2 Part (b)</a></li>
+<li><a href="#part-c_4">5.1.3 Part (c)</a></li>
+<li><a href="#part-d_2">5.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a><ul>
+<li><a href="#part-a_5">6.1.1 Part (a)</a></li>
+<li><a href="#part-b_5">6.1.2 Part (b)</a></li>
+<li><a href="#part-c_5">6.1.3 Part (c)</a></li>
+<li><a href="#part-d_3">6.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_6">7.1 Solution</a><ul>
+<li><a href="#part-a_6">7.1.1 Part (a)</a></li>
+<li><a href="#part-b-i">7.1.2 Part (b) (i)</a></li>
+<li><a href="#part-b-ii">7.1.3 Part (b) (ii)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_6">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Part (a)<a class="headerlink" href="#part-a" name="part-a">&para;</a></h4>
+<blockquote>
+<p>Exactly one root in interval</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>1.1.2</i>Part (b)<a class="headerlink" href="#part-b" name="part-b">&para;</a></h4>
+<blockquote>
+<p>Apply bisection method</p>
+</blockquote>
+<p>just apply it</p>
+<h4 class="header"><i>1.1.3</i>Part (c)<a class="headerlink" href="#part-c" name="part-c">&para;</a></h4>
+<blockquote>
+<p>number of steps req'd to ensure certain precision</p>
+</blockquote>
+<p><span>$$n = \log_2\left ( \frac{b-a}{\text{max error}} \right )$$</span></p>
+<h4 class="header"><i>1.1.4</i>Part (d)<a class="headerlink" href="#part-d" name="part-d">&para;</a></h4>
+<blockquote>
+<p>Rank iterative methods based on order of convergence</p>
+</blockquote>
+<p>Compute <span>$g'$</span> and <span>$g''$</span> I guess.</p>
+<p>(i) Both derivs are non-zero. Quadratic<br />
+(ii) <span>$g'$</span> is 0. Linear<br />
+(iii) <span>$g'$</span> is non-zero, <span>$g''$</span> is non-zero. Quadratic</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Part (a)<a class="headerlink" href="#part-a_1" name="part-a_1">&para;</a></h4>
+<blockquote>
+<p>Define lagrange polys</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>2.1.2</i>Part (b)<a class="headerlink" href="#part-b_1" name="part-b_1">&para;</a></h4>
+<blockquote>
+<p>Show uniqueness</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>2.1.3</i>Part (c)<a class="headerlink" href="#part-c_1" name="part-c_1">&para;</a></h4>
+<blockquote>
+<p>Find specific poly</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>2.1.4</i>Part (d)<a class="headerlink" href="#part-d_1" name="part-d_1">&para;</a></h4>
+<blockquote>
+<p>Find error bound</p>
+</blockquote>
+<p>see htsefp</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Part (a)<a class="headerlink" href="#part-a_2" name="part-a_2">&para;</a></h4>
+<blockquote>
+<p>Lagrange vs Hermite, clamped vs natural cubic spline</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>3.1.2</i>Part (b)<a class="headerlink" href="#part-b_2" name="part-b_2">&para;</a></h4>
+<blockquote>
+<p>Constants for natural cubic spline</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>3.1.3</i>Part (c)<a class="headerlink" href="#part-c_2" name="part-c_2">&para;</a></h4>
+<blockquote>
+<p>Bezier</p>
+</blockquote>
+<p>I don't understand the question and I won't respond to it</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Part (a)<a class="headerlink" href="#part-a_3" name="part-a_3">&para;</a></h4>
+<blockquote>
+<p>Show that some finite-diff formula holds for the second deriv</p>
+</blockquote>
+<p>Use Taylor</p>
+<h4 class="header"><i>4.1.2</i>Part (b)<a class="headerlink" href="#part-b_3" name="part-b_3">&para;</a></h4>
+<blockquote>
+<p>Apply the above formula to make some approximation</p>
+</blockquote>
+<p>Apply the formula</p>
+<h4 class="header"><i>4.1.3</i>Part (c)<a class="headerlink" href="#part-c_3" name="part-c_3">&para;</a></h4>
+<blockquote>
+<p>Find the error bound.</p>
+</blockquote>
+<p>I think the error bound is given by</p>
+<p><span>$$\frac{h^2}{12}M + \frac{4\delta}{h^2}$$</span></p>
+<blockquote>
+<p>Determine the value of <span>$h$</span> to minimise the error bound.</p>
+</blockquote>
+<p>The function we want to minimise is</p>
+<p><span>$$\frac{h^4M + 48\delta}{12h^2}$$</span></p>
+<p>Plug in <span>$\delta = 1\times 10^{-16}$</span> and <span>$M = 3$</span>:</p>
+<p><span>$$\frac{3h^4 + 48\times 10^{-16}}{12h^2} = \frac{h^2}{4} + \frac{4 \times 10^{-16}}{h^2} \tag{not sure why I switched the format back}$$</span></p>
+<p>Take the first derivative and set that equal to 0:</p>
+<p><span>$$\frac{2h}{4} - \frac{8 \times 10^{-16}}{h^3} = \frac{2h^4 - 32\times 10^{-16}}{4h^3} = 0$$</span></p>
+<p>Thus <span>$2h^4 = 32\times 10^{-16}$</span>. Solving for <span>$h$</span>, we get:</p>
+<p><span>$$h = \sqrt[4]{\frac{32 \times 10^{-16}}{2}} = \sqrt[4]{16\times 10^{16}} = \sqrt{4 \times 10^{-8}} = 2\times 10^{-4} \; \blacksquare$$</span></p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>Quadrature</p>
+<h4 class="header"><i>5.1.1</i>Part (a)<a class="headerlink" href="#part-a_4" name="part-a_4">&para;</a></h4>
+<blockquote>
+<p>Define deg of acc for quad</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.2</i>Part (b)<a class="headerlink" href="#part-b_4" name="part-b_4">&para;</a></h4>
+<blockquote>
+<p>Find deg of acc</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.3</i>Part (c)<a class="headerlink" href="#part-c_4" name="part-c_4">&para;</a></h4>
+<blockquote>
+<p>Find some constant <span>$k$</span></p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.4</i>Part (d)<a class="headerlink" href="#part-d_2" name="part-d_2">&para;</a></h4>
+<blockquote>
+<p>Evaluate <span>$I_h(f)$</span></p>
+</blockquote>
+<p>see htsefp</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>Trapezoidal rule</p>
+<h4 class="header"><i>6.1.1</i>Part (a)<a class="headerlink" href="#part-a_5" name="part-a_5">&para;</a></h4>
+<blockquote>
+<p>Apply composite trapezoidal rule</p>
+</blockquote>
+<p>When <span>$h=0.5$</span>: the first trapezoid goes from <span>$x=1$</span> to <span>$x=1.5$</span>. <span>$f(1) = 1$</span>, <span>$f(1.5) = 2/3$</span>. Area of the trapezoid is <span>$0.5 * (5/6) = 5/12$</span>. The second trapezoid goes from <span>$x=1.5$</span> to <span>$x=2$</span>. <span>$f(1.5 = 2/3$</span>, <span>$f(2) = 0.5$</span>. Area of the trapezoid is <span>$0.5 * 7/12 = 7/24$</span>. The total area is <span>$5/12 + 7/24 = 17/24 \approx $</span>0.7083$. Not too bad.</p>
+<p>When <span>$h=0.25$</span>: <span>$f(1) = 1$</span>, <span>$f(1.25) = 4/5$</span>. Area is <span>$9/10 * 0.25 = 9/40$</span>. Second: <span>$f(1.25) = 4/5$</span>, <span>$f(1.5) = 2/3$</span>. Area is <span>$11/15 * 0.25 = 11/60$</span>. Third: <span>$f(1.5) = 2/3$</span>, <span>$f(1.75) = 4/7$</span>. Area is <span>$13/21 * 0.25 = 13/84$</span>. Last: <span>$f(1.75) = 4/7$</span>, <span>$f(2) = 1/2$</span>. Area is <span>$15/28 * 0.25 = 15/112$</span>. Total area <span>$\approx 0.69702$</span>. Even better.</p>
+<h4 class="header"><i>6.1.2</i>Part (b)<a class="headerlink" href="#part-b_5" name="part-b_5">&para;</a></h4>
+<blockquote>
+<p>Derive an error bound</p>
+</blockquote>
+<p>Thought this was too hard but it's actually really easy. The error bound formula for the trapezoidal rule is just</p>
+<p><span>$$\frac{(b-a)^3}{12} f''(\xi)$$</span></p>
+<p>For each segment, replace <span>$b$</span> by <span>$a + h$</span>, then just sum it up. Pretty cool.</p>
+<p><a href="http://www.mpia-hd.mpg.de/~mordasini/UKNUM/integration.pdf">Source</a></p>
+<h4 class="header"><i>6.1.3</i>Part (c)<a class="headerlink" href="#part-c_5" name="part-c_5">&para;</a></h4>
+<blockquote>
+<p>Apply one step of Richardson extrap</p>
+</blockquote>
+<p>whatever</p>
+<h4 class="header"><i>6.1.4</i>Part (d)<a class="headerlink" href="#part-d_3" name="part-d_3">&para;</a></h4>
+<blockquote>
+<p>Compute relative error</p>
+</blockquote>
+<p>ez</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Runge-Kutta</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Part (a)<a class="headerlink" href="#part-a_6" name="part-a_6">&para;</a></h4>
+<blockquote>
+<p>Define local truncation error, find order of method</p>
+</blockquote>
+<p>basically the same as 2008 q6</p>
+<h4 class="header"><i>7.1.2</i>Part (b) (i)<a class="headerlink" href="#part-b-i" name="part-b-i">&para;</a></h4>
+<blockquote>
+<p>Prove some identity for <span>$w_{i+1}$</span></p>
+</blockquote>
+<p>basically the same as 2008 q6</p>
+<h4 class="header"><i>7.1.3</i>Part (b) (ii)<a class="headerlink" href="#part-b-ii" name="part-b-ii">&para;</a></h4>
+<blockquote>
+<p>Conditions on <span>$h$</span> to get the limit of <span>$w_i$</span> to be 0 at <span>$\infty$</span>?</p>
+</blockquote>
+<p>basically the same as 2008 q6</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

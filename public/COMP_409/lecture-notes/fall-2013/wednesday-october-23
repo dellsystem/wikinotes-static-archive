@@ -1,0 +1,348 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, October 23, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, October 23, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                TSD and TLS, Java Concurrency utilities and Memory Consistency
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#hardware-implementation-of-concurrency">1 Hardware implementation of concurrency</a><ul>
+<li><a href="#x86-tso">1.1 x86-TSO</a><ul>
+<li><a href="#concept-of-fence">1.1.1 Concept of fence</a></li>
+</ul>
+</li>
+<li><a href="#set-of-primitive-events">1.2 Set of primitive events</a><ul>
+<li><a href="#example">1.2.1 Example</a></li>
+<li><a href="#rules">1.2.2 Rules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#linux-kernel-spin-lock">2 Linux kernel spin lock</a></li>
+<li><a href="#the-java-memory-model">3 The Java Memory Model</a><ul>
+<li><a href="#before-java-15">3.1 Before Java 1.5</a></li>
+<li><a href="#revision-for-15">3.2 Revision for 1.5</a><ul>
+<li><a href="#semantics-for-incorrectly-synchronized-programs">3.2.1 Semantics for incorrectly synchronized programs</a><ul>
+<li><a href="#happens-before-edges">3.2.1.1 Happens-Before Edges</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Last time we talked about memory models, SC, coherence, PC, and about linearization.</p>
+<p>x86 -&gt; documentation gives examples of what can or can’t happen</p>
+<p>IRIW -&gt; shouldn’t happen<br />
+n6 -&gt; observed (but not supposed to be)<br />
+n4 -&gt; technically allowed</p>
+<h2 class="header"><i>1</i>Hardware implementation of concurrency<a class="headerlink" href="#hardware-implementation-of-concurrency" name="hardware-implementation-of-concurrency">&para;</a></h2>
+<h3 class="header"><i>1.1</i>x86-TSO<a class="headerlink" href="#x86-tso" name="x86-tso">&para;</a></h3>
+<p>Each thread has a FIFO buffer</p>
+<p><img alt="Diagram" src="https://cloud.githubusercontent.com/assets/1909539/4595902/aa9f8d4a-509d-11e4-8a72-62227566890c.png" /></p>
+<p>On intel -&gt; there's an instruction called LOCK (LOCK prefix)</p>
+<h4 class="header"><i>1.1.1</i>Concept of fence<a class="headerlink" href="#concept-of-fence" name="concept-of-fence">&para;</a></h4>
+<p>After acquiring the lock, the only way to release it is to flush (execute) the write buffer (WB). The lock acts as a fence (can't cross it as long as the buffer isn't flushed).</p>
+<p>MFENCE -&gt; (flush -&gt; WB)<br />
+(MFENCE is another instruction)<br />
+(Check here: <a href="http://preshing.com/20120515/memory-reordering-caught-in-the-act/">http://preshing.com/20120515/memory-reordering-caught-in-the-act/</a>)</p>
+<p>If a thread exec Lock instruction</p>
+<ul>
+<li>acquires the lock</li>
+<li>stops every thread from reading from main memory, or even from their own WB</li>
+<li>when it’s done, releases the lock</li>
+</ul>
+<h3 class="header"><i>1.2</i>Set of primitive events<a class="headerlink" href="#set-of-primitive-events" name="set-of-primitive-events">&para;</a></h3>
+<div class="codehilite"><pre><span class="n">Wp</span><span class="o">[</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="n">v</span> <span class="c1">// thread p writes v to a</span>
+<span class="n">Rp</span><span class="o">[</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="n">v</span> <span class="c1">// thread p reads a</span>
+<span class="n">Fp</span> <span class="c1">// fence (you can’t do this micro event until your WB is empty)</span>
+<span class="n">Lp</span> <span class="c1">// lock</span>
+<span class="n">Up</span> <span class="c1">// unlock</span>
+<span class="err">τ</span><span class="n">p</span> <span class="c1">// p commits the oldest write in WBp to main memory (flush action)</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.2.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>p: INC[0x55]<br />
+assume p has in its WB [0x55] = 0</p>
+<p>Lp ——————<br />
+Rp[0x55] = 0<br />
+Wp[0x55] = 1<br />
+τ // issue [0x55] = 0<br />
+τ // issue [0x55] = 1<br />
+Up ——————</p>
+<h4 class="header"><i>1.2.2</i>Rules<a class="headerlink" href="#rules" name="rules">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Instruction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rp[a] = v</td>
+<td>p can read v from [a]. If p is not blocked and the WBp does not contain [a] then get v from main memory</td>
+</tr>
+<tr>
+<td>Rp[a] = v</td>
+<td>p can read v from [a] if p is not blocked, and p has a most recent write of [a] = v in WBp, then get v in WBp</td>
+</tr>
+<tr>
+<td>Wp[a] = v</td>
+<td>p can write v to [a] WBp at any time</td>
+</tr>
+<tr>
+<td>τp</td>
+<td>if p is not blocked it can silently send the oldest write in WBp to main memory</td>
+</tr>
+<tr>
+<td>Fp</td>
+<td>if WBp is empty, p may do Fp</td>
+</tr>
+<tr>
+<td>Lp</td>
+<td>if the lock is not hold by another thread, p can acquire the lock</td>
+</tr>
+<tr>
+<td>Up</td>
+<td>if p holds the lock and WBp is empty</td>
+</tr>
+</tbody>
+</table>
+<p>These rules make sure progress condition is ensured (eventually all the writes are propagated from WB to main memory).</p>
+<p>With this model, you can’t get IRIW (independent read independent write) (disallowed).</p>
+<p>n6 is allowed (WB justification still holds). n4/n5 is not explicitly disallowed. (n6, n5, n4 and iriw are comma cases of concurrency problems that you'd want to avoid).</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>x = 1</th>
+<th>x = 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eax = x(2)</code></td>
+<td><code>ebx = x(2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Proof</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>P0</th>
+<th>P1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>W0[x] = 1; τ0 (x = 1); R0[x] = 2</code></td>
+<td><code>W1[x] = 2; τ1 (x = 2); R1[x] = 1</code></td>
+</tr>
+</tbody>
+</table>
+<p>Either way, τ1 and τ0 have to happen in any order, so R1[x] wouldn’t be 1 (and this situation wouldn’t happen)</p>
+<h2 class="header"><i>2</i>Linux kernel spin lock<a class="headerlink" href="#linux-kernel-spin-lock" name="linux-kernel-spin-lock">&para;</a></h2>
+<p>How it's implemented:</p>
+<div class="codehilite"><pre><span class="n">enter</span><span class="o">(</span><span class="n">EAX</span> <span class="n">has</span> <span class="n">lock</span> <span class="n">address</span><span class="o">)</span>
+<span class="nl">start:</span> <span class="nl">LOCK:</span> <span class="n">DEC</span><span class="o">[</span><span class="n">EAX</span><span class="o">]</span>
+       <span class="n">JNS</span> <span class="n">enter</span>
+<span class="nl">spin:</span> <span class="n">CMP</span> <span class="o">[</span><span class="n">EAX</span><span class="o">],</span> <span class="mi">0</span>
+      <span class="n">JLE</span> <span class="n">spin</span>
+      <span class="n">JMP</span> <span class="n">start</span>
+<span class="nl">exit:</span> <span class="nl">LOCK:</span> <span class="n">MOV</span><span class="o">[</span><span class="n">EAX</span><span class="o">],</span> <span class="mi">1</span> <span class="o">&lt;</span><span class="err">—</span> <span class="n">removed</span> <span class="n">lock</span> <span class="n">prefix</span> <span class="k">for</span> <span class="n">optimization</span>
+</pre></div>
+
+
+<p>Example:</p>
+<div class="codehilite"><pre><span class="n">enter</span><span class="o">(</span><span class="n">x</span><span class="o">)</span>
+<span class="n">y</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">exit</span><span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">with</span> <span class="n">LOCK</span> <span class="n">in</span> <span class="n">the</span> <span class="n">exit</span> <span class="o">-&gt;</span> <span class="n">flush</span> <span class="o">(</span><span class="n">with</span> <span class="n">x86</span><span class="o">-</span><span class="n">TSO</span><span class="o">)</span>
+</pre></div>
+
+
+<p>Without LOCK in the exit, it still works thanks to the fact that we have a nice FIFO order.</p>
+<h2 class="header"><i>3</i>The Java Memory Model<a class="headerlink" href="#the-java-memory-model" name="the-java-memory-model">&para;</a></h2>
+<p>The models we have seen so far actually effect what is allowed in concurrent programming. Whenever we are accessing data, we have to know what memory model the system actually provides. In a language like C, historically, there has not been anything about PThreads. The hardware itself provides some kind of memory model. Often, not something theoretically clean like processor consistency, but rather something that is a lot more complicated.</p>
+<h3 class="header"><i>3.1</i>Before Java 1.5<a class="headerlink" href="#before-java-15" name="before-java-15">&para;</a></h3>
+<p>Java runs in a Virtual Machine (JVM). That virtual machine is actually a multiprocessor environment, and it has a memory model. Before Java 1.5, we had this huge list of rules.</p>
+<p><img alt="Pre-1.5 Memory Model Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-43.png" title="" /></p>
+<p>There was some master memory and the individual threads could access the master memory, but also had their own local memory. What if two threads are accessing the same variables? What do they see? Micro-steps of execution would define what was allowed with a big list of rules. The problem was that this was <strong>flawed</strong>.</p>
+<p>There are two tangents for a memory model. We can either get a slow, but understandable memory model which bases itself on sequential consistency, or a fast, but weird memory model which makes it harder to program with.</p>
+<p>Now, you might see code that looks like this (where <code>p</code> and <code>q</code> are objects). We are storing <code>p.x</code> and <code>q.x</code> in local variable <code>i</code>, <code>j</code> and <code>k</code>.</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+</pre></div>
+
+
+<p>We can find different optimizations to this code. When we see reading <code>p.x</code>, then reading <code>q.x</code>, then reading <code>p.x</code> again, it is possible that <code>p</code> and <code>q</code> are the same object (same object, different names). That however, is a little hard to be sure of. But one thing we can be sure of, looking at the sequence of code, is that by reading <code>p.x</code>, then <code>q.x</code>, then <code>p.x</code> again, we have not affected anything, except for <code>i</code>, <code>j</code>, and <code>k</code>. So we can actually modify the code as follows:</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</pre></div>
+
+
+<p>That might be a faster way of doing things. Now, what could actually happen at run time, is that, maybe <code>p</code> and <code>q</code> really are the same object, and they are being accessed (written to/read) by another thread. So we might have something like:</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0      // Thread 1</span>
+<span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+                 <span class="n">p</span><span class="o">.</span><span class="na">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="c1">// or q.x</span>
+<span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="na">x</span><span class="o">;</span>
+<span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="o">;</span>
+</pre></div>
+
+
+<p><code>p.x</code> (or <code>q.x</code>) is a particular memory location. So imagine we initially saw a <code>0</code> in this memory location (<code>int i = 0;</code>). Then we read the same memory location and we saw a <code>1</code> (int <code>j = 1;</code>). Then we read the same memory location (from a programmer's perspective, unaware of the optimization made at runtime), and we see a <code>0</code> (<code>int k = 0;</code>). What does this mean? Inside here, the system is not coherent.</p>
+<p>Coherency says that a particular variable (or memory location) is placed inside memory. Writes should happen in a particular order, but it should not be possible to go backward in time.</p>
+<p>As a rule of thumb, coherence is a lower bounds for programmers. If we want to understand what is happening inside a program, if we receive something even weaker than coherence, trying to program inside it and proving the programs actually work becomes extremely tricky.</p>
+<h3 class="header"><i>3.2</i>Revision for 1.5<a class="headerlink" href="#revision-for-15" name="revision-for-15">&para;</a></h3>
+<p>Post 1.5, we want to give a useful programming model for programmers, but we want the flexibility to execute things quickly. The idea is that we are going to divide the world: we are going to reward the good programmers and punish the bad ones. Programs are going to be divided in two classes:</p>
+<ol>
+<li><strong>The Good Programs:</strong> Correctly synchronized programs. They do not have data races. The reward: we can assume sequential consistency. The catch: writing data race-free programs is a tricky thing to do.</li>
+<li><strong>The Bad Programs:</strong> Incorrectly synchronized programs. They contain data races.</li>
+</ol>
+<h4 class="header"><i>3.2.1</i>Semantics for incorrectly synchronized programs<a class="headerlink" href="#semantics-for-incorrectly-synchronized-programs" name="semantics-for-incorrectly-synchronized-programs">&para;</a></h4>
+<p>(Happens-before: <a href="http://preshing.com/20130702/the-happens-before-relation/">http://preshing.com/20130702/the-happens-before-relation/</a>)</p>
+<p>The core idea is the <strong>Happens-Before Consistency</strong>, a very straightforward model. We are going to think of <strong>all the runtime actions</strong> of threads as <strong>nodes</strong> of a graph. The <strong>edges</strong> of the graph will express the <strong>Happens-Before consistency relation</strong>. This mechanism will express what is allowed, or rather, what HAS to be true inside the program (what has to happen before what). We will put an edge from a to b if a must happen before b. So we will want to list all the runtime actions, draw this big graph where each node represents a runtime action and start drawing edges between these nodes.</p>
+<h5 class="header"><i>3.2.1.1</i>Happens-Before Edges<a class="headerlink" href="#happens-before-edges" name="happens-before-edges">&para;</a></h5>
+<p>There are two types of edges in a HB graph. The intra-thread actions edges, and the edges between threads.</p>
+<dl>
+<dt>Intra-thread actions</dt>
+<dd>These are the easy ones to do. If you have a single a thread, and this thread does (in terms of action): <code>a; b; c; d;</code>.</dd>
+</dl>
+<p>In the graph, we have <code>a</code> -&gt; <code>b</code> -&gt; <code>c</code> -&gt; <code>d</code>. So we know that <code>a</code> happened before <code>b</code>, <code>b</code> happened before <code>c</code>, and <code>c</code> happened before <code>d</code>. So in a sense, intra-thread actions are totally boring. </p>
+<p>What we are concerned about here, is not the behavior of a single thread, but the behavior of the program as a whole. We are interested in what happens between threads, that is, the edges between different threads.</p>
+<dl>
+<dt>Edges between threads</dt>
+<dd>We are going to put an edge between different threads actions: </dd>
+</dl>
+<p>1) from an unlock on monitor/object <code>m</code> to all subsequent locks on <code>m</code>.</p>
+<p><img alt="Locking graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-44.png" title="" /></p>
+<p>What we got here is a trace: we see what actually happens. So we have our regular program order and we have also have a synchronization order.</p>
+<dl>
+<dt>Synchronization order</dt>
+<dd>Runtime ordering of synchronization operations (locks and unlocks). We look at all the synchronization actions inside our program and we compute a <strong>total order</strong> on them and this gives us our synchronization order. </dd>
+</dl>
+<p>2) from each write of a volatile variable <code>v</code> to all subsequent reads of <code>v</code></p>
+<p>Volatile reads and writes are also considered synchronization operations, so they also participate to the synchronization order.</p>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">int</span> <span class="n">v</span><span class="o">;</span>
+
+<span class="c1">// Thread 0</span>
+<span class="n">v</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+
+<span class="c1">// Thread 1</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">v</span><span class="o">;</span>
+</pre></div>
+
+
+<p>At runtime, one of these two actions happens before the other one.</p>
+<p><img alt="Thread start and end graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-45.png" title="" /></p>
+<p>There are also a few other rules for happens-before. For example, the first action of a thread that we start comes after the prior thread which created it. A join also happens after then end of a thread.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2012 Midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2012 Midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Test #1<a class="headerlink" href="#test-1" name="test-1">&para;</a></h2>
+<p>Held during class on October 4, 2012. 80 minutes (10:05-11:25).</p>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<p>(a) State the Archimedean Property for the real numbers.<br />
+(b) Given a real number <span>$a$</span>, prove that there is some positive integer <span>$n$</span> such that <span>$a + n &gt; 0$</span>.</p>
+<h4 class="header"><i>1.1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h4>
+<p>(a) Given any <span>$x \in \mathbb R$</span>, there exists <span>$n \in \mathbb N$</span> such that <span>$n \geq x$</span>.</p>
+<p>(b) Let <span>$x = -a$</span>. Then <span>$x \in \mathbb R$</span>, and by the Archimedean property there exists <span>$n' \in \mathbb N$</span> such that <span>$n' \geq x$</span>, i.e., <span>$n' \geq -a$</span>. Let <span>$n = n' + 1$</span>. Then <span>$n &gt; n'$</span>, and so <span>$n &gt; -a$</span>; then, if we add <span>$a$</span> to both sides, we have that <span>$a + n &gt; 0$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h4>
+<p>See solutions (available through MyCourses)</p>
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<p>Let <span>$S$</span> be a non-empty set of real numbers such that every element <span>$x \in S$</span> satisfies the inequality <span>$x &lt; 2$</span>. For each of the following assertions, state whether or not it is true for all such <span>$S$</span>. If true, give a proof. If not, give an example <span>$S$</span> for which it is false, and prove that it is false for your example.</p>
+<p>(a) <span>$\sup S$</span> exists (in <span>$\mathbb{R}$</span>).<br />
+(b) <span>$\sup S \leq 2$</span>.<br />
+(c) <span>$\sup S &lt; 2$</span>.</p>
+<h4 class="header"><i>1.2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h4>
+<p>(a) True. By the completeness property of <span>$\mathbb R$</span>, any non-empty subset in <span>$\mathbb R$</span> that is bounded above has a supremum. Since 2 is an upper bound for <span>$S$</span>, and it is non-empty by definition, then <span>$S$</span> has a supremum.</p>
+<p>(b) True. We know that 2 is an upper bound, so, by definition of the supremum, we must have that <span>$\sup S \leq 2$</span>.</p>
+<p>(c) False. Let <span>$S = \{0 &lt; x &lt; 2\}$</span>. Then, <span>$\sup S = 2$</span>.</p>
+<h4 class="header"><i>1.2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h4>
+<p>See solutions.</p>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<p>Let <span>$f$</span> be the function defined by <span>$f(x) = (x^4-3x+1)/(x^3-5)$</span> for <span>$2 \leq x \leq 3$</span>.</p>
+<p>(a) Prove that the defining expression does actually exist (i.e., that it is defined for all these <span>$x$</span>. (Hint: use inequalities. Do not assume knowledge of numerical values of roots of polynomials.)</p>
+<p>(b) Prove that there is a constant <span>$M$</span> (i.e. a real number) such that for all <span>$x$</span> in the interval <span>$[2, 3]$</span> we have <span>$|f(x)| \leq M$</span>.</p>
+<h4 class="header"><i>1.3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h4>
+<p>(a) To prove that it is defined over the given interval, we just need to show that the denominator is never 0. Well, by the triangle inequality, we know that <span>$|x^3-5| \geq ||x^3| - |5|| \geq |x^3| - |5| = |x|^3 - 5$</span>. We also know that <span>$x \geq 2$</span>, so <span>$|x|^3 \geq x^3 \geq 2^3$</span>. Then, we have: <span>$|x^3-5| \geq 2^3-5 = 3$</span>. So the denominator is always <span>$\geq 3$</span> in this interval, which means that the function is always defined.</p>
+<p>(b) First, we find an upper bound for the numerator:</p>
+<p><span>$$\begin{align} |x^4-3x+1| &amp; \leq |x^4| + |-3x| + |1| \tag{by the triangle inequality} \\
+&amp; \leq |x^4| + |3x| + 1 \\
+&amp; \leq |3^4| + |3\cdot 3| + 1 \tag{as $x \leq 3$} \\
+&amp; = 81 + 9 + 1 = 91 \end{align}$$</span></p>
+<p>So 91 is a working upper bound for the numerator. From (a), we have that 3 is a working lower bound for the denominator, which means that</p>
+<p><span>$$\frac{1}{|x^3-5|} \leq \frac{1}{3}$$</span></p>
+<p>in the interval. Combining the two, we get that</p>
+<p><span>$$|f(x)| = \frac{|x^4+3x+1|}{|x^3-5|} \leq \frac{91}{3}$$</span></p>
+<p>Thus we can take <span>$\displaystyle M = \frac{91}{3}$</span>.</p>
+<h4 class="header"><i>1.3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h4>
+<p>See solutions.</p>
+<h2 class="header"><i>2</i>Test #2<a class="headerlink" href="#test-2" name="test-2">&para;</a></h2>
+<p>Held during class on October 25, 2012. 80 minutes (10:05-11:25).</p>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<p>(a) State the definition of <span>$\displaystyle \lim_{n\to \infty} x_n = a$</span>.<br />
+(b) Using the definition, prove that<br />
+<span>$$\lim_{n\to \infty} \left ( 3n-\sqrt{9n^2-2} \right ) = 0$$</span></p>
+<h4 class="header"><i>2.1.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h4>
+<p>(a) For all <span>$\epsilon &gt; 0$</span>, there exists an <span>$N \in \mathbb N$</span> such that for all <span>$n \geq N$</span>, <span>$|x_n - a| &lt; \epsilon$</span>.</p>
+<p>(b) First, we try to get the expression <span>$|x_n-a$</span> in a nicer form, in order to find an upper bound for it:</p>
+<p><span>$$\begin{align} |x_n-a| &amp; = |(3n-\sqrt{9n^2-2}) - 0| = |3n - \sqrt{9n^2-2}| \\
+&amp; = \left | (3n - \sqrt{9n^2-2}) \cdot \frac{3n + \sqrt{9n^2-2}}{3n + \sqrt{9n^2-2}} \right | \tag{multiplying by the conjugate} \\
+&amp; = \left | \frac{9n^2 - (9n^2-2)}{3n + \sqrt{9n^2-2}} \right | = \left | \frac{2}{3n+\sqrt{9n^2-2}} \right | \\
+&amp; &lt; \left | \frac{2}{3n + 0} \right | \tag{since $\sqrt{9n^2-2} &gt; 0$ for $n &gt; 0$} \\
+&amp; = \frac{2}{3n} \tag{since $n &gt; 0$} \end{align}$$</span></p>
+<p>Then, given some <span>$\epsilon &gt; 0$</span>, let <span>$N = \frac{3}{2\epsilon}$</span>. For all <span>$n \geq N$</span>, we have:</p>
+<p><span>$$|x_n - a| &lt; \frac{2}{3N} = \frac{2}{3(\frac{3}{2\epsilon})} = \epsilon$$</span></p>
+<p>which shows that <span>$|x_n-a| &lt; \epsilon$</span> for <span>$a = 0$</span>, proving that the limit is 0.</p>
+<h4 class="header"><i>2.1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h4>
+<p>See solutions on MyCourses. My answer for (b) differs slightly from the provided solution (I used the fact that <span>$\sqrt{9n^2-2} &gt; 0$</span> for all <span>$n \in \mathbb N$</span>, which I think I proved by induction or something - at any rate, it's trivial). I got full marks for it though. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h3>
+<p>Let <span>$x_1 = 1$</span> and <span>$x_{n+1} = \sqrt{6+x_n}$</span> for <span>$n \in \mathbb N$</span>.</p>
+<p>(a) Prove that the sequence <span>$(x_n)$</span> converges.<br />
+(b) Find <span>$\displaystyle \lim_{n\to \infty} x_n$</span>.</p>
+<h4 class="header"><i>2.2.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h4>
+<p>(a) We can use the Monotone Convergence Theorem: if a sequence is either bounded above and increasing or bounded below and decreasing, then it converges. For this particular sequence, we will prove that it is bounded above and increasing.</p>
+<p>We will first show that it is increasing, i.e., <span>$x_{n+1} \geq x_{n}$</span>, by induction. In the base case, <span>$x_1 = 1$</span>, and <span>$x_2 = \sqrt{6 + x_1} = \sqrt{7}$</span>. Clearly <span>$\sqrt{7} \geq 1$</span>, so <span>$x_2 \geq x_1$</span> <span>$\checkmark$</span>. For the induction hypothesis, we assume that <span>$x_{n+1} \geq x_n$</span>. Then, if we add 6 to both sides, we have that <span>$6 + x_{n+1} \geq 6 + x_n$</span>. Taking the square root of both sides gives <span>$\sqrt{6 + x_{n+1}} = x_{n+2} \geq \sqrt{6 + x_n} = x_{n+1}$</span> which tells us that <span>$x_{n+2} \geq x_{n+1}$</span>, and so the induction hypothesis holds for <span>$n+1$</span>.</p>
+<p>Now we will show that it is bounded above. We posit that 3 is an upper bound for the sequence. (In fact it is actually the <em>least</em> upper bound, though that'll come later.) We again use a proof by induction. In the base case, <span>$x_1 = 1 \leq 3$</span> <span>$\checkmark$</span>. For the induction hypothesis, we assume that <span>$x_n \leq 3$</span>. Then, if we add 6 to both sides, we get that <span>$6 + x_n \leq 6 + 3 = 9$</span>, and taking the square root of both sides gives us <span>$\sqrt{6 + x_n} \leq \sqrt{9} = 3$</span>. So <span>$\sqrt{6+x_n} = x_{n+1} \leq 3$</span> which completes this proof by induction. <span>$\checkmark$</span></p>
+<p>Consequently, by the Monotone Convergence Theorem, this sequence converges.</p>
+<p>(b) Let <span>$x$</span> be the limit. By limit theorems, we know that <span>$x = \sqrt{6 + x}$</span>. Squaring both sides and moving stuff around gives us <span>$x^2 - x - 6 = 0$</span>. We can factor that as <span>$(x-3)(x+2) = 0$</span>, meaning that <span>$x$</span> is either 3 or -2. Since the first term is 1, and the sequence is increasing, we know that none of the terms can be less than 1 and so -2 is not a possible limit. So <span>$x = 3$</span>.</p>
+<h4 class="header"><i>2.2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h4>
+<p>The provided solution for (b) uses the quadratic formula, but I never liked the quadratic formula</p>
+<h3 class="header"><i>2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h3>
+<p>Given the existence of the limit <span>$\displaystyle \lim_{n\to\infty} \left (1 + \frac{1}{n} \right )^n = e$</span>, prove that the sequence</p>
+<p><span>$$x_n = \left ( \frac{1}{1+\frac{1}{n}} \right )^{2n+1}, \quad n \in \mathbb N$$</span></p>
+<p>converges and find its limit. (You may use any limit theorems covered in class.)</p>
+<h4 class="header"><i>2.3.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h4>
+<p>We can rewrite <span>$x_n$</span> in terms of the other sequence as follows:</p>
+<p><span>$$x_n = \left ( \frac{1}{1+\frac{1}{n}} \right )^{2n+1} = \frac{1}{\left ( 1 + \frac{1}{n} \right)^{2n+1}} = \frac{1}{\left [\left (1+\frac{1}{n} \right )^n \right ]^2 \cdot \left ( 1 + \frac{1}{n} \right )}$$</span></p>
+<p>Now, we know that <span>$1 + \frac{1}{n}$</span> converges to 1, and the other thing in the denominator converges to <span>$e^2$</span>, so the denominator converges to something non-zero. Consequently, the sequence <span>$x_n$</span> converges, and its limit is</p>
+<p><span>$$\lim x_n = \frac{1}{e^2\cdot 1} = \frac{1}{e^2}$$</span></p>
+<p>(using limit theorems for quotients and products).</p>
+<h4 class="header"><i>2.3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h4>
+<p>See solutions.</p>
+<h2 class="header"><i>3</i>Test #3<a class="headerlink" href="#test-3" name="test-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question 1<a class="headerlink" href="#question-1_2" name="question-1_2">&para;</a></h3>
+<p>Let <span>$x_n = \sqrt{n}$</span>. Prove directly from the definition that <span>$(x_n)$</span> is not a Cauchy sequence.</p>
+<h4 class="header"><i>3.1.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h4>
+<p>Let <span>$n = N$</span> and <span>$m = 4N$</span> where <span>$N \in \mathbb N$</span>. Then <span>$| \sqrt{n} - \sqrt{m}| = |\sqrt{N} - \sqrt{4N}| = |\sqrt{N} - 2\sqrt{N}| = |-\sqrt{N}| = \sqrt{N} \geq 1$</span> (since <span>$N \geq 1$</span>). Then, if <span>$\epsilon = 1$</span>, there does not exist an <span>$N$</span> such that <span>$|x_m - x_n| &lt; \epsilon$</span> for all <span>$m &gt; n &gt; N$</span>, which proves that this sequence is not a Cauchy sequence.</p>
+<h4 class="header"><i>3.1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h4>
+<p>See solutions.</p>
+<h3 class="header"><i>3.2</i>Question 2<a class="headerlink" href="#question-2_2" name="question-2_2">&para;</a></h3>
+<p>Using the <span>$\epsilon$</span>-<span>$\delta$</span> definition of limit, prove that <span>$\displaystyle \lim_{x \to 3}x^3 = 27$</span>.</p>
+<h4 class="header"><i>3.2.1</i>Solution<a class="headerlink" href="#solution_7" name="solution_7">&para;</a></h4>
+<p>First, we rewrite <span>$|x^3-27|$</span> to find an upper bound for it:</p>
+<p><span>$$\begin{align}|x^3-27| &amp; = |x^3-3^3| = |x-3||x^2+3x+9| \\
+&amp; \leq |x-3|(|x|^2+3|x| + 9|) \tag{by the triangle inequality} \\
+&amp; \leq |x-3|(4^2 + 3\cdot 4 + 9) \tag{provided $|x-3| \leq 1$} \\
+&amp; = |x-3| \cdot 37 \end{align}$$</span></p>
+<p>Then, for a given <span>$\epsilon &gt; 0$</span>, let <span>$\delta = \inf\{1, \frac{\epsilon}{37}\}$</span>. Then, by the above work, if <span>$|x-3| &lt; \delta$</span>, then <span>$|x^3-27| &lt; \epsilon$</span> which proves that the limit of <span>$x^3$</span> at <span>$x=3$</span> is 27.</p>
+<h4 class="header"><i>3.2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h4>
+<h3 class="header"><i>3.3</i>Question 3<a class="headerlink" href="#question-3_2" name="question-3_2">&para;</a></h3>
+<p>Let <span>$a, L \in \mathbb R$</span> and let <span>$f: \mathbb R \to \mathbb R$</span> be such that <span>$\displaystyle \lim_{x \to a} (f(x)f(x)) = L$</span>.</p>
+<p>(a) Suppose that <span>$L=0$</span>. Prove that <span>$\displaystyle \lim_{x\to a} f(x) = 0$</span>, using the <span>$\epsilon$</span>-<span>$\delta$</span> definition of limit.<br />
+(b) Suppose that <span>$L = 1$</span>, <span>$a = 0$</span>. Show by example that <span>$f$</span> may not have a limit at <span>$a$</span>.</p>
+<h4 class="header"><i>3.3.1</i>Solution<a class="headerlink" href="#solution_8" name="solution_8">&para;</a></h4>
+<p>(a) By the definition of limit, we know that if <span>$(f(x)f(x))$</span> has a limit of 0 at <span>$a$</span>, then there exists a <span>$\delta &gt; 0$</span> such that for any <span>$\epsilon &gt; 0$</span>, we have <span>$|f(x)f(x)| &lt; \epsilon$</span> whenever <span>$0 &lt; |x-a| &lt; \delta$</span>. Now, since <span>$\epsilon^2 &gt; 0$</span> for any <span>$\epsilon &gt; 0$</span>, we know there exists a <span>$\delta$</span> such that <span>$0 &lt; |x-a| &lt; \delta$</span> results in <span>$|f(x)^2| &lt; \epsilon^2$</span>. We could also write that as <span>$|f(x)|^2 &lt; \epsilon^2$</span>. Taking the square root of both sides gives us that <span>$|f(x)| &lt; \epsilon$</span> whenever <span>$0 &lt; |x-a| &lt; \delta$</span> which tells us that 0 is the limit of <span>$f(x)$</span> as well.</p>
+<p>(b) We refer to the signum function. Then <span>$(f(x))^2 = 1$</span> for all <span>$x \neq 0$</span>. So <span>$\lim_{x \to 0} (f(x))^2 = 1$</span>. But <span>$\lim_{x \to 0} f(x)$</span> does not exist since it's 1 for positive <span>$x$</span> and -1 for negative <span>$x$</span>.</p>
+<h4 class="header"><i>3.3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h4>
+<p>See solutions.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

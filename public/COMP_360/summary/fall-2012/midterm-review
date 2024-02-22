@@ -1,0 +1,227 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Under construction</p>
+<h2 class="header"><i>1</i>Network flow<a class="headerlink" href="#network-flow" name="network-flow">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Introduction to flow problems<a class="headerlink" href="#introduction-to-flow-problems" name="introduction-to-flow-problems">&para;</a></h3>
+<p>You have a graph with edges and vertices. Each edge has a capacity. There is a source vertex from which flow magically pours out and a sink vertex into which flow disappears. You want to maximise the amount of flow through the edges coming out of the source (or into the sink, same thing). Note that the flow going into any edge must be equal to the flow coming out of it. </p>
+<h3 class="header"><i>1.2</i>Ford-Fulkerson<a class="headerlink" href="#ford-fulkerson" name="ford-fulkerson">&para;</a></h3>
+<p>The runtime is <span>$O(nf)$</span> where <span>$n$</span> is the number of edges and <span>$f$</span> is the maximum flow.</p>
+<p>The algorithm will always terminate if the capacities are rational numbers.</p>
+<p>There is another version of Ford-Fulkerson that <em>does</em> run in polynomial time. It involves augmenting differently. Something to do with scaling max flow.</p>
+<h4 class="header"><i>1.2.1</i>Residual graphs<a class="headerlink" href="#residual-graphs" name="residual-graphs">&para;</a></h4>
+<p>what is this</p>
+<h4 class="header"><i>1.2.2</i>Min-cut max-flow<a class="headerlink" href="#min-cut-max-flow" name="min-cut-max-flow">&para;</a></h4>
+<p>The value of any flow is bounded above by the value of any cut.</p>
+<p>The maximum flow is equal to the minimum cut.</p>
+<h3 class="header"><i>1.3</i>Applications<a class="headerlink" href="#applications" name="applications">&para;</a></h3>
+<h4 class="header"><i>1.3.1</i>Bipartite matching<a class="headerlink" href="#bipartite-matching" name="bipartite-matching">&para;</a></h4>
+<p>A <strong>matching</strong> is a set of edges in a bipartite graph (with the vertices partitioned into disjoint sets <span>$A$</span> and <span>$B$</span>) such that no vertex is connected to more than one edge. A <strong>perfect matching</strong> is a matching that includes all vertices.</p>
+<p>In a bipartite matching problem, the input is a bipartite graph; the output, the largest possible matching.</p>
+<p>First, we convert the graph into a flow network, such that the maximum flow in the network corresponds to a maximum matching in the graph.</p>
+<p>Add a source vertex, <span>$s$</span>, and connect it with a directed edge of capacity 1 to every vertex in set <span>$A$</span>. Add a sink vertex, <span>$t$</span>, and connect every vertex in set <span>$B$</span> to it with a directed edge of capacity 1. Assign a capacity of 1 to every edge between <span>$A$</span> and <span>$B$</span>. Now, run FF to find the maximum flow. A flow of 1 through any edge corresponds to that edge being part of a maximum matching.</p>
+<h4 class="header"><i>1.3.2</i>Vertex cover<a class="headerlink" href="#vertex-cover" name="vertex-cover">&para;</a></h4>
+<p>Choose a set of vertices such that every edge is connected to a vertex in the set.</p>
+<p>This is actually a special case of BMP (above), just make the capacities of the existing edges infinite instead of 1 so that it's easier to find the min cut. The min vertex cover is given by the min cut. This is also given by the maximum matching.</p>
+<h4 class="header"><i>1.3.3</i>Disjoint path problem<a class="headerlink" href="#disjoint-path-problem" name="disjoint-path-problem">&para;</a></h4>
+<p>Find the maximum number of edge-disjoint paths from <span>$s$</span> to <span>$t$</span> (with no vertex or edge visited more than once)</p>
+<h4 class="header"><i>1.3.4</i>Networks with multiple sources or sinks<a class="headerlink" href="#networks-with-multiple-sources-or-sinks" name="networks-with-multiple-sources-or-sinks">&para;</a></h4>
+<p>Add a "super source" or "super sink". QED</p>
+<h4 class="header"><i>1.3.5</i>Circulation with demands<a class="headerlink" href="#circulation-with-demands" name="circulation-with-demands">&para;</a></h4>
+<p>No one source or sink - instead, every vertex is either a source or a sink. Directed graph, non-negative capacities, every vertex has a demand. If this demand is positive, the vertex "demands" this much flow. If it is negative, the vertex supplies this much flow. A valid flow (i.e. circulation) must satisfy the capacity condition for the edges, as well as a new demand condition (flow in - flow out = demand).</p>
+<p>If it is, we can check whether or not circulation is possible by converting it into a flow network problem. Add a super source, <span>$s$</span>, and connect it to all the vertices with a supply (i.e. negative demand), with capacity equal to the magnitude of the demand. Add a super sink, <span>$t$</span>, and connect all the vertices with a positive demand to it, with capacity equal to the magnitude of the demand. Then, find the max flow.</p>
+<p>We note immediately that a valid circulation is only feasible when the sum of all the demands is 0. That is, the sum of all the "demands" must be equal in magnitude to the sum of all the "supplies". Moreover, if the maximum flow is equal to sum of all the "demands", then a valid circulation is feasible.</p>
+<h5 class="header"><i>1.3.5.1</i>Circulation with demands and lower bounds<a class="headerlink" href="#circulation-with-demands-and-lower-bounds" name="circulation-with-demands-and-lower-bounds">&para;</a></h5>
+<p>To add the lower bounds in, just subtract the capacity of each edge by the lower bound, etc.</p>
+<h5 class="header"><i>1.3.5.2</i>Survey design<a class="headerlink" href="#survey-design" name="survey-design">&para;</a></h5>
+<p><span>$n$</span> customers, <span>$m$</span> products. Each customer knows about a particular subset of products. We want to ask each customer at most <span>$c$</span> questions, and we want to ask between <span>$p$</span> and <span>$q$</span> questions per product. Each customer can be asked 0 or 1 questions about any given product. We can convert this bipartite into a circulation with demands and lower bounds problem</p>
+<h5 class="header"><i>1.3.5.3</i>Airline scheduling<a class="headerlink" href="#airline-scheduling" name="airline-scheduling">&para;</a></h5>
+<p>Given a schedule consisting of <span>$k$</span> airplanes, <span>$m$</span> flights (given departure/arrival time, origin, destination), and we know how long it takes to get from one city to another. Is a given schedule feasible? (Note that we can initially put airplanes anywhere we want. We can also fly empty planes if we need to.)</p>
+<p>We can convert this into a circulation with demands and lower bounds problem. For every flight, we add two nodes with an edge between them, with lower bound and capacity 1 (signifying the departure and the destination airport respectively). We then add a directed edge from a destination airport to a source airport if there is sufficient time to fly a plane from the destination airport to the source airport, with a lower bound of 0 and capacity 1. Every node has a demand and supply of 0. We connect <span>$s$</span> to all origin airport notes, and <span>$t$</span> to all destination airport nodes, low/cap of (0, 1).</p>
+<p>If there is a possible schedule, then there will be a valid circulation. We can convert a circulation into a schedule by taking every edge that has 1 unit of flow through it as a flight taking place (so we trace the edge-disjoint paths from <span>$s$</span> to <span>$t$</span>).</p>
+<h4 class="header"><i>1.3.6</i>Project selection<a class="headerlink" href="#project-selection" name="project-selection">&para;</a></h4>
+<p>There is a set of projects, each of which has a certain revenue (positive: gain money, negative: lose money). Certain projects are prerequisites for others. The goal is to pick a set of projects to maximise revenue, with the condition that there is no edge from this set to outside this set (the prereq condition).</p>
+<p>We can convert this into a flow network problem by adding an edge from any project to its prereq (feels a bit unintuitive), with capacity infinity. We then connect <span>$s$</span> to every project with a positive revenue, with a capacity equal to that revenue; same for <span>$t$</span> (negative revenue). Then, we just need to find a min cut.</p>
+<h4 class="header"><i>1.3.7</i>Baseball elimination<a class="headerlink" href="#baseball-elimination" name="baseball-elimination">&para;</a></h4>
+<p>Given certain baseball teams, and a count of how many wins each team has had, and a network illustrating what games are yet to be played: can we tell if a particular team can finish in first place?</p>
+<p>Yes: flow network. Create a node for each game, and a node for each team. Connect each game node to both team nodes (in that game), infinite capacity. Source: capacity equal to the number of games left, connected to all the games. Connect each team node to a sink, capacity equal to the number of games that team is allowed to win without beating the team that should come in first (or just the number of games it has left, for the team we're interested in). If the max flow is not equal to the sum of the capacities of the edges leaving the source then the team we're looking at cannot place first.</p>
+<h2 class="header"><i>2</i>Linear programming<a class="headerlink" href="#linear-programming" name="linear-programming">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Concepts of linear programming<a class="headerlink" href="#concepts-of-linear-programming" name="concepts-of-linear-programming">&para;</a></h3>
+<p>Assign values to a set of variables to maximise or minimise an objective function such that a set of linear constraints is satisfied.</p>
+<p>The cost of an assignment is the value of the objective function given this assignment.</p>
+<h3 class="header"><i>2.2</i>Sample linear programming problems<a class="headerlink" href="#sample-linear-programming-problems" name="sample-linear-programming-problems">&para;</a></h3>
+<p>Maximise <span>$x_1 + x_2 + x_3$</span>, subject to the constraints:</p>
+<p><span>$$\begin{cases}
+&amp; x_1 + 2x_2 \leq 1 \\
+&amp; 2x_1 + x_2 \leq 1 \\
+&amp; 3x_3 = 1 \\
+&amp; x_1, x_2, x_3 \geq 0
+\end{cases}$$</span></p>
+<p>In this case, the maximum is 1 (when <span>$x_1 = x_2 = x_3 = 1/3$</span>).</p>
+<h3 class="header"><i>2.3</i>Relation to network flow problems<a class="headerlink" href="#relation-to-network-flow-problems" name="relation-to-network-flow-problems">&para;</a></h3>
+<p>We can convert a maximum flow problem into a linear programming problem as follows:</p>
+<ul>
+<li>Variables: the amount of flow through the edges</li>
+<li>Cost: maximise the flow through the edges coming out of the source</li>
+<li>Constraints: <span>$f(e) \leq c_e$</span> (capacity constraint), conservation constraint</li>
+</ul>
+<p>If there are <span>$n$</span> vertices and <span>$m$</span> edges, then there are <span>$n + 2m$</span> constraints.</p>
+<p>For example, if we had a graph that looked like this:</p>
+<div class="codehilite"><pre>      a
+     &gt; \
+    /   \
+   2     1
+  /       \
+ /         &gt;
+s --- 3 ---&gt; t
+I&#39;ll replace this diagram with a better one eventually, don&#39;t mock me
+</pre></div>
+
+
+<p>We could convert it into a linear programming problem:</p>
+<ul>
+<li>Objective function: <span>$f(sa) + f(st)$</span></li>
+<li>Constraints: <span>$\begin{cases} &amp; f(sa) \leq 2 \\ &amp; f(st) \leq 3 \\ &amp; f(at) \leq 1 \\ &amp; f(sa) = f(at) \\ &amp; f(sa), f(st), f(at) \geq 0 \end{cases}$</span></li>
+</ul>
+<h4 class="header"><i>2.3.1</i>Flow networks with lower bounds<a class="headerlink" href="#flow-networks-with-lower-bounds" name="flow-networks-with-lower-bounds">&para;</a></h4>
+<p>If the flow network had lower bounds, we could replace the last <span>$\geq 0$</span> constraint with the true lower bound, etc.</p>
+<h4 class="header"><i>2.3.2</i>Flow networks with costs<a class="headerlink" href="#flow-networks-with-costs" name="flow-networks-with-costs">&para;</a></h4>
+<p>Passing <span>$f(e)$</span> through edge <span>$e$</span> costs <span>$f(e)P_e$</span>.</p>
+<p>The goal is to minimise the cost given a flow value <span>$\alpha$</span>.</p>
+<ul>
+<li>Objective function: <span>$\displaystyle \sum_{e \in G} f(e) \cdot P_e$</span></li>
+<li>Constraint: flow leaving the source is equal to <span>$\alpha$</span> (plus the other usual constraints)</li>
+</ul>
+<p>The example given in class had to do with a city, and placing food in only some cities. An example that feels more logical to me involves access to banks since food is a depletable resource, but whatever.</p>
+<h3 class="header"><i>2.4</i>The simplex algorithm<a class="headerlink" href="#the-simplex-algorithm" name="the-simplex-algorithm">&para;</a></h3>
+<p>Using a geometrical interpretation of the constraints, check all the vertices of the polygon (or polyhedron, depending on the number of constraints) and take the maximum value of the objective function that results.</p>
+<p>If there are 3 variables, then there are 3 dimensions and each inequality corresponds to a plane that splits the space into two. We need at least 4 inequalities in order to form a polyhedron (a bounded solid). Each vertex corresponds to the point at which three inequalities meet.</p>
+<p>If there are 2 variables, then there are 2 dimensions and each inequality corresponds to a line that splits the plane into two. We need at least 3 inequalities in order to form a (bounded) polygon. Each vertex corresponds to the point at which two inequalities meet.</p>
+<p>In the average case, this algorithm runs in polynomial time, although in the worst case it runs in exponential time.</p>
+<h3 class="header"><i>2.5</i>Canonical form<a class="headerlink" href="#canonical-form" name="canonical-form">&para;</a></h3>
+<p>Any linear program can be converted into canonical form, which looks like this (for a maximising problem):</p>
+<p><span>$$
+\text{Constraints: } \begin{cases}
+&amp; a_{1,1}x_{1,1} + \ldots a_{1,n} x_{1,n} \leq b_1 \\
+&amp; \ldots \\
+&amp; a_{m,1} x_{m,1} + \ldots a_{m, n} x_{m, n} \leq b_m
+\end{cases}
+$$</span></p>
+<p>Objective function (the thing to maximise): <span>$c_1 x_1 + \ldots c_n x_n$</span></p>
+<p>Other constraints: <span>$x_1, \ldots, x_n \geq 0$</span></p>
+<p>For a minimising problem, flip the <span>$\leq$</span> signs in the constraints.</p>
+<h4 class="header"><i>2.5.1</i>Strategies for converting into canonical form<a class="headerlink" href="#strategies-for-converting-into-canonical-form" name="strategies-for-converting-into-canonical-form">&para;</a></h4>
+<ul>
+<li>If the <span>$\leq$</span> sign is in the wrong direction, multiply both sides by -1.</li>
+<li>Replace inequalities with two inequalities (in opposite directions)</li>
+<li>If we have <span>$x \leq 0$</span>, replace it by <span>$x'$</span> which is equal to <span>$-x$</span></li>
+<li>If we have <span>$x \geq a$</span> where <span>$a \neq 0$</span>, replace <span>$x$</span> by <span>$x' = x-a$</span></li>
+<li>If we don't have <span>$x \geq 0$</span> at all, then we replace it by <span>$x' - x''$</span>, where <span>$x', x'' \geq 0$</span> (so their difference spans all of <span>$\mathbb{Z}$</span>, which is what the original <span>$x$</span> needs)</li>
+</ul>
+<h3 class="header"><i>2.6</i>Duality of linear programs<a class="headerlink" href="#duality-of-linear-programs" name="duality-of-linear-programs">&para;</a></h3>
+<p>To prove that a feasible solution for a linear program is indeed the optimal solution, we can basically combine the inequalities to get another linear system of inequalities - its dual (so a linear program within a linear program, only it becomes a maximising problem instead of a minimising one, or vice versa). The solution for this is equal to the solution to the original linear program. This is reminiscent of the max-flow min-cut theorem.</p>
+<p>Also, if one linear program is unbounded, so is its dual; if one is feasible and bounded, same thing.</p>
+<p>Original: primal; the other: dual.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

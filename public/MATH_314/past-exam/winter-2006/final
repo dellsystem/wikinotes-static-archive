@@ -1,0 +1,272 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2006 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2006 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The exam itself is available on WebCT and on Docuum. Didn't bother to type up the questions.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a></li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_1">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_2">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_3">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_4">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_5">7.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#solution_6">8.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_6">8.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>The equations</p>
+<p><span>$$\begin{align*} xyuv + 2 = 0 \\
+x^2+2y^2+3u^2+4v^2-19 = 0\end{align*}$$</span></p>
+<p>define <span>$u$</span>, <span>$v$</span> as functions of <span>$x$</span>, <span>$y$</span> in the neighbourhood of the point <span>$x=1$</span>, <span>$y=-1$</span>, <span>$u=2$</span>, <span>$v=1$</span>.</p>
+<p>Find</p>
+<p><span>$$\begin{pmatrix} \frac{\partial u}{\partial x} &amp; \frac{\partial v}{\partial x} \\ \frac{\partial u}{\partial y} &amp; \frac{\partial v}{\partial y} \end{pmatrix}$$</span></p>
+<p>at the point.</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>First, we rewrite the system of equations as implicit functions of <span>$x, y, u$</span> and <span>$v$</span>:</p>
+<p><span>$$\begin{align*}F(x, y, u, v) &amp; = xyuv - 2 = 0 \\ G(x, y, u, v) &amp; = x^2+2y^2+3u^2+4v^2-19 = 0\end{align*}$$</span></p>
+<p>The Jacobian <span>$J$</span>, at the point <span>$x=1, y = -1, u = 2, v = 1$</span>, is:</p>
+<p><span>$$J = \frac{\partial(F, G)}{\partial (x, y)} = \det \begin{pmatrix} F_u &amp; F_ v \\ G_u &amp; G_v \end{pmatrix} = \det \begin{pmatrix} xyv &amp; xyu \\ 6u &amp; 8v \end{pmatrix} = \det\begin{pmatrix} -1 &amp; -2 \\ 12 &amp; 8 \end{pmatrix} = -8+24 = 16$$</span></p>
+<p>(Recall that the "new variables", i.e. the dependent variables, are on the bottom.)</p>
+<p>Now we find the partial derivatives of <span>$u$</span> and <span>$v$</span> with respect to <span>$x$</span> and <span>$y$</span>:</p>
+<p><span>$$\begin{align*} \frac{\partial u}{\partial x} &amp; = -\frac{1}{J} \frac{\partial (F, G)}{\partial (x, v)} = -\frac{1}{16} \det \begin{pmatrix} yuv &amp; xyu \\ 2x &amp; 8v \end{pmatrix} = -\frac{1}{16} \det\begin{pmatrix} -2 &amp; -2 \\ 2 &amp; 8 \end{pmatrix} = -\frac{1}{16} (-16+4) = -\frac{-12}{16} = \frac{3}{4} \\
+\frac{\partial u}{\partial y} &amp; = -\frac{1}{J} \frac{\partial (F, G)}{\partial (y, v)} = -\frac{1}{16} \det\begin{pmatrix} xuv &amp; xyu \\ 4y &amp; 8v \end{pmatrix} = -\frac{1}{16} \det\begin{pmatrix} 2 &amp; -2 \\ -4 &amp; 8 \end{pmatrix} = -\frac{1}{16} (16 - 8) = -\frac{8}{16} = -\frac{1}{2} \\
+\frac{\partial v}{\partial x} &amp; = -\frac{1}{J} \frac{\partial (F, G)}{\partial (u, x)} = -\frac{1}{16} \det\begin{pmatrix} xyv &amp; yvu \\ 6u &amp; 2x \end{pmatrix} = -\frac{1}{16} \det\begin{pmatrix} -1 &amp; -2 \\ 12 &amp; 2 \end{pmatrix} = -\frac{1}{16} (-2 + 24) = -\frac{22}{16} = -\frac{3}{8} \\
+\frac{\partial v}{\partial y} &amp; = -\frac{1}{J} \frac{\partial (F, G)}{\partial (u, y)}  = -\frac{1}{16} \det\begin{pmatrix} xyv &amp; xuv \\ 6u &amp; 4y \end{pmatrix} = -\frac{1}{16} \det\begin{pmatrix} -1 &amp; 2 \\ 12 &amp; -4 \end{pmatrix} = -\frac{1}{16} (4 - 24) = -\frac{-20}{16} = \frac{5}{4}
+\end{align*}$$</span></p>
+<p>Consequently, the matrix we're looking for is</p>
+<p><span>$$\begin{pmatrix} \frac{3}{4} &amp; -\frac{3}{8} \\ -\frac{1}{2} &amp; \frac{5}{4} \end{pmatrix}$$</span></p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Maybe</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Lagrange multipliers aren't in the syllabus this year I believe</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Let <span>$R$</span> be the region in the first quadrant of the <span>$xy$</span>-plane bounded by the lines <span>$y=x$</span> and <span>$y=2x$</span> and by the hyperbolas <span>$xy=1$</span> and <span>$xy=3$</span>.</p>
+<p>Evaluate <span>$\displaystyle \iint_R x^3y\,dA$</span>.</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>We can use a change of variables. Let <span>$u = \frac{y}{x}$</span> and <span>$v = xy$</span>. We first find the Jacobian, as follows (again note that the "new variables" are on the bottom, and that we take 1 over that Jacobian to get one which we can compute):</p>
+<p><span>$$\frac{\partial (x, y)}{\partial (u, v)} = 1 / \frac{\partial (u, v)}{\partial (x, y)} = 1 /\det \begin{pmatrix} u_x &amp; u_y \\ v_x &amp; v_y \end{pmatrix} = 1 / \det \begin{pmatrix} -\frac{y}{x^2} &amp; \frac{1}{x} \\ y &amp; x \end{pmatrix} = 1 / \left ( -\frac{2y}{x} \right ) = -\frac{x}{2y}$$</span></p>
+<p>Note that we take the absolute value of the Jacobian in this case (though not in the implicit function question above), because it's a scaling factor. So the value that we'll need is <span>$\displaystyle \frac{x}{2y}$</span>.</p>
+<p>Now, we multiply the integrand by the Jacobian, and express that in terms of <span>$u$</span> and <span>$v$</span>:</p>
+<p><span>$$x^3y \cdot \frac{x}{2y} = \frac{1}{2} x^4 = \frac{1}{2} \left ( \frac{v}{u} \right )^2 $$</span></p>
+<p>(Note that we could have first expressed the Jacobian in terms of <span>$u$</span> and <span>$v$</span> and then multiplied that by the integrand - the order is irrelevant.)</p>
+<p>The limits are <span>$u = 1$</span> to <span>$u = 2$</span> and <span>$v = 1$</span> to <span>$v = 3$</span>. The integral therefore becomes</p>
+<p><span>$$\frac{1}{2} \int_1^2 \int_1^3 \frac{v^2}{u^2} \,dv\,du = \frac{1}{2} \int_1^2 \left [ \frac{v^3}{3u^2} \right ]_1^3 \,du = \frac{26}{6} \int_1^2 \frac{1}{u^2} \, du = \frac{26}{6} \left [ -\frac{1}{u} \right ]_1^2 = \frac{26}{6} \frac{1}{2} = \frac{26}{12} = \frac{13}{6}$$</span></p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Wolfram Alpha confirms the final result, given that the integral/limits in terms of <span>$u$</span> and <span>$v$</span> are correct.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Find the <span>$z$</span>-coordinate of the centroid of the part <span>$S$</span> of the spherical surface <span>$x^2+y^2+z^2=4$</span> above <span>$z=1$</span>, i.e. compute</p>
+<p><span>$$\bar z = \frac{\displaystyle \iint_S z\,dS}{\displaystyle \iint_S \,dS}$$</span></p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>The parametrisation for the sphere <span>$x^2+y^2+z^2=2^2$</span> is as follows:</p>
+<p><span>$$r(\theta, \phi) = 2\sin\phi \cos \theta \hat i + 2 \sin \phi \sin \theta \hat j + 2\cos \phi \hat k$$</span></p>
+<p>where <span>$\theta$</span> goes from 0 to <span>$2\pi$</span> and <span>$\phi$</span> goes from 0 to a specific angle <span>$\phi_0$</span>. To find this angle <span>$\phi_0$</span>, we draw a line from the origin to the point in the first quadrant (above the xy-plane and to the right of the y-axis) where the sphere intersects the plane <span>$z=1$</span>. The distance from the origin to the plane <span>$z=1$</span> is 1, and the distance between the y-axis and this point is <span>$\sqrt{3}$</span> (get this by substituting <span>$z=1$</span> in the formula for the sphere) and so the length of the line segment is 2. Consequently, <span>$\cos\phi_0 = \frac{1}{2}$</span>. So <span>$\cos\phi = \frac{\pi}{3}$</span>. (If you don't know that offhand, you can probably derive the result by drawing out the unit circle or something.)</p>
+<p>Anyways, now that you have the bounds, you still have to figure out the integrand. Basically you evaluate the following cross-product <span>$r_{\theta} \times r_{\phi}$</span>, which should give you <span>$4\sin\phi$</span> (skipping all the intermediate steps here). This is the element of the surface integral, and also the Jacobian when converting into sphericals, oddly enough (why?). We also know that <span>$z = 2\cos\phi$</span>, from the parametrisation for the sphere. So the numerator becomes:</p>
+<p><span>$$\iint_S z\,dS = \int_0^{2\pi} \int_0^{\pi/3} 2\cos\theta \cdot 4\sin \phi \,d\phi \,d\theta = 16\pi \int_0^{\pi/3} \cos \phi \sin \phi \,d\phi = 8\pi \int_0^{\pi/3} \sin(2\phi) \,d\phi = 4\pi \left [ -\cos(2\phi) \right ]_0^{\pi/3} = -4\pi \cdot (-3/2) =6\pi $$</span></p>
+<p>(We can use the double angle formula for <span>$\sin$</span>, <span>$2\sin\phi\cos\phi = \sin(2\phi)$</span>, to simplify the integrand.)</p>
+<p>The denominator is a bit simpler:</p>
+<p><span>$$\iint_S \,dS = \int_0^{2\pi} \int_0^{\pi/3} 4\sin\phi \,d\phi \,d\theta = -8\pi \left [ \cos\phi \right ]_0^{\pi/3} \,d\phi = -8\pi \cdot (-1/2) = 4\pi$$</span></p>
+<p>So the z-coordinate of the centroid is given by <span>$$\displaystyle \frac{6\pi}{4\pi} = \frac{3}{2}$$</span></p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Wolfram confirms the answer, given that the integrands and limits are correct. Are the integrands and limits correct? I think so.</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>Use Green's theorem to evaluate <span>$\displaystyle \int_C (y-\sin x \sin y)\,dx - (x-\cos x \cos y)\,dy$</span> where <span>$C$</span> is the boundary of the triangle with vertices (0,0), (1, 0), (0, 1) taken counterclockwise.</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>First, we should revisit Green's theorem:</p>
+<p><span>$$\int_C P\,dx + Q \,dy = \iint \left ( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right )\,dA$$</span></p>
+<p>or, equivalently,</p>
+<p><span>$$\int_C F \cdot ds = \iint \left ( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right )\,dA$$</span></p>
+<p>(The two are equivalent because <span>$F = P \hat i + Q \hat j$</span> and <span>$ds = dx \hat i + dy\hat j$</span>. It's probably obvious to you but it wasn't obvious to me so I'm writing it down in case I forget again.)</p>
+<p>In any case, the values of <span>$P$</span> and <span>$Q$</span> that we're given in this problem are:</p>
+<p><span>$$P = y-\sin x \sin y \quad Q = -x + \cos x \cos y$$</span></p>
+<p>Now we just find the partial derivatives:</p>
+<p><span>$$\frac{\partial Q}{\partial x} = -1 - \cos y \sin x \quad \frac{\partial P}{\partial y} = 1 - \sin x \cos y$$</span></p>
+<p>So the double integral we have to solve is:</p>
+<p><span>$$\iint_C -1 - \cos y\sin x - 1 + \sin x \cos y \,dA = \iint_C -2 \,dA$$</span></p>
+<p>which is just -2 times the area of the triangle, which is <span>$\displaystyle \frac{1}{2}$</span>, so the final answer is -1.</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Seems to make sense. No guarantees though.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>Evaluate <span>$\displaystyle \int_C \vec F \cdot \,d\vec r$</span> where <span>$\displaystyle \vec F = \frac{1}{x^2+y^2}(-y\hat i + x \hat j)$</span> and <span>$C$</span> is the boundary of the square <span>$-1\leq x \leq 1$</span>, <span>$-1\leq y \leq 1$</span> taken counterclockwise.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>This is a straightforward line integral. First, let's rewrite <span>$F$</span> just for fun:</p>
+<p><span>$$\vec F = -\frac{y}{x^2+y^2}\hat i + \frac{x}{x^2+y^2} \hat j$$</span></p>
+<p>Now, let's parametrise <span>$C$</span>. We can split it up into four sections, obviously, since it's a square. Starting with the section on the top <span>$C_1$</span> and moving around counterclockwise:</p>
+<p><span>$$\begin{align*}C_1: \,x = -t, y = 1 &amp; \quad -1 \leq t \leq 1 \quad \therefore r(t) = -t\hat i + \hat j, \, r'(t) = -\hat i\\
+C_2: \, x = -1, y = -t &amp; \quad -1 \leq t \leq 1 \quad \therefore r(t) = -\hat i -t\hat j, \, r'(t) = -\hat j\\
+C_3: \,x = t, y = -1 &amp; \quad -1 \leq t \leq 1 \quad \therefore r(t) = t\hat i - \hat j,\,r'(t) = \hat i\\
+C_4: \, x = 1, y = t &amp; \quad -1 \leq t \leq 1 \quad \therefore r(t) = \hat i + t\hat j,\,r'(t) = \hat j\end{align*}$$</span></p>
+<p>Now we can evaluate the line integral along each segment, starting with <span>$C_1$</span>:</p>
+<p><span>$$\begin{align*}\int_{C_1} \vec F \cdot \,d\vec r &amp; = \int_{-1}^1 F(r(t)) \cdot r'(t) \,dt = \int_{-1}^1 \left (-\frac{1}{t^2+1} \hat i + \frac{-t}{t^2+1}\hat j \right ) \cdot (-\hat i) \,dt = \int_{-1}^1 \frac{1}{t^2+1} \\
+\int_{C_2} \vec F \cdot \,d\vec r &amp; = \int_{-1}^1 \left (\frac{t}{t^2+1} \hat i + \frac{1}{t^2+1}\hat j \right ) \cdot (-\hat j) \,dt = \int_{-1}^1 \frac{1}{t^2+1} \\
+\int_{C_3} \vec F \cdot \,d\vec r &amp; = \int_{-1}^1 \left (\frac{1}{t^2+1} \hat i + \frac{t}{t^2+1}\hat j \right ) \cdot (\hat i) \,dt = \int_{-1}^1 \frac{1}{t^2+1} \\
+\int_{C_4} \vec F \cdot \,d\vec r &amp; = \int_{-1}^1 \left (\frac{-t}{t^2+1} \hat i + \frac{1}{t^2+1}\hat j \right ) \cdot (\hat j) \,dt = \int_{-1}^1 \frac{1}{t^2+1}
+\end{align*}$$</span></p>
+<p>(Sadly nothing cancelled out.) The integrand is therefore <span>$\displaystyle\frac{4}{t^2+1}$</span>. I suppose we could integrate that using trigonometric substitution but I'm not going to do that because I don't want to and Wolfram tells me the answer is <span>$2\pi$</span> and really who wouldn't believe <a href="http://www.wolframalpha.com/input/?i=integrate+4%2F%28t%5E2%2B1%29%2C+t+from+-1+to+1">Wolfram Alpha</a>?</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Not completely sure that the method is correct. It does feel right though. Also the integral at the end is less trivial than I would have thought it would be, but maybe my definition of a trivial integral is just off.</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Let <span>$\vec F = 7x\hat i - z\hat k$</span>. Compute the flux of <span>$\vec F$</span></p>
+<p>(a) through the spherical surface <span>$x^2+y^2+z^2=4$</span> with normal directed outwards, using the divergence theorem;</p>
+<p>(b) through the hemispherical surface <span>$x^2+y^2+z^2=4$</span>, <span>$z \geq 0$</span> (no bottom!) with normal directed upwards.</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>Here's the formula for flux:</p>
+<p><span>$$\iint_S F \cdot \hat n\,dS \text{ or } \iint_S F \cdot dS$$</span></p>
+<p>Here's the divergence theorem:</p>
+<p><span>$$\iint_S F \cdot dS = \iiint_E \text{div} F \,dV$$</span></p>
+<p>where <span>$E$</span> is the 3-dimensional region of which <span>$S$</span> is the boundary surface. From the looks of things, we can find the flux simply by taking the triple integral of the divergence over the region <span>$E$</span>. So let's first find the divergence of the field <span>$F = 7x\hat i - z\hat k$</span>:</p>
+<p><span>$$\text{div} F = 7 - 1 = 6$$</span></p>
+<p>We could then take the triple integral, or we could just find the volume of the sphere and multiply that by 6 (note that this only works when the integrand is a constant - otherwise, you would have to go through the whole integration, most likely in spherical coordinates). Since the radius is 2, the volume is given by<br />
+<span>$$V = \frac{4\pi r^3}{3} = \frac{32\pi}{3}$$</span></p>
+<p>So the answer is a nice and clean <span>$64\pi$</span>.</p>
+<p><strong>(b)</strong></p>
+<p>Theoretically this would be just half the result from part (a), so <span>$32\pi$</span>. Not completely sure though, there may be something more subtle that I'm missing.</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>The first one seems too simple to be correct, but <a href="/MATH_314/past-exam/winter-2010/final">question 6 (b) of the Winter 2010 final</a> is similar and solutions are available for that one, so it's probably correct. Not sure about (b).</p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<p>Use Stokes' theorem to calculate the line integral <span>$\displaystyle \int_C -y^2\,dx + x^2\,dy - z^2\,dz$</span>, where <span>$C$</span> is the intersection of the surfaces <span>$x^2+y^2=4y$</span> and <span>$x+y+z=1$</span>, with the orientation of <span>$C$</span> counterclockwise when projected on the <span>$xy$</span>-plane.</p>
+<h3 class="header"><i>8.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<p>Stokes' theorem looks like this:</p>
+<p><span>$$\int_C F \cdot d\vec r = \iint_S \text{curl } F \,d\vec S = \iint_S \text{curl } F \cdot \hat n \,dS$$</span></p>
+<p>So let's first find the curl of <span>$F$</span>:</p>
+<p><span>$$\text{curl } F = \det \begin{pmatrix} \hat i &amp; \hat j &amp; \hat k \\ \frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y} &amp; \frac{\partial}{\partial z} \\ -y^2 &amp; x^2 &amp; -z^2 \end{pmatrix} = (2x + 2y)\hat k$$</span></p>
+<p>Now, using Stokes' theorem, we can transform the original problem into the following:</p>
+<blockquote>
+<p>Evaluate the flux integral <span>$$\iint_S G \cdot d\vec S$$</span>, where <span>$S$</span> is the part of the plane <span>$x+y+z=1$</span> inside the cylinder <span>$x^2+y^2=4y$</span>, oriented with normals pointing upward. </p>
+</blockquote>
+<p><a href="http://www.math24.net/stokes-theorem.html">http://www.math24.net/stokes-theorem.html</a><br />
+Also <a href="http://math.harvard.edu/~ytzeng/worksheet/1121_sol.pdf">http://math.harvard.edu/~ytzeng/worksheet/1121_sol.pdf</a></p>
+<h3 class="header"><i>8.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>lol</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, October 1, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, October 1, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Congruence classes
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for lecture #12 of MATH 235, taught by <a href="http://www.math.mcgill.ca/darmon/">Henri Darmon</a>. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<p>In this lecture, we continued section 13 of the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/Goren-Notes.pdf">notes</a>.</p>
+<h2 class="header"><i>1</i>Congruence relation notation<a class="headerlink" href="#congruence-relation-notation" name="congruence-relation-notation">&para;</a></h2>
+<p>First, a brief note on notation for congruence relations. <span>$a \equiv b \,(\text{mod } n)$</span> is Gauss' notation, and this is what we've been using. We can also write, as shortland, <span>$a \equiv_n b$</span>. Alternatively, if the <span>$n$</span> can be inferred from the context, we can omit it entirely (so <span>$a \equiv b$</span>).</p>
+<h2 class="header"><i>2</i>Introduction to congruence classes<a class="headerlink" href="#introduction-to-congruence-classes" name="introduction-to-congruence-classes">&para;</a></h2>
+<p>As we went over last time, a congruence relation is an equivalence relation on <span>$\mathbb{Z}$</span>. The set of equivalence classes for such a relation, or <strong>congruence classes</strong>, is denoted by <span>$\mathbb{Z}/n\mathbb{Z}$</span>. Each congruence class can be written in the form <span>$\{a \in \mathbb{Z}: a + n\mathbb{Z}\}$</span> (where <span>$a$</span> is the thing in the set).</p>
+<p>Informally, we can say that the elements of a congruence class have the same remainder when divided by <span>$n$</span>. So <span>$\{0, n, 2n, 3n, \ldots\}$</span> would be one class, and <span>$\{1, n+1, 2n+1, 3n+1,\ldots\}$</span> would be another, and so on.</p>
+<p>We can formally express an congruence class with equivalence class notation: that is, <span>$[a]$</span> denotes the equivalence class of which <span>$a$</span> is an element.</p>
+<p>Two things that are congruent to each other are necessarily in the same equivalence class: <span>$a \equiv a'$</span> means that <span>$[a] = [a']$</span> and vice versa.</p>
+<h3 class="header"><i>2.1</i>A complete set of representatives<a class="headerlink" href="#a-complete-set-of-representatives" name="a-complete-set-of-representatives">&para;</a></h3>
+<p>As was mentioned last time, a complete set of representatives for this relation is given by <span>$\{0, 1, \ldots n-1\}$</span>. Why is this? Well, because a number in that set will be the residue/remainder that results when any number is divided by <span>$n$</span>. We can write <span>$a$</span> as <span>$a = qn + r$</span>, where <span>$r &lt; n$</span>; this means that <span>$r$</span> can be <span>$0, 1, \ldots n-1$</span>.  Clearly, <span>$a \equiv_n r$</span>, as <span>$a - r = qn$</span> which is divisible by <span>$n$</span>. Consequently, by the previous section, <span>$[a] = [r]$</span>. This means that <span>$\{[0], [1], [2], \ldots [n-1]\}$</span> is the set of all equivalence classes for this congruence relation, which also tells us that the cardinality of this set (and so the number of equivalence classes) is equal to <span>$n$</span>.</p>
+<h3 class="header"><i>2.2</i>Addition and multiplication<a class="headerlink" href="#addition-and-multiplication" name="addition-and-multiplication">&para;</a></h3>
+<blockquote>
+<p>If <span>$a \equiv_n a'$</span>, and <span>$b \equiv_n b'$</span>, then <span>$a + b \equiv_n a' + b'$</span>.</p>
+<p>Similarly, <span>$a \cdot b \equiv_n a' \cdot b'$</span>.</p>
+</blockquote>
+<p>The proof of closure under addition follows directly from the definition of congruence. <span>$(a + b) - (a' + b') = (a-a') + (b-b')$</span> (by associativity and commutativity in <span>$\mathbb{Z}$</span>). We know that <span>$n | (a-a')$</span>, and <span>$n|(b-b')$</span>, so the sum of the two is divisible by <span>$n$</span>.</p>
+<p>For multiplication, we can first show that <span>$ab - a'b = b(a-a')$</span>. Since <span>$n|a-a'$</span>, it must also be that <span>$n|b(a-a')$</span>, and so <span>$ab \equiv a'b$</span>. Then, by similar manipulation, we can show that <span>$a'b \equiv a'b'$</span>. By the transitivity of congruence, we then have that <span>$ab \equiv a'b'$</span>.</p>
+<p>Alternatively, we can add <span>$0$</span> to the expression <span>$ab - ab'$</span> for a slightly more artificial (but equally valid) proof:</p>
+<p><span>$$ab - a'b' + (ab' - ab') = ab - ab' + ab' - a'b' = \underbrace{a(b-b')}_{\text{divisible by } n}  + \underbrace{b'(a-a')}_{\text{divisible by } n} \, \blacksquare$$</span></p>
+<h4 class="header"><i>2.2.1</i>Applications to congruence classes<a class="headerlink" href="#applications-to-congruence-classes" name="applications-to-congruence-classes">&para;</a></h4>
+<p>As a result of the previous section, we can define addition and multiplication on the congruence classes - <span>$\mathbb{Z} /n\mathbb{Z}$</span> - by the following rules:</p>
+<ul>
+<li><span>$[a]_n + [b]_n = [a+b]_n$</span></li>
+<li><span>$[a]_n \cdot [b]_n = [a\cdot b]_n$</span></li>
+</ul>
+<p>These are well-defined operations, by the previous theorem.</p>
+<h4 class="header"><i>2.2.2</i>Properties of these operations on congruence<a class="headerlink" href="#properties-of-these-operations-on-congruence" name="properties-of-these-operations-on-congruence">&para;</a></h4>
+<h5 class="header"><i>2.2.2.1</i>Addition<a class="headerlink" href="#addition" name="addition">&para;</a></h5>
+<ul>
+<li>For any element <span>$[a]$</span>, there is a <strong>neutral element</strong>, <span>$[0]_n = \{0, n, 2n, \ldots \}$</span>, such that <span>$[0] + [a] = [a]$</span>.</li>
+<li>For any element <span>$[a]$</span>, there is an <strong>additive inverse</strong> <span>$-[a]$</span>, such that <span>$[a] + (-[a]) = [0]$</span>. <span>$-[a]$</span> is equivalent to <span>$[n-a]$</span>: <span>$[a] + [n-a] = [n] = [0]$</span>.</li>
+<li>Associativity: <span>$([a] + [b]) + [c] = [a] + ([b] + [c])$</span>. The proof for this follows easily from the associativity of addition in <span>$\mathbb{Z}$</span>. We can say that <span>$\mathbb{Z}/n\mathbb{Z}$</span> <strong>inherits</strong> this property from <span>$\mathbb{Z}$</span>.</li>
+<li>Commutatitivty: <span>$[a] + [b] = [b] + [a]$</span></li>
+</ul>
+<h5 class="header"><i>2.2.2.2</i>Multiplication<a class="headerlink" href="#multiplication" name="multiplication">&para;</a></h5>
+<ul>
+<li>For any element <span>$[a]$</span>, there is a <strong>neutral element</strong>, <span>$[1]_n = \{1, n + 1, 2n + 1, \ldots \}$</span>, such that <span>$[1] \cdot [a] = [a]$</span>.</li>
+<li>Associativity: <span>$([a] \cdot [b]) \cdot [c] = [a] \cdot ([b] \cdot [c])$</span>.</li>
+<li>Commutatitivty: <span>$[a] \cdot [b] = [b] \cdot [a]$</span></li>
+</ul>
+<h5 class="header"><i>2.2.2.3</i>Distributivity<a class="headerlink" href="#distributivity" name="distributivity">&para;</a></h5>
+<p>This property combines addition and multiplication:</p>
+<p><span>$$[a] \cdot ([b] + [c]) = ([a] \cdot [b]) + ([a] \cdot [c])$$</span></p>
+<h2 class="header"><i>3</i>Ring structure<a class="headerlink" href="#ring-structure" name="ring-structure">&para;</a></h2>
+<p><span>$\mathbb{Z}$</span> and <span>$\mathbb{Z}/n\mathbb{Z}$</span> are instances of what we call a <strong>commutative ring</strong>, which is defined as a set <span>$R$</span> together with two binary operations, <span>$+ : R \times R \to R$</span>, and <span>$\times: R \times R \to R$</span>, satisfying the above properties (neutral element, associativity, and commutativity for <span>$+$</span> and <span>$\times$</span>; an inverse element for addition; and distributivity).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

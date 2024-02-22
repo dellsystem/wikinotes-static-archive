@@ -1,0 +1,469 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2009 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2009 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Exam and solutions available on WebCT.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_6">7.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_6">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#solution_7">8.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_7">8.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>An urn contains 10 marbles, of which θ are red and the rest are green. Three marbles are chosen at random, resulting in one green and two red marbles. Find the maximum likelihood estimate of θ if</p>
+<p>(a) sampling is with replacement,<br />
+(b) sampling is without replacement.</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>(a) There are three samples, <span>$X_1$</span>, <span>$X_2$</span>, and <span>$X_3$</span>. If we define "success" as getting a red marble, the likelihood function for <span>$\theta$</span> is the probability that we got 1 green marble and 2 red marbles:</p>
+<p><span>$$L(\theta) = \binom{3}{2} \left ( \frac{\theta}{10} \right )^2 \left ( \frac{10-\theta}{10} \right ) = \frac{3!}{2!1!} \frac{1}{10^3} \theta^2(10-\theta) = \frac{3}{10^3} \underbrace{\theta^2(10-\theta)}_{f(\theta)}$$</span></p>
+<p>(We can factor out the constant as we're looking for the value of <span>$\theta$</span> that results in the maximum <span>$L(\theta)$</span> - we don't need t know the specific value of <span>$L(\theta)$</span>.) As there is a finite number of samples, we can write this out in table format:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$\theta$</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$f(\theta)$</span></td>
+<td>0</td>
+<td>9</td>
+<td>32</td>
+<td>63</td>
+<td>96</td>
+<td>125</td>
+<td>144</td>
+<td>147</td>
+<td>128</td>
+<td>81</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>So <span>$\hat \theta = 7$</span>, as <span>$f(\theta)$</span> and thus <span>$L(\theta)$</span> is maximised when <span>$\theta = 7$</span>.</p>
+<p>Alternatively, we could have probably differentiated the likelihood function and gotten that <span>$\theta = \frac{20}{3}$</span>, indicating that the MLE is between 6 and 7, and then compared the values at 6 and at 7. Not sure if that would require more justification, though (function is increasing before 7, decreasing after 7?). The table method probably works better.</p>
+<p>(b) The likelihood function is as follows:</p>
+<p><span>$$L(\theta) = \frac{\binom{\theta}{2} \left ( \binom{10-\theta}{1} \right )}{\binom{10}{3}} = \frac{1}{\binom{10}{3}} \cdot \underbrace{\theta(\theta-1)(10-\theta)}_{f(\theta)}$$</span></p>
+<p>How do we know that????</p>
+<p>Anyways, we draw out the table again:</p>
+<table class="clear">
+<thead>
+<tr>
+<th><span>$\theta$</span></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$f(\theta)$</span></td>
+<td>0</td>
+<td>0</td>
+<td>8</td>
+<td>42</td>
+<td>72</td>
+<td>100</td>
+<td>120</td>
+<td>126</td>
+<td>112</td>
+<td>72</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>and again <span>$\hat \theta = 7$</span>.</p>
+<p>I'm having a hard time figuring out how to generalise this for the HTSEFP (or even where this is covered in the notes/textbook). Help plz?</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Same as solutions, but, how????</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Let <span>$X_1, X_2, \ldots, X_n$</span> be a random sample from the distribution <span>$N(\mu, \sigma^2)$</span>, and let</p>
+<p><span>$$s^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2$$</span></p>
+<p>Show that <span>$s^2$</span> is an unbiased, consistent estimator of <span>$\sigma^2$</span>.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>To show that it's unbiased, we need to show that</p>
+<p><span>$$E(s^2) = \sigma^2$$</span></p>
+<p>Now, recall <a href="/MATH_324/summary/winter-2012/course-review#applications-of-these-distributions">the lemma from section 1.2 of the course review</a>:</p>
+<p><span>$$\sum_{i=1}^n (x_i - \mu)^2 = \sum_{i=1}^n (x_i- \overline x)^2 + n(\overline x -\mu)^2$$</span></p>
+<p>We can rewrite it with the term of interest on the left side of the equation:</p>
+<p><span>$$\sum_{i=1}^n (X_i-\overline X)^2 = \sum_{i=1}^n (X_i - \mu)^2 - n(\overline X - \mu)^2$$</span></p>
+<p>(Note the switched order.) Then, we can derive the expected value of the sample variance as follows:</p>
+<p><span>$$\begin{align*}E(s^2) &amp; = E \left (\frac{1}{n-1} \sum_{i=1}^n (X_i - \overline X)^2 \right ) = \frac{1}{n-1} E\left (\sum_{i=1}^n (X_i - \overline X)^2 \right) = \frac{1}{n-1} E\left ( \sum_{i=1}^n (X_i - \mu)^2 - n(\overline X - \mu)^2 \right ) \\ &amp; = \frac{1}{n-1} \left ( \sum_{i=1}^n E((X_i - \mu)^2) - n(E(\overline X- \mu)^2) \right ) = \frac{1}{n-1} \left ( \sum_{i=1}^n Var(X_i) - n Var(\overline X) \right ) = \frac{1}{n-1} \left ( n \sigma^2 - n \cdot \frac{\sigma^2}{n} \right ) \\ &amp; = \frac{1}{n-1} (n\sigma^2 - \sigma^2) = \frac{(n-1)\sigma^2}{n-1} \\
+&amp; = \sigma^2 \end{align*}$$</span></p>
+<p>(The above comes from the course review. Link later.)</p>
+<p>Now, we need to show that it's consistent. To do this, we use the fact that <span>$(n-1)s^2/\sigma^2$</span> has a chi-square distribution (HOW DO WE KNOW THIS???) with <span>$n-1$</span> degrees of freedom and variance <span>$2(n-1)$</span>. We can then rewrite the formula for the variance of <span>$s^2$</span> as follows:</p>
+<p><span>$$Var(s^2) = Var\left ( \frac{\sigma^2}{n-1} \cdot \frac{(n-1)s^2}{\sigma^2} \right ) = \left ( \frac{\sigma^2}{n-1} \right )^2 Var\left ( \frac{(n-1)s^2}{\sigma^2} \right ) = \frac{\sigma^4}{(n-1)^2} \cdot 2(n-1) = \frac{2\sigma^4}{n-1}$$</span></p>
+<p>We then take the limit as <span>$n \to \infty$</span>:</p>
+<p><span>$$\lim_{n\to\infty} \frac{2\sigma^4}{n-1} = 0$$</span></p>
+<p>(Again from the course review, panicked interjection and all.)</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>The consistent part is the same as in the solutions. The unbiased part is different. Why?</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Let <span>$X_1, X_2, \ldots, X_n$</span> be a random sample from the normal distribution <span>$N(\mu, \sigma^2)$</span> with <strong>known</strong> mean <span>$\mu$</span>.</p>
+<p>(a) Use the Neyman-Pearson lemma to a find a most powerful critical region of size <span>$\alpha$</span> for testing the hypotheses</p>
+<p><span>$$\begin{align*} H_0\, &amp; :\,\sigma^2=\sigma_0^2 \\ H_1\, &amp; : \, \sigma^2 = \sigma_1^2\end{align*}$$</span></p>
+<p>where <span>$\sigma_1^2 &gt; \sigma_0^2$</span>.</p>
+<p>(b) Suppose in (a) that <span>$\mu = 4$</span>, <span>$\sigma_0^2 = 5$</span> and <span>$\sigma_1^2 = 10$</span>. What conclusion at level <span>$\alpha = 0.05$</span> would you make in (a) if <span>$n=3$</span> and the observations are 2, 5, and 8?</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Later</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>The performance of a soft drink bottling machine is to be tested. Five ten ounce bottles are filled by the machine and the resulting contents in fluid ounces were measured as</p>
+<p><span>$$8.0, 8.3, 7.2, 7.7, 8.1.$$</span></p>
+<p>Assume that the data come from a normal population <span>$N(\mu, \sigma^2)$</span>.</p>
+<p>(a) Are the data sufficient to disprove the manufacturer's claim that <span>$\sigma \leq 0.2$</span>? Test at level <span>$\alpha = 0.05$</span>.<br />
+(b) Find a 99% confidence interval for <span>$\mu$</span>.</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>Use the following distribution:</p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2} \sim \chi^2_{n-1}$$</span></p>
+<p>where <span>$s^2 = 0.183$</span>, <span>$\chi^2_{0.05, 4} = 9.49$</span>. We can disprove the claim <em>if</em></p>
+<p><span>$$\frac{(n-1)s^2}{\sigma^2} &gt; \chi^2_{0.05, 4}$$</span></p>
+<p>so we do some manipulation things etc</p>
+<p><span>$$\frac{4 \cdot 0.183}{0.2^2} &gt; 9.49 \quad \therefore 18.3 &gt; 9.49$$</span></p>
+<p>This is true so we reject it.</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Should be right</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>A random check on a famous tourist location shows that on a particular day, it was visited by the following numbers of people:</p>
+<table class="column">
+<thead>
+<tr>
+<th>Region</th>
+<th>Canada</th>
+<th>USA</th>
+<th>South America</th>
+<th>Europe</th>
+<th>Others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numbers</td>
+<td>60</td>
+<td>100</td>
+<td>40</td>
+<td>30</td>
+<td>20</td>
+</tr>
+</tbody>
+</table>
+<p>Test the hypothesis, at level <span>$\alpha = 0.05$</span>, that the true proportions of visitors from the different regions are all equal.</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>This one's really trivial. Here's the table with the addition of the "expected" values:</p>
+<table class="column">
+<thead>
+<tr>
+<th>Region</th>
+<th>Canada</th>
+<th>USA</th>
+<th>South America</th>
+<th>Europe</th>
+<th>Others</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Numbers</td>
+<td>60</td>
+<td>100</td>
+<td>40</td>
+<td>30</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Expected</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+<p>So we take</p>
+<p><span>$$\chi^2 = \sum_{i=1}^5 \frac{(n_i - e_i)^2}{e_i} = \frac{10^2+50^2+10^2+20^2+30^2}{50} = 80$$</span></p>
+<p>Since <span>$\chi_{0.05, 4}^2 = 9.49$</span>, we can indeed reject the hypothesis that the true proportions of visitors are all equal.</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Agrees with solutions. Easy points.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>The midterm and final exam scores of five students in a statistics course are given by:</p>
+<table class="column">
+<thead>
+<tr>
+<th>Midterm (x)</th>
+<th>67</th>
+<th>70</th>
+<th>64</th>
+<th>74</th>
+<th>82</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Final (y)</td>
+<td>73</td>
+<td>83</td>
+<td>79</td>
+<td>91</td>
+<td>94</td>
+</tr>
+</tbody>
+</table>
+<p>It has been decided to fit the linear model <span>$y_i = \beta_0 + \beta_1 x_i + e_i$</span> to this data:</p>
+<p>(a) Find least squares esimates of <span>$\beta_0$</span> and <span>$\beta_1$</span>, and the predicted value of <span>$y$</span> when <span>$x=80$</span>.<br />
+(b) Assuming that the <span>$e_i$</span>s are independent and have distributions <span>$N(0, \sigma^2)$</span>, find a 95% confidence interval for <span>$\beta_0$</span>. Recall that</p>
+<p><span>$$t = \frac{\hat \beta_0 - \beta_0}{\displaystyle \hat \sigma \sqrt{\frac{1}{n} + \frac{\overline x^2}{S_xx}}}, \quad \hat \sigma^2 = \frac{\text{least squares minimum}}{n-2}$$</span></p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>(a) First, acquire the following figures (using your calculator most likely):</p>
+<p><span>$$\sum x_i = 357 \quad \sum x_i^2 = 25685 \quad \sum x_iy_i = 30199 \quad \sum y_i = 420 \quad \sum y_i^2 = 35576$$</span></p>
+<p>Then, calculate the <span>$S$</span> things:</p>
+<p><span>$$S_{xx} = \frac{n(\sum x^2) - (\sum x)^2}{n} = \frac{976}{5} = 195.2 \quad S_{xy} = \frac{n(\sum xy) - (\sum x)(\sum y)}{n} = \frac{1055}{5} = 211 \quad S_{yy} = \frac{n(\sum y^2) - (\sum y)^2}{n} = \frac{1480}{5} = 296$$</span></p>
+<p>Then we can calculate the betas:</p>
+<p><span>$$\beta_0 = \frac{(\sum x^2)(\sum y) - (\sum x)(\sum xy)}{5 \cdot S_xx} = \frac{6657}{976} = 6.82 \quad \beta_1 = \frac{S_{xy}}{S_{xx}} = \frac{211}{195.2} = 1.08$$</span></p>
+<p>So the line of best fit is <span>$y = 6.82 + 1.08 x$</span>. When <span>$x = 80$</span>, <span>$y = 93.3$</span>.</p>
+<p>(b) First, we calculate the least squares minimum:</p>
+<p><span>$$SS(Res) = S_{yy} - \beta_1 S_{xy} = 296 - (1.08) \cdot 211 = 68.12$$</span></p>
+<p>Then we calculate the estimate for <span>$\sigma^2$</span>:</p>
+<p><span>$$\hat \sigma^2 = \frac{68.12}{3} = 22.7 \quad \therefore \sigma = \sqrt{22.7} = 4.77$$</span></p>
+<p>Then, we substitute the rest of the shit, noting that <span>$t_{0.025, 3} = 3.18$</span> and <span>$\overline x = 357/5 = 71.4$</span>:</p>
+<p><span>$$3.18 = \frac{6.82 - \beta_0}{4.77 \sqrt{\frac{1}{5} + \frac{71.4^2}{195.2}}} \quad \therefore 6.82 - \beta_0 = 3.18 * 4.77 * 5.12 = 77.8$$</span></p>
+<p>so the confidence interval is <span>$6.82 \pm 77.8$</span>, huge right</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Works. The numbers for part (b) are a bit off because I rounded (incorrectly?) at some point</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Consider the linear model</p>
+<p><span>$$y_i = \beta_0 + \beta_1 x_i + e_i, \quad i = 1, \ldots, n.$$</span></p>
+<p>(a) Derive the least squares estimators <span>$\hat \beta_0$</span> and <span>$\hat \beta_1$</span> of <span>$\beta_0$</span> and <span>$\beta_1$</span>.<br />
+(b) Assuming the <span>$x_i$</span>s are fixed numbers and the errors <span>$e_i$</span>, <span>$i = 1,\ldots,n$</span> are independent random variables with zero means and variance <span>$\sigma^2$</span>, prove that <span>$\hat \beta_1$</span> is unbiased and has variance of <span>$\sigma^2/S_xx$</span>.</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<p>Three varieties of wheat are field tested by observing their yields in 5, 4, 4 plots respectively. Complete the following analysis of variance table and test the hypothesis at level 0.01 that the expected yields of the three variables are the same.</p>
+<table class="clear">
+<thead>
+<tr>
+<th>Variation due to</th>
+<th>d.f.</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F-ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Varieties</td>
+<td></td>
+<td>60</td>
+<td></td>
+</tr>
+<tr>
+<td>Residual</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td>100</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>8.1</i>Solution<a class="headerlink" href="#solution_7" name="solution_7">&para;</a></h3>
+<table class="clear">
+<thead>
+<tr>
+<th>Variation due to</th>
+<th>d.f.</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F-ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Varieties</td>
+<td>2</td>
+<td>60</td>
+<td>30</td>
+<td>7.5</td>
+</tr>
+<tr>
+<td>Residual</td>
+<td>10</td>
+<td>40</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>12</td>
+<td>100</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><span>$F = 7.5$</span>, <span>$F_{0.01,2,10} = 7.56$</span> so we don't reject.</p>
+<h3 class="header"><i>8.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>Easy, actually</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

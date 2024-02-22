@@ -1,0 +1,149 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, January 30, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, January 30, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Planar graph colouring
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Planar graph colouring and the art gallery theorem.</p>
+<p>I wasn't here for this class. These notes are based on those of an unnamed but diligent student with beautiful handwriting, with some sections contributed by <a href="/users/xiamx">@xiamx</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#colouring-planar-maps">1 Colouring planar maps</a><ul>
+<li><a href="#four-colour-theorem">1.1 Four-colour theorem</a></li>
+<li><a href="#six-colourability">1.2 Six-colourability</a></li>
+<li><a href="#five-colourability">1.3 Five-colourability</a></li>
+</ul>
+</li>
+<li><a href="#the-art-gallery-theorem">2 The art gallery theorem</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Colouring planar maps<a class="headerlink" href="#colouring-planar-maps" name="colouring-planar-maps">&para;</a></h2>
+<p>Suppose we wish to colour the countries on a map such that no two bordering countries have the same colour.</p>
+<p>This is equivalent to vertex-colouring a planar graph. Formally, for any <span>$(i, j) \in E$</span>, it must be that the colou of <span>$i$</span> <span>$\neq$</span> the colour of <span>$j$</span>.</p>
+<p>The minimum number of colours needed to vertex-colour a graph is referred to as the chromatic number (<span>$\chi(G)$</span>).</p>
+<h3 class="header"><i>1.1</i>Four-colour theorem<a class="headerlink" href="#four-colour-theorem" name="four-colour-theorem">&para;</a></h3>
+<blockquote>
+<p>For any planar graph <span>$G$</span>, <span>$\chi(G) \leq 4$</span>.</p>
+</blockquote>
+<p>The only proof we have for this is a fairly inelegant one which required exhaustively checking every case using a computer. It may be possible to do this without a computer, but it hasn't been done yet.</p>
+<h3 class="header"><i>1.2</i>Six-colourability<a class="headerlink" href="#six-colourability" name="six-colourability">&para;</a></h3>
+<blockquote>
+<p>For any planar graph <span>$G$</span>, <span>$\chi(G) \leq 6$</span>.</p>
+</blockquote>
+<p>Proof: We can prove this by induction on <span>$n=|V|$</span>. One can verify the base case easily: if <span>$n \leq 6$</span>, obviously we can colour it with 6 or fewer colours.</p>
+<p>Next, we assume the induction hypothesis for <span>$n=k$</span>. Consider <span>$n=k+1$</span>. By Euler's formula, we know that <span>$m \leq 3n-6$</span>; a corollary of this is that the minimum degree of vertices in a planar graph is strictly less than 6. Then, <span>$G$</span> has a vertex, <span>$v$</span>, whose degree is at most 5. Let's look at <span>$G-v$</span>, i.e. <span>$G$</span> without the vertex <span>$v$</span> (with all adjacent edges removed as well). The resulting graph is clearly still planar, and what's more, by the induction hypothesis, it can be 6-coloured.</p>
+<p>Now let's add back <span>$v$</span>. Well, since it has 5 or fewer neighbours, there's at least one colour (in the set of 6 colours that we can use) which hasn't yet been used by any neighbour. If we use this colour for <span>$v$</span>, then we have a valid 6-colouring. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Five-colourability<a class="headerlink" href="#five-colourability" name="five-colourability">&para;</a></h3>
+<blockquote>
+<p>For any planar graph <span>$G$</span>, <span>$\chi(G) \leq 5$</span>.</p>
+</blockquote>
+<p>Proof: Also by induction on <span>$n$</span>. It's pretty long, so I'm not going to write it out in full. Has to do with alternating paths and shit.</p>
+<h2 class="header"><i>2</i>The art gallery theorem<a class="headerlink" href="#the-art-gallery-theorem" name="the-art-gallery-theorem">&para;</a></h2>
+<blockquote>
+<p>For any museum with <span>$n$</span> walls, we need at most <span>$\displaystyle \left \lfloor \frac{n}{3} \right \rfloor$</span> guards.</p>
+</blockquote>
+<p>Proof: First, we split up the floor plan into triangles, using <span>$n-3$</span> non-crossing diagonals (treat diagonals as edges, wall corners as vertices). Then prove that the resulting graph is 3-colourable by induction. Put a guard at each vertices of a particular colour.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

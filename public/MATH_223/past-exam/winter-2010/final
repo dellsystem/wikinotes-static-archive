@@ -1,0 +1,377 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_223/">
+                MATH 223
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-created solutions (with some questions solved in-class as well) for the Winter 2010 final exam for <a href="/MATH_223">MATH 223</a>. You can find the original exam through WebCT or possibly docuum if anyone has uploaded it there in the meantime, but all the questions will be stated on this page.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_6">7.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_6">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#solution_7">8.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_7">8.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9">9 Question 9</a><ul>
+<li><a href="#solution_8">9.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_8">9.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">10 Question 10</a><ul>
+<li><a href="#solution_9">10.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_9">10.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>Find a basis for each of the following spaces: the row space, column space, and null space of the following matrix over the complex numbers.</p>
+<p><span>$$\begin{pmatrix}1 &amp; 2-i &amp; 0 &amp; 2i &amp; 3-i \\ 3+i &amp; 7-i &amp; 1+i &amp; 0 &amp; 10 \\ 1+2i &amp; 4+3i &amp; 2+2i &amp; -10i &amp; 5+5i \end{pmatrix}$$</span></p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>First we row-reduce the matrix, as follows:</p>
+<p><span>$$\begin{pmatrix}1 &amp; 2-i &amp; 0 &amp; 2i &amp; 3-i \\ 3+i &amp; 7-i &amp; 1+i &amp; 0 &amp; 10 \\ 1+2i &amp; 4+3i &amp; 2+2i &amp; -10i &amp; 5+5i \end{pmatrix} \to \begin{pmatrix}1 &amp; 2-i &amp; 0 &amp; 2i &amp; 3-i \\ 0 &amp; 0 &amp; 1+i &amp; 2-6i &amp; 0 \\ 0 &amp; 0 &amp; 2+2i &amp; 4-12i &amp; 0 \end{pmatrix} \to \begin{pmatrix}1 &amp; 2-i &amp; 0 &amp; 2i &amp; 3-i \\ 0 &amp; 0 &amp; 1 &amp; -2-4i &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix} $$</span></p>
+<p>The first row-reduction consisted of subtracting row 2 by (3+i) times row 1, and subtracting row 3 by (1+2i) times row 1. The second row-reduction consisted of subtracting the third row by 2 times the second row and then dividing the second row by (1-i) (which was done with the assistance of the complex conjugate).</p>
+<p>We can then use the row-reduced matrix to find a basis for the row space, which simply consists of the two non-zero rows in the RREF matrix:</p>
+<p><span>$$\left\{ \begin{pmatrix} 1 &amp; 2-i &amp; 0 &amp; 2i &amp; 3-i \end{pmatrix}, \begin{pmatrix} 0 &amp; 0 &amp; 1 &amp; -2-4i &amp; 0 \end{pmatrix} \right\}$$</span></p>
+<p>To find a basis for the column space, we take the two columns in the RREF matrix that contain leading ones, identify the corresponding columns in the original matrix, and use those:</p>
+<p><span>$$\left\{ \begin{pmatrix} 1 \\ 3+i \\ 1+2i \end{pmatrix}, \begin{pmatrix} 0 \\ 1+i \\ 2+2i \end{pmatrix} \right\}$$</span></p>
+<p>The nullspace can be found by solving the homogeneous equation. Let each column in the matrix correspond to <span>$x_1 \ldots x_5$</span> and parametrise <span>$x_2 =t,\,x_4=s,\,x_5=r$</span>:</p>
+<p><span>$$x_1 + (2-i)t + (2i)s + (3-i)r = 0 \quad \therefore x_1 = (1-2)t - (2i)s + (i-3)r$$</span><br />
+<span>$$x_3 + (-2-4i)s = 0 \quad \therefore x_3 = (2+4i)s$$</span></p>
+<p>So the basis for the nullspace is</p>
+<p><span>$$\left\{ \begin{pmatrix} i -2 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}, \begin{pmatrix} -2i \\ 0 \\ 2+4i \\ 1 \\ 0 \end{pmatrix},  \begin{pmatrix} i-3 \\ 0 \\ 0 \\ 0 \\ 1 \end{pmatrix} \right\}$$</span></p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Corresponds with solutions given in-class. Also, Wolfram alpha agrees. So, most likely accurate. - <a href="/users/dellsystem">@dellsystem</a></p>
+<blockquote>
+<p>I've also done it by hand and it matches. I'd call it accurate - <a href="/users/tahnok">@tahnok</a></p>
+</blockquote>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Here <span>$V = P_3(x)$</span>, the vector space of polynomials with real coefficients and degree at most 3. Let <span>$T \,:\, V \to V$</span> be defined by</p>
+<p><span>$$T(p(x)) = p(x+2) - 2p(x+1)+p(x)$$</span></p>
+<p>(a) (2 marks) Show that T is a linear operator on V.<br />
+(b) (4 marks) With <span>$B = (1,x,x^2,x^3)$</span>, find <span>$[T]_B$</span>.<br />
+(c) (4 marks) Find a basis for each of <span>$ker(T)$</span> and <span>$im(T)$</span>.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>(a) To show that T is a linear operator we simply need to show that it preserves/respects vector addition and scalar multiplication.</p>
+<p>For vector addition: Let <span>$p(x),\,q(x)$</span> be any two polynomials <span>$\in V$</span>. Then:</p>
+<p><span>$$T(p(x)+q(x)) = T((p+q)(x)) = (p+q)(x+2) - 2(p+q)(x+1) + (p+q)(x) = p(x+2) + q(x+2) - 2p(x+1) -2q(x+1) + p(x) + q(x) = T(p(x)) + T(q(x))$$</span></p>
+<p>For scalar multiplication: Let <span>$\alpha \in \mathbb{R}$</span> (a scalar):</p>
+<p><span>$$T(\alpha p(x)) = \alpha p(x+2) -2 \alpha p(x+1) + \alpha p(x) = \alpha (p(x+2) - 2 p(x+1) +p(x)) = \alpha T(p(x))$$</span></p>
+<p>(b) Now we must find a 4 by 4 matrix that outputs into B. To do this, we evaluate T for each polynomial in the basis, then express the answer in column vector format (in terms of the basis):</p>
+<p><span>$$\begin{align}T(1) &amp; = 1 - 2 + 1 = 0 \mapsto \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T \\
+T(x) &amp; = (x+2) - 2(x+1) +x = 0 \mapsto \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T \\
+T(x^2) &amp; = (x+2)^2 - 2(x+1)^2 + x^2 = x^2 + 4x + 4 - 2x^2 -4x -2 + x^2 = 2 \mapsto \begin{bmatrix} 2 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}^T \\
+T(x^3) &amp; = (x+2)^3 - 2(x+1)^3 + x^3 = 6x+6 \mapsto \begin{bmatrix} 6 &amp; 6 &amp; 0 &amp; 0 \end{bmatrix}^T \end{align}$$</span></p>
+<p>These correspond to the columns of the matrix <span>$[T]_B$</span>, from left to right. So</p>
+<p><span>$$[T]_B = \begin{bmatrix} 0 &amp; 0 &amp; 2 &amp; 6 \\ 0 &amp; 0 &amp; 0 &amp; 6 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}$$</span></p>
+<p>(c) To find the kernel and image space we use the matrix we found above. First we find the nullspace, using the same method we always use - the matrix row-reduces to</p>
+<p><span>$$\begin{bmatrix} 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}$$</span></p>
+<p>so the nullspace is simply <span>$\operatorname{span} \{ \begin{pmatrix} 1 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}^T, \begin{pmatrix} 0 &amp; 1 &amp; 0 &amp; 0 \end{pmatrix}^T \}$</span>, which corresponds to a kernel of <span>$\operatorname{span} \{ 1, x \}$</span>. Note that the nullspace differs from the kernel in this case because the kernel is expressed in terms of the vector space being used (polynomials of degree at most three in this case).</p>
+<p>To find a basis for the column space, we just take two non-zero columns from the RREF matrix and get the corresponding columns from the original matrix:</p>
+<p><span>$$\{ \begin{pmatrix} 2 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}^T, \begin{pmatrix} 6 &amp; 6 &amp; 0 &amp; 0 \end{pmatrix} \}$$</span></p>
+<p>which corresponds to an imagespace of <span>$\operatorname{span} \{2, 6x+6 \}$</span> which is incidentally equivalent to <span>$\operatorname{span} \{ 1, x \}$</span>. Note that the same distinction exists between imagespace and column space as above.</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Corresponds with solutions arrived at in-class. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Give the general solution to the following system of equations:</p>
+<p><span>$$\begin{align} y_1' &amp; = y_1 - 2y_2 \\
+y_2' &amp; = y_1 + 4y_2 \end{align}$$</span></p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>For problems like this, we need to diagonalise the matrix. First we find the coefficient matrix A:</p>
+<p><span>$$A = \begin{pmatrix} 1 &amp; -2 \\ 1 &amp; 4 \end{pmatrix}$$</span></p>
+<p>The characteristic polynomial is:</p>
+<p><span>$$\det(A-\lambda I) = (\lambda -1)(\lambda-4) +2 = \lambda^2 - 5\lambda + 6 = (\lambda-2)(\lambda-3)$$</span></p>
+<p>giving us the eigenvalues <span>$\lambda_1 = 2,\, \lambda_2 =  3$</span>. We then find each associated eigenvector:</p>
+<ul>
+<li>For <span>$\lambda_1:\, A- 2I = \begin{pmatrix} -1 &amp; -2 \\ 1 &amp; 2 \end{pmatrix} \mapsto \begin{pmatrix} 1 &amp; 2 \\ 0 &amp; 0 \end{pmatrix}$</span>, which gives us the eigenvector <span>$\begin{pmatrix} -2 \\ 1 \end{pmatrix}$</span>.</li>
+<li>For <span>$\lambda_2: \, A-3I = \begin{pmatrix} -2 &amp; -2 \\ 1 &amp; 1 \end{pmatrix} \mapsto \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 0 \end{pmatrix}$</span>, which gives us the eigenvector <span>$\begin{pmatrix} -1 \\ 1 \end{pmatrix}$</span>.</li>
+</ul>
+<p>From the eigenvectors we get the invertible matrix P, and from the eigenvalues, the diagonal matrix D:</p>
+<p><span>$$P = \begin{pmatrix} -2 &amp; -1 \\ 1 &amp; 1 \end{pmatrix} \quad D = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix}$$</span></p>
+<p>We then make the substitution <span>$\vec z = P^{-1} \vec y$</span>, so that the system becomes <span>$D \vec z =  \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 3 \end{pmatrix} \vec z$</span> which gives us <span>$z_1' = 2z_1, \, z_2' = 3z_2$</span> so we get <span>$z_1 = c_1e^{2x}, \, z_2 = c_2 e^{3x}$</span> where <span>$c_1, c_2$</span> are just any constant. Now that we have solved for <span>$\vec z$</span>, we can multiply it by P on the left to get y:</p>
+<p><span>$$\begin{pmatrix} y_1 \\ y_2 \end{pmatrix} = P\vec z = \begin{pmatrix}-2 &amp; -1 \\ 1 &amp; 1 \end{pmatrix} \begin{pmatrix} c_1 e^{2x} \\ c_2 e^{3x} \end{pmatrix} = \begin{pmatrix} -2c_1 e^{2x} - c_2 e^{3x} \\ c_1 e^{2x} + c_2 e^{3x} \end{pmatrix}$$</span></p>
+<p>So the solution to this system of differential equations is <span>$y_1 = -2c_1 e^{2x} - c_2 e^{3x}$</span> and <span>$y_2 = c_1 e^{2x} + c_2 e^{3x}$</span>.</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Corresponds to solutions given in-class. Followed methods from assignment 7. - <a href="/users/dellsystem">@dellsystem</a></p>
+<div class="ui divider"></div>
+<p><strong>Question:</strong> Where did you get the e<sup>2x and e</sup>3x in the solution? - anonymous</p>
+<blockquote>
+<p>From the diagonal matrix. Check the answers to question 3 from assignment 7 for a better explanation of the method. - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Give an explicit, nonrecursive formula for <span>$x_n$</span>, where <span>$x_n$</span> is defined recursively by</p>
+<p><span>$$x_0 = 0,\,x_1 = 2,\,x_{n+2} = 2x_{n+1} - 2x_n, \quad n \ge 0$$</span></p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>We first find a matrix to represent this problem, then find the eigenvalues of that matrix. Let the system representing this problem be given by</p>
+<p><span>$$\begin{pmatrix}x_{n+2} \\ x_{n+1} \end{pmatrix} = \begin{pmatrix} 2 &amp; -2 \\ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} x_{n+1} \\ x_n \end{pmatrix}$$</span></p>
+<p>where we used the fact that <span>$x_{n+2} = 2x_{n+1} - 2x_n$</span> and <span>$x_{n+1} = x_{n+1}$</span> (yes) to find the values of the matrix, which we'll call A. We then find the characteristic polynomial:</p>
+<p><span>$$det(\lambda I - A) = \lambda^2 - 2\lambda + 2 = (\lambda-1)^2 +1 \quad \therefore (\lambda - 1) = \sqrt{-1} = \pm i$$</span></p>
+<p>which gives us the complex eigenvalues <span>$\lambda_1 = 1 + i,\,\lambda_2 = 1 - i$</span>.</p>
+<p>The formula for <span>$x_n$</span> can somehow magically (and by magic we mean the proof found in assignment 7) be given by <span>$\alpha \lambda_1^n + \beta \lambda_2^n = \alpha (1+i)^n + \beta (1-i)^n$</span> where alpha and beta are scalars. We can solve for alpha and beta using <span>$x_0$</span> and <span>$x_1$</span>:</p>
+<p><span>$$x_0 = \alpha + \beta = 0 \quad \therefore \alpha = -\beta$$</span><br />
+<span>$$x_1 = \alpha(1+i) + \beta(1-i) = \alpha (1+i) - \alpha (1-i) = 2i\alpha = 2 \quad \therefore \alpha = -i, \, \beta = i$$</span></p>
+<p>Now we have the explicit formula for <span>$x_n$</span>:</p>
+<p><span>$$x_n = -i(1+i)^n + i(1-i)^n$$</span></p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Corresponds with the solutions given in-class, and with the method described in assignment 7, question 1. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>Suppose that A is a square matrix with minimal polynomial</p>
+<p><span>$$min_A(x) = x^k + a_{k-1}x^{k-1} + \ldots + a_1 x + a_0$$</span></p>
+<p>with <span>$a_0 \neq 0$</span>. Prove that <span>$A^{-1}$</span> exists and that there is a polynomial <span>$q(x)$</span> such that <span>$q(A) = A^{-1}$</span>.</p>
+<p>(Recall that <span>$min_A(x)$</span> is the nonzero monic polynomial p(x) of smallest possible degree such that <span>$p(A) = 0$</span>.)</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>We have <span>$A^k + a_{k-1}A^{k-1} + \ldots + a_1 A + a_0 I = 0$</span>. Since we know <span>$a_0 \neq 0$</span>, we can move that term to the other side of the equation and divide by <span>$-a_0$</span>:</p>
+<p><span>$$-\frac{1}{a_0}A^k - \frac{a_{k-1}}{a_0}A^{k-1} - \ldots - \frac{a_1}{a_0}A = I$$</span></p>
+<p>We can then factor out an A:</p>
+<p><span>$$A\left (-\frac{1}{a_0}A^{k-1} - \frac{a_{k-1}}{a_0}A^{k-2} - \ldots - \frac{a_1}{a_0}I \right ) = I$$</span></p>
+<p>So we have <span>$A^{-1} = -\frac{1}{a_0}A^{k-1} - \frac{a_{k-1}}{a_0}A^{k-2} - \ldots - \frac{a_1}{a_0}I$</span>. This shows that A has an inverse, and also gives us the polynomial q(x):</p>
+<p><span>$$q(x) = -\frac{1}{a_0}x^{k-1} - \frac{a_{k-1}}{a_0}x^{k-2} - \ldots - \frac{a_1}{a_0}$$</span></p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Corresponds to solutions given in-class, and actually sort of makes sense in general. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>Let <span>$W = span \left \{ \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix} , \begin{pmatrix} 1 \\ 1 \\ 1 \\ 2 \end{pmatrix} \right \}$</span> be a subspace of <span>$\mathbb{R}^4$</span>. Find an orthonormal basis for each of <span>$W$</span> and <span>$W^{\perp}$</span>.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>Let <span>$\vec{v_1} = \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix}$</span> and <span>$\vec{v_2} = \begin{pmatrix} 1 \\ 1 \\ 1 \\ 2 \end{pmatrix}$</span>.</p>
+<p>Normally we would use Gram-Schmidt to make the vectors orthogonal to each other, but a quick inspection of the vectors allows us to realize we can simply subtract <span>$\vec{v_1}$</span> from <span>$\vec{v_2}$</span> to create another vector that has zeroes opposite of that of <span>$\vec{v_1}$</span>. Since the zeroes are opposite of each another, it follows that the inner product of the two vectors will clearly end up being 0 (since everything you're multiplying will always equal 0), showing that the two vectors will be orthogonal to one another.</p>
+<p>We'll assign the vectors like this for clarity:</p>
+<p><span>$$\vec{w_1} = \vec{v_1} = \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \quad \vec{w_2} = \vec{v_2} - \vec{v_1} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 2 \end{pmatrix}$$</span></p>
+<p>Since these vectors are orthogonal, all we need to do is normalize them, so an orthonormal basis for W is:</p>
+<p><span>$$\left \{ \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \frac{1}{\sqrt{5}} \begin{pmatrix} 0 \\ 1 \\ 0 \\ 2 \end{pmatrix} \right \} $$</span></p>
+<p>For <span>$W^{\perp}$</span>, we could again continue on with Gram-Schmidt, but we can also simply just solve the system <span>$A\vec{x} = \vec{0}$</span>, and get the orthonormal basis for <span>$W^{\perp}$</span> as well.</p>
+<p>Let <span>$A = \begin{pmatrix} 1 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 2 \end{pmatrix}$</span></p>
+<p>Finding the null space of A, we obtain the orthogonal vectors in <span>$W^{\perp}$</span>:</p>
+<p><span>$$\left \{ \begin{pmatrix} -1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ -2 \\ 0 \\ 1 \end{pmatrix} \right \}$$</span></p>
+<p>Finally, normalizing this result, we get the orthonormal basis in <span>$W^{\perp}$</span>:</p>
+<p><span>$$\left \{ \frac{1}{\sqrt{2}} \begin{pmatrix} -1 \\ 0 \\ 1 \\ 0 \end{pmatrix}, \frac{1}{\sqrt{5}} \begin{pmatrix} 0 \\ -2 \\ 0 \\ 1 \end{pmatrix} \right \}$$</span></p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Pretty accurate, follows class solution - <a href="/users/clarle">@clarle</a></p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Let <span>$A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}$</span>, <span>$B = \begin{pmatrix} \hat a &amp; \hat b \\ c &amp; d \end{pmatrix}$</span> and <span>$C = \begin{pmatrix} (1+i)a + 3\hat a + 2i c &amp; (1+i)b + 3\hat b + 2i d \\ (1-2i)c &amp; (1-2i)d \end{pmatrix}$</span> be matrices with complex entries. If we know that <span>$det(A) = 2i$</span> and <span>$det(B) = 1+ i$</span>, what is <span>$det(-3C)$</span>?</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<p>Forgive the editorialising but this is actually a pretty cool problem, one that I only realised how to do when I was halfway through it. We will use the theorem that <span>$det(C) = det(A) + det(B)$</span> IF A and B differ only by one row and that row in C is the sum of the corresponding row in A and B. See <a href="http://tutorial.math.lamar.edu/Classes/LinAlg/DeterminantProperties.aspx">theorem 2 on this page (Paul's notes)</a> for a better explanation. So let's make up a few matrices and figure out their determinants:</p>
+<p><span>$$D = \begin{pmatrix}(1+i)a &amp; (1+i)b \\ c &amp; d \end{pmatrix}$$</span></p>
+<p>which has a determinant of <span>$(1+i)det(A) = (1+i)(2i) = -2+2i$</span> since it's just the result of multiplying one row of A by <span>$(1+i)$</span>.</p>
+<p><span>$$E = \begin{pmatrix} 3\hat a + 2i c &amp; 3\hat b + 2i d \\ c &amp; d \end{pmatrix}$$</span></p>
+<p>which has a determinant of <span>$3det(B) = 3(1+i) = 3+3i$</span> since it's just multiplying the first row by three and then performing an elementary row operation that does not change the determinant (adding two rows).</p>
+<p><span>$$F = \begin{pmatrix}(1+i)a + 3\hat a + 2i c &amp; (1+i)b + 3\hat b + 2i d \\ c &amp; d \end{pmatrix}$$</span></p>
+<p>which has a determinant of <span>$det(D) + det(E) = (-2 + 2i) + (3+3i) = 1 + 5i$</span> due to the theorem mentioned before (as D and E only differ by one row etc).</p>
+<p>If we then multiply the second row of F by <span>$(1-2i)$</span>, we get the matrix C. The matrix C has a determinant equal to <span>$(1-2i)det(F) = (1-2i)(1+5i) = 1 +3i +10 = 11 + 3i$</span></p>
+<p>To find the determinant of <span>$-3C$</span>, we simply square <span>$-3$</span> and multiply it by the determinant of C, as C is a 2x2 matrix (recall that multiplying a [square] matrix by a constant a results in the determinant increasing by <span>$a^n$</span> where n is the number of rows and columns). So <span>$det(-3C) = (-3)^2det(C) = 9(11+3i) = 99+27i$</span>. And there you go.</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>As always, corresponds to the solutions given in-class. Plus I actually understand it this time. So it should be fairly accurate. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<p>Let A be the following real symmetric matrix. Find an orthogonal matrix P such that <span>$P^T AP$</span> is diagonal, and find the diagonal matrix.</p>
+<p><span>$$A = \begin{pmatrix} 0 &amp; 2 &amp; 3 \\ 2 &amp; 3 &amp; 6 \\ 3 &amp; 6 &amp; 8 \end{pmatrix}$$</span></p>
+<p>Note that -1 is an eigenvalue of A.</p>
+<h3 class="header"><i>8.1</i>Solution<a class="headerlink" href="#solution_7" name="solution_7">&para;</a></h3>
+<p>Recall that an orthogonal matrix is one such that its columns are filled with orthonormal vectors. To solve this one, we first must solve for the characteristic polynomial of the matrix by finding <span>$\det A - \lambda I$</span>:</p>
+<p><span>$$\det A - \lambda I = -\lambda^3 + 11\lambda^2 + 25\lambda + 13$$</span></p>
+<p>Since we know that -1 is an eigenvalue, we can factor the characteristic polynomial to find the other eigenvalues easily:</p>
+<p><span>$$\det A - \lambda I = -(\lambda + 1)^2(\lambda - 13)$$</span></p>
+<p>Now, finding the eigenvectors associated with the given eigenvalue of -1:</p>
+<p><span>$$A-(-1)I = A+I = \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 4 &amp; 6 \\ 3 &amp; 6 &amp; 9 \end{pmatrix} \mapsto \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}$$</span></p>
+<p>Because it has multiplicity two, we get two eigenvectors, <span>$\begin{pmatrix}-2 \\ 1 \\ 0 \end{pmatrix}$</span> and <span>$\begin{pmatrix} -3 \\ 0 \\ 1 \end{pmatrix}$</span>.</p>
+<p>Now, finding the eigenvectors associated with the given eigenvalue of 13:</p>
+<p><span>$$A-(13)I = A-13I = \begin{pmatrix} -13 &amp; 2 &amp; 3 \\ 2 &amp; -10 &amp; 6 \\ 3 &amp; 6 &amp; -5 \end{pmatrix} \mapsto \frac{1}{3}\begin{pmatrix} 3 &amp; 0 &amp; -1 \\ 0 &amp; 3 &amp; -2 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}$$</span></p>
+<p>From this eigenvalue, we get one eigenvector, <span>$\begin{pmatrix}1 \\ 2 \\ 3 \end{pmatrix}$</span>.</p>
+<p>Also note that we could have found the last eigenvalue using the trace of the matrix, as the trace is equal to the sum of the eigenvalues. Since there are two eigenvectors associated with the eigenvalue of -1, the remaining eigenvalue must be equal to the trace + 2, so it's 13. Just a shortcut (one that Loveys kind of prompts you to use, with his mention of only one eigenvalue) but not necessary to solve the problem or anything.</p>
+<p>Now that we have all of the eigenvectors, we can orthogonalize them via Gram-Schmidt:</p>
+<p>Let:</p>
+<p><span>$\vec{v_1} = \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix}, \vec{v_2} = \begin{pmatrix} -2 \\ 1 \\ 0 \end{pmatrix}, \vec{v_3} = \begin{pmatrix} -3 \\ 0 \\ 1 \end{pmatrix}$</span></p>
+<p>Then:</p>
+<p><span>$$\vec{w_1} = \vec{v_1} = \begin{pmatrix}1 \\ 2 \\ 3 \end{pmatrix}$$</span></p>
+<p><span>$$\vec{w_2} = \vec{v_2} - \frac{\langle \vec{v_2}, \vec{w_1} \rangle}{\langle \vec{w_1}, \vec{w_1} \rangle} \vec w_1 = \begin{pmatrix}-2 \\ 1 \\ 0 \end{pmatrix} - \frac{0}{14}\begin{pmatrix}1 \\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix}-2 \\ 1 \\ 0 \end{pmatrix}$$</span></p>
+<p><span>$$\vec{w_3} = \vec{v_3} - \frac{\langle \vec{v_3}, \vec{w_1} \rangle}{\langle \vec{w_1}, \vec{w_1} \rangle} \vec w_1 - \frac{\langle \vec{v_3}, \vec{w_2} \rangle}{\langle \vec{w_2}, \vec{w_2} \rangle} \vec w_2  = \begin{pmatrix}-3 \\ 0 \\ 1 \end{pmatrix} - \frac{0}{14}\begin{pmatrix}1 \\ 2 \\ 3 \end{pmatrix} - \frac{6}{5}\begin{pmatrix}-2 \\ 1 \\ 0 \end{pmatrix} = \frac{1}{5}\begin{pmatrix}-3 \\ -6 \\ 5 \end{pmatrix}$$</span></p>
+<p>Now that we have our set of orthogonal vectors, all we need to do now is normalize them. So our matrix <span>$P$</span> is:</p>
+<p><span>$$P = \begin{pmatrix}\frac{1}{\sqrt{14}} &amp; \frac{-2}{\sqrt{5}} &amp; \frac{-3}{\sqrt{70}} \\ \frac{2}{\sqrt{14}} &amp; \frac{1}{\sqrt{5}} &amp; \frac{-6}{\sqrt{70}} \\ \frac{3}{\sqrt{14}} &amp; 0 &amp; \frac{5}{\sqrt{70}}\end{pmatrix}$$</span></p>
+<h3 class="header"><i>8.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>Correct, but there may be a faster way to solve this problem (without having to find the characteristic polynomial). Will check back again if I figure it out. - <a href="/users/clarle">@clarle</a></p>
+<blockquote>
+<p>Added the diagonal matrix, and a note to the effect that we don't actually need to find the characteristic polynomial (could just use trace etc). Also added some missing things in the Gram-Schmidt orthogonalisation process. Not sure if your numbers are right or not, but now the formulas should be. - <a href="/users/dellsystem">@dellsystem</a></p>
+<blockquote>
+<p>Two eigenvectors for the eigenvalue of -1 not 0. - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+</blockquote>
+<h2 class="header"><i>9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h2>
+<p>Suppose that V is the vector space of continuous functions on the closed interval <span>$[0, \ln (3)]$</span>. For <span>$f, g \in V$</span>, we define</p>
+<p><span>$$\langle f, g\rangle = \int_0^{\ln 3} e^x f(x) g(x) \,dx$$</span></p>
+<p>(a) (2 marks) Verify that this defines an inner product on V.<br />
+(b) (6 marks) Show that, for any <span>$f \in V$</span>,</p>
+<p><span>$$\left ( \int_0^{\ln 3} e^x f(x) \,dx \right )^2 \le 2 \int_0^{\ln 3} e^x [ f(x) ]^2 \,dx$$</span></p>
+<p>(c) (2 marks) Identify those functions in V for which equality holds in part (b).</p>
+<h3 class="header"><i>9.1</i>Solution<a class="headerlink" href="#solution_8" name="solution_8">&para;</a></h3>
+<p>(a) To verify that this is defines an inner product, we have to show that it respects linearity in the first argument, conjugate symmetry, and positive definiteness.</p>
+<p><strong>Linearity in the first argument:</strong></p>
+<p>Prove that it respects vector addition:</p>
+<p><span>$$\langle f_1 + f_2, g \rangle = \int_0^{\ln 3} e^x (f_1+f_2)(x) g(x) \,dx = \int_0^{\ln 3} e^x f_1(x) g(x)\,dx + \int_0^{\ln 3} e^x f_2(x) g(x) \,dx = \langle f_1, g\rangle + \langle f_2, g\rangle$$</span></p>
+<p>Prove that it preserves scalar multiplication:</p>
+<p><span>$$\langle \alpha f, g\rangle = \int_0^{\ln 3} e^x (\alpha f(x)) g(x) \, dx = \alpha \int_0^{\ln 3} e^x f(x)g(x)\,dx = \alpha \langle f, g \rangle$$</span></p>
+<p><strong>[Conjugate] symmetry:</strong></p>
+<p><span>$$\langle g, f \rangle = \int_0^{\ln 3} e^x g(x) f(x) \,dx = \int_0^{\ln 3} e^x f(x) g(x) \,dx = \langle f, g \rangle \text{ for all } f, g\in V$$</span></p>
+<p>Positive definiteness:</p>
+<p>For any <span>$f \in V, \, f\neq 0$</span>:</p>
+<p><span>$$\langle f, f \rangle = \int_0^{\ln 3} e^x [f(x)]^2 \,dx$$</span></p>
+<p>Since <span>$e^x$</span> is always positive and <span>$[f(x)]^2$</span> is also always positive for <span>$f \neq 0$</span>, the integrand is thus always positive over the given interval, and so the integral must be positive as well. If <span>$f = 0$</span>, the integral evaluates to 0, as the integrand is just the zero function.</p>
+<p>(b) As we have verified that this defines an inner product, the Cauchy-Schwarz inequality applies. Therefore:</p>
+<p><span>$$|\langle f, 1 \rangle|^2 = \left ( \int_0^{\ln 3} e^x f(x) \,dx \right )^2 \le \langle f, f\rangle \langle 1, 1 \rangle$$</span></p>
+<p><span>$$\therefore \left ( \int_0^{\ln 3} e^x f(x) \,dx \right )^2 \le \int_0^{\ln 3} e^x [f(x)]^2\,dx \int_0^{\ln 3} e^x \,dx$$</span></p>
+<p>Evaluate the integral: <span>$\int_0^{\ln 3} e^x \,dx = \left [ e^x \right ]_0^{\ln 3} = 3 - e^0 = 2$</span></p>
+<p>Therefore, by Cauchy-Schwarz and evaluation of integrals, we have <span>$\left ( \int_0^{\ln 3} e^x f(x) \,dx \right )^2  \le 2 \int_0^{\ln 3} e^x [f(x)]^2 \,dx$</span></p>
+<p>(c) When is <span>$\left ( \int_0^{\ln 3} e^x f(x) \,dx \right )^2  = 2 \int_0^{\ln 3} e^x [f(x)]^2 \,dx$</span>?</p>
+<p>Well, equality should only occur when f is a constant multiple of 1, by Cauchy-Schwarz. So equality only occurs when f is a constant function.</p>
+<h3 class="header"><i>9.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>The solution for (a) corresponds to the answer given in-class. The answers for (b) and (c) were either not given or the person taking down the answers fell asleep or something, but they make sense and they are similar to the solutions provided for assignment 9, question 1, so it should be all good. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h2>
+<p>Suppose that V is a finite-dimensional inner product space and <span>$W_1$</span> and <span>$W_2$</span> are subspaces of V such that <span>$V = W_1 \oplus W_2$</span>. Prove that <span>$V = W_1^{\perp} \oplus W_2^{\perp}$</span>.</p>
+<h3 class="header"><i>10.1</i>Solution<a class="headerlink" href="#solution_9" name="solution_9">&para;</a></h3>
+<p>Suppose <span>$\vec{v} \in W_1^{\perp} \cap W_2^{\perp}$</span>. Then:</p>
+<p><span>$\langle \vec{v}, \vec{w_1} \rangle = 0$</span> for all <span>$\vec{w_1} \in W_1$</span></p>
+<p><span>$\langle \vec{v}, \vec{w_2} \rangle = 0$</span> for all <span>$\vec{w_2} \in W_2$</span></p>
+<p>Any element of V is <span>$\vec{w_1} + \vec{w_2}$</span> for some <span>$\vec{w_1} \in W_1$</span> and <span>$\vec{w_2} \in W_2$</span>. So:</p>
+<p><span>$$\begin{align} \langle \vec{v}, \vec{w_1} + \vec{w_2} \rangle &amp;= \langle \vec{v}, \vec{w_1} \rangle + \langle \vec{v}, \vec{w_2} \rangle \\ &amp; = 0 + 0 = 0 \end{align}$$</span></p>
+<p>So:</p>
+<p><span>$$\vec{v} \in V^{\perp} = \{\vec{0}\}, \quad W_1^{\perp} \cap W_2^{\perp} = \{\vec{0}\}$$</span></p>
+<p>Suppose <span>$\dim V = n, \dim W_1 = m$</span>; then <span>$\dim W_2 = n - m$</span>. Then also:</p>
+<p><span>$$\dim W_1^{\perp} = n - m, \quad \dim W_2^{\perp} = m$$</span></p>
+<p>So <span>$\dim (W_1^{\perp} + W_2^{\perp}) = n$</span> and thus:</p>
+<p><span>$$W_1^{\perp} + W_2^{\perp} = V$$</span></p>
+<p>Since we have proven that <span>$W_1^{\perp} \cap W_2^{\perp} = \{\vec{0}\}$</span> and <span>$W_1^{\perp} + W_2^{\perp} = V$</span>:</p>
+<p><span>$$V = W_1^{\perp} \oplus W_2^{\perp}$$</span></p>
+<p>And thus the proof is complete.</p>
+<h3 class="header"><i>10.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p>Follows the solution given in class. - <a href="/users/clarle">@clarle</a></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

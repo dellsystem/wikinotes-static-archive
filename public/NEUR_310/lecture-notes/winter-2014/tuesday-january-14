@@ -1,0 +1,219 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 14, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 14, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Developmental Neurobiology part 2
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Differentiation of neural precursor cells<a class="headerlink" href="#differentiation-of-neural-precursor-cells" name="differentiation-of-neural-precursor-cells">&para;</a></h2>
+<ul>
+<li>We used drosophila to learn this </li>
+<li>proneural genes (achaete-scute transcription factors) are expressed in potential neuroblast </li>
+<li>neural fate involves delta-notch signaling, <ul>
+<li>can be random (neuroblast formation) </li>
+<li>or predetermined (assymmetric distribution of Numb) </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Delta Notch signaling<a class="headerlink" href="#delta-notch-signaling" name="delta-notch-signaling">&para;</a></h3>
+<ul>
+<li>
+<p>lateral inhibition : one cell becomes neuroblast and the surrounding others become suppporting cells </p>
+<ul>
+<li>Mechanism: Delta-notch signaling<ul>
+<li>Delta binds Notch </li>
+<li>Notch's intracellular domain gets cleaved </li>
+<li>the cleaved part enters the nucleus and activates genes that block proneural transcription factors of bHLH (basic helix loop helix) </li>
+</ul>
+</li>
+<li>Notch function is required in cells that become epidermis </li>
+<li>slight imbalance in Notch signaling develops due to increased Delta expression</li>
+<li>low Notch signaling in cells -&gt; neuroblasts </li>
+<li>mutation of Notch or Delta cause overproduction of neuroblasts </li>
+</ul>
+</li>
+<li>
+<p>Delta-notch also controls neural differentiation in vertebrate's CNS </p>
+<ul>
+<li>inhibition of Notch --&gt; increased number of neurons </li>
+<li>via neurogenin , a  bHLH, which prootes neural differentiation </li>
+</ul>
+</li>
+<li>
+<p>Numb controls neural fate </p>
+<ul>
+<li>asymmetricaly localized in dividing progenitor cells</li>
+<li>binds to cytosolic tail of Notch </li>
+<li>in Drosophila, each external sensory organs arise from a single SOP (sensory organ precurosr)<ul>
+<li>sensory bristles of Drosophila are composed of 4 cells from SOP </li>
+<li>asymetric division of Numb allows this to happen </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Neuraonl and Glial cell fates<a class="headerlink" href="#neuraonl-and-glial-cell-fates" name="neuraonl-and-glial-cell-fates">&para;</a></h3>
+<ul>
+<li>CNS<ul>
+<li>PDGF maintains proliferation of oligodendrocyte progenitor cells </li>
+<li>CNTF: promote astrocytes </li>
+</ul>
+</li>
+<li>PNS <ul>
+<li>neural crest cells migrate from dorsal part of neural tube to periphery </li>
+<li>they then encounter signals which determine their fates</li>
+<li>BMP : impose neuronal identity </li>
+<li>GGF: secreted by sympathetic neurons, promote glial fate </li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Neuronal Migration<a class="headerlink" href="#neuronal-migration" name="neuronal-migration">&para;</a></h2>
+<ul>
+<li>PNS: migrate to periphery and undergo differentiation</li>
+<li>
+<p>CNS: differentiate in ventricular zone and migrate to different layers of the brain</p>
+<ul>
+<li>migration: inside-out neurogenesis. cells born early are in the deepest layer</li>
+<li>deciding factors of cell fate<ul>
+<li>phenotype of cell is specified during / before the last S phase </li>
+<li>vertical cleavage: two similar daughter cells that reenter the cell cycle</li>
+<li>horizontal cleavage: asymmetric division, apical daughter cells migrates </li>
+</ul>
+</li>
+<li>
+<p>deciding factors of migration </p>
+<ul>
+<li>neurons migrate along radial glia cells </li>
+<li>regulation of movement<ul>
+<li>BDNF and NTF: envrionmental factors, motogenic factor </li>
+<li>Lis : regulate mitotubule </li>
+</ul>
+</li>
+<li>regulation of adhesion<ul>
+<li>Astn1 (astrotactin): favor adhesion to glia </li>
+<li>Reelin: in extracellular matrix, regulate layer formation <ul>
+<li>secreted by some neurons such as Cajal-Retzius cells</li>
+<li>receptors: VLDLR and ApoER2</li>
+<li>binding of Reelin lead to tyrosine phosphorylation of intracellular adaptor Dab1 </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>lissencephaly: migration arrest of neurons before reaching their targets</p>
+<ul>
+<li>reeler mouse: mutation in Reelin, tremors and ataxia and disruption of laminar structure in the brain </li>
+<li>scrambler mouse: mutation in Dab1 disruption in lamination<ul>
+<li>reduces the speed of migration of neurons and ability to detach from the radial glia </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

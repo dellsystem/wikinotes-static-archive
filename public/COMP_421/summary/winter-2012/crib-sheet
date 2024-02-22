@@ -1,0 +1,1645 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_421/">
+                COMP 421
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Crib Sheet
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Crib Sheet
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#er-model">1 ER Model</a><ul>
+<li><a href="#isa-hierarchies-subclasses">1.1 ISA Hierarchies: Subclasses</a><ul>
+<li><a href="#constraints">1.1.1 Constraints</a></li>
+</ul>
+</li>
+<li><a href="#relationship">1.2 Relationship</a><ul>
+<li><a href="#many-to-many">1.2.1 Many-to-many</a></li>
+<li><a href="#one-to-many">1.2.2 One-to-many</a></li>
+<li><a href="#one-to-one">1.2.3 One-to-one</a></li>
+<li><a href="#participation-constraints">1.2.4 Participation Constraints</a></li>
+<li><a href="#weak-entities">1.2.5 Weak Entities</a></li>
+<li><a href="#ternary-relationship">1.2.6 Ternary Relationship</a></li>
+<li><a href="#aggregation">1.2.7 Aggregation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#relational-model">2 Relational Model</a><ul>
+<li><a href="#sql">2.1 SQL</a><ul>
+<li><a href="#data-types">2.1.1 Data Types</a></li>
+<li><a href="#table-creation">2.1.2 Table Creation</a></li>
+<li><a href="#destoryingaltering-relations">2.1.3 Destorying/Altering Relations</a></li>
+<li><a href="#insertdeleteupdate-tuples">2.1.4 Insert/Delete/Update Tuples</a></li>
+<li><a href="#integrity-constraints">2.1.5 Integrity Constraints</a><ul>
+<li><a href="#not-null">2.1.5.1 NOT NULL</a></li>
+<li><a href="#primary-key-constraints">2.1.5.2 Primary Key Constraints</a></li>
+<li><a href="#foreign-key">2.1.5.3 Foreign Key</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#translating-er-to-r">2.2 Translating ER to R</a><ul>
+<li><a href="#entity-sets-to-relations">2.2.1 Entity Sets to Relations</a></li>
+<li><a href="#many-to-many-relationship-sets">2.2.2 Many-to-Many relationship sets</a></li>
+<li><a href="#key-contraints">2.2.3 Key Contraints</a></li>
+<li><a href="#key-contraints-and-participation-contraints">2.2.4 Key Contraints and participation contraints</a></li>
+<li><a href="#partitipation-conatraints">2.2.5 Partitipation Conatraints</a></li>
+<li><a href="#renaming">2.2.6 Renaming</a></li>
+<li><a href="#weak-entity-sets">2.2.7 Weak Entity Sets</a></li>
+<li><a href="#isa-hierarchies">2.2.8 ISA Hierarchies</a><ul>
+<li><a href="#general-approach">2.2.8.1 General approach</a></li>
+<li><a href="#object-oriented-approach">2.2.8.2 object-oriented approach</a></li>
+<li><a href="#one-big-relation-approach">2.2.8.3 One big relation approach</a></li>
+</ul>
+</li>
+<li><a href="#aggregation_1">2.2.9 Aggregation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#relational-algebra">3 Relational Algebra</a><ul>
+<li><a href="#types-of-joins">3.1 Types of Joins</a><ul>
+<li><a href="#division">3.1.1 Division</a></li>
+<li><a href="#rules-of-relational-algebra">3.1.2 Rules of Relational Algebra</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#functional-dependicies">4 Functional Dependicies</a><ul>
+<li><a href="#types-of-problems">4.1 Types of Problems</a></li>
+<li><a href="#functional-dependencies">4.2 Functional Dependencies</a></li>
+<li><a href="#fd-axioms">4.3 FD Axioms</a></li>
+<li><a href="#normalization">4.4 Normalization</a><ul>
+<li><a href="#bcnf">4.4.1 BCNF</a></li>
+<li><a href="#3nf">4.4.2 3NF</a></li>
+</ul>
+</li>
+<li><a href="#decomposition">4.5 Decomposition</a><ul>
+<li><a href="#decomposing-into-bcnf">4.5.1 Decomposing into BCNF</a></li>
+<li><a href="#decomposing-into-3nf">4.5.2 Decomposing into 3NF</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sql_1">5 SQL</a><ul>
+<li><a href="#where-clause">5.1 WHERE clause</a></li>
+<li><a href="#multirelational-queries">5.2 Multirelational Queries</a><ul>
+<li><a href="#union-intersection-difference">5.2.1 Union, Intersection, Difference</a><ul>
+<li><a href="#union">5.2.1.1 Union</a></li>
+<li><a href="#intersection">5.2.1.2 Intersection</a></li>
+<li><a href="#diference">5.2.1.3 Diference</a></li>
+</ul>
+</li>
+<li><a href="#nested-queries-in">5.2.2 Nested Queries (IN)</a></li>
+<li><a href="#exists">5.2.3 Exists</a></li>
+<li><a href="#quantifiers">5.2.4 Quantifiers</a></li>
+<li><a href="#division_1">5.2.5 Division</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#advanced-sql">6 Advanced SQL</a><ul>
+<li><a href="#aggregation_2">6.1 Aggregation</a><ul>
+<li><a href="#grouping">6.1.1 Grouping</a><ul>
+<li><a href="#having-clause">6.1.1.1 HAVING clause</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#views">6.2 Views</a></li>
+<li><a href="#null-values">6.3 NULL Values</a></li>
+<li><a href="#out-join">6.4 Out Join</a></li>
+<li><a href="#levels-of-abstraction">6.5 Levels of Abstraction</a></li>
+<li><a href="#db-modification">6.6 DB Modification</a><ul>
+<li><a href="#inserts">6.6.1 Inserts</a></li>
+<li><a href="#deletion">6.6.2 Deletion</a></li>
+<li><a href="#updates">6.6.3 Updates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sql-integrity">7 SQL Integrity</a><ul>
+<li><a href="#constraints_1">7.1 Constraints</a><ul>
+<li><a href="#attribute-based-checks">7.1.1 Attribute Based Checks</a></li>
+<li><a href="#tuples-based-checks">7.1.2 Tuples Based Checks</a><ul>
+<li><a href="#naming-constraints">7.1.2.1 Naming Constraints</a></li>
+</ul>
+</li>
+<li><a href="#assertions">7.1.3 Assertions</a></li>
+<li><a href="#when-and-how-much">7.1.4 When and How much?</a></li>
+</ul>
+</li>
+<li><a href="#triggers">7.2 Triggers</a><ul>
+<li><a href="#statement-level-trigger">7.2.1 Statement Level Trigger</a></li>
+<li><a href="#row-level-trigger">7.2.2 Row Level Trigger</a></li>
+<li><a href="#trigger-components">7.2.3 Trigger Components</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#xml">8 XML</a><ul>
+<li><a href="#tree-model">8.1 Tree model</a></li>
+<li><a href="#graph-model">8.2 Graph Model</a></li>
+<li><a href="#dtd">8.3 DTD</a></li>
+<li><a href="#xpath">8.4 XPath</a></li>
+<li><a href="#xquery">8.5 XQuery</a></li>
+<li><a href="#xml-in-db2">8.6 XML in DB2</a><ul>
+<li><a href="#querying-with-xquery">8.6.1 Querying with XQuery</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#transactions">9 Transactions</a><ul>
+<li><a href="#acid">9.1 ACID</a></li>
+<li><a href="#buffers-and-the-disk">9.2 Buffers and the Disk</a><ul>
+<li><a href="#force-flush">9.2.1 FORCE flush</a></li>
+<li><a href="#nosteal-flush">9.2.2 NOSTEAL flush</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#indexing">10 Indexing</a><ul>
+<li><a href="#heap-files">10.1 Heap Files</a></li>
+<li><a href="#sorted-files">10.2 Sorted Files</a></li>
+<li><a href="#indexes">10.3 Indexes</a><ul>
+<li><a href="#clustered-vs-unclustered">10.3.1 Clustered vs Unclustered</a></li>
+<li><a href="#examples">10.3.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#query-evaluation">11 Query Evaluation</a><ul>
+<li><a href="#processing-sql-queries">11.1 Processing SQL Queries:</a><ul>
+<li><a href="#simple-selections">11.1.1 Simple Selections</a></li>
+</ul>
+</li>
+<li><a href="#external-sorting">11.2 External Sorting</a></li>
+<li><a href="#equality-joins">11.3 Equality Joins</a><ul>
+<li><a href="#nested-loop-joins">11.3.1 Nested Loop Joins</a><ul>
+<li><a href="#simple-nest-loop-join">11.3.1.1 Simple nest loop join</a></li>
+<li><a href="#page-oriented-nested-loop-join">11.3.1.2 Page oriented nested loop join</a></li>
+<li><a href="#block-oriented-nest-loop-join">11.3.1.3 Block Oriented Nest Loop Join</a></li>
+<li><a href="#index-nested-loop-join">11.3.1.4 Index Nested Loop Join</a></li>
+</ul>
+</li>
+<li><a href="#sort-merge-join">11.3.2 Sort-Merge Join</a></li>
+</ul>
+</li>
+<li><a href="#distinct">11.4 DISTINCT</a></li>
+<li><a href="#pipelining">11.5 Pipelining</a></li>
+</ul>
+</li>
+<li><a href="#nosql">12 NoSQL</a><ul>
+<li><a href="#key-value">12.1 Key-value</a></li>
+<li><a href="#document-store">12.2 Document Store</a></li>
+<li><a href="#column-database">12.3 Column Database</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>ER Model<a class="headerlink" href="#er-model" name="er-model">&para;</a></h2>
+<dl>
+<dt>Entity</dt>
+<dd>real-world object distinguishable from other objects. An entity is described using a set of attributes</dd>
+<dt>Entity set</dt>
+<dd>a collection of similar entities</dd>
+<dd>eg: all employees</dd>
+<dd>each entity set has a <em>key</em>, a minimum set of attributes whose values uniquely identify an entity in the set</dd>
+<dd>each attribute has a <em>domain</em></dd>
+</dl>
+<p><img alt="Diagram 1" src="http://i.imgur.com/z7UB1.png" /></p>
+<h3 class="header"><i>1.1</i>ISA Hierarchies: Subclasses<a class="headerlink" href="#isa-hierarchies-subclasses" name="isa-hierarchies-subclasses">&para;</a></h3>
+<p>A ISA B, then every A is also a B entity. Key is only in B</p>
+<p><img alt="Diagram 2" src="http://i.imgur.com/ufs7U.png" /></p>
+<p>E/R Viewpoint: An entity has a component in each entity set to which it logically belongs. Its properties are the union of these entity sets</p>
+<h4 class="header"><i>1.1.1</i>Constraints<a class="headerlink" href="#constraints" name="constraints">&para;</a></h4>
+<dl>
+<dt>Overlap Constraint</dt>
+<dd>can an entity be in more than one subclass?</dd>
+<dt>Covering Constraint</dt>
+<dd>must every entity of the superclass be in one of the subclasses?</dd>
+</dl>
+<h3 class="header"><i>1.2</i>Relationship<a class="headerlink" href="#relationship" name="relationship">&para;</a></h3>
+<dl>
+<dt>Relationship</dt>
+<dd>association among two or more entities</dd>
+<dd>eg: Employee A works in department X</dd>
+<dt>Relationship set</dt>
+<dd>Collection of similar relationships</dd>
+<dd>An n-ary relationship set R relates n entities set E1...En. Each relationship in R involves entites <span>$e1 \in E1, \ldots , en \in En$</span></dd>
+</dl>
+<p><img alt="Diagram 3" src="http://i.imgur.com/bz8m5.png" /></p>
+<h4 class="header"><i>1.2.1</i>Many-to-many<a class="headerlink" href="#many-to-many" name="many-to-many">&para;</a></h4>
+<p>Each entity can have relationships with multiple entities</p>
+<p>note: a relationship is uniquely defined by the primary keys of participating entities. That is Employee A cannot work twice in the department X</p>
+<p><img alt="Diagram 4" src="http://i.imgur.com/wpq66.png" /></p>
+<h4 class="header"><i>1.2.2</i>One-to-many<a class="headerlink" href="#one-to-many" name="one-to-many">&para;</a></h4>
+<p>eg: manages. One employee manages several departments. Each department is managed by only one employee</p>
+<dl>
+<dt>Key Constraint</dt>
+<dd>If an entity in an entity set can only have one other entity involved in the relationship, this is a key constraint</dd>
+<dd>Depicted with an arrow from the one to the one-to-many relationship set</dd>
+</dl>
+<p><img alt="Diagram 5" src="http://i.imgur.com/CZFct.png" /></p>
+<h4 class="header"><i>1.2.3</i>One-to-one<a class="headerlink" href="#one-to-one" name="one-to-one">&para;</a></h4>
+<p>Represented with key constraints in <strong>both</strong> directions</p>
+<p><img alt="Diagram 6" src="http://i.imgur.com/py3XY.png" /></p>
+<h4 class="header"><i>1.2.4</i>Participation Constraints<a class="headerlink" href="#participation-constraints" name="participation-constraints">&para;</a></h4>
+<dl>
+<dt>Participation Constraint</dt>
+<dd>Requires that every entity in the entity set participating in the relationship MUST have a relation</dd>
+<dd>represented with a <strong>thick</strong> line from the constrained entity set to the relationship</dd>
+</dl>
+<p><img alt="Diagram 7" src="http://i.imgur.com/vFDh6.png" /></p>
+<p>Can also combine key constraints with participation constraints</p>
+<p><img alt="Diagram 8" src="http://i.imgur.com/VHc0n.png" /></p>
+<h4 class="header"><i>1.2.5</i>Weak Entities<a class="headerlink" href="#weak-entities" name="weak-entities">&para;</a></h4>
+<dl>
+<dt>Weak entity</dt>
+<dd>can be indentified uniquely ONLY by considering the primary key of another entity</dd>
+<dd>The key in this kind of set is the union of the keys of the owner entity set and the set of its own attribtues.</dd>
+<dd>represented with a <strong>bold</strong> rectangle</dd>
+</dl>
+<p><img alt="Diagram 9" src="http://i.imgur.com/fJOgO.png" /></p>
+<h4 class="header"><i>1.2.6</i>Ternary Relationship<a class="headerlink" href="#ternary-relationship" name="ternary-relationship">&para;</a></h4>
+<p><img alt="Diagram 10" src="http://i.imgur.com/IQRb8.png" /></p>
+<h4 class="header"><i>1.2.7</i>Aggregation<a class="headerlink" href="#aggregation" name="aggregation">&para;</a></h4>
+<dl>
+<dt>Aggregation</dt>
+<dd>Allows us to treat a reltionship set R as an entity set so that R can participate in other relationships</dd>
+</dl>
+<p><img alt="Diagram 11" src="http://i.imgur.com/yHxQL.png" /></p>
+<h2 class="header"><i>2</i>Relational Model<a class="headerlink" href="#relational-model" name="relational-model">&para;</a></h2>
+<p>ER is a semantic model. Relational model is a DATA model</p>
+<dl>
+<dt>Relation</dt>
+<dd>Consists of a <strong>schema</strong> and an <strong>instance</strong></dd>
+<dt>Schema</dt>
+<dd>specifies name of relation, plus a set of attributes, plus the domain/type of each attribute</dd>
+<dt>Instance</dt>
+<dd>set of all tuples</dd>
+<dd>tuples are <em>distinct</em></dd>
+<dt>Database Schema</dt>
+<dd>Collection of relation schemas</dd>
+</dl>
+<p>A relation can be seen as a table. Column headers = attribute names, rows = tuples/records, columns/fields = attribute values.</p>
+<p>The number of rows = cardinality. Number of fields = degree / arity</p>
+<p>All rows are distinct. Rows are not ordered</p>
+<dl>
+<dt>DDL</dt>
+<dd>Data defintion language</dd>
+<dd>defines the schema of a databse</dd>
+<dt>DML</dt>
+<dd>Data manipulation language</dd>
+<dd>manipulates the data (instances of the relations)</dd>
+<dd>eg: Insert, update, delete</dd>
+<dd>Query the relationship</dd>
+<dd>aka Query Language</dd>
+</dl>
+<h3 class="header"><i>2.1</i>SQL<a class="headerlink" href="#sql" name="sql">&para;</a></h3>
+<p>Structured Query Language (SQL)</p>
+<p>Used to define relations and to write/query data</p>
+<h4 class="header"><i>2.1.1</i>Data Types<a class="headerlink" href="#data-types" name="data-types">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CHAR(n)</td>
+<td>A character string of fixed length n</td>
+</tr>
+<tr>
+<td>VARCHAR(n)</td>
+<td>denotes a string of up to n charaters</td>
+</tr>
+<tr>
+<td>INT or INTEGER</td>
+<td>An integer</td>
+</tr>
+<tr>
+<td>SHORTINT</td>
+<td>Shorter version of an integer</td>
+</tr>
+<tr>
+<td>FLOAT or REAL</td>
+<td>floating point number</td>
+</tr>
+<tr>
+<td>DOUBLE PRECISION</td>
+<td>eg: Double in java</td>
+</tr>
+<tr>
+<td>DECIMAL(n,d)</td>
+<td>real number with fixed decimal pooint. Value of consits of n digits with a decimal point d positions from the right</td>
+</tr>
+<tr>
+<td>DATE</td>
+<td>In the form YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>Form is 15:00:02 or 15:00:02.5</td>
+</tr>
+<tr>
+<td>Bit strings</td>
+<td>???</td>
+</tr>
+</tbody>
+</table>
+<h4 class="header"><i>2.1.2</i>Table Creation<a class="headerlink" href="#table-creation" name="table-creation">&para;</a></h4>
+<div class="codehilite"><pre>CREATE TABLE Students
+(sid INT,
+ name VARCHAR(20),
+ login CHAR(10),
+ major VARCHAR(20)
+     DEFAULT &#39;undefined&#39;)
+</pre></div>
+
+
+<p>Defines all attributes of the relation and the type/domain of each.</p>
+<p>SQL is case insensitive</p>
+<h4 class="header"><i>2.1.3</i>Destorying/Altering Relations<a class="headerlink" href="#destoryingaltering-relations" name="destoryingaltering-relations">&para;</a></h4>
+<div class="codehilite"><pre><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">Students</span>
+</pre></div>
+
+
+<p>Destroys the schema AND the tuples are deleted</p>
+<div class="codehilite"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">Students</span>
+    <span class="k">ADD</span> <span class="k">COLUMN</span> <span class="n">firstYear</span><span class="p">:</span><span class="nb">integer</span>
+</pre></div>
+
+
+<p>Adding a new row results in all existing tuples gettings a new field with the <strong>null</strong> value</p>
+<h4 class="header"><i>2.1.4</i>Insert/Delete/Update Tuples<a class="headerlink" href="#insertdeleteupdate-tuples" name="insertdeleteupdate-tuples">&para;</a></h4>
+<p>Inserting a single tuple</p>
+<div class="codehilite"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Students</span> <span class="p">(</span><span class="n">sid</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">faculty</span><span class="p">)</span>
+    <span class="k">VALUES</span> <span class="p">(</span><span class="mi">53688</span><span class="p">,</span> <span class="s1">&#39;Chang&#39;</span><span class="p">,</span> <span class="s1">&#39;Eng&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Deleting Multiple Tuples</p>
+<div class="codehilite"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">Students</span> <span class="k">WHERE</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Chang&#39;</span>
+</pre></div>
+
+
+<p>Updating Tuples</p>
+<div class="codehilite"><pre><span class="k">UPDATE</span> <span class="n">Students</span> <span class="k">SET</span> <span class="n">faculty</span> <span class="o">=</span> <span class="s1">&#39;Science&#39;</span> <span class="k">WHERE</span> <span class="n">sid</span> <span class="o">=</span> <span class="mi">53688</span>
+</pre></div>
+
+
+<h4 class="header"><i>2.1.5</i>Integrity Constraints<a class="headerlink" href="#integrity-constraints" name="integrity-constraints">&para;</a></h4>
+<p>An Integrity Constraint Must be true for any instance of the database. There are domain specific constraints that are already enforced (eg on INT)</p>
+<p>DB System will enforce any constraint and reject a modification that violates it</p>
+<h5 class="header"><i>2.1.5.1</i>NOT NULL<a class="headerlink" href="#not-null" name="not-null">&para;</a></h5>
+<div class="codehilite"><pre>CREATE TABLE Students
+(sid INT NOT NULL,
+ name VARCHAR(20),
+ login CHAR(10),
+ gpa REAL
+     DEFAULT 0.0)
+</pre></div>
+
+
+<p>requires an attribute to always have a proper value</p>
+<h5 class="header"><i>2.1.5.2</i>Primary Key Constraints<a class="headerlink" href="#primary-key-constraints" name="primary-key-constraints">&para;</a></h5>
+<p>A set of fields is a <strong>key</strong> for a relation if:</p>
+<ol>
+<li>No two distinct tuples can have the same values of all key fields</li>
+<li>This is no true for any subset of the key</li>
+</ol>
+<p>Any key that satisfies these properties is considered a <em>candidate key</em>. One is chosen to be the <strong>primary key</strong></p>
+<p>Primary key attributes may not be NULL</p>
+<div class="codehilite"><pre>CREATE TABLE Students
+(sid INT NOT NULL PRIMARY KEY,
+ name VARCHAR2(20))
+
+CREATE TABLE Enrolled
+(sid INT NOT NULL,
+ cid CHAR(20) NOT NULL,
+ grade CHAR(2) NOT NULL,
+ PRIMARY KEY (sid,cid),
+ UNIQUE (cid,grade))
+</pre></div>
+
+
+<p>sid makes a good primary key in the first one. In Enrolled we want each student to have ONE grade per class!</p>
+<h5 class="header"><i>2.1.5.3</i>Foreign Key<a class="headerlink" href="#foreign-key" name="foreign-key">&para;</a></h5>
+<dl>
+<dt>Foreign Key</dt>
+<dd>set of fields in one relation that is used ot "refer" to a tuple in another relation</dd>
+<dd>must correspond to the primary key of the second relation</dd>
+<dd>
+<p>represents a "logical pointer"</p>
+<p>CREATE TABLE Enrolled<br />
+(sid INT NOT NULL,<br />
+ PRIMARY KEY(sid)<br />
+ FOREIGN KEY (sid)<br />
+  REFERENCES Students)</p>
+</dd>
+<dt>Foreign Key Constraint</dt>
+<dd>
+<p>foreign key value of a tuple must represent an existing tuple in the referred relation.</p>
+</dd>
+</dl>
+<p>Tuples that refer to nonexistent foreign keys are not allowed to be inserted.</p>
+<dl>
+<dt>What happens when a refered tuple is deleted?</dt>
+<dd>Delete all tuples that reference it</dd>
+<dd>Disallow deletion as long as something refers to it</dd>
+<dd>set the foreign key to a feault value</dd>
+<dt>When the primary key is updated</dt>
+<dd>updated all tuples that reference it</dd>
+<dd>or do something similar to deletion (disallow, delete referencing tuples)</dd>
+</dl>
+<p>SQL default to disallowing. Can use <strong>CASCDE</strong></p>
+<p>eg:</p>
+<div class="codehilite"><pre>CREATE TABLE Enrolled
+ (sid INT NOT NULL,
+  cid CHAR(8) NOT NULL,
+  grade CHAR(2),
+  PRIMARY KEY (sid,cid)
+  FOREIGN KEY (sid)
+  REFERENCES Students
+  ON DELETE CASCADE
+  ON UPDATE CASCADE)
+</pre></div>
+
+
+<p>Integrity Constraints are based on the semantics of the realworld. You can check that an IC holds by looking at the whole table, but you can't assume from examing one or some tuples</p>
+<h3 class="header"><i>2.2</i>Translating ER to R<a class="headerlink" href="#translating-er-to-r" name="translating-er-to-r">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Entity Sets to Relations<a class="headerlink" href="#entity-sets-to-relations" name="entity-sets-to-relations">&para;</a></h4>
+<p><img alt="Diagram 11" src="http://i.imgur.com/YawHO.png" /></p>
+<p>One relation per entity set</p>
+<h4 class="header"><i>2.2.2</i>Many-to-Many relationship sets<a class="headerlink" href="#many-to-many-relationship-sets" name="many-to-many-relationship-sets">&para;</a></h4>
+<p>Always translated as an individual table. Attributes for the table are the keys for each participating set (as foreign keys) and all descriptive attributes</p>
+<p><img alt="Diagram 12" src="http://i.imgur.com/YyINd.png" /></p>
+<h4 class="header"><i>2.2.3</i>Key Contraints<a class="headerlink" href="#key-contraints" name="key-contraints">&para;</a></h4>
+<p>If one-to-many make the one the primary key, hence guaranteeing uniqueness. Entity set and relationship each gets a table</p>
+<p>OR</p>
+<p>Include relationship set in table of the entity set with the key constraint as a field.</p>
+<h4 class="header"><i>2.2.4</i>Key Contraints and participation contraints<a class="headerlink" href="#key-contraints-and-participation-contraints" name="key-contraints-and-participation-contraints">&para;</a></h4>
+<p>Include relationship set in table of the entity set with the constraints</p>
+<h4 class="header"><i>2.2.5</i>Partitipation Conatraints<a class="headerlink" href="#partitipation-conatraints" name="partitipation-conatraints">&para;</a></h4>
+<p>Usually can't be done UNLESS also key constraint</p>
+<h4 class="header"><i>2.2.6</i>Renaming<a class="headerlink" href="#renaming" name="renaming">&para;</a></h4>
+<p>Might happen if a relation involves to entities from the same set. </p>
+<p><img alt="Diagram 13" src="http://i.imgur.com/oSEIz.png" /></p>
+<h4 class="header"><i>2.2.7</i>Weak Entity Sets<a class="headerlink" href="#weak-entity-sets" name="weak-entity-sets">&para;</a></h4>
+<p>Weak identity set and identifying relationship set are translated into a single table. Must cascade on deletion of primary foreign key</p>
+<p><img alt="Diagram 14" src="http://i.imgur.com/gZJ2S.png" /></p>
+<h4 class="header"><i>2.2.8</i>ISA Hierarchies<a class="headerlink" href="#isa-hierarchies" name="isa-hierarchies">&para;</a></h4>
+<h5 class="header"><i>2.2.8.1</i>General approach<a class="headerlink" href="#general-approach" name="general-approach">&para;</a></h5>
+<p>distribute information among relations. Super class defines general attributes and key. Subclasses are relations with additional attributes and superclass key. subclasses must be altered when superclass altered.</p>
+<p><img alt="Diagram 15" src="http://i.imgur.com/A6pEP.png" /></p>
+<h5 class="header"><i>2.2.8.2</i>object-oriented approach<a class="headerlink" href="#object-oriented-approach" name="object-oriented-approach">&para;</a></h5>
+<p>sub-classes have all the attributes</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Pro</th>
+<th>Con</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Query asking about just subclass entities only has one table to search</td>
+<td>Query on attributes of all superclass entities have to traverse all tables of subclasses</td>
+</tr>
+<tr>
+<td></td>
+<td>Entities that are in two subclasses are stored twice</td>
+</tr>
+</tbody>
+</table>
+<h5 class="header"><i>2.2.8.3</i>One big relation approach<a class="headerlink" href="#one-big-relation-approach" name="one-big-relation-approach">&para;</a></h5>
+<p>One big table with all the attribtues of all subclasses (can be null)</p>
+<h4 class="header"><i>2.2.9</i>Aggregation<a class="headerlink" href="#aggregation_1" name="aggregation_1">&para;</a></h4>
+<p><img alt="Diagram 16" src="http://i.imgur.com/T7rTg.png" /></p>
+<dl>
+<dt>Option 1: No key contraints</dt>
+<dd>Basically just create a table for the aggregation relation that references the keys of all involved</dd>
+</dl>
+<ul>
+<li>Projects(<em>pid</em>,started_on,pbudget)</li>
+<li>Departments(<em>did</em>,dname,budget)</li>
+<li>Employees(<em>eid</em>,name,salary)</li>
+<li>Sponsors(<em>pid,did</em>,since)</li>
+<li>Monitors(<em>pid,did,eid</em>,until)</li>
+</ul>
+<dl>
+<dt>Option 2: Use inner relationship</dt>
+<dd>Key constraint on relationship within the aggregation and the other entity set</dd>
+<dd>eg: Sponsor(<em>pid,did</em>, eid, since, until)</dd>
+<dt>Option 3: Use Outter Relationship</dt>
+<dd>No Sponsors</dd>
+<dd>Project(<em>pid</em>, started_on, pbudget, did, since)</dd>
+<dd>Monitors(<em>pid,eid,until</em>)</dd>
+</dl>
+<h2 class="header"><i>3</i>Relational Algebra<a class="headerlink" href="#relational-algebra" name="relational-algebra">&para;</a></h2>
+<p>Basics</p>
+<dl>
+<dt>Input</dt>
+<dd>input one or two relations</dd>
+<dd>schema of each relation is known</dd>
+<dd>instance can be arbritrary</dd>
+<dt>Output</dt>
+<dd>a relation</dd>
+<dd>schama of output relation depends on operator and input relations</dd>
+</dl>
+<p>Relational algebra is closed</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Selection</td>
+<td><span>$\sigma_{condition}(R_{in})$</span></td>
+<td>Selects a subset of tuples from a relation</td>
+</tr>
+<tr>
+<td>Projection</td>
+<td><span>$\Pi_{attribute}(R_{in})$</span></td>
+<td>Projects to a subset of attributes from a relation</td>
+</tr>
+<tr>
+<td>Renaming</td>
+<td><span>$\rho(R_{out}(B1, \ldots, Bn), R_{in}(A1, \ldots, AN))$</span></td>
+<td>Rename relations or attribtues</td>
+</tr>
+<tr>
+<td>Cross product</td>
+<td><span>$\times$</span></td>
+<td>Combines two relations. Each row of first input combined with each row of second input</td>
+</tr>
+<tr>
+<td>Join</td>
+<td><span>$\bowtie$</span></td>
+<td>Combination of cross product and selection</td>
+</tr>
+<tr>
+<td>Division</td>
+<td>\</td>
+<td>TODO</td>
+</tr>
+<tr>
+<td>Intersection</td>
+<td><span>$\cap$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Union</td>
+<td><span>$\cup$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Set Different</td>
+<td>-</td>
+<td>Tuples that are in the first, but not the second</td>
+</tr>
+</tbody>
+</table>
+<p>Operators can be <strong>composed</strong></p>
+<p>Set operators must be on relations with the same number of attribtues and same types</p>
+<h4 class="header"><i>3.1</i>Types of Joins<a class="headerlink" href="#types-of-joins" name="types-of-joins">&para;</a></h4>
+<ol>
+<li>Condition/Theta Join <span>$R_{out} = R_{in1} \bowtie_c R_{in2} = \sigma_c(R_{in1} \times R_{in2})$</span></li>
+<li>Equi Join: <span>$R_{out} = R_{in1} \bowtie_{Rin1a1 = Rin2b1, \ldots, Rin1an = Rin2bn} R_{in2}$</span> Condition join where condition contains ONLY equalities</li>
+<li>Natural Join: Equijoin on all common attributes</li>
+</ol>
+<h4 class="header"><i>3.1.1</i>Division<a class="headerlink" href="#division" name="division">&para;</a></h4>
+<p>Let A have have 2 fields, x and y, have only field y.</p>
+<p><span>$A/B = \{ x | \forall y \in B \exists x,y \in A\}$</span></p>
+<p>A/B containsall x typles such athf ro every y tuplein B there is an xy tuple in A</p>
+<h4 class="header"><i>3.1.2</i>Rules of Relational Algebra<a class="headerlink" href="#rules-of-relational-algebra" name="rules-of-relational-algebra">&para;</a></h4>
+<p>Let <span>$R,S,T$</span> be relations. <span>$C, C1, C2$</span> are conditions. <span>$L, L1, L2$</span> are projection lists on R and S.</p>
+<dl>
+<dt>Communitivity</dt>
+<dd>order of operands does not matter (except renaming, division and difference)</dd>
+<dd><span>$\Pi_L (\sigma_C (R)) = \sigma_C (\Pi_L (R))$</span></dd>
+<dd><span>$R1 \bowtie R2 = R2 \bowtie R1$</span></dd>
+<dt>Associativity</dt>
+<dd>You can move brackets around</dd>
+<dd><span>$R1 \bowtie (R2 \bowtie R3) = (R1 \bowtie R2) \bowtie R3$</span></dd>
+<dt>Idempotence</dt>
+<dd><span>$\Pi_{L2} (\Pi_{L1}(R)) = \Pi_{L2} (R)$</span> if <span>$L2 \subset L1$</span></dd>
+<dd><span>$\sigma_{C2} (\sigma_{c1}(R)) = \sigma_{C1 \wedge C2}(R)$</span></dd>
+</dl>
+<h2 class="header"><i>4</i>Functional Dependicies<a class="headerlink" href="#functional-dependicies" name="functional-dependicies">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Types of Problems<a class="headerlink" href="#types-of-problems" name="types-of-problems">&para;</a></h3>
+<p>Suppose we have Hourly_Emps(sin, rating, hourly_wages, hourly_worked)</p>
+<p><img alt="Diagram 16" src="http://i.imgur.com/FBoky.png" /></p>
+<p>Wages is related to rating</p>
+<ol>
+<li><strong>Update Anomly</strong>: Can we change the wages in only the first tuples?</li>
+<li><strong>Insertion Anamoly</strong>: What if we want to insert an employee and don't know the hourly wage for his/her rating?</li>
+<li><strong>Insertion Anamoly II</strong>: We can only introduce a new rating scheme when we enter an emplyee with this rating into the relation</li>
+<li><strong>Deletion Anamoly</strong>: If we delete all employees with rating 5, we lose the information about the wage for rating 5!</li>
+<li>Storage Redundancy</li>
+</ol>
+<h3 class="header"><i>4.2</i>Functional Dependencies<a class="headerlink" href="#functional-dependencies" name="functional-dependencies">&para;</a></h3>
+<p>A functional dependency <span>$X \to Y$</span> (<span>$X$</span> and <span>$Y$</span> are sets of attributes; <span>$X,Y \subset$</span>schema(<span>$R$</span>)) holds over relation <span>$R$</span> if for every allowable instance <span>$r$</span> of <span>$R$</span>:<br />
+ * Given tuples <span>$t1$</span> and <span>$t2$</span> in instance <span>$r$</span> of <span>$R$</span>, if the X values of <span>$r1$</span> and <span>$t2$</span> agree, then the <span>$Y$</span> values must also agree<br />
+ * <span>$t1 \in r, t2 \in r, \Pi_x(t1) = \Pi_x(t2) \to \Pi_y(t1) = \Pi_y(t2)$</span></p>
+<p>FDs are determined by the semantics of the application.</p>
+<dl>
+<dt>Key Candidates</dt>
+<dd>Let schema<span>$(R) = (a1, a2, ... an)$</span>; a set of attribtues <span>$X \subset$</span> schema<span>$(R)$</span> is a candidate key for a relation <span>$R$</span> if <span>$X \to R (= X \to a1,a2, \ldots, an)$</span></dd>
+<dd>That is some set of attributes of R (could be a single element set) implies all of the attributes of the relation</dd>
+</dl>
+<p>In the first example, we would move rating -&gt; wage into it's own table and then just store rating!</p>
+<h3 class="header"><i>4.3</i>FD Axioms<a class="headerlink" href="#fd-axioms" name="fd-axioms">&para;</a></h3>
+<p>(<span>$X,Y,Z$</span> are sets of attributes)</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>pname</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reflexivity</td>
+<td>If <span>$Y \subset X$</span> then <span>$X \to Y$</span></td>
+</tr>
+<tr>
+<td>Augmentation</td>
+<td><span>$X \to Y$</span> then <span>$\forall Z, XZ \to YZ$</span></td>
+</tr>
+<tr>
+<td>Transitivity</td>
+<td>If <span>$X \to Y, Y \to Z$</span> then <span>$X \to Z$</span></td>
+</tr>
+<tr>
+<td>Union</td>
+<td>If <span>$X \to Y, X \to Z$</span> then <span>$X \to YZ$</span></td>
+</tr>
+<tr>
+<td>Decomposition</td>
+<td>If <span>$X \to YZ$</span>, then <span>$X \to Y, X \to Z$</span></td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>Armstrong's Axioms</dt>
+<dd>Reflexivity</dd>
+<dd>Augmentation</dd>
+<dd>Transitivity</dd>
+<dt><span>$F^+$</span></dt>
+<dd><strong>closure of F</strong></dd>
+<dd>set of all DFs that are implied by F through Armstrong's Axioms</dd>
+<dt>Algorithm for finding the attribute closure of <span>$X \to X^+$</span> wrt F:</dt>
+<dd>
+<p>Input: set of all attributes <span>$A$</span> such that <span>$X \to A$</span> is in <span>$F^+$</span></p>
+<p>Basis: <span>$X^+$</span><br />
+Induction: If <span>$Z\subset X^+$</span> and <span>$Z \to A$</span> is in <span>$F$</span>, add <span>$A$</span> to <span>$X^$</span><br />
+End when <span>$X^+$</span> cannot be changed</p>
+</dd>
+<dt>Finding all key candidates</dt>
+<dd>
+<p>X is akey candidate if X+ = R AND there is no subset Y of X such that Y+ = R</p>
+</dd>
+<dd>
+<p>X has to imply everything and it has do do so minimally</p>
+</dd>
+</dl>
+<h3 class="header"><i>4.4</i>Normalization<a class="headerlink" href="#normalization" name="normalization">&para;</a></h3>
+<p>If only key-induced FDs hold there is no redundancy in the database</p>
+<h4 class="header"><i>4.4.1</i>BCNF<a class="headerlink" href="#bcnf" name="bcnf">&para;</a></h4>
+<p>Boyce-Codd Normal Form</p>
+<p>A relation R with FDs F is BCNF if for all <span>$X \to A$</span> in F+:<br />
+ * <span>$A \in X$</span> (trivial FDs)<br />
+ * <span>$X$</span> contains a key for <span>$R$</span></p>
+<p>R is in BNCF if the only non-trividal FDs that hold over R are key constraints</p>
+<h4 class="header"><i>4.4.2</i>3NF<a class="headerlink" href="#3nf" name="3nf">&para;</a></h4>
+<p>A relation R with FDs F is in 3NF (3rd Normal Form) if for all <span>$X\ \to A$</span> in F+</p>
+<ul>
+<li><span>$A \in X$</span> (trivial FDs)</li>
+<li>X Contains a key for R (X is a superkey) or</li>
+<li>A is a part of some key for R</li>
+</ul>
+<h3 class="header"><i>4.5</i>Decomposition<a class="headerlink" href="#decomposition" name="decomposition">&para;</a></h3>
+<p>If a relation is not in the desired normal form we decompose it.</p>
+<p>Given a relation R with attributes A1, ..., An, a decomposition of r consists of replacing R by two or more relations such that:<br />
+<em> each new scheme contains a subset of attributes of R and nothing more<br />
+</em> every attribute of R appears as an attribute on one of the new relations<br />
+* The ruples of R are split such that corresponding subtuples appear in the enw relations</p>
+<p>Disadvantages: some queries now have to look at more tables and are thus more expensive</p>
+<dl>
+<dt>Loseless Join decompositions</dt>
+<dd>The decomposition of R into R1 and R2 is lossless-join wrt F if and only if the closure of F contains: Let {a1, ..., an} be the set of attribute sin R1 and R2: then {a1, ..., an} <span>$\to$</span> R1 or {a1,..., an} <span>$\to$</span> R2</dd>
+<dd>In particular if <span>$U \to V$</span> (non trivial) holds over R then the decomposotion of R into UV and R - V is lossless-join (rejoin does not create new tuples because U is key in UV and foreign key in R-V)</dd>
+<dd>Denoted as a decomposition along FD <span>$U \to V$</span></dd>
+</dl>
+<h4 class="header"><i>4.5.1</i>Decomposing into BCNF<a class="headerlink" href="#decomposing-into-bcnf" name="decomposing-into-bcnf">&para;</a></h4>
+<p>Given a relation R with FDs F and <span>$X \to Y \in FD$</span> violating BCNF:</p>
+<ul>
+<li>Compute X+</li>
+<li>Decompose R into X+ and <span>$(R - X+) \cup X$</span></li>
+<li>Repeat until all relations in BCNF</li>
+</ul>
+<p>If <span>$X^+ = \{X,Y\}$</span> we denote this as a decomposition along <span>$X \to Y$</span></p>
+<dl>
+<dt>Dependency Preserving Decomposition</dt>
+<dd>Given a relation R with FDs F. A depdendency preserving decomposition allows us to check each dependency in F by looking at one of the decomposed relations</dd>
+<dd>Not all BCNF decompositions are dependency preserving</dd>
+</dl>
+<h4 class="header"><i>4.5.2</i>Decomposing into 3NF<a class="headerlink" href="#decomposing-into-3nf" name="decomposing-into-3nf">&para;</a></h4>
+<p>Any relation R can be decomposed into relations that are 3NF and dependency preserving</p>
+<h2 class="header"><i>5</i>SQL<a class="headerlink" href="#sql_1" name="sql_1">&para;</a></h2>
+<div class="codehilite"><pre>SELECT desired attribtues
+FROM list of relations
+WHERE qualification (optional)
+</pre></div>
+
+
+<p>Conversion to relational algebra</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>SQL</th>
+<th>Algebra</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELECT</td>
+<td>projection</td>
+</tr>
+<tr>
+<td>WHERE</td>
+<td>selection and join</td>
+</tr>
+</tbody>
+</table>
+<p>Sample: <img alt="Diagram 17" src="http://i.imgur.com/caUNF.png" /></p>
+<p>SQL statement:</p>
+<div class="codehilite"><pre>SELECT rating, age
+FROM Skaters
+WHERE rating &gt;= 10 OR age &gt; 15
+</pre></div>
+
+
+<p>Relational Agebra:</p>
+<p><span>$\Pi_{rating, age}(\sigma_{rating &gt;= 10 \lor age &gt; 15}(Skaters))$</span></p>
+<p>The only difference is that SQL does not eliminate duplicates</p>
+<h3 class="header"><i>5.1</i>WHERE clause<a class="headerlink" href="#where-clause" name="where-clause">&para;</a></h3>
+<dl>
+<dt>Comparision</dt>
+<dd>attribute1 op constant</dd>
+<dd>atttribute1 op attribute2</dd>
+</dl>
+<p>op is one of &lt;, =, &gt;, &lt;&gt;, &lt;=, &gt;=, LIKE</p>
+<p>Can use arithematic operations on numbers</p>
+<dl>
+<dt>Qualification/Condition</dt>
+<dd><code>name = 'Cheng' AND NOT age = 18</code></dd>
+<dd><code>name LIKE '%e_g'</code> %: any string, _: any character</dd>
+<dd>there are other string operators like string-length, concatentation</dd>
+</dl>
+<p>SQL uses <strong>multiset</strong> semantic, which allows duplicates, except on primary keys</p>
+<div class="codehilite"><pre><span class="k">DISTINCT</span><span class="o">```</span> <span class="k">is</span> <span class="n">an</span> <span class="n">optional</span> <span class="n">keyword</span> <span class="n">that</span> <span class="n">will</span> <span class="n">eliminate</span> <span class="n">duplicates</span>
+
+<span class="n">eg</span><span class="p">:</span>
+<span class="o">```</span><span class="k">sql</span>
+<span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">sname</span> <span class="k">FROM</span> <span class="n">Skaters</span>
+</pre></div>
+
+
+<dl>
+<dt>Renaming Columns</dt>
+<dd><code>SELECT sid, sname AS skater FROM Skaters WHERE raing &lt; 9</code></dd>
+<dt>Expressions</dt>
+<dd><code>SELECT sname, rating+1 AS updgrade FROM Skaters</code></dd>
+<dt>Constants</dt>
+<dd><code>SELECT rating AS reality, '10' AS dream FROM Skaters</code></dd>
+<dd>Will add colum dream with value 10 to output</dd>
+<dt>Ordered Output</dt>
+<dd><code>SELECT * FROM Skaters ORDER BY age, rating</code></dd>
+<dd>will wort by age THEN rating</dd>
+</dl>
+<h3 class="header"><i>5.2</i>Multirelational Queries<a class="headerlink" href="#multirelational-queries" name="multirelational-queries">&para;</a></h3>
+<p>You can have MULTIPLE relations in the FROM clause. Relation.Attribute is used to disambiguate</p>
+<dl>
+<dt>Cross Product</dt>
+<dd><code>SELECT * FROM Skaters, Participates</code></dd>
+<dt>Join</dt>
+<dd><code>SELECT sname FROM Skaters, Participates WHERE Skaters.sid = Participates.sid</code></dd>
+<dd>OR <code>SELECT sname FROM Skaters JOIN Participates ON Skaters.sid = Participates.sid</code></dd>
+</dl>
+<h4 class="header"><i>5.2.1</i>Union, Intersection, Difference<a class="headerlink" href="#union-intersection-difference" name="union-intersection-difference">&para;</a></h4>
+<p>Input relations for set operators must be set-comaptible. Result relation is a set (not a multiset)</p>
+<h5 class="header"><i>5.2.1.1</i>Union<a class="headerlink" href="#union" name="union">&para;</a></h5>
+<p>Find skaters that have participated in a regional or a local competition</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
+<span class="k">UNION</span>
+<span class="k">Select</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;regional&#39;</span>
+</pre></div>
+
+
+<p>Multiset version: UNION ALL</p>
+<h5 class="header"><i>5.2.1.2</i>Intersection<a class="headerlink" href="#intersection" name="intersection">&para;</a></h5>
+<p>Find skaters that have participated in a regional AND a local competition</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
+<span class="k">INTERSECT</span>
+<span class="k">Select</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;regional&#39;</span>
+</pre></div>
+
+
+<p>Multiset Version: Intersect ALL</p>
+<h5 class="header"><i>5.2.1.3</i>Diference<a class="headerlink" href="#diference" name="diference">&para;</a></h5>
+<p>Find skaters that have participated in a local but not in a regional</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;local&#39;</span>
+<span class="k">EXCEPT</span>
+<span class="k">Select</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+<span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span><span class="p">,</span> <span class="n">Competition</span> <span class="k">C</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="k">type</span> <span class="o">=</span> <span class="s1">&#39;regional&#39;</span>
+</pre></div>
+
+
+<p>Multiset version: EXCEPT ALL</p>
+<h4 class="header"><i>5.2.2</i>Nested Queries (IN)<a class="headerlink" href="#nested-queries-in" name="nested-queries-in">&para;</a></h4>
+<p>A where clause and contain an SQL query which is called a <strong>subquery</strong></p>
+<p>Find names of skaters who ahve participated in competition #103</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">S</span><span class="p">.</span><span class="n">sname</span>
+<span class="k">FROM</span> <span class="n">Skaters</span> <span class="n">S</span>
+<span class="k">WHERE</span> <span class="n">S</span><span class="p">.</span><span class="n">sid</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span>
+                <span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span>
+                <span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="mi">103</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Can invert selection using NOT IN</p>
+<p>Basical it is WHERE (a1, a2) in (SELECT a3, a4...)</p>
+<h4 class="header"><i>5.2.3</i>Exists<a class="headerlink" href="#exists" name="exists">&para;</a></h4>
+<p>EXISTS is TRUE iff the relation is non-empty</p>
+<p>Find names of skaters who have participated in competion 103</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">S</span><span class="p">.</span><span class="n">sname</span>
+<span class="k">FROM</span> <span class="n">Skaters</span> <span class="n">S</span>
+<span class="k">WHERE</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span>
+              <span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span>
+              <span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="mi">103</span> <span class="k">AND</span>
+                    <span class="n">P</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">sid</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 class="header"><i>5.2.4</i>Quantifiers<a class="headerlink" href="#quantifiers" name="quantifiers">&para;</a></h4>
+<p>Can use ANY and ALL (like universal and existential quantifiers)</p>
+<dl>
+<dt>Syntax</dt>
+<dd><code>WHERE attr op ANY (Select ...)</code></dd>
+<dd><code>WHERE attr op ALL (SELECT ...)</code></dd>
+</dl>
+<p>Find highested rated skater</p>
+<div class="codehilite"><pre>SELECT *
+FROM SKATERS
+WHERE rating &gt;= ALL (SELECT rating FROM Skaters)
+</pre></div>
+
+
+<h4 class="header"><i>5.2.5</i>Division<a class="headerlink" href="#division_1" name="division_1">&para;</a></h4>
+<p>Find skaters who have reserved all boats</p>
+<div class="codehilite"><pre><span class="k">SELECT</span> <span class="n">sname</span>
+<span class="k">FROM</span> <span class="n">Skaters</span> <span class="n">S</span>
+<span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">((</span><span class="k">SELECT</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span>
+    <span class="k">FROM</span> <span class="n">Competition</span> <span class="k">C</span><span class="p">)</span>
+    <span class="k">EXCEPT</span>
+    <span class="p">(</span><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span>
+    <span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span>
+    <span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">sid</span><span class="o">=</span><span class="n">S</span><span class="p">.</span><span class="n">sid</span><span class="p">))</span>
+<span class="k">SELECT</span> <span class="n">sname</span>
+<span class="k">FROM</span> <span class="n">Skaters</span> <span class="n">S</span>
+<span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span>
+    <span class="k">FROM</span> <span class="n">Competition</span> <span class="k">C</span>
+    <span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span>
+        <span class="k">FROM</span> <span class="n">Participates</span> <span class="n">P</span>
+        <span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">cid</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">cid</span> <span class="k">AND</span>
+            <span class="n">P</span><span class="p">.</span><span class="n">sid</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">sid</span><span class="p">))</span>
+</pre></div>
+
+
+<h2 class="header"><i>6</i>Advanced SQL<a class="headerlink" href="#advanced-sql" name="advanced-sql">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Aggregation<a class="headerlink" href="#aggregation_2" name="aggregation_2">&para;</a></h3>
+<dl>
+<dt>Counting</dt>
+<dd><code>SELECT count(*) FROM Skaters</code></dd>
+<dt>Averages</dt>
+<dd><code>SELECT avg(age) FROM Skaters WHERE rating = 10</code></dd>
+<dt>Distinct</dt>
+<dd><code>SELECT count(DISTINCT sid) FROM Participates</code></dd>
+</dl>
+<p>Also, SUM, MAX, MIN</p>
+<h4 class="header"><i>6.1.1</i>Grouping<a class="headerlink" href="#grouping" name="grouping">&para;</a></h4>
+<div class="codehilite"><pre>SELECT target-list
+FROM relation list
+WHERE qualification
+GROUP BY grouping listn
+</pre></div>
+
+
+<p>A group is a set of tuples that ahve the same value for all attributes in the grouping list. One answer tuples is generated per group. Target-liust contains attributes and/or aggregation terms</p>
+<p>eg:</p>
+<div class="codehilite"><pre>SELECT rating, avg(age)
+FROM Skaters
+GROUP BY rating
+</pre></div>
+
+
+<p>If any aggregation is used, then each element in the attribute list of the SELECT clause must either be aggregated or appear in a group-by clause</p>
+<h5 class="header"><i>6.1.1.1</i>HAVING clause<a class="headerlink" href="#having-clause" name="having-clause">&para;</a></h5>
+<p>These are just WHERE claues on GROUP BY</p>
+<p>eg: Find average age of skaters with at least two skaters at each rating level</p>
+<div class="codehilite"><pre>SELECT rating, avg(age)
+FROM Skaters
+GROUP BY rating
+HAVING COUNT(*) &gt;= 2
+</pre></div>
+
+
+<p><strong>Aggregate operations cannot be nested!</strong></p>
+<h3 class="header"><i>6.2</i>Views<a class="headerlink" href="#views" name="views">&para;</a></h3>
+<p>A view is an umaterialized relation: we store a definition rather than tuples, and get the tuples from existing tables</p>
+<div class="codehilite"><pre>CREATE VIEW ActiveSkaters (sid, sname)
+    AS SELECT DISTINCT S.sid, S.sname
+    FROM Skaters S, Participates P
+    WHERE S.sid = P.sid
+</pre></div>
+
+
+<h3 class="header"><i>6.3</i>NULL Values<a class="headerlink" href="#null-values" name="null-values">&para;</a></h3>
+<p>Results in issues for comparisons and arithemtic. Need 3-valued logic (true, false, unknown)</p>
+<ul>
+<li>NOT unknown = unknown</li>
+<li>A or B = true if either A = true of B = true</li>
+<li>A or B = false if A = false and B = false</li>
+<li>A or B = unknow if A = false and B = unknown, or vice versa, or A = B = unknown</li>
+<li>A and B = true if A = true and B = true</li>
+<li>A and B = false if either A or B = false</li>
+<li>A and B = unknown if A = true and B = unknown, or vice versa, or A = B = unknown</li>
+</ul>
+<p>In SQL the WHERE clause eliminates rows that are not true (ie: false or unknown)</p>
+<h3 class="header"><i>6.4</i>Out Join<a class="headerlink" href="#out-join" name="out-join">&para;</a></h3>
+<p>Same as an inner join, but with dangling tuples paadded with NULL</p>
+<p>A regular join on Skaters and Participates only includes result tuples that are in both Skaters and Participates.</p>
+<p>An (left) outer join on Skaters (left) and Participates includes Skater tuples that weren't in Participates and pads the missing information with nulls</p>
+<div class="codehilite"><pre>SELECT S.sid, Sname, P.cid
+FROM Skaters S LEFT OUTER JOIN Participates P
+ON S.sid =  P.sid
+</pre></div>
+
+
+<h3 class="header"><i>6.5</i>Levels of Abstraction<a class="headerlink" href="#levels-of-abstraction" name="levels-of-abstraction">&para;</a></h3>
+<p>A single <em>conceptual/Logical Schema</em> defines the logical strucre. Conceptual db design</p>
+<p>A <em>Physical Schema</em> describes the files and indexes used</p>
+<p><em>Views</em> describe how users see the data</p>
+<p><em>Physical Data Independence</em>: The conceptual schema protects from changes in the physical structure of data</p>
+<p><em>Logical data independence</em>: External schema proctects from changes in conceptual schema of data</p>
+<h3 class="header"><i>6.6</i>DB Modification<a class="headerlink" href="#db-modification" name="db-modification">&para;</a></h3>
+<h4 class="header"><i>6.6.1</i>Inserts<a class="headerlink" href="#inserts" name="inserts">&para;</a></h4>
+<div class="codehilite"><pre>INSERT INTO SKATERS VALUES (68, &#39;Jacky, 10, 10)
+</pre></div>
+
+
+<p>OR</p>
+<div class="codehilite"><pre>INSERT INTO Skaters (sid, name) VALUES (68, &#39;Jacky&#39;)
+</pre></div>
+
+
+<p>Inserting the result of a query</p>
+<div class="codehilite"><pre>INSERT INTO ActiveSkaters (
+    SELECT Skaters.sid Skaters.name
+    FROM Skaters, Participates
+    WHERE Skaters.sid = Participates.sid)
+</pre></div>
+
+
+<h4 class="header"><i>6.6.2</i>Deletion<a class="headerlink" href="#deletion" name="deletion">&para;</a></h4>
+<div class="codehilite"><pre>DELETE FROM Competitions WHERE cid = 103
+</pre></div>
+
+
+<p>or</p>
+<div class="codehilite"><pre>DELETE FROM Competition
+</pre></div>
+
+
+<p>Will delete EVERYTHING</p>
+<h4 class="header"><i>6.6.3</i>Updates<a class="headerlink" href="#updates" name="updates">&para;</a></h4>
+<div class="codehilite"><pre>UPDATE Skaters
+SET ranking = 10, age = age + 1
+WHERE name = &#39;debby&#39; OR name = &#39;lilly&#39;
+</pre></div>
+
+
+<h2 class="header"><i>7</i>SQL Integrity<a class="headerlink" href="#sql-integrity" name="sql-integrity">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Constraints<a class="headerlink" href="#constraints_1" name="constraints_1">&para;</a></h3>
+<ul>
+<li>Domain Constraints (data type, UNIQUE, NOT NULL)</li>
+<li>Primary Key Constraints</li>
+<li>Foreign Key Constraints</li>
+<li>Attributes and tuple based checks</li>
+<li>SQL2 Assertions: global constraints (just check that conditions aren't violated, rejection only behaviour)</li>
+<li>SQL3 Triggers: upon user modification, checks are performed and reactions specified</li>
+</ul>
+<h4 class="header"><i>7.1.1</i>Attribute Based Checks<a class="headerlink" href="#attribute-based-checks" name="attribute-based-checks">&para;</a></h4>
+<div class="codehilite"><pre>CREATE TABLE Skaters (
+sid INTEGER PRIMARY KEY NOT NULL,
+sname VARCHAR(20),
+rating INTEGER CHECK(rating &gt; 0 AND rating &lt; 11),
+age INTEGER)
+</pre></div>
+
+
+<p>Condition is check when the attribute is changed. Condition violations result in rejections. Can be anything that would follow a WHERE clause <em>including</em> subqueries</p>
+<p>eg: <code>sname VARCHAR CHECK (sname NOT IN (SELECT name FROM forbidden))</code></p>
+<p>DB2 does not allow subqueries or refences to other attributes...</p>
+<h4 class="header"><i>7.1.2</i>Tuples Based Checks<a class="headerlink" href="#tuples-based-checks" name="tuples-based-checks">&para;</a></h4>
+<div class="codehilite"><pre>CREATE TABLE Skaters (
+sid INTEGER PRIMARY KEY NOT NULL,
+sname VARCHAR(20),
+rating INTEGER,
+age INTEGER
+CHECK (rating &lt;= OR age &gt; 5))
+</pre></div>
+
+
+<p>Checked on update and insert</p>
+<h5 class="header"><i>7.1.2.1</i>Naming Constraints<a class="headerlink" href="#naming-constraints" name="naming-constraints">&para;</a></h5>
+<p>May need to add or delete constraints laters. So we can NAME THEM</p>
+<div class="codehilite"><pre>CREATE TABLE Skaters (
+sid INTEGER NOT NULL,
+sname VARCHAR(20),
+rating INTEGER CONSTRAINT rat CHECK(rating &gt; 0 AND rating &lt; 11),
+age INTEGER
+CONSTRAINT pk PRIMARY KEY (sid),
+CONSTRAINT ratage CHECK
+    (rating &lt;= 4 OR age &gt;5))
+</pre></div>
+
+
+<p>Allows us to do <code>ALTER TABLE Skaters DROP CONSTRAINT ratage</code> or <code>ALTER TABLE Skaters ADD CONSTRAINT rateage CHECK (rating &lt;= 5 OR age &gt; 5)</code></p>
+<h4 class="header"><i>7.1.3</i>Assertions<a class="headerlink" href="#assertions" name="assertions">&para;</a></h4>
+<p>predicate expressing a condition that we wish the database to always satisfy and what to do when it fails</p>
+<div class="codehilite"><pre>CREAT ASSETION smallClub CHECK
+    ((SELECT COUNT(*) FROM SKATERS) + (SELECT COUNT(*) FROM Competitions) &lt; 100)
+</pre></div>
+
+
+<p>Check whenever any relations involved are modified</p>
+<h4 class="header"><i>7.1.4</i>When and How much?<a class="headerlink" href="#when-and-how-much" name="when-and-how-much">&para;</a></h4>
+<p>Attribute based checks happen on inserts and upates of that just one tuples. Tuple based checks same thing (cheap)</p>
+<p>Assertion, insert or update or delte of tuples involved in any relation (expensive)</p>
+<h3 class="header"><i>7.2</i>Triggers<a class="headerlink" href="#triggers" name="triggers">&para;</a></h3>
+<dl>
+<dt>Trigger</dt>
+<dd>Prodcued that starts automatically if specified changes occur to the DBMS</dd>
+</dl>
+<p>Made up of three parts</p>
+<ol>
+<li>Event (activates the trigger): usually insert/update/delete</li>
+<li>Condition (test whether the trigger should run)</li>
+<li>Actions (what happens if the trigger runs)</li>
+</ol>
+<h4 class="header"><i>7.2.1</i>Statement Level Trigger<a class="headerlink" href="#statement-level-trigger" name="statement-level-trigger">&para;</a></h4>
+<div class="codehilite"><pre>CREATE TRIGGER updateSkater
+    AFTER DELETE ON Skaters
+REFERENCING NEW_TABLE AS DeletedSkaters
+FOR EACH STATEMENT
+    INSERT
+        INTO StatisticsTable(ModTable, ModType, Count)
+        SELECT &#39;Skaters&#39;, &#39;delete&#39;, COUNT(*)
+        FROM DeletedSkaters
+</pre></div>
+
+
+<h4 class="header"><i>7.2.2</i>Row Level Trigger<a class="headerlink" href="#row-level-trigger" name="row-level-trigger">&para;</a></h4>
+<div class="codehilite"><pre>CREATE TRIGGER ratingIncrease
+    AFTER UPDATE OF rating on Skaters
+    REFERENCING
+        OLD AS o
+        NEW AS n
+FOR EACH ROW
+    WHEN (n.rating &gt; 1 + o.rating)
+        UPDATE Skaters
+        SET skating = 1 + o.rating
+        WHERE sid = n.sid
+</pre></div>
+
+
+<h4 class="header"><i>7.2.3</i>Trigger Components<a class="headerlink" href="#trigger-components" name="trigger-components">&para;</a></h4>
+<p>When?</p>
+<ul>
+<li>AFTER UPDATE OF</li>
+<li>BEFORE UPDATE OF</li>
+<li>INSTEAD OF UPDATE</li>
+</ul>
+<p>(could be UPDATE, INSERT, DELETE)</p>
+<p>Scopes?</p>
+<ul>
+<li>Row level trigger: references OLD/ NEW</li>
+<li>Statement level: OLD_TABLE / NEW_TABLE</li>
+</ul>
+<p>Indicated in the RERFENCING command</p>
+<p>Can execute SEVERAL actions</p>
+<div class="codehilite"><pre>FOR EACH ROW/STATEMENT
+WHEN ...
+BEGIN ATOMIC
+    do thing1
+    do thing2
+END
+</pre></div>
+
+
+<p>Can also set SQL States. eg: <code>SIGNAL SQLSTATE '75000' SET MESSAGE_TEXT='Rating increase must be by one'</code></p>
+<h2 class="header"><i>8</i>XML<a class="headerlink" href="#xml" name="xml">&para;</a></h2>
+<p>XML is built with <em>elements</em></p>
+<dl>
+<dt>Elements components</dt>
+<dd>Name </dd>
+<dd>Text (eg: foundations)</dd>
+<dd>Child elements (nesting)</dd>
+<dd>Attribtues (included in starttag)</dd>
+</dl>
+<p>Attribtues are made of names and values eg: &lt;p id="first one"&gt;</p>
+<h3 class="header"><i>8.1</i>Tree model<a class="headerlink" href="#tree-model" name="tree-model">&para;</a></h3>
+<p>Eache element is a node. Nested elements build a path. The leaves are attributes, text or just elements with neither. Element siblings are <em>ordered</em></p>
+<h3 class="header"><i>8.2</i>Graph Model<a class="headerlink" href="#graph-model" name="graph-model">&para;</a></h3>
+<p>Each element can have an ID attribute allowing elements to references other elements. This produces a <strong>graph</strong></p>
+<h3 class="header"><i>8.3</i>DTD<a class="headerlink" href="#dtd" name="dtd">&para;</a></h3>
+<p>A valid xml documents conforms to a Document Type Description (DTD) although they are optional. Has a BNF-life grammar which established constraints on element structure, attributes and content</p>
+<p>Sample:</p>
+<div class="codehilite"><pre>&lt;!DOCTYPE people[
+    &lt;!ELEMENT people(person*)&gt;
+    &lt;!ELEMENT person(name*, (lastname|familyname)?)&gt;
+    &lt;!ATTLIST person PID ID #REQUIRED
+        age CDATA #IMPLIED
+        children IDREFS #IMPLIED
+        mother IDREF #IMPLIED
+    &gt;
+    &lt;!ELEMENT name(#PCDATA)&gt;
+    &lt;!ELEMENT lastname(#PCDATA)&gt;
+    &lt;!ELEMENT familyname (#PCDATA)&gt;
+]&gt;
+</pre></div>
+
+
+<p>Data types: PCDATA (parsed character data) or CDATA (unparsed)</p>
+<dl>
+<dt>Attributes</dt>
+<dd>ID unique identifier (similar to primary key)</dd>
+<dd>IDREF: reference to single ID</dd>
+<dd>IDREFS: space-seperated list of references</dd>
+<dt>Values</dt>
+<dd>can give a default value</dd>
+<dd>#REQUIRED must exist</dd>
+<dd>#IMPLIED optional</dd>
+</dl>
+<p>Specified in an XML file with <code>&lt;!DOCTYPE name SYSTEM "path/to/thing.dtd"&gt;</code></p>
+<p>Can use regex style things too. * is 0 or more. + is 1 or more, (a | b)? is one or the other</p>
+<h3 class="header"><i>8.4</i>XPath<a class="headerlink" href="#xpath" name="xpath">&para;</a></h3>
+<p>Specificy a path expresion to match XML data by navigating down (or accross) the XML tree. returns a <em>node-set</em></p>
+<dl>
+<dt>Examples</dt>
+<dd>/bibliography/book/author all author elements by root navigating through those elements</dd>
+<dd>/bibliography/book/<a href="/users/ISBN">@ISBN</a> All ISBN attributes</dd>
+<dd>//title all title elements anywhere in the document</dd>
+<dd>/bibliography/*/title titles of bibliography entries assuming that there could be books, journals, reports, etc...</dd>
+<dd>/bibliography/book[<a href="/users/year">@year</a>&gt;1995] returns books where the year &gt; 1995</dd>
+<dd>/bibliography/book[author='FooBar']/<a href="/users/Year">@Year</a> returns the years of books written by FooBar</dd>
+<dd>/bibliography/book[count(author) &lt;2]</dd>
+<dd>/bibliography/book/author[position()=1]/name position is the location of the node in the node set</dd>
+</dl>
+<h3 class="header"><i>8.5</i>XQuery<a class="headerlink" href="#xquery" name="xquery">&para;</a></h3>
+<p>FLOWR = For/let-where-orderby/return</p>
+<p><img alt="Diagram 18" src="http://i.imgur.com/iJgYO.png" /></p>
+<p>For vs Let</p>
+<p>For binds node variables for iteration</p>
+<p>Let binds collection variables for one value</p>
+<p><img alt="Diagram 19" src="http://i.imgur.com/yxgYc.png" /></p>
+<p>VS</p>
+<p><img alt="Diagram 20" src="http://i.imgur.com/XyfF0.png" /></p>
+<p>Aggregation</p>
+<div class="codehilite"><pre>let $a = avg(document(&quot;bib.xml&quot;)/bib/book/price)
+for $b in document(&quot;bib.xml&quot;)/bib/book
+where $b/price &gt; $a
+return $b
+</pre></div>
+
+
+<p>Can use joins with <code>where $b1/author = $b2/author</code></p>
+<p>subqueries, sorting, if-then-else, existential and universally quantified</p>
+<p>eg: ```where some <span>$b in $</span>a/book satisfies count(<span>$b/author) &gt; 10$</span></p>
+<h3 class="header"><i>8.6</i>XML in DB2<a class="headerlink" href="#xml-in-db2" name="xml-in-db2">&para;</a></h3>
+<p>Storage as extra attribute <code>CREATE TABLE MyXml (id INT NOT NULL PRIMARY KEY, Info XML)</code></p>
+<p>Insert with:</p>
+<div class="codehilite"><pre>INSERT INTO MyXML(id, INFO) VALUES (1000,
+    &#39;&lt;customerinfo cid=&quot;1000&quot;&gt;
+    &lt;name&gt;Kathy Jones&lt;/name&gt;
+    &lt;addr country =Canada&quot;&gt;
+        &lt;street&gt;123 fake&lt;/street&gt;
+        &lt;city&gt;Ottawa&lt;/city&gt;
+        &lt;prov-state&gt;Ontario&lt;/prov-state&gt;
+        &lt;pcode-zip&gt;H0H 0H0&lt;/pcode-zip&gt;
+    &lt;/addr&gt;
+    &lt;/customerinfo&gt;&#39;)
+</pre></div>
+
+
+<h4 class="header"><i>8.6.1</i>Querying with XQuery<a class="headerlink" href="#querying-with-xquery" name="querying-with-xquery">&para;</a></h4>
+<p>db2-fin:xmlcolumn</p>
+<div class="codehilite"><pre>XQUERY
+    for $d in db2-fn:xmlcolum(&#39;MYXML.INFO&#39;)/customerinfo
+    where $d/addr[city=&quot;Toronto&quot;]
+    return $d/name
+</pre></div>
+
+
+<p>SELECT and Xquery</p>
+<div class="codehilite"><pre>SELECT XMLQUERY (
+&#39;for $d in $doc/customerinfo
+    return $d/name&#39;
+    passing INFO as &quot;doc&quot;)
+FROM MyXml m
+WHERE XMLEXISTS(
+    &#39;$i/customerinfo/addr[city=&quot;Toronto&quot;]&#39; passing m.info as &quot;i&quot;)
+</pre></div>
+
+
+<h2 class="header"><i>9</i>Transactions<a class="headerlink" href="#transactions" name="transactions">&para;</a></h2>
+<p>Imagine a money transfer Transfer(id1, id2, value)</p>
+<p>SQL</p>
+<div class="codehilite"><pre>SELECT balance into :balance
+FROM accounts
+WHERE accoundid = :id1
+
+balance += value
+
+UPDATE accounts
+SET balance = :balance
+WHERE accountid = :id1
+
+SELECT balance into :balance
+FROM accounts
+WHERE accountid = :id2
+
+balance -= value
+
+UDPATE accounts
+SET balance = :balance
+WHERE accountid = :id2
+</pre></div>
+
+
+<ol>
+<li>read(A)</li>
+<li>A := A + 50</li>
+<li>write(A)</li>
+<li>read(B)</li>
+<li>B := B - 50</li>
+<li>write(B)</li>
+</ol>
+<p>A transaction is the DBMS'sabstract view of a user program. It is a sequence of read operations, r(x) and write operations w(X) on objects x (tuple, relation) of the db</p>
+<p>Read: bring obkect into main memory from disk, send variable to application</p>
+<p>Write: bring object into main memory from disk and modify it. Write it back to disk (might be done later)</p>
+<h3 class="header"><i>9.1</i>ACID<a class="headerlink" href="#acid" name="acid">&para;</a></h3>
+<dl>
+<dt>ACID</dt>
+<dd><em>A</em>tomicity: A transaction is atomic if it executed in it entirety or not at all</dd>
+<dd><em>C</em>onsistency: A transaction must preserve the consistency of the data</dd>
+<dd><em>I</em>solation: In case that transaction is executed concurrently, the result must be the same as if they were executed serially</dd>
+<dd><em>D</em>urability: The changes made by a transaction must be permanent</dd>
+<dt>Consistency</dt>
+<dd>Each transaction must leave the database if the DB is consistent before the tranasction started. Hard to enforce at the db level unless using integrity constraints</dd>
+<dt>Isolation</dt>
+<dd>DBMS can execute transactions concurrently. Enforced by a <strong>concurrency control</strong> protocol.</dd>
+<dt>Atomicity</dt>
+<dd>A transaction either commits or aborts</dd>
+<dd>In the case of an abort then you have to undo all the operations done</dd>
+<dd><strong>Local Recovery</strong> ensures that partial results can be done. Writes keep a pre-image</dd>
+<dt>Durability</dt>
+<dd>There must be a guarantee that changees introduced by a transaction will surive failures</dd>
+<dd><img alt="Diagram 19" src="http://i.imgur.com/GNUIE.png" /></dd>
+</dl>
+<p>In the event of a crash we have to do <strong>Global Recovery</strong>. Involves ensuring commited transactions are in the db, that aborted changes are undone and that tranasctions at the time of the crash are undone.</p>
+<h3 class="header"><i>9.2</i>Buffers and the Disk<a class="headerlink" href="#buffers-and-the-disk" name="buffers-and-the-disk">&para;</a></h3>
+<p>When are changes written from main memory to the disk?</p>
+<p><img alt="Diagram 20" src="http://i.imgur.com/iBIBw.png" /></p>
+<h4 class="header"><i>9.2.1</i>FORCE flush<a class="headerlink" href="#force-flush" name="force-flush">&para;</a></h4>
+<p>Force all changes of transaction are flushed to the disk BEFORE commit. Eg writes are done straight to disk</p>
+<p>Easy recovery for commited or aborted tranasctions, but need cleverness to deal with inprogress transactions</p>
+<h4 class="header"><i>9.2.2</i>NOSTEAL flush<a class="headerlink" href="#nosteal-flush" name="nosteal-flush">&para;</a></h4>
+<p>Changes are never flushed before a commit. Once committed, changes can be flushed at leasure. Inprogress and aborted transactionsa are easyt to deal with, nothing on disk. Need to deal with commited but potentially not written transactions.</p>
+<p>Ideally we would flush at commit time, but this isn't possible due to I/O not being atomic.</p>
+<h2 class="header"><i>10</i>Indexing<a class="headerlink" href="#indexing" name="indexing">&para;</a></h2>
+<p>Cost model for data access. We just oncsider number of disk reads.</p>
+<dl>
+<dt>Types of opertions</dt>
+<dd>scan over all records <code>SELECT * FROM Skaters</code></dd>
+<dd>Equality search <code>SELECT * FROM Skaters WHERE sid = 100</code></dd>
+<dd>Range Search <code>SELECT * FROM Skaters WEHRE age &gt; 5 and age &lt;= 10</code></dd>
+<dd>Insert <code>INSERT INTO Skaters VALUES (23, 'lilly, 10, 8)</code></dd>
+<dd>Delete could be equality or range</dd>
+<dd>udpate is just delete + insert</dd>
+</dl>
+<h3 class="header"><i>10.1</i>Heap Files<a class="headerlink" href="#heap-files" name="heap-files">&para;</a></h3>
+<p>Linked, unordered list of all pages of the file</p>
+<ul>
+<li>scan retriving all records = good because all pages retrieved anyway</li>
+<li>equality search on primary key = bad have to read ~1/2 of pages</li>
+<li>range search = bad</li>
+<li>insert = good, low cost</li>
+<li>delete/update same as search</li>
+</ul>
+<h3 class="header"><i>10.2</i>Sorted Files<a class="headerlink" href="#sorted-files" name="sorted-files">&para;</a></h3>
+<p>Records ordered according to one or more attributes of the relation</p>
+<ul>
+<li>scan retriving all records = good</li>
+<li>equality search on sort attribute = good about log2(number of pages)</li>
+<li>range search = good find first one, then scan along</li>
+<li>insert = bad, have to find proper page, need to reorganize</li>
+<li>delete/update same as search. update may be expensive</li>
+<li>sorted output: good if on sorted attribute</li>
+</ul>
+<h3 class="header"><i>10.3</i>Indexes<a class="headerlink" href="#indexes" name="indexes">&para;</a></h3>
+<p>Sorted files can only be ordered by one attribute. Solution is to build an index for any attribute that is frequently queried. Created on a <em>search key</em> (different from primary key)</p>
+<div class="codehilite"><pre>CREATE INDEX name ON Skaters(sid)
+DROP INDEX name
+</pre></div>
+
+
+<p>B+tree is the most widely used index. Each ndoe represents on page (the transfer unit to/from disk). Leafs contain data entries which consist of value of the search key and the record identifier (rid = page-id, slot). Data entries are POINTERS. Root and inner ndoes have auxiliary index entries. They are height balanced.</p>
+<p>fanout = number of children for each node. Minimum 50% occupancy fornot the root.</p>
+<p>Indirect indexes can be in the form &lt;key, rid&gt; but could be in form &lt;key, list of matching rid&gt;</p>
+<p>Direct indexes can contain the actual tuple, but expensive.</p>
+<h4 class="header"><i>10.3.1</i>Clustered vs Unclustered<a class="headerlink" href="#clustered-vs-unclustered" name="clustered-vs-unclustered">&para;</a></h4>
+<dl>
+<dt>Clustered</dt>
+<dd>relatin in file sorted by search key attributes of the idnex</dd>
+<dt>Unclustered</dt>
+<dd>relation in heap file or sorted by attribute different to the search key attribute of the idnex</dd>
+</dl>
+<p>Can be clustered by at most one index</p>
+<p><img alt="Diagram 21" src="http://i.imgur.com/xv5jo.png" /></p>
+<h4 class="header"><i>10.3.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p>Relation R(A,B,C,D,F)</p>
+<p>A and B are int (6 byte), C-F are char[40] (1 byte per char). Tuple = 172 bytes.</p>
+<p>200,000 tuples</p>
+<p>Each data page has 4000 bytes and is around 80% full.</p>
+<p>Number of pages = (number of tuples * tuple size)/(fill rate * page size). in this case 10,750 pages</p>
+<p>B values are uniformilly distributed</p>
+<p>Non-clustered index B-tree with &lt;k, list of rid&gt;</p>
+<p>Index pages are 4K and between 50%-100% fulll</p>
+<p>rid = 10 bytes</p>
+<p>size of pointer in intermediate page = 8 bytes</p>
+<p>Index entry size in root/intermediate pages = size(key) + size(pointer) 6 + 8 = 14 bytes</p>
+<p>Average number of rids per data entry = number of uples / different values (if uniform). eg: 200,000/20,000 = 10</p>
+<p>Average length per data entry = size of key + (number of rids * size of rid). eg: 6 + 10*10 = 106</p>
+<p>Average number of date entrier per page = fill-rate * page size / length of entry. eg 0.75*5000/106 = 28 entries per page</p>
+<p>Estimate number of leaf page = number of different values / number of entrier per page. eg: 20,000 / 28 = 715</p>
+<p>Number of entries in intermediate pages = fill-rate * page size / lneght of index enty. eg: 0.5 * 4000 / 15 = 143, 1*4000/14 = 285</p>
+<p>Height of tree = Number of leaf pages / (min | max)? number of entries in intermediate pages</p>
+<h2 class="header"><i>11</i>Query Evaluation<a class="headerlink" href="#query-evaluation" name="query-evaluation">&para;</a></h2>
+<h3 class="header"><i>11.1</i>Processing SQL Queries:<a class="headerlink" href="#processing-sql-queries" name="processing-sql-queries">&para;</a></h3>
+<ul>
+<li>parser translate into internal query representation (syntax, references existing stuff, view translation)</li>
+<li>query optimizer turns the query into an efficient execution plan</li>
+<li>plan executor executes the execution plan (nowai!) and delivers data</li>
+</ul>
+<p>Query decomposition is variable because order can change, need to pick the best / most efficient</p>
+<dl>
+<dt>Access Path</dt>
+<dd>method used to retrieve set of tuples from a relation</dd>
+</dl>
+<p>Cost models</p>
+<ol>
+<li>number of pages</li>
+<li>number of I/O (one page can be read from disk multiple times)</li>
+</ol>
+<p>Query Processing operations</p>
+<ul>
+<li>Selection<ul>
+<li>Scan without an index</li>
+<li>scan with an index</li>
+</ul>
+</li>
+<li>Sorting</li>
+<li>joining<ul>
+<li>nested loop join</li>
+<li>Sort-merge join</li>
+<li>etc...</li>
+</ul>
+</li>
+<li>grouping and duplicate elimination</li>
+</ul>
+<p>Number of tuples in table P = CARD(P).</p>
+<h4 class="header"><i>11.1.1</i>Simple Selections<a class="headerlink" href="#simple-selections" name="simple-selections">&para;</a></h4>
+<dl>
+<dt>No index</dt>
+<dd>Search on arbitrary attribute: scan the whole relation. Cost = number of pages</dd>
+<dd>Search on primary key attribute: Cost = 1/2 number of pages on average</dd>
+<dt>With index on selection attribtues</dt>
+<dd>Cost = number of index pages + number of data pages</dd>
+</dl>
+<p>Clustered index number of data pages = (number of matching tuples / tuples per page)</p>
+<p>Unclustered number of data pages = number of tuples!</p>
+<h3 class="header"><i>11.2</i>External Sorting<a class="headerlink" href="#external-sorting" name="external-sorting">&para;</a></h3>
+<p>N pages, B </p>
+<dl>
+<dt>Pass 0</dt>
+<dd>bring B pages into buffer, sort in main memory</dd>
+<dd>cost N/B</dd>
+<dt>Pass 1</dt>
+<dd>...</dd>
+</dl>
+<p><img alt="Diagram 21" src="http://i.imgur.com/2wvVX.png" /></p>
+<p><img alt="Diagram 22" src="http://i.imgur.com/uZnFd.png" /></p>
+<h3 class="header"><i>11.3</i>Equality Joins<a class="headerlink" href="#equality-joins" name="equality-joins">&para;</a></h3>
+<ol>
+<li>Simple Nested Loop join</li>
+<li>Page oriented nested loop join</li>
+<li>Block oriented nested loop join</li>
+<li>index nexted loop join</li>
+<li>Sort-Merge Join</li>
+</ol>
+<h4 class="header"><i>11.3.1</i>Nested Loop Joins<a class="headerlink" href="#nested-loop-joins" name="nested-loop-joins">&para;</a></h4>
+<h5 class="header"><i>11.3.1.1</i>Simple nest loop join<a class="headerlink" href="#simple-nest-loop-join" name="simple-nest-loop-join">&para;</a></h5>
+<p>for each tuple in the outer relation P, scan the entire inner relation S</p>
+<p>Cost = Number of outer page + number of outer tuples*(number of inner pages)</p>
+<h5 class="header"><i>11.3.1.2</i>Page oriented nested loop join<a class="headerlink" href="#page-oriented-nested-loop-join" name="page-oriented-nested-loop-join">&para;</a></h5>
+<p>for each page of outer, get each page of inner and write out matching pairs.</p>
+<p>Cost = Number of outer pages + Number of Outer Pages * Number of Inner Pages</p>
+<h5 class="header"><i>11.3.1.3</i>Block Oriented Nest Loop Join<a class="headerlink" href="#block-oriented-nest-loop-join" name="block-oriented-nest-loop-join">&para;</a></h5>
+<p>If the smaller table fits in main memory + 2 extra buffer pages: load smaller into main and compare page by page on larger</p>
+<p>Cost = Inner Pages + Outer Pages</p>
+<p>If no relation fits in main meory:</p>
+<p>For each block of B-2 Pages of Outer</p>
+<ul>
+<li>load block into main memory</li>
+<li>get each page of inner and join with B-2 pages of outer. write output to remaining page</li>
+</ul>
+<p>Cost = Number of Outer Pages + (Number of outer pages / (number of buffer pages -2) * number of inner pages)</p>
+<h5 class="header"><i>11.3.1.4</i>Index Nested Loop Join<a class="headerlink" href="#index-nested-loop-join" name="index-nested-loop-join">&para;</a></h5>
+<p>If there is an index, we can exploit this</p>
+<p>Cost = non-index number of pages + (number of non-indexed tuples * cost of finding indexed tuple)</p>
+<p>If clustered, then can compare all tuples in found pages (cheap). If unclustered, one page per indexed tuples</p>
+<h4 class="header"><i>11.3.2</i>Sort-Merge Join<a class="headerlink" href="#sort-merge-join" name="sort-merge-join">&para;</a></h4>
+<p>Sort inner and outer on join column, then scan them to do a merge (join on that column).</p>
+<p>Advance scan of outer until current outer-tuple &gt;= current inner tuple, then advance scan of inner until current inner-tuple &gt;= current P tuple, until current inner-tuple = current outer-tuple</p>
+<p>Cost: (number of passes for sorting + 1 for merge) * (number of inner pages + number of outer pages)</p>
+<h3 class="header"><i>11.4</i>DISTINCT<a class="headerlink" href="#distinct" name="distinct">&para;</a></h3>
+<p>Very expensive. Need to sort to eliminate duplicates. Done at very very end or when results are already sorted. Use with care.</p>
+<h3 class="header"><i>11.5</i>Pipelining<a class="headerlink" href="#pipelining" name="pipelining">&para;</a></h3>
+<p>Try and avoid intermediate complete steps and perform all operations on current page/block.</p>
+<h2 class="header"><i>12</i>NoSQL<a class="headerlink" href="#nosql" name="nosql">&para;</a></h2>
+<p>relational model is powerful, but very rigid. Expressive at the expense of performance.</p>
+<p>NoSQL focuses on <strong>scalability</strong> via distribution, instead of scaling-up</p>
+<p>Trade offs:<br />
+1. expressiveness vs performance<br />
+2. consistency vs performance<br />
+3. consistency vs availability in a distributed systems</p>
+<dl>
+<dt>Types of NoSQL by data model</dt>
+<dd>key-value</dd>
+<dd>document</dd>
+<dd>extensible-record, column</dd>
+<dd>graph</dd>
+</dl>
+<h3 class="header"><i>12.1</i>Key-value<a class="headerlink" href="#key-value" name="key-value">&para;</a></h3>
+<p>data item has a key and some value. Value can be complex, but transparent to DBMBS. No relationships between different key/value pairs</p>
+<dl>
+<dt>Interface</dt>
+<dd>get(key)</dd>
+<dd>put(key, value)</dd>
+<dd>versioned usually so get(key, version), put(key,value, version)</dd>
+<dt>Pros</dt>
+<dd>scalability is easy accross many nodes</dd>
+<dd>highly available</dd>
+<dd>partitioned, replication, multi-versioned with weak consistency</dd>
+</dl>
+<h3 class="header"><i>12.2</i>Document Store<a class="headerlink" href="#document-store" name="document-store">&para;</a></h3>
+<p>ie: XML/JSON/ key-value entries</p>
+<dl>
+<dt>Interface</dt>
+<dd>path expression if nexted</dd>
+<dd>key searches within document colelctions</dd>
+<dd>update operations on entire document</dd>
+</dl>
+<h3 class="header"><i>12.3</i>Column Database<a class="headerlink" href="#column-database" name="column-database">&para;</a></h3>
+<p>store by column first, not by record. Vertically partioned. that is, split a record by attributes, each colum stores primary key value + attribute value.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

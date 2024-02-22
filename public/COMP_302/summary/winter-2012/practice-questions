@@ -1,0 +1,723 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_302/">
+                COMP 302
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Practice questions
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Practice questions
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Practice questions for <a class="wikilink" href="/COMP_302/">COMP 302</a>.</p>
+<h2 class="header"><i>1</i>Writing SML code<a class="headerlink" href="#writing-sml-code" name="writing-sml-code">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Lists and ListPairs<a class="headerlink" href="#lists-and-listpairs" name="lists-and-listpairs">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Rewriting standard library functions<a class="headerlink" href="#rewriting-standard-library-functions" name="rewriting-standard-library-functions">&para;</a></h4>
+<h5 class="header"><i>1.1.1.1</i>Append<a class="headerlink" href="#append" name="append">&para;</a></h5>
+<p>Write a function <code>app</code> that takes in a tuple of two lists (<code>list * list</code>) and returns one list that has the elements in both lists, in order. You can't use any of the built-in list functions (except <code>List.rev</code>) or the <code>@</code> operator, obviously. <code>::</code> is allowed.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">app</span> <span class="p">([],</span> <span class="n">other</span><span class="p">)</span> <span class="p">=</span> <span class="n">other</span>
+  <span class="p">|</span> <span class="nf">app</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span> <span class="p">=</span> <span class="n">h::</span><span class="p">(</span><span class="n">app</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">other</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Now, write a tail-recursive function <code>app_tl</code> that takes in a tuple of three lists (<code>list * list * list</code>), with the last list being the accumulator, and appends the first two lists together.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">app_tl</span> <span class="p">([],</span> <span class="n">other</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="kr">case</span> <span class="n">other</span> <span class="kr">of</span> <span class="p">[]</span> <span class="p">=&gt;</span> <span class="nn">List</span><span class="p">.</span><span class="n">rev</span> <span class="n">acc</span> <span class="n">|</span> <span class="n">h::t</span> <span class="p">=&gt;</span> <span class="n">app_tl</span> <span class="p">([],</span> <span class="n">t</span><span class="p">,</span> <span class="n">h::acc</span><span class="p">))</span>
+  <span class="p">|</span> <span class="nf">app_tl</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">app_tl</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">h::acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now, write a function <code>app_cont</code> that uses continuations.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">app_cont</span> <span class="p">([],</span> <span class="n">other</span><span class="p">,</span> <span class="n">cont</span><span class="p">)</span> <span class="p">=</span> <span class="n">cont</span> <span class="n">other</span>
+  <span class="p">|</span> <span class="nf">app_cont</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">cont</span><span class="p">)</span> <span class="p">=</span> <span class="n">app_cont</span> <span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">cont</span> <span class="p">(</span><span class="n">h::x</span><span class="p">)))</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.2</i>Reverse<a class="headerlink" href="#reverse" name="reverse">&para;</a></h5>
+<p>Write a function <code>rev</code> that takes in a list and returns that list, reversed.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">rev</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">rev</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">rev</span> <span class="n">t</span><span class="p">)</span> <span class="n">@</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Write a function <code>rev_tl</code> that does the same as the above but is tail-recursive. It should take in a tuple of type <code>list * list</code>.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">rev_tl</span> <span class="p">([],</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">rev_tl</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">rev_tl</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h::acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Use structural induction to prove that <code>rev l</code> and <code>rev_tl (l, [])</code> are equivalent. See <a href="#reverse-induction">the induction section</a> for more.</p>
+<h5 class="header"><i>1.1.1.3</i>Map<a class="headerlink" href="#map" name="map">&para;</a></h5>
+<p>Write a function called <code>map</code> etc</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">f</span> <span class="n">h</span><span class="p">)</span><span class="n">::</span><span class="p">(</span><span class="n">map</span> <span class="n">f</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Tail-recursive version:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">[]</span> <span class="n">acc</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">rev</span> <span class="n">acc</span> <span class="cm">(* reversing is necessary *)</span>
+  <span class="p">|</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">map_tl</span> <span class="n">f</span> <span class="n">t</span> <span class="p">(</span><span class="n">f</span> <span class="n">h::acc</span><span class="p">)</span>
+
+<span class="cm">(* the above is probably harder to do structural induction on, so here&#39;s another *)</span>
+<span class="kr">fun</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">[]</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">map_tl</span> <span class="n">f</span> <span class="n">t</span> <span class="p">(</span><span class="n">acc</span> <span class="n">@</span> <span class="p">[</span><span class="n">f</span> <span class="n">h</span><span class="p">])</span>
+</pre></div>
+
+
+<p>Continuations version:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">map_cont</span> <span class="n">f</span> <span class="p">[]</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">cont</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">map_cont</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">map_cont</span> <span class="n">f</span> <span class="n">t</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">cont</span> <span class="p">((</span><span class="n">f</span> <span class="n">h</span><span class="p">)</span><span class="n">::x</span><span class="p">))</span>
+</pre></div>
+
+
+<p>Prove that <code>map_tl f l []</code> and <code>map f l</code> are equivalent using structural induction. See <a href="#map-induction">the induction section</a> for more.</p>
+<h5 class="header"><i>1.1.1.4</i>Filter<a class="headerlink" href="#filter" name="filter">&para;</a></h5>
+<p><code>filter</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">filter</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">filter</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="kr">if</span> <span class="n">f</span> <span class="n">h</span> <span class="kr">then</span> <span class="n">h::t</span> <span class="kr">else</span> <span class="n">t</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.5</i>All<a class="headerlink" href="#all" name="all">&para;</a></h5>
+<p><code>all</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">all</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="n">true</span>
+  <span class="p">|</span> <span class="nf">all</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">f</span> <span class="n">h</span> <span class="kr">andalso</span> <span class="n">all</span> <span class="n">t</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.6</i>Exists<a class="headerlink" href="#exists" name="exists">&para;</a></h5>
+<p><code>exists</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">exists</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="n">false</span>
+  <span class="p">|</span> <span class="nf">exists</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">f</span> <span class="n">h</span> <span class="kr">orelse</span> <span class="n">all</span> <span class="n">t</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.7</i>Tabulate<a class="headerlink" href="#tabulate" name="tabulate">&para;</a></h5>
+<p><code>tabulate : (int * (int -&gt; 'a)) -&gt; 'a list</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">tabulate</span> <span class="mi">0</span> <span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="n">f</span> <span class="mi">0</span><span class="p">]</span>
+  <span class="p">|</span> <span class="nf">tabulate</span> <span class="n">n</span> <span class="n">f</span> <span class="p">=</span> <span class="p">(</span><span class="n">tabulate</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="n">f</span><span class="p">)</span> <span class="n">@</span> <span class="p">[</span><span class="n">f</span> <span class="n">n</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Tail-recursive version:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">tabulate</span> <span class="mi">0</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">tabulate</span> <span class="n">n</span> <span class="n">f</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">tabulate</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="n">f</span> <span class="p">((</span><span class="n">f</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">))</span><span class="n">::acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Continuations version</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">tabulate</span> <span class="mi">0</span> <span class="n">f</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">cont</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">tabulate</span> <span class="n">n</span> <span class="n">f</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">tabulate</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="n">f</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">cont</span> <span class="p">(</span><span class="n">x</span> <span class="n">@</span> <span class="p">[</span><span class="n">f</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)]))</span>
+<span class="cm">(* or *)</span>
+<span class="kr">fun</span> <span class="nf">tabulate</span> <span class="mi">0</span> <span class="n">f</span> <span class="n">cont</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">rev</span> <span class="p">(</span><span class="n">cont</span> <span class="p">[])</span>
+  <span class="p">|</span> <span class="nf">tabulate</span> <span class="n">n</span> <span class="n">f</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">tabulate</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="n">f</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">cont</span> <span class="p">((</span><span class="n">f</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">))</span><span class="n">::x</span><span class="p">))</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.8</i>Zip<a class="headerlink" href="#zip" name="zip">&para;</a></h5>
+<p>Rewrite <code>ListPair.zip</code>. Depends on length of first list in tuple.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">zip</span> <span class="p">([],</span> <span class="p">_)</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">zip</span> <span class="p">(_,</span> <span class="p">[])</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">zip</span> <span class="p">(</span><span class="n">h1::t1</span><span class="p">,</span> <span class="n">h2::t2</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">h1</span><span class="p">,</span> <span class="n">h2</span><span class="p">)</span><span class="n">::</span><span class="p">(</span><span class="n">zip</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">))</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.1.9</i>Unzip<a class="headerlink" href="#unzip" name="unzip">&para;</a></h5>
+<p>Rewrite <code>ListPair.unzip</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">unzip</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">([],</span> <span class="p">[])</span>
+  <span class="p">|</span> <span class="nf">unzip</span> <span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span><span class="n">::t</span><span class="p">)</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span> <span class="nv">=</span> <span class="n">unzip</span> <span class="n">t</span> <span class="kr">in</span> <span class="p">(</span><span class="n">a::t1</span><span class="p">,</span> <span class="n">b::t2</span><span class="p">)</span> <span class="kr">end</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.1.2</i>Other list functions<a class="headerlink" href="#other-list-functions" name="other-list-functions">&para;</a></h4>
+<h5 class="header"><i>1.1.2.1</i>Sum<a class="headerlink" href="#sum" name="sum">&para;</a></h5>
+<p><code>sum</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">sum</span> <span class="p">[]</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="p">|</span> <span class="nf">sum</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">h</span> <span class="n">+</span> <span class="n">sum</span> <span class="n">t</span>
+</pre></div>
+
+
+<p>Now, the tail-recursive version</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">sum_tl</span> <span class="p">([],</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">sum_tl</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">sum_tl</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h</span> <span class="n">+</span> <span class="n">acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now use structural induction to prove that <code>sum l = sum_tl (l, 0)</code>. See <a href="#sum-induction">the induction section</a> for more.</p>
+<p>Now write a version, <code>sum_fold</code> using the <code>foldl</code> or <code>foldr</code> function. (Either works).</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">sum_fold</span> <span class="n">l</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="kr">op</span> <span class="n">+</span> <span class="mi">0</span> <span class="n">l</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.2.2</i>Range<a class="headerlink" href="#range" name="range">&para;</a></h5>
+<p><code>range n</code>, will return [0, 1, ... n-1]. It will return a list of size n.</p>
+<p>Write one without tabulate and one with tabulate (<code>range_tab</code> - the built-in List function).</p>
+<p>Also a tail-recursive version (second)</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">range</span> <span class="mi">0</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">range</span> <span class="mi">1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="p">|</span> <span class="nf">range</span> <span class="n">n</span> <span class="p">=</span> <span class="p">(</span><span class="n">range</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">))</span> <span class="n">@</span> <span class="p">[</span><span class="n">n-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="kr">fun</span> <span class="nf">range_tl</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">range_tl</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">range_tl</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span><span class="n">::acc</span><span class="p">)</span>
+
+<span class="kr">fun</span> <span class="nf">range_tab</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">tabulate</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now use structural induction to prove that <code>range n = range_tl (n, [])</code>. See <a href="#range-induction">the induction section</a> for more.</p>
+<h5 class="header"><i>1.1.2.3</i>Sets<a class="headerlink" href="#sets" name="sets">&para;</a></h5>
+<p>Given the datatype, implement the following functions:</p>
+<ul>
+<li><code>count</code> (counts the occurrences of an element in an int list)</li>
+<li><code>contains</code> (checks if an int is present in a set)</li>
+<li><code>make_set</code> (takes in an int list, returns a "set" - i.e. dropping all duplicate elements)</li>
+<li><code>union</code></li>
+<li><code>intersection</code></li>
+</ul>
+<div class="codehilite"><pre><span class="kr">type</span> <span class="kt">set</span> <span class="p">=</span> <span class="n">int</span> <span class="n">list</span>
+
+<span class="kr">fun</span> <span class="nf">count</span> <span class="n">e</span> <span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">int</span> <span class="n">list</span><span class="p">)</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="kr">if</span> <span class="n">x</span> <span class="p">=</span> <span class="n">e</span> <span class="kr">then</span> <span class="n">i</span> <span class="n">+</span> <span class="mi">1</span> <span class="kr">else</span> <span class="n">i</span><span class="p">)</span> <span class="mi">0</span> <span class="n">l</span>
+
+<span class="kr">fun</span> <span class="nf">contains</span> <span class="n">e</span> <span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">set</span><span class="p">)</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">exists</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="n">e</span><span class="p">)</span> <span class="n">s</span>
+
+<span class="kr">fun</span> <span class="nf">make_set</span> <span class="n">l</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">fun</span> <span class="nf">make_set&#39;</span> <span class="p">[]</span> <span class="n">s</span> <span class="p">=</span> <span class="n">s</span> <span class="p">|</span> <span class="nf">make_set&#39;</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="n">s</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">contains</span> <span class="n">h</span> <span class="n">s</span> <span class="kr">then</span> <span class="n">make_set&#39;</span> <span class="n">t</span> <span class="n">s</span> <span class="kr">else</span> <span class="n">make_set&#39;</span> <span class="n">t</span> <span class="p">(</span><span class="n">h::s</span><span class="p">)</span> <span class="kr">in</span> <span class="nn">List</span><span class="p">.</span><span class="n">rev</span> <span class="p">(</span><span class="n">make_set&#39;</span> <span class="n">l</span> <span class="p">[])</span> <span class="kr">end</span>
+
+<span class="kr">fun</span> <span class="nf">union</span> <span class="n">s1</span> <span class="n">s2</span> <span class="p">=</span> <span class="n">s1</span> <span class="n">@</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">e</span> <span class="p">=&gt;</span> <span class="n">not</span> <span class="p">(</span><span class="n">contains</span> <span class="n">e</span> <span class="n">s1</span><span class="p">))</span> <span class="n">s2</span><span class="p">)</span>
+
+<span class="kr">fun</span> <span class="nf">intersection</span> <span class="p">(</span><span class="n">s1</span><span class="p">:</span><span class="n">set</span><span class="p">)</span> <span class="p">(</span><span class="n">s2</span><span class="p">:</span><span class="n">set</span><span class="p">)</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">e</span> <span class="p">=&gt;</span> <span class="n">contains</span> <span class="n">e</span> <span class="n">s2</span><span class="p">)</span> <span class="n">s1</span>
+</pre></div>
+
+
+<h5 class="header"><i>1.1.2.4</i>Lists of references<a class="headerlink" href="#lists-of-references" name="lists-of-references">&para;</a></h5>
+<p>Write <code>ref_read</code> which takes in a list of references, returns the contents as a list</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">ref_read</span> <span class="n">l</span> <span class="p">=</span> <span class="n">map</span> <span class="n">!</span> <span class="n">l</span>
+</pre></div>
+
+
+<p>Write <code>ref_apply</code> which takes in a function, and a list of references. Should map the function on to each ref content etc</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">ref_apply</span> <span class="n">f</span> <span class="n">l</span> <span class="p">=</span> <span class="n">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">ref_read</span> <span class="n">l</span><span class="p">)</span>
+</pre></div>
+
+
+<p><code>ref_write</code>, supply a list of refs and a list of values. Should return the list of values</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">ref_write</span> <span class="n">refs</span> <span class="n">values</span> <span class="p">=</span> <span class="nn">ListPair</span><span class="p">.</span><span class="n">map</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">r</span> <span class="n">:=</span> <span class="n">v</span><span class="p">;</span> <span class="n">v</span><span class="p">))</span> <span class="p">(</span><span class="n">refs</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Give it a function and a list of refs, will update each ref cell to have the value after having the function applied to it</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">ref_update</span> <span class="n">f</span> <span class="n">refs</span> <span class="p">=</span> <span class="n">ref_write</span> <span class="n">refs</span> <span class="p">(</span><span class="n">ref_apply</span> <span class="n">f</span> <span class="n">refs</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.2</i>Complex numbers<a class="headerlink" href="#complex-numbers" name="complex-numbers">&para;</a></h3>
+<p>We define a custom type for complex numbers:</p>
+<div class="codehilite"><pre><span class="kr">type</span> <span class="kt">complex</span> <span class="p">=</span> <span class="n">int</span> <span class="n">*</span> <span class="n">int</span>
+</pre></div>
+
+
+<p>where the first element in the tuple is the real part, and the second element is the imaginary part.</p>
+<h4 class="header"><i>1.2.1</i>Complex conjugates<a class="headerlink" href="#complex-conjugates" name="complex-conjugates">&para;</a></h4>
+<p>Write a function <code>conjugate</code> that takes in as input a complex number and returns its complex conjugate. For example, if given <span>$4+2i$</span> (represented as <code>(4, 2)</code>) then it should return <span>$4-2i$</span> (or <code>(4, ~2)</code>). Its type should be <code>fn : complex -&gt; complex</code>.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">conjugate</span> <span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span><span class="n">complex</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">~b</span><span class="p">):</span><span class="n">complex</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.2.2</i>Complex arithmetic<a class="headerlink" href="#complex-arithmetic" name="complex-arithmetic">&para;</a></h4>
+<p>Write an <code>add</code> function that takes two complex numbers as input and returns a complex number as output (type: <code>fn : complex * complex -&gt; complex</code>):</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">add</span> <span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span><span class="n">complex</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span><span class="n">complex</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">a+c</span><span class="p">,</span> <span class="n">b+d</span><span class="p">):</span><span class="n">complex</span>
+</pre></div>
+
+
+<p>Write a <code>multiply</code> function (same type as <code>add</code>). Note that multiplication for complex numbers is defined as follows:</p>
+<p><span>$$(a+bi)(c+di) = (ac-bd) + (bc+ad)i$$</span></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">multiply</span> <span class="p">((</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span><span class="n">complex</span><span class="p">,</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span><span class="n">complex</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">a*c</span> <span class="n">-</span> <span class="n">b</span> <span class="n">*</span> <span class="n">d</span><span class="p">,</span> <span class="n">b</span> <span class="n">*</span> <span class="n">c</span> <span class="n">+</span> <span class="n">a</span> <span class="n">*</span> <span class="n">d</span><span class="p">):</span><span class="n">complex</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.3</i>Matrices and vectors<a class="headerlink" href="#matrices-and-vectors" name="matrices-and-vectors">&para;</a></h3>
+<h4 class="header"><i>1.3.1</i>Matrix transposition<a class="headerlink" href="#matrix-transposition" name="matrix-transposition">&para;</a></h4>
+<p>The transpose operation on matrices transforms a matrix such that the rows of the input matrix become the columns of the output matrix. For example:</p>
+<div class="codehilite"><pre>[[1,2,3],[4,5,6],[7,8,9]]
+</pre></div>
+
+
+<p>should become</p>
+<div class="codehilite"><pre>[[1,4,7],[2,5,8],[3,6,9]]
+</pre></div>
+
+
+<p>and</p>
+<div class="codehilite"><pre>[[1,2,3,4]]
+</pre></div>
+
+
+<p>should become</p>
+<div class="codehilite"><pre>[[1],[2],[3],[4]]
+</pre></div>
+
+
+<p>Here, we represent matrices as lists of int lists, with each int list corresponding to a row of the matrix. A valid matrix is one in which the length of each row is greater than 0 and all the rows have the same length. For example, [] would be an invalid matrix, as would [[]], or [[1], [2,3]], while [[1],[2]] would be a valid matrix.</p>
+<p>a) Write a function called isValid (int list list -&gt; bool) that takes as input an m x n matrix and returns true if the matrix is valid according to the above specifications and false if it is not. Make use of recursion and/or higher-order list functions (all, map, etc).</p>
+<p>b) Write a function called transpose (int list list -&gt; int list list) that takes as input a m x n matrix and returns the transpose of the matrix, if and only if the matrix is valid. If the matrix is not valid, raise an InvalidMatrix exception. You should make use of your isValid function as well as both recursion and higher-order list functions (all, map, etc).</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">InvalidMatrix</span>
+
+<span class="kr">fun</span> <span class="nf">isValid</span> <span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">int</span> <span class="n">list</span> <span class="n">list</span><span class="p">)</span> <span class="p">=</span> <span class="cm">(* Write your code here for part a) *)</span>
+
+<span class="kr">fun</span> <span class="nf">transpose</span> <span class="p">(</span><span class="n">l</span><span class="p">:</span> <span class="n">int</span> <span class="n">list</span> <span class="n">list</span><span class="p">)</span> <span class="p">=</span> <span class="cm">(* Write your code here for part b) *)</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.3.2</i>Cross-product<a class="headerlink" href="#cross-product" name="cross-product">&para;</a></h4>
+<p>Given two 3-dimensional vectors, return their cross product. If they're not both 3-d vectors, raise InvalidInput</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">InvalidInput</span>
+
+<span class="kr">fun</span> <span class="nf">cross_product</span> <span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="p">[</span><span class="n">u1</span><span class="p">,</span> <span class="n">u2</span><span class="p">,</span> <span class="n">u3</span><span class="p">]</span> <span class="p">=</span> <span class="n">u</span> <span class="kr">val</span> <span class="p">[</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">v3</span><span class="p">]</span> <span class="p">=</span> <span class="n">v</span> <span class="kr">in</span> <span class="p">[</span><span class="n">u2</span> <span class="n">*</span> <span class="n">v3</span> <span class="n">-</span> <span class="n">u3</span> <span class="n">*</span> <span class="n">v2</span><span class="p">,</span> <span class="n">u3</span> <span class="n">*</span> <span class="n">v1</span> <span class="n">-</span> <span class="n">v3</span> <span class="n">*</span> <span class="n">u1</span><span class="p">,</span> <span class="n">u1</span> <span class="n">*</span> <span class="n">v2</span> <span class="n">-</span> <span class="n">u2</span> <span class="n">*</span> <span class="n">v1</span><span class="p">]</span> <span class="kr">end</span> <span class="kr">handle</span> <span class="n">Bind</span> <span class="p">=&gt;</span> <span class="kr">raise</span> <span class="n">InvalidInput</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.3.3</i>Magnitude<a class="headerlink" href="#magnitude" name="magnitude">&para;</a></h4>
+<p>Use <code>Math.sqrt (real -&gt; real)</code> for this. Takes reals as inputs. Can use no other built-in functions.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">magnitude</span> <span class="n">v</span> <span class="p">=</span> <span class="nn">Math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">foldr</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x*x</span> <span class="n">+</span> <span class="n">y</span><span class="p">)</span> <span class="mf">0.0</span> <span class="n">v</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.3.4</i>Normalise<a class="headerlink" href="#normalise" name="normalise">&para;</a></h4>
+<p>Given a vector, normalise it so that it is a unit vector.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">normalise</span> <span class="n">v</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">v_magnitude</span> <span class="p">=</span> <span class="n">magnitude</span> <span class="n">v</span> <span class="kr">in</span> <span class="n">map</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="n">/</span> <span class="n">v_magnitude</span><span class="p">)</span> <span class="n">v</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.4</i>Binary trees<a class="headerlink" href="#binary-trees" name="binary-trees">&para;</a></h3>
+<h4 class="header"><i>1.4.1</i>Defining the datatype<a class="headerlink" href="#defining-the-datatype" name="defining-the-datatype">&para;</a></h4>
+<p>Define a datatype <code>tree</code> for a binary tree that can hold any type of element (as long as it's comparable - so equality type?) as a value. Either it's Empty or it's a Node with a left subtree and a right subtree and a value.</p>
+<div class="codehilite"><pre><span class="kr">datatype</span> <span class="nd">&#39;a</span> <span class="kt">tree</span> <span class="p">=</span> <span class="nc">Empty</span> <span class="p">|</span> <span class="nc">Node</span> <span class="kr">of</span> <span class="nd">&#39;a</span> <span class="n">*</span> <span class="nd">&#39;a</span> <span class="n">tree</span> <span class="n">*</span> <span class="nd">&#39;a</span> <span class="n">tree</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.4.2</i>Writing functions<a class="headerlink" href="#writing-functions" name="writing-functions">&para;</a></h4>
+<p>Write a size function. Note that the size of an empty tree is 0. Only those that have values are counted etc. Add up the left and right subtrees</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">size</span> <span class="n">Empty</span> <span class="p">=</span> <span class="mi">0</span>
+  <span class="p">|</span> <span class="nf">size</span> <span class="n">Node</span><span class="p">(_,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span> <span class="n">+</span> <span class="n">size</span> <span class="n">L</span> <span class="n">+</span> <span class="n">size</span> <span class="n">R</span>
+</pre></div>
+
+
+<p>Write a mirror function which flips the left and right subtrees for EVERY subtree.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">mirror</span> <span class="n">Empty</span> <span class="p">=</span> <span class="n">Empty</span>
+  <span class="p">|</span> <span class="nf">mirror</span> <span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="p">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mirror</span> <span class="n">R</span><span class="p">,</span> <span class="n">mirror</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Prove that for all trees <code>t</code>, <code>size t = size (mirror t)</code>. See the <a href="#binary-tree-induction">induction section</a> for more details.</p>
+<p>Write a <code>retrieve</code> function, given <code>'a * tree</code>. Should return the Node containing that value. If it's not there, raise an exception, <code>NotFound</code>.</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">NotFound</span>
+
+<span class="kr">fun</span> <span class="nf">retrieve</span> <span class="p">(_,</span> <span class="n">Empty</span><span class="p">)</span> <span class="p">=</span> <span class="kr">raise</span> <span class="n">NotFound</span>
+  <span class="p">|</span> <span class="nf">retrieve</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span> <span class="kr">as</span> <span class="n">Node</span> <span class="p">(</span><span class="n">v&#39;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">v</span> <span class="p">=</span> <span class="n">v&#39;</span> <span class="kr">then</span> <span class="n">t</span> <span class="kr">else</span>
+    <span class="kr">if</span> <span class="n">v</span> <span class="n">&lt;</span> <span class="n">v&#39;</span> <span class="kr">then</span> <span class="n">retrieve</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span> <span class="kr">else</span> <span class="n">retrieve</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Write an insert function</p>
+<div class="codehilite"><pre><span class="cm">(* if it&#39;s already there, we don&#39;t need to do anything</span>
+<span class="cm"> * except return the tree; if it&#39;s not, we have to add it *)</span>
+<span class="kr">fun</span> <span class="nf">insert</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="p">=</span> <span class="n">retrieve</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="kr">handle</span> <span class="n">NotFound</span> <span class="p">=&gt;</span>
+  <span class="p">(</span><span class="kr">case</span> <span class="n">t</span> <span class="kr">of</span> <span class="n">Empty</span> <span class="p">=&gt;</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">Empty</span><span class="p">,</span> <span class="n">Empty</span><span class="p">)</span>
+           <span class="n">|</span> <span class="n">Node</span><span class="p">(</span><span class="n">v&#39;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="kr">if</span> <span class="n">v</span> <span class="n">&lt;</span> <span class="n">v&#39;</span> <span class="kr">then</span> <span class="n">Node</span><span class="p">(</span><span class="n">v&#39;</span><span class="p">,</span> <span class="n">insert</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">),</span> <span class="n">R</span><span class="p">)</span> <span class="kr">else</span> <span class="n">Node</span><span class="p">(</span><span class="n">v&#39;</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">insert</span> <span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span>
+  <span class="p">)</span>
+</pre></div>
+
+
+<p>Write a function that finds all the elements that satisfy a given predicate. (Based on a solved exercise during the <a href="/COMP_302/summary/winter-2012/lecture-notes#backtracking">last two lectures</a>.) Do it three ways:</p>
+<ul>
+<li>Standard recursion</li>
+<li>Exceptions</li>
+<li>Continuations</li>
+</ul>
+<div class="codehilite"><pre><span class="cm">(* The standard recursion way *)</span>
+<span class="kr">fun</span> <span class="nf">findAll</span> <span class="n">f</span> <span class="n">Empty</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">findAll</span> <span class="n">f</span> <span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">tail</span> <span class="p">=</span> <span class="p">(</span><span class="n">findAll</span> <span class="n">f</span> <span class="n">L</span><span class="p">)</span> <span class="n">@</span> <span class="p">(</span><span class="n">findAll</span> <span class="n">f</span> <span class="n">R</span><span class="p">)</span> <span class="kr">in</span> <span class="kr">if</span> <span class="n">f</span> <span class="n">v</span> <span class="kr">then</span> <span class="n">v::tail</span> <span class="kr">else</span> <span class="n">tail</span> <span class="kr">end</span>
+
+<span class="cm">(* Using exceptions - have to use int list because exceptions are not</span>
+<span class="cm"> * polymorphic for some reason. This method also seems to preserve order *)</span>
+<span class="kr">exception</span> <span class="nc">FoundAll</span> <span class="kr">of</span> <span class="n">int</span> <span class="n">list</span>
+
+<span class="kr">fun</span> <span class="nf">findAllEx&#39;</span> <span class="n">f</span> <span class="n">Empty</span> <span class="p">=</span> <span class="kr">raise</span> <span class="n">FoundAll</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">findAllEx&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">this_one</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="kr">in</span> <span class="p">(</span><span class="n">findAllEx&#39;</span> <span class="n">f</span> <span class="n">L</span><span class="p">)</span> <span class="kr">handle</span> <span class="n">FoundAll</span> <span class="n">left_list</span> <span class="p">=&gt;</span> <span class="p">((</span><span class="n">findAllEx&#39;</span> <span class="n">f</span> <span class="n">R</span><span class="p">)</span> <span class="kr">handle</span> <span class="n">FoundAll</span> <span class="n">right_list</span> <span class="p">=&gt;</span> <span class="kr">raise</span> <span class="n">FoundAll</span> <span class="p">(</span><span class="n">left_list</span> <span class="n">@</span> <span class="n">this_one</span> <span class="n">@</span> <span class="n">right_list</span><span class="p">))</span> <span class="kr">end</span>
+
+<span class="kr">fun</span> <span class="nf">findAllEx</span> <span class="n">f</span> <span class="n">t</span> <span class="p">=</span> <span class="n">findAllEx&#39;</span> <span class="n">f</span> <span class="n">t</span> <span class="kr">handle</span> <span class="n">FoundAll</span> <span class="n">l</span> <span class="p">=&gt;</span> <span class="n">l</span>
+
+<span class="cm">(* Using continuations *)</span>
+<span class="kr">fun</span> <span class="nf">findAllCont&#39;</span> <span class="n">f</span> <span class="n">Empty</span> <span class="n">cont</span> <span class="p">=</span> <span class="n">cont</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">findAllCont&#39;</span> <span class="n">f</span> <span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="n">cont</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">this_one</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">filter</span> <span class="n">f</span> <span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="kr">in</span> <span class="n">findAllCont&#39;</span> <span class="n">f</span> <span class="n">L</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">L1</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">findAllCont&#39;</span> <span class="n">f</span> <span class="n">R</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">R1</span> <span class="p">=&gt;</span> <span class="n">cont</span> <span class="p">(</span><span class="n">L1</span> <span class="n">@</span> <span class="n">this_one</span> <span class="n">@</span> <span class="n">R1</span><span class="p">))))</span> <span class="kr">end</span>
+
+<span class="kr">fun</span> <span class="nf">findAllCont</span> <span class="n">f</span> <span class="n">t</span> <span class="p">=</span> <span class="n">findAllCont</span> <span class="n">f</span> <span class="n">t</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.5</i>Geometry<a class="headerlink" href="#geometry" name="geometry">&para;</a></h3>
+<h4 class="header"><i>1.5.1</i>Point of intersection<a class="headerlink" href="#point-of-intersection" name="point-of-intersection">&para;</a></h4>
+<p>Write a function that returns the x- and y-coordinates of the intersection point of two lines in the form <code>ax+b</code> (each represented as a tuple, with the slope being the first element, and the y-intercept being the second - all ints). Should return a tuple of <code>real</code>s (use <code>Real.fromInt</code> to convert from int to real). If they don't intersect, raise the <code>ParallelLines</code> error.</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">ParallelLines</span>
+
+<span class="kr">fun</span> <span class="nf">intersect</span> <span class="p">((</span><span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">),</span> <span class="p">(</span><span class="n">a2</span><span class="p">,</span> <span class="n">b2</span><span class="p">))</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">a1</span> <span class="p">=</span> <span class="n">a2</span> <span class="kr">then</span> <span class="kr">raise</span> <span class="n">ParallelLines</span> <span class="kr">else</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">x</span> <span class="p">=</span> <span class="p">(</span><span class="nn">Real</span><span class="p">.</span><span class="n">fromInt</span> <span class="p">(</span><span class="n">b2-b1</span><span class="p">))</span> <span class="n">/</span> <span class="p">(</span><span class="nn">Real</span><span class="p">.</span><span class="n">fromInt</span> <span class="p">(</span><span class="n">a1-a2</span><span class="p">))</span> <span class="kr">in</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nn">Real</span><span class="p">.</span><span class="n">fromInt</span> <span class="n">a1</span><span class="p">)</span> <span class="n">*</span> <span class="n">x</span> <span class="n">+</span> <span class="p">(</span><span class="nn">Real</span><span class="p">.</span><span class="n">fromInt</span> <span class="n">b1</span><span class="p">))</span> <span class="kr">end</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.6</i>Strings<a class="headerlink" href="#strings" name="strings">&para;</a></h3>
+<h4 class="header"><i>1.6.1</i>On-the-fly string function generation<a class="headerlink" href="#on-the-fly-string-function-generation" name="on-the-fly-string-function-generation">&para;</a></h4>
+<p>For the following section, you may make use of any <code>String</code> functions - for example, <code>String.implode</code> (type: <code>fn : char list -&gt; string</code>), <code>String.map</code> (type: <code>(char -&gt; char) -&gt; string -&gt; string</code>) and <code>String.translate</code> (type: <code>(char -&gt; string) -&gt; string -&gt; string</code>) may be useful. You can also use any functions in the <code>List</code> signature.</p>
+<p>Write a function called <code>repeat</code> of type <code>fn : char -&gt; int -&gt; string</code> that takes as input a character and returns a function that will, when called with an integer <code>n</code>, will return a string of length <code>n</code> consisting of only that character. For example, if I called <code>repeat</code> with the argument <code>#"c"</code>, then called the resulting function with the argument 10, the result would be <code>"cccccccccc"</code>.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">repeat</span> <span class="n">c</span> <span class="p">=</span> <span class="kr">fn</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="nn">String</span><span class="p">.</span><span class="n">implode</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">tabulate</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">)))</span>
+<span class="cm">(* or ... *)</span>
+<span class="kr">fun</span> <span class="nf">repeat</span> <span class="n">c</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">String</span><span class="p">.</span><span class="n">implode</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">tabulate</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">x</span> <span class="p">=&gt;</span> <span class="n">c</span><span class="p">)))</span>
+</pre></div>
+
+
+<p>Now, use the function <code>repeat</code> to write a function <code>double_chars</code> that takes as input a string and returns a string with every character doubled. So <code>lol</code> would become <code>llooll</code>.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">double_chars</span> <span class="n">s</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">foldr</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">repeat</span> <span class="n">c</span> <span class="mi">2</span><span class="p">)</span> <span class="n">^</span> <span class="n">str</span><span class="p">)</span> <span class="s2">&quot;&quot;</span> <span class="p">(</span><span class="nn">String</span><span class="p">.</span><span class="n">explode</span> <span class="n">s</span><span class="p">)</span>
+<span class="cm">(* or ... (and this is probably nicer) *)</span>
+<span class="kr">fun</span> <span class="nf">double_chars</span> <span class="n">s</span> <span class="p">=</span> <span class="nn">String</span><span class="p">.</span><span class="n">translate</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">c</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">repeat</span> <span class="n">c</span><span class="p">)</span> <span class="mi">2</span><span class="p">)</span> <span class="n">s</span>
+</pre></div>
+
+
+<p>Modify the above to return a function that will multiply the number of chars by n - <code>multiply_chars</code></p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">multiply_chars</span> <span class="n">s</span> <span class="p">=</span> <span class="kr">fn</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nn">List</span><span class="p">.</span><span class="n">foldr</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">repeat</span> <span class="n">c</span> <span class="n">n</span><span class="p">)</span> <span class="n">^</span> <span class="n">str</span><span class="p">)</span> <span class="s2">&quot;&quot;</span> <span class="p">(</span><span class="nn">String</span><span class="p">.</span><span class="n">explode</span> <span class="n">s</span><span class="p">))</span>
+<span class="cm">(* or ... *)</span>
+<span class="kr">fun</span> <span class="nf">multiply_chars</span> <span class="n">s</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">String</span><span class="p">.</span><span class="n">translate</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">c</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="n">repeat</span> <span class="n">c</span><span class="p">)</span> <span class="n">n</span><span class="p">)</span> <span class="n">s</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.6.2</i>Caesar cipher<a class="headerlink" href="#caesar-cipher" name="caesar-cipher">&para;</a></h4>
+<p>Write a <code>caesar_encode</code> function that takes as input a string and an int where the int is the number of places to shift right by. </p>
+<p>Make use of the function <code>String.translate</code> (type: <code>fn : (char -&gt; string) -&gt; string -&gt; string</code>). There is a function called <code>chr</code> (type: <code>int -&gt; char</code>) and a function called <code>ord</code> (type: <code>char -&gt; int</code>) in the standard library - both should be helpful.</p>
+<p>Also write a function <code>caesar_decode</code> that calls <code>caesar_encode</code>. Calling <code>caesar_decode (caesar_encode "lol" n) n</code> should return "lol" (replace n by any integer).</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">caesar_encode</span> <span class="n">s</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">String</span><span class="p">.</span><span class="n">translate</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">c</span> <span class="p">=&gt;</span> <span class="n">str</span> <span class="p">(</span><span class="n">chr</span> <span class="p">((</span><span class="n">ord</span> <span class="n">c</span><span class="p">)</span> <span class="n">+</span> <span class="n">n</span><span class="p">)))</span> <span class="n">s</span>
+<span class="cm">(* or ... (much nicer) *)</span>
+<span class="kr">fun</span> <span class="nf">caesar_encode</span> <span class="n">s</span> <span class="n">n</span> <span class="p">=</span> <span class="nn">String</span><span class="p">.</span><span class="n">map</span> <span class="p">(</span><span class="kr">fn</span> <span class="n">c</span> <span class="p">=&gt;</span> <span class="n">chr</span> <span class="p">((</span><span class="n">ord</span> <span class="n">c</span><span class="p">)</span> <span class="n">+</span> <span class="n">n</span><span class="p">))</span> <span class="n">s</span>
+
+<span class="kr">fun</span> <span class="nf">caesar_decode</span> <span class="n">s</span> <span class="n">n</span> <span class="p">=</span> <span class="n">caesar_encode</span> <span class="n">s</span> <span class="p">(</span><span class="n">~n</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 class="header"><i>1.6.3</i>Counting characters<a class="headerlink" href="#counting-characters" name="counting-characters">&para;</a></h4>
+<p>Write a function <code>count_spaces</code> that counts the number of whitespace characters in a string.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">count_spaces</span> <span class="n">s</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="kr">if</span> <span class="n">c</span> <span class="p">=</span> <span class="sc">#&quot; &quot;</span> <span class="kr">then</span> <span class="n">count</span> <span class="n">+</span> <span class="mi">1</span> <span class="kr">else</span> <span class="n">count</span><span class="p">)</span> <span class="mi">0</span> <span class="p">(</span><span class="n">explode</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Now, write a function <code>count_char</code> that returns a function that counts the occurrences of character <code>c</code> in the string. For example, <code>count_char #"c"</code> should return a function that, when passed a string, will return the number of c's in the string.</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">count_spaces</span> <span class="n">x</span> <span class="n">s</span> <span class="p">=</span> <span class="nn">List</span><span class="p">.</span><span class="n">foldl</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="kr">if</span> <span class="n">c</span> <span class="p">=</span> <span class="n">x</span> <span class="kr">then</span> <span class="n">count</span> <span class="n">+</span> <span class="mi">1</span> <span class="kr">else</span> <span class="n">count</span><span class="p">)</span> <span class="mi">0</span> <span class="p">(</span><span class="n">explode</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 class="header"><i>1.7</i>Project Euler problems in SML<a class="headerlink" href="#project-euler-problems-in-sml" name="project-euler-problems-in-sml">&para;</a></h3>
+<p>Just for fun etc</p>
+<blockquote>
+<p>2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.</p>
+<p>What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?</p>
+</blockquote>
+<p>(Problem 5)</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">FoundAnswer</span> <span class="kr">of</span> <span class="n">int</span>
+
+<span class="kr">fun</span> <span class="nf">divisibleBy</span> <span class="n">n</span> <span class="n">x</span> <span class="p">=</span> <span class="n">x</span> <span class="n">mod</span> <span class="n">n</span> <span class="p">=</span> <span class="mi">0</span> <span class="cm">(* returns true if x is divisible by n *)</span>
+
+<span class="kr">fun</span> <span class="nf">divisibleByAllUpTo</span> <span class="mi">1</span> <span class="n">x</span> <span class="p">=</span> <span class="n">true</span> <span class="p">|</span> <span class="nf">divisibleByAllUpTo</span> <span class="n">n</span> <span class="n">x</span> <span class="p">=</span> <span class="n">divisibleBy</span> <span class="n">n</span> <span class="n">x</span> <span class="kr">andalso</span> <span class="n">divisibleByAllUpTo</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span> <span class="n">x</span>
+
+<span class="kr">fun</span> <span class="nf">solve</span> <span class="n">x</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">divisibleByAllUpTo</span> <span class="mi">20</span> <span class="n">x</span> <span class="kr">then</span> <span class="kr">raise</span> <span class="n">FoundAnswer</span> <span class="n">x</span> <span class="kr">else</span> <span class="n">solve</span> <span class="p">(</span><span class="n">x</span> <span class="n">+</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">solve</span> <span class="mi">1</span> <span class="kr">handle</span> <span class="n">FoundAnswer</span> <span class="n">n</span> <span class="p">=&gt;</span> <span class="n">print</span> <span class="p">(</span><span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Answer: 232792560, took about 10 seconds on my machine.</p>
+<div class="ui divider"></div>
+<blockquote>
+<p>What is the first term in the Fibonacci sequence to contain 1000 digits?</p>
+</blockquote>
+<p>(Problem 25)</p>
+<div class="codehilite"><pre><span class="kr">exception</span> <span class="nc">FoundAnswer</span> <span class="kr">of</span> <span class="n">int</span>
+
+<span class="kr">fun</span> <span class="nf">getNumDigits</span> <span class="n">x</span> <span class="p">=</span> <span class="kr">if</span> <span class="n">x</span> <span class="n">div</span> <span class="mi">10</span> <span class="n">&lt;</span> <span class="mi">1</span> <span class="kr">then</span> <span class="mi">1</span> <span class="kr">else</span> <span class="mi">1</span> <span class="n">+</span> <span class="p">(</span><span class="n">getNumDigits</span> <span class="p">(</span><span class="n">x</span> <span class="n">div</span> <span class="mi">10</span><span class="p">))</span> <span class="cm">(* probably really inefficient but whatever *)</span>
+
+<span class="kr">fun</span> <span class="nf">solve</span> <span class="n">this_fib</span> <span class="n">prev_fib</span> <span class="p">=</span> <span class="kr">let</span> <span class="kr">val</span> <span class="nv">new_fib</span> <span class="p">=</span> <span class="n">this_fib</span> <span class="n">+</span> <span class="n">prev_fib</span> <span class="kr">in</span> <span class="kr">if</span> <span class="n">getNumDigits</span> <span class="n">new_fib</span> <span class="n">&gt;</span> <span class="mi">99</span> <span class="kr">then</span> <span class="kr">raise</span> <span class="n">FoundAnswer</span> <span class="n">new_fib</span> <span class="kr">else</span> <span class="n">solve</span> <span class="p">(</span><span class="n">this_fib</span> <span class="n">+</span> <span class="n">prev_fib</span><span class="p">)</span> <span class="n">this_fib</span> <span class="kr">end</span>
+
+<span class="n">solve</span> <span class="mi">1</span> <span class="mi">1</span> <span class="kr">handle</span> <span class="n">FoundAnswer</span> <span class="n">answer</span> <span class="p">=&gt;</span> <span class="n">print</span> <span class="p">(</span><span class="nn">Int</span><span class="p">.</span><span class="n">toString</span> <span class="n">answer</span><span class="p">)</span>
+</pre></div>
+
+
+<p>... which would theoretically work, but running it produces an overflow error. I suppose there has to be a smarter way of doing this. (It does work for digits up to 9 though!)</p>
+<h2 class="header"><i>2</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Tail-recursive induction<a class="headerlink" href="#tail-recursive-induction" name="tail-recursive-induction">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Reverse induction<a class="headerlink" href="#reverse-induction" name="reverse-induction">&para;</a></h4>
+<p>Recall the reverse functions:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">rev</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span> <span class="p">|</span> <span class="nf">rev</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">rev</span> <span class="n">t</span><span class="p">)</span> <span class="n">@</span> <span class="p">[</span><span class="n">h</span><span class="p">]</span>
+<span class="kr">fun</span> <span class="nf">rev_tl</span> <span class="p">([],</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span> <span class="p">|</span> <span class="nf">rev_tl</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">rev_tl</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h::acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Prove that <code>rev l = rev_tl (l, [])</code>.</p>
+<p>First, we need to prove the following lemma: <code>(rev l) @ acc = rev_tl (l, acc)</code> for all lists <code>l</code> and <code>acc</code>. We do our induction on <code>l</code>. Base case:</p>
+<div class="codehilite"><pre>(rev []) @ acc = [] @ acc (* by program *)
+               = acc (* by the properties of the append operator and its behaviour with empty lists *)
+
+rev_tl ([], acc) = acc (* by program *)
+</pre></div>
+
+
+<p>So the base case checks out. Let us assume that <code>(rev t) @ acc = rev_tl (t, acc)</code> (the induction hypothesis). Our induction step is to prove that <code>(rev (h::t)) @ acc = rev_tl (h::t, acc)</code> also holds:</p>
+<div class="codehilite"><pre>                   = (rev t) @ ([h] @ acc) (* by the associativity of the @ operator *)
+                   = (rev t) @ (h::acc) (* by the equivalence of x::t and [x] @ t *)
+
+rev_tl (h::t, acc) = rev_tl (t, h::acc) (* by program *)
+</pre></div>
+
+
+<p>By the induction hypothesis using <code>h::acc</code> for <code>acc</code>, we see that these are equal, and so the lemma is true.</p>
+<p>Now, we return to the main theorem. Using the lemma, we can let the accumulator be <code>[]</code>, in which case we have <code>(rev l) @ [] = rev l = rev_tl (l, [])</code> QED.</p>
+<h4 class="header"><i>2.1.2</i>Sum induction<a class="headerlink" href="#sum-induction" name="sum-induction">&para;</a></h4>
+<p>Recall the function definitions:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">sum</span> <span class="p">[]</span> <span class="p">=</span> <span class="mi">0</span> <span class="p">|</span> <span class="nf">sum</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="n">h</span> <span class="n">+</span> <span class="n">sum</span> <span class="n">t</span>
+<span class="kr">fun</span> <span class="nf">sum_tl</span> <span class="p">([],</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span> <span class="p">|</span> <span class="nf">sum_tl</span> <span class="p">(</span><span class="n">h::t</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">sum_tl</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">h</span> <span class="n">+</span> <span class="n">acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We need to show that <code>sum l = sum_tl (l, 0)</code>.</p>
+<p>Lemma: show that <code>sum l + acc = sum_tl (l, acc)</code> for all lists <code>l</code> and all accumulators <code>acc</code>. Our induction is on <code>l</code>.</p>
+<p>Base case: <code>sum [] = 0</code> by the function definition, and so <code>0 + acc = acc</code> by the properties of addition. Also, <code>sum_tl ([], acc) = acc</code> by the function definition, so the functions produce the same result in the base case.</p>
+<p>IH: Assume that <code>sum t + acc = sum_tl (t, acc)</code>. Then we must show that sum (h::t) + acc = sum_tl (h::t, acc)<code>. From the function definition for</code>sum<code>, we know</code>sum (h::t) = h + sum t<code>and so</code>sum (h::t) + acc = (h + sum t) + acc<code>(by substitution). However, we can rewrite this as</code>sum t + h + acc = sum t + (h + acc)` by the commutativity and associativity of addition.</p>
+<p>Now, from the function definition for <code>sum_tl</code>, we know <code>sum_tl (h::t, acc) = sum_tl (t, h + acc)</code>. If we substitute <code>acc</code> in the IH by <code>h + acc</code>, we see that the two are equal. Consequently, we prove the lemma.</p>
+<p>To prove the main theorem, let <code>acc = 0</code> and we have that <code>sum l + 0 = sum l = sum_tl (l, 0)</code> and we're done.</p>
+<h4 class="header"><i>2.1.3</i>Range induction<a class="headerlink" href="#range-induction" name="range-induction">&para;</a></h4>
+<p>Recall the range functions:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">range</span> <span class="mi">0</span> <span class="p">=</span> <span class="p">[]</span>
+  <span class="p">|</span> <span class="nf">range</span> <span class="mi">1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="p">|</span> <span class="nf">range</span> <span class="n">n</span> <span class="p">=</span> <span class="p">(</span><span class="n">range</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">))</span> <span class="n">@</span> <span class="p">[</span><span class="n">n-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="kr">fun</span> <span class="nf">range_tl</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">acc</span>
+  <span class="p">|</span> <span class="nf">range_tl</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">acc</span><span class="p">)</span> <span class="p">=</span> <span class="n">range_tl</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n-</span><span class="mi">1</span><span class="p">)</span><span class="n">::acc</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We need to prove that <code>range n = range_tl (n, [])</code>.</p>
+<p>To do this, we first need to prove a lemma: <code>(range n) @ acc = range_tl (n, acc)</code> for all integers <code>n</code> and accumulators <code>acc</code>. Our induction is on <code>n</code>.</p>
+<p>Base case: <code>n = 0</code>:</p>
+<div class="codehilite"><pre>(range 0) @ acc = ([]) @ acc (* by program *)
+                = acc (* when you append an empty list to another in SML, the resulting list is equivalent to the other list*)
+
+range_tl (0, acc) = acc (* by program *)
+</pre></div>
+
+
+<p>The base case checks out. Let's move on to the induction hypothesis. Assume that <code>(range (n-1)) @ acc = range_tl (n-1, acc)</code>. The induction step is to check that this holds for <code>n</code> as well.</p>
+<div class="codehilite"><pre>(range n) @ acc = ((range (n-1)) @ [n-1]) @ acc (* by program *)
+                = (range (n-1)) @ ([n-1] @ acc) (* by associativity of @ *)
+
+range_tl (n, acc) = range_tl (n-1, (n-1)::acc) (* by program *)
+                  = range_tl (n-1, [n-1] @ acc) (* by the equivalence of [x] @ acc and x::acc in SML *) 
+</pre></div>
+
+
+<p>By the induction hypothesis using <code>[n-1] @ acc</code> for <code>acc</code>, we know that these are equal, and so the lemma is proved.</p>
+<p>To prove the main theorem, we simply use <code>[]</code> for acc: <code>range n @ [] = range n = range_tl (n, [])</code> which shows that they are equivalent.</p>
+<h4 class="header"><i>2.1.4</i>Map induction<a class="headerlink" href="#map-induction" name="map-induction">&para;</a></h4>
+<p>Recall the map functions:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">[]</span> <span class="p">=</span> <span class="p">[]</span> <span class="p">|</span> <span class="nf">map</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">f</span> <span class="n">h</span><span class="p">)</span><span class="n">::</span><span class="p">(</span><span class="n">map</span> <span class="n">f</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="kr">fun</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">[]</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">acc</span> <span class="p">|</span> <span class="nf">map_tl</span> <span class="n">f</span> <span class="p">(</span><span class="n">h::t</span><span class="p">)</span> <span class="n">acc</span> <span class="p">=</span> <span class="n">map_tl</span> <span class="n">f</span> <span class="n">t</span> <span class="p">(</span><span class="n">acc</span> <span class="n">@</span> <span class="p">[</span><span class="n">f</span> <span class="n">h</span><span class="p">])</span>
+</pre></div>
+
+
+<p>Prove that <code>map f l = map_tl f l []</code>.</p>
+<p>We first prove the lemma <code>acc @ (map f l) = map_tl f l acc</code> for all lists <code>l</code> and <code>acc</code> by doing the induction on <code>l</code>. Base case:</p>
+<div class="codehilite"><pre>acc @ (map f []) = acc @ [] (* by program *)
+                 = acc (* by the properties of @ when appending something with an empty list *)
+
+map_tl f [] acc = acc (* by program *)
+</pre></div>
+
+
+<p>The base case checks out. For our induction hypothesis, we use <code>acc @ (map f t) = map_tl f t acc</code>. Now we have the induction step, <code>h::t</code>:</p>
+<div class="codehilite"><pre>                     = acc @ ([f h] @ (map f t)) (* by the equivalence of x::y and [x] @ y *)
+                     = (acc @ [f h]) @ (map f t) (* by the associativity of the @ operator *)
+
+map_tl f (h::t) acc = map_tl f t (acc @ [f h])
+</pre></div>
+
+
+<p>By the induction hypothesis, using <code>acc @ [f h]</code> for <code>acc</code>, we know that these are equal, and so the lemma is true.</p>
+<p>To prove the main theorem, let <code>acc = []</code>: <code>[] @ (map f l) = map f l = map_tl f l []</code></p>
+<h3 class="header"><i>2.2</i>Binary tree induction<a class="headerlink" href="#binary-tree-induction" name="binary-tree-induction">&para;</a></h3>
+<p>Recall the <code>mirror</code> and <code>size</code> functions for a binary tree:</p>
+<div class="codehilite"><pre><span class="kr">fun</span> <span class="nf">size</span> <span class="n">Empty</span> <span class="p">=</span> <span class="mi">0</span> <span class="p">|</span> <span class="nf">size</span> <span class="n">Node</span><span class="p">(_,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span> <span class="n">+</span> <span class="n">size</span> <span class="n">L</span> <span class="n">+</span> <span class="n">size</span> <span class="n">R</span>
+
+<span class="kr">fun</span> <span class="nf">mirror</span> <span class="n">Empty</span> <span class="p">=</span> <span class="n">Empty</span> <span class="p">|</span> <span class="nf">mirror</span> <span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">))</span> <span class="p">=</span> <span class="n">Node</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">mirror</span> <span class="n">R</span><span class="p">,</span> <span class="n">mirror</span> <span class="n">L</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Prove that <code>size t = size (mirror t)</code>. We can do this using structural induction on <code>t</code>. Base case, when <code>t = Empty</code>:</p>
+<div class="codehilite"><pre>size Empty = 0 (* by program *)
+size (mirror Empty) = size (Empty) (* by program *)
+                    = 0 (* by first line *)
+</pre></div>
+
+
+<p>The base case checks out. Our induction hypothesis is that <code>size L = size (mirror L)</code> and <code>size R = size (mirror R)</code> (i.e. the theorem holds for the subtrees). We need to prove that <code>size (Node(v, L, R)) = size (mirror (Node(v, L, R)))</code> - the induction step:</p>
+<div class="codehilite"><pre>size (Node(v, L, R)) = 1 + size L + size R (* by program *)
+
+size (mirror (Node(v, L, R))) = size (Node(v, mirror R, mirror L)) (* by program *)
+                              = 1 + size (mirror R) + size (mirror L) (* by program - see first line *)
+                              = 1 + size (mirror L) + size (mirror R) (* by commutativity of addition *)
+                              = 1 + size L + size R (* by IH, substituting for &quot;size (mirror L)&quot; and &quot;size (mirror R)&quot; *)
+</pre></div>
+
+
+<p>It follows by structural induction that <code>size t = size (mirror t)</code> for any tree <code>t</code>. QED</p>
+<h2 class="header"><i>3</i>Environment diagrams<a class="headerlink" href="#environment-diagrams" name="environment-diagrams">&para;</a></h2>
+<p>Draw an environment diagram for the following piece of code:</p>
+<div class="codehilite"><pre><span class="kr">let</span>
+  <span class="kr">val</span> <span class="nv">a</span> <span class="p">=</span> <span class="s2">&quot;lol&quot;</span>
+  <span class="kr">val</span> <span class="nv">b</span> <span class="p">=</span> <span class="s2">&quot;mudkip&quot;</span>
+  <span class="kr">val</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="nv">=</span> <span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+  <span class="kr">val</span> <span class="nv">c</span> <span class="p">=</span> <span class="n">a</span>
+  <span class="kr">val</span> <span class="nv">d</span> <span class="p">=</span> <span class="p">(</span><span class="kr">fn</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">a</span> <span class="n">^</span> <span class="n">a</span> <span class="n">^</span> <span class="n">c</span><span class="p">)</span>
+<span class="kr">in</span>
+  <span class="n">d</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<p>What will the final result be?</p>
+<p>Here's a crappy environment diagram for it: </p>
+<div class="codehilite"><pre>---------
+|a|&quot;lol&quot;| &lt;-
+---------  |
+           |
+   ------------
+   |b|&quot;mudkip&quot;| &lt;-
+   ------------  |
+                 |
+                ---------
+                |a,b|b,a| &lt;-
+                ---------  |
+                           |
+                        -----
+                        |c|a| &lt;-                 -------------
+                        -----  |                 |a,b,c|a,b,c|
+                               |                 -------------
+                              -----               |
+                              |d| | &lt;-------------|
+                              -----
+                                 |
+                                 v
+                               -----------------
+                               |a,b,c|a ^ a ^ c|
+                               -----------------
+
+&quot;mudkip&quot; ^ &quot;mudkip&quot; ^ &quot;mudkip&quot;          
+</pre></div>
+
+
+<p>The final result is "mudkipmudkipmudkip". No lols, not even one.</p>
+<p>(I wasn't really sure how to draw the tuple case, so I just guessed.)</p>
+<h3 class="header"><i>3.1</i>Environment diagrams with references<a class="headerlink" href="#environment-diagrams-with-references" name="environment-diagrams-with-references">&para;</a></h3>
+<p>See <a href="/COMP_302/summary/winter-2012/lecture-notes#environment-diagram">the lecture notes</a>.</p>
+<h2 class="header"><i>4</i>Theoretical aspects<a class="headerlink" href="#theoretical-aspects" name="theoretical-aspects">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Free and bound variables<a class="headerlink" href="#free-and-bound-variables" name="free-and-bound-variables">&para;</a></h3>
+<h3 class="header"><i>4.2</i>Type inference<a class="headerlink" href="#type-inference" name="type-inference">&para;</a></h3>
+<h3 class="header"><i>4.3</i>Subtyping<a class="headerlink" href="#subtyping" name="subtyping">&para;</a></h3>
+<h2 class="header"><i>5</i>Miscellaneous<a class="headerlink" href="#miscellaneous" name="miscellaneous">&para;</a></h2>
+<p>foldr or foldl? If the left should be evaluated first, then foldl; else, foldr</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

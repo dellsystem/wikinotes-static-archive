@@ -1,0 +1,141 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 14, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 14, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Location of roots and the Intermediate Value Theorem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Locations of roots<a class="headerlink" href="#locations-of-roots" name="locations-of-roots">&para;</a></h2>
+<p>Say we have a continuous function on a closed, bounded interval. We know at some point it is positive, and at another point, negative. Intuitively we understand it must have some root then - a point at which the function is 0. Intuition isn't enough though - let's prove this:</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a, b]$</span> be a closed, bounded interval and <span>$f : I \to \mathbb{R}$</span> be continuous on <span>$I$</span>. If <span>$f(a) &lt; 0 &lt; f(b)$</span> or <span>$f(b) &lt; 0 &lt; f(a)$</span>, there exists <span>$c \in (a, b)$</span> such that <span>$f(c) = 0$</span>.</p>
+<p><strong>Proof:</strong> WLOG<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Without loss of generality">1</a></sup> assume <span>$f(a) &lt; 0 &lt; f(b)$</span>. Consider <span>$p = \frac{a+b}{2}$</span>, the midpoint of the interval <span>$[a, b]$</span>. If <span>$f(p) = 0$</span>, we're done. Else, either <span>$f(p) &gt; 0$</span> or <span>$f(p) &lt; 0$</span>. If <span>$f(p) &gt; 0$</span>, consider the interval <span>$[a, p]$</span>. If <span>$f(p) &lt; 0$</span>, consider <span>$[p, b]$</span>. In either case, we end up with a new interval <span>$I_1 = [a_1, b_1]$</span>, with <span>$I_1 \subseteq I$</span>. Once again, we consider the midpoint, <span>$p_1 = \frac{a_1 + b_1}{2}$</span>. If <span>$f(p_1) = 0$</span>, we're done, otherwise, we repeat the process, in general obtaining a new interval <span>$I_n = [a_n, b_n]$</span> such that <span>$I_n \subseteq I_{n-1}$</span> while <span>$f(a_n) &lt; 0$</span> and <span>$f(b_n) &gt; 0$</span> (assuming our process never ends by finding a midpoint <span>$p_n$</span> such that <span>$f(p_n) = 0$</span>). We end up with a sequence of nested closed, bounded intervals, so by the Nested Intervals Property (2.5.2) there exists a common point <span>$c$</span> in each interval.</p>
+<p>Based on our method of creating intervals, the interval <span>$I_n$</span> has length <span>$b_n - a_n = \frac{b - a}{2^{n-1}}$</span>. Thus <span>$\lim b_n - a_n = 0$</span> (which tells us that point <span>$c$</span> is unique by Theorem 2.5.3, but we need to prove <span>$f(c) = 0$</span>). As the intervals are nested, the sequence of lower bounds <span>$(a_n)$</span> is increasing, and the sequence of upper bounds <span>$(b_n)$</span> is decreasing. They are both bounded, and therefore they both converge by Monotone Convergence Theorem. As a result we can say the following:</p>
+<p><span>$$
+0 = \lim b_n - a_n = \lim b_n - \lim a_n \\
+\therefore \lim a_n = \lim b_n = L
+$$</span></p>
+<p>Since <span>$c \in I_n$</span>, it follows that <span>$L = c$</span>. As <span>$f$</span> is continuous, <span>$f(a_n) \to f(c)$</span> and <span>$f(b_n) \to f(c)$</span>. As <span>$f(a_n) &lt; 0$</span>, <span>$f(c) \leq 0$</span>. As <span>$f(b_n) &gt; 0$</span>, <span>$f(c) \geq 0$</span>. Therefore <span>$c = 0$</span>. <span>$\blacksquare$</span></p>
+<p>This method of zeroing in on the root is sort of like <a href="http://en.wikipedia.org/wiki/Binary_search_algorithm">binary search</a>.</p>
+<h2 class="header"><i>2</i>Bolzano's Intermediate Value Theorem<a class="headerlink" href="#bolzanos-intermediate-value-theorem" name="bolzanos-intermediate-value-theorem">&para;</a></h2>
+<p>This theorem motivates a more general form - we know that for a continuous function on a closed, bounded interval, if two points in the image have opposite signs, there is necessarily a 0 in the image. What stops us from saying something similar about any point? Bolzano said nothing, and theorem'd it as follows:</p>
+<p><strong>Theorem (IVT):</strong> Let <span>$I = [a, b]$</span> be a closed and bounded interval and <span>$f : I \to \mathbb{R}$</span> be a continuous function on <span>$I$</span>. If there exists a <span>$k \in \mathbb{R}$</span> such that <span>$f(a) &lt; k &lt; f(b)$</span> or <span>$f(b) &lt; k &lt; f(a)$</span> then there exists <span>$c \in (a, b)$</span> such that <span>$f(c) = k$</span>.</p>
+<p><strong>Proof:</strong> If <span>$f(a) &lt; k &lt; f(b)$</span>: Consider <span>$g(x) = f(x) - k$</span>. <span>$g$</span> is continuous on <span>$I$</span>. <span>$g(a) = f(a) - k &lt; 0$</span> and <span>$g(b) = f(b) - k &gt; 0$</span>, thus <span>$g(a) &lt; 0 &lt; g(b)$</span> so by location of roots there exists <span>$c \in (a,b)$</span> such that <span>$g(c) = 0$</span>, i.e. <span>$f(c) - k = 0$</span> so <span>$f(c) = k$</span>. If <span>$f(b) &lt; k &lt; f(a)$</span>, the proof follows similarly.</p>
+<p><strong>Corollary:</strong> Let <span>$I = [a, b]$</span> be a closed and bounded interval and <span>$f : I \to \mathbb{R}$</span> be a continuous function on <span>$I$</span>. If there exists <span>$k \in \mathbb{R}$</span> such that <span>$\inf f(I) \leq k \leq \sup f(I)$</span> then there exists <span>$c \in I$</span> such that <span>$f(c) = k$</span></p>
+<p><strong>Proof:</strong> Let <span>$m = \inf f(I)$</span> and <span>$M = \sup f(I)$</span>. By a previous theorem, <span>$\exists a_1, b_1$</span> such that <span>$f(a_1) = m$</span> and <span>$f(b_1) = M$</span>. Apply IVT to <span>$[\inf\{a_1, b_1\}, \sup\{a_1, b_1\}]$</span>.<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="These inf/sups can be replaced with max/mins, as i...">2</a></sup></p>
+<p>What follows from this is the fact that the image of a continuous function on a closed and bounded interval is also closed and bounded.</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a, b]$</span> be a closed and bounded interval and <span>$f : I \to \mathbb{R}$</span> be a continuous function on <span>$I$</span>. Then <span>$f(I)$</span> is a closed bounded interval </p>
+<p><strong>Proof:</strong> Let <span>$m = \inf f(I)$</span> and <span>$M = \sup f(I)$</span>. Then <span>$f(I) \subseteq [m, M]$</span>. By a previous corollary, if <span>$k \in [m, M]$</span> then there exists a <span>$c \in I$</span> such that <span>$f(c) = k$</span> so <span>$k \in f(I)$</span> so <span>$[m, M] \subseteq f(I)$</span> thus <span>$f(I) = [m, M]$</span>.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Without loss of generality&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>These inf/sups can be replaced with max/mins, as in most cases in this chapter (since we're working with closed, bounded intervals). However the book seems to prefer inf/sup so I'm going with that.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

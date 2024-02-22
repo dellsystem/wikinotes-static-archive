@@ -1,0 +1,141 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, March 22, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, March 22, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Interchange of limits and differentiability
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Recall the theorem from the end of last class:</p>
+<blockquote>
+<p><strong>Theorem:</strong> Let <span>$J \subseteq \mathbb R$</span> be a bounded interval and <span>$(f_n)$</span> be a sequence of functions from <span>$J$</span> to <span>$\mathbb R$</span>. Suppose there exists some <span>$x_0 \in J$</span> such that <span>$f_n(x_0)$</span> converges and suppose that <span>$(f_n')$</span> exists on <span>$J$</span> and converges uniformly on <span>$J$</span> to <span>$g$</span>. Then <span>$(f_n)$</span> converges uniformly on <span>$J$</span> to a function <span>$f$</span> that is differentiable and <span>$f' = g$</span>.</p>
+</blockquote>
+<p><strong>Proof:</strong> Let <span>$J = [a,b]$</span> and let <span>$x \in J$</span> for <span>$m, n \in \mathbb N$</span>, by MVT applied to <span>$f_m - f_n$</span> on interval with endpoints <span>$x$</span> and <span>$x_0$</span> (i.e. <span>$[x,x_0]$</span> or <span>$[x_0, x]$</span>) then there exists a <span>$y$</span> in that interval such that </p>
+<p><span>$$ \frac{f_m(x) - f_n(x) - (f_m(x_0) - f_n(x_0))}{x-x_0} = f_m'(y) - f_n'(y) $$</span></p>
+<p>i.e. <span>$f_m(x) - f_n(x) = f_m(x_0) - f_n(x_0) + (x-x_0)[f_m'(y) - f_n'(y)]$</span> thus <span>$\| f_m - f_n \|_J \leq |f_m(x_0) - f_n(x_0)| + (b-a)\| f_m' - f_n' \|_J$</span>. Since <span>$f_n(x_0)$</span> converges and <span>$f_n'$</span> converges uniformly, then <span>$f_n$</span> converges uniformly on <span>$J$</span>. Consequently <span>$f_n \rightrightarrows f$</span> and <span>$f_n$</span> are continuous as they are differentiable, thus <span>$f$</span> is continuous on <span>$J$</span>.</p>
+<p>Let <span>$c \in J$</span>. We will show that <span>$f$</span> is differentiable at <span>$c$</span>. Again apply MVT to <span>$f_m - f_n$</span> on interval with endpoints <span>$c$</span> and <span>$x \in J$</span> to get a <span>$z$</span> in that interval such that </p>
+<p><span>$$ \frac{f_m(c) - f_n(x) - (f_m(c) - f_n(c))}{x-c} = f_m'(z) - f_n'(z) $$</span></p>
+<p>i.e. for <span>$x \neq c$</span>,</p>
+<p><span>$$ 
+\left|\frac{f_m(x) - f_m(c)}{x-c} - \frac{f_n(x) - f_n(x)}{x-c}\right| \leq \| f_m' - f_n' \|_J $$</span></p>
+<p>since <span>$f_n'$</span> converges uniformly on <span>$J$</span>, thus for <span>$\epsilon &gt; 0$</span> given there exists some <span>$N \in \mathbb N$</span> such that if <span>$m, n \geq N$</span> then <span>$\| f_m' - f_n'\|_J &lt; \frac{\epsilon}{3}$</span> thus if <span>$n, m \geq N$</span> and <span>$x \neq c$</span>, </p>
+<p><span>$$ \left| \frac{f_m(x) - f_m(c)}{x-c} - \frac{f_n(x) - f_n(c)}{x-c} \right| &lt; \frac{\epsilon}{3} $$</span></p>
+<p>Now take the limit as <span>$m \to \infty$</span> to get</p>
+<p><span>$$ \left| \frac{f(x) - f(c)}{x-c} - \frac{f_n(x) - f_n(c)}{x-c} \right| \leq \frac{\epsilon}{3} $$</span></p>
+<p>by squeeze theorem. Also <span>$f_n'(c) \to g(c)$</span> thus there exists some <span>$N_1 \in \mathbb N$</span> such that if <span>$n \geq N_1$</span>,</p>
+<p><span>$$ |f_n'(c) - g(c)| &lt; \frac{\epsilon}{3} $$</span></p>
+<p>Let <span>$k = \sup\{N, N_1\}$</span>, <span>$f_k'(c)$</span> exists so for a given <span>$\epsilon &gt; 0$</span>, there exists a <span>$\delta &gt; 0$</span> such that if <span>$0 &lt; |x-c| &lt; \delta$</span> then </p>
+<p><span>$$ \left|\frac{f_k(x) - f_k(c)}{x-c} - f_k'(c)\right| &lt; \frac{\epsilon}{3} $$</span></p>
+<p>Thus if <span>$0 &lt; |x-c| &lt; \delta$</span>, </p>
+<p><span>$$ \left|\frac{f(x) - f(c)}{x-c} - g(c)\right| = \left|\frac{f(x) - f(c)}{x-c} - \frac{f_k(x) - f_k(c)}{x-c} + \frac{f_k(x) - f_k(c)}{x-c} - \frac{f(x) - f(c)}{x-c} + \frac{f(x) - f(c)}{x-c} - g(c)\right| $$</span></p>
+<p>which we can split up into the three obvious parts with the triangle inequality, so that the whole statement is less than <span>$\frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon$</span>, i.e. <span>$f$</span> is differentiable at <span>$c$</span> and <span>$f'(c) = g(c)$</span>. As <span>$c \in J$</span> is arbitrary we conclude that <span>$f$</span> is differentiable on <span>$J$</span> and <span>$f' = g$</span>, i.e. <span>$\lim f_n' = (\lim f_n)'$</span></p>
+<p>We will now use this theorem to prove the existence of <span>$e^x$</span>, <span>$\sin x$</span>, <span>$\cos x$</span>...</p>
+<p>What is so important about <span>$e^x$</span>? Well, <span>$(e^x)' = e^x$</span> and <span>$(ke^x)' = ke^x$</span> for all <span>$x \in \mathbb R$</span>.</p>
+<p><strong>Theorem:</strong> There exists a function <span>$E(x) : \mathbb R \to \mathbb R$</span> such that </p>
+<p>i) <span>$E'(x) = E(x)$</span> for all <span>$x \in \mathbb R$</span><br />
+ii) <span>$E(0) = 1$</span></p>
+<p><strong>Proof:</strong> Well, at least the idea behind the proof. The idea is that we're going to construct a sequence of functions with a nice property, and we're gonna show that the sequence satisfies the properties of the previous theorem. What properties? <span>$E_n' = E_{n-1}$</span>, for instance. That is,</p>
+<p><span>$$ E_n(x) = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \ldots + \frac{x^n}{n!} $$</span></p>
+<p>from which it is easy to see that <span>$E_n' = E_{n-1}$</span>. We'll so similar things with <span>$\sin x$</span> and <span>$\cos x$</span>. </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,962 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_527/">
+                COMP 527
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The exam will take place on April 24, at 9am, in the gym (room 408).</p>
+<div class="toc">
+<ul>
+<li><a href="#sources">1 Sources</a></li>
+<li><a href="#natural-deduction">2 Natural deduction</a><ul>
+<li><a href="#introduction-and-elimination-rules">2.1 Introduction and elimination rules</a><ul>
+<li><a href="#conjunction">2.1.1 Conjunction</a></li>
+<li><a href="#truth">2.1.2 Truth</a></li>
+<li><a href="#implication">2.1.3 Implication</a></li>
+<li><a href="#disjunction">2.1.4 Disjunction</a></li>
+<li><a href="#falsehood">2.1.5 Falsehood</a></li>
+<li><a href="#example-proofs">2.1.6 Example proofs</a></li>
+</ul>
+</li>
+<li><a href="#local-soundness-and-completeness">2.2 Local soundness and completeness</a><ul>
+<li><a href="#conjunction_1">2.2.1 Conjunction</a></li>
+<li><a href="#implication_1">2.2.2 Implication</a></li>
+<li><a href="#disjunction_1">2.2.3 Disjunction</a></li>
+<li><a href="#alternative-conjunction">2.2.4 Alternative conjunction</a></li>
+<li><a href="#nand">2.2.5 Nand</a></li>
+</ul>
+</li>
+<li><a href="#classical-logic">2.3 Classical logic</a></li>
+</ul>
+</li>
+<li><a href="#proof-terms">3 Proof terms</a><ul>
+<li><a href="#list-of-proof-terms">3.1 List of proof terms</a><ul>
+<li><a href="#conjunction_2">3.1.1 Conjunction</a></li>
+<li><a href="#truth_1">3.1.2 Truth</a></li>
+<li><a href="#implication_2">3.1.3 Implication</a></li>
+<li><a href="#disjunction_2">3.1.4 Disjunction</a></li>
+<li><a href="#falsehood_1">3.1.5 Falsehood</a></li>
+<li><a href="#iff">3.1.6 Iff</a></li>
+</ul>
+</li>
+<li><a href="#example-annotations">3.2 Example annotations</a></li>
+</ul>
+</li>
+<li><a href="#first-order-logic">4 First-order logic</a><ul>
+<li><a href="#universal-quantification">4.1 Universal quantification</a><ul>
+<li><a href="#introduction-and-elimination-rules_1">4.1.1 Introduction and elimination rules</a></li>
+<li><a href="#local-soundness-and-completeness_1">4.1.2 Local soundness and completeness</a></li>
+</ul>
+</li>
+<li><a href="#existential-quantification">4.2 Existential quantification</a><ul>
+<li><a href="#introduction-and-elimination-rules_2">4.2.1 Introduction and elimination rules</a></li>
+</ul>
+</li>
+<li><a href="#universal-and-existential-proofs">4.3 Universal and existential proofs</a></li>
+<li><a href="#explicit-contexts">4.4 Explicit contexts</a></li>
+<li><a href="#structural-properties">4.5 Structural properties</a></li>
+<li><a href="#proof-by-structural-induction">4.6 Proof by structural induction</a><ul>
+<li><a href="#the-substitution-lemma">4.6.1 The substitution lemma</a></li>
+<li><a href="#type-uniqueness">4.6.2 Type uniqueness</a></li>
+</ul>
+</li>
+<li><a href="#proof-terms-for-quantifiers">4.7 Proof terms for quantifiers</a><ul>
+<li><a href="#existential-proof-terms">4.7.1 Existential proof terms</a></li>
+<li><a href="#universal-proof-terms">4.7.2 Universal proof terms</a></li>
+</ul>
+</li>
+<li><a href="#meta-theoretic-properties">4.8 Meta-theoretic properties</a><ul>
+<li><a href="#subject-reduction">4.8.1 Subject reduction</a></li>
+<li><a href="#subject-expansion">4.8.2 Subject expansion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#induction">5 Induction</a><ul>
+<li><a href="#the-natural-numbers">5.1 The natural numbers</a></li>
+<li><a href="#proof-by-induction">5.2 Proof by induction</a><ul>
+<li><a href="#example">5.2.1 Example</a></li>
+<li><a href="#proof-terms_1">5.2.2 Proof terms</a><ul>
+<li><a href="#reduction-rules">5.2.2.1 Reduction rules</a></li>
+<li><a href="#congruence-rules">5.2.2.2 Congruence rules</a></li>
+<li><a href="#subject-reduction_1">5.2.2.3 Subject reduction</a></li>
+</ul>
+</li>
+<li><a href="#successor-existence-proof">5.2.3 Successor existence proof</a></li>
+</ul>
+</li>
+<li><a href="#defining-terms">5.3 Defining terms</a></li>
+<li><a href="#lists">5.4 Lists</a><ul>
+<li><a href="#keeping-track-of-length">5.4.1 Keeping track of length</a></li>
+<li><a href="#example-predicates">5.4.2 Example predicates</a></li>
+<li><a href="#proving-predicates">5.4.3 Proving predicates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sequent-calculus">6 Sequent calculus</a><ul>
+<li><a href="#normal-and-neutral-terms">6.1 Normal and neutral terms</a></li>
+<li><a href="#rules">6.2 Rules</a><ul>
+<li><a href="#hypothesis">6.2.1 Hypothesis</a></li>
+<li><a href="#coercion">6.2.2 Coercion</a></li>
+<li><a href="#conjunction_3">6.2.3 Conjunction</a></li>
+<li><a href="#truth_2">6.2.4 Truth</a></li>
+<li><a href="#implication_3">6.2.5 Implication</a></li>
+<li><a href="#disjunction_3">6.2.6 Disjunction</a></li>
+<li><a href="#falsehood_2">6.2.7 Falsehood</a></li>
+<li><a href="#universal-quantifier">6.2.8 Universal quantifier</a></li>
+<li><a href="#existential-quantifer">6.2.9 Existential quantifer</a></li>
+<li><a href="#negation">6.2.10 Negation</a></li>
+</ul>
+</li>
+<li><a href="#soundness">6.3 Soundness</a></li>
+<li><a href="#completeness">6.4 Completeness</a></li>
+<li><a href="#actual-sequent-calculus">6.5 Actual sequent calculus</a><ul>
+<li><a href="#initial-sequent">6.5.1 Initial sequent</a></li>
+<li><a href="#conjunction_4">6.5.2 Conjunction</a></li>
+<li><a href="#implication_4">6.5.3 Implication</a></li>
+<li><a href="#disjunction_4">6.5.4 Disjunction</a></li>
+<li><a href="#truth_3">6.5.5 Truth</a></li>
+<li><a href="#falsehood_3">6.5.6 Falsehood</a></li>
+<li><a href="#universal-quantifier_1">6.5.7 Universal quantifier</a></li>
+<li><a href="#existential-quantifier">6.5.8 Existential quantifier</a></li>
+<li><a href="#negation_1">6.5.9 Negation</a></li>
+<li><a href="#theoretical-properties">6.5.10 Theoretical properties</a></li>
+<li><a href="#the-cut-rule">6.5.11 The cut rule</a><ul>
+<li><a href="#admissibility">6.5.11.1 Admissibility</a></li>
+</ul>
+</li>
+<li><a href="#inversion">6.5.12 Inversion</a></li>
+<li><a href="#phases">6.5.13 Phases</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Sources<a class="headerlink" href="#sources" name="sources">&para;</a></h2>
+<p>The content on this page has been extracted (not using inference rules) from both Brigitte Pientka's notes (available through WebCT) and <a href="http://www.mpi-sws.org/~dg/teaching/atp-fp.pdf">Frank Pfenning's notes</a>. Any errors or omissions should be assumed to be the fault of <a href="/users/dellsystem">@dellsystem</a> and not of either original author.</p>
+<h2 class="header"><i>2</i>Natural deduction<a class="headerlink" href="#natural-deduction" name="natural-deduction">&para;</a></h2>
+<p>Inference rule: premises on top, conclusion on the bottom.</p>
+<p>An inference rule with no premises is an <strong>axiom</strong>.</p>
+<p>Hypothetical judgments: when we start from unproven assumptions. Though, if we have a proof for an assumption, we can replace the assumption with the derivation tree for it, eliminating the assumption in the process (<strong>substitution principle</strong>).</p>
+<p>Hypothetical derivation: proof tree for a hypothetical judgment. Strategy: apply intro rules starting from the conclusion and working towards the assumptions; then, apply elimination rules starting from the assumptions.</p>
+<h3 class="header"><i>2.1</i>Introduction and elimination rules<a class="headerlink" href="#introduction-and-elimination-rules" name="introduction-and-elimination-rules">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Conjunction<a class="headerlink" href="#conjunction" name="conjunction">&para;</a></h4>
+<p>Introduction rule:</p>
+<p><span>$$\frac{A \,\text{true} \quad B \,\text{true}}{A \land B \,\text{true}} \, \land I$$</span></p>
+<p>Elimination rule:</p>
+<p><span>$$\frac{A \land B \,\text{true}}{A \,\text{true}} \, \land E_l \qquad
+\frac{A \land B \,\text{true}}{B \,\text{true}} \, \land E_r$$</span></p>
+<h4 class="header"><i>2.1.2</i>Truth<a class="headerlink" href="#truth" name="truth">&para;</a></h4>
+<p>Introduction rule:</p>
+<p><span>$$\frac{}{\top \,\text{true}} \, \top I$$</span></p>
+<p>Elimination rule:</p>
+<p>No elimination rule since <span>$\top$</span> holds unconditionally (and thus there is no information that we can extract from it).</p>
+<h4 class="header"><i>2.1.3</i>Implication<a class="headerlink" href="#implication" name="implication">&para;</a></h4>
+<p>Introduction rule:</p>
+<p><span>$$
+\frac{}{A\,\text{true}} \, u \quad \quad \\
+\vdots \quad \quad \\
+\frac{B\,\text{true}}{A \subset B \,\text{true}} \,\subset I^u
+$$</span></p>
+<p>Elimination rule:</p>
+<p><span>$$\frac{A \subset B \,\text{true} \quad A\,\text{true}}{B\,\text{true}}\, \subset E$$</span></p>
+<p>Note that implications are right-associative. So with <span>$A \subset B \subset C$</span>, start from the end and make that a thing first (<span>$B \subset C$</span>), etc.</p>
+<p>Also note that the <span>$u$</span> in the <span>$I^u$</span> means that <span>$u$</span> is no longer available for use as a general assumption, as it was consumed by the introduction rule. In other words, it indicates the end of the scope in which <span>$u$</span> is valid.</p>
+<p>Any assumptions that are discharged more than once should be given different labels.</p>
+<p>It's fine if an assumption is not discharged by the end of the proof.</p>
+<p>(I'm confused about an example in Pientka's notes in which she shows 3 proofs for <span>$A \subset A \subset (A \land A)$</span>, side by side, but the last two have equivalent assumptions with the same label, even though she mentions earlier that it is critical that all labels denoting assumptions are distinct. Also, where does <span>$v$</span> come from in the middle one, and where does <span>$u$</span> come from in the last one? They're not part of the scope ...)</p>
+<h4 class="header"><i>2.1.4</i>Disjunction<a class="headerlink" href="#disjunction" name="disjunction">&para;</a></h4>
+<p>Introduction rule:</p>
+<p><span>$$\frac{A\,\text{true}}{A \lor B \,\text{true}} \, \lor I_l \qquad \frac{B\,\text{true}}{A \lor B\,\text{true}} \, \lor I_r$$</span></p>
+<p><span>$$
+\frac{}{A\,\text{true}} \,u \quad \; \frac{}{B\,\text{true}}\,v \\
+\vdots \qquad  \qquad\; \vdots \; \\
+\frac{A \lor B\,\text{true} \qquad C\,\text{true} \qquad C\,\text{true}}{C \,\text{true}} \, \lor E^{u, v} \qquad \qquad
+\tag{don't read the source, it's really bad}
+$$</span></p>
+<h4 class="header"><i>2.1.5</i>Falsehood<a class="headerlink" href="#falsehood" name="falsehood">&para;</a></h4>
+<p>Introduction rule:</p>
+<p>None, since if there were an introduction rule for deriving <span>$\bot$</span>, then our inference system would immediately be unsound.</p>
+<p>Elimination rule:</p>
+<p><span>$$\frac{\bot \,\text{true}}{C \,\text{true}} \, \bot E$$</span></p>
+<p>i.e., we've arrived at a contradiction and so we can conclude anything</p>
+<h4 class="header"><i>2.1.6</i>Example proofs<a class="headerlink" href="#example-proofs" name="example-proofs">&para;</a></h4>
+<p><span>$$\top \land (\top \land \top)$$</span></p>
+<p>Working from the bottom: We can use <span>$\land I$</span> to get the conclusion, from the hypotheses <span>$\top$</span> and <span>$(\top \land \top)$</span>. For the former, we can get that immediately using <span>$\top I$</span>; for the latter, we have to do another <span>$\land I$</span>, for which we need <span>$\top$</span> true twice. But we can get those using, once again, <span>$\top I$</span>. <span>$\blacksquare$</span></p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$A \subset B \subset (A \land B)$$</span></p>
+<p>First, note that since <span>$\subset$</span> is right-associative, this is equivalent to <span>$A \subset (B \subset (A \land B))$</span>. So first we need to introduce the left-most <span>$\subset$</span>. Let <span>$u$</span> be <span>$A$</span> true, and suppose that we have a proof of <span>$B \subset (A \land B)$</span> given <span>$u$</span>. Well, to get <span>$B \subset (A \land B)$</span>, we need another <span>$\subset$</span> intro: let <span>$v$</span> be <span>$B$</span> true, and suppose that we have a proof of <span>$(A \land B)$</span> given <span>$v$</span>. But we can get <span>$A \land B$</span> by using <span>$\land I$</span> on <span>$u$</span> and <span>$v$</span>. So that completes the proof.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$A \subset A \subset (A \land A)$$</span></p>
+<p>Starting from the bottom: first, get <span>$A \subset (A \land A)$</span> (assuming we have a proof of <span>$u=A$</span>) using <span>$\subset I^u$</span>. Then, get <span>$A \land A$</span> (assuming we have a proof of <span>$v = A$</span>) using <span>$\subset I^v$</span>. Then, we just use <span>$\land I$</span> on <span>$u$</span> and <span>$v$</span> and that completes the proof.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \land B) \subset (B \land A)$$</span></p>
+<p>Starting from the bottom: first, get <span>$(B \land A)$</span> (assuming we have a proof of <span>$u = A \land B$</span>) using <span>$\subset I^u$</span>. To get <span>$B \land A$</span>, we use <span>$\land I$</span>, assuming we have <span>$B$</span> and <span>$A$</span> somewhere. But we can get <span>$B$</span> using <span>$\land E_r$</span> on <span>$u$</span>, and we can get <span>$A$</span> using <span>$\land E_l$</span> on <span>$u$</span>. So we're good.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \subset (B \land C)) \subset ((A \subset B) \land (A \subset C))$$</span></p>
+<p>i.e., distributivity.</p>
+<p>Starting from the bottom: get <span>$(A \subset B) \land (A \subset C)$</span> (assuming we have <span>$u=A \subset (B \land C)$</span>) using <span>$I^u$</span>. To get <span>$(A \subset B) \land (A \subset C)$</span>, we use <span>$\land I$</span> on <span>$A \subset B$</span> and <span>$A \subset C$</span>.</p>
+<p>Here we branch into the two cases. To get <span>$A \subset B$</span>, we use <span>$I^v$</span> where <span>$v= A$</span>. But then we need to get <span>$B$</span> from somewhere. Well, if we use <span>$\subset E$</span> on <span>$u$</span> and <span>$v$</span>, we can get <span>$B \land C$</span>, and then use <span>$\land E_l$</span> to get <span>$B$</span>. Similarly, for <span>$A \subset C$</span>, we re-use <span>$v= A$</span> and use <span>$\land E_r$</span> to get <span>$C$</span> from <span>$B \land C$</span>. That completes it. <span>$\blacksquare$</span></p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \lor B) \subset (B \lor A)$$</span></p>
+<p>i.e., commutativity of <span>$\lor$</span>.</p>
+<p>Starting from the bottom, we get <span>$B \lor A$</span> (assuming we have <span>$u = A \lor B$</span>) using <span>$I^u$</span>. To get <span>$B \lor A$</span>, we use an elimination rule: let <span>$v = A$</span>, then use <span>$\lor I_l$</span> to get <span>$B \lor A$</span>, and let <span>$w = B$</span>, then use <span>$\lor I_r$</span> to get <span>$B \lor A$</span>. Then we can use <span>$\lor E^{v, w}$</span> to conclude <span>$B \lor A$</span> (with <span>$u$</span> being the term on the left).</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \land (B \land C)) \subset (A \land B)$$</span></p>
+<p>This is ridiculously straightforward. Let <span>$u = A \land (B \land C)$</span>, and elim twice to get <span>$A$</span> (with <span>$\land E_l$</span>) and also <span>$B \land C$</span> (with <span>$\land E_r$</span>). Then use <span>$\land E_l$</span> on <span>$B \land C$</span> to get <span>$B$</span>. Then use <span>$\land I$</span> on <span>$A$</span> and <span>$B$</span> to get <span>$A \land B$</span>. Then just use <span>$\subset I$</span>.</p>
+<p>Source: assignment 1, exercise 1.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \subset B) \subset ((B \subset C) \subset (A \subset C))$$</span></p>
+<p>Starting from the bottom. We need <span>$(B \subset C) \subset (A \subset C)$</span> (with <span>$u = A \subset B$</span>) using <span>$\subset I^u$</span>. Then, we need <span>$A \subset C$</span> (with <span>$v = B \subset C$</span>) using <span>$\subset I^v$</span>. Finally, we need <span>$C$</span> (with <span>$w=A$</span>) using <span>$\subset I^w$</span>. If we use <span>$\subset E$</span> on <span>$w$</span> and <span>$u$</span>, we get <span>$B$</span>; if we use <span>$\subset E$</span> on <span>$B$</span> and <span>$v$</span>, we get <span>$C$</span>. So we're done.</p>
+<p>Source: assignment 1, exercise 1.</p>
+<div class="ui divider"></div>
+<p><span>$$((A \lor B) \subset C) \subset (A \subset C) \land (B \subset C)$$</span></p>
+<p>Starting from the bottom, we use <span>$I^u$</span> to get <span>$(A \subset C) \land (B \subset C)$</span> where <span>$u = ((A \lor B)\subset C)$</span>. Then, obviously need <span>$\land I$</span>; now we just need to get <span>$A \subset C$</span> and <span>$B \subset C$</span>. For the former, we let <span>$v = A$</span> and use <span>$I^v$</span> to get C somehow. How do we get <span>$C$</span>? Well, if we use <span>$\lor I_l$</span> on <span>$v$</span>, we get <span>$A \lor B$</span>; then, if we use <span>$\subset E$</span> on <span>$A \lor B$</span> and <span>$u$</span>, we get <span>$C$</span>. Similarly, to get <span>$C$</span> on the other side, we use <span>$\lor I_r$</span> on <span>$w=B$</span>, and conclude that <span>$B \subset C$</span> using <span>$I^w$</span>. <span>$\blacksquare$</span>.</p>
+<p>Source: assignment 1, exercise 1.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \subset C) \land (B \subset C) \subset ((A \lor B) \subset C)$$</span></p>
+<p>Let <span>$u = (A \subset C) \land (B \subset C)$</span>. We can use <span>$\subset I^u$</span> on <span>$(A \lor B) \subset C$</span>. To get that, let <span>$v = A \lor B$</span>, and use <span>$\subset I^v$</span> on <span>$C$</span>. To get <span>$C$</span>, we need to make use of the elimination rule for <span>$\lor$</span>. So let <span>$w_1 = A$</span>, and <span>$w_2 = B$</span>. Next, apply <span>$\land E_l$</span> to get <span>$A \subset C$</span> and <span>$\land E_r$</span> to get <span>$B \subset C$</span>. Then, applying <span>$\subset E$</span> on <span>$A$</span> and <span>$A \subset C$</span> gives us <span>$C$</span>, for the middle branch; similarly, applying <span>$\subset E$</span> on <span>$B$</span> and <span>$B \subset C$</span> gives us <span>$C$</span>. Then we just use <span>$\lor E^{w_1, w_2}$</span> to close the gap. <span>$\blacksquare$</span></p>
+<p>Source: assignment 1, exercise 1.</p>
+<div class="ui divider"></div>
+<p><span>$$((A \subset B) \land (A \lor C)) \subset (B \lor C)$$</span></p>
+<p>Let <span>$u = (A \subset B) \land (A \lor C)$</span>. We can use <span>$\subset I^u$</span> on <span>$B \lor C$</span>. To get that, we let <span>$v = A$</span> and <span>$w = C$</span>, then use <span>$\lor E^{v, w}$</span> on <span>$A \lor C$</span> (the first term) and <span>$B \lor C$</span> (the middle and last terms). To get <span>$B \lor C$</span> from <span>$v$</span> and <span>$w$</span>, we use <span>$\land E_l$</span> on <span>$u$</span> to get <span>$A \subset B$</span>. Then, we use <span>$\subset E$</span> on <span>$A$</span> and <span>$A \subset B$</span> to get <span>$B$</span>, after which we just apply <span>$\lor I_l$</span> to get <span>$B \lor C$</span>. The other branch is even simpler: from <span>$C$</span>, just use <span>$\lor I_r$</span> to get <span>$B \lor C$</span>. Then, to get <span>$A \lor C$</span> (the first term), we just use <span>$\land E_r$</span> on <span>$u$</span>. <span>$\blacksquare$</span>.</p>
+<p>Source: assignment 1, exercise 1.</p>
+<h3 class="header"><i>2.2</i>Local soundness and completeness<a class="headerlink" href="#local-soundness-and-completeness" name="local-soundness-and-completeness">&para;</a></h3>
+<p>For each intro/elim rule, we should check that it's both <strong>sound</strong> (i.e., does not allow new truths to be deduced) and <strong>complete</strong> (i.e., strong enough to obtain all the information contained in the connective).</p>
+<p>Local soundness: introducing then eliminating a connective should not introduce any new information, so if we do this in a proof, we should be able to get rid of the intro + elim and find a shorter path to the conclusion. We can prove this using a <strong>local reduction</strong>.</p>
+<p>Local completeness: if we eliminate a connective, we get enough information out of it to be able to introduce it again. We can prove this using a <strong>local expansion</strong>.</p>
+<h4 class="header"><i>2.2.1</i>Conjunction<a class="headerlink" href="#conjunction_1" name="conjunction_1">&para;</a></h4>
+<p><strong>Local soundness</strong></p>
+<p>Start with <span>$A$</span> true and <span>$B$</span> true. The only things we should be able to extract from <span>$A \land B$</span> true are <span>$A$</span> true and <span>$B$</span> true. So let <span>$\mathcal D_1$</span> be <span>$A$</span> true and <span>$\mathcal D_2$</span> be <span>$B$</span> true; get <span>$A \land B$</span> true using <span>$\land I$</span>; then get <span>$A$</span> true using <span>$\land E_l$</span>. From this we extract <span>$\mathcal D_1$</span>. Similarly, using <span>$\land E_r$</span>, we extract <span>$\mathcal D_2$</span>.</p>
+<p>Pientka's notation for this is a pain to type out so I'm just going to take a screenshot of the <span>$A$</span> true case in her notes:</p>
+<p><img alt="look at that soundness" src="http://i.imgur.com/3o3VDyb.png" /></p>
+<p><strong>Local completeness</strong></p>
+<p>Let <span>$\mathcal D$</span> be <span>$A \land B$</span>. Starting from this, we need to use the elimination rules and then the introduction rule to rebuild <span>$A \land B$</span>. This is pretty straightforward: use <span>$\land E_l$</span> for <span>$\mathcal D$</span> on the left to get <span>$A$</span> true, and <span>$\land E_r$</span> for <span>$\mathcal D$</span> on the right to get <span>$B$</span> true, and use <span>$\land I$</span> to get <span>$A \land B$</span> true.</p>
+<p>Screenshot of the proof in her notes:</p>
+<p><img alt="u complete me bb" src="http://i.imgur.com/JjqtOVs.png" /></p>
+<p>Source: Pientka's notes.</p>
+<h4 class="header"><i>2.2.2</i>Implication<a class="headerlink" href="#implication_1" name="implication_1">&para;</a></h4>
+<p><strong>Local soundness</strong></p>
+<p>To introduce <span>$A \subset B$</span>, we need to have a proof of <span>$A$</span> true first (which we'll call <span>$u$</span>). Let <span>$\mathcal D$</span> be <span>$B$</span> true. Then, given <span>$u$</span> and <span>$\mathcal D$</span>, we can use <span>$\subset I^u$</span> to conclude <span>$A \subset B$</span> true. Then, using <span>$A \subset B$</span> true and <span>$A$</span> true (which we'll call <span>$\mathcal E$</span>), we can use <span>$\subset E$</span> to get <span>$B$</span> true. Thus, if we start with <span>$A$</span> true as assumption (from which we can get a proof of <span>$\mathcal D$</span>), then use <span>$\subset I^u$</span> and <span>$\subset E$</span>, all we can conclude is that if we have <span>$\mathcal E$</span> as an assumption, we can get a proof of <span>$\mathcal D$</span>, which is what we wanted.</p>
+<p>Note that we can instead write <span>$[\mathcal E/u]\mathcal D$</span> on the right side, to indicate that we substitute <span>$\mathcal E$</span> in place of the assumption <span>$u$</span>.</p>
+<p><strong>Local completeness</strong></p>
+<p>Given <span>$\mathcal D = A\subset B$</span> true and <span>$u = A$</span> true, we use <span>$\subset E$</span> to conclude <span>$B$</span> true, and then use <span>$\subset I^u$</span> to conclude <span>$A \subset B$</span> true, as desired.</p>
+<p>Source: Pientka's notes.</p>
+<h4 class="header"><i>2.2.3</i>Disjunction<a class="headerlink" href="#disjunction_1" name="disjunction_1">&para;</a></h4>
+<p><strong>Local soundness</strong></p>
+<p>There are two cases: one for reconstituting that if we have <span>$A$</span> true, we can get <span>$C$</span> true; and another for reconstituting that if we have <span>$B$</span> true, we can get <span>$C$</span> true.</p>
+<p>For the former, let <span>$\mathcal D = A$</span> true. Use <span>$\lor I_l$</span> to get <span>$A \lor B$</span> true. Then, using the assumptions <span>$u = A$</span> true (from which we can get a proof of <span>$\mathcal E = C$</span> true) and <span>$v = B$</span> true (from which we can get a proof of <span>$\mathcal F = C$</span> true), we use the rule <span>$\lor E^{u, v}$</span> to conclude that <span>$C$</span> true. So if <span>$\mathcal D$</span> holds, then we get <span>$\mathcal E$</span>, as desired.</p>
+<p>For the latter, we let <span>$\mathcal D = B$</span> true, and use <span>$\lor I_r$</span> to get <span>$A \lor B$</span> true; the rest is the same. Thus if <span>$\mathcal D$</span> holds, then we get <span>$\mathcal F$</span>, as desired.</p>
+<p><em>There's a typo in the proof of this in Pientka's notes; <span>$B$</span> true is labelled <span>$u$</span> whe it should be labelled <span>$v$</span>.</em></p>
+<p><strong>Local completeness</strong></p>
+<p>This one is a bit weird - although you still follow the general principle of elim-then-intro, the actual proof looks very similar to the reduction (i.e., intro-then-elim), which is very confusing. In Pientka's notes, she just puts in the proof without any explanation, but <a href="http://www.cs.cmu.edu/~fp/courses/15317-f08/lectures/03-harmony.pdf">Frank Pfenning's notes on harmony</a> have a pretty good explanation.</p>
+<p>The basic idea: start with <span>$\mathcal D = A \lor B$</span>. Let <span>$u = A$</span> true and <span>$v = B$</span> true be the assumptions. From <span>$u$</span>, use <span>$\lor I_l$</span> to get <span>$A \lor B$</span> true; from <span>$v$</span>, use <span>$\lor I_r$</span> to get <span>$A\lor B$</span> true. Then, you have 3 instances of <span>$A \lor B$</span> true, and you can use <span>$E^{u, v}$</span> to conclude <span>$A \lor B$</span> true.</p>
+<p>If you think about it, there isn't really any other way to do it, since the elim rule for <span>$\lor$</span> only allows you to conclude <span>$C$</span> provided that <span>$A$</span> and <span>$B$</span> both allow you to conclude <span>$C$</span>. So <span>$C$</span> must be <span>$A \lor B$</span>. Plus, <span>$A \lor B$</span> must be on the left. And to get the other <span>$A \lor B$</span>s, we need to use intro rules. <span>$\blacksquare \checkmark \bigstar \heartsuit \wr \text{pls let me pass}$</span></p>
+<p>Source: Pientka's notes.</p>
+<h4 class="header"><i>2.2.4</i>Alternative conjunction<a class="headerlink" href="#alternative-conjunction" name="alternative-conjunction">&para;</a></h4>
+<p>Suppose we had the following elimination rule for conjunction instead of the standard one:</p>
+<p><span>$$
+\frac{}{A\,\text{true}} \,u \quad \; \frac{}{B\,\text{true}}\,v \\
+\vdots \; \\
+\frac{A \lor B\,\text{true} \qquad C\,\text{true}}{C \,\text{true}} \, \lor E^{u, v} \qquad \qquad
+$$</span></p>
+<p>The introduction rule remains the same:</p>
+<p><span>$$\frac{A \,\text{true} \quad B \,\text{true}}{A \land B \,\text{true}} \, \land I$$</span></p>
+<p>These rules are locally sound and complete. Proofs:</p>
+<p><strong>Local soundness</strong></p>
+<p>There are two: one starting with <span>$A$</span>, and one starting with <span>$B$</span>. For the one starting with <span>$A$</span>, let <span>$D_1$</span> be <span>$A$</span> true, and let <span>$D_2$</span> be <span>$B$</span> true. Apply <span>$\land I$</span> to get <span>$A \land B$</span> true. Now let <span>$u = A$</span> and <span>$v = B$</span> and apply <span>$\land E^{u, v}$</span> on <span>$A \land B$</span> and <span>$A$</span> (which we've derived from <span>$u$</span>, ignoring <span>$v$</span>) to get <span>$D_1 = A$</span>.</p>
+<p>To get <span>$D_2=B$</span>, just ignore <span>$u$</span> instead of <span>$v$</span>.</p>
+<p><strong>Local completeness</strong></p>
+<p>Just as with disjunction, this one looks a bit weird at first. Basically, we need <span>$A \land B$</span> to be our conclusion (so the last line, or bottom, of the proof tree). We can get this using <span>$\land E^{u, v}$</span> where <span>$u = A$</span> and <span>$v = B$</span> - just use <span>$\land I$</span> on <span>$u$</span> and <span>$v$</span> to get <span>$A \land B$</span> on the right.</p>
+<p>Actually, it looks like there's an alternative approach: with <span>$A \land B$</span> on the bottom, we use <span>$\land I$</span> to get it from <span>$A$</span> and <span>$B$</span>. To get <span>$A$</span>, we use <span>$\land E^{u, v}$</span> on <span>$A \land B$</span> with <span>$u = A$</span> and <span>$v = B$</span>. Similarly, to get <span>$B$</span>, we have another proof subtree where we do the same thing. This should work? But it's not in the official solutions for the question. So I guess it doesn't, though I'm not sure why.</p>
+<p>Source: assignment 1, exercise 3.</p>
+<h4 class="header"><i>2.2.5</i>Nand<a class="headerlink" href="#nand" name="nand">&para;</a></h4>
+<p>Let's define our own introduction/elimination rules for <span>$A \bar \land B$</span>.</p>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$
+\frac{}{A} \,u \quad \; \frac{}{B}\,v \quad\qquad\qquad\quad\; \\
+\vdots \qquad\qquad\qquad \;\, \\
+\frac{p}{A \bar \land B} \, \lor I^{u, v, p} \qquad \qquad
+\tag{where $p$ is any arbitrary proposition.}
+$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{A \bar \land B  \qquad A \qquad B}{C} \, \bar \land E$$</span></p>
+<p>These rules are locally sound and complete. Proofs:</p>
+<p><strong>Local soundness</strong></p>
+<p>As usual, there are two proofs. For the first, we start with <span>$u = A$</span> and <span>$v=B$</span>. Suppose we have a proof tree <span>$\mathcal D$</span> whereby we can derive <span>$p$</span> starting from <span>$u$</span> and <span>$v$</span>. Then we can use <span>$\bar \land I^{u, v, p}$</span> to conclude that <span>$A \bar \land B$</span>. Then, if <span>$\mathcal E_1 = A$</span> and <span>$\mathcal E_2 = B$</span>, we use <span>$\bar \land E$</span> to conclude <span>$A$</span>.</p>
+<p>For the other proof, we just conclude <span>$B$</span> instead of <span>$A$</span> in the final step (the rest is the same).</p>
+<p><strong>Local completeness</strong></p>
+<p>Let <span>$u = A$</span> and <span>$v = B$</span>. Start with <span>$A \bar \land B$</span>. Combining this with <span>$A$</span> and <span>$B$</span>, we use <span>$\bar \land E$</span> to conclude <span>$p$</span>. Then we immediately use <span>$\bar \land I^{u, v, p}$</span> to reconstitute <span>$A \bar \land B$</span>. Easy.</p>
+<p>Source: assignment 1, exercise 4 (optional).</p>
+<h3 class="header"><i>2.3</i>Classical logic<a class="headerlink" href="#classical-logic" name="classical-logic">&para;</a></h3>
+<p>Pientka doesn't really mention this in her notes, but exercise 2 of assignment 1 briefly covers this. Classical logic is basically constructive logic (what we had above) with an additional axiom: the law of the excluded middle (so <span>$p \lor \neg p$</span> holds for all <span>$p$</span>).</p>
+<h2 class="header"><i>3</i>Proof terms<a class="headerlink" href="#proof-terms" name="proof-terms">&para;</a></h2>
+<p><span>$M: A$</span> means that <span>$A$</span> is a proposition, and <span>$M$</span> is a proof term for <span>$A$</span> (i.e., the term that represents a proof of <span>$A \text{true}$</span>).</p>
+<h3 class="header"><i>3.1</i>List of proof terms<a class="headerlink" href="#list-of-proof-terms" name="list-of-proof-terms">&para;</a></h3>
+<p><em>These notes mostly follow Pientka's, with some things confirmed by <a href="http://www.mpi-sws.org/~dg/teaching/atp-fp.pdf">Frank Pfenning's</a>, because Pientka's notes had some typos that made me lose my faith (and my sanity). I'm also mostly using Pfenning's notation (with the <span>$\Gamma$</span>s and all that) because Pientka's notation takes longer to type and in any case she ends up using that notation eventually.</em></p>
+<h4 class="header"><i>3.1.1</i>Conjunction<a class="headerlink" href="#conjunction_2" name="conjunction_2">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M:A \qquad N:B}{\Gamma \vdash \langle M, N \rangle: A \land B} \, \land I$$</span></p>
+<p><strong>Elimination rules</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: A \land B}{\Gamma \vdash \text{fst} \, M:A} \,\land E_l
+\qquad \qquad
+\frac{\Gamma \vdash M: A \land B}{\Gamma \vdash \text{snd}\,M:B} \, \land E_r$$</span></p>
+<p><strong>Local reduction</strong></p>
+<p>It's really the same as the original local soundness rule, we just annotate it. Not including it here.</p>
+<p>From the two soundness proofs, we get two reduction rules (just using the last line of each side of the arrow):</p>
+<ul>
+<li><span>$\text{fst}\,\langle M, N \rangle \implies M$</span></li>
+<li><span>$\text{snd}\,\langle M, N \rangle \implies N$</span></li>
+</ul>
+<p>Note that reduction is type-preserving: if <span>$M:A$</span> and <span>$M \implies M'$</span>, then <span>$M':A$</span>. So if <span>$M$</span>, of type <span>$A$</span>, reduces to <span>$M'$</span>, then <span>$M'$</span> is also of type <span>$A$</span> (where <span>$A$</span> is, again, a proposition). This statement is sometimes referred to as <strong>subject reduction</strong>.</p>
+<p><strong>Local expansion</strong></p>
+<p>Just annotate the local completeness rule, starting from the <span>$A \land B$</span> on the right being <span>$M$</span>. We should get <span>$\langle \text{fst} M, \text{snd} M \rangle$</span> on the right. So the local expansion rule is</p>
+<p><span>$$M: A \land B \implies \langle \text{fst} M, \text{snd} M \rangle$$</span></p>
+<h4 class="header"><i>3.1.2</i>Truth<a class="headerlink" href="#truth_1" name="truth_1">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{}{(): \top} \, \top I$$</span></p>
+<p>(There's a typo in Pientka's notes - the annotated term should be on the bottom, not on the top. There's a pun in there somewhere but fuck it.)</p>
+<p><strong>Elimination rule</strong></p>
+<p>There isn't one. Since this isn't a connective, we don't have local reduction/expansion rules, either.</p>
+<h4 class="header"><i>3.1.3</i>Implication<a class="headerlink" href="#implication_2" name="implication_2">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma, u:A  \vdash M :B}{\Gamma \vdash (\lambda u:A .M): A \subset B} \, \subset I^u$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: A \subset B \qquad \Gamma \vdash N:A}{\Gamma \vdash M N : B}\, \subset E$$</span></p>
+<p><strong>Local reduction</strong></p>
+<p>As before, we just annotate the local soundness proof to get</p>
+<p><span>$$(\lambda x: A.M) N \implies [N/x]M$$</span></p>
+<p><strong>Local expansion</strong></p>
+<p>Once again, here we annotate the local completeness proof:</p>
+<p><span>$$M : A \subset B \implies \lambda x: A.M x$$</span></p>
+<h4 class="header"><i>3.1.4</i>Disjunction<a class="headerlink" href="#disjunction_2" name="disjunction_2">&para;</a></h4>
+<p><strong>Introduction rules</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: A}{\Gamma \vdash \text{inl}^A M: A \lor B} \, \lor I^l \qquad \frac{\Gamma \vdash N:B}{\Gamma \vdash \text{inr}^B N: A\lor B} \, \lor I^r$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: A \lor B\qquad \Gamma, x:A\vdash N_l: C \qquad \Gamma, y: B \vdash N_r:C}{\Gamma \vdash \text{case}\,M\,\text{of inl}^A x \to N_l \mid \, \text{inr}^B y \to N_r}\,\lor E^{x, y}$$</span></p>
+<p><strong>Local reduction</strong></p>
+<p>Again, we simply annotate the two local soundness proofs:</p>
+<p><span>$$\text{case}(\text{inl}^A M) \text{of inl}^A x \to N_l \mid \text{inr}^B y \to N_r \implies [M/x]N_l$$</span></p>
+<p>For the other rule, we have:</p>
+<p><span>$$\text{case}(\text{inr}^B M) \text{of inl}^A x \to N_l \mid \text{inr}^B y \to N_r \implies [M/y]N_r$$</span></p>
+<p><strong>Local expansion</strong></p>
+<p>Not mentioned in either Pientka's or Pfenning's notes ... I'll come back to this later.</p>
+<h4 class="header"><i>3.1.5</i>Falsehood<a class="headerlink" href="#falsehood_1" name="falsehood_1">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p>There isn't one.</p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: \bot}{\Gamma \vdash \text{abort}^C C: C} \, \bot E$$</span></p>
+<h4 class="header"><i>3.1.6</i>Iff<a class="headerlink" href="#iff" name="iff">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma, u:B \vdash M: A \qquad \Gamma, v:A \vdash N:B}{\Gamma \vdash [ u.M, v.N ] : A \equiv B}\,\equiv I^{u, v}$$</span></p>
+<p>Note that you need to keep track of the assumptions <span>$u$</span> and <span>$v$</span> within the proof term for the introduction rule.</p>
+<p><strong>Elimination rules</strong></p>
+<p><span>$$\frac{M: A \equiv B \qquad N:A}{\text{iff}_L(M, N): B} \, \equiv E_l \qquad\qquad \frac{M: A \equiv B \qquad N: B}{\text{iff}_R (M, N): A}\,\equiv E_r$$</span></p>
+<p><strong>Local reduction</strong></p>
+<p><span>$$\text{iff}_L([u.M, v.N], S) \implies [S/u]M \qquad \text{iff}_R([u.M, v.N], S) \implies [S/v]N$$</span></p>
+<p><strong>Local expansion</strong></p>
+<p><span>$$M \implies [u.\text{iff}_R(M, u), v.\text{iff}_L(M, v)]$$</span></p>
+<p>Source: assignment 2, exercise 3.</p>
+<h3 class="header"><i>3.2</i>Example annotations<a class="headerlink" href="#example-annotations" name="example-annotations">&para;</a></h3>
+<p>They're basically the same as regular proofs, only you need to use the annotated rules. Nothing too complicated.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \land A) \subset A$$</span></p>
+<p>Given <span>$u = A \land A$</span> we need to be able to get <span>$A$</span>. Well, using <span>$\land E_l$</span>, we can. So from <span>$u = x:A \land A$</span> we get <span>$\text{fst}\, x: A$</span>. Then, for the implication, we need a lambda, so we have <span>$\lambda x: A \land A.\text{fst}\, x:(A \land A) \subset A$</span>.</p>
+<p>Alternatively, we could extract the right <span>$A$</span> from <span>$A \land A$</span>, in which case we'd just have to replace the <span>$\text{fst}\,$</span> by <span>$\text{snd}\,$</span>.</p>
+<p>I think there's a typo in the notes - it should be <span>$u = x: A \land A$</span> not <span>$u = x:A$</span>.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \land B) \subset (B \land A)$$</span></p>
+<p>Let <span>$u = x:A \land B$</span>. Use <span>$\land E_r$</span> to get <span>$\text{snd}\, x: B$</span>. On the other branch, use <span>$\land E_l$</span> to get <span>$\text{fst}\, x: A$</span>. Then use <span>$\land I$</span> to get <span>$\langle \text{snd}\, x, \text{fst}\, x \rangle: B \land A$</span>. Finally, for the implication, we need a lambda, so we have <span>$\lambda x: A \land B.\langle \text{snd}\, x, \text{fst x} \rangle: (A \land B) \subset (B \land A)$</span>.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \land (B \land C)) \subset (A \land B)$$</span></p>
+<p>For implication, the pattern is pretty easy to pick up on: the <span>$x$</span> in the lambda needs to be of type <span>$A \land (B \land C)$</span>, and the body of the lambda needs to be of type <span>$A \land B$</span> somehow. How do we derive <span>$A \land B$</span>? Well, if <span>$u = x: A\land (B\land C)$</span>, then <span>$\text{fst}\, x$</span> gives us <span>$A$</span>, <span>$\text{snd}\, x$</span> gives us <span>$B \land C$</span> and so <span>$\text{fst}\,\, \text{snd}\, x$</span> gives us <span>$B$</span>, and then using <span>$\land I$</span> gives us <span>$A \land B$</span>. So we have</p>
+<p><span>$$\lambda x: A \land B(\land C). \langle \text{fst}\, x, \text{fst}\,\,\text{snd}\, x \rangle: A \land (B \land C) \subset (A \land B)$$</span></p>
+<p>Source: assignment 1, question 1.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \subset B) \subset ((B \subset C) \subset (A \subset C))$$</span></p>
+<p>Our assumption is <span>$u = x: A \subset B$</span>. From this, we need to be able to extract something of type <span>$(B \subset C) \subset (A \subset C)$</span>. This itself requires the assumption <span>$v = y:B \subset C$</span>, from which we need to be able to extract something of type <span>$A \subset C$</span>. To get this, we need the assumption <span>$w = z: A$</span>. Then, by applying <span>$x$</span> to <span>$z$</span>, we get <span>$x z: B$</span> (using <span>$\subset E$</span>). Furthermore, applying <span>$y$</span> to <span>$x z$</span>, we get <span>$y (x z): C$</span>. Thus to extract something of type <span>$A \subset C$</span>, we need <span>$\lambda z: A. y (x z): A \subset C$</span>.</p>
+<p>Next, we define the scope of <span>$y$</span>: <span>$\lambda y: B. \lambda z: A. y (x z): (B \subset C) \subset (A \subset C)$</span>. Lastly, we define the scope of <span>$x$</span>:</p>
+<p><span>$$\lambda x: A \subset B. \lambda y: B. \lambda z: A. y (x z): (A \subset B) \subset ((B \subset C) \subset (A \subset C))$$</span></p>
+<p>Source: assignment 1, question 1.</p>
+<div class="ui divider"></div>
+<p><span>$$((A \lor B) \subset C) \subset (A \subset C) \land (B \subset C)$$</span></p>
+<p>Our assumption is <span>$x:(A \lor B) \subset C$</span>. From this, we need to extract <span>$(A \subset C) \land (B \subset C)$</span>. Clearly we need to extract the left and right terms individually, then use <span>$\land I$</span>. Well, to get <span>$A \subset C$</span> is easy: if we have the assumption <span>$y:A$</span>, then we can use <span>$\lor I^l$</span> to get <span>$\text{inl}^A y: A \lor B$</span>. So we have</p>
+<p><span>$$\lambda y: A.\text{inl}^A y: A \subset (A \lor B)$$</span></p>
+<p>And if we apply <span>$x$</span> to the proof term for <span>$A \lor B$</span>, we get</p>
+<p><span>$$\lambda y: A. x (\text{inl}^A y): A \subset C$$</span></p>
+<p>Similarly, for the other branch, we have:</p>
+<p><span>$$\lambda z: B. x (\text{inr}^B z): B \subset C$$</span></p>
+<p>Then we just use <span>$\land I$</span> and close off the scope with <span>$\subset I$</span>:</p>
+<p><span>$$\lambda x: (A \lor B) \subset C. \langle \lambda y: A. x (\text{inl}^A y), \lambda z: B. x (\text{inr}^B z): B \subset C \rangle: ((A \lor B) \subset C) \subset (A \subset C) \land (B \subset C)$$</span></p>
+<p>Source: assignment 1, question 1.</p>
+<div class="ui divider"></div>
+<p><span>$$(A \subset C) \land (B \subset C) \subset (A \lor B) \subset C$$</span></p>
+<p>Let <span>$x = (A \subset C) \land (B \subset C)$</span>. Need to prove <span>$(A \lor B) \subset C$</span>. To do this, let <span>$y = A \lor B$</span>, from which we need to conclude <span>$C$</span>. It looks like we'll need to use <span>$\lor E$</span> somehow. </p>
+<p>First, suppose that <span>$A$</span> is true. How can we use this to conclude that <span>$C$</span> is true? Well, if <span>$z_1:A$</span>, then applying <span>$\text{fst}\, x: A \subset C$</span> to <span>$z_1$</span> will give us <span>$C$</span>:</p>
+<p><span>$$(\text{fst}\, x) z_1: C$$</span></p>
+<p>Similarly, for the other branch, suppose that <span>$z_2: B$</span> is true. Then, applying <span>$\text{snd}\, x: B \subset C$</span> to <span>$z_2$</span> will give us <span>$C$</span>:</p>
+<p><span>$$(\text{snd}\, x) z_2: C$$</span></p>
+<p>Now we can use <span>$\lor E$</span> to conclude <span>$C$</span>:</p>
+<p><span>$$\text{case}\,y\,\text{of inl}^A z_1 \to (\text{fst}\, x) z_1 \mid \text{inr}^B z_2 \to (\text{snd}\, x) z_2: C$$</span></p>
+<p>Next, we limit the scope of <span>$y$</span> using <span>$\subset I$</span>:</p>
+<p><span>$$\lambda y: A \lor B. \text{case}\,y\,\text{of inl}^A z_1 \to (\text{fst}\, x) z_1 \mid \text{inr}^B z_2 \to (\text{snd}\, x) z_2: (A \lor B) \subset C$$</span></p>
+<p>Finally, we limit the scope of <span>$x$</span>, again using <span>$\subset $</span>I$:</p>
+<p><span>$$\lambda x: (A \subset C) \land (B \subset C). \lambda y: A \lor B. \text{case}\,y\,\text{of inl}^A z_1 \to (\text{fst}\, x) z_1 \mid \text{inr}^B z_2 \to (\text{snd}\, x) z_2: (A \subset C) \land (B \subset C) \subset (A \lor B) \subset C$$</span></p>
+<p>Source: assignment 1, question 1.</p>
+<div class="ui divider"></div>
+<p>((A =&gt; B) &amp; (A | C)) =&gt; (B | C);</p>
+<p><span>$$((A \subset B) \land (A \lor C)) \subset (B \lor C)$$</span></p>
+<p>Let our assumption be <span>$x: (A \subset B) \land (A \lor C)$</span>. We need to conclude that <span>$B \lor C$</span>. Looks like we'll need to use <span>$\lor E$</span> on <span>$A \lor C$</span>. Well, if we assume <span>$y: A$</span>, then we can apply <span>$\text{fst}\, x: A \subset B$</span> to <span>$y$</span> using <span>$\subset E$</span> to get <span>$\text{fst}\, x y: B$</span>, from which we can use <span>$\lor I^l$</span> to get <span>$\text{inl}^B (\text{fst}\, x) y: B \lor C$</span>. For the other branch, it's even easier - if we assume <span>$z:C$</span>, then immediately we can do <span>$\lor I^r$</span> to get <span>$\text{inr}^C z: B \lor C$</span>. Thus we have</p>
+<p><span>$$\text{case} \, \text{snd}\, x \, \text{of inl}^A y \to \text{inl}^B (\text{fst}\, x) y \mid \text{inr}^C z \to \text{inr}^C: B \lor C$$</span></p>
+<p>Finally, we just need to localise <span>$x$</span>:</p>
+<p><span>$$\lambda x: (A \subset B)\land (A \lor C). \text{case} \, \text{snd}\, x \, \text{of inl}^A y \to \text{inl}^B (\text{fst}\, x) y \mid \text{inr}^C z \to \text{inr}^C z: ((A\subset B)\land (A\lor C)) \subset B \lor C$$</span></p>
+<p>Source: assignment 1, question 1.</p>
+<h2 class="header"><i>4</i>First-order logic<a class="headerlink" href="#first-order-logic" name="first-order-logic">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Universal quantification<a class="headerlink" href="#universal-quantification" name="universal-quantification">&para;</a></h3>
+<p><span>$$\text{Universal: } \forall x: \tau. A(x)$$</span></p>
+<p>where <span>$x$</span> is a term, <span>$\tau$</span> is a type, and <span>$A$</span> is a proposition.</p>
+<p><strong>Parametric assumptions</strong>: a new kind of assumption, based on type. Ex: <span>$a: \tau$</span>.</p>
+<h4 class="header"><i>4.1.1</i>Introduction and elimination rules<a class="headerlink" href="#introduction-and-elimination-rules_1" name="introduction-and-elimination-rules_1">&para;</a></h4>
+<p><strong>Introduction rule</strong>:</p>
+<p><span>$$\frac{\Gamma, a: \tau \vdash A(a)}{\forall x:\tau .A(x)} \, \forall I^a$$</span></p>
+<p><em>This is a bastardisation of the two possible notations I could have used. It would have taken too long to format it the way Pientka does. Sorry.</em></p>
+<p><strong>Elimination rule</strong>:</p>
+<p><span>$$\frac{\forall x:\tau.A(x) \qquad t:\tau}{A(t)} \, \forall E$$</span></p>
+<h4 class="header"><i>4.1.2</i>Local soundness and completeness<a class="headerlink" href="#local-soundness-and-completeness_1" name="local-soundness-and-completeness_1">&para;</a></h4>
+<p>Let's check local soundness and completeness for the rules we defined above.</p>
+<p><strong>Local soundness</strong></p>
+<p>Kind of obvious actually. Suppose we have <span>$x: \tau$</span>, and through derivation tree <span>$\mathcal D$</span> we can conclude <span>$A(x)$</span>. Use <span>$\forall I^u$</span> to get <span>$\forall x:\tau.A(x)$</span>. Then, use the fact that <span>$t: \tau$</span> (which we obtained through derivation tree <span>$\mathcal E$</span>) in conjunction with <span>$\forall E$</span> to get <span>$A(t)$</span>. This is equivalent to <span>$[t/x]\mathcal D$</span> on the right side. <span>$\blacksquare$</span>.</p>
+<p><strong>Local completeness</strong></p>
+<p>Starting from <span>$\forall x:\tau.A(x)$</span> (which we derive using <span>$\mathcal D$</span>), we use <span>$\forall E$</span> (along with the assumption <span>$a: \tau$</span>) to conclude <span>$A(a)$</span>. But then we can use <span>$\forall I^a$</span> directly to conclude that <span>$\forall x:\tau A(x)$</span>.</p>
+<h3 class="header"><i>4.2</i>Existential quantification<a class="headerlink" href="#existential-quantification" name="existential-quantification">&para;</a></h3>
+<p><span>$$\text{Existential: } \exists x: \tau A(x)$$</span></p>
+<h4 class="header"><i>4.2.1</i>Introduction and elimination rules<a class="headerlink" href="#introduction-and-elimination-rules_2" name="introduction-and-elimination-rules_2">&para;</a></h4>
+<p><strong>Introduction rule</strong>:</p>
+<p><span>$$\frac{A(t) \qquad t:\tau}{\exists x:\tau.A(x)} \, \exists I$$</span></p>
+<p><strong>Elimination rule</strong>:</p>
+<p><span>$$\frac{\Gamma \vdash \exists x:\tau A(x) \qquad \Gamma, a:\tau, \overline{A(a)}^u \vdash C}{C} \, \exists E^{a, u}$$</span></p>
+<h3 class="header"><i>4.3</i>Universal and existential proofs<a class="headerlink" href="#universal-and-existential-proofs" name="universal-and-existential-proofs">&para;</a></h3>
+<p><span>$$(\forall x:\tau .P(x) \land Q(x)) \subset (\forall x:\tau.P(x)) \land (\forall x:\tau.Q(x))$$</span></p>
+<p>As usual, we work from the bottom. First, we use <span>$\subset I^u$</span> with <span>$u=\forall x:\tau.P(x) \land Q(x)$</span>; we need to get <span>$(\forall x:\tau.P(x)) \land (\forall x:\tau.Q(x))$</span>. We can get this using <span>$\land I$</span> on <span>$\forall x:\tau.P(x)$</span> and <span>$\forall x:\tau.Q(x)$</span>. To get <span>$\forall x:\tau.P(x)$</span>, we use <span>$\forall I^a$</span> with <span>$a:\tau$</span>; similarly, to get <span>$\forall x: \tau.Q(x)$</span>, we use <span>$\forall I^b$</span> with <span>$b:\tau$</span>. Then, working down from the top, we have two branches: for the first, use <span>$\forall E$</span> with <span>$a:\tau$</span> and <span>$u$</span> to get <span>$P(A) \land Q(a)$</span>, then use <span>$\land E_l$</span> to get <span>$P(a)$</span> true, and use <span>$\forall I^a$</span> to get <span>$\forall x:\tau.P(x)$</span>. For the second branch, it's the same except with <span>$b: \tau$</span>, and we use <span>$\land E_r$</span> instead to get <span>$Q(b)$</span>, then <span>$\forall I^b$</span> to get <span>$\forall x:\tau.Q(x)$</span>.</p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p><span>$$\exists x:\tau.\neg A(x) A(x) \subset \neg \forall x:\tau .A(x)$$</span></p>
+<p>Proof is in the notes, and it's pretty straightforward, except for the fact that she seems to use a <span>$\neg I$</span> rule that is never explained anywhere. Also, there are some pretty confusing typos - the second <span>$u$</span> in the proof tree (from the left) is actually supposed to be a <span>$w$</span>, and the <span>$\subset I^w$</span> looks like it's supposed to be a <span>$\neg I^w$</span>, even though <span>$\neg I$</span> isn't defined anywhere. I don't know. My guess is <span>$\neg I$</span> would be defined as follows:</p>
+<p><span>$$\frac{\Gamma, P \vdash \bot}{\Gamma \vdash \neg P}\, \neg I$$</span></p>
+<p>Source: Pientka's notes.</p>
+<div class="ui divider"></div>
+<p>There are lots of other examples in assignment 2 (exercises 1 and 2) but they're all pretty much the same so I'm not going to go through them.</p>
+<h3 class="header"><i>4.4</i>Explicit contexts<a class="headerlink" href="#explicit-contexts" name="explicit-contexts">&para;</a></h3>
+<p>That's when we put in the <span>$\Gamma$</span>s. Whatever.</p>
+<h3 class="header"><i>4.5</i>Structural properties<a class="headerlink" href="#structural-properties" name="structural-properties">&para;</a></h3>
+<ol>
+<li>Weakening: extra assumptions don't matter.</li>
+<li>Exchange: the order of the assumptions does not matter.</li>
+<li>Strengthening: if an assumption was not used in the proof, we can remove it.</li>
+<li>Substitution:<ul>
+<li>If <span>$\Gamma, u:A \vdash J$</span> and <span>$\Gamma \vdash A$</span> then <span>$\Gamma \vdash J$</span>.</li>
+<li>If <span>$\Gamma, x:\tau \vdash J$</span> and <span>$\Gamma \vdash t:\tau$</span> then <span>$\Gamma \vdash [t/x]J$</span>.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>4.6</i>Proof by structural induction<a class="headerlink" href="#proof-by-structural-induction" name="proof-by-structural-induction">&para;</a></h3>
+<p>Given some theorem, we prove it by induction on the height of the proof tree (i.e., derivation) for some term. For the base cases (and there may be multiple), we consider how that term may have been introduced. Either it was introduced via <span>$\top I$</span>, or it was an assumption, or it's in one of the contexts. Usually the base cases are trivial.</p>
+<p>For the step case, we use the IH to assume that the property holds for smaller derivations. We have to prove the step case for every possible introduction/elimination rule, using any of the intro/elim rules in our arsenal, in addition to the assumptions and the IH. Pretty straightforward.</p>
+<h4 class="header"><i>4.6.1</i>The substitution lemma<a class="headerlink" href="#the-substitution-lemma" name="the-substitution-lemma">&para;</a></h4>
+<p><span>$$\Gamma, x:A, \Gamma' \vdash M:B \text{ and } \Gamma \vdash N:A \implies \Gamma, \Gamma'\vdash [N/x]M:B$$</span></p>
+<p>We can prove this by structural induction on the first derivation, <span>$\mathcal D$</span>. We can ignore the proof terms here, and thus rewrite it as follows (for simplicity, and to avoid a clash of variables)</p>
+<p><span>$$\overbrace{\underbrace{\Gamma, x:A, \Gamma' \vdash C}_{\text{induct on this}}}^{\mathcal D} \text{ and } \Gamma \vdash A \implies \Gamma, \Gamma'\vdash C$$</span></p>
+<p>For example, here's how to prove the induction step for the intro/elim rules for the <span>$\equiv$</span> connective (from assignment 2, exercise 3, task 3):</p>
+<p><strong>Introduction rule</strong></p>
+<p>Suppose the last line of <span>$\mathcal D$</span> was derived using <span>$\equiv I$</span>, i.e., <span>$C = B_1 \equiv B_2$</span>. Thus we have:</p>
+<p><span>$$\mathcal D= \frac{\Gamma, x:A, \Gamma', u:B_2 \vdash B_1 \qquad \Gamma, x:A, \Gamma', v:B_1 \vdash B_2}{\Gamma, x:A, \Gamma' \vdash B_1 \equiv B_2} \, \equiv I^{u, v}$$</span></p>
+<p>Now we need to prove that <span>$\Gamma, \Gamma' \vdash B_1 \equiv B_2$</span>.</p>
+<p><span>$$\begin{align}
+&amp; \Gamma \vdash A \tag{by assumption} \\
+&amp; \Gamma, \Gamma', u:B_2 \vdash B_1 \tag{by i.h. on left subtree} \\
+&amp; \Gamma, \Gamma', v:B_1 \vdash B_2 \tag{by i.h. on right subtree} \\
+&amp; \Gamma, \Gamma' \vdash B_1 \equiv B_2 \; \blacksquare \tag{by $\equiv I^{u, v}$}
+\end{align}$$</span></p>
+<p><strong>Left elimination rule</strong></p>
+<p>Suppose the last line of <span>$\mathcal D$</span> was derived using <span>$\equiv E_l$</span>, i.e., <span>$C = B_2$</span>, where we have <span>$B_1 \equiv B_2$</span> being eliminated. Thus we have:</p>
+<p><span>$$\mathcal D= \frac{\Gamma, x:A, \Gamma' \vdash B_1 \equiv B_2 \qquad \Gamma, x:A, \Gamma' \vdash B_1}{\Gamma, x:A, \Gamma' \vdash B_2} \, \equiv E_l$$</span></p>
+<p>Now we need to prove that <span>$\Gamma, \Gamma' \vdash B_2$</span>.</p>
+<p><span>$$\begin{align}
+&amp; \Gamma \vdash A \tag{by assumption} \\
+&amp; \Gamma, \Gamma' \vdash B_1 \equiv B_2 \tag{by i.h. on left subtree} \\
+&amp; \Gamma, \Gamma' \vdash B_1 \tag{by i.h. on right subtree} \\
+&amp; \Gamma, \Gamma' \vdash B_2 \tag{by $\equiv E_l$}
+\end{align}$$</span></p>
+<p>The right elimination rule is similar, just using <span>$\equiv E_r$</span> instead of <span>$\equiv E_l$</span>.</p>
+<h4 class="header"><i>4.6.2</i>Type uniqueness<a class="headerlink" href="#type-uniqueness" name="type-uniqueness">&para;</a></h4>
+<p>Suppose we want to prove that if <span>$\Gamma \vdash M:A$</span> and <span>$\Gamma \vdash M:B$</span> then <span>$A = B$</span>. We can do this by structural induction on the first derivation (i.e., <span>$\Gamma \vdash M:A$</span>). For the base case, I think we only need to consider <span>$\top I$</span>, since that's the only rule with an empty derivation tree above it. So</p>
+<p><span>$$\mathcal D = \frac{}{\Gamma \vdash (): \top}\,\top I$$</span></p>
+<p>So <span>$M = ()$</span> and <span>$A = \top$</span>. But the only way to get <span>$()$</span> as a proof term is using <span>$\top I$</span>. Thus <span>$B = \top$</span>, and so <span>$A = B$</span>. <span>$\checkmark$</span></p>
+<p>For the step case, we would need to use the i.h. prove that the theorem holds for <em>every</em> introduction/elimination rule we have. There are a bunch, so proving this would take a while, but it's pretty straightforward; they all follow the same idea. I'm only going to show the introduction rule for <span>$\subset$</span>.</p>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\mathcal D = \frac{\overbrace{\Gamma, u: C_1\vdash N: C_2}^{\mathcal D'}}{\Gamma \vdash \lambda u:C_1.N:C_1 \subset C_2}\, \subset I^u$$</span></p>
+<p>So <span>$M$</span> from the theorem is <span>$\lambda u:C_1.N$</span>, where <span>$N$</span> is of type <span>$C_2$</span> and <span>$A = C_1 \subset C_2$</span>. Consider what other rules produce terms of the form <span>$\lambda u:C_1.N$</span> for some <span>$C_1$</span> and some <span>$N$</span>. Well, this can only be done by the rule <span>$\subset I$</span>. So suppose we have another way of deriving something of the form <span>$\lambda u:C_1.N:C_1\subset C_2$</span>, with potentially different values for <span>$C_1$</span> and <span>$C_2$</span>. We'll call this <span>$\mathcal E = \lambda u: C_1'.N:C_1' \subset C_2'$</span>. By inverting <span>$\subset I$</span> on <span>$\mathcal E$</span>, we have <span>$\mathcal E' = \Gamma, u:C_1' \vdash N:C_2'$</span> (i.e., the previous term in the derivation of <span>$\mathcal E$</span>).</p>
+<p>Now, by the induction hypothesis, it must be that <span>$\mathcal E'$</span> is equal to <span>$\mathcal D' = \Gamma, u:C_1 \vdash N:C_2$</span>. Then, if we apply <span>$\subset I^u$</span> directly, we get <span>$\Gamma \vdash \lambda u:C_1.N:C_1 \subset C_2$</span>. So <span>$\mathcal E = \mathcal D$</span>, and thus <span>$A = B$</span>, as desired. <span>$\blacksquare$</span></p>
+<p><em>The model solutions provided use the same variable names for very different things, which is probably valid but which can be very confusing. The proofs above make use of fresh variables where necessary, for clarity.</em></p>
+<p>Source: assignment 2, exercise 4.</p>
+<h3 class="header"><i>4.7</i>Proof terms for quantifiers<a class="headerlink" href="#proof-terms-for-quantifiers" name="proof-terms-for-quantifiers">&para;</a></h3>
+<p>For <span>$\exists$</span>, the introduction rule overloads the notation we used for <span>$\land$</span>: <span>$\langle M, t \rangle$</span> where <span>$t: \tau$</span> is the "witness" (i.e., the object of type <span>$\tau$</span> for which <span>$M:A$</span> holds). The elimination rule is <span>$\text{let} \langle u, a \rangle = M \text{ in } N$</span> where <span>$u: A(a)$</span>, <span>$a : \tau$</span>, <span>$M$</span> is the proof for <span>$\exists x:\tau . A(x)$</span> and <span>$N$</span> is the thing we want to prove.</p>
+<h4 class="header"><i>4.7.1</i>Existential proof terms<a class="headerlink" href="#existential-proof-terms" name="existential-proof-terms">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M:A(t) \qquad \Gamma \vdash t:\tau}
+{\Gamma \vdash \langle M, t \rangle : \exists x:\tau.A(x)} \,
+\exists I$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M:\exists x:\tau.A(x) \qquad \Gamma, a:\tau, u:A(a)\vdash N:C}
+{\Gamma \vdash \text{let } \langle u, a \rangle = M \text{ in } N: C}\,
+\exists E^{a, u}$$</span></p>
+<p><strong>Annotated reduction rule</strong></p>
+<p><span>$$\text{let } \langle u, a \rangle = \langle M, t \rangle \text{ in } N \implies [M/u][t/a]N$$</span></p>
+<p>I think there's a typo in Pientka's notes - she uses <span>$M$</span> as the last term above, but I'm pretty sure it should be an <span>$N$</span>.</p>
+<h4 class="header"><i>4.7.2</i>Universal proof terms<a class="headerlink" href="#universal-proof-terms" name="universal-proof-terms">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma, a:\tau \vdash M:A(a)}{\Gamma \vdash \lambda a:\tau .M:\forall x:\tau.A(x)} \, \forall I^a$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma \vdash M: \forall x:\tau.A(x) \qquad \Gamma \vdash t:\tau}{\Gamma \vdash M t : A(t)} \, \forall E$$</span></p>
+<p><strong>Annotated reduction rule</strong>:</p>
+<p><span>$$(\lambda a:\tau.M)t \implies [t/a]M$$</span></p>
+<h3 class="header"><i>4.8</i>Meta-theoretic properties<a class="headerlink" href="#meta-theoretic-properties" name="meta-theoretic-properties">&para;</a></h3>
+<p>Reduction doesn't always take place at the top level - sometimes we want to apply a reduction rule to a redex (i.e., something that can be reduced by a rule) buried within a term.</p>
+<p>To allow this, we create <strong>congruence rules</strong>. These rules are non-deterministic, and it's pretty obvious how they work once you see a few. For instance, for <span>$\langle M, N \rangle$</span>, we have the following two congruence rules:</p>
+<p><span>$$\frac{M \implies M'}{\langle M, N \rangle \implies \langle M', N \rangle}
+\qquad
+\frac{N \implies N'}{\langle M, N \rangle \implies \langle M, N' \rangle}
+$$</span></p>
+<h4 class="header"><i>4.8.1</i>Subject reduction<a class="headerlink" href="#subject-reduction" name="subject-reduction">&para;</a></h4>
+<p><span>$$\text{If } \overbrace{M \implies_R M'}^{\mathcal D} \text{ and } \Gamma \vdash M:C \text{ then } \Gamma\vdash M':C$$</span></p>
+<p>Can prove this by structural induction on <span>$\mathcal D = M \implies_R M'$</span>. The base cases are the reduction rules for each redex. Here's an example using the <span>$\equiv$</span> connective we defined earlier. Recall that our reduction rules are</p>
+<p><span>$$\text{iff}_L([u.M, v.N], S) \implies [S/u]M \qquad \text{and} \qquad
+\text{iff}_R([u.M, v.N], S) \implies [S/v]N$$</span></p>
+<p>Note that when we use elimination rules below, we're kind of reasoning backwards (upwards). As in, if we have some term, we must have the terms that led to that term in the derivation tree using an elimination rule. So we can apply the rules backwards (upwards).</p>
+<p>Also keep in mind the substitution lemma: if <span>$\Gamma, u:A \vdash M: B$</span>, and <span>$\Gamma \vdash N: A$</span>, then <span>$\Gamma \vdash [N/u] M: B$</span>. (I think that's right.)</p>
+<p><span>$$\begin{align}
+&amp; \Gamma \vdash \text{iff}_L([u.M, v.N], S):C \tag{by assumption} \\
+&amp; \Gamma \vdash [u.M, v.N]: B \equiv C \\
+&amp; \Gamma \vdash S:B \tag{both by $\equiv E_l$, reasoning backwards} \\
+&amp; \Gamma, u:B \vdash M: C \tag{by $\equiv I^{u, v}$, reasoning backwards} \\
+&amp; \Gamma \vdash [S/u]M: C \tag{by substitution lemma}
+\end{align}$$</span></p>
+<p>For the other reduction rule, it's pretty similar:</p>
+<p><span>$$\begin{align}
+&amp; \Gamma \vdash \text{iff}_R([u.M, v.N], S):C \tag{by assumption} \\
+&amp; \Gamma \vdash [u.M, v.N]: C \equiv B \\
+&amp; \Gamma \vdash S:B \tag{both by $\equiv E_r$, reasoning backwards} \\
+&amp; \Gamma, v:B \vdash M: C \tag{by $\equiv I^{u, v}$, reasoning backwards} \\
+&amp; \Gamma \vdash [S/v]M: C \tag{by substitution lemma}
+\end{align}$$</span></p>
+<h4 class="header"><i>4.8.2</i>Subject expansion<a class="headerlink" href="#subject-expansion" name="subject-expansion">&para;</a></h4>
+<p>Same deal, except with the expansion rules.</p>
+<p><span>$$\text{If } \overbrace{M \implies_E M'}^{\mathcal D} \text{ and } \Gamma \vdash M:C \text{ then } \Gamma\vdash M':C$$</span></p>
+<p>Again, we can prove this by structural induction on <span>$\mathcal D = M \implies_E M'$</span>. The base cases are the expansion rules. Here's an example using the <span>$\equiv$</span> connective. Recall that our expansion rule is</p>
+<p><span>$$\mathcal D = M \implies_E [u.\text{iff}_R(M, u), v.\text{iff}_L(M, v)] $$</span></p>
+<p>which gives something of type <span>$A \equiv B$</span>. Then, we just apply intro/elim rules in the standard order (i.e., downwards/forwards) until we get <span>$\Gamma \vdash M':C$</span>, where <span>$C = A \equiv B$</span>:</p>
+<p><span>$$\begin{align}
+&amp; \Gamma \vdash M: A \equiv B \tag{by assumption} \\
+&amp; \Gamma, u:B \vdash \text{iff}_R(M, u): A \tag{by $\equiv E_r$} \\
+&amp; \Gamma, v:A \vdash \text{iff}_L(M, v): B \tag{by $\equiv E_l$} \\
+&amp; \Gamma \vdash [u.\text{iff}_R(M, u), v.\text{iff}_L(M, v)]: A \equiv B \tag{by $\equiv I^{u, v}$}
+\end{align}$$</span></p>
+<p>(I'm pretty sure there's a typo in the provided assignment solutions ... looks like <span>$\equiv E_l$</span> and <span>$\equiv E_r$</span> were swapped. Not a huge deal though, the rest of the reasoning seems right.)</p>
+<h2 class="header"><i>5</i>Induction<a class="headerlink" href="#induction" name="induction">&para;</a></h2>
+<h3 class="header"><i>5.1</i>The natural numbers<a class="headerlink" href="#the-natural-numbers" name="the-natural-numbers">&para;</a></h3>
+<p><span>$$\frac{}{z: \text{nat}} \, \text{nat} \, I_z \qquad \frac{t: \text{nat}}{\text{suc}\,t: \text{nat}} \, \text{nat} I_{\text{suc}}$$</span></p>
+<h3 class="header"><i>5.2</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h3>
+<p>We can use induction to prove <span>$A(t)$</span> for all <span>$t:\text{nat}$</span>.</p>
+<p>The base case is that <span>$A(z)$</span> holds. The i.h. is that for any <span>$n:\text{nat}$</span>, <span>$A(n)$</span> holds. Then, for the induction step, we need to prove that <span>$A(\text{suc} \,n)$</span> holds.</p>
+<p>Formally, we have:</p>
+<p><span>$$\frac{\Gamma \vdash t: \text{nat} \qquad \Gamma \vdash A(z) \qquad \Gamma, n:\text{nat}, \text{ih}: A(n) \vdash A(\text{suc}\,n)}{\Gamma \vdash A(t)}\, \text{nat}\, E^{n, \text{ih}}$$</span></p>
+<h4 class="header"><i>5.2.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Here's an example. Let <span>$A(x)$</span> be defined as follows:</p>
+<p><span>$$A(x) = x \leq x$$</span></p>
+<p>where <span>$\leq$</span> is defined inductively, by the following rules:</p>
+<ul>
+<li><span>$\text{le_z}$</span>: <span>$\forall x:\text{nat}. z \leq x$</span></li>
+<li><span>$\text{le_suc}$</span>: <span>$\forall x:\text{nat}.\forall y:\text{nat}. x \leq y \subset \text{suc }x \leq \text{suc }y$</span></li>
+</ul>
+<p>We want to prove that <span>$\Gamma \vdash \forall t:\text{nat} A(t)$</span>. To do so, we first need to prove the base case.  Well, by using <span>$\text{le_z}$</span>, and <span>$\text{nat}_z$</span>, then applying <span>$\forall E$</span> on the results, we have that <span>$z \leq z$</span> <span>$\checkmark$</span>.</p>
+<p>Now for the induction step. Using <span>$\text{le_suc}$</span> and an arbitrary witness <span>$n:\text{nat}$</span>, we can apply <span>$\forall E$</span> on <span>$x$</span> to get</p>
+<p><span>$$\forall y:\text{nat}.n \leq y \subset \text{suc }n \leq \text{suc y}$$</span></p>
+<p>Using the same witness <span>$n$</span>, we can apply <span>$\forall E$</span> again, but this time on <span>$y$</span>, to get</p>
+<p><span>$$n \leq n \subset \text{suc }n \leq \text{suc }n$$</span></p>
+<p>But by the induction hypothesis, <span>$n \leq n$</span>. Thus we can use <span>$\subset E$</span> on the i.h. to get</p>
+<p><span>$$\text{suc }n \leq \text{suc }n$$</span></p>
+<p>as desired. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>5.2.2</i>Proof terms<a class="headerlink" href="#proof-terms_1" name="proof-terms_1">&para;</a></h4>
+<p>Here's the induction rule again, this time annotated with proof terms (representing a recursive program):</p>
+<p><span>$$\frac{\Gamma \vdash t: \text{nat} \qquad \Gamma \vdash M_z A(z) \qquad \Gamma, n:\text{nat}, f n: A(n) \vdash M_{\text{suc}} A(\text{suc}\,n)}{\Gamma \vdash \text{rec}^{\forall x:\text{nat}.A(x)} t \text{ with } f z \to M_z \mid f (\text{suc }n) \to M_{\text{suc}} : A(t)}\, \text{nat}\, E^{n, \text{f n}}$$</span></p>
+<h5 class="header"><i>5.2.2.1</i>Reduction rules<a class="headerlink" href="#reduction-rules" name="reduction-rules">&para;</a></h5>
+<p>For the <span>$z$</span> rule:</p>
+<p><span>$$\text{rec}^A z \text{ with } f z \to M_z \mid f(\text{suc }n) \to M_{\text{suc}} \implies_R M_z$$</span></p>
+<p>For the successor rule:</p>
+<p><span>$$\text{rec}^A (\text{suc }t) \text{ with } f z \to M_z \mid f(\text{suc }n) \to M_{\text{suc}} \implies [t/n][r / fn]M_{\text{suc}}$$</span></p>
+<p>where <span>$r = \text{rec}^A t \text{ with } f z \to M_z \mid f(\text{suc }n) \to M_{\text{suc}}$</span> (i.e., the recursive call).</p>
+<h5 class="header"><i>5.2.2.2</i>Congruence rules<a class="headerlink" href="#congruence-rules" name="congruence-rules">&para;</a></h5>
+<p>For <span>$N_z$</span>:</p>
+<p><span>$$\frac{N_Z \implies N_z'}{\text{rec}^A (\text{suc }t) \text{ with } f z \to N_z \mid f(\text{suc }n) \to N_{\text{suc}} \implies \text{rec}^A (\text{suc }t) \text{ with } f z \to N_z' \mid f(\text{suc }n) \to N_{\text{suc}}}$$</span></p>
+<p>For <span>$N_{\text{suc}}$</span>:</p>
+<p><span>$$\frac{N_{\text{suc}} \implies N_{\text{suc}}'}{\text{rec}^A (\text{suc }t) \text{ with } f z \to N_z \mid f(\text{suc }n) \to N_{\text{suc}} \implies \text{rec}^A (\text{suc }t) \text{ with } f z \to N_z \mid f(\text{suc }n) \to N_{\text{suc}}'}$$</span></p>
+<h5 class="header"><i>5.2.2.3</i>Subject reduction<a class="headerlink" href="#subject-reduction_1" name="subject-reduction_1">&para;</a></h5>
+<p>To prove that subject reduction holds, we just do the same thing we did before. For the base case, get the assumption, use inversion on the assumption (using the induction rule) to get the relevant 3 terms. Then invert <span>$\text{nat} I_{\text{suc}}$</span> on <span>$\text{suc }t$</span> to get <span>$t:\text{nat}$</span>. Then use the induction rule to get something we can use the substitution lemma on (twice).</p>
+<p>For the step case, get the assumption, use inversion on the induction rule, then the induction hypothesis, then the induction rule again.</p>
+<h4 class="header"><i>5.2.3</i>Successor existence proof<a class="headerlink" href="#successor-existence-proof" name="successor-existence-proof">&para;</a></h4>
+<p>Here's another example proof:</p>
+<p><span>$$\forall x:\text{nat}.\neg(x = z) \subset \exists y:\text{nat}.\text{suc }y = x$$</span></p>
+<p>We define equality as follows (using reflexivity):</p>
+<p><span>$$\text{ref }: \forall x:\text{nat}.x = x$$</span></p>
+<p>As usual, we prove this using induction (on <span>$x$</span>). For the base case, we have both <span>$u=\neg (z = z)$</span> and <span>$z = z$</span>, by ref; obviously this is a contradiction, so we get <span>$\bot$</span>, from which we can conclude anything; in this case we conclude <span>$\exists y:\text{nat}.\text{suc }y = z$</span>. Then we just use <span>$\subset I^u$</span>.</p>
+<p>For the step case, we have <span>$\text{suc n} = \text{suc n}$</span> (by ref) and also that <span>$n: \text{nat}$</span>. Using <span>$n$</span> as a witness, we use <span>$\exists I$</span> to get <span>$\exists y:\text{nat}.\text{suc }y = \text{suc }n$</span>. Then we just use <span>$\subset I^u$</span> where <span>$u = \neg (\text{suc }n=z)$</span> is an assumption we don't actually need to use. So we don't even need to use the induction hypothesis for this proof.</p>
+<p>Incidentally, the proof terms for this function give us a program give us the predecessor function.</p>
+<h3 class="header"><i>5.3</i>Defining terms<a class="headerlink" href="#defining-terms" name="defining-terms">&para;</a></h3>
+<p>idk, is this important?</p>
+<h3 class="header"><i>5.4</i>Lists<a class="headerlink" href="#lists" name="lists">&para;</a></h3>
+<p><span>$$\frac{}{\text{nil}: \text{list}} \qquad \qquad \frac{h:\text{nat} \qquad l:\text{list}}{\text{cons} h l:\text{nat}}$$</span></p>
+<p>Here's the induction rule for lists:</p>
+<p><span>$$\frac{\Gamma \vdash s: \text{list} \qquad \Gamma \vdash A(\text{nil}) \qquad \Gamma, n:\text{nat}, t:\text{list}, \text{ih}:A(t) \vdash A(\text{cons } n t)}
+{\Gamma \vdash A(s)}
+\, \text{list} E^{n, t, \text{ih}}$$</span></p>
+<p>Not going to write the annotated version as it'll take forever, but you can figure it out pretty easily.</p>
+<h4 class="header"><i>5.4.1</i>Keeping track of length<a class="headerlink" href="#keeping-track-of-length" name="keeping-track-of-length">&para;</a></h4>
+<p><span>$$\frac{}{\text{nil}:\text{list}\, z} \qquad
+\frac{h:\text{nat} \qquad l:\text{list}\,n}{\text{cons } \{n\} h l: \text{list} \,\text{suc }n}$$</span></p>
+<p>Induction rule (only going to write it out informally because the formal definition as an elimination rule is too long):</p>
+<ol>
+<li><span>$n$</span> is of type nat, <span>$l$</span> is of type list and has length <span>$n$</span>.</li>
+<li>Establish the base case (that <span>$A(z, \text{nil})$</span> holds).</li>
+<li>Establish the step case - for any <span>$m:\text{nat}$</span>, <span>$h:\text{nat}$</span> and <span>$t:\text{list }m$</span>, assume <span>$A(m, t)$</span> holds (i.e., the ih) and prove that <span>$A(m, \text{cons} \{m \} h t)$</span> holds as well.</li>
+</ol>
+<h4 class="header"><i>5.4.2</i>Example predicates<a class="headerlink" href="#example-predicates" name="example-predicates">&para;</a></h4>
+<p>Sorted, which takes a list and returns true if the elements are in increasing order:</p>
+<p><span>$$\frac{\,}{\text{sorted nil}}\,\text{sorted_nil}$$</span></p>
+<p><span>$$\frac{\text{sorted cons(N, L)} \qquad \text{M} \leq {N}}
+{\text{sorted cons(M, cons(N, L)}} \,\text{sorted_cons}
+$$</span></p>
+<p>Source: assignment 3, exercise 1.</p>
+<div class="ui divider"></div>
+<p>Member, which takes in a list and an element and return true if that element is in the list:</p>
+<p><span>$$\frac{\,}{\text{member N cons(N, L)}}\,\text{member_cons}$$</span></p>
+<p><span>$$\frac{\text{member N L}}{\text{member N cons(M, L)}}\,\text{member_trans}$$</span></p>
+<p>Source: assignment 3, exercise 1</p>
+<div class="ui divider"></div>
+<p>Insert: omitted cus the specification is weird and there's no point</p>
+<p>Source: assignment 3, exercise 1</p>
+<h4 class="header"><i>5.4.3</i>Proving predicates<a class="headerlink" href="#proving-predicates" name="proving-predicates">&para;</a></h4>
+<p>The length-tracking list type proposed above is really just a list predicate. Let's generalise this to reason about predicates in general, using our <span>$\leq$</span> example from earlier (and turning it into a predicate with the following rules):</p>
+<p><span>$$\frac{}{z \leq X}\, \text{le_z} \qquad \frac{X \leq Z}{\text{suc }X \leq \text{suc }Y} \, \text{le_suc}$$</span></p>
+<p>We can prove the transivity of <span>$\leq$</span> using structural induction on <span>$\mathcal D: M \leq N$</span>:</p>
+<p><span>$$\text{If } M \leq N \text{ and } N \leq K \text{ then } M \leq K$$</span></p>
+<p>For the base case, we have</p>
+<p><span>$$\mathcal D = \frac{}{z \leq X} \,\text{le_z}$$</span></p>
+<p>We need to show that if <span>$z \leq X$</span> and <span>$X \leq K$</span>, then <span>$z \leq K$</span> for any <span>$K$</span>. But this follows immediately from <span>$\text{le_z}$</span> if we just have <span>$K$</span> instead of <span>$X$</span> in the conclusion. <span>$\checkmark$</span></p>
+<p>For the step case, we have:</p>
+<p><span>$$\mathcal D = \frac{\overbrace{X \leq Y}^{\mathcal D_1}}{\text{suc }X \leq \text{suc }Y}\,\text{le_suc}$$</span></p>
+<p>We assume the induction hypothesis: if <span>$X \leq Y$</span> and <span>$Y \leq K$</span> then <span>$X \leq K$</span>. We need to prove if that <span>$\text{suc }X \leq \text{suc }Y$</span>, and <span>$\text{suc }Y \leq \text{suc }K$</span>, then <span>$\text{suc }X \leq \text{suc }K$</span>. (I think it's equivalent to not having the <span>$\text{suc}$</span> in front of the <span>$K$</span>, which was my initial instinct? Just easier to prove maybe?)</p>
+<p>Well, by <span>$\mathcal D_1$</span>, we have that <span>$X \leq Y$</span>. Then by the induction hypothesis, <span>$X \leq K$</span>. Finally, we if apply <span>$\text{le_suc}$</span> to that, we get <span>$\text{suc }X \leq \text{suc }K$</span>, as desired.</p>
+<p>If we wanted to prove this more formally, using the actual induction rule, but it's pretty tedious so <a href="http://fuckit.coffee" title="If .bel was a gTLD I would bought that too">fuckit.bel</a>.</p>
+<h2 class="header"><i>6</i>Sequent calculus<a class="headerlink" href="#sequent-calculus" name="sequent-calculus">&para;</a></h2>
+<p><strong>Normal derivations</strong>: derivations which do not admit detours.</p>
+<p><strong>Annotating natural deduction rules</strong> means to put in the arrows and shit.</p>
+<h3 class="header"><i>6.1</i>Normal and neutral terms<a class="headerlink" href="#normal-and-neutral-terms" name="normal-and-neutral-terms">&para;</a></h3>
+<p>For a proof term to be in normal form, it must contain a redex (subterm that can be reduced).</p>
+<p>A neutral proof term CANNOT BE REDUCED</p>
+<p>Introduction rules give us normal derivations</p>
+<p><strong>List of normal terms</strong></p>
+<ul>
+<li><span>$\lambda x:A.M$</span> where <span>$M$</span> is normal</li>
+<li><span>$\langle M, N \rangle$</span> where <span>$M$</span> and <span>$N$</span> are normal</li>
+<li><span>$()$</span></li>
+<li>any neutral term (defined below)</li>
+</ul>
+<p>We write <span>$M:A \uparrow$</span> to indicate that <span>$A$</span> has a normal deduction, described by the normal term <span>$M$</span>.</p>
+<p><strong>List of neutral terms</strong></p>
+<ul>
+<li><span>$x$</span></li>
+<li><span>$\text{fst } R$</span> where <span>$R$</span> is neutral</li>
+<li><span>$\text{snd } R$</span> where <span>$R$</span> is neutral</li>
+<li><span>$R\,N$</span> where <span>$R$</span> is neutral and <span>$N$</span> is normal</li>
+</ul>
+<p>We write <span>$M:A \downarrow$</span> to indicate that <span>$A$</span> is extracted from a hypothesis, described by the neutral term <span>$R$</span>. All assumptions will be of this form.</p>
+<h3 class="header"><i>6.2</i>Rules<a class="headerlink" href="#rules" name="rules">&para;</a></h3>
+<h4 class="header"><i>6.2.1</i>Hypothesis<a class="headerlink" href="#hypothesis" name="hypothesis">&para;</a></h4>
+<p><span>$$
+\frac{}{\Gamma^{\downarrow}_1, u:A \downarrow, \Gamma^{\downarrow}_2 \vdash u:A \downarrow}_u
+$$</span></p>
+<p>This just says that from a list of assumptions, we can extract one.</p>
+<h4 class="header"><i>6.2.2</i>Coercion<a class="headerlink" href="#coercion" name="coercion">&para;</a></h4>
+<p><span>$$
+\frac{\Gamma^{\downarrow} \vdash R:A \downarrow}{\Gamma^{\downarrow} \vdash R:A \uparrow}\, \downarrow\uparrow
+$$</span></p>
+<p>In other words, every neutral term is a normal term.</p>
+<h4 class="header"><i>6.2.3</i>Conjunction<a class="headerlink" href="#conjunction_3" name="conjunction_3">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash M:A\uparrow \qquad \Gamma^{\downarrow} \vdash N:B \uparrow}{\Gamma^{\downarrow} \vdash \langle M, N \rangle: A \land B \uparrow} \, \land I$$</span></p>
+<p><strong>Elimination rules</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash R:A \land B\downarrow}{\Gamma^{\downarrow} \vdash \text{fst } R: A \downarrow}\, \land E_l \qquad \frac{\Gamma^{\downarrow} \vdash R:A \land B \downarrow}{\Gamma^{\downarrow} \vdash \text{snd }&lt;:B \downarrow}\, \land E_r$$</span></p>
+<p>Alternatively, if the rule were</p>
+<p><span>$$\frac{\Gamma \vdash A \land B \qquad \Gamma, u:A, v:B \vdash C}{\Gamma \vdash C}\, E^{u, v}$$</span></p>
+<p>then the rule with arrows would be</p>
+<p><span>$$\frac{\Gamma^\downarrow \vdash A \land B \downarrow \qquad \Gamma^\downarrow, u:A \downarrow, v: B \downarrow \vdash C \uparrow}{\Gamma^\downarrow \vdash C \uparrow} \, \land E^{u, v}$$</span></p>
+<p>Source: assignment 4, exercise 1</p>
+<h4 class="header"><i>6.2.4</i>Truth<a class="headerlink" href="#truth_2" name="truth_2">&para;</a></h4>
+<p><span>$$\frac{}{\Gamma^{\downarrow} \vdash ():\top \uparrow}\, \top I$$</span></p>
+<h4 class="header"><i>6.2.5</i>Implication<a class="headerlink" href="#implication_3" name="implication_3">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow}, u:A \downarrow \vdash M:B \uparrow}{\Gamma^{\downarrow} \vdash \lambda x:A . M:A \subset B\uparrow} \, \subset I^u$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash R: A \subset B \downarrow \qquad
+\Gamma^{\downarrow} \vdash M:A \uparrow}{\Gamma^{\downarrow} \vdash R \, M: B\downarrow}\,\subset E$$</span></p>
+<h4 class="header"><i>6.2.6</i>Disjunction<a class="headerlink" href="#disjunction_3" name="disjunction_3">&para;</a></h4>
+<p><strong>Introduction rules</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash M: A\uparrow}{\Gamma^{\downarrow} \vdash \text{inl}^A\, M: A \lor B \uparrow}\, \lor I_l \qquad \frac{\Gamma^{\downarrow} \vdash N: B\uparrow}{\Gamma^{\downarrow} \vdash \text{inr}^B \, N:A \lor B \uparrow}\, \lor I_r$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow}\vdash R:A \lor B \downarrow \qquad \Gamma^{\downarrow}, x:A \downarrow \vdash M_l:C \uparrow \qquad \Gamma^{\downarrow}, y:B \downarrow \vdash M_r : C\uparrow}{\Gamma^{\downarrow} \vdash \text{case } R \text{ of inl}^A\, x \to M_l \mid \text{inr}^B \, y \to M_r:C \uparrow} \, \lor E^{x, y}$$</span></p>
+<p>Note that in the elim rule, we could also allow <span>$M_l$</span> and <span>$M_r$</span> to be extractions (with <span>$\downarrow$</span> instead of <span>$\uparrow$</span>) but apparently it complicates something? Don't really get it.</p>
+<h4 class="header"><i>6.2.7</i>Falsehood<a class="headerlink" href="#falsehood_2" name="falsehood_2">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p>None.</p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash R: \bot \downarrow}{\text{abort}^C \, M: C\uparrow}\, \bot E$$</span></p>
+<h4 class="header"><i>6.2.8</i>Universal quantifier<a class="headerlink" href="#universal-quantifier" name="universal-quantifier">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash [a/x]A \uparrow}{\Gamma^{\downarrow} \vdash \forall x.A \uparrow}\, \forall I^a$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash \forall x.A \downarrow}{\Gamma^{\downarrow} \vdash [t/x]A \downarrow} \, \forall E$$</span></p>
+<p>Source: Pfenning's notes (they're left as an exercise in Pientka's notes)</p>
+<h4 class="header"><i>6.2.9</i>Existential quantifer<a class="headerlink" href="#existential-quantifer" name="existential-quantifer">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash [t/x]A \uparrow}{\Gamma^{\downarrow} \vdash \exists x.A \uparrow}\,\exists I$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash \exists x.A \downarrow \qquad \Gamma^{\downarrow}, u:[a/x]A \downarrow \vdash C \uparrow}{\Gamma^{\downarrow} \vdash C \uparrow}\,\exists E^{a,u}$$</span></p>
+<p>Source: ibid</p>
+<h4 class="header"><i>6.2.10</i>Negation<a class="headerlink" href="#negation" name="negation">&para;</a></h4>
+<p><strong>Introduction rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow}, u:A \downarrow \vdash p \uparrow}{\Gamma^{\downarrow} \vdash \neg A \uparrow}\, \neg I^{p, u}$$</span></p>
+<p><strong>Elimination rule</strong></p>
+<p><span>$$\frac{\Gamma^{\downarrow} \vdash \neg A \downarrow \qquad \Gamma^{\downarrow} \vdash A \uparrow}{\Gamma^{\downarrow} \vdash C \uparrow} \, \neg E$$</span></p>
+<p>Source: ibid</p>
+<h3 class="header"><i>6.3</i>Soundness<a class="headerlink" href="#soundness" name="soundness">&para;</a></h3>
+<p>This just says that if <span>$\Gamma^{\downarrow} \vdash M:A \uparrow$</span> then <span>$\Gamma \vdash M:A$</span> and if <span>$\Gamma^{\downarrow} \vdash R:A \downarrow$</span> then <span>$\Gamma \vdash R:A$</span>. To drop the arrow from the <span>$\Gamma$</span> just means to remove the arrows from the individual assumptions.</p>
+<p>We can prove this by structural induction. In the base case, we have</p>
+<p><span>$$\mathcal D = \frac{}{\Gamma_1^{\downarrow}, x:A \downarrow, \Gamma_2^{\downarrow} \vdash x: A \downarrow}\, x$$</span></p>
+<p>Then we just drop the arrows lol.</p>
+<p>For the step case, we have to consider all the different <a href="#rules">rules</a> that we listed above. There are a ton, so I'm only going to do a couple:</p>
+<p><strong>Coercion (also known as exchange)</strong></p>
+<p><span>$$\mathcal D = \frac{\overbrace{\Gamma^{\downarrow} \vdash R:A \downarrow}^{\mathcal D_1}}{\Gamma^{\downarrow} \vdash R:A \uparrow}\, \uparrow \downarrow$$</span></p>
+<p>We just apply the i.h. on <span>$\mathcal D_1$</span> to conclude that <span>$\Gamma \vdash R:A$</span>.</p>
+<p><strong>Implication introduction</strong></p>
+<p><span>$$\mathcal D =\frac{\overbrace{\Gamma^\downarrow, x:A \downarrow \vdash M : B \uparrow}^{\mathcal D'}}{\Gamma^\downarrow \vdash \lambda x:A.M:A \subset B \uparrow}\,\subset I^x$$</span></p>
+<p>First, by i.h. on <span>$\mathcal D'$</span>, we get that <span>$\Gamma, x:A \vdash M:B$</span>. Then, using <span>$\subset I^x$</span> we get <span>$\Gamma \vdash \lambda x:A.N:A \subset B$</span>, as desired.</p>
+<p>(I think there's a typo in Pientka's notes - it says <span>$A.B$</span> instead of <span>$A.M$</span>.)</p>
+<h3 class="header"><i>6.4</i>Completeness<a class="headerlink" href="#completeness" name="completeness">&para;</a></h3>
+<p>However, if we just use the rules we have above, then we don't have a complete system of natural deduction. Specifically, there are things we cannot construct, and I would give an example but Pientka's notes on this don't make any sense and I can't figure out where the typo is so fuck it.</p>
+<p>If we wanted to get completeness all up in this shit we need to have some sort of <span>$\downarrow \uparrow$</span> rule, temporarily. But then this allows non-normal derivations. Idk what I'm talking about tho</p>
+<p><span>$\vdash +$</span> is like <span>$\vdash$</span> except you allow non-normal derivations as well, using the <span>$\downarrow \uparrow$</span> rule. Wait why is it <span>$\downarrow$</span> <span>$\uparrow$</span>, that's the same as the coercion rule wtf???? Isn't it supposed to be <span>$\uparrow \downarrow$</span>? omg kill me</p>
+<h3 class="header"><i>6.5</i>Actual sequent calculus<a class="headerlink" href="#actual-sequent-calculus" name="actual-sequent-calculus">&para;</a></h3>
+<p>This is closely related to the bi-directional natural deduction system. We reason from the bottom-up. Elimination rules become <strong>left</strong> rules.</p>
+<h4 class="header"><i>6.5.1</i>Initial sequent<a class="headerlink" href="#initial-sequent" name="initial-sequent">&para;</a></h4>
+<p><span>$$\frac{\Gamma, u:A \implies A}\,\text{init}$$</span></p>
+<h4 class="header"><i>6.5.2</i>Conjunction<a class="headerlink" href="#conjunction_4" name="conjunction_4">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{\Gamma \implies A \qquad \Gamma \implies B}{\Gamma \implies A\land B} \, \land R$$</span></p>
+<p><strong>Left rules</strong></p>
+<p><span>$$\frac{\Gamma, u:A \land B, v: A \implies C}{\Gamma, u:A\land B\implies C}\, \land L_1 \qquad
+\frac{\Gamma, u:A \land B, v:B \implies C}{\Gamma, u:A \land B \implies C}\, \land L_2$$</span></p>
+<h4 class="header"><i>6.5.3</i>Implication<a class="headerlink" href="#implication_4" name="implication_4">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{\Gamma, u:A \implies B}{\Gamma \implies A \supset B}\,\supset R^u$$</span></p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{\Gamma, u:A \supset B \implies A \qquad \Gamma, u:A \supset B, v:B \implies C}{\Gamma, u:A \supset B \implies C} \, \supset L$$</span></p>
+<h4 class="header"><i>6.5.4</i>Disjunction<a class="headerlink" href="#disjunction_4" name="disjunction_4">&para;</a></h4>
+<p><strong>Right rules</strong></p>
+<p><span>$$\frac{\Gamma \implies A}{\Gamma \implies A\lor B}\, \lor R_1 \qquad \frac{\Gamma \implies B}{\Gamma A \lor B}\,\lor R_2$$</span></p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{\Gamma, u:A \lor B, v:A \implies C\qquad \Gamma, u:A \lor B, v:B \implies C}{\Gamma, u:A\lor B \implies C}\, \lor L^{v, w}$$</span></p>
+<h4 class="header"><i>6.5.5</i>Truth<a class="headerlink" href="#truth_3" name="truth_3">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{}{\Gamma \implies \top} \, \top R$$</span></p>
+<p><strong>Left rule</strong></p>
+<p>None, since there is no elimination rule for <span>$\top$</span>.</p>
+<h4 class="header"><i>6.5.6</i>Falsehood<a class="headerlink" href="#falsehood_3" name="falsehood_3">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p>None, since there is no introduction rule.</p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{}{\Gamma, u:\bot \implies C} \, \bot L$$</span></p>
+<h4 class="header"><i>6.5.7</i>Universal quantifier<a class="headerlink" href="#universal-quantifier_1" name="universal-quantifier_1">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{\Gamma \implies [a/x]A}{\Gamma \implies \forall x.A}\, \forall R^a$$</span></p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{\Gamma, \forall x.A, [t/x]A \implies C}{\Gamma, \forall x.A \implies C}\, \forall L$$</span></p>
+<p>Source: Pfenning's notes.</p>
+<h4 class="header"><i>6.5.8</i>Existential quantifier<a class="headerlink" href="#existential-quantifier" name="existential-quantifier">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{\Gamma \implies [t/x]A}{\Gamma \implies \exists x.A} \, \exists R$$</span></p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{\Gamma, \exists x.A, [a/x]A \implies C}{\Gamma, \exists x.A \implies C}\, \exists L^a$$</span></p>
+<p>Source: ibid.</p>
+<h4 class="header"><i>6.5.9</i>Negation<a class="headerlink" href="#negation_1" name="negation_1">&para;</a></h4>
+<p><strong>Right rule</strong></p>
+<p><span>$$\frac{\Gamma, A \implies p}{\Gamma \implies \neg A}\, \neg R^p$$</span></p>
+<p><strong>Left rule</strong></p>
+<p><span>$$\frac{\Gamma, \neg A \implies A}{\Gamma, \neg A \implies C} \, \neg L$$</span></p>
+<h4 class="header"><i>6.5.10</i>Theoretical properties<a class="headerlink" href="#theoretical-properties" name="theoretical-properties">&para;</a></h4>
+<dl>
+<dt>Weakening</dt>
+<dd>If <span>$\Gamma \implies C$</span> then <span>$\Gamma, u:A \implies C$</span> (so we can add arbitrary assumptions).</dd>
+<dt>Contraction</dt>
+<dd>If <span>$\Gamma, u:A, v:A \implies C$</span> then <span>$\Gamma, u:A \implies C$</span>.</dd>
+<dt>Soundness</dt>
+<dd>If <span>$\Gamma \implies C$</span> then <span>$\Gamma^\downarrow \implies C\uparrow$</span>.</dd>
+<dt>Completeness</dt>
+<dd><span>$\Gamma^\downarrow \vdash C\uparrow$</span> then <span>$\Gamma \vdash C$</span>. (typo in her notes - it just says der instead of <span>$\vdash$</span>. literally der.)</dd>
+<dd>Also, if <span>$\Gamma^\downarrow \vdash A \downarrow$</span> and <span>$\Gamma, u:A \implies C$</span> then <span>$\Gamma \implies C$</span>.</dd>
+</dl>
+<p>We can prove these properties via structural induction on the first derivation, as usual. Proofs omitted for the first two because they're easy and long. For soundness, we have to cover all the possible left/right rules that can be used. (Not going to show them all, just a few.)</p>
+<p>Start with <span>$\mathcal D = \Gamma, u:C\implies C$</span> being derived using init. We can get <span>$\Gamma^\downarrow, u:C \downarrow \vdash C \downarrow$</span> directly from the hypothesis <span>$u$</span>. Then, <span>$\Gamma^\downarrow, u:C \downarrow \vdash C^\uparrow$</span> via the rule <span>$\uparrow \downarrow$</span>, which is what we want to prove. <span>$\checkmark$</span></p>
+<p>Now suppose <span>$\mathcal D$</span> was derived using <span>$\supset R^u$</span>. We can use the i.h. on the previous derivation (<span>$\mathcal D'$</span>) then use <span>$\supset R^u$</span>.</p>
+<p>It's pretty similar for other rules too.</p>
+<h4 class="header"><i>6.5.11</i>The cut rule<a class="headerlink" href="#the-cut-rule" name="the-cut-rule">&para;</a></h4>
+<p><span>$$\frac{\Gamma \implies A \qquad \Gamma, u:A \implies C}{\Gamma \implies C}\, \text{cut}$$</span></p>
+<p>Pretend the <span>$\implies$</span> here has a + on top.</p>
+<p>Let's add this rule to our sequent calculus. If we can show that there is a link between the extended bi-directional natural deduction system and this, then we'll be able to show that any proposition provable in natural deduction has a normal proof.</p>
+<p>The result is sound: if <span>$\Gamma \implies C$</span> then <span>$\Gamma^\downarrow \vdash^+ C \uparrow$</span>. We can prove this via induction on the structure, as with the soundness proof before, but with one more case for handling the cut rule.</p>
+<p>It is also complete. Proof by structural induction, as usual.</p>
+<h5 class="header"><i>6.5.11.1</i>Admissibility<a class="headerlink" href="#admissibility" name="admissibility">&para;</a></h5>
+<p>In fact, cut is actually admissible! This means that we don't need to add it to sequent calculus for it to be true; it's true <em>anyway</em>.</p>
+<p>To prove this, we need to prove that if <span>$\mathcal D: \Gamma \implies A$</span> and <span>$\mathcal E:\Gamma, A \implies C$</span>, then <span>$\Gamma \implies C$</span>.</p>
+<p><span>$A$</span> is the <strong>cut formula</strong>. The <strong>principal formula</strong> is the thing that is the focus of each left or right rule.</p>
+<p>We use nested induction on the structure of <span>$A$</span>, the derivation <span>$\mathcal D$</span> of <span>$\Gamma \implies A$</span> and <span>$\mathcal E$</span> of <span>$\Gamma, A \implies C$</span>.</p>
+<p>First case: <span>$\mathcal D$</span> is an initial sequent. Easy to prove using assumptions and contraction.</p>
+<p>Next case: <span>$\mathcal E$</span> is an initial sequent and uses the cut formula. Can prove using <span>$\mathcal D$</span>.</p>
+<p>There are a bunch of other cases as well but I don't really have time.</p>
+<p>To find a proof for <span>$A$</span> in natural deduction calculus, we just need to show that there exists a proof in sequent calculus (without cut).</p>
+<p>A corollary of all this shit is that there is no derivation for anything <span>$\vdash \bot$</span>.</p>
+<p>Also, we can't derive the law of the excluded middle.</p>
+<h4 class="header"><i>6.5.12</i>Inversion<a class="headerlink" href="#inversion" name="inversion">&para;</a></h4>
+<p>Rules are invertible when they're invertible. Actually tho. Look for an <span>$\iff$</span> situation between the premises and the conclusion.</p>
+<p>Some rules are, some aren't. For example, the <span>$\land R$</span> rule is invertible, as is implication. The left rule for disjunction is invertible too, but the right ones aren't.</p>
+<p>The <span>$\top$</span> and <span>$\bot$</span> rules are not invertible since they have no premises.</p>
+<h4 class="header"><i>6.5.13</i>Phases<a class="headerlink" href="#phases" name="phases">&para;</a></h4>
+<p>Something about synchronous/asynchronous phases. idgi at all.</p>
+<p><span>$$
+\begin{align}
+&amp; \Delta; \Gamma \implies [L] \tag{asynchronous phase (right)} \\
+&amp; \Delta; [\Gamma] \implies R \tag{asynchronous phase (left)} \\
+&amp; \Delta &gt; R \tag{synchronous phase (right)} \\
+&amp; \Delta &gt; L \implies R \tag{synchronous phase (left)}
+\end{align}
+$$</span></p>
+<p>Used in theorem proving. Synchronous phase: when you do invertible shit. Right = committing to work on the right hand side of the sequent; left = committing to work on the left side, choosing an assumption from <span>$\Delta$</span>. I still don't know what this means.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

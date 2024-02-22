@@ -1,0 +1,229 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Relations and lattices
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Relations and lattices
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Proving a property of a relation<a class="headerlink" href="#proving-a-property-of-a-relation" name="proving-a-property-of-a-relation">&para;</a></h2>
+<blockquote>
+<p>Prove a given property of relations.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>If it has to do with relation composition, then just remember how it works. If it's the inverse, then remember how that works. More info in the lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/monday-september-12#relations-as-functions">Monday, September 12</a>. Easy enough and unlikely to be asked on an exam in any rate.</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 3</li>
+</ul>
+<h2 class="header"><i>2</i>Finding the properties of a relation<a class="headerlink" href="#finding-the-properties-of-a-relation" name="finding-the-properties-of-a-relation">&para;</a></h2>
+<blockquote>
+<p>Given a binary relation, state its properties and identify the kind of relation it is (e.g. partially ordered set, equivalence relation, etc).</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Properties<a class="headerlink" href="#properties" name="properties">&para;</a></h4>
+<dl>
+<dt>Reflexivity:</dt>
+<dd>Everything is related to itself</dd>
+<dt>Irreflexivity:</dt>
+<dd>Nothing is related to itself</dd>
+<dt>Symmetry:</dt>
+<dd>If <span>$aRb$</span> then <span>$bRa$</span></dd>
+<dt>Asymmetry:</dt>
+<dd>If <span>$aRb$</span> and <span>$bRa$</span>, then <span>$a = b$</span></dd>
+<dt>Transitivity:</dt>
+<dd>If <span>$aRb$</span> and <span>$bRc$</span>, then <span>$aRc$</span></dd>
+<dt>Totality:</dt>
+<dd>Every two distinct things are related.</dd>
+</dl>
+<h4 class="header"><i>2.1.2</i>Types of relations<a class="headerlink" href="#types-of-relations" name="types-of-relations">&para;</a></h4>
+<dl>
+<dt>A partially ordered set is:</dt>
+<dd>reflexive (if nonstrict) or irreflexive (if strict), asymmetric, and transitive.</dd>
+<dt>An equivalence relation is:</dt>
+<dd>reflexive, symmetric, and transitive.</dd>
+<dt>A total order is:</dt>
+<dd>a partial order, for which the principle of totality is satisfied.</dd>
+<dt>A boolean algebra is:</dt>
+<dd>a distributive lattice where every element has a unique complement.</dd>
+</dl>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 4</li>
+</ul>
+<h2 class="header"><i>3</i>Union and intersection of two relations<a class="headerlink" href="#union-and-intersection-of-two-relations" name="union-and-intersection-of-two-relations">&para;</a></h2>
+<blockquote>
+<p>Given two binary relations and some facts about them, determine and/or prove the properties of their union and intersection.</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Use the properties of the original, and determine if the new relation has the same properties. If not, think of a counterexample. This is pretty problem-specific.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 3, question 1</li>
+</ul>
+<h2 class="header"><i>4</i>Hasse diagrams<a class="headerlink" href="#hasse-diagrams" name="hasse-diagrams">&para;</a></h2>
+<blockquote>
+<p>Given a partially-ordered relation defined either by its elements or by the relation and the set, draw a Hasse diagram and decide whether or not it is a lattice.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>There must be a bottom element and a top element, and and two elements in the lattice must have a unique and a unique meet.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 3, question 2</li>
+</ul>
+<h2 class="header"><i>5</i>Properties of lattices<a class="headerlink" href="#properties-of-lattices" name="properties-of-lattices">&para;</a></h2>
+<blockquote>
+<p>Given a set, some binary operations, some constants and some rules, show that it's a lattice and/or prove some of its properties.</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>Just use the rules given.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 3, question 3</li>
+</ul>
+<h2 class="header"><i>6</i>Distributivity and modularity in a lattice<a class="headerlink" href="#distributivity-and-modularity-in-a-lattice" name="distributivity-and-modularity-in-a-lattice">&para;</a></h2>
+<blockquote>
+<p>Given a lattice defined by some relation over some set or by a Hasse diagram, determine if the lattice is modular and/or distributive. Justify your answer.</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>(Recall that all distributive lattices are also modular.)</p>
+<p>If it's not modular, it must contain a copy of <span>$N_5$</span>. So there must be <span>$a, b, c$</span> such that <span>$a &lt; b$</span> (so it's "below" b) and <span>$a \land c = b\land c$</span> and <span>$a \lor c = b \lor c$</span>. (No need to memorise, just draw out the diagram and it'll all make sense.)</p>
+<p>If it <em>is</em> modular, then there must not be a copy of <span>$N_5$</span>, and the distributive laws hold whenever the second element is <span>$\leq$</span> the first element.</p>
+<p>If it's modular but not distributive, then there must be a copy of <span>$M_3$</span> (the diamond lattice), so that it fails the distributive laws. If this is the case, find an example where this happens.</p>
+<p>If it's modular and distributive, then there must not be a copy of <span>$M_3$</span>, and the distributive laws must hold.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 2</li>
+<li>Fall 2009 final exam, question 3</li>
+<li>Fall 2010, question 3, part b</li>
+</ul>
+<h2 class="header"><i>7</i>Properties of derived lattices<a class="headerlink" href="#properties-of-derived-lattices" name="properties-of-derived-lattices">&para;</a></h2>
+<blockquote>
+<p>Given one or more lattices and some facts pertaining to them, create a new lattice based on the original(s) and verify the properties of the new lattice.</p>
+</blockquote>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p>Possible things to check: whether or not it is a lattice, modularity, distributivity, type of relation, presence of unique complements.</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 3</li>
+<li>Fall 2010, question 3, part a</li>
+</ul>
+<h2 class="header"><i>8</i>Atoms<a class="headerlink" href="#atoms" name="atoms">&para;</a></h2>
+<blockquote>
+<p>Show the existence or non-existence of atoms in a particular lattice.</p>
+</blockquote>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>Recall that an atom is an element just above the bottom element (so there's nothing between an atom and the bottom). Infinite lattices (that go all the way down, in a manner of speaking) often have no atoms.</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 4</li>
+</ul>
+<h2 class="header"><i>9</i>Properties of derived relations<a class="headerlink" href="#properties-of-derived-relations" name="properties-of-derived-relations">&para;</a></h2>
+<blockquote>
+<p>Given one or more relations and some facts pertaining to them, create a new relation based on the original(s) and verify the properties of the new relation.</p>
+</blockquote>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li>Fall 2009, question 2</li>
+<li>Fall 2010, question 2</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

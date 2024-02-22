@@ -1,0 +1,188 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 28, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 28, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                All about equivalence relations
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for lecture #11 of MATH 235, normally taught by <a href="http://www.math.mcgill.ca/darmon/">Henri Darmon</a>, but with <a href="http://www.math.mcgill.ca/brakocevic/">Miljan Brakočević</a> temporarily filling in while Darmon is away for a week. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<p>In this lecture, we finished section 12 and started section 13 of the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/Goren-Notes.pdf">notes</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#equivalence-relations">1 Equivalence relations</a><ul>
+<li><a href="#disjoint-unions">1.1 Disjoint unions</a></li>
+<li><a href="#equivalence-classes">1.2 Equivalence classes</a></li>
+<li><a href="#lemma-1206">1.3 Lemma 12.0.6</a></li>
+<li><a href="#complete-sets-of-representatives">1.4 Complete sets of representatives</a></li>
+</ul>
+</li>
+<li><a href="#congruence-relations">2 Congruence relations</a><ul>
+<li><a href="#lemma-1307">2.1 Lemma 13.0.7</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Equivalence relations<a class="headerlink" href="#equivalence-relations" name="equivalence-relations">&para;</a></h2>
+<p>(Continued from <a href="/MATH_235/lecture-notes/fall-2012/wednesday-september-26#equivalence">last class</a>)</p>
+<h3 class="header"><i>1.1</i>Disjoint unions<a class="headerlink" href="#disjoint-unions" name="disjoint-unions">&para;</a></h3>
+<p>We define a <strong>disjoint union</strong> as the union of subsets that are pairwise disjoint (for all subsets <span>$U_i$</span> and <span>$U_j$</span> where <span>$i \neq j$</span>, we have that <span>$U_i \cap U_j = \varnothing$</span>).</p>
+<p>If <span>$S$</span> is a disjoint union of its subsets <span>$U_i$</span>, we can write that as</p>
+<p><span>$$S = \bigsqcup_{i \in I} U_i$$</span></p>
+<p>In other words, if a set can be partitioned into various distinct subsets that have no overlap, then the set can be considered a disjoint union of those subsets.</p>
+<h3 class="header"><i>1.2</i>Equivalence classes<a class="headerlink" href="#equivalence-classes" name="equivalence-classes">&para;</a></h3>
+<p>Now we define the concept of an <strong>equivalence class</strong>. For any element <span>$x \in S$</span>, its equivalence class is given by</p>
+<p><span>$$[x] = \{y \in S: x \sim y\}$$</span></p>
+<h3 class="header"><i>1.3</i>Lemma 12.0.6<a class="headerlink" href="#lemma-1206" name="lemma-1206">&para;</a></h3>
+<p>We now move on to proving some things about disjoint unions and equivalence classes. From section 12.0.6 of the notes, we have the following lemma:</p>
+<blockquote>
+<ol>
+<li>Any 2 equivalence classes are either disjoint or equal.</li>
+<li><span>$S$</span> is the disjoint union of its equivalent classes.</li>
+<li>If <span>$S'$</span> is a disjoint union of subsets <span>$S'_i, i \in I$</span>, then there is a unique equivalence relation for which each <span>$S'_i$</span> for <span>$i \in I$</span> is an equivalence class.</li>
+</ol>
+</blockquote>
+<p>We now prove each part separately:</p>
+<ol>
+<li>Let <span>$x, y$</span> be two distinct elements <span>$\in S$</span>. We want to prove that either <span>$[x] \cap [y] = \varnothing$</span> or <span>$[x] = [y]$</span> (that they are either disjoint, or equal). We assume that their intersection is <em>not</em> the empty set (if it is, the proof is complete), i.e., there exists a <span>$z \in [x] \cap [y]$</span>. This means that <span>$x \sim z$</span>, and that <span>$y \sim z$</span>. By the symmetry of equivalence relations, we also know that <span>$z \sim y$</span>. By transitivity, <span>$x \sim z$</span> and <span>$z \sim y$</span> and so <span>$x \sim y$</span>, which means that <span>$[y] \subseteq [x]$</span>. But we can use this same reasoning in the other direction to conclude that <span>$[x] \subseteq [y]$</span>. Consequently, it must be that for any two distinct elements <span>$x, y \in S$</span>, either <span>$[x] \cap [y] = \varnothing$</span> or <span>$[x] = [y]$</span>. <span>$\blacksquare$</span></li>
+<li>In part 1, we proved that any two equivalence classes are pairwise disjoint. Now we just have to show that <span>$S$</span> is the union of these equivalence classes, i.e., that all the elements in <span>$S$</span> are contained in one equivalence class. This is trivial, for any element <span>$x \in S$</span> <em>does</em> belong to one equivalence class, by reflexivity: its own, <span>$[x]$</span>. So <span>$S$</span> is the disjoint union of its equivalence classes. <span>$\blacksquare$</span></li>
+<li>Let <span>$\displaystyle S' = \bigsqcup_{i \in I} S'_i$</span>. We define a relation <span>$\sim$</span> as follows: <span>$x \sim y$</span> if there exists a <span>$S'_i$</span> that contains both <span>$x$</span> and <span>$y$</span> (so if <span>$x$</span> and <span>$y$</span> are found in the same partition). To show that this relation is an equivalence relation, we have to show that it is reflexive (r), symmetric (s), and transitive (t). (A proof of the uniqueness property was not given in class, but it seems fairly obvious from the fact that relations are completely defined by their set of ordered pairs, etc.)<ul>
+<li>(r): That <span>$x \sim x$</span> is fairly trivial to show. <span>$x$</span> is obviously in the same subset as itself.</li>
+<li>(s): This is also pretty obvious, even tautological. If <span>$x$</span> and <span>$y$</span> are in the same subset, then so are <span>$y$</span> and <span>$x$</span>.</li>
+<li>(t): If <span>$x \sim y$</span>, then there exists a subset <span>$S'_i$</span> such that <span>$x, y \in S'_i$</span>. Also, if <span>$y \sim z$</span>, then there exists a subset <span>$S'_j$</span> such that <span>$y, z \in S'_j$</span>. Consequently, <span>$y \in S'_i$</span> and <span>$y \in S'_j$</span>, and so <span>$S'_i$</span> and <span>$S'_j$</span> have a non-empty intersection. From the pairwise-disjoint property of subsets of a disjoint union, this  implies that <span>$S'_i = S'_j$</span>. We conclude that <span>$x, y$</span> and <span>$z$</span> are all elements of <span>$S'_i = S'_j$</span>, and it follows trivially that <span>$x$</span> and <span>$z$</span> are both elements of the same subset <span>$\therefore x \sim z$</span>.</li>
+</ul>
+</li>
+</ol>
+<h3 class="header"><i>1.4</i>Complete sets of representatives<a class="headerlink" href="#complete-sets-of-representatives" name="complete-sets-of-representatives">&para;</a></h3>
+<p>A subset of <span>$S$</span> is a <strong>complete set of representatives</strong> if it contains one<sup id="fnref:one"><a href="#fn:one" rel="footnote" title="Either exactly one, or at least one. Not entirely ...">1</a></sup> element from each of the equivalence class.</p>
+<h2 class="header"><i>2</i>Congruence relations<a class="headerlink" href="#congruence-relations" name="congruence-relations">&para;</a></h2>
+<p>(Technically, this is a subset of equivalence relations, but it's a new section - section 13 - in the notes, so it'll be a new section here as well.)</p>
+<p>The most basic example of a congruence relation is the modulo relation. We fix an integer <span>$n \in \mathbb{N}$</span>. Then, <span>$x \sim y$</span> is equivalent to <span>$n | x-y$</span> (where <span>$|$</span> means "divides"). So <span>$x \sim y$</span> means that <span>$x$</span> and <span>$y$</span> have the same remainder when divided by <span>$n$</span>.</p>
+<p>We can use a special symbol for this relation: <span>$\equiv$</span>. Specifically, we say that <span>$x \equiv y \mod n$</span> iff <span>$n|x -y$</span> (although we can omit the <span>$\mod n$</span> part if it is known from the context).</p>
+<h3 class="header"><i>2.1</i>Lemma 13.0.7<a class="headerlink" href="#lemma-1307" name="lemma-1307">&para;</a></h3>
+<p>Now let's prove some things about this relation:</p>
+<blockquote>
+<ol>
+<li>This relation defines an equivalence relation on <span>$\mathbb{Z}$</span>.</li>
+<li>A complete set of representatives is given by <span>$\{0, 1, \ldots, n-1\}$</span>.</li>
+</ol>
+</blockquote>
+<ol>
+<li>As before, we just have to prove reflexivity (r), symmetry (s), and transitivity (t):<ul>
+<li>(r): <span>$x \equiv x$</span> because <span>$x - x = 0$</span> and 0 is divisible by any <span>$n \in \mathbb{N}$</span>.</li>
+<li>(s): Let <span>$x \equiv y$</span>. So <span>$n | x - y$</span>. Then <span>$n$</span> also divides the negative of <span>$x-y$</span>, from the definition of "divides", and so <span>$n | -(x-y) \, \therefore n | y - x$</span>. So <span>$y \equiv x$</span>.</li>
+<li>(t): Given that <span>$x \equiv y$</span>, and <span>$\equiv z$</span>, we have that <span>$n | x - y$</span> and <span>$n | y-z$</span>. From something we proved in a previous lecture regarding divisors (I will find the specific link one day), we can conclude that <span>$n| (x-y) + (y-z)$</span>. But this simplifies to <span>$n | x - z$</span>, and so <span>$x \equiv z$</span>, which proves the transitivity property. <span>$\blacksquare$</span></li>
+</ul>
+</li>
+<li>From the division algorithm, we know that we can write any integer <span>$x$</span> as <span>$x = qn + r$</span> where <span>$0 \leq r &lt; n$</span>. Then, <span>$x - r = qn$</span> which is divisible by <span>$n$</span>, and so <span>$x \equiv r$</span>. It follows that for every <span>$r$</span> such that <span>$0 \leq r &lt; n$</span>, i.e., <span>$\{0, 1, \ldots, n-1\}$</span>, there is an equivalent class, and that these equivalence classes are disjoint. (This part of the proof needs to be expanded.)</li>
+</ol>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:one">
+<p>Either exactly one, or at least one. Not entirely sure. It probably doesn't matter.&#160;<a href="#fnref:one" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

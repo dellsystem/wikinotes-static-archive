@@ -1,0 +1,137 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_247/">
+                MATH 247
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 1, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 1, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The Fourier Series and Parsevals Theorem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>The Fourier series<a class="headerlink" href="#the-fourier-series" name="the-fourier-series">&para;</a></h2>
+<ul>
+<li>Let <span>$f(x)$</span> be a periodic function on <span>$2\pi$</span></li>
+<li>The series <span>$s(x)$</span> is said to be the "Fourier series" associated to <span>$f(x)$</span></li>
+<li><span>$s(x) = \frac{a_0}{2}+\sum_{n=1}^{\infty}(a_n \cos{nx} + b_n \sin{nx})$</span> where the Fourier coefficients are <span>$a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x) \cos{nx} ~dx$</span> and <span>$b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin{nx} ~dx$</span> and <span>$a_n, b_n$</span> are uniquely determined by <span>$f(x)$</span></li>
+</ul>
+<h3 class="header"><i>1.1</i>Some properties<a class="headerlink" href="#some-properties" name="some-properties">&para;</a></h3>
+<ul>
+<li><span>$s(x) = f(x)$</span> whenever <span>$f(x)$</span> is continuous at <span>$x$</span></li>
+<li><span>$s(x) = \frac{f(x^+) + f(x^-)}{2}$</span> whenever <span>$f(x)$</span> is discontinuous at <span>$x$</span></li>
+<li>if <span>$f(x)$</span> is odd then <span>$a_n = 0 \forall n$</span></li>
+<li>if <span>$f(x)$</span> is even then <span>$b_n = 0 \forall n$</span></li>
+</ul>
+<h2 class="header"><i>2</i>Piece wise continuity<a class="headerlink" href="#piece-wise-continuity" name="piece-wise-continuity">&para;</a></h2>
+<p>Let <span>$f(x)$</span> be defined on <span>$[a,b]$</span>. We say that <span>$f(x)$</span> is piece wise continuous on <span>$[a,b]$</span> if:<br />
+<em> <span>$f(x)$</span> is continuous on <span>$[a,b]$</span> except at finitely many points <span>$x_1, x_2,\cdots$</span><br />
+</em> At the discontinuity <span>$x_1, x_2, \cdots x_n$</span> both one-sided limits exist </p>
+<h2 class="header"><i>3</i>Dirichlet Conditions<a class="headerlink" href="#dirichlet-conditions" name="dirichlet-conditions">&para;</a></h2>
+<p>It is said that <span>$f(x)$</span> will satisfy the Dirichlet conditions if:</p>
+<ul>
+<li><span>$f(x)$</span> is of period <span>$2\pi$</span> and both <span>$f$</span> and</li>
+<li><span>$f'$</span> are "piece wise continuous" on <span>$[-\pi, \pi]$</span></li>
+</ul>
+<h2 class="header"><i>4</i>Parsevals Theorem<a class="headerlink" href="#parsevals-theorem" name="parsevals-theorem">&para;</a></h2>
+<ul>
+<li>If <span>$f(x)$</span> satisfies the "Dirichlet conditions" then <span>$\int_{-\pi}^{\pi} f^2(x) ~dx = \frac{(a_0)^2}{2} + \sum_{n=1}^{\infty} ((a_n)^2 + (b_n)^2)$</span></li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

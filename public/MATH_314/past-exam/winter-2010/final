@@ -1,0 +1,255 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Available on WebCT (sample exam #2). Instructor-provided solutions are also available on WebCT, but they're fairly concise and don't really explain things (they're more of a way for you to check your answers). Also, the quality of the scans isn't great and they can be hard to read. This page attempts to fill in the gaps by providing a detailed solution with explanations for each question.</p>
+<p>Note that this exam is the only one among the ones provided (and those available on Docuum) which features Professor Klemes as an examiner. Consequently, this exam appears to contain material that is most relevant to the version of the course in Winter 2012. Many of the other exams cover topics that don't appear to be on the syllabus any more.</p>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>Evaluate the double integral <span>$\displaystyle \iint_D e^{x^2} \,dx\,dy$</span> where <span>$D$</span> is the triangular region with vertices <span>$(0, 0), (1, 0), (1, 1)$</span>.</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>This is a simple case of reversing the order of integration. If we draw out the region, we'll see that it looks like a triangle defined by the following limits: <span>$x$</span> from 0 to 1, <span>$y$</span> from 0 to <span>$x$</span>. (Note that we choose <span>$y$</span> to be a function of <span>$x$</span> rather than <span>$x$</span> from 0 to <span>$y$</span>, <span>$y$</span> from 0 to 1 because we want to integrate with respect to <span>$y$</span> <em>first</em>, so that the derivative of <span>$x^2$</span> will hopefully show up before we have to deal with <span>$e^{x^2}$</span>.)</p>
+<p>The integral becomes the following:</p>
+<p><span>$$\int_0^1 \int_0^x e^{x^2} \,dy\,dx = \int_0^1 x e^{x^2} \,dx$$</span></p>
+<p>which is nice and manageable, once we tame it with the substitution <span>$u = x^2$</span>, <span>$du = 2xdx$</span>:</p>
+<p><span>$$\frac{1}{2} \int_0^1 e^u \,du = \frac{1}{2} \left [ e^u \right ]_0^1 = \frac{e-1}{2}$$</span></p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Agrees with the provided solution. Yay 10 points</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Find the area of the finite plane region <span>$D$</span> bounded by the four parabolas <span>$y=x^2$</span>, <span>$y=2x^2$</span>, <span>$x=y^2$</span>, <span>$x=3y^2$</span>.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>This one involves a fairly standard change of variables (also known as a change of coordinates or transformation of coordinates or some other combination of those words). We let our new variables be the following:</p>
+<p><span>$$u = f(x, y) = \frac{y}{x^2} \quad v = g(x, y) = \frac{x}{y^2}$$</span></p>
+<p>(We choose these specific functions because then our limits can be <span>$u = 1$</span> to <span>$u = 2$</span> and <span>$v = 1$</span> to <span>$v = 3$</span>, which is about as nice as they can get. We could have alternatively taken the reciprocal of either, and our limits would have turned into the respective reciprocals, but they still would have been constants, which isn't too bad. Other functions are unlikely to turn out very nicely.)</p>
+<p>Now, we have to find the Jacobian. Remember that the <em>new variables</em> (i.e. the dependent ones, or the ones we want to transform the old ones into - <span>$u$</span> and <span>$v$</span>) go on the bottom. So the Jacobian looks like this:</p>
+<p><span>$$\frac{\partial (x, y)}{\partial (u, v)}$$</span></p>
+<p>But we can't evaluate this directly because we don't <em>have</em> <span>$x$</span> and <span>$y$</span> as functions of <span>$u$</span> and <span>$v$</span>. (I suppose we could solve for them, but that sounds needlessly complicated and I'm not sure it would work out too well in this case.) We do, however, have <span>$u$</span> and <span>$v$</span> as functions of <span>$x$</span> and <span>$y$</span>. So we just take the reciprocal of <em>that</em> Jacobian:<sup id="fnref:legit"><a href="#fn:legit" rel="footnote" title="This is totally legitimate by the way. My explanat...">1</a></sup></p>
+<p><span>$$\frac{\partial (x, y)}{\partial (u, v)} = \left ( \frac{\partial (u, v)}{\partial (x, y)}\right )^{-1} = 1 / \det \begin{pmatrix} u_x &amp; u_y \\ v_x &amp; v_y \end{pmatrix} = 1 / \det \begin{pmatrix} -3y/x^2 &amp; 1/x^2 \\ 1/y^2 &amp; -2x/y^3 \end{pmatrix} = \left (\frac{4xy}{x^3y^3} - \frac{1}{x^2y^2}\right )^{-1} = \left (\frac{3}{x^2y^2} \right)^{-1} = \frac{x^2y^2}{3}$$</span></p>
+<p>Now we just have to express that in terms of <span>$u$</span> and <span>$v$</span>. We can do this with a little trial and error. First we notice that <span>$\displaystyle uv = \frac{1}{xy}$</span>, so <span>$\displaystyle \frac{1}{(uv)^2} = x^2y^2$</span>. Divide that by 3 and we get:</p>
+<p><span>$$\frac{x^2y^2}{3} = \frac{1}{3u^2v^2}$$</span></p>
+<p>To find the area, we simply integrate the above with respect to <span>$u$</span> and <span>$v$</span>, using the limits we identified earlier:</p>
+<p><span>$$\frac{1}{3} \int_1^2 \int_1^3 \frac{1}{u^2v^2} \,dv\,du = \frac{1}{3} \int_1^2 \frac{1}{u^2} \,du \int_1^3 \frac{1}{v^2} \,dv = \frac{1}{3} \left [ \frac{-1}{u} \right ]_1^2 \left [ \frac{-1}{v} \right ]_1^3 = \frac{1}{9}$$</span></p>
+<p>which is the answer we're looking for.</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Agrees with the answer in the solutions provided. This one's a bit longer than the first but it should be another easy 10 points.</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Find the flux of the vector field <span>$\vec F = 3x\hat i + 3y\hat j + z^2\hat k$</span> upward through the conical surface given by</p>
+<p><span>$$\vec r = u\cos v \hat i + u\sin v \hat j + u\hat k$$</span></p>
+<p>where <span>$1 \leq u \leq 2$</span>, <span>$0\leq v \leq \frac{\pi}{2}$</span>.</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>Recall that the formula for flux (given a parametric equation <span>$r(u, v)$</span> for the surface) is given by</p>
+<p><span>$$\iint_S F \cdot dS = \iint_S F(r(u, v)) \cdot (\vec r_u \times \vec r_v)$$</span></p>
+<p>Now, the parametric equation for the surface is given by</p>
+<p><span>$$r(u, v) =  u\cos v \hat i + u\sin v \hat j + u \hat k$$</span></p>
+<p>The cross product of the partial derivatives is as follows:</p>
+<p><span>$$\vec r_u \times \vec r_v = \det \begin{pmatrix} \hat i &amp; \hat j &amp; \hat k \\ \cos v &amp; \sin v &amp; 1 \\ -u\sin v &amp; u\cos v &amp; 0 \end{pmatrix} = -u\cos v \hat i - u\sin v hat j + u \hat k$$</span></p>
+<p>Now we find <span>$F(r(u, v))$</span>:</p>
+<p><span>$$\vec F(\vec r(u, v)) = 3u\cos v  + 3u\sin v + u^2$$</span></p>
+<p>We then take the dot product of the two and integrate that over the limits given (<span>$u = 1$</span> to <span>$u=2$</span>, <span>$v = 0$</span> to <span>$v= \pi/2$</span>):</p>
+<p><span>$$\int_1^2 \int_0^{\pi/2} (-3u^2\cos^2 v - 3u^2\sin^2 v + u^3) \,dv\,du = \int_1^2 \int_0^{\pi/2} (-3u^2 + u^3) \,dv\,du = \frac{\pi}{2} \left [ -u^3 + \frac{u^4}{4} \right ]_1^2 = \frac{\pi}{2} \cdot (-8 + 4 + 1 - \frac{1}{4}) = -\frac{13\pi}{8}$$</span></p>
+<p>That's it.</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Agrees with the provided solutions.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Let <span>$\vec F$</span> be the vector field <span>$\vec F = (\cos x + 2z + 3y)\hat i + (4z+3x)\hat j + (e^z + 4y+2x)\hat k$</span>.</p>
+<p>(a) Show that <span>$\vec F$</span> is conservative.<br />
+(b) Find a potential function for <span>$\vec F$</span>.<br />
+(c) Evaluate, by any method <span>$\int_C \vec F \cdot \,d\vec r$</span>, where <span>$C$</span> consists of the curve <span>$x = \sin t$</span>, <span>$y = \cos^3 t$</span>, <span>$z=t^2$</span> from <span>$t=0$</span> to <span>$t=\pi$</span>, followed by the line segment from <span>$(0, -1, \pi)$</span> to <span>$(1, -1, 2)$</span>.</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>To show that <span>$\vec F$</span> is conservative, we simply take the curl of <span>$\vec F$</span> and show that it is the zero vector:</p>
+<p><span>$$\text{curl } \vec F = \det \begin{pmatrix} \hat i &amp; \hat k &amp; \hat k \\ \frac{\partial}{\partial x} &amp; \frac{\partial }{\partial y} &amp; \frac{\partial}{\partial z} \\ \cos x + 2z + 3y &amp; 4z + 3x &amp; e^z + 4y + 2z \end{pmatrix} = \hat i (4-4) + \hat j (2-2) + \hat k (3-3) = (0, 0, 0) \,\,\blacksquare$$</span></p>
+<p><strong>(b)</strong></p>
+<p>Here's an easy way of finding a potential function<sup id="fnref:potential"><a href="#fn:potential" rel="footnote" title="Apparently it's an ODE method? I don't know, ask d...">2</a></sup>. If <span>$\vec F = P\hat i + Q \hat j + R\hat k$</span>, then we compute the following integrals:</p>
+<p><span>$$\begin{align*} \int P\,dx &amp; = \int (\cos x + 2z + 3y) \,dx = \sin x + 2zx + 3yx \\
+\int Q\,dy &amp; = \int (4z + 3x) \,dy = 4zy + 3xy \\
+\int R\,dz &amp; = \int (e^z + 4y + 2x) \,dz = e^z + 4yz + 2zx
+\end{align*}$$</span></p>
+<p>The potential function <span>$f(x, y, z)$</span> is therefore the union of the terms in the above functions:</p>
+<p><span>$$f(x, y, z) = \sin x + 2zx + 3yx + 4zy + e^z$$</span></p>
+<p>This method differs from the one used in the instructor-provided solution for this question (and from the one used in the assignment solutions) but it works just as well and is probably faster. You can check that it's a potential function by taking its gradient:</p>
+<p><span>$$\nabla f = (\cos x + 2z + 3y) \hat i + (4z + 3x)\hat j + (e^z + 4y + 2x)\hat k$$</span></p>
+<p>which magically turns out to be equal to <span>$\vec F$</span>! Wow</p>
+<p><strong>(c)</strong></p>
+<p>Since the field is conservative, we can simply evaluate the potential function at the start and end points of the entire curve and take the difference (end - start). The start point is given by <span>$(0, 1, 0)$</span> and the end point is given by <span>$(1, -1, 2)$</span>. So:</p>
+<p><span>$$\int_C \vec F \cdot d\vec r = f(1, -1, 2) - f(0, 1, 0) = (\sin 1 + 4 - 3 - 8 + e^2) - (0 + 0 + 0 + 0 + 1) = \sin  1 + e^2 -8$$</span></p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>The potential function is correct, although the method differs from the one used in the solutions. The answer for (c) is cut off in the scanned solutions but I think the one I have is correct. Incidentally, the question is the same type as question 4 (c) in assignment 2.</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>Find the area enclosed by the curve <span>$\displaystyle \frac{x^{2/3}}{9} + \frac{y^{2/3}}{4} = 1$</span> by using Green's theorem and parametrising the curve.</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>First, we parametrise the curve by equating it to that ever-present trig identity, <span>$\cos^2 \theta + \sin^2 \theta = 1$</span>:</p>
+<p><span>$$\frac{x^{2/3}}{9} = \cos^2\theta \quad \frac{y^{2/3}}{4} = \sin^2\theta$$</span><br />
+<span>$$\therefore x = 27\cos^3 \theta, \quad y = 8\sin^3\theta$$</span></p>
+<p>Now we use Green's Theorem. Specifically, we use it "in reverse"<sup id="fnref:green"><a href="#fn:green" rel="footnote" title="You can find the derivation for this on [Paul's no...">3</a></sup> - the area enclosed by the curve is given by</p>
+<p><span>$$\frac{1}{2} \oint x\,dy - y\,dx$$</span></p>
+<p>Since we'll need the differentials, let's calculate those:</p>
+<p><span>$$dx = -81 \cos^2\theta \sin\theta\,d\theta \quad dy = 24\sin^2\theta \cos\theta\,d\theta$$</span></p>
+<p>The integral to evaluate becomes the following:</p>
+<p><span>$$\begin{align*} \frac{1}{2} \oint x\,dy - y\,dx &amp; = \frac{1}{2} \int (27\cos^3 \theta) \cdot (24\sin^2\theta \cos\theta) - (8\sin^3\theta)(-81\cos^2\theta\sin\theta)\,d\theta = \frac{1}{2}\int 648 \cos^4\theta\sin^2\theta + 648 \sin^4\theta \cos^2\theta \,d\theta \\
+&amp; = \int 324\cos^2\theta\sin^2\theta (\cos^2\theta + \sin^2\theta) \,d\theta = 324\int \cos^2\theta\sin^2\theta = \frac{324}{2^2} \int (2\cos \theta \sin \theta)^2 \,d\theta = 81 \int \sin^2(2\theta) \,d\theta\end{align*}$$</span></p>
+<p>For some reason, in the provided solutions, the derivation of the indefinite integral <span>$\int \sin^2(2\theta)\,d\theta$</span> is skipped. Maybe this is assumed to be trivial? On the off-chance that it's not trivial for you (it wasn't for me), the identity to use in this case is <span>$\displaystyle \sin^2(2\theta) \frac{1-\cos(4\theta)}{2}$</span>, and the integral becomes:</p>
+<p><span>$$\frac{81}{2} \int_0^{2\pi} (1 - \cos(4\theta) \,d\theta = \frac{81}{2} \left [ \theta - \sin(4\theta) \right ]_0^{2\pi} = 81 \pi$$</span></p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>This is the exact same question as question 5 in assignment 2. The answer of <span>$81\pi$</span> is correct. There are, however, multiple methods of solving this integral. The one explained above is probably the simplest.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>(a) State the divergence theorem.<br />
+(b) A fluid has density 1 and velocity field</p>
+<p><span>$$\vec F = -y^3\hat i + x^2e^z\hat j + 3z\hat k$$</span></p>
+<p>Find the rate of flow outward through the sphere <span>$x^2+y^2+z^2=4$</span>. Hint: write down the flux integral and use the divergence theorem to evaluate it.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>The divergence theorem states that</p>
+<p><span>$$\iint_S F\cdot \vec n \,dS = \iiint_E \text{div } \vec F \,dV$$</span></p>
+<p>where <span>$E$</span> is the region bounded by the closed surface <span>$S$</span> and <span>$\vec n$</span> is the outward-pointing unit normal.</p>
+<p>You should probably memorise this.</p>
+<p><strong>(b)</strong></p>
+<p>This one is surprisingly trivial for a 15-point question. First, we recall that the rate of flow we're looking for can be calculated by taking the flux integral (and possibly multiplying that by the density, I'm not sure). Since we're told we can use the divergence theorem for this, we might as well immediately find the divergence of <span>$\vec F$</span>:</p>
+<p><span>$$\text{div } \vec F = 3$$</span></p>
+<p>The integral then becomes</p>
+<p><span>$$3\iiint_E \,dV$$</span></p>
+<p>where <span>$E$</span> is the sphere of radius 2. So we're really just finding the volume of the sphere, and then multiplying that by 3. Finding the volume of a sphere is easy - the volume of this particular sphere is <span>$\displaystyle \frac{4\pi r^3}{3} = \frac{32\pi}{3}$</span>. Multiply that by 3 and we get <span>$32\pi$</span>. That's it.</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Almost too easy. Note that finding the volume of the sphere as opposed to having to integrate over the region is a special case, and we could only do that here because the divergence happened to be a constant. In the general case, you would have to integrate over the region using the appropriate coordinates (spherical, in this case).</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>(a) State Stokes' theorem.<br />
+(b) Let <span>$M$</span> be the capped cylindrical surface which is the union of two surfaces, a cylinder <span>$M_1$</span> given by <span>$x^2+y^2=25$</span>, <span>$0 \leq z \leq 1$</span>, and a hemispherical cap <span>$M_2$</span> defined by <span>$x^2+y^2+(z-1)^2 = 25$</span>, <span>$z \geq 1$</span>. For the vector field</p>
+<p><span>$$\vec F = (zx + z^2y+4y, \,z^3yx + 5x,\,z^4x^2),$$</span></p>
+<p>compute</p>
+<p><span>$$\iint_M (\nabla \times \vec F) \cdot \vec n dS$$</span></p>
+<p>in any way you like. Assume that the normal is the outward normal on both surfaces.</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p><span>$$\int_C \vec F \cdot d\vec r = \iint_D \text{curl } F \cdot \vec n \,dS$$</span></p>
+<p>where <span>$D$</span> is the 2-dimensional region bounded by <span>$C$</span> in a counter-clockwise direction.</p>
+<p><strong>(b)</strong></p>
+<p>First, we use Stokes theorem to convert the integral into</p>
+<p><span>$$\int_C \vec F \cdot \,d\vec r$$</span></p>
+<p>where <span>$C$</span> is the boundary circle on the <span>$xy$</span>-plane. The parametric equation for the circle is given by <span>$r(t) = 5\cos t \hat i + 5 \sin t \hat j$</span>, <span>$t$</span> from 0 to <span>$2\pi$</span>. We then compute the derivative of <span>$r(t)$</span> with respect to <span>$t$</span>:</p>
+<p><span>$$r'(t) = -5\sin t\hat i + 5 \cos t \hat j$$</span></p>
+<p>Next, we compute <span>$F(r(t))$</span>:</p>
+<p><span>$$F(r(t)) = 4(5\sin t) \hat i + 5(5\cos t)\hat j$$</span></p>
+<p>(Most of the terms go away because <span>$z=0$</span>, in case you were wondering how that happened.)</p>
+<p>Taking the dot product of the two, we get:</p>
+<p><span>$$F(r(t)) \cdot r'(t) = -100\sin^2 t + 125 \cos^2t = 125(\cos^2 t) - 100 (1-\cos^2 t) = 225 \cos^2 t - 100 = \frac{1}{2} (450 \cos^2 t -225 + 25)$$</span></p>
+<p>We use the above as the integrand, and integrate from 0 to <span>$2\pi$</span>, using the double-angle formula for <span>$\cos$</span> (i.e. <span>$\cos(2t) = 2\cos^2 t - 1$</span>) to simplify it:</p>
+<p><span>$$\int_0^{2\pi} \frac{1}{2} 225\cos(2t) + 25 \,dt = \frac{250}{2} \int_0^{2\pi} \cos(2t)\,dt + \frac{25}{2}\int_0^{2\pi}\,dt = 25\pi$$</span></p>
+<p>Note that the trig integral at the end there disappeared because the limits were <span>$0$</span> to <span>$2\pi$</span> so, yeah.</p>
+<p>The approach in the solutions is to use Green's theorem (keeping <span>$x$</span> and <span>$y$</span>, and letting <span>$z=0$</span>, so we get <span>$\displaystyle \int_C 4y\,dx + 5y\,dy$</span>), resulting in 1 times the area of the region, so <span>$\pi r^2 = \pi 5^2 = 25\pi$</span>.</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>Finally got the right answer</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:legit">
+<p>This is totally legitimate by the way. My explanation is a bit convoluted but the math works I swear&#160;<a href="#fnref:legit" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:potential">
+<p>Apparently it's an ODE method? I don't know, ask dannenberg&#160;<a href="#fnref:potential" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:green">
+<p>You can find the derivation for this on <a href="http://tutorial.math.lamar.edu/Classes/CalcIII/GreensTheorem.aspx">Paul's notes</a>&#160;<a href="#fnref:green" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

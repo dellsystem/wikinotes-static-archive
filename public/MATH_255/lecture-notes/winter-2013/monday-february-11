@@ -1,0 +1,133 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, February 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, February 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to Riemann sums
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Definition:</strong> Let <span>$I$</span> be a closed and bounded interval. A partition of <span>$I$</span> is a finite, ordered set </p>
+<p><span>$$ P = \{ x_0, x_1, \ldots, x_n \} $$</span></p>
+<p>of points in <span>$I$</span> such that <span>$x_0 = a &lt; x_1 &lt; x_2 &lt; \ldots &lt; x_n = b$</span>.</p>
+<p><strong>Remark:</strong> A partition divides your interval <span>$I$</span> into non-overlapping intervals <span>$[x_0, x_1]$</span>, <span>$[x_1, x_2]$</span> etc, the union of which is the original interval.</p>
+<p><strong>Definition:</strong> Given an interval <span>$I = [a,b]$</span>, a partition <span>$P$</span> of <span>$I$</span> and <span>$f : I \to \mathbb{R}$</span> bounded on <span>$I$</span>, we define a Riemann Sum of <span>$f$</span> corresponding to <span>$P$</span> to be any expression of the form</p>
+<p><span>$$ \sum_{i=1}^n f(x_i^*)(x_1 - x_{i-1}), \quad \text{where } x_i^* \in [x_{i-1}, x_i] $$</span></p>
+<p><strong>Definition:</strong> Let <span>$f : I \to \mathbb{R}$</span> be bounded on <span>$I = [a,b]$</span>, and let <span>$P$</span> be a partition of <span>$I$</span>. Let <span>$m_k = \inf\{ f(x) : x \in [x_{k-1}, x_k] \}$</span> and <span>$M_k = \sup\{ f(x) : x \in [x_{k-1}, x_k] \}$</span>. We define the <em>lower sum</em> of <span>$f$</span> corresponding to <span>$P$</span> as </p>
+<p><span>$$ L_f(P) = \sum_{k=1}^n m_k(x_k - x_{k-1}) $$</span></p>
+<p>We define the upper some <span>$U_f(P)$</span> similarly, with <span>$M_k$</span>.</p>
+<p><strong>Lemma:</strong> Let <span>$f : I \to \mathbb{R}$</span> be bounded on <span>$I = [a,b]$</span> and let <span>$P$</span> be any partition of <span>$I$</span>. Then <span>$L_f(P) \leq U_f(P)$</span></p>
+<p><strong>Proof:</strong> Let <span>$P = \{ x_0, x_1, \ldots, x_n \}$</span>. It follows that <span>$m_k \leq M_k$</span> for all <span>$k$</span> from 1 to <span>$n$</span>. Now, since <span>$x_k - x_{k-1} \geq 0$</span>, <span>$m_k(x_k - x_{k-1}) \leq M_k(x_k - x_{k-1})$</span> and thus for the sums </p>
+<p><span>$$ \sum_{k=1}^n m_k(x_k - x_{k-1}) \leq \sum_{k=1}^n M_k(x_k - x_{k-1}) $$</span></p>
+<p>i.e. <span>$L_f(P) \leq U_f(P)$</span>. <span>$\blacksquare$</span></p>
+<p><strong>Definition:</strong> Let <span>$I = [a,b]$</span> and <span>$P = \{x_0, x_1, \ldots, x_n\}$</span> be a partition of <span>$I$</span>. A partition <span>$Q = \{y_0, y_1, \ldots, y_m\}$</span> is said to be a <em>refinement</em> of <span>$P$</span> if <span>$P \subseteq Q$</span>, i.e. if every point of <span>$P$</span> is also a point of <span>$Q$</span>. In other words, <span>$Q$</span> is a refinement of <span>$P$</span> <span>$\iff$</span> you can adjoin a finite number of elements to <span>$P$</span> to get <span>$Q$</span>.</p>
+<p><strong>Lemma:</strong> If <span>$f : I \to \mathbb{R}$</span> is bounded, <span>$P$</span> is a partition of <span>$I$</span> and <span>$Q$</span> is a refinement of <span>$P$</span>, then </p>
+<p><span>$$ L_f(P) \leq L_f(Q) \quad \text{and} \quad U_f(Q) \leq U_f(P) $$</span></p>
+<p><strong>Proof:</strong> Observe that by a previous lemma, <span>$L_f(Q) \leq U_f(Q)$</span>. Let <span>$P = \{x_0, x_1, \ldots, x_n\}$</span> be a partition of <span>$I$</span>. Let <span>$z \in I$</span> be such that <span>$z \not\in P$</span>. We can create a new partition <span>$P' = P \cup \{z\}$</span>, a refinement of <span>$P$</span>. Since <span>$P$</span> decomposes <span>$I$</span> into a finite number of non-overlapping intervals, there exists some <span>$k$</span> such that <span>$1 \leq k \leq n$</span> for which <span>$z \in [x_{k-1}, x_k]$</span>. <span>$z$</span> bisects this interval into <span>$[x_{k-1}, z]$</span> and <span>$[z, x_k]$</span> which are both subsets of <span>$[x_{k-1}, x_k]$</span>. Thus <span>$\inf\{ f(x) : x \in [x_{k-1}, x_k]\} \leq \inf\{ f(x) : x \in [x_{k-1}, z]\} = m_k'$</span> and similarly <span>$\inf\{ f(x) : x \in [x_{k-1}, x_k]\} \leq \inf\{ f(x) : x \in [z, x_k]\} = m_k''$</span>. Thus:</p>
+<p><span>$\begin{align}
+m_k(x_k - x_{k-1}) &amp;= m_k(x_k - z + z - x_{k-1}) \\
+&amp;= m_k(x_k - z) + m_k(z - x_{k-1}) \\
+&amp;\leq m_k''(x_k - z) + m_k'(z - x_{k-1})
+\end{align}$</span></p>
+<p>so <span>$L_f(P) \leq L_f(P')$</span>. A similar process works for the upper sum. As we noted earlier, if <span>$Q$</span> is a refinement of <span>$P$</span> then <span>$Q$</span> can be obtained by adding a finite number of points to <span>$P$</span>, one at a time. As our process holds for any of these steps, our proof is complete. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

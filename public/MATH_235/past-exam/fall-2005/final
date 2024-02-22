@@ -1,0 +1,309 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2005 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2005 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided questions and solutions to the December 2005 final exam. Examiner: Henri Darmon; associate examiner: Daniel Wise.</p>
+<p>It is recommended that you do this exam yourself before checking the solutions provided here. If you notice any errors with the content on this page, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#accuracy-and-discussion">1.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#accuracy-and-discussion_7">8.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9">9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_8">9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">10 Question 10</a><ul>
+<li><a href="#accuracy-and-discussion_9">10.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#extra-credit">11 Extra credit</a><ul>
+<li><a href="#accuracy-and-discussion_10">11.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<blockquote>
+<p>Let <span>$\mathbb N = \{0, 1, 2, \ldots \}$</span> be the set of non-negative integers and let <span>$f: \mathbb N \times \mathbb N \to \mathbb N$</span> be the function defined recursively by the rule<br />
+<span>$$f(a, 0) = a, \quad f(a, b+1) = f(a, b) + 1, \quad \text{for all }a, b \in \mathbb N.$$</span><br />
+Show that <span>$f$</span> satisfies<br />
+<span>$$f(f(a, b), c) = f(a, f(b, c)),$$</span><br />
+for all <span>$a, b, c \in \mathbb N$</span>. (Hint: Use induction on <span>$c$</span>.)</p>
+</blockquote>
+<p>In the base case, we have <span>$c = 0$</span>. So: <span>$f(f(a, b), c) = f(f(a, b), 0) = f(a, b) = f(a, f(b, 0)) = f(a, f(b, c))$</span> <span>$\checkmark$</span>.</p>
+<p>Now we assume that it holds for <span>$c = n$</span> and attempt to prove it for <span>$c = n+1$</span>. <span>$f(f(a, b), c) = f(f(a, b), n + 1) = f(f(a, b), n) + 1 = f(a, f(b, n)) + 1$</span> (by the induction hypothesis) <span>$ = f(a, f(b, n) + 1) = f(a, f(b, n+1)) = f(a, f(b, c))$</span> <span>$\checkmark$</span></p>
+<h3 class="header"><i>1.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>I might rewrite it at some point using align to make it clearer.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Solve each of the following congruence relations.<br />
+(a) <span>$2x=1 \pmod{101}$</span><br />
+(b) <span>$6x=5 \pmod{30}$</span><br />
+(c) <span>$x^6=1\pmod 7$</span></p>
+</blockquote>
+<p>(a) 101 is prime - to see that, note that it's not divisible by 3 (because the digits don't sum to 3), nor 5, nor 7 (because 98 is), nor 11 (because 110 is), nor 13 (because 91 is). So we can't use the Chinese Remainder Theorem. Instead, we can simply enumerate all the possibilities. We need to find <span>$x$</span> such that <span>$2x$</span> is equal to 102, or 203, or 304, or 405, or 506, etc. Well, we can skip the odd terms. And 304/2 = 152 which is of course just 51 + 101. So the answer is <span>$[51]$</span>.</p>
+<p>(b) We could use the Chinese Remainder Theorem if we really wanted, but this is pretty clear even without it. Possibilities: 35, 65, etc. Well, that's obviously not possible. So there are no solutions. Another way to see that this is impossible: multiplying 6 by anything will result in an even number. But we need an odd number to solve this.</p>
+<p>(c) I was going to just list out all the possibilities, but then I realised this is just an application of Fermat's Little Theorem. So of course every non-zero number works. The solution is: <span>$[1], [2], [3], [4], [5], [6]$</span>.</p>
+<h3 class="header"><i>2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>(a) <a href="http://www.wolframalpha.com/input/?i=2x%3D1+mod+101">Wolfram Alpha</a> confirms.</p>
+<p>(b) <a href="http://www.wolframalpha.com/input/?i=6x%3D5+mod+30">Wolfram Alpha</a> confirms.</p>
+<p>(c) <a href="http://www.wolframalpha.com/input/?i=x%5E6%3D1+mod+7">Wolfram Alpha</a> confirms yet again.</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>State and prove Fermat's Little Theorem.</p>
+</blockquote>
+<p>Fermat's Little Theorem says that for all <span>$a$</span>, <span>$a^p \equiv a \pmod p$</span> where <span>$p$</span> is prime. If <span>$\gcd(a, p) = 1$</span>, this is equivalent to <span>$a^{p-1} \equiv 1 \pmod p$</span>.</p>
+<p>To prove this, we first prove the following lemma: if <span>$p$</span> is prime, then it divides the binomial coefficient <span>$\displaystyle \binom{p}{k}$</span> for all <span>$1 \leq k \leq p -1$</span>. To see this, we expand the binomial coefficient as follows:</p>
+<p><span>$$\binom{p}{k} = \frac{p!}{k!(p-k)!} = \frac{p \cdot (p-1) \cdot \ldots \cdot (p-k+1)}{k!}$$</span></p>
+<p>Since the binomial coefficient is always an integer, the denominator must divide the numerator. Since <span>$k &lt; p$</span>, the factorial of <span>$k$</span> does not divide <span>$p$</span>. So it must divide the other part. But that means that the binomial coefficient is a multiple of <span>$p$</span>, since that is not cancelled out by the denominator. So <span>$p$</span> must divide it, which proves the lemma.</p>
+<p>Now we prove Fermat's Little Theorem itself using induction on <span>$a \in \mathbb N$</span> (we can easily generalise the result to <span>$\mathbb Z$</span> afterwards if need be). The base case, <span>$a = 1$</span>, is trivial, as <span>$1^p \equiv 1 \pmod p$</span> is true for all prime <span>$p$</span>. For the induction hypothesis, we assume that it holds for <span>$a =n$</span>: <span>$n^p \equiv n \pmod p$</span>. For the induction step, we use the binomial theorem, which states that</p>
+<p><span>$$(n+1)^p = n^p + \binom{p}{1} n^{p-1} + \binom{p}{2} n^{p-2} + \ldots + \binom{p}{p-1}n + 1$$</span></p>
+<p>Now let's rearrange the terms so that the binomial coefficients are the only things on the right:</p>
+<p><span>$$(n+1)^p - n^p - 1 = \binom{p}{1} n^{p-1} + \binom{p}{2} n^{p-2} + \ldots + \binom{p}{p-1}n$$</span></p>
+<p>By the lemma above, we know that <span>$p$</span> divides each binomial coefficient, and so it divides each term on the right. Consequently, we have:</p>
+<p><span>$$p \mid \binom{p}{1} n^{p-1} + \binom{p}{2} n^{p-2} + \ldots + \binom{p}{p-1}n$$</span></p>
+<p>from which we can conclude that</p>
+<p><span>$$p \mid (n+1)^p - n^p - 1$$</span></p>
+<p>Now, we know by the induction hypothesis that <span>$p \mid n^p - n$</span>. Then <span>$p$</span> must also divide the sum of <span>$n^p-n$</span> and <span>$(n+1)^p - n^p - 1$</span>, which is given by<br />
+<span>$$n^p - n + (n+1)^p - n^p - 1 = (n+1)^p - n - 1 = (n+1)^p - (n+1)$$</span></p>
+<p>Which tells us that <span>$p \mid (n+1)^p  - (n + 1)$</span>, or, equivalently, that <span>$(n+1)^p  = (n+1) \pmod p$</span>, which is exactly what we needed to prove, so this proof by induction is complete.</p>
+<p>For negative numbers, we simply note that <span>$(-a)^p = (-1)^pa^p = (-1)^p a \pmod p$</span>. Then we just have to show that <span>$(-1)^p = -1 \pmod p$</span>. If <span>$p &gt; 2$</span>, then <span>$p$</span> is odd, and for odd <span>$p$</span> we have that <span>$(-1)^p = -1$</span>. In the case that <span>$p=2$</span>, we have that <span>$(-1)^2 = 1 = -1\pmod 2$</span>. So this proves it for negative numbers.</p>
+<p>For <span>$a = 0$</span>, the equality <span>$0^p = 0 \pmod p$</span> is trivial.</p>
+<h4 class="header"><i>3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h4>
+<p>See questions 9 and 10 for assignment 2 (<a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol2.pdf">link to solutions</a>).</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Prove that the ring <span>$\mathbb R$</span> of real numbers and the ring <span>$\mathbb Q$</span> of rational numbers are not isomorphic.</p>
+</blockquote>
+<p>For the two rings to be isomorphic, there must exist a bijective ring homomorphism between them. But there does not exist a bijection from <span>$\mathbb R$</span> to <span>$\mathbb Q$</span>, for the former is uncountable while the latter is countable.</p>
+<h3 class="header"><i>4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>For the real proof, one would probably need to use Cantor's diagonal argument or something along those lines.</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<blockquote>
+<p>List the powers <span>$[x]^j$</span> (for <span>$0 \leq j \leq 7$</span>) of <span>$[x] = x + (x^3 + x + 1)\mathbb Z_2[x]$</span> in the quotient ring <span>$\mathbb Z_2[x]/(x^3+x+1)$</span>. You should label each result by its unique representative of degree <span>$\leq 2$</span>. Using this calculation, write down the multiplicative inverse of <span>$[x]$</span>.</p>
+</blockquote>
+<table class="clear">
+<thead>
+<tr>
+<th>j</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$[x]^j$</span></td>
+<td>1</td>
+<td><span>$x$</span></td>
+<td><span>$x^2$</span></td>
+<td><span>$x+1$</span></td>
+<td><span>$x^2+x$</span></td>
+<td><span>$x^2+x+1$</span></td>
+<td><span>$x^2+1$</span></td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The inverse is <span>$[x]^6$</span> (for <span>$[x] \cdot [x]^6 = 1$</span>.</p>
+<h3 class="header"><i>5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>I think it's accurate. Can't confirm though.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<blockquote>
+<p>Give an example of two <em>non-isomorphic</em> rings of cardinality 16 that are <em>non-commutative</em>. (You should justify your answer and prove that these two rings are not isomorphic to each other.)</p>
+</blockquote>
+<p>?</p>
+<h3 class="header"><i>6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>?</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<blockquote>
+<p>Give the definitions of: <em>maximal ideal</em> and <em>prime ideal</em> in a commutative ring <span>$R$</span>. Show that if <span>$I$</span> is a maximal ideal then <span>$R/I$</span> is a field.</p>
+</blockquote>
+<p><strong>Maximal ideal</strong>: a proper ideal <span>$I$</span> (that is, <span>$I \neq R$</span>) is said to be maximal if, for any ideal <span>$J$</span> with <span>$I \subseteq J$</span>, we have that either <span>$J = I$</span> or <span>$J = R$</span>.</p>
+<p><strong>Prime ideal</strong>: an ideal <span>$I$</span> is said to be prime if <span>$ab \in I$</span> implies <span>$a \in I$</span> or <span>$b \in I$</span>.</p>
+<p>Proof: suppose that <span>$I$</span> is a maximal ideal. If <span>$1 \in I$</span>, then <span>$I = R$</span> so it must be that <span>$1 \notin I$</span>. Consequently, in <span>$R/I$</span> we have that <span>$[1] \neq [0]$</span>. Since <span>$R$</span> is commutative, so is <span>$R/I$</span>, so we just need to prove that every non-zero element <span>$[a] \in R/i$</span> is invertible. Consider the ideal <span>$(a, I) = (a) + I$</span> of <span>$R$</span>, where <span>$[a]$</span> is a non-zero element in <span>$R/I$</span>. This means that <span>$a \notin I$</span>, which means this ideal strictly contains <span>$I$</span>. Since <span>$I$</span> is <em>maximal</em>, any ideal strictly containing it must be the ring itself. So <span>$(a) + I = R$</span>, which means that for some <span>$r \in R$</span> and <span>$j \in I$</span>, we have that <span>$ar + j = 1$</span>. Consequently, in <span>$R/I$</span>, since <span>$j = 0$</span>, we have that <span>$[a][r] = 1$</span> and so <span>$[r]$</span> is the inverse, proving that any non-zero element in <span>$R/I$</span> is invertible. Consequently, <span>$R/I$</span> must be a field.</p>
+<h3 class="header"><i>7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>Definitions: See Definition 24.0.10 in the notes.</p>
+<p>Proof: See Theorem 24.0.11 (2) in the notes.</p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<blockquote>
+<p>Write down the class equation for the symmetric group <span>$S_5$</span> on 5 elements. (i.e., list all of the conjugacy classes in <span>$S_5$</span>, along with their cardinalities.) Use this to give a list of all the normal subgroups of <span>$S_5$</span>.</p>
+</blockquote>
+<ul>
+<li>The identity. Cardinality: 1.</li>
+<li>The 2-cycles. Representative: <span>$(12)$</span>. Cardinality: 10.</li>
+<li>The 3-cycles. Representative: <span>$(123)$</span>. Cardinality: 20.</li>
+<li>The 2-2-cycles. Representative: <span>$(12)(34)$</span>. Cardinlity: 15.</li>
+<li>The 4-cycles. Representative: <span>$(1234)$</span>. Cardinality: 30.</li>
+<li>The 2-3-cycles. Representative: <span>$(12)(345)$</span>. Cardinality: 20.</li>
+<li>The 5-cyles. Representative: <span>$(12345)$</span>. Cardinality: 24.</li>
+</ul>
+<p>The normal subgroups are: <span>$S_5$</span>, <span>$\{e\}$</span>, and the union of the classes consisting of an even number of cycles with even length (so the 3-cycles, the 2-2-cycles, the 5-cycles, and the identity).</p>
+<h3 class="header"><i>8.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>See the last question on assignment 5 (<a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol5.pdf">link to solutions</a>).</p>
+<h2 class="header"><i>9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h2>
+<blockquote>
+<p>Show that the groups <span>$\mathbb{GL}_2(\mathbb Z_2)$</span> and <span>$S_3$</span> are isomorphic by constructing an isomorphism from one to the other.</p>
+</blockquote>
+<p>?</p>
+<h3 class="header"><i>9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>?</p>
+<h2 class="header"><i>10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h2>
+<blockquote>
+<p>Write down five non-isomorphic groups of order 8. (You do not need to show that these groups are non-isomorphic.)</p>
+</blockquote>
+<p><span>$\mathbb Z/8\mathbb Z$</span>, <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/2 \mathbb Z \times \mathbb Z/2 \mathbb Z$</span>, <span>$\mathbb Z/2 \mathbb Z \times \mathbb Z/4 \mathbb Z$</span>, the dihedral group <span>$D_8$</span>, the quaternion group (no idea what this is but it was mentioned during a tutorial).</p>
+<h3 class="header"><i>10.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p><a href="http://en.wikipedia.org/wiki/List_of_small_groups">http://en.wikipedia.org/wiki/List_of_small_groups</a></p>
+<h2 class="header"><i>11</i>Extra credit<a class="headerlink" href="#extra-credit" name="extra-credit">&para;</a></h2>
+<blockquote>
+<p>Show that there is no surjective homomorphism from <span>$\mathbb Z_2[x]$</span> to the ring <span>$\mathbb Z_2 \times \mathbb Z_2 \times \mathbb Z_2$</span>.</p>
+</blockquote>
+<p>Suppose there is a surjective homomorphism. Then <span>$\exists a,b \in \mathbb{GL}_2(\mathbb Z_2)$</span> satisfying <span>$\Phi(a) = \Phi(b) = c$</span>, where <span>$c$</span> is some element of <span>$\mathbb Z_2 \times \mathbb Z_2 \times \mathbb Z_2$</span>.</p>
+<p>It follows that:<br />
+<span>$\Phi(a) + \Phi(b) = 2c$</span>¸<br />
+But all elements of <span>$\mathbb Z_2 \times \mathbb Z_2 \times \mathbb Z_2$</span> are order 2, so <span>$2c = 0$</span></p>
+<p>By the definition of a homomorphism, addition is preserved, so we must also have:<br />
+<span>$\Phi(a+b) = 2c = 0$</span></p>
+<p>A homomorphism must also map zero to itself, so we conclude that <span>$a + b = 0$</span>.<br />
+<span>$a$</span> must be the additive inverse of <span>$b$</span>, but we see that in <span>$\mathbb Z_2[x]$</span> every element is its own additive inverse (try it).</p>
+<p>Thus we conclude that <span>$a = b$</span>, a contradiction if <span>$\Phi$</span> is surjective.</p>
+<h3 class="header"><i>11.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_10" name="accuracy-and-discussion_10">&para;</a></h3>
+<p>Should be fine.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

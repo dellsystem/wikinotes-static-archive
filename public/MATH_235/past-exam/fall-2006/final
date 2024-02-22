@@ -1,0 +1,316 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2006 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2006 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided (and sometimes TA-verified) questions and solutions to the December 2006 final exam. Examiner: Eyal Goren; associate examiner: Henri Darmon.</p>
+<p>It is recommended that you do this exam yourself before checking the solutions provided here. If you notice any errors with the content on this page, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#part-a-multiple-choice-questions">1 Part A: Multiple-choice questions</a><ul>
+<li><a href="#question-1">1.1 Question 1</a><ul>
+<li><a href="#accuracy-and-discussion">1.1.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">1.2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">1.2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">1.3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">1.3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">1.4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">1.4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">1.5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">1.5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">1.6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">1.6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">1.7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">1.7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">1.8 Question 8</a></li>
+<li><a href="#question-9">1.9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_7">1.9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#part-b-short-answer-questions">2 Part B: Short-answer questions</a><ul>
+<li><a href="#question-1_1">2.1 Question 1</a></li>
+<li><a href="#question-2_1">2.2 Question 2</a></li>
+<li><a href="#question-3_1">2.3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_8">2.3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4_1">2.4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_9">2.4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5_1">2.5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_10">2.5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6_1">2.6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_11">2.6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Part A: Multiple-choice questions<a class="headerlink" href="#part-a-multiple-choice-questions" name="part-a-multiple-choice-questions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<blockquote>
+<p>The group of permutations of five elements, <span>$S_5$</span>, has an element of order 7. Yes or no?</p>
+</blockquote>
+<p>No. You would need one element of order 7, or two elements whose orders' lcm is 7. But the max order of an element is 5, for obvious reasons, and 7 is prime so yeah.</p>
+<p>You <em>could</em>, however, have an element of order 6. For example: <span>$(12)(345)$</span> has order 6, since lcm<span>$(2, 3) = 6$</span>.</p>
+<h4 class="header"><i>1.1.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h4>
+<p>Solution given during the tutorial on Friday, November 30.</p>
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<blockquote>
+<p>The <span>$\gcd$</span> of the polynomials <span>$f(x) = x^4 + 5x + 1$</span> and <span>$g(x) = x^2-1$</span> in <span>$\mathbb Z/7\mathbb Z [x]$</span> is:</p>
+<p>(a) <span>$x^2-1$</span><br />
+(b) <span>$x-1$</span><br />
+(c) <span>$1$</span><br />
+(d) <span>$x+1$</span></p>
+</blockquote>
+<p>Run the Euclidean division algorithm as follows:</p>
+<p><span>$$\begin{align*}
+x^4+5x+1 &amp; = (x^2-1) \cdot(x^2 + 1) + (5x-5) \tag{as $5x+2 = 5x-5$}\\
+x^2-1 &amp; = (5x-5)(3x + 3) + 0\tag{as $15x^2 - 15x + 15x - 15 = x^2 -1$}  \\
+\end{align*}$$</span></p>
+<p>Therefore, <span>$x-1$</span> is the gcd (since we use the monic version by convention), so (b).</p>
+<h4 class="header"><i>1.2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h4>
+<p>Well, <span>$x+1$</span> does indeed divide both: <span>$(x-1)(x^3+x^2+x-1) = x^4 - 2x + 1 = x^4 + 5x + 1$</span>, and <span>$(x-1)(x+1) = x^2-1$</span>. And <span>$x^2-1$</span> and <span>$x+1$</span> do not seem to divide the larger polynomial. Not really sure to confirm this though (Wolfram Alpha doesn't seem to handle computing the gcd in <span>$\mathbb Z /n\mathbb Z$</span> very well).</p>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<blockquote>
+<p>Any two groups with 6 elements are isomorphic. Yes or no?</p>
+</blockquote>
+<p>No. <span>$S_3$</span> and <span>$\mathbb Z/6\mathbb Z$</span> both have 6 elements, but because one is Abelian and the other is not, they are not isomorphic.</p>
+<h4 class="header"><i>1.3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h4>
+<p>Solution given during the tutorial on Friday, November 30.</p>
+<h3 class="header"><i>1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h3>
+<blockquote>
+<p>The ring <span>$\mathbb Q[x]/(x^3-1)$</span> is a field. Yes or no?</p>
+</blockquote>
+<p>No, because <span>$x^3-1$</span> is reducible in <span>$\mathbb Q[x]$</span> (just <span>$(x-1)(x^2+x+1)$</span> - if you can't see that right away, just note that <span>$x=1$</span> is clearly a root, so <span>$(x-1)$</span> is clearly a factor, which means it's reducible).</p>
+<h4 class="header"><i>1.4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h4>
+<p>pretty sure</p>
+<h3 class="header"><i>1.5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h3>
+<blockquote>
+<p>Let <span>$n \geq 1$</span> be an integer. Every homomorphism of groups <span>$f: \mathbb Z / n \mathbb Z \to \mathbb Z$</span> is the zero homomorphism. Yes, no, or depends on <span>$n$</span>?</p>
+</blockquote>
+<p>Yes. (The zero homomorphism is the one whose kernel is equal to <span>$\mathbb Z/n\mathbb Z$</span> itself, i.e., every element is mapped to the identity element in <span>$\mathbb Z$</span>, which happens to be 0.) Consider the homomorphism <span>$f: \mathbb Z / n \mathbb Z \to \mathbb Z$</span>. Let <span>$a = f(1)$</span>. Then, we have:</p>
+<p><span>$$f(n) = f(\underbrace{1 + \ldots + 1}_{n \text{ times}}) =  \underbrace{f(1) + \ldots + f(1)}_{n \text{ times}} = \underbrace{a + \ldots + a}_{n \text{ times}} = na$$</span></p>
+<p>Now, since it's a homomorphism, we know that <span>$f(0) = 0$</span>. But <span>$n \equiv 0$</span> in the domain, and so we have that <span>$f(n) = na = f(0) = 0$</span>. But that means that <span>$na = 0$</span>. Since <span>$n \neq 0$</span>, then it must mean that <span>$a = 0$</span>! (Since <span>$\mathbb Z$</span> is, of course, an integral domain.) So any element in the domain is mapped to 0. But this is the definition of the zero homomorphism.</p>
+<h4 class="header"><i>1.5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h4>
+<p>Solution given during the tutorial on Friday, November 30.</p>
+<h3 class="header"><i>1.6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h3>
+<blockquote>
+<p><span>$2^{144}$</span> is congruent to:</p>
+<p>(a) <span>$1 \pmod{13}$</span><br />
+(b) <span>$2 \pmod{5}$</span></p>
+</blockquote>
+<p>I love these questions. Well, 144's prime divisors are 3 and 4 (<span>$144 = 12 \cdot 12 = 3^2\cdot 4^2$</span>). Let's assume that (a) is true for now (because it is, lol). Then <span>$2^{144} = (2^{12})^{12}$</span>. But by FLT, <span>$2^{12} \equiv 1 \pmod{13}$</span>. Then <span>$2^{144} \equiv 1^{12} \equiv 1 \pmod{13}$</span>. So (a). That worked out nicely.</p>
+<h4 class="header"><i>1.6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h4>
+<p><a href="http://www.wolframalpha.com/input/?i=2%5E144+mod+13">Wolfram Alpha</a> confirms that it's congruent to 1 in mod 13. Incidentally, it's also <a href="http://www.wolframalpha.com/input/?i=2%5E144+mod+5">congruent to 1 in mod 5</a>.</p>
+<h3 class="header"><i>1.7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h3>
+<blockquote>
+<p>Let <span>$G$</span> be a group. The relation on <span>$G$</span> defined by "<span>$a \sim b$</span> if there exists <span>$g \in G$</span> such that <span>$gag^{-1} = b$</span>" is an equivalence relation. Yes or no?</p>
+</blockquote>
+<p>Yes.</p>
+<h4 class="header"><i>1.7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h4>
+<p>Solution given during the tutorial on Friday, November 30. The proof that this is an equivalence relation was given during the tutorial on Friday, November 23.</p>
+<h3 class="header"><i>1.8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h3>
+<blockquote>
+<p>Some question about transitive groups</p>
+</blockquote>
+<p>Don't think we need to know this, or we just haven't learned it yet or something</p>
+<h3 class="header"><i>1.9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h3>
+<blockquote>
+<p>Let <span>$G$</span> be a group and <span>$a, b\in G$</span> be two elements of order 2, i.e., <span>$a^2 = e$</span> and <span>$b^2=e$</span>. Then <span>$(ab)^2=e$</span>. Yes or no?</p>
+</blockquote>
+<p>No. <span>$(ab)^2 = abab$</span>, and <span>$a^2b^2 = aabb = 1$</span>. So <span>$(ab)^2 = aabb$</span> IF we know that <span>$ab = ba$</span>, i.e., if the group is Abelian. So this property is only true for Abelian groups, not for groups in general.</p>
+<h4 class="header"><i>1.9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h4>
+<p>Solution given during the tutorial on Friday, November 30.</p>
+<h2 class="header"><i>2</i>Part B: Short-answer questions<a class="headerlink" href="#part-b-short-answer-questions" name="part-b-short-answer-questions">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<blockquote>
+<p>Unlikely to be asked (about the Cauchy-Frobenius formula, and orbits)</p>
+</blockquote>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h3>
+<blockquote>
+<p>Unlikely to be asked (about roulette/necklace permutations)</p>
+</blockquote>
+<h3 class="header"><i>2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h3>
+<blockquote>
+<p>(a) Let <span>$m, n$</span> be relatively prime positive integers. Prove the Chinese Remainder Theorem: <span>$\mathbb Z/(mn)\mathbb Z \cong \mathbb Z / m \mathbb Z \times \mathbb Z /n \mathbb Z$</span> (isomorphism of rings).<br />
+(b) State the analogous theorem for the ring of polynomials <span>$\mathbb F[x]$</span>, where <span>$\mathbb F$</span> is a field.</p>
+</blockquote>
+<p>(a) To prove that <span>$\mathbb Z/(mn)\mathbb Z$</span> and <span>$\mathbb Z / m \mathbb Z \times \mathbb Z /n \mathbb Z$</span> are isomorphic, we define the following function <span>$f: \mathbb Z/(mn)\mathbb Z \to \mathbb Z / m \mathbb Z \times \mathbb Z /n \mathbb Z$</span>, such that <span>$f(a) = (a \pmod m, a \pmod n)$</span>.</p>
+<p>This function is a ring homomorphism, which we will now proceed to show (it's pretty easy):</p>
+<p>(1) Identity: <span>$f(1) = (1 \pmod m, 1 \pmod n) = (1_{\mathbb Z / m \mathbb Z}, 1_{\mathbb Z / n \mathbb Z})$</span> <span>$\checkmark$</span><br />
+(2) Addition: <span>$f(a + b) = ((a+b) \pmod m, (a+b) \pmod n) = (a \pmod m, a \pmod n) + (b \pmod m, b \pmod n) = f(a) + f(b)$</span> <span>$\checkmark$</span><br />
+(3) Multiplication: <span>$f(ab) = ((ab) \pmod m, (ab) \pmod n) = (a \pmod m, a \pmod n) \cdot (b \pmod m, b \pmod n) = f(a) \cdot f(b)$</span> <span>$\checkmark$</span></p>
+<p>Now, to show that it's injective, we need to show that <span>$f(x) = 0$</span> implies that <span>$x = 0$</span>. Well, <span>$f(x) = (x \pmod m, x \pmod n)$</span>, and 0 in the image would be <span>$(0, 0)$</span>, which means that <span>$x \pmod m = 0$</span> and <span>$x \pmod n = 0$</span> - that is, <span>$x$</span> is a multiple of <span>$m$</span> as well as a multiple of <span>$n$</span>. But then, since <span>$m$</span> and <span>$n$</span> are relatively prime, <span>$x$</span> must also be a multiple of <span>$mn$</span>, which means that <span>$x = 0 \pmod{mn}$</span>. So the function is injective.</p>
+<p>Lastly, we need to show that it's surjective by finding <span>$x$</span> such that <span>$f(x) = (a\pmod m, b\pmod n)$</span> for any <span>$a, b \in \mathbb Z$</span>. So we need to find an <span>$x$</span> such that <span>$x = a \pmod m$</span> and <span>$x = b \pmod n$</span>. Well, we know that <span>$m$</span> and <span>$n$</span> are relatively prime, i.e., <span>$\gcd(m, n) = 1$</span>. Using the basic properties of the gcd, we know that there exist integers <span>$u, v$</span> such that <span>$um + vn = 1$</span>. Consider <span>$x = bum + avn$</span>. What is this mod m? Well, since <span>$m = 0 \pmod m$</span>, <span>$bum = 0 \pmod m$</span> and so <span>$x = avn \pmod m$</span>. But we know that <span>$aum + avn = a$</span> (from multiplying a previous equation by <span>$a$</span>), which means that <span>$avn = a - aum$</span>, and so <span>$x = a - aum = a \pmod m$</span> (since <span>$aum = 0 \pmod m$</span>). Similarly, we have that <span>$x = b \pmod n$</span>. So <span>$f$</span> is indeed surjective, and thus must be an isomorphism, which concludes the proof that <span>$\mathbb Z/(mn)\mathbb Z \cong \mathbb Z / m \mathbb Z \times \mathbb Z /n \mathbb Z$</span>.</p>
+<p>(b) <span>$\mathbb F[x] / (fg) \cong \mathbb F[x] / (f) \times \mathbb F[x]/(g)$</span> if <span>$f, g$</span> are two non-constant polynomials with <span>$\gcd(f, g) = 1$</span>.</p>
+<h4 class="header"><i>2.3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h4>
+<p>(a) Theorem 23.3.1 in the notes. The proofs I used for surjectivity and injectivity differ from those used in the notes, mostly because using the first isomorphic theorem isn't quite intuitive for me yet. I followed the basic idea used here: <a href="http://mathforum.org/library/drmath/view/73205.html">http://mathforum.org/library/drmath/view/73205.html</a>.</p>
+<p>(b) Exercise 12 in section 25 (under ring theory) states it and asks us to prove it.</p>
+<h3 class="header"><i>2.4</i>Question 4<a class="headerlink" href="#question-4_1" name="question-4_1">&para;</a></h3>
+<blockquote>
+<p>Let <span>$f \in \mathbb F[x]$</span> be an irreducible polynomial with coefficients in <span>$\mathbb F$</span> and of degree <span>$\geq 1$</span>.</p>
+<p>(a) Prove that <span>$L = \mathbb F[x]/(f)$</span> is a field.<br />
+(b) Prove that <span>$f$</span> has a root in <span>$L$</span>.</p>
+</blockquote>
+<p>(a) We already know that <span>$\mathbb F[x]/(f)$</span> is a commutative ring, since <span>$F[x]$</span> is a field and has a unit element (1). So we have to show that every non-zero element has an inverse, and that <span>$[0] \neq [1]$</span>. Well, we know the the latter is true because <span>$f$</span> is irreducible, and thus is not constant, so <span>$1 = 1 - 0 \notin (f)$</span>. To show the former, let <span>$g$</span> be any non-zero element in the quotient ring. Since <span>$f$</span> is irreducible, <span>$g$</span> does not divide <span>$f$</span>, and <span>$f$</span> does not divide <span>$g$</span> because <span>$g$</span> is non-zero. So, we have that <span>$\gcd(f, g) = 1$</span>. Then, by the properties of the gcd, there exist <span>$u, v \in \mathbb F[x]$</span> such that <span>$uf + vg = 1$</span>. But <span>$uf = [0]$</span> in the quotient ring. So then <span>$kv = 1$</span>, which shows that any non-zero polynomial has an inverse. This suffices to prove that <span>$L$</span> is a field.</p>
+<p>(b) Well, <span>$x$</span> is a root because <span>$f(x) \equiv 0 \pmod{f(x)}$</span>, lol</p>
+<h4 class="header"><i>2.4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h4>
+<p>(a) Theorem 22.1.2 in the text. This was also useful: <a href="http://people.virginia.edu/~mve2x/3354_Fall2010/lecture27.pdf">http://people.virginia.edu/~mve2x/3354_Fall2010/lecture27.pdf</a></p>
+<p>(b) Mentioned during the tutorial on Friday, November 30.</p>
+<h3 class="header"><i>2.5</i>Question 5<a class="headerlink" href="#question-5_1" name="question-5_1">&para;</a></h3>
+<blockquote>
+<p>(a) Prove that there are infinitely many prime numbers.<br />
+(b) Prove that every positive integer is a product of prime numbers. (Note: no need to prove uniqueness. Also, this doesn't require part (a).)</p>
+</blockquote>
+<p>(a) The easiest proof is by contradiction. We assume that there is a finite number of primes, which can be enumerated (in ascending order) as <span>$A = \{a_1, a_2, \ldots a_n\}$</span>. Let <span>$N$</span> be the product of all these numbers: <span>$N = a_1 \times a_2 \times \ldots \times a_n$</span>. Consider <span>$N'=N+1$</span>. Well, clearly none of the primes can evenly divide <span>$N'$</span> - there will always be a remainder of 1. But that means <span>$N'$</span> is prime. Then, we get a contradiction, because <span>$A$</span> was supposed to be a complete list of primes, and yet <span>$N'$</span> - which is a prime - is not in <span>$A$</span> (since <span>$N' &gt; a_n$</span>, and the list is in ascending order). We can conclude, then, that there are infinitely many primes.</p>
+<p>(b) This proof uses the well-ordering property of the natural numbers in a proof by contradiction. Suppose that there are positive integers that can <em>not</em> be written as a product of primes. We represent these integers in the set <span>$S$</span>. By the well-ordering property, <span>$S$</span> must have a minimal element (since it is not empty). We can denote this element by <span>$n_0$</span>. Now, <span>$n_0$</span> cannot be prime, or equal to 1, because those can be trivially written as the product of primes. So <span>$n_0$</span> must be composite - that is, there must exist two integers <span>$s, t \in \mathbb N$</span> such that <span>$1 &lt; s, t &lt; n_0$</span> with <span>$n_0 = st$</span>. Now, <span>$s$</span> and <span>$t$</span> cannot be in <span>$S$</span>, because they are less than <span>$n_0$</span> and we chose <span>$n_0$</span> to be the least element of <span>$S$</span>. So <span>$s$</span> and <span>$t$</span> can be written as the product of primes. We write <span>$s$</span> as <span>$s = q_1\ldots q_a$</span> and <span>$t$</span> and <span>$t = p_1\ldots p_b$</span> (where the <span>$q$</span>s and <span>$p$</span>s are all primes).</p>
+<p>But then we can write <span>$n_0 = st = q_1 \ldots q_a p_1 \ldots p_b$</span>, which is a product of primes. This contradicts our original premise that <span>$n_0$</span> cannot be written as a product of primes, by virtue of belonging to <span>$S$</span>. Consequently, <span>$S$</span> must be empty, meaning that there are no positive integers that cannot be written as product of primes.</p>
+<h4 class="header"><i>2.5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_10" name="accuracy-and-discussion_10">&para;</a></h4>
+<p>(a) See the lecture notes for <a href="/MATH_235/lecture-notes/fall-2012/monday-september-24#euclids-theorem">Monday, September 24 (Euclid's theorem)</a>.</p>
+<p>(b) See the lecture notes for <a href="/MATH_235/lecture-notes/fall-2012/monday-september-24#the-existence-property">Monday, September 24 (The existence property)</a>.</p>
+<h3 class="header"><i>2.6</i>Question 6<a class="headerlink" href="#question-6_1" name="question-6_1">&para;</a></h3>
+<blockquote>
+<p>(a) State and prove the first isomorphism theorem for groups.<br />
+(b) Prove that there is no surjective homomorphism <span>$S_3 \to \mathbb Z /3\mathbb Z$</span>.</p>
+</blockquote>
+<p>(a) Let <span>$f$</span> be a surjective homomorphism <span>$f: G \to Q$</span>, where <span>$H = \ker(f)$</span>. Then there is an isomorphism from the quotient <span>$G/H$</span> to <span>$Q$</span>.</p>
+<p>Proof: Recall that the quotient <span>$G/H$</span> consists of all the left cosets of <span>$H$</span>. We construct the following function <span>$g: G/H \to Q$</span>: <span>$g$</span> maps any left coset <span>$aH$</span> to <span>$f(a)$</span>. We need to show that <span>$g$</span> is (1) well-defined; (2) a group homomorphism; and (3) bijective.</p>
+<p>(1) If <span>$aH = bH$</span>, then <span>$b^{-1}aH = b^{-1}bH = eH$</span> and so <span>$f(b^{-1}a) = e$</span>. Then, <span>$f(b) = f(b)f(b^{-1}a) = f(bb^{-1}a) = f(a)$</span>. So then <span>$g(aH) = g(bH)$</span>. <span>$\checkmark$</span></p>
+<p>(2) <span>$g(aH \cdot bH) = g((ab)H)$</span> (from the definition of coset multiplication) <span>$ = f(ab) = f(a)f(b)$</span> (since <span>$f$</span> is a homomorphism) <span>$ = g(aH) \cdot g(bH)$</span>. <span>$\checkmark$</span></p>
+<p>(3) Injectivity: let <span>$aH \in \ker(g)$</span> such that <span>$g(aH) = e$</span>. Then <span>$f(a) = e$</span>, and so <span>$a$</span> is in the kernel of <span>$f$</span>, that is <span>$H$</span>. But then <span>$aH$</span> must be the identity in <span>$G/H$</span>, proving that the kernel of <span>$g$</span> is trivial and so the function is injective. Surjectivity: since <span>$f$</span> is surjective, given <span>$q \in Q$</span>, we can find <span>$a \in G$</span> such that <span>$f(a) = q$</span>. But then <span>$F(a) = f(a) = q$</span>. So <span>$g$</span> is surjective.</p>
+<p>(b) We can do a proof by contradiction. We assume that there is a surjective homomorphism. Then, by the first isomorphism theorem, there is a normal subgroup <span>$N$</span> in <span>$S_3$</span> such that <span>$S_3/N \cong \mathbb Z / 3\mathbb Z$</span>. Recall that any normal subgroup is a union of conjugacy classes. What are the conjugacy classes in <span>$S_3$</span>? We have <span>$\{e\}$</span>, <span>$\{$</span>the 2-cycles<span>$\}$</span> (there are 3 of them), and <span>$\{$</span>the 3-cycles<span>$\}$</span> (there are two).</p>
+<p>Now, <span>$S_3$</span> has 6 elements, and <span>$\mathbb Z / 3\mathbb Z$</span> has 3 elements, so <span>$N$</span> must have 2 elements. But can you make a normal subgroup with only 2 elements? Well, no, because you need the identity, so there's only room for one other element. But there is no other conjugacy class that has one element. So there is no way to form a normal subgroup of 2 elements.</p>
+<p>From this we can conclude that there is no surjective homomorphism from <span>$S_3$</span> to <span>$\mathbb Z / 3\mathbb Z$</span>.</p>
+<h4 class="header"><i>2.6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_11" name="accuracy-and-discussion_11">&para;</a></h4>
+<p>(a) Theorem 33.3.1 in the text. Also briefly mentioned during lecture on Friday, November 30 (the proof was left as an exercise).</p>
+<p>(b) Explained during the tutorial on Friday, November 30.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:canonical">
+<p>A mildly interesting discussion of the word "canonical" on mathoverflow: <a href="http://mathoverflow.net/questions/19644/what-is-the-definition-of-canonical">http://mathoverflow.net/questions/19644/what-is-the-definition-of-canonical</a>&#160;<a href="#fnref:canonical" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

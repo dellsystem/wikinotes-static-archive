@@ -1,0 +1,201 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided questions and solutions to the Fall 2010 final exam.</p>
+<p>It is recommended that you do this exam yourself before checking the solutions provided here. If you notice any errors with the content on this page, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_6">7.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_6">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>(i) The <em>Archimedean property</em> states that the set of natural numbers <span>$\mathbb N$</span> is unbounded in <span>$\mathbb R$</span>. Assuming this property, show that <span>$\inf \{1/n: n \in \mathbb N\} = 0$</span>. Conclude that if <span>$t &gt; 0$</span>, there exists some <span>$n \in \mathbb N$</span> with <span>$\frac{1}{n} &lt; t$</span>, and if <span>$y &gt; 0$</span>, there exists a natural number <span>$n$</span> such that <span>$n-1 \leq y &lt; n$</span>.<br />
+(ii) Use (i) to show that for any two real numbers <span>$x$</span> and <span>$y$</span> with <span>$x &lt; y$</span>, there exists a rational number <span>$r$</span> with <span>$x &lt; y &lt; y$</span>.</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>Coming soon</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>(i) Let <span>$f : A \to \mathbb R$</span> be a function. Define what it means for <span>$f$</span> to be <em>continuous</em> on <span>$A$</span>, and <em>uniformly continuous</em> on <span>$A$</span>. Comment on the difference between these definitions.<br />
+(ii) Show that if <span>$f$</span> and <span>$g$</span> are uniformly continuous functions on <span>$A$</span>, and they are both bounded on <span>$A$</span>, then their product <span>$fg$</span> is uniformly continuous on <span>$A$</span>.<br />
+(iii) Show that if <span>$A$</span> is the closed bounded interval <span>$A = [a, b]$</span>, then a continuous function <span>$f: A \to \mathbb R$</span> must be bounded. State any theorems you use. Conclude that the product of two uniformly continuous functions defined on a closed bounded interval is uniformly continuous.<br />
+(iv) Give an example of a set <span>$A$</span> and a uniformly continuous function <span>$f: A \to \mathbb R$</span> which is not bounded, justifying your choice.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>Coming soon</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>(i) Let <span>$a \subset \mathbb R$</span> be a nonempty set. Define what it means for a real number to be the <em>supremum</em> of <span>$A$</span>. State the <em>completeness axiom</em> for <span>$\mathbb R$</span>.</p>
+<p>Now let <span>$I_n = [a_n, b_n]$</span>, <span>$n\in \mathbb N$</span> be a <em>nested</em> sequence of intervals, i.e., <span>$I_{n+1} \subset I_n$</span> for each <span>$n \in \mathbb N$</span>.</p>
+<p>(ii) Show that the set <span>$\{a_n:n \in \mathbb N\}$</span> is bounded above, and let <span>$a*$</span> be its supremum.<br />
+(iii) Show that <span>$\displaystyle a* \in \cap_{n=1}^{\infty} I_n$</span>.<br />
+(iv) If <span>$f: [a, b] \to \mathbb R$</span> is a continuous function, with <span>$f(a) &lt; 0$</span> and <span>$f(b) &gt; 0$</span>, show that there exists <span>$x \in (a, b)$</span> with <span>$f(x) = 0$</span>. Hint: use part (iii).<br />
+(v) Show that the polynomial <span>$f(x) = x^4 + 7x^3 - 9$</span> has at least 2 real roots. Describe how you would locate one of these roots with error less than 0.005.</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p>Coming soon</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Prove or disprove each of the following statements.</p>
+<p>(i) If every subsequence of <span>$(x_n)$</span> has a subsequence that converges to 0, then <span>$\displaystyle \lim_{n \to \infty} x_n = 0$</span>.<br />
+(ii) The sequence <span>$(1 + (-1)^n)$</span> is a Cauchy sequence.<br />
+(iii) The sequence <span>$((3n)^{\frac{1}{2n}})$</span> diverges to <span>$\infty$</span>.</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<p>(i) I have no idea. That's interesting.<br />
+(ii) Disprove.<br />
+(iii) Disprove. It converges to 1 for some reason. Why???</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>(i) If <span>$0 &lt; x &lt; 1$</span>, show that <span>$x^n \to 0$</span> as <span>$n \to \infty$</span>.<br />
+(ii) If <span>$0 &lt; a &lt;b$</span>, find the limit of the sequence <span>$\displaystyle \left ( \frac{a^{n+1} + b^{n+1}}{a^n + b^n} \right )$</span>, <em>stating</em> any theorems that you use.</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<p>(ii) This is straight out of the textbook. Coming soon.</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>(i) Suppose <span>$f: [a, b] \to \mathbb R$</span> with <span>$c \in (a, b)$</span>. Show that <span>$f$</span> is differentiable at <span>$c$</span> if and only if there exists a function <span>$\phi: [a, b] \to \mathbb R$</span> such that <span>$\mathbb \phi$</span> is continuous at <span>$c$</span> and satisfies</p>
+<p><span>$$f(x) - f(c) = \phi(x)(x-c)$$</span></p>
+<p>whenever <span>$x \in [a, b]$</span>. Show that in this case, <span>$f'(c) = \phi(c)$</span>.<br />
+(ii) If <span>$f(x) = x^3$</span>, find <span>$\phi(x)$</span> and deduce that <span>$f'(c) = 3c^2$</span>.<br />
+(iii) Suppose <span>$f$</span> is strictly monotone increasing and continuous on <span>$[a, b]$</span>. Let <span>$J = f([a, b])$</span> and consider the function <span>$g: J \to [a, b]$</span> defined as <span>$g = f^{-1}$</span>. Explain why <span>$J$</span> is a closed bounded interval. Show that if <span>$f$</span> is differentiable at <span>$c \in [a, b]$</span> and <span>$f'(c) \neq 0$</span>, then <span>$f^{-1}$</span> is differentiable at <span>$d = f(c)$</span> and <span>$g'(d) = \frac{1}{f'(c)}$</span>. Hint: use part (i). Then, using part (ii), if <span>$f(x) = x^3$</span>, find <span>$g'(d)$</span>.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>Coming soon</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Let <span>$f$</span>, <span>$g$</span> be differentiable on <span>$\mathbb R$</span> and suppose that <span>$f(0) = g(0)$</span> and <span>$f'(x) \leq g'(x)$</span> for all <span>$x \geq 0$</span>. Show that <span>$f(x) \leq g(x)$</span> for all <span>$x \geq 0$</span>. State completely any theorems that you use.</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<p>Coming soon</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

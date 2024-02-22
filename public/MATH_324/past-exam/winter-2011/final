@@ -1,0 +1,367 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2011 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2011 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Exam on WebCT.</p>
+<p><strong>Under construction</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>Let <span>$X_1, \ldots, X_n$</span> be a random sample from the density function</p>
+<p><span>$$f(x) = \begin{cases} \displaystyle \frac{4}{\theta} x^3 e^{-x^4/\theta} &amp; \text{if } x &gt; 0, \\ 0 &amp; \text{if } x \leq 0,\end{cases}$$</span></p>
+<p>where <span>$\theta &gt; 0$</span>.</p>
+<p>(a) Find a sufficient statistic for <span>$\theta$</span>.<br />
+(b) Find the maximum likelihood estimator <span>$\hat \theta$</span> of <span>$\theta$</span>.<br />
+(c) Show that your MLE of part (b)<sup id="fnref:wrong"><a href="#fn:wrong" rel="footnote" title="It says part (c) in the exam booklet but that's pr...">1</a></sup> is unbiased.<br />
+(d) Is your MLE an MVUE? Why?</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>(a) Given <span>$\alpha$</span> with <span>$0 &lt; \alpha &lt; 1$</span>, let <span>$F_{\alpha, n_1, n_2}$</span> be such that</p>
+<p><span>$$Pr\{Y &gt; F_{\alpha, n_1, n_2}\} = \alpha$$</span></p>
+<p>where <span>$Y$</span> has the <span>$F$</span>-distribution with <span>$n_1, n_2$</span> degrees of freedom. Show that <span>$\displaystyle F_{1-\alpha,n_1, n_2} = \frac{1}{F_{\alpha, n_1, n_2}}$</span>.<br />
+(b) Given independent random samples of sizes <span>$n_1$</span> and <span>$n_2$</span> from the population <span>$N(\mu_1, \sigma_1^2)$</span> and <span>$N(\mu_2, \sigma_2^2)$</span> respectively, use the pivot</p>
+<p><span>$$\frac{s_1^2 / \sigma_1^2}{s_2^2 / \sigma_2^2}$$</span></p>
+<p>to construct a <span>$(1-\alpha) \times 100\%$</span> confidence interval for <span>$\sigma_2^2/\sigma_1^2$</span>.<br />
+(c) Two soft drink bottling machines 1 and 2 are to be compared. Five ten ounce bottles are filled by each machine and the resulting contents in fluid ounces were 8.0, 8.3, 7.2, 7.7, 8.1 for machine 1 and 6.0, 9.3, 7.3, 6.7, 8.9 for machine 2. Assuming that the data come from normal populations <span>$N(\mu_1, \sigma_1^2)$</span> and <span>$N(\mu_2, \sigma_2^2)$</span>, find a 90% confidence interval for <span>$\sigma_2/\sigma_1$</span>.</p>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Later</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>1200 U.S. stores are classified according to type and location, with the following results:</p>
+<p><strong>Observed cell frequencies</strong></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th></th>
+<th>N</th>
+<th>S</th>
+<th>E</th>
+<th>W</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Clothing stores</td>
+<td>219 (195)</td>
+<td>200 (195)</td>
+<td>181</td>
+<td>180</td>
+</tr>
+<tr>
+<td>Grocery stores</td>
+<td>39 (60)</td>
+<td>52</td>
+<td>89</td>
+<td>60</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>42 (45)</td>
+<td>48</td>
+<td>30</td>
+<td>60</td>
+</tr>
+</tbody>
+</table>
+<p>Some expected cell frequencies were calculated and are given in parentheses. Using level 0.05 of significance, test the hypothesis that type and location are independent.<br />
+(b) A group of rats, one by one, proceed down a ramp to one of five doors, with the following results:</p>
+<table class="column">
+<thead>
+<tr>
+<th>Door</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of rats choosing this door</td>
+<td>36</td>
+<td>23</td>
+<td>30</td>
+<td>31</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>Are the data sufficient to indicate that the rats show a preference for certain doors? That is, test the hypotheses</p>
+<p><span>$$\begin{align*}H_0 &amp; : p_1 = p_2 = p_3 = p_4 = p_5 = \frac{1}{5} \\
+H_1 &amp; : \text{not } H_0,\end{align*}$$</span></p>
+<p>where <span>$p_i$</span> = probability of choosing door <span>$i$</span>. Use <span>$\alpha = 0.01$</span>.</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>An experiment was conducted to determine the effect of three methods A, B and C of soil preparation on the first year growth of pine seedlings. Four locations 1, 2, 3, and 4 were selected, and each location was divided into three plots. A randomised block design was employed using locations as blocks. On each plot, the same number of seedlings was planted, and the average first-year growth in centimetres was recorded. These observations are given in the following table.</p>
+<table class="column">
+<thead>
+<tr>
+<th>Method</th>
+<th>Location 1</th>
+<th>Location 2</th>
+<th>Location 3</th>
+<th>Location 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>11</td>
+<td>13</td>
+<td>16</td>
+<td>10</td>
+</tr>
+<tr>
+<td>B</td>
+<td>15</td>
+<td>17</td>
+<td>20</td>
+<td>12</td>
+</tr>
+<tr>
+<td>C</td>
+<td>10</td>
+<td>15</td>
+<td>13</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<p>(a) Complete the following ANOVA table.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Source of variation</th>
+<th>Degrees of freedom</th>
+<th>Sum of squares</th>
+<th>Mean square</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td></td>
+<td>38</td>
+<td></td>
+</tr>
+<tr>
+<td>Blocks</td>
+<td></td>
+<td>61.67</td>
+<td></td>
+</tr>
+<tr>
+<td>Errors</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Total</td>
+<td></td>
+<td>111</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>(b) Do the data provide sufficient evidence to indicate differences in the mean growth for the three soil preparations? Use <span>$\alpha = 0.05$</span>.<br />
+(c) Is there evidence to indicate differences in the mean growth for the four locations? Use <span>$\alpha = 0.05$</span>.</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>We observe a binomial random variable <span>$X$</span> with parameters <span>$n$</span> and <span>$\theta$</span>, i.e.</p>
+<p><span>$$P[X = k] = \left ( \frac{n}{k} \right ) \theta^k(1-\theta)^{n-k}, \quad k = 0, 1, \ldots, n.$$</span></p>
+<p>(a) Use the Neyman-Pearson lemma to find a most powerful critical region of size <span>$\alpha$</span> for testing</p>
+<p><span>$$\begin{align*} H_o\,:\, &amp; \theta = \theta_0 \\ H_1 \,:\, &amp; \theta = \theta_1\end{align*}$$</span></p>
+<p>where <span>$\theta_1 &gt; \theta_0$</span>.<br />
+(b) Suppose that <span>$n = 20$</span> an we want to test</p>
+<p><span>$$\begin{align*} H_o\,:\, &amp; \theta = 0.3 \\ H_1 \,:\, &amp; \theta = 0.5\end{align*}$$</span></p>
+<p>at level <span>$\alpha = 0.05$</span>. What is the critical region?</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>The median sale prices for new single-family houses is given in the following table for the eight years 1972 through 1979 (i.e. year 3=1974).</p>
+<table class="column">
+<thead>
+<tr>
+<th>Year x</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Price <span>$y$</span> (in thousands of dollars)</td>
+<td>27.6</td>
+<td>32.5</td>
+<td>35.9</td>
+<td>39.3</td>
+<td>44.2</td>
+<td>48.8</td>
+<td>55.7</td>
+<td>62.9</td>
+</tr>
+</tbody>
+</table>
+<p>The model <span>$y = \beta_0 + \beta_1 x + \epsilon$</span> is to be fitted to this data.</p>
+<p>(a) Find least squares estimates of <span>$\beta_0$</span> and <span>$\beta_1$</span>. Hint: <span>$\bar y = 43.3625$</span>, <span>$S_{xy} = 203.35$</span>, <span>$S_{yy} = 1460.25$</span>.<br />
+(b) Is there sufficient evidence to indicate that the median sales price increased over the period from 1972 through 1979? Use <span>$\alpha = 0.01$</span>. Recall that</p>
+<p><span>$$t = \frac{(\hat \beta_1 - \beta_1) \sqrt{\displaystyle S_{xx}}}{\hat \sigma}, \quad \hat \sigma^2 = \frac{SSE}{n-2}, \quad SSE = S_{yy} - \hat \beta_1 S_{xy}.$$</span></p>
+<p>(c) Find a 99% confidence interval for <span>$\beta_1$</span>.</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Later</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:wrong">
+<p>It says part (c) in the exam booklet but that's probably wrong.&#160;<a href="#fnref:wrong" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

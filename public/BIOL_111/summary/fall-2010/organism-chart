@@ -1,0 +1,433 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/BIOL_111/">
+                BIOL 111
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Organism chart
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Organism chart
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Chart of the invertebrates and vertebrates studied during the lectures for BIOL 111.</p>
+<h2 class="header"><i>1</i>Invertebrates<a class="headerlink" href="#invertebrates" name="invertebrates">&para;</a></h2>
+<p>The table was too wide for the page, so I split it into two sections.</p>
+<table class="ui sortable celled padded table">
+<thead>
+<tr>
+<th>Phylum</th>
+<th>Classes</th>
+<th>Body symmetry</th>
+<th>Germ layers</th>
+<th>Coelom type</th>
+<th>Skeletal type</th>
+<th>Nervous system</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Porifera</strong> (sponges)</td>
+<td>None learned</td>
+<td>Asymmetrical or radial</td>
+<td>No germ layers</td>
+<td>Acoelomate</td>
+<td>Spicules &amp; spongin</td>
+<td>None - no tissues</td>
+</tr>
+<tr>
+<td><strong>Cnidaria</strong> (jellyfish etc)</td>
+<td>Hydrozoa, Scyphozoa, Anthozoa</td>
+<td>Radial</td>
+<td>Diploblastic</td>
+<td>Acoelomate</td>
+<td>Hydrostatic skeleton (also possible exo/endoskeleton)</td>
+<td>Nerve net</td>
+</tr>
+<tr>
+<td><strong>Platyhelminthes</strong> (flatworms)</td>
+<td>Turbellaria, Monogenea, Trematoda, Cestoda (tapeworms)</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Acoelomate</td>
+<td>No true skeleton (mesenchyme + collagen = sort of skeleton)</td>
+<td>Cerebral ganglion in head (primitive brain), longitudinal nerve cords</td>
+</tr>
+<tr>
+<td><strong>Nematoda</strong> (roundworms)</td>
+<td>None learned (C. elegans - important species, model organism)</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Pseudocoelomate</td>
+<td>Hydrostatic skeleton</td>
+<td>Brain, four longitudinal nerve cords</td>
+</tr>
+<tr>
+<td><strong>Annelida</strong> (segmented worms)</td>
+<td>Polychaeta, Clitellata (subclasses Oligochaeta, Hirudinea)</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Each segment serves as hydrostatic skeleton</td>
+<td>Subpharyngeal and suprapharyngeal ganglia, ventral nerve cord</td>
+</tr>
+<tr>
+<td><strong>Mollusca</strong> (mollusks)</td>
+<td>Polyplacophora, Bivalvia, Gastropoda, Cephalopoda</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Hydrostatic skeleton, some exoskeleton</td>
+<td>Often advanced - ganglia, nerve cords</td>
+</tr>
+<tr>
+<td><strong>Arthropoda</strong> (arthropods)</td>
+<td>Myriapods, Chelicerates, Crustaceans, Hexapods (all subphyla)</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Exoskeleton secreted by epidermis</td>
+<td>Ganglia, nerve cords, brain</td>
+</tr>
+<tr>
+<td><strong>Echinodermata</strong> (echinoderms)</td>
+<td>Crinoidea, Ophiuroidea, Echinoidea, Holothuroidea (sea cucumbers), Asteroidea (starfish)</td>
+<td>Radial (larvae: bilateral)</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Rigid endoskeleton (calcium carbonate plates)</td>
+<td>Simple, modified nerve net</td>
+</tr>
+<tr>
+<td><strong>Urochordata</strong> (tunicates) [subphylum]</td>
+<td>None learned</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Quasi-exoskeleton (tunic)</td>
+<td>Poorly developed - single ganglion, nerves</td>
+</tr>
+<tr>
+<td><strong>Cephalochordata</strong> (cephalochordates)</td>
+<td>Lancelets (order)</td>
+<td>Bilateral</td>
+<td>Triploblastic</td>
+<td>Coelomates</td>
+<td>Notochord ?</td>
+<td>Nerve cords, no true brain</td>
+</tr>
+</tbody>
+</table>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phylum</th>
+<th>Respiration</th>
+<th>Circulation</th>
+<th>Excretion</th>
+<th>Reproduction</th>
+<th>Feeding</th>
+<th>Evolutionary innovations</th>
+<th>Vocabulary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Porifera</strong> (sponges)</td>
+<td>Diffusion across epidermis and gastrovascular cavity</td>
+<td>None</td>
+<td>Diffusion across epidermis and gastrovascular cavity</td>
+<td>Sexual: hermaphroditic, Asexual: gemmules, budding, fragmentation</td>
+<td>Most filter feeding, some carnivorous</td>
+<td>First animal, multicellular</td>
+<td>Ostia, osculum, mesohyl, choanocytes, amoebocytes</td>
+</tr>
+<tr>
+<td><strong>Cnidaria</strong> (jellyfish etc)</td>
+<td>Diffusion (no respiratory system)</td>
+<td>Diffusion</td>
+<td>Diffusion</td>
+<td>Sexual: dioecious, external fertilisation (medusa stage), Asexual: budding</td>
+<td>Carnivorous, paralyse prey with nematocysts; extracellular digestion in gastrovascular cavity</td>
+<td>Tissues (nervous, muscular); germ layers</td>
+<td>Medusa, polyp, nematocytes, mesoglea, planula</td>
+</tr>
+<tr>
+<td><strong>Platyhelminthes</strong> (flatworms)</td>
+<td>Diffusion through epidermis (no respiratory system)</td>
+<td>Diffusion through epidermis (no circulatory system)</td>
+<td>Flame cells connected to excretory ducts (protonephridia)</td>
+<td>Sexual: hermaphroditic or dioecious, Asexual: regeneration, fission</td>
+<td>Predators, parasites</td>
+<td>Bilateral symmetry, nervous system, cephalisation, excretory system</td>
+<td>Scolex, proglottids, auricles</td>
+</tr>
+<tr>
+<td><strong>Nematoda</strong> (roundworms)</td>
+<td>Gas exchange across cuticle (no respiratory system)</td>
+<td>Nutrient exchange in pseudocoelom (no circulatory system)</td>
+<td>Excretory pore near mouth, mostly osmoregulation</td>
+<td>Sexual, asexual</td>
+<td>Parasites, scavengers, free-living (can eat bacteria, fungi etc)</td>
+<td>Complete digestive tract, pseudocoelom</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Annelida</strong> (segmented worms)</td>
+<td>Gas exchange across epidermis (no respiratory system)</td>
+<td>Closed circulatory system; blood contained in vessels; aortic arches = proto-heart</td>
+<td>Nephridium in each segment, leads to nephridiopore</td>
+<td>Sexual: dioecious, external fertilisation; hermaphroditic cross-fertilisation</td>
+<td>Detritivorous, filter-feeders, parasites, carnivorous</td>
+<td>Segmentation, closed circulatory system, coelom</td>
+<td>Setae, anticoagulant</td>
+</tr>
+<tr>
+<td><strong>Mollusca</strong> (mollusks)</td>
+<td>Usually gills</td>
+<td>Open circulatory system - hemocoel bathed in blood (closed for cephalopods)</td>
+<td>Nephridia, also heart filters out waste products</td>
+<td>Sexual: wide variety (internal or external, dioecious or monoecious)</td>
+<td>Predators, scavengers, filter-feeders, etc</td>
+<td>Advanced nervous systems, gills/proto-lungs</td>
+<td>Mantle cavity, radula, torsion, hectocotylus, cerrata, aposematic</td>
+</tr>
+<tr>
+<td><strong>Arthropoda</strong> (arthropods)</td>
+<td>Gills, lungs, tracheae</td>
+<td>Open circulatory system - hemocoel bathes internal organs in blood</td>
+<td>Nephridia, green glands etc</td>
+<td>Sexual: most dioecious, lay eggs, internal or external fertilisation, Asexual: e.g. parthenogenesis (Daphnia)</td>
+<td>Dead or living organic matter, parasites</td>
+<td>Reduced segmentation, jointed appendages, exoskeletons</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Echinodermata</strong> (echinoderms)</td>
+<td>Water vascular system</td>
+<td>Water vascular system (canals)</td>
+<td>Diffusion through respiratory surfaces (no specialised excretory system<sup id="fnref:echinodermata"><a href="#fn:echinodermata" rel="footnote" title="According to [Wikipedia](http://en.wikipedia.org/w...">1</a></sup>)</td>
+<td>Sexual: dioecious, broadcast spawners, external fertilisation; with larval stage, Asexual: regeneration; parthenogenesis</td>
+<td>Filter-feeders, predators, etc</td>
+<td>Deuterostomes through enterocoely, reverted back to radial symmetry</td>
+<td>Madreporites, tube feet</td>
+</tr>
+<tr>
+<td><strong>Urochordata</strong> (tunicates)</td>
+<td>Gas exchange across gills and other body surfaces</td>
+<td>Open circulatory system</td>
+<td>No specialised excretory organs</td>
+<td>Hermaphroditic (self or cross fertilisation)</td>
+<td>Filter- and suspension-feeders, predators</td>
+<td>Note: sister group to vertebrates</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>Cephalochordata</strong> (cephalochordates)</td>
+<td>Gills</td>
+<td>No heart; otherwise, similar to that of vertebrates, but simpler</td>
+<td>Unique excretory system</td>
+<td>Sexual: dioecious, external fertilisation</td>
+<td>Filter- and suspension feeders</td>
+<td>?</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>2</i>Vertebrates<a class="headerlink" href="#vertebrates" name="vertebrates">&para;</a></h2>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Class</th>
+<th>Examples</th>
+<th>Skeletal type</th>
+<th>Respiration</th>
+<th>Circulation</th>
+<th>Excretion</th>
+<th>Reproduction</th>
+<th>Innovations</th>
+<th>Features</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Agnatha</strong> [superclass]</td>
+<td>Lamprey, hagfish (families)</td>
+<td>Cartilaginous; adults still retain notochord for support</td>
+<td>Internal gills inside gill slits</td>
+<td>2-chambered heart, single circuit</td>
+<td>Excrete NH<sub>3</sub> via gills, kidney</td>
+<td>Dioecious, external fertilisation, oviparous, no parental care</td>
+<td>Simple articulated internal skeleton</td>
+<td>No jaws, paired fins, swim bladder or scale; adults retain notochord; lampreys = parasitic; hagfish = benthic scavengers</td>
+</tr>
+<tr>
+<td><strong>Chondrichthyes</strong> (cartilaginous fish)</td>
+<td>Sharks, Skates, Rays</td>
+<td>Cartilaginous, obviously</td>
+<td>5-7 gill slit pairs</td>
+<td>2-chambered heart, single circuit</td>
+<td>Excrete NH<sub>3</sub> via gills, kidney</td>
+<td>Dioecious, internal fertilisation, oviparous or ovoviviparous or viviparous, no parental care</td>
+<td>Jaws, paired fins</td>
+<td>paired fins used for stabilization; no swim bladder</td>
+</tr>
+<tr>
+<td><strong>Osteichthyes</strong> (bony fish) [superclass]</td>
+<td>Ray-finned fish, Lobe-finned fish (also called Sarcopterygians) coelacanths, lungfish (two groups of lobe-finned fish)</td>
+<td>Endoskeleton</td>
+<td>Gills, lobe finned fishes have gas bladder</td>
+<td>2-chambered heart</td>
+<td>Ammonia through gills, other waste through kidneys</td>
+<td>Oviparous</td>
+<td>Lobe-finned gave rise to tetrapods</td>
+<td>Swim bladder, operculum, primitive lungs (lobe-finned)</td>
+</tr>
+<tr>
+<td><strong>Amphibia</strong> (amphibians)</td>
+<td>Salamanders, frogs (incl. toads), Caecilians</td>
+<td>Internal</td>
+<td>Gills (young), Lungs (adult) - positive pressure breathing</td>
+<td>2-chambered heart (young), 3-chambered heart (adult) with blood mixing</td>
+<td>Urea (adults); ammonia (larvae)</td>
+<td>Oviparous, internal and external fertilization</td>
+<td>Terrestrial limbs</td>
+<td>Ectothermic; some do NOT undergo metamorphosis (neoteny)</td>
+</tr>
+<tr>
+<td><strong>Reptilia</strong> (reptiles)</td>
+<td>Testudines (turtles), Lepidosaurs (superorder: incl. Squamates, Tuataras), Archosaurs (Crocodilians)</td>
+<td>Endoskeleton</td>
+<td>Lungs (even turtles)</td>
+<td>4-chambered heart (wall between ventricles incomplete, except in crocodilians)</td>
+<td>Uric acid</td>
+<td>Internal fertilization, mostly oviparous but also ovoviviparous, vivparous, and even parthenogenic</td>
+<td>Amniotic egg, 4-chambered heart</td>
+<td>Ectothermic; first to breathe solely through lungs</td>
+</tr>
+<tr>
+<td><strong>Aves</strong> (birds)</td>
+<td>None learned</td>
+<td>Endoskeletoon, hollow bones for flying</td>
+<td>Lungs, unidirectional flow</td>
+<td>4-chambered heart</td>
+<td>Uric acid</td>
+<td>Oviparous</td>
+<td>Endothermic, separate pulmonary and systemic systems, most oxygen efficient, diapsid</td>
+<td>3 kinds of flight: soaring, flapping, and hovering</td>
+</tr>
+<tr>
+<td><strong>Mammalia</strong> (mammals)</td>
+<td>Prototherians, Marsupials, Eutherians (primates: Prosimians, Anthropoids)</td>
+<td>Endoskeleton</td>
+<td>Lungs (systemic and pulmonary systems)</td>
+<td>4-chambered heart</td>
+<td>Mostly urea (through kidney)</td>
+<td>Viviparous, few are oviparous</td>
+<td>Heterodonty, synapsid</td>
+<td>Hair, 4-chambered heart, sweat and mammary glands, endothermic</td>
+</tr>
+</tbody>
+</table>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:echinodermata">
+<p>According to <a href="http://en.wikipedia.org/wiki/Echinoderm">Wikipedia</a> (lol) and <a href="http://www.biology-questions-and-answers.com/echinodermata.html%20this%20page">this page</a>, echinoderms do not indeed have an excretory system. Furthermore, although I can't find information on whether or not they excrete waste through their mouth (I do remember reading about an organism that does, I can't remember which though), that would probably be part of the digestive system and not truly the excretory system. "Waste" has a specialised meaning for the excretory system, and isn't really the same as the waste you might think of in everyday parlance (i.e. that which is excreted by the digestive system). (This is in response to an anonymous edit suggesting that excreting waste through the mouth would be part of the excretory system.)&#160;<a href="#fnref:echinodermata" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

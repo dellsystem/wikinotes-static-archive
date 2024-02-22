@@ -1,0 +1,209 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_223/">
+                MATH 223
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 12, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 12, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h3 class="header"><i>1</i>Hermitian inner product (V a $\mathbb{C}$ vectorspace)<a class="headerlink" href="#hermitian-inner-product-v-a-mathbbc-vectorspace" name="hermitian-inner-product-v-a-mathbbc-vectorspace">&para;</a></h3>
+<p><span>$&lt;\underline{v},\underline{w}&gt; \in \mathbb{C}$</span></p>
+<p><span>$&lt;v,w&gt; =  \bar{(\underline{w}, \underline{v})}$</span></p>
+<p><span>$&lt;\underline{v_1} + \underline{v_2}, \underline{w}&gt; = &lt;\underline{v_1},\underline{w}&gt; + &lt;\underline{v_2},\underline{w}&gt;$</span></p>
+<p><span>$&lt;\alpha \underline{v}, \underline{w}&gt; = \alpha &lt;\underline{v}, \underline{w}&gt;$</span> hence <span>$&lt;\underline{v}, \underline{w}\beta&gt;=&lt;\underline{v}, \underline{w}&gt;\bar{\beta}$</span></p>
+<p><span>$\| \underline{v} \|^2 = &lt;\underline{v}, \underline{v}&gt; \geq 0$</span> (with equality <span>$\leftrightarrow \underline{v} = \underline{0}$</span>)</p>
+<p>Recall:</p>
+<ul>
+<li>if <span>$z = a+bi \qquad a,b \in \mathbb{R}$</span> then \bar{z} = a-bi</li>
+<li>if <span>$z\cdot \bar{z} = a^2 + b^2 \geq 0$</span></li>
+</ul>
+<h3 class="header"><i>1.1</i>Coordinate model<a class="headerlink" href="#coordinate-model" name="coordinate-model">&para;</a></h3>
+<p><span>$\{\underline{e_1}, \ldots , \underline{e_n}\}$</span> orthonormal basis of <span>$V$</span></p>
+<p>i.e. <span>$&lt;\underline{e_k}, \underline{e_l}&gt; = \begin{cases} 0 \qquad k\neq l \\ 1 \qquad k = l \end{cases}$</span></p>
+<p><span>$$
+\underline{v}
+\leftrightarrow 
+\begin{pmatrix} x_1 \\ \ldots \\ x_n \end{pmatrix}
+[\underline{v}]\underline{w} 
+\quad \leftrightarrow \quad
+\begin{pmatrix} y_1 \\ \ldots \\ y_n \end{pmatrix}
+= [\underline{w}]
+$$</span> </p>
+<p>then <span>$&lt;\underline{v},\underline{w}&gt; = x_{1}\bar{y_1} + \ldots + x_{n}\bar{y_n} = [v]^{t}\bar{[w]}$</span></p>
+<p><strong>Test</strong><br />
+<span>$&lt;\underline{u}, \underline{v}&gt; = x_1 \bar{x_1} + \ldots + x_n \bar{x_n} = \| x_1 \|^2 + \ldots + \|x_n\|^2 \geq  $</span> with equality <span>$\leftrightarrow \underline{v} = \underline{0}$</span></p>
+<h3 class="header"><i>1.2</i>Cauchy-Schwartz Inequality<a class="headerlink" href="#cauchy-schwartz-inequality" name="cauchy-schwartz-inequality">&para;</a></h3>
+<p><span>$V$</span> inner product space (<span>$\mathbb{C}$</span> space)</p>
+<p><span>$|&lt;\underline{v},\underline{w}&gt;|^{2} \leq \|\underline{v}\|^{2} \|\underline{w}\|^{2} 
+\qquad
+\|\underline{v}\|^2 = &lt;\underline{v}, \underline{v}&gt; $</span>etc.</p>
+<h4 class="header"><i>1.2.1</i>Proof<a class="headerlink" href="#proof" name="proof">&para;</a></h4>
+<p><em>Consider</em> <br />
+<span>$$
+\begin{align}
+f(x) &amp;= &lt;\underline{v} + \lambda\underline{w}, \underline{v} +\lambda \underline{w}&gt; = \|\underline{v} + \lambda\underline{w}\|^2$ for $\lambda \in \mathbb{R}
+&amp;= &lt;\underline{v},\underline{v}&gt; + \lambda(&lt;\underline{w},\underline{w}&gt; + &lt;\underline{w},\underline{v}&gt;)+ \lambda^{2}&lt;\underline{w},\underline{w}&gt;
+\end{align}
+$$</span></p>
+<ul>
+<li><strong>Case 1</strong></li>
+</ul>
+<p><span>$&lt;\underline{v}, \underline{w}&gt; \in \mathbb{R}$</span> so that <span>$&lt;\underline{v}, \underline{w}&gt; = \bar{&lt;\underline{w}, \underline{v}&gt;} = &lt;\underline{v}, \underline{w}&gt;$</span><br />
+Recall that <span>$f(\lambda) = a \lambda^2 + 2b\lambda + c \quad a \neq 0 \qquad, 
+f(\lambda) = 0 \qquad \leftrightarrow \qquad \lambda = \frac{-2b \pm \sqrt{4b^2 - 4ac}}{2a}$</span></p>
+<p>So <span>$4(b^2 - ac) &lt; 0$</span> means there are no real roots.</p>
+<p>Then <span>$f(\lambda) = \|\underline{v}\|^2 + 2\lambda(&lt;\underline{v},\underline{w}&gt;) + \lambda^{2}\|\underline{w}\|^2 \geq 0$</span> with <span>$f(\lambda) = 0 \leftrightarrow \underline{v}+\lambda\underline{w} = 0$</span> </p>
+<p><span>$f(\lambda) \geq 0$</span> forces:</p>
+<p><span>$4((&lt;\underline{v},\underline{w}&gt;)^2 - \|\underline{w}\|^2\|\underline{v}\|^2) \leq 0$</span> \qquad<br />
+with equality <span>$\quad \leftrightarrow \underline{v} + \lambda\underline{w} = v$</span></p>
+<p>i.e. <span>$&lt;\underline{v}, \underline{w}&gt;^2 \leq \|w\|^2 \|v\|^2$</span> </p>
+<ul>
+<li><strong>Case 2</strong> </li>
+</ul>
+<p><span>$0\neq &lt;\underline{v}, \underline{w}&gt;$</span> might not be real.</p>
+<p>Define <span>$\underline{u} = \frac{\underline{v}}{&lt;\underline{v}, \underline{w}&gt;}$</span> and calculate <span>$&lt;\underline{u}, \underline{w}&gt; \frac{1}{&lt;\underline{v}, \underline{w}&gt;} &lt;\underline{v}, \underline{w}&gt; = 1 \qquad \to$</span> real</p>
+<p><span>$\to$</span> Reduces to preceding case.</p>
+<p><span>$$
+\begin{align}
+|&lt;\underline{u}, \underline{w}&gt;|^2 &amp;\leq \|u\|^2\|w\|^2 \\
+1 \leq &lt;\underline{u},\underline{w}&gt;|^{2} &amp;\leq \|\frac{\underline{v}}{&lt;\underline{v}, \underline{w}&gt;}\|^2\|w\|^2 \qquad \text{(multiply both sides to obtain:)}\\
+|&lt;\underline{v}, \underline{w}&gt;|^2 \leq \|v\|^2\|w|^2 \quad \text{ with equality } \leftrightarrow \underline{v} + \lambda\underline{w} = \underline{0} 
+\end{align}
+$$</span></p>
+<h4 class="header"><i>1.2.2</i>Example of an $\infty$ dimensional complex inner product space<a class="headerlink" href="#example-of-an-infty-dimensional-complex-inner-product-space" name="example-of-an-infty-dimensional-complex-inner-product-space">&para;</a></h4>
+<p><span>$\{ \sum_{-\infty&lt;n&lt;\infty}a_{n}e^{in\theta} | \sum_{-\infty&lt;n&lt;\infty}\|a_{n}\|^{2} &lt; \infty \}$</span></p>
+<p><span>$&lt;\sum_{-\infty&lt;n&lt;\infty}a_{n}e^{in\theta},\sum_{-\infty&lt;n&lt;\infty}b_{n}e^{in\theta}&gt; = \sum_{-\infty&lt;n&lt;\infty}a_{n}\bar{b_{n}}$</span></p>
+<p><span>$(\theta \in \mathbb{R})$</span></p>
+<h3 class="header"><i>1.3</i>Complex Fourier Series, Hulbert Spaces<a class="headerlink" href="#complex-fourier-series-hulbert-spaces" name="complex-fourier-series-hulbert-spaces">&para;</a></h3>
+<p><em>Verify</em> <span>$&lt;f,g&gt; = \frac{1}{2\pi}\int^{\pi}_{-\pi}f(\theta)g(\theta)d\theta$</span></p>
+<p><em>Note</em>: <span>$\{e^{in\theta}| -\infty &lt; n &lt; \infty \}$</span> is not a vector space basis for Fourier series - only finitely many coefficients are nonzero in a vector space basis but here we are allowing for infinitely many.</p>
+<p><span>$\int_{-\pi}^\pi e^{in\theta}e^{-in\theta}d\theta = \int_{-\pi}^\pi d \theta = 2\pi$</span></p>
+<h3 class="header"><i>1.4</i>Real Fourier series<a class="headerlink" href="#real-fourier-series" name="real-fourier-series">&para;</a></h3>
+<p><span>$\frac{x_0}{2} + \sum^{\infty}_{n=1}(\alpha_{n}cos(n\theta)+ \beta_{n}sin(n\theta)) \alpha_{n}\beta_{n} \in \mathbb{R}$</span></p>
+<p>Euler:</p>
+<p><span>$
+\begin{cases}
+e^{i\phi} = \cos\phi+ i \sin\phi \\
+e^{-i\phi} = \cos\phi - i \sin\phi \\
+\frac{e^{i\phi}+ e^{-i\phi}}{2} = \cos\phi \frac{e^{i\phi}-e^{-i\phi}}{2i} = \sin\phi
+\end{cases}
+$</span></p>
+<h3 class="header"><i>1.5</i>Orthogonality<a class="headerlink" href="#orthogonality" name="orthogonality">&para;</a></h3>
+<p><span>$W$</span> subset of the complex inner product space <span>$V$</span></p>
+<p><span>$w^{\perp} = \{\underline{v} \in V | \underline{w} \in W \rightarrow &lt;\underline{v},\underline{w}&gt; = u\}$</span> is a subspace of <span>$V$</span> (verify by using the linearity in \underline{v} to show that it satisfies axioms for a subspace)</p>
+<p><em>Note</em>: <span>$W$</span> subspace of <span>$V$</span> then <span>$W \leq (W^{\perp})^{\perp} \quad (\leq$</span> symbolizes subspace)</p>
+<p>Characterization of finite dimensional spaces, you always have equality. Not so with infinite dimensional spaces.</p>
+<p><em>because</em> <span>$\underline{u} \in W^{\perp}, \underline{w} \in W \rightarrow &lt;\underline{u},\underline{w}&gt; = 0 \rightarrow &lt;\underline{w},\underline{u}&gt; = 0$</span> since <span>$\bar{0} = 0$</span> (0 is its own complex conjugate)</p>
+<p><span>$\rightarrow \underline{w} \in (W^{\perp})^{\perp}$</span></p>
+<ul>
+<li>Now show dim <span>$V &lt; \infty \rightarrow (w^{\perp})^{\perp} = w$</span></li>
+</ul>
+<p><strong>Proof</strong>: take a basis for <span>$W$</span>, say <span>$\{\underline{p_1}, \ldots, \underline{p_k}\}$</span></p>
+<p><span>$&lt;\underline{p_l},\underline{p_m}&gt;$</span> = graham-schmidt<br />
+<span>$\begin{cases} 0  l \neq m \\ 1 l=m \end{cases}$</span></p>
+<p>Take <span>$\underline{v} \in V$</span> and consider</p>
+<p><span>$\underline{u}_{\underline{v}} = \underline{v} - (&lt;\underline{v},\underline{p_1}&gt;\underline{p_1} + \ldots + &lt;\underline{v},\underline{p_k}&gt;\underline{p_k})$</span></p>
+<p><em>Claim</em>: <span>$\underline{u}_v \in W^{\perp} since &lt;\underline{u_v},\underline{p_l}&gt; = &lt;v,p_l&gt; - (&lt;\underline{v},\underline{p_1}&gt;&lt;\underline{p_1},\underline{p_l}&gt; etc) = 0$</span></p>
+<p>But dim <span>$V &lt; \infty$</span></p>
+<p><span>$\{\underline{p_1}, \ldots , \underline{p_k}\}$</span> extends to a basis</p>
+<p><span>$\{\underline{p_1}, \ldots , \underline{p_k}\} \cup \{\underline{q_{k+1}}, \ldots \underline{q_n}\}$</span> of <span>$V$</span></p>
+<p>Thus each <span>$\underline{q_m} \in W^{\perp}$</span> from previous so for <span>$\underline{v} \in V$</span>,</p>
+<p><span>$\underline{v} \text{(something in }W) + \text{(something in }W^{\perp})$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

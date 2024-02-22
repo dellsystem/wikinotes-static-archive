@@ -1,0 +1,178 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, November 22, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, November 22, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Approximation algorithms: set cover
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for COMP 360 class, taught by <a href="http://www.cs.mcgill.ca/~hatami/">Hamed Hatami</a>. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#set-cover">1 Set cover</a><ul>
+<li><a href="#np-completeness">1.1 NP-completeness</a></li>
+<li><a href="#a-greedy-approximation-algorithm">1.2 A greedy approximation algorithm</a><ul>
+<li><a href="#the-factor">1.2.1 The factor</a></li>
+</ul>
+</li>
+<li><a href="#an-ilp-approach">1.3 An ILP approach</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Set cover<a class="headerlink" href="#set-cover" name="set-cover">&para;</a></h2>
+<blockquote>
+<p>Given some subsets <span>$S_1, \ldots, S_m \subseteq U$</span>, find the smallest number of sets whose union is <span>$U$</span>.</p>
+</blockquote>
+<p>Example: <span>$\{\{1, 2, 3\}, \{2, 3, 4\}, \{1, 2, 5\}, \{4\}, \{5\}\}$</span>. In this case, we need at least 2 sets - for instance, <span>$\{2, 3, 4\}$</span> and <span>$\{1, 2, 5\}$</span> would work.</p>
+<h3 class="header"><i>1.1</i>NP-completeness<a class="headerlink" href="#np-completeness" name="np-completeness">&para;</a></h3>
+<p>To show that this is NP-complete, we reduce vertex cover to this. (It's obviously in NP, because a certifier would just find the union of the proposed subsets, etc.) For each vertex, we make a subset consisting of all its adjacent edges. Then <span>$U$</span> would be the set of all the edges in the graph.</p>
+<h3 class="header"><i>1.2</i>A greedy approximation algorithm<a class="headerlink" href="#a-greedy-approximation-algorithm" name="a-greedy-approximation-algorithm">&para;</a></h3>
+<p>Here's a simple greedy algorithm. We first sort the subsets in order of decreasing size (largest first). In pseudocode:</p>
+<div class="codehilite"><pre>R = U
+S = {}
+while R != {}:
+    S_i = the set that covers the most things in R
+    R = R / S_i (remove the elements from R that are also in S_i)
+    add S_i to S
+output S
+</pre></div>
+
+
+<p>With the above example, our algorithm would first identify <span>$\{1, 2, 3\}$</span>, with <span>$R = \{4, 5\}$</span>. Then, <span>$\{2, 3, 4\}$</span>, with <span>$R = \{5\}$</span>. Then, <span>$\{1, 2, 5\}$</span>, with <span>$R = \{\}$</span> and so we terminate.</p>
+<h4 class="header"><i>1.2.1</i>The factor<a class="headerlink" href="#the-factor" name="the-factor">&para;</a></h4>
+<p>What's the factor of this algorithm? First, we introduce some terminology. <strong>Harmonic factor</strong> (which I don't think is actually a term):</p>
+<p><span>$$H_n = \sum \frac{1}{n} \approx \ln n \tag{from calculus}$$</span></p>
+<p>Cost of an element <span>$a$</span>:</p>
+<p><span>$$c_a = \frac{1}{|S_i \cap R|}$$</span></p>
+<p>where <span>$S_i$</span> is the first set chosen by the algorithm which contains the element <span>$a$</span>. In the example above, the costs would be:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$a$</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$c_a$</span></td>
+<td><span>$\frac{1}{3}$</span></td>
+<td><span>$\frac{1}{3}$</span></td>
+<td><span>$\frac{1}{3}$</span></td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>The total cost, <span>$\sum c_a$</span>, would be 3 in this case. More generally, it's equal to the number of selected sets, because for each set, you divide by the number of elements in it that haven't yet been placed into <span>$U$</span>, etc (so the total cost is 1).</p>
+<p>Claim: for each set <span>$S_i$</span> (even those not selected by the algorithm), <span>$\sum c_a \leq 1 + \frac{1}{2} + \ldots + \frac{1}{|S_i|} \leq H_n$</span>. Proof left for another day.</p>
+<p>We will now prove that this algorithm is <span>$H_n$</span>-factor where <span>$n = |U|$</span>. Well, later.</p>
+<h3 class="header"><i>1.3</i>An ILP approach<a class="headerlink" href="#an-ilp-approach" name="an-ilp-approach">&para;</a></h3>
+<p>We could also formulate this problem as an integer linear program. We want to minimise <span>$\sum x_i$</span> such that <span>$\sum x_i \geq 1$</span> for all <span>$a \in U$</span>, <span>$x_i \in \{0, 1\}$</span>.</p>
+<p>Under construction</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

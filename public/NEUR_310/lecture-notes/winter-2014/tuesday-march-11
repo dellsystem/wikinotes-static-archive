@@ -1,0 +1,160 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/NEUR_310/">
+                NEUR 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, March 11, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, March 11, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Sodium channels
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Sodium channels subtypes<a class="headerlink" href="#sodium-channels-subtypes" name="sodium-channels-subtypes">&para;</a></h2>
+<ul>
+<li>many different types for different tissues </li>
+<li>brain: Na_v1.1 , 1.2, 1.6 </li>
+<li>diseases related to mutations: epilepsy and pain syndrome </li>
+</ul>
+<h2 class="header"><i>2</i>SMEI<a class="headerlink" href="#smei" name="smei">&para;</a></h2>
+<ul>
+<li>severe myoclonic epilepsy of infancy </li>
+<li>infants die before surviving to adulthood, so this is a mutation, not inherent disease</li>
+<li>mutation at Nav1.1, which is encoded by SCN1A gene</li>
+<li>SCN1A KO mice has severe epilepsy </li>
+<li>reason<ul>
+<li>this sodium channel is mostly expressed in inhibitory neurons</li>
+<li>inhibitory neurons cannot function -&gt; less inhibition -&gt; more excitation -&gt; epilepsy </li>
+<li>evidence: sodiun current in KO is affected in inhibitory neurons (bipolar cells) but not excitatory neurons (pyramidal cells) </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.1</i>Pain Syndrome<a class="headerlink" href="#pain-syndrome" name="pain-syndrome">&para;</a></h3>
+<ul>
+<li>Nav1.7 and 1.8 are present on pain neurons</li>
+<li>1.7 is TTX sensitive and 1.8 TTX resistant </li>
+<li>1.7 is activated first, and then it drives more depolarization and then 1.8 opens</li>
+<li>1.8 seems to be expressed exclusively in pain neurons, so lots of research is being done to try to target it. <ul>
+<li>this channel is also the major contributor to the action potential upstroke in small DRG neurons </li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Inherited Erythromyelalgia (IE)<a class="headerlink" href="#inherited-erythromyelalgia-ie" name="inherited-erythromyelalgia-ie">&para;</a></h3>
+<ul>
+<li>autosomal dominant </li>
+<li>episodes of redness and pains in feet and hands</li>
+<li>caused by mutation in Nav1.7<ul>
+<li>this mutation makes the sodium channel open easier</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.3</i>PEPD<a class="headerlink" href="#pepd" name="pepd">&para;</a></h3>
+<ul>
+<li>autosomal dominant </li>
+<li>paroxysmal extreme pain disorder</li>
+<li>pain in rectal, ocular and submndibular </li>
+<li>also mutation in 1.7, in this case channels are not competely inactivated, causing persistent sodium currents </li>
+</ul>
+<h3 class="header"><i>2.4</i>Congenital inability to experience pain<a class="headerlink" href="#congenital-inability-to-experience-pain" name="congenital-inability-to-experience-pain">&para;</a></h3>
+<ul>
+<li>mutation at Nav1.7, loss of function </li>
+<li>recessive </li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_240/">
+                MATH 240
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Theorems taught in class
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Theorems taught in class
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#logic">1 Logic</a></li>
+<li><a href="#social-choice-functions">2 Social Choice Functions</a></li>
+<li><a href="#proofs">3 Proofs</a></li>
+<li><a href="#number-theory">4 Number Theory</a></li>
+<li><a href="#greatest-common-divisors-and-linear-combinations">5 Greatest common divisors and linear combinations</a></li>
+<li><a href="#modular-arithmetic">6 Modular Arithmetic</a></li>
+<li><a href="#combinatorics">7 Combinatorics</a></li>
+<li><a href="#graphs">8 Graphs</a></li>
+<li><a href="#trees">9 Trees</a></li>
+<li><a href="#planar-graphs">10 Planar Graphs</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Logic<a class="headerlink" href="#logic" name="logic">&para;</a></h2>
+<p><strong>Double negation</strong></p>
+<blockquote>
+<p><span>$\lnot(\lnot p) \leftrightarrow p$</span></p>
+</blockquote>
+<p><strong>Idempotent rules</strong></p>
+<blockquote>
+<p><span>$p\wedge p \leftrightarrow p$</span></p>
+<p><span>$p\lor p \leftrightarrow p$</span></p>
+</blockquote>
+<p><strong>Absorption rules</strong></p>
+<blockquote>
+<p><span>$p \wedge ( p \lor q ) \leftrightarrow p$</span></p>
+<p><span>$p \lor ( p \wedge q ) \leftrightarrow p$</span></p>
+</blockquote>
+<p><strong>Commutative rules</strong></p>
+<blockquote>
+<p><span>$p \wedge q \leftrightarrow q \wedge p$</span></p>
+<p><span>$p \lor q \leftrightarrow q \lor p$</span></p>
+</blockquote>
+<p><strong>Associative rules</strong></p>
+<blockquote>
+<p><span>$p \wedge ( q \wedge r) \leftrightarrow ( p \wedge q ) \wedge r$</span></p>
+<p><span>$p \lor ( q \lor r ) \leftrightarrow ( p \lor q ) \lor r$</span></p>
+</blockquote>
+<p><strong>Distributive rules</strong></p>
+<blockquote>
+<p><span>$p \wedge ( q \lor r ) \leftrightarrow ( p \wedge q ) \lor ( p \wedge r )$</span></p>
+<p><span>$p \lor ( q \wedge r ) \leftrightarrow (p \lor q ) \wedge ( p \lor r )$</span></p>
+</blockquote>
+<p><strong>Demorgan's rule</strong></p>
+<blockquote>
+<p><span>$\lnot ((\lnot p)\lor(\lnot q )) \leftrightarrow p \wedge q$</span></p>
+<p><span>$\lnot ((\lnot p)\wedge(\lnot q )) \leftrightarrow p \lor q$</span></p>
+</blockquote>
+<p><strong>Implication</strong></p>
+<blockquote>
+<p><span>$p \to q \leftrightarrow \lnot p \lor q$</span></p>
+<p><span>$p \to q \leftrightarrow \lnot q \to \lnot p$</span></p>
+</blockquote>
+<p><strong>Tautology and Contradictions</strong></p>
+<blockquote>
+<p>trivial</p>
+</blockquote>
+<p><strong>Proofs</strong></p>
+<blockquote>
+<p><span>$(p \to q)\wedge(q \to r) \to p \to r$</span></p>
+<p><span>$: \lnot (\exists n : statement) \leftrightarrow \forall n: \lnot (statement) $</span></p>
+<p><span>$ \lnot (\forall n : statement) \leftrightarrow \exists n: \lnot (statement) $</span></p>
+</blockquote>
+<h2 class="header"><i>2</i>Social Choice Functions<a class="headerlink" href="#social-choice-functions" name="social-choice-functions">&para;</a></h2>
+<p><strong>Arrow's impossibility theorem</strong></p>
+<blockquote>
+<p>Unanimity: If every voter prefers candidate a to candidate b, then <span>$f$</span> should rank a above b.</p>
+<p>Independence of Irrelevant Alternatives: To decide how <span>$f$</span> ranks candidates a and b, only their relative rankings should matter.</p>
+<p>The only social choice function satisfying the above two social choice function properties is dictatorship</p>
+</blockquote>
+<h2 class="header"><i>3</i>Proofs<a class="headerlink" href="#proofs" name="proofs">&para;</a></h2>
+<p><strong>The well-ordering principle</strong></p>
+<blockquote>
+<p>Every non-empty subset of non-negative integers has a smallest element</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>Every positive integer bigger than 1 can be expressed as a product of primes</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$1+3+5...+(2n-1) = n^2$</span></p>
+</blockquote>
+<p><strong>The induction principle</strong></p>
+<blockquote>
+<p>If P(1) is true</p>
+<p>If P(n-1) implies P(n)</p>
+<p>Then P(n) is true for all n <span>$\in$</span> N</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$1+2+...+n = n(n+1) / 2$</span></p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$2^n \ge n^2 $</span></p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>All horses are the same colour. This is false. Horses exist in more than one colour</p>
+</blockquote>
+<h2 class="header"><i>4</i>Number Theory<a class="headerlink" href="#number-theory" name="number-theory">&para;</a></h2>
+<p><strong>Fundamental Theorem of arithmetic</strong></p>
+<blockquote>
+<p>Every integer &gt; 1 has a unique prime factorization</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>If a prime p divides ab, then p|a or p|b</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>For any positive integer k there exist two consecutive prime numbers with difference <span>$\ge$</span> k</p>
+</blockquote>
+<p><strong>The prime number theorem</strong></p>
+<blockquote>
+<p>Average gap between primes are ~ ln n</p>
+</blockquote>
+<h2 class="header"><i>5</i>Greatest common divisors and linear combinations<a class="headerlink" href="#greatest-common-divisors-and-linear-combinations" name="greatest-common-divisors-and-linear-combinations">&para;</a></h2>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>The GCD of a &amp; b is the smallest positive linear combination</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>An integer C is a linear combination of a and b if <span>$gcd(a,b) | c$</span></p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$gcd(a,b)$</span> is the smallest positive linear combination of a &amp; b</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$gcd(a,b)$</span> is divisible by every common divisor of a &amp; b</p>
+<p><span>$gcd(ka,kb) = k*gcd(a,b)$</span> for any positive integer k</p>
+<p><span>$gcd(a,b) = 1$</span>, <span>$gcd(a,c) = 1$</span>, <span>$gcd(a,bc) = 1$</span></p>
+<p><span>$gcd(a,b) = 1$</span>, <span>$a|bc$</span>, then <span>$a|c$</span></p>
+<p><span>$a = qb+r$</span>, then <span>$gcd(a,b) = gcd(b,r)$</span></p>
+</blockquote>
+<h2 class="header"><i>6</i>Modular Arithmetic<a class="headerlink" href="#modular-arithmetic" name="modular-arithmetic">&para;</a></h2>
+<p><strong>Properties of congruences</strong></p>
+<blockquote>
+<p>Reflexivity: <span>$a \equiv a (mod m)$</span></p>
+<p>Symmetry: <span>$a \equiv b (mod m)$</span> iff <span>$b \equiv a (mod m)$</span></p>
+<p>Transitivity: <span>$a \equiv b (mod m)$</span> and <span>$b \equiv c (mod m) \to a \equiv c(mod m)$</span></p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>If P is a prime, K is not divisible by p, then there exists a multiplicative inverse for k modulo p</p>
+</blockquote>
+<p><strong>Fermat's Little Theorem</strong></p>
+<blockquote>
+<p>Let p be a prime, K is not divisible by p, then <span>$\displaystyle k^{(p-1)} \equiv 1 (mod p)$</span></p>
+<p><span>$\displaystyle k^{p-2}$</span> is a multiplicative inverse for k mod p</p>
+</blockquote>
+<p><strong>Primality</strong></p>
+<blockquote>
+<p>If <span>$2^{n-1} \ncong 1 mod n$</span>, then n is not prime or n = 2</p>
+</blockquote>
+<h2 class="header"><i>7</i>Combinatorics<a class="headerlink" href="#combinatorics" name="combinatorics">&para;</a></h2>
+<p><strong>Bijection Rule</strong></p>
+<blockquote>
+<p>If there exists a bijection <span>$F: x\to y$</span> for two finite sets x and y, then |x| = |y|</p>
+</blockquote>
+<p><strong>Division rule</strong></p>
+<blockquote>
+<p>If <span>$F:x \to y$</span> is k to one then |x| = k|y|</p>
+</blockquote>
+<p><strong>The Choose function</strong></p>
+<blockquote>
+<p><span>$\displaystyle {n \choose k} = \frac{n!}{k!(n-k)!}$</span></p>
+</blockquote>
+<p><strong>Binomial theorem</strong></p>
+<blockquote>
+<p><span>$\displaystyle (x+y)^n = \sum_{k=0}^{n} {n \choose k}x^k y^{n-k}$</span></p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$\displaystyle {n \choose k} = {n \choose n-k}$</span></p>
+</blockquote>
+<p><strong>For n sets</strong></p>
+<blockquote>
+<p><span>$|A_1\cup A_2 \cup A_3 ... \cup A_n|$</span></p>
+</blockquote>
+<p>= sum of all sizes - sum of the sizes of all even numbered intersections + sum of the sizes of all odd numbered intersections</p>
+<p><strong>Euler's totient function</strong></p>
+<blockquote>
+<p>Let n be a positive integer and let <span>$p_1,p_2,p_3 ... p_k$</span> be all distinct prime divisors of n</p>
+<p>then <span>$\phi(n) = n(1- \frac{1}{p_1})(1-\frac{1}{p_2})...(1-\frac{1}{p_k})$</span></p>
+</blockquote>
+<p><strong>Multinomial</strong></p>
+<blockquote>
+<p><span>$\displaystyle \frac{n!}{n_1!n_2!n_3!...n_k!} = {n! \choose n_1!,n_2!,n_3!...n_k!}$</span></p>
+</blockquote>
+<p><strong>Multinomial Theorem</strong></p>
+<blockquote>
+<p><span>$\displaystyle (x_1+x_2+x_3...+x_k)^n = \sum_{n_1+n_2..n_k, n_i\ge 0} {n \choose n_1,n_2,n_3...}x_1^{n_1}x_2^{n_2}x_3^{n_3}$</span></p>
+</blockquote>
+<h2 class="header"><i>8</i>Graphs<a class="headerlink" href="#graphs" name="graphs">&para;</a></h2>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>In every graph there is an even # of vertices of odd degree</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>In a simple graph G(V,E) there are always u,v <span>$\in$</span> V, u!=v, deg(u) = deg(v) (|v|<span>$\ge$</span>2)</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A connected graph contains an Eulerian circuit if and only if every vertex in it has an even degree</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A connected graph contains an Eulerian walk if and only if it has at most two vertices of odd degree</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A Hamiltonian cycle is a cycle in a graph which uses all the vertices, to determine whether it is Hamiltonian is NP-complete</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>The Petersen graph has no three-edge colouring</p>
+</blockquote>
+<h2 class="header"><i>9</i>Trees<a class="headerlink" href="#trees" name="trees">&para;</a></h2>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>There is a unique path between any two vertices in a tree</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>Removing any vertex in a tree disconnects it</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>Adding an edge between non-adjacent vertices of a tree creates a cycle</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>If a tree has <span>$\ge$</span> vertices then it has <span>$\ge$</span> leaves</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p># of edges = # of vertices - 1 in a tree</p>
+</blockquote>
+<p><strong>Cayley's Theorem</strong></p>
+<blockquote>
+<p>There are <span>$n^{n-2}$</span> labeled trees on n vertices</p>
+</blockquote>
+<p><strong>Number of unlabeled trees on n vertices</strong></p>
+<blockquote>
+<p><span>$\displaystyle \frac{n^{n-2}}{n!} \le T_n \le 4^{n-1}$</span></p>
+</blockquote>
+<h2 class="header"><i>10</i>Planar Graphs<a class="headerlink" href="#planar-graphs" name="planar-graphs">&para;</a></h2>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A planar graph always has a drawing where all the edges are represented by straight lines</p>
+</blockquote>
+<p><strong>Euler's formula</strong></p>
+<blockquote>
+<p>Let g be a connected graph drawn in the plane with n vertices, m edges and f faces, then the number of faces = m - n + 2</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A planar graph on n vertices has edges m <span>$\le$</span>3n-6 for all n <span>$\ge$</span> 3</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$K_5$</span> is not planar</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$K_{3,3}$</span> is not planar</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>In a bipartite graph every cycle has an even length <span>$ \ge$</span> 3</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A graph is not planar if and only if it contains a subdivision of <span>$k_5$</span> or <span>$k_{3,3}$</span> as a subgraph</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>A graph is 2-colourable if and only if it is bipartite</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p><span>$k_{k+1}$</span> as a subgraph, there exist non-k-colourable for any k with no triangles in them(wtf?)</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>If a graph has maximum degree k then it is k+1 colourable</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>Every map is 4 colourable</p>
+</blockquote>
+<p><strong>Theorem</strong></p>
+<blockquote>
+<p>Every cubic planar graph with no bridges can be 3-edge coloured</p>
+</blockquote>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

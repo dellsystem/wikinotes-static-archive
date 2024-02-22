@@ -1,0 +1,467 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_323/">
+                MATH 323
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Formulas to memorise
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Formulas to memorise
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#introduction-and-definitions">1 Introduction and definitions</a><ul>
+<li><a href="#basic-definitions">1.1 Basic definitions</a></li>
+<li><a href="#permutations-and-combinations">1.2 Permutations and combinations</a></li>
+<li><a href="#conditional-probability-and-independence">1.3 Conditional probability and independence</a></li>
+<li><a href="#bayes-rule-and-the-law-of-total-probability">1.4 Bayes' rule and the law of total probability</a></li>
+</ul>
+</li>
+<li><a href="#discrete-random-variables">2 Discrete random variables</a><ul>
+<li><a href="#basic-definitions_1">2.1 Basic definitions</a></li>
+<li><a href="#special-discrete-distributions">2.2 Special discrete distributions</a><ul>
+<li><a href="#the-binomial-distribution">2.2.1 The binomial distribution</a></li>
+<li><a href="#the-geometric-distribution">2.2.2 The geometric distribution</a></li>
+<li><a href="#the-negative-binomial-distribution">2.2.3 The negative binomial distribution</a></li>
+<li><a href="#the-hypergeometric-distribution">2.2.4 The hypergeometric distribution</a></li>
+<li><a href="#the-poisson-distribution">2.2.5 The Poisson distribution</a></li>
+</ul>
+</li>
+<li><a href="#moment-generating-functions">2.3 Moment generating functions</a></li>
+</ul>
+</li>
+<li><a href="#continuous-random-variables">3 Continuous random variables</a><ul>
+<li><a href="#distribution-functions">3.1 Distribution functions</a></li>
+<li><a href="#continuous-random-variables_1">3.2 Continuous random variables</a></li>
+<li><a href="#special-continuous-distributions">3.3 Special continuous distributions</a><ul>
+<li><a href="#the-uniform-distribution">3.3.1 The uniform distribution</a></li>
+<li><a href="#the-exponential-distribution">3.3.2 The exponential distribution</a></li>
+<li><a href="#the-gamma-distribution">3.3.3 The gamma distribution</a></li>
+<li><a href="#the-normal-distribution">3.3.4 The normal distribution</a></li>
+<li><a href="#the-beta-distribution">3.3.5 The beta distribution</a></li>
+<li><a href="#the-cauchy-distribution">3.3.6 The Cauchy distribution</a></li>
+</ul>
+</li>
+<li><a href="#chebychevs-inequality">3.4 Chebychev's inequality</a></li>
+</ul>
+</li>
+<li><a href="#multivariate-distributions">4 Multivariate distributions</a><ul>
+<li><a href="#definitions">4.1 Definitions</a></li>
+<li><a href="#marginal-and-conditional-distributions">4.2 Marginal and conditional distributions</a></li>
+<li><a href="#independent-random-variables">4.3 Independent random variables</a></li>
+<li><a href="#the-expected-value-of-a-fuction-of-random-variables">4.4 The expected value of a fuction of random variables</a></li>
+<li><a href="#special-theorems">4.5 Special theorems</a></li>
+<li><a href="#covariance">4.6 Covariance</a></li>
+<li><a href="#the-expected-value-and-variance-of-linear-functions-of-random-variables">4.7 The expected value and variance of linear functions of random variables</a></li>
+<li><a href="#the-multinomial-distribution">4.8 The multinomial distribution</a></li>
+<li><a href="#more-than-two-random-variables">4.9 More than two random variables</a></li>
+</ul>
+</li>
+<li><a href="#functions-of-random-variables">5 Functions of random variables</a><ul>
+<li><a href="#functions-of-continuous-random-variables">5.1 Functions of continuous random variables</a><ul>
+<li><a href="#the-univariate-case">5.1.1 The univariate case</a></li>
+<li><a href="#the-multivariate-case">5.1.2 The multivariate case</a></li>
+</ul>
+</li>
+<li><a href="#sums-of-independent-random-variables">5.2 Sums of independent random variables</a><ul>
+<li><a href="#the-discrete-case">5.2.1 The discrete case</a></li>
+<li><a href="#the-jointly-continuous-case">5.2.2 The jointly continuous case</a></li>
+</ul>
+</li>
+<li><a href="#the-moment-generating-function-method">5.3 The moment generating function method</a><ul>
+<li><a href="#a-summary-of-moment-generating-functions">5.3.1 A summary of moment generating functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#law-of-large-numbers-and-the-central-limit-theorem">6 Law of large numbers and the central limit theorem</a><ul>
+<li><a href="#law-of-large-numbers">6.1 Law of large numbers</a></li>
+<li><a href="#the-central-limit-theorem">6.2 The central limit theorem</a></li>
+</ul>
+</li>
+<li><a href="#information-theory">7 Information theory</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Introduction and definitions<a class="headerlink" href="#introduction-and-definitions" name="introduction-and-definitions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Basic definitions<a class="headerlink" href="#basic-definitions" name="basic-definitions">&para;</a></h3>
+<dl>
+<dt>Union of two events</dt>
+<dd><span>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</span></dd>
+</dl>
+<h3 class="header"><i>1.2</i>Permutations and combinations<a class="headerlink" href="#permutations-and-combinations" name="permutations-and-combinations">&para;</a></h3>
+<dl>
+<dt>Permutations (i.e. when order <em>does</em> matter)</dt>
+<dd><span>$\displaystyle P^n_r = \frac{n!}{(n-r)!}$</span></dd>
+<dt>Combinations (i.e. when order does <em>not</em> matter)</dt>
+<dd><span>$\displaystyle C^n_r = \frac{n!}{(n-r)!r!}$</span></dd>
+</dl>
+<h3 class="header"><i>1.3</i>Conditional probability and independence<a class="headerlink" href="#conditional-probability-and-independence" name="conditional-probability-and-independence">&para;</a></h3>
+<dl>
+<dt>Conditional probability</dt>
+<dd><span>$\displaystyle P(A|B) = \frac{P(A \cap B)}{P(B)}$</span></dd>
+<dt>Definitions of independence</dt>
+<dd>when <span>$P(B|A) = P(B)$</span> and <span>$P(A|B) = P(A)$</span> = <span>$P(A \cap B) = P(A)P(B)$</span></dd>
+</dl>
+<h3 class="header"><i>1.4</i>Bayes' rule and the law of total probability<a class="headerlink" href="#bayes-rule-and-the-law-of-total-probability" name="bayes-rule-and-the-law-of-total-probability">&para;</a></h3>
+<blockquote>
+<p>No need to memorise this</p>
+</blockquote>
+<h2 class="header"><i>2</i>Discrete random variables<a class="headerlink" href="#discrete-random-variables" name="discrete-random-variables">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Basic definitions<a class="headerlink" href="#basic-definitions_1" name="basic-definitions_1">&para;</a></h3>
+<dl>
+<dt>Properties of a probability function</dt>
+<dd>Always non-negative, and the sum of all the values is 1</dd>
+<dt>Expected value</dt>
+<dd><span>$\displaystyle E(X) = \sum x P(X = x)$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = E(X^2) - E(X)^2 = E(X^2) - \mu^2$</span></dd>
+</dl>
+<h3 class="header"><i>2.2</i>Special discrete distributions<a class="headerlink" href="#special-discrete-distributions" name="special-discrete-distributions">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>The binomial distribution<a class="headerlink" href="#the-binomial-distribution" name="the-binomial-distribution">&para;</a></h4>
+<dl>
+<dt>Probability density function</dt>
+<dd><span>$P(X = x) = C^n_x p^n q^{n-x}$</span></dd>
+<dt>Expected value</dt>
+<dd><span>$E(X) = np$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = npq$</span></dd>
+<dt>Moment generating function</dt>
+<dd><span>$M_X(t) = (pe^t + q)^n$</span></dd>
+</dl>
+<h4 class="header"><i>2.2.2</i>The geometric distribution<a class="headerlink" href="#the-geometric-distribution" name="the-geometric-distribution">&para;</a></h4>
+<dl>
+<dt>Probability density function</dt>
+<dd><span>$P(X = x) = pq^{x-1}$</span></dd>
+<dt>Expected value</dt>
+<dd><span>$E(X) = \frac{1}{p}$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = \frac{q}{p^2}$</span></dd>
+<dt>Moment generating function</dt>
+<dd><span>$\displaystyle M_X(t) = \frac{pe^t}{1-qe^t}$</span></dd>
+</dl>
+<h4 class="header"><i>2.2.3</i>The negative binomial distribution<a class="headerlink" href="#the-negative-binomial-distribution" name="the-negative-binomial-distribution">&para;</a></h4>
+<blockquote>
+<p>Don't need to memorise this</p>
+</blockquote>
+<h4 class="header"><i>2.2.4</i>The hypergeometric distribution<a class="headerlink" href="#the-hypergeometric-distribution" name="the-hypergeometric-distribution">&para;</a></h4>
+<blockquote>
+<p>Don't need to memorise this</p>
+</blockquote>
+<h4 class="header"><i>2.2.5</i>The Poisson distribution<a class="headerlink" href="#the-poisson-distribution" name="the-poisson-distribution">&para;</a></h4>
+<dl>
+<dt>Probability density function</dt>
+<dd><span>$\displaystyle P(X = x) = \frac{\lambda^x e^{-\lambda}}{x!}$</span></dd>
+<dt>Expected value</dt>
+<dd><span>$E(X) = \lambda$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = \lambda$</span></dd>
+<dt>Moment generating function</dt>
+<dd><span>$e^{-\lambda(1-e^t)} = e^{\lambda(e^t-1)}$</span></dd>
+</dl>
+<h3 class="header"><i>2.3</i>Moment generating functions<a class="headerlink" href="#moment-generating-functions" name="moment-generating-functions">&para;</a></h3>
+<dl>
+<dt>The significance of moment generating functions</dt>
+<dd><span>$M_X^{(n)} = E(X^n)$</span></dd>
+</dl>
+<h2 class="header"><i>3</i>Continuous random variables<a class="headerlink" href="#continuous-random-variables" name="continuous-random-variables">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Distribution functions<a class="headerlink" href="#distribution-functions" name="distribution-functions">&para;</a></h3>
+<dl>
+<dt>Properties of a cumulative distribution function <span>$F(y)$</span></dt>
+<dd>Nondecreasing, from 0 to <span>$\infty$</span>, continuous</dd>
+</dl>
+<h3 class="header"><i>3.2</i>Continuous random variables<a class="headerlink" href="#continuous-random-variables_1" name="continuous-random-variables_1">&para;</a></h3>
+<dl>
+<dt>Relationship between distribution and density functions</dt>
+<dd>The distribution function <span>$\displaystyle F(x) = \int_{-\infty}^x f(t) \,dt$</span></dd>
+<dt>Properties of a probability density function</dt>
+<dd>Non-negative, and the integral over the domain is equal to 1</dd>
+<dt>Expected value for a continuous rv</dt>
+<dd><span>$\displaystyle E(g(X)) = \int_{-\infty}^{\infty} g(x) f(x) \,dx$</span></dd>
+<dt>Variance for a continuous rv</dt>
+<dd><span>$Var(X) = E(X^2) - \mu^2$</span> and <span>$Var(aX + b) = a^2 Var(X)$</span> </dd>
+<dt>Moment generating function for a continuous rv</dt>
+<dd><span>$\displaystyle M_X(t) = E(e^{tx}) = \int_{-\infty}^{\infty} e^{tx} f(x) \,dx$</span></dd>
+</dl>
+<h3 class="header"><i>3.3</i>Special continuous distributions<a class="headerlink" href="#special-continuous-distributions" name="special-continuous-distributions">&para;</a></h3>
+<h4 class="header"><i>3.3.1</i>The uniform distribution<a class="headerlink" href="#the-uniform-distribution" name="the-uniform-distribution">&para;</a></h4>
+<p><strong>Probability density function</strong></p>
+<p><span>$\displaystyle f(x) = \begin{cases} 0 &amp; \text{ if } -\infty &lt; x &lt; a \\
+\frac{1}{b-a} &amp; \text{ if } a \leq x \leq b \\
+0 &amp; \text{ if } b &lt; x &lt; \infty
+\end{cases}$</span></p>
+<dl>
+<dt>Expected value</dt>
+<dd><span>$\displaystyle E(X) = \frac{a+b}{2}$</span></dd>
+<dt>Variance</dt>
+<dd><span>$\displaystyle Var(X) = \frac{(b-a)^2}{12}$</span></dd>
+</dl>
+<p><strong>Distribution function</strong></p>
+<p><span>$\displaystyle
+F(x) = \begin{cases} 0 &amp; \text{ if } x &lt; a \\
+\frac{x-a}{b-a} &amp; \text{ if } a \leq x \leq b \\
+1 &amp; \text{ if } x &gt; b
+\end{cases}$</span></p>
+<dl>
+<dt>Moment generating function</dt>
+<dd><span>$\displaystyle M_X(t) = \frac{e^{tb} - e^{ta}}{t(b-a)}$</span></dd>
+</dl>
+<h4 class="header"><i>3.3.2</i>The exponential distribution<a class="headerlink" href="#the-exponential-distribution" name="the-exponential-distribution">&para;</a></h4>
+<p><strong>Probability density function</strong></p>
+<p><span>$\displaystyle f(x) = \begin{cases} 0 &amp; \text{ if } y \leq 0 \\
+\frac{1}{\beta} e^{-y/\beta} &amp; \text{ if } y &gt;0 \end{cases}$</span></p>
+<dl>
+<dt>Expected value</dt>
+<dd><span>$E(X) = \beta$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = \beta^2$</span></dd>
+</dl>
+<p><strong>Distribution function</strong></p>
+<p><span>$\displaystyle F(x) = \begin{cases}
+0 &amp; \text{ if } y &lt; 0 \\
+1 - e^{-y / \beta} &amp; \text{ if } y \geq 0
+\end{cases}$</span></p>
+<dl>
+<dt>Moment generating function</dt>
+<dd><span>$\displaystyle M_X(t) = \frac{1}{1-\beta t}$</span></dd>
+<dt>Memoryless property (definitive feature)</dt>
+<dd><span>$P(Y &gt; s+t | Y &gt; s) = P(Y &gt; t)$</span></dd>
+</dl>
+<h4 class="header"><i>3.3.3</i>The gamma distribution<a class="headerlink" href="#the-gamma-distribution" name="the-gamma-distribution">&para;</a></h4>
+<dl>
+<dt>Gamma function</dt>
+<dd><span>$\displaystyle \Gamma(\alpha) = \int_0^{\infty} x^{\alpha - 1}e^{-\alpha} \,dx$</span></dd>
+<dt>Properties of the gamma function</dt>
+<dd><span>$\Gamma(1) = 1$</span>, <span>$\Gamma(n+ 1) = n\Gamma(n)$</span> = n!, <span>$\Gamma(\frac{1}{2}) = \sqrt{\pi}$</span></dd>
+</dl>
+<p><strong>Probability density function</strong></p>
+<p><span>$\displaystyle f(x) = \begin{cases}
+0 &amp; \text{ if } x \leq 0 \\
+\frac{1}{\Gamma(\alpha)\beta^{\alpha}} x^{\alpha-1}e^{-x/\beta} &amp; \text{ if } x &gt; 0 \end{cases}$</span></p>
+<dl>
+<dt>Expected value</dt>
+<dd><span>$E(X) = \alpha\beta$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = \alpha \beta^2$</span></dd>
+<dt>Moment generating function</dt>
+<dd><span>$\displaystyle M_X(t) = \frac{1}{(1 - \beta t)^{\alpha}}$</span> for <span>$t &lt; \frac{1}{\beta}$</span></dd>
+</dl>
+<h4 class="header"><i>3.3.4</i>The normal distribution<a class="headerlink" href="#the-normal-distribution" name="the-normal-distribution">&para;</a></h4>
+<dl>
+<dt>Probability density function</dt>
+<dd><span>$\displaystyle f(x) = \frac{1}{\sqrt{2\sigma^2 \pi}}e^{-\frac{1}{2} \left ( \frac{(x-\mu)^2}{\sigma^2} \right ) }, \quad -\infty &lt; x &lt; \infty$</span></dd>
+<dt>Expected value</dt>
+<dd><span>$E(X) = \mu$</span></dd>
+<dt>Variance</dt>
+<dd><span>$Var(X) = \sigma^2$</span></dd>
+<dt>Moment generating function</dt>
+<dd><span>$\displaystyle M_X(t) = E(e^{tX}) = e^{\mu t + \frac{\sigma^2 t^2}{2}} $</span></dd>
+</dl>
+<h4 class="header"><i>3.3.5</i>The beta distribution<a class="headerlink" href="#the-beta-distribution" name="the-beta-distribution">&para;</a></h4>
+<blockquote>
+<p>Don't need to memorise this</p>
+</blockquote>
+<h4 class="header"><i>3.3.6</i>The Cauchy distribution<a class="headerlink" href="#the-cauchy-distribution" name="the-cauchy-distribution">&para;</a></h4>
+<dl>
+<dt>Probability density function</dt>
+<dd><span>$\displaystyle f(x) = \frac{1}{\pi} \frac{1}{1 + x^2} \quad -\infty &lt; x &lt; \infty$</span></dd>
+<dt>Expected value</dt>
+<dd>Does not exist</dd>
+<dt>Variance</dt>
+<dd>Does not exist</dd>
+</dl>
+<h3 class="header"><i>3.4</i>Chebychev's inequality<a class="headerlink" href="#chebychevs-inequality" name="chebychevs-inequality">&para;</a></h3>
+<dl>
+<dt>Markov's inequality</dt>
+<dd><span>$\displaystyle P(X &gt; \epsilon) \leq \frac{E(X)}{\epsilon}$</span></dd>
+<dt>Chebychev's inequality</dt>
+<dd><span>$\displaystyle P(|X - \mu| &gt; \epsilon) \leq \frac{\sigma^2}{\epsilon^2}$</span></dd>
+</dl>
+<h2 class="header"><i>4</i>Multivariate distributions<a class="headerlink" href="#multivariate-distributions" name="multivariate-distributions">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<dl>
+<dt>Joint probability density function</dt>
+<dd><span>$f(y_1, y_2) = P(Y_1 = y_1, Y_2 = y_2)$</span></dd>
+<dt>Joint distribution function</dt>
+<dd><span>$F(y_1, y_2) = P(Y_1 \leq y_1, Y_2 \leq y_2)$</span></dd>
+<dt>Probability in a region</dt>
+<dd><span>$\displaystyle P(a_1 &lt; Y_1 &lt; b_1, a_2 &lt; Y_2 &lt; b_2) = \int_{a_2}^{b^2} \int_{a_1}^{b_1} f(y_1, y_2) \,dy_1 \,dy_2$</span></dd>
+</dl>
+<h3 class="header"><i>4.2</i>Marginal and conditional distributions<a class="headerlink" href="#marginal-and-conditional-distributions" name="marginal-and-conditional-distributions">&para;</a></h3>
+<dl>
+<dt>Marginal probability function</dt>
+<dd>For the discrete case</dd>
+<dt>Marginal density function</dt>
+<dd>For the continuous case; <span>$\displaystyle f_1(y_1) = \int f(y_1, y_2)\,dy_2$</span></dd>
+<dt>Conditional probability density function</dt>
+<dd><span>$\displaystyle f_{12}(y_1|y_2) = P(Y_1 = y_2 | Y_2 = y_2) = \frac{P(Y_1 = y, Y_2 = y_2)}{P(Y_2 = y_2)} = \frac{f(y_1, y_2)}{f_2(y_2)}$</span></dd>
+<dt>Conditional expectation</dt>
+<dd><span>$\displaystyle E(g(Y_1)|Y_2 = y_2) = \int g(y_1) f_{12}(y_1|y_2)\,dy_1$</span></dd>
+</dl>
+<h3 class="header"><i>4.3</i>Independent random variables<a class="headerlink" href="#independent-random-variables" name="independent-random-variables">&para;</a></h3>
+<dl>
+<dt>Independence</dt>
+<dd>If <span>$f(y_1, y_2) = f_1(y_1) f_2(y_2)$</span> and the same for the cumulative version</dd>
+</dl>
+<h3 class="header"><i>4.4</i>The expected value of a fuction of random variables<a class="headerlink" href="#the-expected-value-of-a-fuction-of-random-variables" name="the-expected-value-of-a-fuction-of-random-variables">&para;</a></h3>
+<dl>
+<dt>Expected value</dt>
+<dd><span>$\displaystyle E(g(Y_1, Y_2)) = \int \int g(y_1, y_2) f(y_1, y_2) \,dy_1 \,dy_2$</span></dd>
+</dl>
+<h3 class="header"><i>4.5</i>Special theorems<a class="headerlink" href="#special-theorems" name="special-theorems">&para;</a></h3>
+<blockquote>
+<p>Can all be derived.</p>
+</blockquote>
+<h3 class="header"><i>4.6</i>Covariance<a class="headerlink" href="#covariance" name="covariance">&para;</a></h3>
+<dl>
+<dt>Covariance</dt>
+<dd><span>$Cov(Y_1, Y_2) = E(Y_1 Y_2) - \mu_1 \mu_2$</span></dd>
+<dt>Correlation coefficient</dt>
+<dd><span>$\displaystyle \rho = \frac{Cov(Y_1, Y_2)}{\sigma_1 \sigma_2}$</span></dd>
+</dl>
+<h3 class="header"><i>4.7</i>The expected value and variance of linear functions of random variables<a class="headerlink" href="#the-expected-value-and-variance-of-linear-functions-of-random-variables" name="the-expected-value-and-variance-of-linear-functions-of-random-variables">&para;</a></h3>
+<blockquote>
+<p>Can all be derived</p>
+</blockquote>
+<h3 class="header"><i>4.8</i>The multinomial distribution<a class="headerlink" href="#the-multinomial-distribution" name="the-multinomial-distribution">&para;</a></h3>
+<dl>
+<dt>Joint probability density function:</dt>
+<dd><span>$\displaystyle P(X_1 = x_1, \ldots, X_k = x_k) = \frac{n!}{x_1! \ldots x_k!}p_1^{x_1} \ldots p_k^{x_k}$</span></dd>
+</dl>
+<h3 class="header"><i>4.9</i>More than two random variables<a class="headerlink" href="#more-than-two-random-variables" name="more-than-two-random-variables">&para;</a></h3>
+<blockquote>
+<p>Whatever</p>
+</blockquote>
+<h2 class="header"><i>5</i>Functions of random variables<a class="headerlink" href="#functions-of-random-variables" name="functions-of-random-variables">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Functions of continuous random variables<a class="headerlink" href="#functions-of-continuous-random-variables" name="functions-of-continuous-random-variables">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>The univariate case<a class="headerlink" href="#the-univariate-case" name="the-univariate-case">&para;</a></h4>
+<h4 class="header"><i>5.1.2</i>The multivariate case<a class="headerlink" href="#the-multivariate-case" name="the-multivariate-case">&para;</a></h4>
+<h3 class="header"><i>5.2</i>Sums of independent random variables<a class="headerlink" href="#sums-of-independent-random-variables" name="sums-of-independent-random-variables">&para;</a></h3>
+<h4 class="header"><i>5.2.1</i>The discrete case<a class="headerlink" href="#the-discrete-case" name="the-discrete-case">&para;</a></h4>
+<dl>
+<dt>Poisson</dt>
+<dd><span>$X+Y$</span> where both are Poisson distributions is also one with a mean that is the sum of their means</dd>
+</dl>
+<h4 class="header"><i>5.2.2</i>The jointly continuous case<a class="headerlink" href="#the-jointly-continuous-case" name="the-jointly-continuous-case">&para;</a></h4>
+<blockquote>
+<p>Eh</p>
+</blockquote>
+<h3 class="header"><i>5.3</i>The moment generating function method<a class="headerlink" href="#the-moment-generating-function-method" name="the-moment-generating-function-method">&para;</a></h3>
+<dl>
+<dt>Gamma</dt>
+<dd><span>$X + Y$</span> with Gamma<span>$(\alpha_1, \beta)$</span> and Gamma<span>$(\alpha_2, \beta)$</span> results in Gamma<span>$(\alpha_1+\alpha_2, \beta)$</span></dd>
+<dt>Exponential</dt>
+<dd>If same <span>$\beta$</span>, <span>$X+Y$</span> results in Gamma<span>$(2, \beta)$</span></dd>
+<dt>Normal</dt>
+<dd><span>$X+Y$</span> for <span>$N(\mu_x, \sigma^2_x)$</span> and <span>$N(\mu_y, \sigma^2_y)$</span> results in <span>$N(\mu_x + \mu_y, \sigma^2_x + \sigma^2_y)$</span></dd>
+</dl>
+<h4 class="header"><i>5.3.1</i>A summary of moment generating functions<a class="headerlink" href="#a-summary-of-moment-generating-functions" name="a-summary-of-moment-generating-functions">&para;</a></h4>
+<h2 class="header"><i>6</i>Law of large numbers and the central limit theorem<a class="headerlink" href="#law-of-large-numbers-and-the-central-limit-theorem" name="law-of-large-numbers-and-the-central-limit-theorem">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Law of large numbers<a class="headerlink" href="#law-of-large-numbers" name="law-of-large-numbers">&para;</a></h3>
+<blockquote>
+<p>Not important</p>
+</blockquote>
+<h3 class="header"><i>6.2</i>The central limit theorem<a class="headerlink" href="#the-central-limit-theorem" name="the-central-limit-theorem">&para;</a></h3>
+<dl>
+<dt>Central limit theorem</dt>
+<dd><span>$\displaystyle \frac{S_n - n \mu}{\sigma}{\sqrt{n}}$</span> maps to <span>$N(0, 1)$</span></dd>
+</dl>
+<h2 class="header"><i>7</i>Information theory<a class="headerlink" href="#information-theory" name="information-theory">&para;</a></h2>
+<blockquote>
+<p>Don't need to know this</p>
+</blockquote>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

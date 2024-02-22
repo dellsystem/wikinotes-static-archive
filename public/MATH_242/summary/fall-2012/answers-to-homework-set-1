@@ -1,0 +1,871 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Answers to homework set #1
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Answers to homework set #1
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided answers to homework set #1, due date unspecified (not to be handed in and thus not marked). The content on this page is solely intended to function as a study aid for students and should constitute fair dealing under Canadian copyright law.</p>
+<p>Problems to complete: (2.1) #1-12, (2.2) #1-13,16,17, (2.3) #1-14, (2.4) #1-8, #13-19, (2.5) #1-13, (3.1) #1-18, (3.2) #1-23, (3.3) #1-12, (3.4) #1-16 (omit limsup and liminf), (3.5) #1-11 (omit contractive sequences), (3.6) #1-10. </p>
+<p>If you notice any errors, please <a href="/register">register</a> or <a href="#login-bar">log in</a> and edit this page, or contact <a href="/users/dellsystem">@dellsystem</a> about it.</p>
+<div class="toc">
+<ul>
+<li><a href="#section-2">1 Section 2</a><ul>
+<li><a href="#section-21">1.1 Section 2.1</a><ul>
+<li><a href="#question-1">1.1.1 Question 1</a></li>
+<li><a href="#question-2">1.1.2 Question 2</a></li>
+<li><a href="#question-3">1.1.3 Question 3</a></li>
+<li><a href="#question-4">1.1.4 Question 4</a></li>
+<li><a href="#question-5">1.1.5 Question 5</a></li>
+<li><a href="#question-6">1.1.6 Question 6</a></li>
+<li><a href="#question-7">1.1.7 Question 7</a></li>
+<li><a href="#question-8">1.1.8 Question 8</a></li>
+<li><a href="#question-9">1.1.9 Question 9</a></li>
+<li><a href="#question-10">1.1.10 Question 10</a></li>
+<li><a href="#question-11">1.1.11 Question 11</a></li>
+<li><a href="#question-12">1.1.12 Question 12</a></li>
+</ul>
+</li>
+<li><a href="#section-22">1.2 Section 2.2</a><ul>
+<li><a href="#question-1_1">1.2.1 Question 1</a></li>
+<li><a href="#question-2_1">1.2.2 Question 2</a></li>
+<li><a href="#question-3_1">1.2.3 Question 3</a></li>
+<li><a href="#question-4_1">1.2.4 Question 4</a></li>
+<li><a href="#question-5_1">1.2.5 Question 5</a></li>
+<li><a href="#question-6_1">1.2.6 Question 6</a></li>
+<li><a href="#question-7_1">1.2.7 Question 7</a></li>
+<li><a href="#question-8_1">1.2.8 Question 8</a></li>
+<li><a href="#question-9_1">1.2.9 Question 9</a></li>
+<li><a href="#question-10_1">1.2.10 Question 10</a></li>
+<li><a href="#question-11_1">1.2.11 Question 11</a></li>
+<li><a href="#question-12_1">1.2.12 Question 12</a></li>
+<li><a href="#question-13">1.2.13 Question 13</a></li>
+<li><a href="#question-16">1.2.14 Question 16</a></li>
+<li><a href="#question-17">1.2.15 Question 17</a></li>
+</ul>
+</li>
+<li><a href="#section-23">1.3 Section 2.3</a><ul>
+<li><a href="#question-1_2">1.3.1 Question 1</a></li>
+<li><a href="#question-2_2">1.3.2 Question 2</a></li>
+<li><a href="#question-3_2">1.3.3 Question 3</a></li>
+<li><a href="#question-4_2">1.3.4 Question 4</a></li>
+<li><a href="#question-5_2">1.3.5 Question 5</a></li>
+<li><a href="#question-6_2">1.3.6 Question 6</a></li>
+<li><a href="#question-7_2">1.3.7 Question 7</a></li>
+<li><a href="#question-8_2">1.3.8 Question 8</a></li>
+<li><a href="#question-9_2">1.3.9 Question 9</a></li>
+<li><a href="#question-10_2">1.3.10 Question 10</a></li>
+<li><a href="#question-11_2">1.3.11 Question 11</a></li>
+<li><a href="#question-12_2">1.3.12 Question 12</a></li>
+<li><a href="#question-13_1">1.3.13 Question 13</a></li>
+<li><a href="#question-14">1.3.14 Question 14</a></li>
+</ul>
+</li>
+<li><a href="#section-24">1.4 Section 2.4</a><ul>
+<li><a href="#question-1_3">1.4.1 Question 1</a></li>
+<li><a href="#question-2_3">1.4.2 Question 2</a></li>
+<li><a href="#question-3_3">1.4.3 Question 3</a></li>
+<li><a href="#question-4_3">1.4.4 Question 4</a></li>
+<li><a href="#question-5_3">1.4.5 Question 5</a></li>
+<li><a href="#question-6_3">1.4.6 Question 6</a></li>
+<li><a href="#question-7_3">1.4.7 Question 7</a></li>
+<li><a href="#question-8_3">1.4.8 Question 8</a></li>
+<li><a href="#question-13_2">1.4.9 Question 13</a></li>
+<li><a href="#question-14_1">1.4.10 Question 14</a></li>
+<li><a href="#question-15">1.4.11 Question 15</a></li>
+<li><a href="#question-16_1">1.4.12 Question 16</a></li>
+<li><a href="#question-17_1">1.4.13 Question 17</a></li>
+<li><a href="#question-18">1.4.14 Question 18</a></li>
+<li><a href="#question-19">1.4.15 Question 19</a></li>
+</ul>
+</li>
+<li><a href="#section-25">1.5 Section 2.5</a><ul>
+<li><a href="#question-1_4">1.5.1 Question 1</a></li>
+<li><a href="#question-2_4">1.5.2 Question 2</a></li>
+<li><a href="#question-3_4">1.5.3 Question 3</a></li>
+<li><a href="#question-4_4">1.5.4 Question 4</a></li>
+<li><a href="#question-5_4">1.5.5 Question 5</a></li>
+<li><a href="#question-6_4">1.5.6 Question 6</a></li>
+<li><a href="#question-7_4">1.5.7 Question 7</a></li>
+<li><a href="#question-8_4">1.5.8 Question 8</a></li>
+<li><a href="#question-9_3">1.5.9 Question 9</a></li>
+<li><a href="#question-10_3">1.5.10 Question 10</a></li>
+<li><a href="#question-11_3">1.5.11 Question 11</a></li>
+<li><a href="#question-12_3">1.5.12 Question 12</a></li>
+<li><a href="#question-13_3">1.5.13 Question 13</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#section-3">2 Section 3</a><ul>
+<li><a href="#section-31">2.1 Section 3.1</a><ul>
+<li><a href="#question-1_5">2.1.1 Question 1</a></li>
+<li><a href="#question-2_5">2.1.2 Question 2</a></li>
+<li><a href="#question-3_5">2.1.3 Question 3</a></li>
+<li><a href="#question-4_5">2.1.4 Question 4</a></li>
+<li><a href="#question-5_5">2.1.5 Question 5</a></li>
+<li><a href="#question-6_5">2.1.6 Question 6</a></li>
+<li><a href="#question-7_5">2.1.7 Question 7</a></li>
+<li><a href="#question-8_5">2.1.8 Question 8</a></li>
+<li><a href="#question-9_4">2.1.9 Question 9</a></li>
+<li><a href="#question-10_4">2.1.10 Question 10</a></li>
+<li><a href="#question-11_4">2.1.11 Question 11</a></li>
+<li><a href="#question-12_4">2.1.12 Question 12</a></li>
+<li><a href="#question-13_4">2.1.13 Question 13</a></li>
+<li><a href="#question-14_2">2.1.14 Question 14</a></li>
+<li><a href="#question-15_1">2.1.15 Question 15</a></li>
+<li><a href="#question-16_2">2.1.16 Question 16</a></li>
+<li><a href="#question-17_2">2.1.17 Question 17</a></li>
+<li><a href="#question-18_1">2.1.18 Question 18</a></li>
+</ul>
+</li>
+<li><a href="#section-32">2.2 Section 3.2</a><ul>
+<li><a href="#question-1_6">2.2.1 Question 1</a></li>
+<li><a href="#question-2_6">2.2.2 Question 2</a></li>
+<li><a href="#question-3_6">2.2.3 Question 3</a></li>
+<li><a href="#question-4_6">2.2.4 Question 4</a></li>
+<li><a href="#question-5_6">2.2.5 Question 5</a></li>
+<li><a href="#question-6_6">2.2.6 Question 6</a></li>
+<li><a href="#question-7_6">2.2.7 Question 7</a></li>
+<li><a href="#question-8_6">2.2.8 Question 8</a></li>
+<li><a href="#question-9_5">2.2.9 Question 9</a></li>
+<li><a href="#question-10_5">2.2.10 Question 10</a></li>
+<li><a href="#question-11_5">2.2.11 Question 11</a></li>
+<li><a href="#question-12_5">2.2.12 Question 12</a></li>
+<li><a href="#question-13_5">2.2.13 Question 13</a></li>
+<li><a href="#question-14_3">2.2.14 Question 14</a></li>
+<li><a href="#question-15_2">2.2.15 Question 15</a></li>
+<li><a href="#question-16_3">2.2.16 Question 16</a></li>
+<li><a href="#question-17_3">2.2.17 Question 17</a></li>
+<li><a href="#question-18_2">2.2.18 Question 18</a></li>
+<li><a href="#question-19_1">2.2.19 Question 19</a></li>
+<li><a href="#question-20">2.2.20 Question 20</a></li>
+<li><a href="#question-21">2.2.21 Question 21</a></li>
+<li><a href="#question-22">2.2.22 Question 22</a></li>
+<li><a href="#question-23">2.2.23 Question 23</a></li>
+</ul>
+</li>
+<li><a href="#section-33">2.3 Section 3.3</a><ul>
+<li><a href="#question-1_7">2.3.1 Question 1</a></li>
+<li><a href="#question-2_7">2.3.2 Question 2</a></li>
+<li><a href="#question-3_7">2.3.3 Question 3</a></li>
+<li><a href="#question-4_7">2.3.4 Question 4</a></li>
+<li><a href="#question-5_7">2.3.5 Question 5</a></li>
+</ul>
+</li>
+<li><a href="#section-34">2.4 Section 3.4</a><ul>
+<li><a href="#question-1_8">2.4.1 Question 1</a></li>
+<li><a href="#question-2_8">2.4.2 Question 2</a></li>
+<li><a href="#question-3_8">2.4.3 Question 3</a></li>
+<li><a href="#question-4_8">2.4.4 Question 4</a></li>
+</ul>
+</li>
+<li><a href="#section-35">2.5 Section 3.5</a></li>
+<li><a href="#section-36">2.6 Section 3.6</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Section 2<a class="headerlink" href="#section-2" name="section-2">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Section 2.1<a class="headerlink" href="#section-21" name="section-21">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h4>
+<blockquote>
+<p>If <span>$a, b \in \mathbb{R}$</span>, prove the following:<br />
+(a) If <span>$a + b = 0$</span>, then <span>$b = -a$</span>;<br />
+(b) <span>$-(-a) = a$</span>;<br />
+(c) <span>$(-1)a = -a$</span>;<br />
+(d) <span>$(-1)(-1) = 1$</span>.</p>
+</blockquote>
+<p>(a) <span>$b = b + 0 = b + (a - a) = \underbrace{(b + a) - a}_{\text{associativity}} = \underbrace{(a + b)}_{\text{commutativity}} - a = 0 - a = -a$</span> <span>$\blacksquare$</span></p>
+<p>(b) From axiom A4, we know that <span>$(-(-a)) + (-a) = 0$</span>. If we add <span>$a$</span> to both sides, we have <span>$((-(-a)) + (-a)) + a = a$</span>. By associativity (A2) and A4 again, we can rewrite that <span>$(-(-a)) + ((-a) + a) = (-(-a)) + 0 = -(-a) = a$</span>. <span>$\blacksquare$</span></p>
+<p>(c)<br />
+<span>$\begin{align*}
+(-1)a &amp; = (-1)a + 0 = (-1)a + ((-a) + a) \tag{A4} \\
+&amp; = a(-1) + ((a) + (-a)) \tag{A1} \\
+&amp; = (a(-1) + (a)) + (-a) \tag{A2} \\
+&amp; = (a(-1) + a \cdot 1) + (-a) \tag{M3} \\
+&amp; = (a((-1) + 1)) + (-a) \tag{D} \\
+&amp; = (a(0) + (-a) \tag{A4} \\
+&amp; = 0 + (-a) \tag{M3} \\
+&amp; = (-a) \,\blacksquare\tag{A3}
+\end{align*}$</span></p>
+<p>(d) Using the statement proved in part (c), with <span>$a = (-1)$</span>, we have that <span>$(-1)(-1) = -(-1)$</span>. From part (b), we have that <span>$-(-1) = 1$</span>, and so <span>$(-1)(-1) = 1$</span> <span>$\blacksquare$</span>.</p>
+<h4 class="header"><i>1.1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h4>
+<blockquote>
+<p>Prove that if <span>$a, b \in \mathbb{R}$</span>, then<br />
+(a) <span>$-(a + b) = (-a) + (-b)$</span>;<br />
+(b) <span>$(-a) \cdot (-b) = a \cdot b$</span>;<br />
+(c) <span>$1/(-a) = -(1/a)$</span>;<br />
+(d) <span>$-(a/b) = (-a)/b$</span> if <span>$b\neq 0$</span>.</p>
+</blockquote>
+<p>(a) <span>$\begin{align*} -(a + b) &amp; = (-1)(a + b) \tag{by 1 (c)} \\
+&amp; = (-1)(a) + (-1)b \tag{D} \\
+&amp; = (-a) + (-b) \tag{by 1 (c) again, used twice} \, \blacksquare \end{align*}$</span></p>
+<p>(b) <span>$\begin{align*} (-a)\cdot (-b) &amp; = ((-1)a) \cdot ((-1)b) \tag{by 1 (c)} \\
+&amp; = ((-1)\cdot(a(-1))) \cdot (b) = ((-1)\cdot ((-1)a)) \cdot (b) \tag{by M2, applied twice} \\
+&amp; = (((-1)(-1)) \cdot a) \cdot b \tag{by M1} \\
+&amp; = (1 \cdot a) \cdot b \tag{by 1 (d)} \\
+&amp; = a \cdot b \,\blacksquare \tag{by M3} \end{align*}$</span></p>
+<p>(c) <span>$\begin{align*} 1/(-a) &amp; = (1/(-a)) \cdot 1 \tag{by M3} \\
+&amp; = (1/(-a)) \cdot (a \cdot (1/a)) \tag{by M4} \\
+&amp; = (1/(-a)) \cdot ((-a) \cdot (-(1/a)) \tag{by part (b)} \\
+&amp; = ((1/(-a)) \cdot (-a)) \cdot (-(1/a)) \tag{by M2} \\
+&amp; = 1 \cdot (-(1/a)) \tag{by M4} \\
+&amp; = -(1/a) \,\blacksquare \tag{by M3}\end{align*}$</span></p>
+<p>(d) <span>$\begin{align*} -(a/b) = (-1)\cdot (a/b) \tag{by 1 (c)} \\
+&amp; = (-1) \cdot (a \cdot (1/b)) \tag{by the definition of division} \\
+&amp; = ((-1) \cdot a) \cdot (1/b) \tag{by M2} \\
+&amp; = (-a) \cdot (1/b) \tag{by 1 (c) again} \\
+&amp; = (-a)/b \,\blacksquare \tag{by the definition of division} \end{align*}$</span></p>
+<h4 class="header"><i>1.1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h4>
+<blockquote>
+<p>Solve the following equations, justifying each step:<br />
+(a) <span>$2x + 5 = 8$</span>;<br />
+(b) <span>$x^2 = 2x$</span>;<br />
+(c) <span>$x^2 - 1 = 3$</span>;<br />
+(d) <span>$(x-1)(x + 2) = 0$</span>.</p>
+</blockquote>
+<p>(a) <span>$\begin{align*} 2x + 5 - 5 = 8 - 5 \tag{subtracting 5 from both sides} \\
+2x + 0 &amp; = 3 \tag{from above} \\
+2x &amp; = 3 \tag{by A3} \\
+(1/2)(2x) &amp; = (1/2)3 \tag{multiplying by 1/2 on both sides} \\
+((1/2)\cdot 2)\cdot x &amp; = (3/2) \tag{by M2, and the definition of division} \\
+1 \cdot x &amp; = (3/2) \tag{by M4} \\
+\cdot x &amp; = (3/2) \tag{by M3} \,\blacksquare \end{align*}$</span></p>
+<p>(b) <span>$\begin{align*} x^2 &amp; = 2x \\
+x \cdot x &amp; = 2 x \tag{by the definition of exponents} \\
+(x\cdot x)(1/x) &amp; = (2x)\cdot (1/x) \tag{multiplying by 1/x on each side} \\
+x \cdot (1 \cdot (1/x)) &amp; = 2\cdot (x\cdot (1/x)) \tag{by M2} \\
+x \cdot 1 &amp; = 2 \cdot 1 \tag{by M4} \\
+x &amp; = 2 \, \blacksquare \tag{by M3} \end{align*}$</span></p>
+<p>(c) <span>$\begin{align*} (x^2 - 1) + 1 &amp; = 3 + 1 \tag{adding 1 to each side} \\
+x^2 + ((-1) + 1) &amp; = 4 \tag{by A2} \\
+x^2 + 0 &amp; = 4 \tag{by A4} \\
+x^2 &amp; = 4 \tag{by A3} \end{align*}$</span></p>
+<p>Not sure how to use this to conclude that <span>$x = \pm 2$</span>. What are square roots???</p>
+<p>(d) Since the product of <span>$(x-1)$</span> and <span>$(x+2)$</span> is zero, we know that at least one of the factors is zero. If <span>$x - 1 = 0$</span>, then adding 1 to both sides gives us <span>$x = 1$</span>. If <span>$x + 2 = 0$</span>, then subtracting 2 from both sides gives us <span>$x = -2$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h4>
+<blockquote>
+<p>If <span>$a \in \mathbb{R}$</span> satisfies <span>$a \cdot a = a$</span>, prove that either <span>$a = 0$</span> or <span>$a = 1$</span>.</p>
+</blockquote>
+<p>First, we assume that <span>$a \neq 0$</span>. Then <span>$a = 1 \cdot a = ((1/a) \cdot a) \cdot a = (1/a) \cdot (a \cdot a) = (1/a) \cdot a = 1$</span>. So if <span>$a \neq 0, a = 1$</span>. Since <span>$a = 0$</span> satisfies <span>$a \cdot a = a$</span>, as <span>$0 \cdot 0 = 0$</span> by part (c) of theorem 2.1.2, then <span>$a = 0$</span> is a possible solution; consequently, if <span>$a \cdot a = a$</span>, then either <span>$a = 0$</span> or <span>$a = 1$</span>.</p>
+<p>Not entirely sure if this is a valid proof.</p>
+<h4 class="header"><i>1.1.5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h4>
+<blockquote>
+<p>If <span>$a \neq 0$</span> and <span>$b \neq 0$</span>, show that <span>$1 / (ab) = (1/a)(1/b)$</span>.</p>
+</blockquote>
+<p>I can't seem to formulate this proof in a way that doesn't require ((((()))))) and 9000 uses of M1 and M2 so I'm just going to give the answer in words. The idea is that <span>$(1/a \cdot a) = (1/b \cdot b) = 1$</span>, so you can multiply by either, then when you multiply those together, you get <span>$((1/a) \cdot (1/b)) \cdot (ab)$</span> (after some manipulation) and then since <span>$ab \cdot (1/(ab)) = 1$</span> you just get <span>$(1/a)(1/b)$</span>.</p>
+<h4 class="header"><i>1.1.6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h4>
+<blockquote>
+<p>Use the argument in the proof of Theorem 2.1.4 to show that there does not exist a rational number <span>$s$</span> such that <span>$s^2 = 6$</span>.</p>
+</blockquote>
+<p>(For reference, the proof of Theorem 2.1.4 is the famous <span>$\sqrt{2} \notin \mathbb{Q}$</span> proof, which proceeds by contradiction and uses even/odd properties.)</p>
+<p>Proof by contradiction: we assume that there <em>does</em> exist a rational number <span>$s$</span> such that <span>$s^2 = 6$</span>. So <span>$s = p/q$</span>, where <span>$p, q \in \mathbb{Z}$</span> and <span>$q \neq 0$</span>. Let the ratio be written in its lowest form, such that <span>$p$</span> and <span>$q$</span> have no common factors other than 1. Since <span>$s^2 = 6$</span>, <span>$p^2/q^2 = 6$</span> and so <span>$p^2 = 6q^2 = 3 \cdot 2q^2$</span>. <span>$p^2$</span> must be even, since 2 is a factor. It follows that <span>$p$</span> is even as well, since if <span>$p$</span> were odd, then <span>$p = (2m + 1), m \in \mathbb{Z}$</span> and so <span>$p^2 = 4m^2 + 4m + 1$</span> which would also be odd. So since <span>$p$</span> is even, it follows that <span>$q$</span> must be odd, because otherwise <span>$p$</span> and <span>$q$</span> would have 2 as a common factor.</p>
+<p>Now, since <span>$p$</span> is even, we can write <span>$p$</span> in the form <span>$p = 2m$</span>, where <span>$m \in \mathbb{Z}$</span>. <span>$s^2 = 6$</span> tells us that <span>$p^2/q^2 = (2m)^2/q^2 = 4m^2/q^2 = 6$</span>. Multiplying by <span>$(1/2)q^2$</span> on both sides, we have <span>$2m^2 = 3q^2$</span>, which indicates that <span>$3q^2$</span> is even. Since 3 is odd, <span>$q^2$</span> must be even in order for their product to be even. But <span>$q^2$</span> can only be even if <span>$q$</span> is even, as if <span>$q$</span> were odd then <span>$q^2$</span> would be the product of two odd numbers and would thus be odd. So <span>$q$</span> must be even. But this is a contradiction to the conclusion that <span>$q$</span> is odd, which was reached in the previous paragraph. Consequently, it must be that there does <em>not</em> exist a rational number <span>$s$</span> such that <span>$s^2 = 6$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h4>
+<blockquote>
+<p>Use the argument in the proof of Theorem 2.1.4 to show that there does not exist a rational number <span>$t$</span> such that <span>$t^2 = 3$</span>.</p>
+</blockquote>
+<p>Proof by contradiction: we assume that there <em>does</em> exist a rational number <span>$s$</span> such that <span>$t^2 = 3$</span>. So <span>$t = p/q$</span>, where <span>$p, q \in \mathbb{Z}$</span> and <span>$q \neq 0$</span>. Let the ratio be written in lowest terms, such that <span>$p$</span> and <span>$q$</span> have no common factors other than 1. Since <span>$s^2 = 3$</span>, <span>$p^2/q^2 = 3$</span> and so <span>$p^2 = 3q^2$</span>. Now, there are two possibilities: either <span>$p^2$</span> is even, or <span>$p^2$</span> is odd. If <span>$p^2$</span> is even, then <span>$q^2$</span> must also be even (if it were odd, then the product of <span>$q^2$</span> and 3 - both odd numbers - would also be odd, contradicting the premise that <span>$p$</span> is even). However, if both <span>$p^2$</span> and <span>$q^2$</span> are even, then <span>$p$</span> and <span>$q$</span> must both be even as well, by the reasoning in the previous question. Consequently, <span>$p$</span> and <span>$q$</span> are both even, and so they share a factor of 2. But this contradicts the premise that <span>$p$</span> and <span>$q$</span> have no common factors other than 1. So <span>$p^2$</span> cannot be even.</p>
+<p>Now let's look at the case where <span>$p^2$</span> is odd. For this to happen, <span>$q^2$</span> must also be odd, otherwise the product of <span>$q^2$</span> and 3 would be even. So <span>$p$</span> and <span>$q$</span> are both odd. We can write them as <span>$p = 2m + 1$</span> and <span>$q = 2n + 1$</span>, <span>$m, n \in \mathbb{Z}$</span>. So <span>$p^2 = 4m^2 + 4m + 1$</span> and <span>$q^2 =4n^2 + 4n +1$</span>. Substituting these into the equation <span>$p^2 = 3q^2$</span>, we have:</p>
+<p><span>$$4m^2 + 4m + 1 = 3(4n^2 + 4n+1)$$</span></p>
+<p>By performing some algebraic manipulations we can simplify this to:</p>
+<p><span>$$2(m^2 + m) = 6(n^2 +1) + 1$$</span></p>
+<p>On the left side of the equation, we have an even integer, as 2 is a factor. On the right side of the equation, we have an odd integer, as <span>$6(n^2+1)$</span> is even due to 2 being a factor of 6. A number cannot be both even and odd - this is a contradiction. Consequently, it must be that there does <em>not</em> exist a rational number <span>$s$</span> such that <span>$t^2 = 3$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h4>
+<blockquote>
+<p>(a) Show that if <span>$x, y$</span> are rational numbers, then <span>$x + y$</span> and <span>$xy$</span> are rational numbers.<br />
+(b) Prove that if <span>$x$</span> is a rational number and <span>$y$</span> is an irrational number, then <span>$x + y$</span> is an irrational number. If, in addition, <span>$x \neq 0$</span>, then show that <span>$xy$</span> is an irrational number.</p>
+</blockquote>
+<p>(a) Let <span>$x = p_1/q_1$</span> and <span>$y = p_2/q_2$</span>, where <span>$p_1, p_2, q_1, q_2 \in \mathbb{Z}$</span> and <span>$q_1, q_2 \neq 0$</span>. Then <span>$x = (p_1/q_1)\cdot 1 = (p_1/q_1)(q_2/q_2) = (p_1q_2)/(q_1q_2)$</span> (skipping some steps, and using some properties proved in previous exercises). Similarly, <span>$y = (p_2q_1)/(q_2q_1)$</span>. Then, <span>$x + y = (p_2q_1 + p_1q_2)/(q_1q_2)$</span> (don't know if we're allowed to just do this?), where both the denominator and the numerator are integers (and the denominator is non-zero). So it's rational. For <span>$xy$</span>, the argument is similar.</p>
+<p>(b) I think this was mentioned in class. Later.</p>
+<h4 class="header"><i>1.1.9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h4>
+<blockquote>
+<p>Let <span>$K = \{ s + t \sqrt{2}: s, t \in \mathbb{Q} \}$</span>. Show that <span>$K$</span> satisfies the following:</p>
+<p>(a) If <span>$x_1$</span>, <span>$x_2 \in K$</span>, then <span>$x_1 + x_2 \in K$</span> and <span>$x_1 x_2 \in K$</span>.<br />
+(b) If <span>$x \neq 0$</span> and <span>$x \in K$</span>, then <span>$1/x \in K$</span>.</p>
+</blockquote>
+<p>(a) <span>$x_1 = s_1 + t_1 \sqrt{2}$</span>. <span>$x_2 = s_2 + t_2 \sqrt{2}$</span>. We can write their sum as follows: <span>$x_1 + x_2 = (s_1 + t_1 \sqrt{2}) + (s_2 + t_2 \sqrt{2}) = (s_1 + s_2) + (t_1 + t_2)\sqrt{2} \in K$</span>. Also, we can write their product as <span>$x_1x_2 = (s_1 + t_1 \sqrt{2})(s_2 + t_2 \sqrt{2}) = s_1s_2 + s_1t_2\sqrt{2} + t_1s_2\sqrt{2} + t_1t_2\sqrt{2}^2 = (s_1s_2 + 2t_1t_2) + (s_1t_1 + t_1s_2)\sqrt{2} \in K$</span>.<br />
+(b) Don't know</p>
+<h4 class="header"><i>1.1.10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h4>
+<blockquote>
+<p>(a) If <span>$a &lt; b$</span> and <span>$c \leq d$</span>, prove that <span>$a + c &lt; b +d$</span>.<br />
+(b) If <span>$0 &lt; a &lt; b$</span> and <span>$0 \leq c \leq d$</span>, prove that <span>$0 \leq ac \leq bd$</span>.</p>
+</blockquote>
+<p>(a) This is similar to (though more complicated than) something we did in <a href="/MATH_242/lecture-notes/fall-2012/thursday-september-6#adding-to-both-sides-of-the-inequality">the first lecture</a>. <span>$a &lt; b$</span> means that <span>$b - a \in \mathbb{P}$</span>, and <span>$c \leq d$</span> means that <span>$d -c \in \mathbb{P} \cup \{0\}$</span>. From property (i) of <span>$\mathbb{P}$</span>, we know that <span>$(b -a) + (d -c) \in \mathbb{P}$</span> (this assumes that <span>$d-c\neq 0$</span>). Now we just need to perform some algebraic manipulations:</p>
+<p><span>$\begin{align*} (b - a) + (d - c) &amp; = ((b -a) + d) -c) \tag{by A2} \\
+&amp; = ((b + d) - a) - c \tag{by A1, A2} \\
+&amp; = (b + d) + (-a - c) \tag{by A2} \\
+&amp; = (b + d) - (a + c) \tag{by something} \end{align*}$</span></p>
+<p>Consequently, <span>$(b + d) - (a + c) \in \mathbb{P}$</span> and so <span>$(a + c) &lt; (b + d)$</span>.</p>
+<p>In the case where <span>$d-c = 0$</span>, then we can't use property (i) directly, but since <span>$b-a \in \mathbb{P}$</span> and <span>$(b - a) = (b -a) + 0 = (b-a) + (d-c)$</span>, then <span>$(b -a ) + (d-c) \in \mathbb{P}$</span> so the above still applies. I'm not actually sure if this extra step needs to be made explicit, but, whatever.</p>
+<p>(b) Later</p>
+<h4 class="header"><i>1.1.11</i>Question 11<a class="headerlink" href="#question-11" name="question-11">&para;</a></h4>
+<blockquote>
+<p>(a) Show that if <span>$a &gt; 0$</span>, then <span>$1/a &gt; 0$</span> and <span>$1 / (1/a) = a$</span>.<br />
+(b) Show that if <span>$a &lt; b$</span>, then <span>$a &lt; \frac{1}{2} (a + b) &lt; b$</span>.</p>
+</blockquote>
+<p>(a) <span>$a &gt; 0$</span> means that <span>$a \in \mathbb{P}$</span>. By some axiom<sup id="fnref:axiom"><a href="#fn:axiom" rel="footnote" title="I don't really know which. Taken from the lecture ...">1</a></sup>, we know that <span>$1/a \in \mathbb{R}$</span>. By the Trichotomy Property (for <span>$\mathbb{P}$</span>), there are three possibilities: either <span>$1/a \in \mathbb{P}$</span>; or, <span>$-(1/a)\in \mathbb{P}$</span>; or, <span>$1/a = 0$</span>.</p>
+<p>Now, the third case is clearly false, because <span>$1/a \cdot a = 1$</span>, by axiom M4. But if <span>$1/a = 0$</span>, then <span>$1/a \cdot a = 0 \cdot a = 0$</span>. So we have that <span>$1 = 0$</span> which is not true, by axiom M3.</p>
+<p>Let's look at the second case. If this is true, then <span>$-(1/a) \cdot a \in \mathbb{P}$</span> by the closure of <span>$\mathbb{P}$</span> under multiplication. This simplifies to <span>$-1 \in \mathbb{P}$</span>. But it was proved in class that <span>$1 &gt; 0$</span>, and so <span>$1 \in \mathbb{P}$</span>, which means that it <em>cannot</em> be that <span>$-1 \in \mathbb{P}$</span>. Thus, we've reached a contradiction, and this case is not valid.</p>
+<p>So there's only one possibility left: that <span>$1/a \in \mathbb{P}$</span>. <span>$\blacksquare$</span></p>
+<p>To show that <span>$1 / (1/a) = a$</span>:</p>
+<p><span>$\begin{align*} 1 / (1/a) &amp; = (1 / (1/a)) \cdot 1 \tag{by M3} \\
+&amp; = (1/(1/a)) \cdot ((1/a) \cdot a) \tag{by M4} \\
+&amp; = ((1/(1/a)) \cdot (1/a)) \cdot a \tag{by M2} \\
+&amp; = 1 \cdot a \tag{by M4} \\
+&amp; = a \,\blacksquare \tag{by M3}
+\end{align*}$</span></p>
+<p>(b) We know that <span>$a &lt; b$</span>. Adding <span>$a$</span> to both sides gives us <span>$a + a &lt; a + b$</span>, i.e., <span>$2a &lt; a + b$</span>. Dividing both sides by 2, we get <span>$a &lt; \frac{1}{2}(a+b)$</span>. Additionally, if we add <span>$b$</span> to both sides of the original inequality, we get <span>$a + b &lt; b + b$</span>, and so <span>$\frac{1}{2}(a+b) &lt; b$</span>. So then <span>$a &lt; \frac{1}{2}(a+b) &lt; b$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.12</i>Question 12<a class="headerlink" href="#question-12" name="question-12">&para;</a></h4>
+<blockquote>
+<p>Let <span>$a, b, c, d$</span> be numbers satisfying <span>$0 &lt; a &lt; b$</span> and <span>$c &lt; d &lt; 0$</span>. Give an example where <span>$ac &lt; bd$</span>, and one where <span>$bd &lt; ac$</span>.</p>
+</blockquote>
+<p>If <span>$a = 3$</span>, <span>$b = 4$</span>, <span>$c = -5$</span> and <span>$d = -3$</span>, then <span>$ac = -15$</span> and <span>$bd = -12$</span>, hence <span>$-15 &lt; -12$</span> (so <span>$ac &lt; bd$</span>).</p>
+<p>If <span>$a = 3$</span>, <span>$b = 10$</span>, <span>$c = -4$</span> and <span>$d = -2$</span>, then <span>$ac = -12$</span> and <span>$bd = -20$</span>, hence <span>$-20 &lt; -12$</span> (so <span>$bd &lt; ac$</span>).</p>
+<h3 class="header"><i>1.2</i>Section 2.2<a class="headerlink" href="#section-22" name="section-22">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h4>
+<blockquote>
+<p>If <span>$a, b \in \mathbb{R}$</span> and <span>$b\neq 0$</span>, show that<br />
+(a) <span>$|a| = \sqrt{a^2}$</span>;<br />
+(b) <span>$|a/b| = |a| / |b|$</span>.</p>
+</blockquote>
+<p>(a) From theorem 2.2.2 (b), we have that <span>$|a|^2 = a^2$</span>. Taking the square root of both sides, we have that <span>$\sqrt{|a|^2} = \sqrt{a^2}$</span> and so <span>$|a| = \sqrt{a^2}$</span>.</p>
+<p>(b) From theorem 2.2.2 (a), we have that <span>$|ab| = |a||b|$</span> for all <span>$a, b \in \mathbb{R}$</span>. Since <span>$a/b$</span> is equivalent to <span>$a \cdot (1/b)$</span>, then <span>$|a/b| = |a \cdot (1/b)| = |a| \cdot |1/b|$</span>. But since <span>$|1/b| = 1/|b|$</span>, then <span>$|a/b| = |a| \cdot 1/|b| = |a| / |b|$</span>.</p>
+<h4 class="header"><i>1.2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h4>
+<blockquote>
+<p>If <span>$a, b \in \mathbb{R}$</span>, show that <span>$|a + b| = |a| + |b|$</span> if and only if <span>$ab \geq 0$</span>.</p>
+</blockquote>
+<p>First we prove the leftwards implication (that if the statement holds, then <span>$ab \geq 0$</span>). Assume that <span>$|a + b| = |a| + |b|$</span>. There are 4 cases for the values of <span>$a$</span> and <span>$b$</span>. Either <span>$a$</span> and <span>$b$</span> are both <span>$\geq 0$</span>, or <span>$a &lt; 0$</span> and <span>$b \geq 0$</span>, or <span>$a \geq 0$</span> and <span>$b &lt; 0$</span>, or <span>$a$</span> and <span>$b$</span> both are <span>$&lt; 0$</span>. For the first case, if either is 0, then <span>$ab = 0$</span>; otherwise, both are <span>$\in \mathbb{P}$</span>, and so their product <span>$ab$</span> is as well, which means that <span>$ab \geq 0$</span>. For the second case, <span>$|a| + |b| = -a + b = b - a \neq |a + b|$</span> for <span>$a &lt; 0$</span>. Similarly for the third case. In the fourth case, since both are negative, their product is positive (since <span>$-a, -b \in \mathbb{P}$</span>, and so <em>their</em> product, <span>$(-a)(-b) \in \mathbb{P}$</span>, and from exercise 2 (b) in section 2.1 we have that <span>$(-a)(-b) = ab$</span>), which means that <span>$ab &gt; 0$</span> (and consequently <span>$ab \geq 0$</span>). (It doesn't actually matter if the statement holds or not, just that it's false when the inequality is - material implication!)</p>
+<p>Now we prove the rightward implication. If <span>$ab \geq 0$</span>, then either <span>$ab &gt; 0$</span> or <span>$ab = 0$</span>. In the former case, then either <span>$a &gt; 0$</span> and <span>$b &gt; 0$</span> or <span>$a &lt; 0$</span> and <span>$b &lt; 0$</span> (from 2.1.10). In the latter case, either <span>$a = 0$</span> in which case the statement simplifies to <span>$|0 + b| = |b|$</span> on the left side and <span>$|0| + |b| = 0 + |b| = |b|$</span> on the right side, which is trivially true, or <span>$b=0$</span> in which case it simplifies to <span>$|a| = |a|$</span> which is again trivially true. If <span>$a, b &gt; 0$</span>, then <span>$a + b &gt; 0$</span> as well (by 2.1.5 (i)), and so <span>$|a+b| = a + b$</span>. Also, <span>$|a| = a$</span> and <span>$|b| = b$</span>, so we hvae <span>$a + b$</span> on the left and <span>$a + b$</span> on the right, which proves that the statement is true. However, if <span>$a, b &lt;0$</span>, then the right side simplifies to <span>$-a - b = -(a + b)$</span>. We magically realise<sup id="fnref:magic"><a href="#fn:magic" rel="footnote" title="Kind of like how once in a while, the textbook wil...">2</a></sup> that <span>$a + b &lt; 0$</span>, which means that <span>$|a + b| = -(a + b)$</span>. So the left and right sides match up, which means that the statement holds, and so everything is proved. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h4>
+<blockquote>
+<p>If <span>$x, y, z \in \mathbb{R}$</span> and <span>$x \leq z$</span>, show that <span>$x \leq y \leq z$</span> if and only if <span>$|x - y| + |y -z | = |x -z|$</span>. Interpret this geometrically.</p>
+</blockquote>
+<p>Probably want to use triangle inequality for this. Skipping.</p>
+<h4 class="header"><i>1.2.4</i>Question 4<a class="headerlink" href="#question-4_1" name="question-4_1">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$\lvert x - a\rvert &lt; \varepsilon$</span> if and only if <span>$a - \varepsilon &lt; x &lt; a + \varepsilon$</span>.</p>
+</blockquote>
+<p><span>$|x-a| &lt; \epsilon$</span> means that <span>$-\epsilon &lt; x-a &lt; \epsilon$</span>. Adding <span>$a$</span> to each term gives us <span>$a-\epsilon &lt; x &lt; a + \epsilon$</span>. That was nice.</p>
+<h4 class="header"><i>1.2.5</i>Question 5<a class="headerlink" href="#question-5_1" name="question-5_1">&para;</a></h4>
+<blockquote>
+<p>If <span>$a &lt; x &lt; b$</span> and <span>$a &lt; y &lt; b$</span>, show that <span>$|x-y| &lt; b-a$</span>. Interpret this geometrically.</p>
+</blockquote>
+<p>Just need to show that <span>$-(b-a) &lt; x-y &lt; b-a$</span>. Well, <span>$a - y &lt; x - y &lt; b - y$</span>. Also, <span>$a - x &lt; y - x &lt; b - x$</span>. So <span>$x-a &gt; x-y &gt; x-b$</span>, i.e., <span>$x-b &lt; x-y &lt; x-a$</span>. Adding the first and last inequalities together gives us <span>$a-b + (x - y) &lt; 2(x-y) &lt; b-a + (x-y)$</span>. Subtracting <span>$x-y$</span> from each term gives us <span>$a-b &lt; x-y &lt; b-a$</span> which is what we wanted (since <span>$-(b-a) = a-b$</span>).</p>
+<h4 class="header"><i>1.2.6</i>Question 6<a class="headerlink" href="#question-6_1" name="question-6_1">&para;</a></h4>
+<blockquote>
+<p>Find all <span>$x \in \mathbb R$</span> that satisfy the following inequalities.</p>
+<p>(a) <span>$|4x-5| \leq 13$</span><br />
+(b) <span>$|x^2-1| \leq 3$</span></p>
+</blockquote>
+<p>(a) We need to solve <span>$-13 \leq 4x-5 \leq 13$</span>. Well, if <span>$x = 4.5$</span>, then <span>$4x-5 = 13$</span>, and if <span>$x = -2$</span>, then <span>$4x-5 = -13$</span>. So <span>$-2 \leq x \leq 4.5$</span> works.</p>
+<p>(b) We can factor that as <span>$|(x-1)(x+1)| \leq 3$</span>. So <span>$-3 \leq (x-1)(x+1) \leq 3$</span>. Well, if <span>$x \leq 2$</span>, then we have <span>$x+1 \leq 3$</span> and <span>$x-1 \leq 1$</span>, so that works for the right inequality. And if <span>$x \geq -2$</span>, then <span>$x -1 \geq -3$</span> and <span>$x + 1 \geq -1$</span>, so <span>$(x-1)(x+1) \leq -3$</span>. So <span>$-2 \leq x \leq 2$</span> works.</p>
+<h4 class="header"><i>1.2.7</i>Question 7<a class="headerlink" href="#question-7_1" name="question-7_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.8</i>Question 8<a class="headerlink" href="#question-8_1" name="question-8_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.9</i>Question 9<a class="headerlink" href="#question-9_1" name="question-9_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.10</i>Question 10<a class="headerlink" href="#question-10_1" name="question-10_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.11</i>Question 11<a class="headerlink" href="#question-11_1" name="question-11_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.12</i>Question 12<a class="headerlink" href="#question-12_1" name="question-12_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.13</i>Question 13<a class="headerlink" href="#question-13" name="question-13">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.14</i>Question 16<a class="headerlink" href="#question-16" name="question-16">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.2.15</i>Question 17<a class="headerlink" href="#question-17" name="question-17">&para;</a></h4>
+<p>Skipping</p>
+<h3 class="header"><i>1.3</i>Section 2.3<a class="headerlink" href="#section-23" name="section-23">&para;</a></h3>
+<h4 class="header"><i>1.3.1</i>Question 1<a class="headerlink" href="#question-1_2" name="question-1_2">&para;</a></h4>
+<blockquote>
+<p>Let <span>$S_1 = \{x \in \mathbb R: x \geq 0\}$</span>. Show in detail that the set <span>$S_1$</span> has lower bounds, but no upper bounds. Show that <span>$\inf S_1 = 0$</span>.</p>
+</blockquote>
+<p>No upper bound by the Archimedean property. 0 is a lower bound, and if <span>$w$</span> is any lower bound, we know that <span>$w \leq 0$</span> because 0 is in the set. Thus the infimum is 0.</p>
+<h4 class="header"><i>1.3.2</i>Question 2<a class="headerlink" href="#question-2_2" name="question-2_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.3</i>Question 3<a class="headerlink" href="#question-3_2" name="question-3_2">&para;</a></h4>
+<blockquote>
+<p>Let <span>$S_3 = \{1/n: n\in \mathbb N\}$</span>. Show that <span>$\sup S_3 = 1$</span> and <span>$\inf S_3 \geq 0$</span>.</p>
+</blockquote>
+<p>Coming soon</p>
+<h4 class="header"><i>1.3.4</i>Question 4<a class="headerlink" href="#question-4_2" name="question-4_2">&para;</a></h4>
+<blockquote>
+<p>Let <span>$S_4 = \{1-(-1)^n/n:n \in \mathbb N\}$</span>. Find <span>$\inf S_4$</span> and <span>$\sup S_4$</span>.</p>
+</blockquote>
+<p>First few terms: <span>$1-(-1)/1 = 2$</span>, <span>$1 - (1)/2 = 1/2$</span>, <span>$1 - (-1)/3 = 4/3$</span>, <span>$1 - (1)/4 = 3/4$</span>. So the inf is <span>$1/2$</span>, the sup is 2.</p>
+<h4 class="header"><i>1.3.5</i>Question 5<a class="headerlink" href="#question-5_2" name="question-5_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.6</i>Question 6<a class="headerlink" href="#question-6_2" name="question-6_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.7</i>Question 7<a class="headerlink" href="#question-7_2" name="question-7_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.8</i>Question 8<a class="headerlink" href="#question-8_2" name="question-8_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.9</i>Question 9<a class="headerlink" href="#question-9_2" name="question-9_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.10</i>Question 10<a class="headerlink" href="#question-10_2" name="question-10_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.11</i>Question 11<a class="headerlink" href="#question-11_2" name="question-11_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.12</i>Question 12<a class="headerlink" href="#question-12_2" name="question-12_2">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.13</i>Question 13<a class="headerlink" href="#question-13_1" name="question-13_1">&para;</a></h4>
+<p>Skip</p>
+<h4 class="header"><i>1.3.14</i>Question 14<a class="headerlink" href="#question-14" name="question-14">&para;</a></h4>
+<p>Sigh</p>
+<h3 class="header"><i>1.4</i>Section 2.4<a class="headerlink" href="#section-24" name="section-24">&para;</a></h3>
+<h4 class="header"><i>1.4.1</i>Question 1<a class="headerlink" href="#question-1_3" name="question-1_3">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$\sup\{1 - \frac{1}{n}:n \in \mathbb N\} = 1$</span>.</p>
+</blockquote>
+<p>First, we show that 1 is an upper bound: since <span>$\frac{1}{n} &gt; 0$</span> for <span>$n &gt; 0$</span>, then <span>$1-\frac{1}{n} &lt; 1$</span>. So yeah, 1 is an upper bound. Now we need to show that if <span>$v &lt; 1$</span>, then there exists some in <span>$s \in S$</span> such that <span>$s &gt; v$</span>. Let's write <span>$v$</span> as <span>$1 - \epsilon$</span> for some <span>$\epsilon &gt; 0$</span>. Well, by the Archimedean property, we know that there exists <span>$m \in \mathbb N$</span> such that <span>$\frac{1}{m} &lt; \epsilon$</span>. So then <span>$s = 1 - \frac{1}{m} &gt; 1 -\epsilon = v$</span>. So then there exists <span>$s \in S$</span> such that <span>$s &gt; v$</span>, proving that nothing less than 1 is an upper bound. We conclude that 1 is the supremum. <span>$\blacksquare$</span></p>
+<p>This is probably not standard procedure but it seems to work. Also, <span>$\epsilon$</span>!! &lt;3</p>
+<h4 class="header"><i>1.4.2</i>Question 2<a class="headerlink" href="#question-2_3" name="question-2_3">&para;</a></h4>
+<blockquote>
+<p>If <span>$S = \{1/n - 1/m: n,m \in \mathbb N\}$</span>, find <span>$\inf S$</span> and <span>$\sup S$</span>.</p>
+</blockquote>
+<p>inf: -1. sup: 1.</p>
+<h4 class="header"><i>1.4.3</i>Question 3<a class="headerlink" href="#question-3_3" name="question-3_3">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.4</i>Question 4<a class="headerlink" href="#question-4_3" name="question-4_3">&para;</a></h4>
+<p>Skipping for now</p>
+<h4 class="header"><i>1.4.5</i>Question 5<a class="headerlink" href="#question-5_3" name="question-5_3">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.6</i>Question 6<a class="headerlink" href="#question-6_3" name="question-6_3">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.7</i>Question 7<a class="headerlink" href="#question-7_3" name="question-7_3">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.8</i>Question 8<a class="headerlink" href="#question-8_3" name="question-8_3">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.9</i>Question 13<a class="headerlink" href="#question-13_2" name="question-13_2">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.10</i>Question 14<a class="headerlink" href="#question-14_1" name="question-14_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.11</i>Question 15<a class="headerlink" href="#question-15" name="question-15">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.12</i>Question 16<a class="headerlink" href="#question-16_1" name="question-16_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.13</i>Question 17<a class="headerlink" href="#question-17_1" name="question-17_1">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.14</i>Question 18<a class="headerlink" href="#question-18" name="question-18">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>1.4.15</i>Question 19<a class="headerlink" href="#question-19" name="question-19">&para;</a></h4>
+<p>Skipping</p>
+<h3 class="header"><i>1.5</i>Section 2.5<a class="headerlink" href="#section-25" name="section-25">&para;</a></h3>
+<h4 class="header"><i>1.5.1</i>Question 1<a class="headerlink" href="#question-1_4" name="question-1_4">&para;</a></h4>
+<blockquote>
+<p>If <span>$I = [a, b]$</span> and <span>$I' = [a', b']$</span> are closed intervals in <span>$\mathbb{R}$</span>, show that <span>$I \subseteq I'$</span> if and only if <span>$a' \leq a$</span> and <span>$b \leq b'$</span>.</p>
+</blockquote>
+<p>First, we show that <span>$I \subseteq I'$</span> implies that <span>$a' \leq a$</span> and <span>$b \leq b'$</span>. Let <span>$x \in I$</span>. Then, from the set definition of an interval, we have that <span>$a \leq x \leq b$</span>. Since we also have that <span>$x \in I'$</span>, then <span>$a' \leq x \leq b'$</span>. Clearly, <span>$a \in I$</span>, and also <span>$b \in I$</span>. So <span>$a' \leq a \leq b'$</span> and <span>$a' \leq b \leq b'$</span>. From this we can conclude that <span>$a' \leq a$</span> and <span>$b \leq b'$</span>. <span>$\blacksquare$</span>.</p>
+<p>Now, we show that if <span>$a' \leq a$</span> and <span>$b \leq b'$</span>, then <span>$I \subseteq I'$</span>. Let <span>$x \in I$</span>. From the set definition of <span>$I$</span>, we know that <span>$a \leq x \leq b$</span>. Since <span>$a' \leq a$</span> and <span>$a \leq x$</span>, then <span>$a' \leq x$</span> by transitivity. Similarly we have that <span>$x \leq b'$</span>. Putting that together, we get that <span>$a' \leq x \leq b'$</span>, and so <span>$x \in I'$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.5.2</i>Question 2<a class="headerlink" href="#question-2_4" name="question-2_4">&para;</a></h4>
+<blockquote>
+<p>If <span>$S \subseteq \mathbb{R}$</span> is nonempty, show that <span>$S$</span> is bounded if and only if there exists a closed bounded interval <span>$I$</span> such that <span>$S \subseteq I$</span>.</p>
+</blockquote>
+<p>First, we show that <span>$S$</span> being bounded implies that there exists a closed bounded interval <span>$I$</span> such that <span>$S \subseteq I$</span>. Well, if <span>$S$</span> is bounded, then it has an infimum and supremum. We let <span>$a = \inf S$</span> and <span>$b = \sup S$</span>, and we create an interval <span>$I = [a, b]$</span>. Then, if <span>$x \in S$</span>, by the definition of infima and suprema we have that <span>$a \leq x \leq b$</span>. So <span>$x \in I$</span>, by the set definition of the interval. <span>$\blacksquare$</span></p>
+<p>Now, we show that if there exists a closed bounded interval <span>$I$</span> such that <span>$S \subseteq I$</span>, then <span>$S$</span> is bounded. Let <span>$a$</span> be the upper bound of <span>$I$</span> and let <span>$b$</span> be the lower bound of some interval <span>$I$</span> satisfying this property. We can write <span>$I$</span> as <span>$\{x \in \mathbb{R}: a \leq x \leq b\}$</span>. Since <span>$S \subseteq I$</span>, then for any <span>$s \in S$</span>, we have that <span>$a \leq s \leq b$</span>. <span>$a$</span> is thus a lower bound of <span>$S$</span>, and <span>$b$</span> is a lower bound. Consequently, <span>$S$</span> is bounded. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.5.3</i>Question 3<a class="headerlink" href="#question-3_4" name="question-3_4">&para;</a></h4>
+<blockquote>
+<p>If <span>$S \in \mathbb{R}$</span> is a nonempty bounded set, and <span>$I_S = [ \inf S, \sup S]$</span>, show that <span>$S \subseteq I_S$</span>. Moreover, if <span>$J$</span> is any closed bounded interval containing <span>$S$</span>, show that <span>$I_S \subseteq J$</span>.</p>
+</blockquote>
+<p>Not very interesting (fairly trivial, and similar to previous questions)</p>
+<h4 class="header"><i>1.5.4</i>Question 4<a class="headerlink" href="#question-4_4" name="question-4_4">&para;</a></h4>
+<blockquote>
+<p>In the proof of Case (ii) of Theorem 2.5.1, explain why <span>$x, y$</span> exist in <span>$S$</span>.</p>
+</blockquote>
+<p>Wow, asking us to answer a "(Why?)". Okay. Well, since <span>$z &lt; b$</span>, then there always exists a <span>$y$</span> such that <span>$y \geq z$</span> (from the supremum definition). Also, since <span>$S$</span> is <em>not</em> bounded below, there is always an <span>$x$</span> such that <span>$x \leq z$</span>. Is that enough</p>
+<h4 class="header"><i>1.5.5</i>Question 5<a class="headerlink" href="#question-5_4" name="question-5_4">&para;</a></h4>
+<blockquote>
+<p>Write out the details of the proof of case (iv) in Theorem 2.5.1.</p>
+</blockquote>
+<p>Seriously? This is a question? That's one way to write a textbook, I guess.</p>
+<p>In any case, if <span>$S$</span> is not bounded above or below, I don't even care</p>
+<h4 class="header"><i>1.5.6</i>Question 6<a class="headerlink" href="#question-6_4" name="question-6_4">&para;</a></h4>
+<blockquote>
+<p>If <span>$I_1 \supseteq I_2 \supseteq \ldots \supseteq I_n \supseteq \ldots$</span> is a nested sequence of intervals and if <span>$I_n = [a_n, b_n]$</span>, show that <span>$a_1 \leq a_2 \leq \ldots \leq a_n \leq \ldots$</span> and <span>$b_1 \geq b_2 \geq \ldots \geq b_n \geq \ldots$</span>.</p>
+</blockquote>
+<p>I can't even pretend to care</p>
+<h4 class="header"><i>1.5.7</i>Question 7<a class="headerlink" href="#question-7_4" name="question-7_4">&para;</a></h4>
+<blockquote>
+<p>Let <span>$I_n = [0, 1/n]$</span> for <span>$n \in \mathbb{N}$</span>. Prove that <span>$\displaystyle \bigcap_{n=1}^{\infty} I_n = \{0\}$</span>.</p>
+</blockquote>
+<p>Let <span>$\displaystyle A = \bigcap_{n=1}^{\infty} I_n$</span>. Clearly <span>$0 \in I_n$</span> for every <span>$n$</span>, hence <span>$0 \in A$</span>. Suppose <span>$x \in A$</span>. Then <span>$x \in [0, 1/n)$</span> for all <span>$n \in \mathbb{N}$</span>. So <span>$x \leq 1/n$</span> for all <span>$n$</span>. Hence <span>$x \leq 0$</span> by the Archimedean property (why? seriously, I'm not sure). Thus <span>$x = 0$</span>.</p>
+<p>This is taken almost verbatim from the solutions to assignment 1, question 8 (b) (part two). See MyCourses for the solutions.</p>
+<h4 class="header"><i>1.5.8</i>Question 8<a class="headerlink" href="#question-8_4" name="question-8_4">&para;</a></h4>
+<blockquote>
+<p>Let <span>$J_n = (0, 1/n)$</span> for <span>$n \in \mathbb{N}$</span>. Prove that <span>$\displaystyle \bigcap_{n=1}^{\infty} J_n = \varnothing$</span>.</p>
+</blockquote>
+<p>By the Archimedean property, the only <span>$x \in \mathbb{R}$</span> such that <span>$x &lt; 1/n$</span> for all <span>$n$</span> is 0. So only 0 could be in the intersection. But 0 is not in the intersection as it's an open set. So the intersection is empty.</p>
+<h4 class="header"><i>1.5.9</i>Question 9<a class="headerlink" href="#question-9_3" name="question-9_3">&para;</a></h4>
+<blockquote>
+<p>Let <span>$K_n = (n, \infty)$</span> for <span>$n \in \mathbb{N}$</span>. Prove that <span>$\displaystyle \bigcap_{n=1}^{\infty} K_n = \varnothing$</span>.</p>
+</blockquote>
+<p>Pretty boring</p>
+<h4 class="header"><i>1.5.10</i>Question 10<a class="headerlink" href="#question-10_3" name="question-10_3">&para;</a></h4>
+<blockquote>
+<p>skipping</p>
+</blockquote>
+<h4 class="header"><i>1.5.11</i>Question 11<a class="headerlink" href="#question-11_3" name="question-11_3">&para;</a></h4>
+<blockquote>
+<p>skipping</p>
+</blockquote>
+<h4 class="header"><i>1.5.12</i>Question 12<a class="headerlink" href="#question-12_3" name="question-12_3">&para;</a></h4>
+<blockquote>
+<p>Give the binary representations of <span>$\frac{3}{8}$</span> and <span>$\frac{7}{16}$</span>.</p>
+</blockquote>
+<p>Only not skipping because it's so easy:</p>
+<p><span>$$\frac{3}{8} = 0.011_2 \qquad \frac{7}{16} = 0.0111_2$$</span></p>
+<h4 class="header"><i>1.5.13</i>Question 13<a class="headerlink" href="#question-13_3" name="question-13_3">&para;</a></h4>
+<blockquote>
+<p>(a) Give the first four digits in the binary representation of <span>$\frac{1}{3}$</span>.<br />
+(b) Give the complete binary representation of <span>$\frac{1}{3}$</span>.</p>
+</blockquote>
+<p>(a) <span>$0.0101$</span> (draw the diagram and you'll see why)<br />
+(b) <span>$0.\bar{01}$</span></p>
+<h2 class="header"><i>2</i>Section 3<a class="headerlink" href="#section-3" name="section-3">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Section 3.1<a class="headerlink" href="#section-31" name="section-31">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Question 1<a class="headerlink" href="#question-1_5" name="question-1_5">&para;</a></h4>
+<blockquote>
+<p>The sequence <span>$(x_n)$</span> is defined by the following formulas for the <span>$n$</span>th term. Write the first five terms in each case:</p>
+<p>(a) <span>$x_n = 1 + (-1)^n$</span>,<br />
+(b) <span>$x_n = (-1)^n/n$</span>,<br />
+(c) <span>$\displaystyle x_n = \frac{1}{n(n+1)}$</span>,<br />
+(d) <span>$\displaystyle x_n = \frac{1}{n^2+2}$</span>.</p>
+</blockquote>
+<p>(a) <span>$(0, 2, 0, 2, 0)$</span><br />
+(b) <span>$(-1, 1/2, -1/3, 1/4, -1/5)$</span><br />
+(c) <span>$(1/2, 1/6, 1/12, 1/20, 1/30)$</span><br />
+(d) <span>$(1/3, 1/6, 1/11, 1/18, 1/27)$</span></p>
+<h4 class="header"><i>2.1.2</i>Question 2<a class="headerlink" href="#question-2_5" name="question-2_5">&para;</a></h4>
+<blockquote>
+<p>The first few terms of a sequence <span>$(x_n)$</span> are given below. Assuming that the "natural pattern" indicated by these terms persists, give a formula for the <span>$n$</span>th term <span>$x_n$</span>.</p>
+<p>(a) <span>$5, 7, 9, 11, \ldots$</span>,<br />
+(b) <span>$/1/2, -1/4, 1/8, -1/16, \ldots$</span>,<br />
+(c) <span>$1/2, 2/3, 3/4, 4/5, \ldots$</span>,<br />
+(d) <span>$1, 4, 9, 16, \ldots$</span>.</p>
+</blockquote>
+<p>(a) <span>$3 + 2n$</span><br />
+(b) <span>$(-1)^{n+1}/2^n$</span><br />
+(c) <span>$n/(n+1)$</span><br />
+(d) <span>$n^2$</span></p>
+<h4 class="header"><i>2.1.3</i>Question 3<a class="headerlink" href="#question-3_5" name="question-3_5">&para;</a></h4>
+<blockquote>
+<p>List the first five terms of the following inductively defined sequences.</p>
+</blockquote>
+<p>(a) 1, 4, 13, 40, 121<br />
+(b) 3/2, 17/12. 577/408, etc<br />
+(c) 1, 2, 3, 5, 4<br />
+(d) 8, 13, 21, 34, 55</p>
+<h4 class="header"><i>2.1.4</i>Question 4<a class="headerlink" href="#question-4_5" name="question-4_5">&para;</a></h4>
+<blockquote>
+<p>For any <span>$b \in \mathbb{R}$</span>, prove that <span>$\lim(n/n) = 0$</span>.</p>
+</blockquote>
+<p>See Example 3.1.6 (a), only multiply <span>$1/K$</span> by <span>$b$</span>, let <span>$\epsilon' = b\epsilon$</span>, etc.</p>
+<h4 class="header"><i>2.1.5</i>Question 5<a class="headerlink" href="#question-5_5" name="question-5_5">&para;</a></h4>
+<blockquote>
+<p>Use the definition of the limit of a sequence to establish the following limits.</p>
+<p>(a) <span>$\displaystyle \lim\left (\frac{n}{n^2+1} \right ) = 0$</span>,<br />
+(b) <span>$\displaystyle \lim\left (\frac{2n}{n+1} \right ) = 2$</span>,<br />
+(c) <span>$\displaystyle \lim\left (\frac{3n+1}{2n+5} \right ) = \frac{3}{2}$</span>,<br />
+(d) <span>$\displaystyle \lim\left (\frac{n^2-1}{2n^2+3} \right ) = \frac{1}{2}$</span>,</p>
+</blockquote>
+<p>DON'T SKIP THIS. IT LOOKS USEFUL.</p>
+<h4 class="header"><i>2.1.6</i>Question 6<a class="headerlink" href="#question-6_5" name="question-6_5">&para;</a></h4>
+<blockquote>
+<p>Show that</p>
+<p>(a) <span>$\displaystyle \lim\left (\frac{1}{\sqrt{n+7}} \right ) = 0$</span>,<br />
+(b) <span>$\displaystyle \lim\left (\frac{2n}{n+2} \right ) = 2$</span>,<br />
+(c) <span>$\displaystyle \lim\left (\frac{\sqrt{n}}{n+1} \right ) = 0$</span>,<br />
+(d) <span>$\displaystyle \lim\left (\frac{(-1)^n n}{n^2+1} \right ) = 0$</span>,</p>
+</blockquote>
+<p>SAME AS ABOVE.</p>
+<h4 class="header"><i>2.1.7</i>Question 7<a class="headerlink" href="#question-7_5" name="question-7_5">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>2.1.8</i>Question 8<a class="headerlink" href="#question-8_5" name="question-8_5">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>2.1.9</i>Question 9<a class="headerlink" href="#question-9_4" name="question-9_4">&para;</a></h4>
+<p>Skipping</p>
+<h4 class="header"><i>2.1.10</i>Question 10<a class="headerlink" href="#question-10_4" name="question-10_4">&para;</a></h4>
+<p>Everything sucks</p>
+<h4 class="header"><i>2.1.11</i>Question 11<a class="headerlink" href="#question-11_4" name="question-11_4">&para;</a></h4>
+<p>Idk</p>
+<h4 class="header"><i>2.1.12</i>Question 12<a class="headerlink" href="#question-12_4" name="question-12_4">&para;</a></h4>
+<p>Idk</p>
+<h4 class="header"><i>2.1.13</i>Question 13<a class="headerlink" href="#question-13_4" name="question-13_4">&para;</a></h4>
+<p>Idk</p>
+<h4 class="header"><i>2.1.14</i>Question 14<a class="headerlink" href="#question-14_2" name="question-14_2">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$\lim((2n)^{1/n}) = 1$</span>.</p>
+</blockquote>
+<p>I give up.</p>
+<h4 class="header"><i>2.1.15</i>Question 15<a class="headerlink" href="#question-15_1" name="question-15_1">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$\lim(n^2/n!) = 0$</span>.</p>
+</blockquote>
+<p>Might as well write the questions out since I'll have to do them one day</p>
+<h4 class="header"><i>2.1.16</i>Question 16<a class="headerlink" href="#question-16_2" name="question-16_2">&para;</a></h4>
+<p>I think I have the wrong version of the textbook. My question numbers don't agree.</p>
+<h4 class="header"><i>2.1.17</i>Question 17<a class="headerlink" href="#question-17_2" name="question-17_2">&para;</a></h4>
+<p>What is a limit? Seriously, how do you prove shit</p>
+<h4 class="header"><i>2.1.18</i>Question 18<a class="headerlink" href="#question-18_1" name="question-18_1">&para;</a></h4>
+<p>sigh</p>
+<h3 class="header"><i>2.2</i>Section 3.2<a class="headerlink" href="#section-32" name="section-32">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Question 1<a class="headerlink" href="#question-1_6" name="question-1_6">&para;</a></h4>
+<blockquote>
+<p>Converge/diverge?<br />
+(a) <span>$x_n = n/(n+1)$</span><br />
+(b) <span>$x_n = (-1)^nn/(n+1)$</span><br />
+(c) <span>$x_n = n^2/(n+1)$</span><br />
+(d) <span>$x_n = (2n^2+ 3)/(n^2+1)$</span></p>
+</blockquote>
+<p>(a) Converges to 1. Proof: ?</p>
+<p>(b) I think it diverges. Proof: ?</p>
+<p>(c) Diverges. Proof: ?</p>
+<p>(d) Converges to 2. Proof: ?</p>
+<h4 class="header"><i>2.2.2</i>Question 2<a class="headerlink" href="#question-2_6" name="question-2_6">&para;</a></h4>
+<h4 class="header"><i>2.2.3</i>Question 3<a class="headerlink" href="#question-3_6" name="question-3_6">&para;</a></h4>
+<h4 class="header"><i>2.2.4</i>Question 4<a class="headerlink" href="#question-4_6" name="question-4_6">&para;</a></h4>
+<h4 class="header"><i>2.2.5</i>Question 5<a class="headerlink" href="#question-5_6" name="question-5_6">&para;</a></h4>
+<h4 class="header"><i>2.2.6</i>Question 6<a class="headerlink" href="#question-6_6" name="question-6_6">&para;</a></h4>
+<h4 class="header"><i>2.2.7</i>Question 7<a class="headerlink" href="#question-7_6" name="question-7_6">&para;</a></h4>
+<h4 class="header"><i>2.2.8</i>Question 8<a class="headerlink" href="#question-8_6" name="question-8_6">&para;</a></h4>
+<h4 class="header"><i>2.2.9</i>Question 9<a class="headerlink" href="#question-9_5" name="question-9_5">&para;</a></h4>
+<h4 class="header"><i>2.2.10</i>Question 10<a class="headerlink" href="#question-10_5" name="question-10_5">&para;</a></h4>
+<h4 class="header"><i>2.2.11</i>Question 11<a class="headerlink" href="#question-11_5" name="question-11_5">&para;</a></h4>
+<h4 class="header"><i>2.2.12</i>Question 12<a class="headerlink" href="#question-12_5" name="question-12_5">&para;</a></h4>
+<h4 class="header"><i>2.2.13</i>Question 13<a class="headerlink" href="#question-13_5" name="question-13_5">&para;</a></h4>
+<h4 class="header"><i>2.2.14</i>Question 14<a class="headerlink" href="#question-14_3" name="question-14_3">&para;</a></h4>
+<h4 class="header"><i>2.2.15</i>Question 15<a class="headerlink" href="#question-15_2" name="question-15_2">&para;</a></h4>
+<h4 class="header"><i>2.2.16</i>Question 16<a class="headerlink" href="#question-16_3" name="question-16_3">&para;</a></h4>
+<h4 class="header"><i>2.2.17</i>Question 17<a class="headerlink" href="#question-17_3" name="question-17_3">&para;</a></h4>
+<h4 class="header"><i>2.2.18</i>Question 18<a class="headerlink" href="#question-18_2" name="question-18_2">&para;</a></h4>
+<h4 class="header"><i>2.2.19</i>Question 19<a class="headerlink" href="#question-19_1" name="question-19_1">&para;</a></h4>
+<h4 class="header"><i>2.2.20</i>Question 20<a class="headerlink" href="#question-20" name="question-20">&para;</a></h4>
+<h4 class="header"><i>2.2.21</i>Question 21<a class="headerlink" href="#question-21" name="question-21">&para;</a></h4>
+<h4 class="header"><i>2.2.22</i>Question 22<a class="headerlink" href="#question-22" name="question-22">&para;</a></h4>
+<h4 class="header"><i>2.2.23</i>Question 23<a class="headerlink" href="#question-23" name="question-23">&para;</a></h4>
+<h3 class="header"><i>2.3</i>Section 3.3<a class="headerlink" href="#section-33" name="section-33">&para;</a></h3>
+<h4 class="header"><i>2.3.1</i>Question 1<a class="headerlink" href="#question-1_7" name="question-1_7">&para;</a></h4>
+<blockquote>
+<p>Let <span>$x_1 = 8$</span> and <span>$x_{n+1} = \frac{1}{2}x_n + 2$</span> for <span>$n \in \mathbb{N}$</span>. Show that <span>$(x_n)$</span> is bounded and monotone. Find the limit.</p>
+</blockquote>
+<p>In any problem like this, with inductively-defined sequences, we need to three things: show the sequence has a bound (upper if the sequence is increasing, and lower if it's decreasing), prove the sequence is increasing or decreasing, and find the limit (usually by invoking the property of sequences that if <span>$x_n \rightarrow x$</span>, the <span>$m$</span>-tail of <span>$x_n$</span> also converges to <span>$x$</span>.</p>
+<p>Just by finding <span>$x_2 = 6$</span>, we see that the sequence is decreasing. Let's prove this with induction:</p>
+<p>Base case: we've already shown <span>$x_2 &lt; x_1$</span>.</p>
+<p>Induction step: <span>$x_{k+1} = \frac{1}{2}x_k + 2$</span>. Our induction hypothesis is that for some <span>$k \in \mathbb{N}, x_{k+1} &lt; x_k$</span>. Thus by the rules we know about inequalities, this implies <span>$\frac{1}{2}x_{k+1} + 2 &lt; \frac{1}{2}x_{k} + 2$</span>. Thus we can invoke the I.H. in our induction step as follows:</p>
+<p><span>$$ x_{k+1} = \frac{1}{2}x_k + 2 &gt; \frac{1}{2}x_{k+1} = x_{k+2} $$</span></p>
+<p>Thus <span>$x_{k+1} &gt; x_{k+2} \quad \forall k \in \mathbb{N}$</span>, thus <span>$(x_n)$</span> is decreasing. Since it's decreasing, we now need to show that the sequence is bounded below. Looking at the sequence definition, we can guess that the sequence is at least bounded below by <span>$2$</span>. This may not be the greatest lower bound (or the infimum of the set consisting of all <span>$x_n$</span>) but we just need to show any lower bound exists. So let's prove that 2 is a lower bound, once again with induction:</p>
+<p>Base case: <span>$x_1 = 8, 2 \leq 8 \quad \checkmark$</span></p>
+<p>Induction step: <span>$x_{k+1} = \frac{1}{2}x_k + 2$</span>. Our Induction Hypothesis is that <span>$x_k \geq 2 \quad \forall k \in \mathbb{N}$</span>. Thus using the I.H.:</p>
+<p><span>$$ x_{k+1} = \frac{1}{2}x_k + 2 \geq \frac{1}{2} \cdot 2 + 2 = 3 \implies 3 \geq 2$$</span></p>
+<p>As the implication is true, we have proved the sequence is bounded below by 2. By the Monotone Convergence Theorem, we know the sequence converges as we've proven it's monotone and bounded. Now, finally, we need to find the limit. By 3.1.9 in the book, we know the tail of a sequence converges to the same thing as the sequence (as mentioned before). So if <span>$x_n \rightarrow L$</span> then <span>$x_{n+1} \rightarrow L$</span>. So we can write:</p>
+<p><span>$$ L = \frac{1}{2}L + 2 \implies L = 4 $$</span></p>
+<p>And now we're done.</p>
+<h4 class="header"><i>2.3.2</i>Question 2<a class="headerlink" href="#question-2_7" name="question-2_7">&para;</a></h4>
+<blockquote>
+<p>Let <span>$x_1 &gt; 1$</span> and <span>$x_{n+1} = 2 - \frac{1}{x_n}$</span> for <span>$n \in \mathbb{N}$</span>. Show that <span>$(x_n)$</span> is bounded and monotone. Find the limit.</p>
+</blockquote>
+<p>This problem is similar to the one above, but there is some extra challenge. It's tougher to see if the sequence is increasing or decreasing, and because of the inequality, the base case is hard to prove. Solving for <span>$x_2$</span> we get <span>$x_2 &gt; 1$</span>, which doesn't tell us anything about the sequence's behavior. Let's do this a different way, by solving <span>$x_2 - x_1$</span>. If the difference is positive, the sequence is (in the base case) increasing, and if it's negative, the sequence is decreasing. Our strategy is to use the fact that <span>$x_1 &gt; 1$</span> to make some inference about the difference.</p>
+<p><span>$$ x_2 - x_1 = 2 - \frac{1}{x_1} - x_1 \implies \frac{1}{x_1}\left(-x_1^2 + 2x_1 - 1\right) \implies -\frac{1}{x_1}(x_1 - 1)^2 $$</span></p>
+<p>As <span>$(x_1 - 1)^2 &gt; 0$</span> and since <span>$x_1 &gt; 1 \implies -(1/x_1) &lt; 0$</span> the entire expression must be negative. Therefore the base case implies the sequence is decreasing. Having done the base case, let's prove it for the rest of <span>$\mathbb{N}$</span> using induction, as we did in the previous question:</p>
+<p><span>$$ x_{k+1} = 2 - \frac{1}{x_k} &gt; 2 - \frac{1}{x_{k+1}} = x_{k+2} $$</span></p>
+<p>Thus <span>$x_n &gt; x_{n+1} \quad \forall n \in \mathbb{N}$</span>. Note I wasn't as formal here about stating our use of the induction hypothesis, and I didn't explicitily show that <span>$x_k &gt; x_{k+1} \implies 2 - \frac{1}{x_k} &gt; 2 - \frac{1}{x_{k+1}}$</span> (it just follows from the rules of inequalities from earlier in the course). A more formal treatment can be found in Question 1 above. When doing quizzes/tests, it's a good idea to completely rationalize each step.</p>
+<p>Anyway, now we show there is a lower bound. As we know <span>$2 - \frac{1}{x_n}$</span> can't be less than 1, 1 seems like a good candidate for a lower bound. Proving by induction:</p>
+<p>Base case: <span>$x_1 &gt; 1 \quad \checkmark$</span></p>
+<p>Induction step: <span>$x_{k+1} = 2 - \frac{1}{x_k} \geq 2 - \frac{1}{1} \implies 1 \geq 1 \quad \checkmark $</span>.</p>
+<p>Thus by the Monotone Convergence Theorem, <span>$(x_n)$</span> converges. Using the property of <span>$m$</span>-tails explained in Question 1:</p>
+<p><span>$$ L = 2 - \frac{1}{L} \implies L^2 = 2L-1 \implies L = 1 $$</span></p>
+<p>And we're done.</p>
+<h4 class="header"><i>2.3.3</i>Question 3<a class="headerlink" href="#question-3_7" name="question-3_7">&para;</a></h4>
+<blockquote>
+<p>Let <span>$x_1 \geq 2 1$</span> and <span>$x_{n+1} = 1 + \sqrt{x_n-1}$</span> for <span>$n \in \mathbb{N}$</span>. Show that <span>$(x_n)$</span> is decreasing and bounded below by 2. Find the limit.</p>
+</blockquote>
+<p>Because <span>$x_1$</span> is defined with an inequality, this problem also requires the trick we used in Question 2. Let's see what we get when we take <span>$x_2 - x_1$</span>:</p>
+<p><span>$$ x_2 - x_1 = 1 + \sqrt{x_1 - 1} - x_1 = \sqrt{x_1 - 1} - (x_1 - 1) = \sqrt{x_1-1}\left(1-\sqrt{x_1-1}\right) $$</span></p>
+<p>Since <span>$x_1 \geq 2 \implies \sqrt{x_1 - 1} \geq 1$</span>, we know <span>$1 - \sqrt{x_1-1} \leq 0$</span>. Thus the whole expression is negative, and for the base case, the sequence is decreasing. Let's prove it for the rest of the natural numbers with induction. Having already done the base case, here's the induction step:</p>
+<p><span>$$ x_{k+1} = 1 + \sqrt{x_k-1} &gt; 1 + \sqrt{x_{k+1}-1} = x_{k+2} $$</span></p>
+<p>Bam, easy. Just remember, when doing quizzes or tests, explain each step, like I did in Question 1. Now let's show the sequence is bounded below by 2, as the question asks.</p>
+<p>Base case: <span>$x_1 \geq 2 \quad \checkmark$</span></p>
+<p>Induction step: <span>$x_{k+1} = 1 + \sqrt{x_k - 1} \geq 1 + \sqrt{2-1} = 2 \implies 2 \geq 2 \quad \checkmark$</span></p>
+<p>Now for the limit, using the same method as in Questions 1 and 2 (rationalization for it is given in Question 1):</p>
+<p><span>$$ L = 1 + \sqrt{L-1} \implies (L-1)^2 = L - 1 \implies L^2-3L+2 = 0 $$</span></p>
+<p>We get two roots, <span>$L = 1, L = 2$</span>. The limit must be 2 in this case, as the sequence is decreasing, so it will hit 2 before it hits 1.</p>
+<h4 class="header"><i>2.3.4</i>Question 4<a class="headerlink" href="#question-4_7" name="question-4_7">&para;</a></h4>
+<blockquote>
+<p>Let <span>$x_1 = 1$</span> and <span>$x_{n+1} = \sqrt{2+x_n}$</span> for <span>$n \in \mathbb{N}$</span>. Show that <span>$(x_n)$</span> converges and find the limit.</p>
+</blockquote>
+<p>Same as Question 1, pretty much. There is no extra difficulty like in Questions 2 and 3. I know you can do the proofs for showing the sequence converges, but the limit part might be a bit tricky. As always, if <span>$x_n \rightarrow L$</span>, we can say:</p>
+<p><span>$$ L = \sqrt{2+L} \implies L^2 - L - 2 = 0 \implies (L-2)(L+1) = 0 $$</span></p>
+<p>So we get two limits, <span>$-1$</span> and <span>$2$</span>. Since <span>$x_n$</span> is defined by a square root, all terms of <span>$x_n$</span> must be positive. Therefore a negative limit makes no sense, so the limit must be 2.</p>
+<h4 class="header"><i>2.3.5</i>Question 5<a class="headerlink" href="#question-5_7" name="question-5_7">&para;</a></h4>
+<blockquote>
+<p>Let <span>$y_1 = \sqrt{p}$</span>, where <span>$p &gt; 0$</span>, and <span>$y_{n+1} = \sqrt{p+y_n}$</span> for <span>$n \in \mathbb{N}$</span>. Show that <span>$(y_n)$</span> converges and find the limit. [Hint: One upper bound is <span>$1 + 2\sqrt{p}$</span>.]</p>
+</blockquote>
+<p>Now this one looks fun - we have a variable in here! We want to show it converges, so if we show that the sequence is both monotone and bounded then we've accomplished that. So let's first show that the sequence is increasing (the hint sort of gives away the fact that it increases).</p>
+<p>Base case: <span>$y_2 = \sqrt{p+\sqrt{p}} &gt; \sqrt{p+0} = \sqrt{p} = y_1 \quad \checkmark$</span>. </p>
+<p>Induction step: <span>$y_{k+1} = \sqrt{p + y_k} &lt; \sqrt{p+y_{k+1}} = y_{k+2} \quad \checkmark$</span></p>
+<p>Now we need to show the sequence is bounded above. The question hints that an upper bound is <span>$1+2\sqrt{p}$</span>. The reason they give this particular bound is will become apparent when we do the induction step for the proof.</p>
+<p>Base case: <span>$y_1 = \sqrt{p} \leq 1 + 2\sqrt{p} \quad \checkmark$</span></p>
+<p>Induction step: <span>$y_{k+1} = \sqrt{p + y_k} &lt; \sqrt{p + 1 + 2\sqrt{p}} = \sqrt{(\sqrt{p} + 1)^2} = \sqrt{p} + 1 \leq 1 + 2\sqrt{p} \quad \checkmark$</span></p>
+<p>Now we know the sequence, let's find the limit:</p>
+<p><span>$$ L = \sqrt{p+L} \implies L^2 - L - p = 0 $$</span></p>
+<p>Using our old middle school friend Mr. Quadratic Equation, we obtain solutions:</p>
+<p><span>$$ L = \frac{1+\sqrt{1+4p}}{2}, L = \frac{1-\sqrt{1+4p}}{2} $$</span></p>
+<p>As the latter solution is negative, we can ignore it since the sequence is strictly positive. Thus the limit is:</p>
+<p><span>$$ L = \frac{1+\sqrt{1+4p}}{2} $$</span></p>
+<h3 class="header"><i>2.4</i>Section 3.4<a class="headerlink" href="#section-34" name="section-34">&para;</a></h3>
+<h4 class="header"><i>2.4.1</i>Question 1<a class="headerlink" href="#question-1_8" name="question-1_8">&para;</a></h4>
+<p>Consider the sequence <span>$x_n = (1, 1/2, 3, 1/4 \ldots)$</span>. This sequence is unbounded but the subsequence <span>$x_{n+1}$</span> converges. It is easy to define piece-wise sequences like this that satisfy the stated condition.</p>
+<h4 class="header"><i>2.4.2</i>Question 2<a class="headerlink" href="#question-2_8" name="question-2_8">&para;</a></h4>
+<blockquote>
+<p>Use the method of Example 3.4.3(b) to show that if <span>$0 &lt; c &lt; 1$</span>, then <span>$\lim(c^{1/n}) = 1$</span>.</p>
+</blockquote>
+<p>If we define <span>$z_n := c^{1/n}$</span>, then we can show that <span>$z_n$</span> is monotone and use the Monotone Convergence Theorem to prove the sequence converges to some limit. First, we'll show that the sequence is increasing. Since <span>$0 &lt; c &lt; 1$</span> we can say that:</p>
+<p><span>$$ c = \frac{a}{b} \quad a, b \in \mathbb{R}, 1 &lt; a &lt; b $$</span></p>
+<p>If we can show that <span>$z_{n+1} - z_n$</span> is positive, then we know <span>$z_n$</span> is increasing. Thus:</p>
+<p><span>$$ z_{n+1} - z_n = c^{1/(n+1)} - c^{1/n} = \left(\frac{a}{b}\right)^{1/(n+1)} - \left(\frac{a}{b}\right)^{1/n} $$</span></p>
+<p>As <span>$\displaystyle x + \frac{1}{n} = \frac{1}{n+1} \implies x = -\frac{1}{n(n+1)}$</span> we can continue with the above equation as follows: </p>
+<p><span>$$ \left(\frac{a}{b}\right)^{-\frac{1}{n(n+1)}} \cdot \left(\frac{a}{b}\right)^{\frac{1}{n}} - \left(\frac{a}{b}\right)^{\frac{1}{n}} = \left(\frac{a}{b}\right)^{\frac{1}{n}}\left[\left(\frac{a}{b}\right)^{-\frac{1}{n(n+1)}} - 1\right] = \left(\frac{a}{b}\right)^{\frac{1}{n}}\left[\left(\frac{b}{a}\right)^{\frac{1}{n(n+1)}} - 1\right] $$</span></p>
+<p>As the exponentiation of any positive number is positive, we know <span>$\displaystyle\left(\frac{a}{b}\right)^{\frac{1}{n}} &gt; 0$</span>. By our definition of <span>$a, b$</span> we know <span>$b/a &gt; 1$</span>, so <span>$(b/a)^{1/n(n+1)} &gt; 1$</span>. Thus the expression between the brackets is also positive, hence the entire expression is positive. Therefore <span>$z_n$</span> is increasing.</p>
+<p>Now we need to show there is an upper bound. It makes sense to choose 1, and we can prove it using the same definition of <span>$c = a/b$</span>. Since <span>$c^{1/n} = \frac{a^{1/n}}{b^{1/n}}$</span> and <span>$a^{1/n} &lt; b^{1/n}$</span>, thus <span>$c^{1/n} &lt; 1$</span>.</p>
+<p>So we now know that <span>$z_n$</span> converges to some limit such that <span>$z = \lim(z_n)$</span>. By Theorem 3.4.2 it follows that <span>$z = \lim(z_{2n})$</span>. By the definition of <span>$z_n$</span> we see that:</p>
+<p><span>$$ z_{2n} = c^{\frac{1}{2n}} = \left(c^{\frac{1}{n}}\right)^{\frac{1}{2}} = \sqrt{z_n} $$</span></p>
+<p>By Theorem 3.2.10, <span>$z = \lim(z_{2n}) = \sqrt{\lim(z_n)} = \sqrt{z}$</span>. Thus <span>$z = \sqrt{z} \implies z = z^2$</span> which means <span>$z$</span> is either 0 or 1. Since <span>$z_n$</span> is increasing and greater than <span>$0$</span> for all <span>$n \in \mathbb{N}$</span> we deduce the limit is 1.</p>
+<h4 class="header"><i>2.4.3</i>Question 3<a class="headerlink" href="#question-3_8" name="question-3_8">&para;</a></h4>
+<blockquote>
+<p>Let <span>$(f_n)$</span> be the Fibonacci Sequence (see Example 3.1.2(d)). Let <span>$x_n = \frac{f_{n+1}}{f_n}$</span>. Given that <span>$\lim_{x_n} = L$</span> exists, determine the value of <span>$L$</span>.</p>
+</blockquote>
+<p>Notice that <span>$f_{n+1} = f_n + f_{n-1}$</span>. Then we have</p>
+<p><span>$$ x_n = \frac{f_{n+1}}{f_n} = \frac{f_{n} + f_{n-1}}{f_n} = 1 + \frac{f_{n-1}}{f_n} $$</span></p>
+<p>Notice that <span>$\displaystyle\frac{f_{n-1}}{f_n} = (x_{n-1})^{-1}$</span>. By Theorem &lt;someone tell me what theorem to quote&gt;, we get<br />
+<span>$$ L =  1 - L^{-1} \Rightarrow L^2  - L - 1 = 0  $$</span>.<br />
+This gives us two possible solutions. One is negative we do not need to consider it. This leaves us with </p>
+<p><span>$$ \lim(x_n) = \lim\left(\frac{f_{n+1}}{f_n}\right) = \frac{1 + \sqrt{5}}{2} $$</span></p>
+<h4 class="header"><i>2.4.4</i>Question 4<a class="headerlink" href="#question-4_8" name="question-4_8">&para;</a></h4>
+<blockquote>
+<p>Show that the following sequences are divergent.</p>
+<p><span>$x_n = 1 - (-1)^n + 1/n$</span></p>
+</blockquote>
+<p>Consider the sequence <span>$ x_{2n} = 1/n$</span>. <span>$\lim(x_{2n}) = 0$</span>. Now consider the sequence <span>$x_{2n+1} = 2 + 1/n$</span>. <span>$\lim(x_{2n+1}) = 2$</span>. Thus by theorem 3.4.5 <span>$x_n$</span> is divergent. </p>
+<blockquote>
+<p><span>$x_n = sin(\pi n/4)$</span></p>
+</blockquote>
+<p>We know that <span>$sin(\pi n/4) = sin(\pi n/4 + 2\pi) = sin(9n\pi/4)$</span> (at least you should probably know that). This is the subsequence <span>$x_{9n}$</span>, and it is the constant sequence <span>$(\frac{1}{\sqrt{2}})$</span>, the limit of which is of course <span>$\frac{1}{\sqrt{2}}$</span>. Also, <span>$ sin(2\pi n) = sin(8\pi n /4)$</span> is the constant sequence <span>$(0)$</span>, with limit <span>$0$</span>. This is the subsequence <span>$x_{8n}$</span>. Since we have two subsequences  with different limits, we can invoke Theorem 3.4.5 again to conclude that <span>$x_n$</span> is divergent.    </p>
+<h3 class="header"><i>2.5</i>Section 3.5<a class="headerlink" href="#section-35" name="section-35">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>2.6</i>Section 3.6<a class="headerlink" href="#section-36" name="section-36">&para;</a></h3>
+<p>Later</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:axiom">
+<p>I don't really know which. Taken from the lecture notes for Tuesday, September 11, which I haven't typed up yet.&#160;<a href="#fnref:axiom" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:magic">
+<p>Kind of like how once in a while, the textbook will present some step without justifying it and then enclose "Why?" in parentheses. Except in this case I don't actually know why, whereas I'm assuming the authors do. (Why don't they just tell us then???? (Why?)) In both cases, the "Why?" is left as an exercise for the reader&#160;<a href="#fnref:magic" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

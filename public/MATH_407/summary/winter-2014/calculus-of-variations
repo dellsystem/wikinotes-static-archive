@@ -1,0 +1,151 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_407/">
+                MATH 407
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Calculus of variations
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Calculus of variations
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Constrained variation. Minimising/maximising something with constraints.</p>
+<div class="toc">
+<ul>
+<li><a href="#unconstrained-variation">1 Unconstrained variation</a><ul>
+<li><a href="#the-theory">1.1 The theory</a></li>
+<li><a href="#the-solution">1.2 The solution</a><ul>
+<li><a href="#sufficient-conditions">1.2.1 Sufficient conditions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#constrained-variation">2 Constrained variation</a><ul>
+<li><a href="#fuck-the-theory">2.1 Fuck the theory</a></li>
+<li><a href="#the-solution_1">2.2 The solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Unconstrained variation<a class="headerlink" href="#unconstrained-variation" name="unconstrained-variation">&para;</a></h2>
+<p>Determine the extreme values (min or max) of</p>
+<p><span>$$I = \int_{x_1}^{x_2} F(x, y, y') \, dy$$</span></p>
+<p>such that the boundary conditions are fixed, with <span>$y_1 = y(x_1)$</span> and <span>$y_2 = y(x_2)$</span>.</p>
+<h3 class="header"><i>1.1</i>The theory<a class="headerlink" href="#the-theory" name="the-theory">&para;</a></h3>
+<p>Taylor series expansion, first and second variations, somehow derive the Euler-Lagrange equation? Really hope we don't need to know this.</p>
+<h3 class="header"><i>1.2</i>The solution<a class="headerlink" href="#the-solution" name="the-solution">&para;</a></h3>
+<p>Use the Euler-Lagrange equation:</p>
+<p><span>$$F_y -\frac{d}{dt}F_{y'} = 0$$</span></p>
+<p>So if you find <span>$F_y$</span> and <span>$F_{y'}$</span> then substitute those into the formula above, you'll get an ODE. Solve it to get a function <span>$y(t)$</span> which minimises/maximises <span>$I$</span>. Remember that you have the boundary conditions <span>$y_1 = y(x_1)$</span> etc (which should be given).</p>
+<h4 class="header"><i>1.2.1</i>Sufficient conditions<a class="headerlink" href="#sufficient-conditions" name="sufficient-conditions">&para;</a></h4>
+<p>To check the sufficient condition, just look at <span>$F_{y'y'}$</span>. For it to be a minimum, we must have <span>$F_{y'y'} &gt; 0$</span>; for it to be a maximum, we must have <span>$F_{y'y'} &lt; 0$</span>. If <span>$F_{y'y'} = 0$</span>, then it's a saddle point.</p>
+<h2 class="header"><i>2</i>Constrained variation<a class="headerlink" href="#constrained-variation" name="constrained-variation">&para;</a></h2>
+<p>Determine the extreme values (min or max) of</p>
+<p><span>$$I = \int_{x_1}^{x_2} F(x, y, y') \, dy$$</span></p>
+<p>such that the boundary conditions are fixed, with <span>$y_1 = y(x_1)$</span> and <span>$y_2 = y(x_2)$</span>, and the integral constraint</p>
+<p><span>$$J = \int_{x_1}^{x_2} G(x, y, y') \, dx = k$$</span></p>
+<p>is satisfied where <span>$k$</span> is some constant.</p>
+<h3 class="header"><i>2.1</i>Fuck the theory<a class="headerlink" href="#fuck-the-theory" name="fuck-the-theory">&para;</a></h3>
+<p>Using Lagrange multipliers, we have:</p>
+<p><span>$$\int_{x_1}^{x_2} \bigg [ F(x, y, y') + \lambda G(x, y, y') \bigg ] \, dx$$</span></p>
+<p>Somehow we get the Euler-Lagrange equation:</p>
+<p><span>$$F_y + \lambda G_y - \frac{d}{dx} \bigg (F + \lambda G \bigg ) y'$$</span></p>
+<p>Remember the boundary conditions.</p>
+<h3 class="header"><i>2.2</i>The solution<a class="headerlink" href="#the-solution_1" name="the-solution_1">&para;</a></h3>
+<p>We know <span>$F$</span>, and we know <span>$G$</span>. Plug those in the Euler-Lagrange equation above.</p>
+<p>Continue this later</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

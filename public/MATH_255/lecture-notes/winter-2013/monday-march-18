@@ -1,0 +1,147 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, March 18, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, March 18, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Cauchy Criterion for function sequences, introduction to the norm
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Criteria for a sequence of functions not to uniformly converge<a class="headerlink" href="#criteria-for-a-sequence-of-functions-not-to-uniformly-converge" name="criteria-for-a-sequence-of-functions-not-to-uniformly-converge">&para;</a></h2>
+<p><strong>Lemma:</strong> A sequence of functions <span>$(f_n)$</span> on <span>$A \subseteq \mathbb{R}$</span> to <span>$\mathbb{R}$</span> does not converge uniformly on <span>$A_0 \subseteq A$</span> to <span>$f : A_0 \to \mathbb{R}$</span> <span>$\iff$</span> for some <span>$\epsilon &gt; 0$</span>, there exists a subsequence <span>$(f_{n_k})$</span> of <span>$(f_n)$</span> and a sequence <span>$(x_k) \in A_0$</span> such that <span>$|f_{n_k}(x_k) - f(x_k)| \geq \epsilon$</span> for all <span>$k \in \mathbb{N}$</span>.</p>
+<p><strong>Definition:</strong> Let <span>$A \subseteq \mathbb{R}$</span>, <span>$\varphi : A \to \mathbb R$</span> a function. If <span>$\varphi$</span> is bounded on <span>$A$</span>, we define the uniform norm of <span>$\varphi$</span> on <span>$A$</span>, denoted </p>
+<p><span>$$ \|\varphi\|_A = \sup \{|\varphi(x)| : x \in A \} $$</span></p>
+<p>note that <span>$\| \varphi \|_A \leq \epsilon \iff |\varphi(x)| \leq \epsilon$</span> for all <span>$x \in A$</span>.</p>
+<p><strong>Lemma:</strong> A sequence of bounded functions <span>$(f_n)$</span> on <span>$A \subseteq \mathbb R$</span> converges uniformly to <span>$f$</span> on <span>$A$</span> <span>$\iff$</span> <span>$\| f_n - f \|_A \to 0$</span>.</p>
+<p><strong>Proof:</strong> (<span>$\Rightarrow$</span>) then, for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span> then <span>$|f_n(x) - f(x)| &lt; \epsilon / 2$</span> for all <span>$x \in A$</span>. Then </p>
+<p><span>$$ \sup \{ | f_n(x) - f(x)| : x \in A \} = \|f_n - f\|_A \leq \frac{\epsilon}{2} &lt; \epsilon $$</span></p>
+<p>i.e. <span>$|\|f_n - f\|_A - 0| &lt; \epsilon$</span> so <span>$\displaystyle\lim_{n \to \infty} \| f_n - f \|_A = 0$</span></p>
+<p>(<span>$\Leftarrow$</span>) for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span>, <span>$| \|f_n - f\|_A - 0| &lt; \epsilon$</span>, i.e. <span>$\|f_n - f\|_A &lt; \epsilon$</span>, i.e. </p>
+<p><span>$$ \sup \{|f_n(x) - f(x)| : x \in A \} &lt; \epsilon $$</span></p>
+<p>i.e. <span>$|f_n(x) - f(x)| &lt; \epsilon$</span> for all <span>$x \in A$</span> i.e. <span>$f_n$</span> converges uniformly to <span>$f$</span> on <span>$A$</span>.</p>
+<h2 class="header"><i>2</i>Cauchy Criterion<a class="headerlink" href="#cauchy-criterion" name="cauchy-criterion">&para;</a></h2>
+<p><strong>Theorem:</strong> Let <span>$(f_n)$</span> be a sequence of bounded functions on <span>$A \subseteq \mathbb R$</span> to <span>$\mathbb R$</span>. <span>$(f_n)$</span> converges uniformly to a bounded function <span>$f$</span> on <span>$A$</span> <span>$\iff$</span> for a given <span>$\epsilon &gt; 0$</span>, there exists some <span>$N \in \mathbb N$</span> such that if <span>$n, m \geq N$</span> then <span>$\|f_n - f_m\|_A &lt; \epsilon$</span>.</p>
+<p><strong>Proof:</strong> (<span>$\Rightarrow$</span>) <span>$\epsilon &gt; 0$</span> given, there exists <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span>, <span>$|f_n(x) - f(x)| &lt; \epsilon / 4$</span> for all <span>$x \in A$</span>. Thus, if <span>$n, m \geq N$</span></p>
+<p><span>$$
+\begin{align*}
+|f_n(x) - f_m(x)| &amp;= |f_n(x) - f(x) + f(x) - f_m(x)| \\
+&amp;\leq |f_n(x) - f(x)| + |f_m(x) - f(x)| \\
+&amp;&lt; \frac{\epsilon}{4} + \frac{\epsilon}{4} = \frac{\epsilon}{2}
+\end{align*}
+$$</span></p>
+<p>thus <span>$\sup \{|f_n(x) - f_m(x)| : x \in A \} = \| f_n - f_m \|_A \leq \epsilon/2 &lt; \epsilon$</span>.</p>
+<p>(<span>$\Leftarrow$</span>) if <span>$\epsilon &gt; 0$</span> is given, there exists some <span>$N \in \mathbb N$</span> such that if <span>$n, m \geq N$</span>, <span>$\|f_n - f_m\|_A &lt; \epsilon / 2$</span>. Thus for <span>$x \in A$</span>, <span>$|f_n(x) - f_m(x)| &lt; \epsilon / 2$</span>, i.e. <span>$(f_n(x))$</span> is a Cauchy sequence in <span>$\mathbb R$</span>. Thus <span>$f_n(x)$</span> converges in <span>$\mathbb R$</span>. Call its limit <span>$f(x)$</span> - we must show that <span>$f_n$</span> converges uniformly to <span>$f$</span>. If we let <span>$m \to \infty$</span> we can obtain </p>
+<p><span>$$ |f_n(x) - f(x)| \leq \frac{\epsilon}{2} &lt; \epsilon $$</span></p>
+<p>by the squeeze theorem. Thus <span>$f_n \rightrightarrows f$</span>. It remains to show that <span>$f$</span> is bounded. <span>$f_N$</span> is bounded, i.e. <span>$|f_N(x)| \leq B$</span> for all <span>$x \in A$</span> for some <span>$B \in \mathbb R$</span>. Thus since <span>$|f_N(x) - f(x)| &lt; \epsilon$</span> for all <span>$x \in A$</span>, <span>$|f(x)| &lt; \epsilon + |f_N(x)| \leq B + \epsilon$</span> for all <span>$x \in A$</span>.</p>
+<h2 class="header"><i>3</i>Continuity of functions formed by uniformly convergent sequences<a class="headerlink" href="#continuity-of-functions-formed-by-uniformly-convergent-sequences" name="continuity-of-functions-formed-by-uniformly-convergent-sequences">&para;</a></h2>
+<p><strong>Theorem:</strong> Let <span>$(f_n)$</span> be a sequence of continuous functions on <span>$A \subseteq \mathbb R$</span> and suppose <span>$f_n \rightrightarrows f$</span> on <span>$A$</span> to a function <span>$f : A \to \mathbb R$</span>. Then <span>$f$</span> is continuous on <span>$A$</span>.</p>
+<p><strong>Proof:</strong> <span>$f_n \rightrightarrows f$</span> on <span>$A$</span> thus for a given <span>$\epsilon &gt; 0$</span>, there exists some <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span> then <span>$|f_n(x) - f(x)| &lt; \epsilon/3$</span> for all <span>$x \in A$</span>. In particular, <span>$|f_N(x) - f(x)| &lt; \epsilon/3$</span> for all <span>$x \in A$</span>. <span>$f_N(x)$</span> is continuous on <span>$A$</span>. Let <span>$c \in A$</span>, <span>$\epsilon &gt; 0$</span> given, <span>$\exists \delta &gt; 0$</span> such that if <span>$|x - c| &lt; \delta$</span> then <span>$|f_N(x) - f_N(c)| &lt; \epsilon / 3$</span>. Thus if <span>$|x - c| &lt; \delta$</span>,</p>
+<p><span>$$
+\begin{align*}
+|f(x) - f(c)| &amp;= |f(x) - f_N(x) + f_N(x) - f_N(c) + f_N(c) - f(c)| \\
+&amp;\leq |f(x) - f_N(x)| + |f_N(x) - f_N(c)| + |f_N(c) - f(c)| \\
+&amp;&lt; \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon
+\end{align*}
+$$</span> </p>
+<p>i.e. <span>$f$</span> is continuous at <span>$c$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

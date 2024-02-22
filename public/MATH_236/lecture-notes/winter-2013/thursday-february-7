@@ -1,0 +1,166 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, February 7, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, February 7, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Polynomials, introduction to eigenvalues
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#polynomials">1 Polynomials</a><ul>
+<li><a href="#proposition-410-complex-conjugate-roots">1.1 Proposition 4.10: Complex conjugate roots</a></li>
+<li><a href="#proposition-411-factoring-quadratics">1.2 Proposition 4.11: Factoring quadratics</a></li>
+<li><a href="#theorem-414-unique-factorization">1.3 Theorem 4.14: Unique factorization</a></li>
+</ul>
+</li>
+<li><a href="#eigenvalues-and-invariant-subspaces">2 Eigenvalues and invariant subspaces</a><ul>
+<li><a href="#invariant-subspaces">2.1 Invariant subspaces</a><ul>
+<li><a href="#examples">2.1.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#eigenvalues">2.2 Eigenvalues</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Polynomials<a class="headerlink" href="#polynomials" name="polynomials">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Proposition 4.10: Complex conjugate roots<a class="headerlink" href="#proposition-410-complex-conjugate-roots" name="proposition-410-complex-conjugate-roots">&para;</a></h3>
+<blockquote>
+<p>Suppose <span>$p$</span> is a polynomial with real coefficents. If <span>$\alpha \in \mathbb C$</span> is a root of <span>$p$</span>, so is <span>$\overline \lambda$</span> (the complex conjugate).</p>
+</blockquote>
+<p>Proof: write <span>$p$</span> as <span>$p(x) = a_0 + a_1x + \ldots + a_mx^m$</span>, where <span>$a_i \in \mathbb R$</span>. Then, <span>$\lambda \in \mathbb C$</span> being a root of <span>$p$</span> means that <span>$p(\lambda) = a_0 + a_1 \lambda + \ldots + a_m\lambda^m = 0$</span>. Let's take the conjugate of both sides of that:</p>
+<p><span>$$\overline{p(\lambda)} = \overline 0 = 0 \quad \therefore \overline{(a_0 + a_1\lambda + \ldots + a_m\lambda^m)} = 0$$</span></p>
+<p>Now, we know that <span>$\overline{a_i} = a_i$</span> for each <span>$a_i$</span> since they're all real. Also, by the properties of the conjugate operator, we know that <span>$\overline{u+v} = \overline u + \overline v$</span> and <span>$\overline{u \cdot v} = \overline u \cdot \overline v$</span>. Thus, we have that</p>
+<p><span>$$a_0 + a_1\overline \lambda + \ldots + a_m\overline \lambda^m = 0 = p(\overline \lambda)$$</span></p>
+<p>which tells us that <span>$\overline \lambda$</span> is a root of <span>$p$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.2</i>Proposition 4.11: Factoring quadratics<a class="headerlink" href="#proposition-411-factoring-quadratics" name="proposition-411-factoring-quadratics">&para;</a></h3>
+<blockquote>
+<p>Let <span>$\alpha, \beta \in \mathbb R$</span>. If we can factor <span>$x^2 + \alpha x + \beta$</span> as <span>$(x-\lambda_1)(x-\lambda_2)$</span> where <span>$\lambda_1, \lambda_2 \in \mathbb R$</span>, then <span>$\alpha^2 \geq 4\beta$</span> holds true. (This is really just an application of the quadratic formula to a less general form.)</p>
+</blockquote>
+<p>Proof: (<span>$\rightarrow$</span>) Complete the square. <span>$x^2 + \alpha x + \beta = (x+\alpha/2)^2 + (\beta - \alpha/4)^2$</span>. Suppose that <span>$\alpha^2 &lt; 4\beta$</span>. Then, <span>$\beta - \alpha^2/4 &gt; 0$</span>, and so <span>$(x + \alpha/2)^2$</span> will always be positive. Thus the function will always be <em>above</em> the <span>$x$</span>-axis, and so there are no roots. (This was a proof using the contrapositive.)</p>
+<p>(<span>$\leftarrow$</span>) Assume that <span>$\alpha^2 \geq 4\beta$</span>. Then</p>
+<p><span>$$x^2 + \alpha x + \beta = (x+\alpha/2)^2 - \underbrace{(\alpha/4-\beta)}_{= c^2}$$</span></p>
+<p>(We can set the latter term to some arbitrary constant <span>$c^2$</span> for some <span>$c \in \mathbb R$</span>, since it's a positive term.) Then, <span>$x^2 + \alpha x + \beta = (x + \alpha/2)^2 - c^2 = (x + \alpha/2 - c)(x + \alpha/2+c)$</span> and so <span>$\lambda_1 = \alpha/2 -c$</span>, <span>$\lambda_2 = \alpha/2+c$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Theorem 4.14: Unique factorization<a class="headerlink" href="#theorem-414-unique-factorization" name="theorem-414-unique-factorization">&para;</a></h3>
+<p>If <span>$o \in P(\mathbb R)$</span> is a non-constant polynomial, then <span>$p$</span> has a unique factorisation (ignoring differences in order) of the form</p>
+<p><span>$$p(x) = c(x-\lambda_1)\ldots(x-\lambda_m)(x^2+\alpha_1x+\beta_1) \ldots (x^2+\alpha_nx+\beta_nx)$$</span></p>
+<p>where the <span>$\lambda$</span>s are in <span>$\mathbb C$</span>, <span>$c \in \mathbb R$</span>, and <span>$\alpha_i^2 &lt; 4\beta_i$</span>.</p>
+<p>Thus, we can always factor any polynomial into its irreducible linear/quadratic factors.</p>
+<p>Also, if we know that <span>$(x-\lambda)$</span> for some complex (non-real) <span>$\lambda$</span>, then we also know that <span>$(x-\overline \lambda)$</span> is a factor. So <span>$(x-\lambda)(x -\overline \lambda)$</span> is a factor, and this happens to be a quadratic with real coefficients. So this will show up as a quadratic factor.</p>
+<p>Proof: in the textbook. QED <span>$\blacksquare$</span> <span>$\checkmark$</span> <span>$\dagger$</span> <span>$\heartsuit$</span> <span>$\sharp$</span> <span>$\Im$</span> <span>$\leadsto$</span></p>
+<h2 class="header"><i>2</i>Eigenvalues and invariant subspaces<a class="headerlink" href="#eigenvalues-and-invariant-subspaces" name="eigenvalues-and-invariant-subspaces">&para;</a></h2>
+<p>Let <span>$V$</span> be a finite-dimensional, non-trivial vector space. Recall that <span>$\mathcal L(V) = \mathcal L(V, V)$</span> (the set of linear operators - that is, linear maps from a vector space to itself).</p>
+<h3 class="header"><i>2.1</i>Invariant subspaces<a class="headerlink" href="#invariant-subspaces" name="invariant-subspaces">&para;</a></h3>
+<p>Let <span>$T \in \mathcal L(V)$</span>, and let <span>$U$</span> be a subspace of <span>$V$</span>. We say that <span>$U$</span> is <strong>invariant</strong> under <span>$T$</span> if for every <span>$u \in U$</span>, <span>$Tu \in U$</span>.</p>
+<h4 class="header"><i>2.1.1</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p><span>$T: P_7(\mathbb R) \to P_7(\mathbb R), p(x) \mapsto \frac{dp(x)}{dx}$</span> (that is, it maps a polynomial to its derivative). Let <span>$U = P_5(\mathbb R)$</span>. Thus <span>$U$</span> is invariant under <span>$T$</span>, obviously. (Any subspace would be ...) Although if the linear operator were integration and not differentiation, no subspace would be invariant under it.</p>
+<div class="ui divider"></div>
+<p>For any <span>$T \in \mathcal L(V)$</span>, are its nullspace and range invariant? Yes, obviously - if <span>$u \in \text{null}(T)$</span>, then <span>$Tu = 0$</span> and so <span>$T(Tu) = T(0) = 0$</span>. Similarly for the range: if <span>$v \in \text{range}(T)$</span>, then <span>$Tv$</span> is also in the range (since <span>$v \in V$</span>, the domain).</p>
+<h3 class="header"><i>2.2</i>Eigenvalues<a class="headerlink" href="#eigenvalues" name="eigenvalues">&para;</a></h3>
+<p><span>$\lambda \in \mathbb F$</span> is an eigenvalue of <span>$T \in \mathcal L(V)$</span> if there exists a non-zero vector <span>$v \in V$</span> such that <span>$Tu = \lambda v$</span>.</p>
+<p>If <span>$T$</span> has an eigenvalue, then <span>$T$</span> has a one-dimensional invariant subspace, and vice versa. Proof: let <span>$u \neq 0$</span>, and let <span>$U = \{au \mid a \in \mathbb F \}$</span>, which is a one-dimensional subspace of <span>$V$</span>. Assume that <span>$Tu = \lambda u$</span> for some <span>$\lambda$</span>. Then <span>$U$</span> is invariant, by definition. Conversely, if <span>$u \in U$</span> and <span>$U$</span> is invariant, then we have <span>$Tu \in U$</span>. But then <span>$Tu$</span> is just <span>$au$</span> for some <span>$a$</span>. Like, <span>$a=\lambda$</span>. Thus, eigenvalue. <span>$\heartsuit$</span></p>
+<p>Notice that the equation <span>$Tu = \lambda u$</span> is equivalent to <span>$(T - \lambda I)u = 0$</span> (where <span>$I$</span> is the identity <em>operator</em>, not matrix). Thus <span>$\lambda$</span> is an eigenvalue of <span>$T$</span> if and only if <span>$T-\lambda I$</span> is not <em>injective</em> (otherwise its nullspace would consist only of the zero vector). Correspondingly, <span>$T-\lambda I$</span> cannot be surjective or invertible either. Linear algebra is pretty cool.</p>
+<p>(I got the last paragraph from the textbook. I vaguely remember something along those lines being written on the board, but at that point I had already put away my notebook and to bring it back again just to write down a few lines felt defeatist. If you have notes for that please let me know.)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

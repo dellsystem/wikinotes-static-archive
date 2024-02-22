@@ -1,0 +1,133 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, March 27, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, March 27, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to series
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Proof:</strong> (ii) Let <span>$y \in \mathbb R$</span> be fixed and consider <span>$G(x) = E(x + y) / E(y)$</span>. We will show that <span>$G(x) = E(x)$</span>. Observe that </p>
+<p><span>$$ G'(x) = \frac{E'(x+y)}{E(y)} = \frac{E()}{} $$</span></p>
+<p><span>$= G(x)$</span> and <span>$G(0) = E(y) / E(y) = 1$</span> so <span>$G(x) = E(x)$</span></p>
+<p>(iii) by induction on (ii), <span>$E(nx) = E(x) + E(x) + \ldots + E(x) = (E(x))^n$</span> for <span>$x \in \mathbb N$</span>. Let <span>$ x = \frac{1}{n}$</span></p>
+<p>And then it was all erased.</p>
+<h2 class="header"><i>1</i>Series<a class="headerlink" href="#series" name="series">&para;</a></h2>
+<p>A sequence is a sum of terms <span>$\sum a_n$</span> in a sequence <span>$(a_n)$</span>.</p>
+<p><strong>Definition:</strong> Given a series <span>$\displaystyle \sum_{n=1}^\infty a_n$</span> we define the sequence of partial sums <span>$(S_n)$</span> such that <span>$S_1 = a_1$</span>, <span>$S_2 = a_1 + a_2$</span>, etc. If <span>$(S_n)$</span> converges we say the series converges and</p>
+<p><span>$$ \sum_{n=1}^\infty a_n = \lim S_n $$</span></p>
+<p><strong>Example:</strong> <span>$\displaystyle \sum_{n=1}^\infty a^n = 1 + a + a^2 + \ldots$</span>. <span>$S_1 = 1$</span>, <span>$S_2 = 1 + a$</span>, <span>$S_3 = 1 + a + a^2$</span>, and so on, so <span>$S_n = 1 + a + a^2 + \ldots + a^{n-1}$</span>.</p>
+<p><span>$$ S_n = (1 + a + a^2 + \ldots + a^{n-1})\left(\frac{1-a}{1-a}\right) = \frac{1 + a + a^2 + \ldots + a^{n-1} - a - a^2 - \ldots - a^{n-1} - a^n}{1-a}$$</span></p>
+<p>This is a telescoping sum, as almost all the terms in the numerator cancel giving us <span>$\frac{1-a^n}{1-a}$</span>.</p>
+<p>Now if <span>$|a| &lt; 1$</span>, <span>$|a|^n \to 0$</span> thus for a given <span>$\epsilon &gt; 0$</span> there exists some <span>$N \in \mathbb N$</span> such that if <span>$n \geq N$</span>, <span>$|a|^n &lt; \epsilon|1-a|$</span> and so </p>
+<p><span>$$ \left|S_n - \frac{1}{1-a}\right| = \left| \frac{1-a^n}{1-a} - \frac{1}{1-a}\right| = \left|\frac{-a^n}{1-a}\right| = \frac{|a|^n}{|a-a|} &lt; \epsilon\frac{|1-a|}{|1-a|} = \epsilon $$</span></p>
+<p>i.e. <span>$S_n \to \frac{1}{a-1}$</span> if <span>$|a| &lt; 1$</span> show that if <span>$|a| \geq 1$</span> then either <span>$S_n \to \infty$</span> or <span>$S_n$</span> does not converge.</p>
+<p><strong>Definition:</strong> Series of the form <span>$\displaystyle \sum_{n=0}^\infty a^n$</span> are known as geometric series.</p>
+<p><strong>Theorem:</strong> <span>$\displaystyle \sum_{n=0}^\infty a^n$</span> converges to <span>$\frac{1}{1-a}$</span> if <span>$|a|&lt;1$</span> and diverges otherwise. If <span>$|a| &lt; 1$</span> then <span>$\displaystyle \sum_{n=k}^\infty a^n = \frac{a^k}{1-a}$</span>.</p>
+<p><strong>Example:</strong> <span>$\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty \left(\frac{1}{n} - \frac{1}{n+1}\right)$</span>.</p>
+<p><span>$S_1 = 1 - \frac{1}{2}$</span>, <span>$S_2 = 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} = 1 - \frac{1}{3}$</span>, and etc so <span>$S_n = 1 = \frac{1}{n+1}$</span>. This can be shown by induction. Thus <span>$S_n \to 1$</span> and so <span>$\displaystyle \sum_{n=1}^\infty \frac{1}{n(n+1)} = 1$</span>.</p>
+<p><strong>Theorem:</strong> If <span>$\displaystyle \sum_{n=1}^\infty a_n$</span> converges then <span>$a_n \to 0$</span></p>
+<p><strong>Proof:</strong> Let <span>$S_n$</span> be the sequence of partial sums. By assumption <span>$S_n \to L$</span>. It's clear that <span>$S_n - S_{n-1} = a_n$</span>. As <span>$n \to \infty$</span>, <span>$S_n \to L$</span> and <span>$S_{n-1} \to L$</span> thus <span>$a_n = S_n - S_{n-1} \to L - L = 0$</span>.</p>
+<p><strong>Cauchy Criterion:</strong> <span>$\displaystyle \sum a_n$</span> converges <span>$\iff$</span> for <span>$\epsilon &gt; 0$</span> given, there exists some <span>$N \in \mathbb N$</span> such that if <span>$m &gt; n \geq N$</span> then <span>$|S_m - S_n| = |a_{n+1} + a_{n+2} + \ldots + a_m| &lt; \epsilon$</span></p>
+<p><strong>Example:</strong> <span>$\displaystyle \sum_{n=1}^\infty \frac{1}{n}$</span>, or the harmonic series, diverges. We can show this by first looking at the sequence of partial sums. <span>$S_1 = 1$</span>. <span>$S_2 = 1 + \frac{1}{2}$</span>. <span>$S_4 = S_{2^2} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} &gt; 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} = 2$</span>. Extending this, <span>$S_{2^n} \geq 1 + \frac{n}{2} \to \infty$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

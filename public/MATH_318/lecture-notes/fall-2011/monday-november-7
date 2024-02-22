@@ -1,0 +1,177 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, November 7, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, November 7, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to set theory
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>And now onto the last serious topic, one even more basic than Peano arithmetic. The axiom system we'll be using for set theory is ZFC (Zermelo-Fraenkel set theory with the axiom of choice).</p>
+<h2 class="header"><i>1</i>Set Theory<a class="headerlink" href="#set-theory" name="set-theory">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Notation<a class="headerlink" href="#notation" name="notation">&para;</a></h3>
+<p>The <span>$\sum$</span> signature for this system is <span>$\{ \in \}$</span> which is a binary relation symbol and that's it.</p>
+<p>We often will write <span>$x \not \in X$</span> instead of <span>$\lnot(x \in X)$</span></p>
+<p><span>$x \subseteq y$</span> abbreviates <span>$\forall z (z \in x \to z \in y)$</span>. <span>$\subseteq$</span> is read as "is a subset of". <span>$\subset$</span>, on the other hand, means "is a proper subset of" and does not include the possibility that <span>$x$</span> and <span>$y$</span> are the same set. We won't be using</p>
+<h3 class="header"><i>1.2</i>Russell's paradox<a class="headerlink" href="#russells-paradox" name="russells-paradox">&para;</a></h3>
+<p>Consider the set <span>$R = \{x: x \notin X \}$</span> is <span>$R \in R$</span>? This is called Russell's paradox.</p>
+<p>If yes then <span>$R \notin R$</span> but then... contradiction.</p>
+<p>The usual way out of this paradox: <span>$R$</span> is <strong>not</strong> a set.</p>
+<h3 class="header"><i>1.3</i>Axioms of Set Theory<a class="headerlink" href="#axioms-of-set-theory" name="axioms-of-set-theory">&para;</a></h3>
+<p>Most axioms of set theory are constructive principles, for making sets.</p>
+<h4 class="header"><i>1.3.1</i>Extensionality<a class="headerlink" href="#extensionality" name="extensionality">&para;</a></h4>
+<blockquote>
+<p><span>$\forall x \forall y (\forall z (z \in x \iff z \in y) \to x = y)$</span> (a set is completely defined by what things it has as elements)</p>
+</blockquote>
+<p>We can also write extensionality as <span>$\forall x \forall y (x = y \leftrightarrow (x \subset y \wedge y \subset x))$</span>.</p>
+<p>Note that extensionality tells us something about the nature of sets, but doesn't actually give us any. The next axiom does, however.</p>
+<h4 class="header"><i>1.3.2</i>Empty set axiom<a class="headerlink" href="#empty-set-axiom" name="empty-set-axiom">&para;</a></h4>
+<blockquote>
+<p><span>$\exists x \forall y (y \notin x)$</span> (there is a set that has no elements)</p>
+</blockquote>
+<p>This is called the <strong>empty set</strong>, which can be defined as follows: <span>$\varnothing = \{y : y \neq y) = \{\}$</span>. By extensionality, there is only one such set.</p>
+<h4 class="header"><i>1.3.3</i>Comprehension (separation) scheme<a class="headerlink" href="#comprehension-separation-scheme" name="comprehension-separation-scheme">&para;</a></h4>
+<p>The sweeping construction principle.</p>
+<p>Let <span>$\Phi(x, \bar{y})$</span> be the <span>$\Sigma$</span>-formula <span>$\forall y (y \notin x)$</span>. We then have the following axiom:</p>
+<p><span>$$\forall \bar{y} [ \forall z (\exists w \forall x (x \in w \iff (x \in z \land \Phi(x, \bar{y})))]$$</span></p>
+<p>In other words, there must be a set <span>$z$</span> that is "bigger" than <span>$w$</span><sup id="fnref:1"><a href="#fn:1" rel="footnote" title="As Russell's paradox demonstrates, some care needs...">1</a></sup>. But we need <span>$z$</span> first<sup>what?</sup>.</p>
+<p>N.B. for all <span>$x, y, z$</span>:</p>
+<ul>
+<li><span>$x \subseteq x$</span></li>
+<li><span>$x \subseteq y \land y \subseteq z \to x = y$</span></li>
+<li><span>$x \subseteq y \land y \subseteq z \to x \subseteq z$</span></li>
+<li><span>$\varnothing \subseteq x$</span></li>
+<li><span>$x \subseteq \varnothing \iff x = \varnothing$</span></li>
+</ul>
+<h4 class="header"><i>1.3.4</i>Pairing<a class="headerlink" href="#pairing" name="pairing">&para;</a></h4>
+<blockquote>
+<p><span>$\forall x \forall y \exists z (x \in z \land y \in z)$</span> (note: <span>$x$</span> and <span>$y$</span> can be equal)</p>
+</blockquote>
+<p>Accepting this, we can now show the existence of a set <span>$Z$</span> such that <span>$\varnothing \in Z$</span>.</p>
+<p>In fact, an instance of comprehension now gives us <span>$\{ \varnothing \}$</span> - the set composed of only the empty set - which we can think of as the number "1" (with the empty set being the number "0"). <span>$\Phi(x)$</span> in this case is <span>$\forall u (u \in x)$</span>.<sup>what does this mean?</sup></p>
+<p>Now that we have two things to play with, let's make more! But first, let's look at singletons:</p>
+<h4 class="header"><i>1.3.5</i>Singletons<a class="headerlink" href="#singletons" name="singletons">&para;</a></h4>
+<blockquote>
+<p>A <strong>singleton x</strong> (<span>$\{ x \}$</span>) is the set with only x as an element.</p>
+</blockquote>
+<p>A "doubleton <span>$x, y$</span>" is <span>$\{x,y\}$</span> where <span>$x \neq y$</span>.</p>
+<p>We can now form some more sets: <span>$\{\{ \varnothing \}\}$</span> from before, and <span>$\{\varnothing, \{\varnothing\}\}$</span> ("2", as it has two elements). Or, <span>$\{ 1 \}$</span> and <span>$\{0, 1\}$</span>.</p>
+<p>Now, we would like to get <span>$\{0, 1, 2\} = 3$</span> but we can't yet make a set with three elements, as pairing doesn't guarantee us anything beyond "2". We <em>can</em> form <span>$\{0, 1\}$</span> and <span>$\{2\}$</span>, but because we don't have any sort of "union" axiom yet, we can't really do anything with that.</p>
+<h4 class="header"><i>1.3.6</i>Intersections<a class="headerlink" href="#intersections" name="intersections">&para;</a></h4>
+<p>We can, however, form an axiom for intersections. We define <span>$z \cap y$</span> as the set <span>$w = \{ x \in z: x \in y\}$</span>, where <span>$\Phi(x, y)$</span> is <span>$x \in y$</span>.</p>
+<p>We can also form <span>$z \backslash y$</span>: <span>$\{x \in z : x \notin y$</span>.</p>
+<h4 class="header"><i>1.3.7</i>Unions<a class="headerlink" href="#unions" name="unions">&para;</a></h4>
+<p>(Not the kind that likes to go on strike, the other kind)</p>
+<blockquote>
+<p><span>$\forall x \exists y (\forall z \forall w (z \in w \land w \in x \to z \in y))$</span> (so <span>$y$</span> is the union of all the <span>$x$</span>'s - <span>$\bigcup x$</span></p>
+</blockquote>
+<p>We can now form finite and infinite sets. If the sets in <span>$x$</span> are <span>$z_1, z_2, z_3, \ldots$</span> then <span>$\bigcup x = z_1 \cup z_2 \cup \ldots$</span>. <span>$A \cup B = \bigcup \{A, B \}$</span>; <span>$3 = \cup \{ \{0,1\}, \{2\}\}$</span>. We can also form 4, 5, 6 etc.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>As Russell's paradox demonstrates, some care needs to be taken about accepting the "set" <span>$\{, x \Phi (x)\}$</span>. This isn't really relevant though.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

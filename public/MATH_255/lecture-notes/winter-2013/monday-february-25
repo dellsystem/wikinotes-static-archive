@@ -1,0 +1,160 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, February 25, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, February 25, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Integrability of function compositions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Theorem:</strong> Let <span>$I = [a,b]$</span> and <span>$J = [c,d]$</span> and suppose <span>$f : I \to \mathbb{R}$</span> is integrable, <span>$\varphi : J \to \mathbb{R}$</span> is continuous and <span>$f(I) \subseteq J$</span>. Then <span>$\varphi \circ f$</span> is integrable on <span>$I$</span>.</p>
+<p><strong>Proof:</strong> Let <span>$\epsilon &gt; 0$</span> be given, let <span>$k = \sup \{ |\varphi(x)| : x \in J \}$</span> and let <span>$\epsilon' = \epsilon / 2(b-a+2k)$</span>. Since <span>$\varphi$</span> is uniformly continuous on <span>$J$</span>, there exists some <span>$\delta &gt; 0$</span> such that if <span>$s, t \in J$</span> with <span>$|s - t| &lt; \delta$</span>, then <span>$|\varphi(s) - \varphi(t)| &lt; \epsilon'$</span>. WLOG, let <span>$\delta &lt; \epsilon'$</span>. Since <span>$f$</span> is integrable on <span>$I$</span>, there exists a partition <span>$P$</span> of <span>$I$</span>, <span>$P = \{ x_0, x_1, \ldots, x_n \}$</span> such that <span>$U_f(P) - L_f(P) &lt; \delta^2$</span> (we will show that <span>$U_{\varphi \circ f}(P) - L_{\varphi \circ f}(P) &lt; \epsilon$</span>). Following our usual notation, let </p>
+<p><span>$$\begin{align*}
+m_k &amp;= \inf\{ f(x) : x \in [x_{k-1}, x_k] \} \\
+M_k &amp;= \sup\{ f(x) : x \in [x_{k-1}, x_k] \}
+\end{align*}$$</span></p>
+<p>and </p>
+<p><span>$$\begin{align*}
+\tilde{m_k} &amp;= \inf\{ \varphi \circ f(x) : x \in [x_{k-1}, x_k] \} \\
+\tilde{M_k} &amp;= \sup\{ \varphi \circ f(x) : x \in [x_{k-1}, x_k] \}
+\end{align*}$$</span></p>
+<p>Then</p>
+<p><span>$\begin{align*}
+U_{\varphi \circ f}(P) - L_{\varphi \circ f}(P) &amp;= \sum_{k=1}^n \tilde{M_k} (x_k - x_{k-1}) - \sum_{k=1}^n \tilde{m_k} (x_k - x_{k-1}) \\
+&amp;= \sum_{k=1}^n (\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1})
+\end{align*}$</span></p>
+<p>let <span>$A = \{ k : M_k - m_k &lt; \delta \}$</span> and <span>$B = \{ k : M_k - m_k \geq \delta \}$</span>. Observe that if <span>$k \in A$</span> and <span>$x, y \in [x_{k-1}, x_k]$</span> then <span>$|f(x) - f(y)| \leq M_k - m_k &lt; \delta$</span>, and thus in this case</p>
+<p><span>$$ |\varphi(f(x)) - \varphi(f(y))| &lt; \epsilon' $$</span></p>
+<p>i.e. if <span>$k \in A$</span> then <span>$\tilde{M_k} - \tilde{m_k} \leq \epsilon'$</span></p>
+<p>and so</p>
+<p><span>$\begin{align*}
+\sum_{k \in A} (\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1}) \leq \epsilon' \sum_{k \in A} x_k - x_{k-1} \leq \epsilon'(b-a) \\
+\leq \epsilon'\sum_{k=1}^n x_k - x_{k-1} = \epsilon'(b-a)
+\end{align*}$</span></p>
+<p>If <span>$k \in B$</span> we know <span>$\tilde{M_k} - \tilde{m_k} \leq 2K$</span> thus </p>
+<p><span>$\begin{align*}
+\sum_{k \in B} (\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1}) \leq 2K\sum_{k \in B} (x_k - x_{k-1})
+\end{align*}$</span></p>
+<p>but <span>$\delta \leq M_k - m_k$</span> so that <span>$1 \leq \frac{M_k - m_k}{\delta}$</span> so </p>
+<p><span>$$ 2K \sum_{k \in B}(x_k - x_{k-1}) \leq 2K \sum_{k \in B}\frac{M_k - m_k}{\delta}(x_k - x_{k-1}) 
+\leq \frac{2K}{\delta} \sum_{k=1}^n(M_k - m_k)(x_k - x_{k-1}) = \frac{2K}{\delta}[U_f(P) - L_f(P)] &lt; 2k\delta &lt; 2k\epsilon' $$</span></p>
+<p>Finally, </p>
+<p><span>$\begin{align*}
+U_{\varphi \circ f}(P) - L_{\varphi \circ f}(P) &amp;= \sum_{k=1}^n(\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1}) \\
+&amp;= \sum_{k\in A}(\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1})  + \sum_{k\in B}(\tilde{M_k} - \tilde{m_k})(x_k - x_{k-1}) \\
+&amp;\leq \epsilon'(b-a) + 2k\epsilon' = \epsilon'(b-a+2K) \\
+&amp;= \frac{\epsilon(b-a+2K)}{2(b-a+2K)} = \frac{\epsilon}{2} &lt; \epsilon 
+\end{align*}$</span></p>
+<p><strong>Corollary:</strong> Let <span>$I = [a,b]$</span> and <span>$f : I \to \mathbb{R}$</span> be integrable. Then:</p>
+<p>(a) <span>$|f| : I \to \mathbb{R}$</span> is integrable and <span>$\left|\int_a^b f\right| \leq \int_a^b |f|$</span></p>
+<p>(b) if <span>$n \in \mathbb{N}$</span>, <span>$f^n$</span> is integrable on <span>$I$</span>.</p>
+<p>(c) if there exists some <span>$\delta &gt; 0$</span> such that <span>$f(x) \geq \delta$</span> for all <span>$x \in I$</span> then <span>$1/f$</span> is integrable on <span>$I$</span></p>
+<p><strong>Proof:</strong> <span>$f$</span> is integrable and therefore understood to be bounded by <span>$k$</span>.</p>
+<p>(a) Let <span>$\varphi(c) = |x|$</span>. <span>$\varphi$</span> is continuous on <span>$[-k,k]$</span> and <span>$f(I) \subseteq [-k,k]$</span> so by previous theorem, <span>$\varphi \circ f = |f|$</span> is integrable on <span>$I$</span>. Observe that <span>$-|f| \leq f \leq |f|$</span> thus </p>
+<p><span>$$ -\int_a^b |f| \leq \int_a^b f \leq \int_a^b |f| $$</span></p>
+<p>so </p>
+<p><span>$$ \left| \int_a^b f \; \right| \leq \int_a^b |f| $$</span></p>
+<p>also <span>$|f| \leq k$</span> so <span>$\int_a^b |f| \leq \int_a^b k = k(b-a)$</span></p>
+<p>(b) <span>$\varphi(x) = x^n$</span> is continuous on <span>$[-k,k]$</span></p>
+<p>(c) <span>$\varphi(x) = 1 / x$</span> is continuous on <span>$[\delta,k]$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

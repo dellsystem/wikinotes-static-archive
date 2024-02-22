@@ -1,0 +1,19 @@
+{% extends "default.html" %}
+
+{% block content %}
+<img class="ui centered image" src="/static/img/404.png" />
+<div class="ui huge red message">
+    <div class="header">
+        {% if title %}{{ title }}{% else %}Page not found{% endif %}
+    </div>
+    <p>
+        {% if message %}
+        {{ message }}
+        {% else %}
+        This page doesn't seem to exist yet, probably because I'm still in the
+        process of rebuilding functionality on Wikinotes. Send me an email
+        at ilostwaldo at gmail for more information.
+        {% endif %}
+    </p>
+</div>
+{% endblock %}

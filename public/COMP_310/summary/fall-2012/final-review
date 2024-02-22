@@ -1,0 +1,2758 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The final exam will take place on Monday, December 10th, from 6pm to 9pm, in Bronfman (room 422 if your last name is Ach-Kle, 423 otherwise). Chapters covered: 1-11. A standard, non-graphing calculator is permitted. No notes, no textbooks. Only material that has been covered in class will be tested. There will be 10 short- and long-answer questions, possibly containing multiple parts. It will focus on examples and applications to test your understanding as opposed to straight definitions (though you should know the definitions as well).</p>
+<p>This page will contain a point-form summary and sample questions (both student-created and collected from outside sources) for each chapter. Answers to selected exercises in the textbook (7th edition) will also be provided. If you notice any errors, feel free to edit the page directly (or contact <a href="/users/dellsystem">@dellsystem</a> about it).</p>
+<p>Under construction.</p>
+<div class="toc">
+<ul>
+<li><a href="#chapter-1-introduction">1 Chapter 1: Introduction</a><ul>
+<li><a href="#sample-questions">1.1 Sample questions</a><ul>
+<li><a href="#components-of-a-computer-system">1.1.1 Components of a computer system</a></li>
+<li><a href="#bootstrap-programs">1.1.2 Bootstrap programs</a></li>
+<li><a href="#monolithic-kernels-and-microkernels">1.1.3 Monolithic kernels and microkernels</a></li>
+<li><a href="#computer-system-organisation">1.1.4 Computer system organisation</a></li>
+<li><a href="#the-interrupt-model">1.1.5 The interrupt model</a></li>
+<li><a href="#interrupt-timelines">1.1.6 Interrupt timelines</a></li>
+<li><a href="#traps">1.1.7 Traps</a></li>
+<li><a href="#device-status-tables">1.1.8 Device status tables</a></li>
+<li><a href="#direct-memory-access">1.1.9 Direct memory access</a></li>
+<li><a href="#storage-structure-hierarchy">1.1.10 Storage structure hierarchy</a></li>
+<li><a href="#multiprocessor-systems">1.1.11 Multiprocessor systems</a></li>
+<li><a href="#multicore-systems">1.1.12 Multicore systems</a></li>
+<li><a href="#timesharing">1.1.13 Timesharing</a></li>
+<li><a href="#modes">1.1.14 Modes</a></li>
+<li><a href="#processes">1.1.15 Processes</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises">1.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-110">1.2.1 Question 1.10</a></li>
+<li><a href="#question-115">1.2.2 Question 1.15</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-2-operating-system-structures">2 Chapter 2: Operating-system structures</a><ul>
+<li><a href="#sample-questions_1">2.1 Sample questions</a><ul>
+<li><a href="#parameter-passing">2.1.1 Parameter-passing</a></li>
+<li><a href="#microkernels">2.1.2 Microkernels</a></li>
+<li><a href="#virtual-machines">2.1.3 Virtual machines</a></li>
+<li><a href="#paravirtualisation">2.1.4 Paravirtualisation</a></li>
+<li><a href="#bootloaders">2.1.5 Bootloaders</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_1">2.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-25">2.2.1 Question 2.5</a></li>
+<li><a href="#question-26">2.2.2 Question 2.6</a></li>
+<li><a href="#question-29">2.2.3 Question 2.9</a></li>
+<li><a href="#question-214">2.2.4 Question 2.14</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-3-processes">3 Chapter 3: Processes</a><ul>
+<li><a href="#sample-questions_2">3.1 Sample questions</a><ul>
+<li><a href="#processes-in-memory">3.1.1 Processes in memory</a></li>
+<li><a href="#process-states">3.1.2 Process states</a></li>
+<li><a href="#process-control-blocks">3.1.3 Process control blocks</a></li>
+<li><a href="#process-scheduling-queues">3.1.4 Process scheduling queues</a></li>
+<li><a href="#schedulers">3.1.5 Schedulers</a></li>
+<li><a href="#io-and-cpu-bound-processes">3.1.6 I/O and CPU bound processes</a></li>
+<li><a href="#context-switching">3.1.7 Context switching</a></li>
+<li><a href="#forking-and-execing">3.1.8 Forking and execing</a></li>
+<li><a href="#abortion">3.1.9 Abortion</a></li>
+<li><a href="#inter-process-communication">3.1.10 Inter-process communication</a></li>
+<li><a href="#producer-consumer-problem">3.1.11 Producer-consumer problem</a></li>
+<li><a href="#direct-communication">3.1.12 Direct communication</a></li>
+<li><a href="#indirect-communication">3.1.13 Indirect communication</a></li>
+<li><a href="#round-robin-communication">3.1.14 Round-robin communication</a></li>
+<li><a href="#message-queues">3.1.15 Message queues</a></li>
+<li><a href="#ipc-in-various-operating-systems">3.1.16 IPC in various operating systems</a></li>
+<li><a href="#client-server-communication">3.1.17 Client-server communication</a></li>
+<li><a href="#remote-procedure-calls">3.1.18 Remote procedure calls</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_2">3.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-35">3.2.1 Question 3.5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-4-threads">4 Chapter 4: Threads</a><ul>
+<li><a href="#sample-questions_3">4.1 Sample questions</a><ul>
+<li><a href="#things-associated-with-threads">4.1.1 Things associated with threads</a></li>
+<li><a href="#benefits-of-threading">4.1.2 Benefits of threading</a></li>
+<li><a href="#multithreading-models">4.1.3 Multithreading models</a></li>
+<li><a href="#thread-cancellation">4.1.4 Thread cancellation</a></li>
+<li><a href="#thread-pools">4.1.5 Thread pools</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_3">4.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-44">4.2.1 Question 4.4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-5-cpu-scheduling">5 Chapter 5: CPU scheduling</a><ul>
+<li><a href="#sample-questions_4">5.1 Sample questions</a><ul>
+<li><a href="#short-term-scheduling">5.1.1 Short-term scheduling</a></li>
+<li><a href="#scheduling-algorithm-factors">5.1.2 Scheduling algorithm factors</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_4">5.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-55">5.2.1 Question 5.5</a></li>
+<li><a href="#question-58">5.2.2 Question 5.8</a></li>
+<li><a href="#question-59">5.2.3 Question 5.9</a></li>
+<li><a href="#question-510">5.2.4 Question 5.10</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-6-process-synchronisation">6 Chapter 6: Process synchronisation</a><ul>
+<li><a href="#sample-questions_5">6.1 Sample questions</a><ul>
+<li><a href="#requirements-for-the-critical-section-problem">6.1.1 Requirements for the critical-section problem</a></li>
+<li><a href="#assumptions-for-petersons-solution">6.1.2 Assumptions for Peterson's solution</a></li>
+<li><a href="#test-and-set">6.1.3 Test and set</a></li>
+<li><a href="#swapping-implementation-of-locking">6.1.4 Swapping implementation of locking</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_5">6.2 Answers to textbook exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-7-deadlocks">7 Chapter 7: Deadlocks</a><ul>
+<li><a href="#sample-questions_6">7.1 Sample questions</a><ul>
+<li><a href="#conditions-needed-for-deadlock">7.1.1 Conditions needed for deadlock</a></li>
+<li><a href="#methods-of-handling-deadlock">7.1.2 Methods of handling deadlock</a></li>
+<li><a href="#limitations-of-resource-allocation-graphs">7.1.3 Limitations of resource-allocation graphs</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_6">7.2 Answers to textbook exercises</a><ul>
+<li><a href="#question-712">7.2.1 Question 7.12</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-8-main-memory">8 Chapter 8: Main memory</a><ul>
+<li><a href="#background">8.1 Background</a></li>
+<li><a href="#swapping">8.2 Swapping</a></li>
+<li><a href="#contiguous-memory-allocation">8.3 Contiguous memory allocation</a></li>
+<li><a href="#paging">8.4 Paging</a></li>
+<li><a href="#structure-of-the-page-table">8.5 Structure of the page table</a></li>
+<li><a href="#segmentation">8.6 segmentation</a></li>
+<li><a href="#sample-questions_7">8.7 Sample questions</a><ul>
+<li><a href="#cpu-and-storage">8.7.1 CPU and storage</a></li>
+<li><a href="#address-binding">8.7.2 Address binding</a></li>
+<li><a href="#mmu">8.7.3 MMU</a></li>
+<li><a href="#loading-vs-linking">8.7.4 Loading vs. linking</a></li>
+<li><a href="#backing-store">8.7.5 Backing store</a></li>
+<li><a href="#memory-partitions">8.7.6 Memory partitions</a></li>
+<li><a href="#multiple-partition-allocation">8.7.7 Multiple-partition allocation</a></li>
+<li><a href="#fragmentation">8.7.8 Fragmentation</a></li>
+<li><a href="#compaction">8.7.9 Compaction</a></li>
+<li><a href="#pages-and-frames">8.7.10 Pages and frames</a></li>
+<li><a href="#virtual-address-calculations">8.7.11 Virtual address calculations</a></li>
+<li><a href="#page-table-implementations">8.7.12 Page table implementations</a></li>
+<li><a href="#page-table-eat-calculations">8.7.13 Page table EAT calculations</a></li>
+<li><a href="#reentrant-code">8.7.14 Reentrant code</a></li>
+<li><a href="#why-pages">8.7.15 Why pages</a></li>
+<li><a href="#page-table-structures">8.7.16 Page table structures</a></li>
+<li><a href="#hierarchical-paging-calculations">8.7.17 Hierarchical paging calculations</a></li>
+<li><a href="#segment-tables">8.7.18 Segment tables</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_7">8.8 Answers to textbook exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-9-virtual-memory">9 Chapter 9: Virtual memory</a><ul>
+<li><a href="#sample-questions_8">9.1 Sample questions</a><ul>
+<li><a href="#demand-paging">9.1.1 Demand paging</a></li>
+<li><a href="#page-faults">9.1.2 Page faults</a></li>
+<li><a href="#page-fault-eat-calculations">9.1.3 Page fault EAT calculations</a></li>
+<li><a href="#copy-on-write">9.1.4 Copy-on-write</a></li>
+<li><a href="#page-replacement-policies">9.1.5 Page replacement policies</a></li>
+<li><a href="#beladys-anomaly">9.1.6 Belady's anomaly</a></li>
+<li><a href="#frame-allocation">9.1.7 Frame allocation</a></li>
+<li><a href="#thrashing">9.1.8 Thrashing</a></li>
+<li><a href="#working-set-model">9.1.9 Working-set model</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_8">9.2 Answers to textbook exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-10-file-system-interface">10 Chapter 10: File-system interface</a><ul>
+<li><a href="#sample-questions_9">10.1 Sample questions</a><ul>
+<li><a href="#file-attributes">10.1.1 File attributes?</a></li>
+<li><a href="#the-open-system-call">10.1.2 The open system call</a></li>
+<li><a href="#open-file-tables">10.1.3 Open file tables</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_9">10.2 Answers to textbook exercises</a></li>
+</ul>
+</li>
+<li><a href="#chapter-11-file-system-implementation">11 Chapter 11: File-system implementation</a><ul>
+<li><a href="#sample-questions_10">11.1 Sample questions</a><ul>
+<li><a href="#file-control-blocks">11.1.1 File control blocks</a></li>
+<li><a href="#directory-implementation">11.1.2 Directory implementation</a></li>
+<li><a href="#allocation-methods">11.1.3 Allocation methods</a></li>
+<li><a href="#linked-index-allocation-calculations">11.1.4 Linked index allocation calculations</a></li>
+<li><a href="#free-space-management">11.1.5 Free space management</a></li>
+<li><a href="#journaling">11.1.6 Journaling</a></li>
+<li><a href="#cascading-mount">11.1.7 Cascading mount</a></li>
+<li><a href="#blocks-and-partial-storage">11.1.8 Blocks and partial storage</a></li>
+</ul>
+</li>
+<li><a href="#answers-to-textbook-exercises_10">11.2 Answers to textbook exercises</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chapter 1: Introduction<a class="headerlink" href="#chapter-1-introduction" name="chapter-1-introduction">&para;</a></h2>
+<ul>
+<li>OS: program, between user and hardware<ul>
+<li>goals:<ul>
+<li>execute user programs, solve user problems</li>
+<li>make computer convenient to use</li>
+<li>use hardware efficiently</li>
+</ul>
+</li>
+<li>allocates resources fairly and efficiently</li>
+<li>controls execution of programs to prevent errors, etc</li>
+</ul>
+</li>
+<li>4 components of a computer system<ul>
+<li>hardware: computing resources</li>
+<li>OS: controls, coordinate hardware use</li>
+<li>application programs</li>
+<li>users</li>
+</ul>
+</li>
+<li>kernel: one program always running; everything else = system/application program<ul>
+<li>monolithic: put as much as possible in the kernel; used by windows and GNU/linux</li>
+<li>microkernel: put as little as possible in the kernel, have everything else run in user space; used by Mac OS (Linus Torvalds thinks this is dumb)</li>
+</ul>
+</li>
+<li>bootstrap program: stored in ROM/EPROM, aka firmware (and not RAM, because RAM is volatile, lol)<ul>
+<li>loads kernel, begins its execution; bootstraps everything else</li>
+</ul>
+</li>
+<li>computer system organisation<ul>
+<li>CPUs and device controllers compete for access to shared memory, using a common bus</li>
+<li>I/O devices and CPUs can execute concurrently</li>
+<li>each device controller is responsible for a particular device (or multiple devices, e.g., disks), has a local buffer</li>
+<li>data is first stored in controller's local buffer</li>
+<li>CPU moves data between local buffers and main memory</li>
+<li>when device controller is done, it causes an interrupt to let the CPU know<ul>
+<li>CPU looks up memory address of the relevant interrupt handler (aka interrupt service routine) based on the type of interrupt, using the interrupt vector table</li>
+<li>the address and PC of instruction that is currently being interrupted is saved (along with registers)</li>
+<li>control is transferred to interrupt handler</li>
+<li>incoming interrupts are ignored to prevent a lost interrupt</li>
+<li>once the interrupt handler has completed, returns to previous instruction (return address, flags popped from stack - what flags?)</li>
+</ul>
+</li>
+<li>trap: software-generated interrupt (caused by error or user request)</li>
+<li>interrupts form the basis of modern operating systems</li>
+<li>interrupt timeline diagram, explained in words:<ul>
+<li>at first, CPU is executing user process</li>
+<li>then, I/O device receives data, takes some time to complete the transfer</li>
+<li>once the transfer is complete, CPU processes the interrupt; I/O device is idle again</li>
+<li>CPU returns to executing user process</li>
+<li>I/O device remains idle until another I/O request occurs - repeat the process</li>
+</ul>
+</li>
+<li>System call: request to OS, user waits for I/O completion</li>
+<li>Device status table: contains type, address and state for each I/O device<ul>
+<li>When an interrupt occurs, OS updates the DST entry for the device to indicate interrupt</li>
+</ul>
+</li>
+<li>direct memory access:<ul>
+<li>special controller (DMA controller) takes care of transmitting data to/from main memory, without involving the CPU</li>
+<li>increased data throughput</li>
+<li>CPU can do other work while data is being transferred</li>
+<li>data can be transferred faster (useful for sound, network, graphics cards)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>storage structures<ul>
+<li>main memory: only large storage media that CPU can access directly; volatile, quick to access, limited in size</li>
+<li>secondary: disk storage i think? not sure, access managed via disk controller</li>
+<li>hierarchy:<ul>
+<li>registers</li>
+<li>CPU cache</li>
+<li>main memory</li>
+<li>electronic disk</li>
+<li>magnetic disk</li>
+<li>optical disk</li>
+<li>magnetic tapes lol</li>
+</ul>
+</li>
+<li>caching<ul>
+<li>performed at many levels (hardware, OS, software)</li>
+<li>copied from larger but slower storage to a smaller, faster one</li>
+<li>I'm sure everyone knows how caching works by now</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>computer system architecture<ul>
+<li>usually one general-purpose processor, and possibly special-purpose ones too (e.g., GPU)</li>
+<li>multiple cores = still one processor, just more than one core on a single chip (efficient for communication and power usage)</li>
+<li>multiprocessor systems:<ul>
+<li>asymmetric (master-slave) or symmetric (peers)</li>
+<li>increased throughput, shared peripherals, graceful degradation</li>
+<li>each CPU still has its own registers and cache</li>
+</ul>
+</li>
+<li>clustered systems<ul>
+<li>multiple computers working in tandem</li>
+<li>asymmetric or symmetric clustering</li>
+<li>usually shared storage via a storage area network (SAN)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>operating system structure<ul>
+<li>multiprogramming: organises jobs so that CPU always has one to execute (fair scheduling)</li>
+<li>timesharing: always 1 process running in memory<ul>
+<li>other jobs kept in memory, OS switches between processes very quickly</li>
+<li>if all the processes don't fit in memory, they're swapped to disk (virtual memory)</li>
+</ul>
+</li>
+<li>dual-mode: user mode, kernel mode<ul>
+<li>some instructions are "privileged" - can only be executed in kernel mode</li>
+<li>system calls are executed in kernel mode, returns to user mode after (if relevant)</li>
+<li>mode bit: 1 for user mode, 0 for kernel mode</li>
+<li>programs can leave user mode by triggering interrupt</li>
+<li>there is a timer to prevent user programs from causing infinite loops and whatnot; when a counter reaches 0, OS generates interrupt</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Processes<ul>
+<li>process: program in execution</li>
+<li>needs resources: CPU, memory, I/O, files, initial data</li>
+<li>single-threaded process: has one PC, instructions executed sequentially</li>
+<li>multi-threaded: one PC per thread (more detail later)</li>
+<li>the OS must take care of:<ul>
+<li>creating, deleting user/system processes</li>
+<li>suspending and resuming processes as necessary</li>
+<li>providing mechanisms for process synchronisation</li>
+<li>providing mechanisms for process communication</li>
+<li>handling deadlock</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>memory management: keeps track of what is being used, deciding which to swap, allocating and deallocating shit etc</li>
+<li>storage management<ul>
+<li>OS provides an abstraction for physical storage devices; logical storage unit = file</li>
+<li>file system management: access control, creating/deleting, mapping files onto physical location, etc</li>
+</ul>
+</li>
+<li>I/O subsystems<ul>
+<li>hide details of I/O devices</li>
+<li>take care of memory management, including buffering, caching, spooling (simultaneous peripheral operations on line), drivers, etc</li>
+</ul>
+</li>
+<li>computing environments<ul>
+<li>client-server (fileserver, webserver, etc)</li>
+<li>peer-to-peer (distributed)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Sample questions<a class="headerlink" href="#sample-questions" name="sample-questions">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Components of a computer system<a class="headerlink" href="#components-of-a-computer-system" name="components-of-a-computer-system">&para;</a></h4>
+<blockquote>
+<p>Name the four components of a computer system.</p>
+</blockquote>
+<p>Hardware, operating system, application programs, users</p>
+<h4 class="header"><i>1.1.2</i>Bootstrap programs<a class="headerlink" href="#bootstrap-programs" name="bootstrap-programs">&para;</a></h4>
+<blockquote>
+<p>What is a bootstrap program?</p>
+</blockquote>
+<p>Program that loads the kernel and begins its execution, bootstrapping everything else</p>
+<h4 class="header"><i>1.1.3</i>Monolithic kernels and microkernels<a class="headerlink" href="#monolithic-kernels-and-microkernels" name="monolithic-kernels-and-microkernels">&para;</a></h4>
+<blockquote>
+<p>Difference between the two, name one OS that uses each method.</p>
+</blockquote>
+<p>Monolithic: put as much as you can inside the kernel itself; used by GNU/Linux, Windows<br />
+Microkernel: put very little inside the kernel, and let most things be user programs; used by Mac OS</p>
+<h4 class="header"><i>1.1.4</i>Computer system organisation<a class="headerlink" href="#computer-system-organisation" name="computer-system-organisation">&para;</a></h4>
+<blockquote>
+<p>Draw a diagram showing how CPUs, devices, device controllers and main memory are connected in a standard computer system.</p>
+</blockquote>
+<p>CPUs on same level as device controllers, devices connected to controllers, CPUs and controllers connected to main memory via a shared bus</p>
+<h4 class="header"><i>1.1.5</i>The interrupt model<a class="headerlink" href="#the-interrupt-model" name="the-interrupt-model">&para;</a></h4>
+<blockquote>
+<p>Draw a diagram illustrating the interrupt model, and explain what happens.</p>
+</blockquote>
+<p>i hope this isn't on the midterm<br />
+Process running-&gt;interrupt, OS save data, parameter to pass  and PC on register and or stack, enter kernel mode, execute interrupt handling, save result on register and stack, return to user mode, restore PC and processing continue.</p>
+<h4 class="header"><i>1.1.6</i>Interrupt timelines<a class="headerlink" href="#interrupt-timelines" name="interrupt-timelines">&para;</a></h4>
+<blockquote>
+<p>Draw the interrupt timeline.</p>
+</blockquote>
+<p><img alt="lol" src="https://lh6.googleusercontent.com/-KYVSP8aznd8/UGsQpI2r5AI/AAAAAAAAARI/cOc1nTt_umM/s1024/Sketch221234.png" title="lol" /></p>
+<h4 class="header"><i>1.1.7</i>Traps<a class="headerlink" href="#traps" name="traps">&para;</a></h4>
+<blockquote>
+<p>What is a trap, and how are they caused?</p>
+</blockquote>
+<p>Software-generated interrupt, caused by errors or user requests</p>
+<h4 class="header"><i>1.1.8</i>Device status tables<a class="headerlink" href="#device-status-tables" name="device-status-tables">&para;</a></h4>
+<blockquote>
+<p>What information does a device status table contain?</p>
+</blockquote>
+<p>Type, address, and state for each I/O device</p>
+<h4 class="header"><i>1.1.9</i>Direct memory access<a class="headerlink" href="#direct-memory-access" name="direct-memory-access">&para;</a></h4>
+<blockquote>
+<p>How does direct memory access work, and what are its benefits?</p>
+</blockquote>
+<p>A special controller, called a DMA controller, takes care of transmitting data to and from main memory so that the CPU doesn't have to. Benefits: increased data throughput, CPU can do other work when the data is being transferred, data can be transferred faster (useful for sound, network, graphics cards, etc).</p>
+<h4 class="header"><i>1.1.10</i>Storage structure hierarchy<a class="headerlink" href="#storage-structure-hierarchy" name="storage-structure-hierarchy">&para;</a></h4>
+<blockquote>
+<p>What factors determine the storage structure hierarchy and what are its components?</p>
+</blockquote>
+<p>Closer to CPU: faster, more volatile, more expensive, smaller. Hierarchy: registers, CPU cache, main memory, electronic disk, etc.</p>
+<h4 class="header"><i>1.1.11</i>Multiprocessor systems<a class="headerlink" href="#multiprocessor-systems" name="multiprocessor-systems">&para;</a></h4>
+<blockquote>
+<p>Types of multiprocessor systems, and benefits of multiprocessing in general</p>
+</blockquote>
+<p>Asymmetric (master-slave), symmetric (peers). Benefits: increased throughput, shared peripherals, graceful degradation.</p>
+<h4 class="header"><i>1.1.12</i>Multicore systems<a class="headerlink" href="#multicore-systems" name="multicore-systems">&para;</a></h4>
+<blockquote>
+<p>Benefits of placing multiple cores on a single chip?</p>
+</blockquote>
+<p>More efficient for communication and power consumption</p>
+<h4 class="header"><i>1.1.13</i>Timesharing<a class="headerlink" href="#timesharing" name="timesharing">&para;</a></h4>
+<blockquote>
+<p>How does timesharing work? What happens if there are too many processes to fit in main memory?</p>
+</blockquote>
+<p>one process running in memory, other jobs waiting to run, OS switches between jobs quickly (creating the illusion of interactive computing)</p>
+<p>Swapped to disk</p>
+<h4 class="header"><i>1.1.14</i>Modes<a class="headerlink" href="#modes" name="modes">&para;</a></h4>
+<blockquote>
+<p>Difference between user and kernel mode, mode bits for each</p>
+</blockquote>
+<p>Kernel: for privileged system programs, mode bit 0; user: for application programs, mode bit 1</p>
+<h4 class="header"><i>1.1.15</i>Processes<a class="headerlink" href="#processes" name="processes">&para;</a></h4>
+<blockquote>
+<p>Difference between a program and process</p>
+</blockquote>
+<p>Process: program in execution</p>
+<h3 class="header"><i>1.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises" name="answers-to-textbook-exercises">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>Question 1.10<a class="headerlink" href="#question-110" name="question-110">&para;</a></h4>
+<blockquote>
+<p>Purpose of interrupts, what are traps, can traps be generated intentionally by user programs</p>
+</blockquote>
+<p>A trap is usually a specific type of interrupt (a software interrupt), caused by errors or user requests. Purpose: to return control to the OS, wherein it will perform some action in kernel mode. Can be generated intentionally by the user program if the user wants to quit or something.</p>
+<h4 class="header"><i>1.2.2</i>Question 1.15<a class="headerlink" href="#question-115" name="question-115">&para;</a></h4>
+<blockquote>
+<p>Mechanism for preventing programs from modifying the memory of other programs</p>
+</blockquote>
+<p>table specifying what locations in memory belong to which table. basically paging</p>
+<h2 class="header"><i>2</i>Chapter 2: Operating-system structures<a class="headerlink" href="#chapter-2-operating-system-structures" name="chapter-2-operating-system-structures">&para;</a></h2>
+<ul>
+<li>Operating system services, provided for users:<ul>
+<li>user interface (GUI or CLI)</li>
+<li>program execution</li>
+<li>I/O operations</li>
+<li>file system manipulation</li>
+<li>inter-process communication</li>
+<li>error detection (could occur in hardware, I/O, or user programs)</li>
+</ul>
+</li>
+<li>services needed for efficient operation of system<ul>
+<li>resource allocation</li>
+<li>accounting (keep track of resource usage)</li>
+<li>protection (resource usage is controlled properly)</li>
+<li>security (from outsiders)</li>
+</ul>
+</li>
+<li>system calls: programming interface to OS-provided services<ul>
+<li>usually accessed via APIs (different one for each type of OS) - more portable, etc</li>
+<li>three methods for passing parameters to OS:<ul>
+<li>registers (limiting)</li>
+<li>block, or table, in memory; address of block passed as parameter in a register</li>
+<li>pushed onto stack by program, popped off by OS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>system programs<ul>
+<li>can be simply interfaces to system calls, or more complex</li>
+<li>file management: create, delete, copy, rename, etc</li>
+<li>status info: date, du, top, etc</li>
+<li>file modification: sed, vim, etc</li>
+<li>programming support: compilers, assemblers, interpreters</li>
+<li>program loading and execution: gdb, loaders</li>
+<li>communication: email, scp, ssh, IPC, etc</li>
+</ul>
+</li>
+<li>OS design<ul>
+<li>user goals: convenient to use, easy to learn, reliable, safe, fast</li>
+<li>system goals: easy to design and implement, reliable, flexible, error-free, efficient</li>
+<li>policy: what will be done</li>
+<li>mechanism: how to do it</li>
+<li>the two should be separate. e.g., scheduling is controlled by loadable tables in solaris - can be time-shared, real-time, etc</li>
+<li>MS-DOS (like soup):<ul>
+<li>not modular, interfaces and levels of functionality not well separated</li>
+<li>applications can access basic I/O routines, write directly to disk/display</li>
+</ul>
+</li>
+<li>UNIX (like lasagna):<ul>
+<li>system programs, then the kernel (everything below syscall interface)</li>
+<li>kernel provides file system, CPU scheduling, memory management, etc</li>
+<li>traditional structure: some layers, but a lot of functionality per level</li>
+</ul>
+</li>
+<li>layered approach: N + 1 layers; 0 is hardware, N is user interface<ul>
+<li>each layer only uses functions defined in lower layers</li>
+</ul>
+</li>
+<li>microkernel (like chocolate???):<ul>
+<li>easier to extend</li>
+<li>easier to port to new architectures</li>
+<li>more reliable (less code running in kernel mode)</li>
+<li>more secure</li>
+<li>performance overhead of user space to kernel space communication</li>
+</ul>
+</li>
+<li>modular kernels (like with solaris): Lego<ul>
+<li>each module talks to others over defined interfaces</li>
+<li>similar to layers but more flexible, as any module can call any other module</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>virtual machine: provides interface identical to underlying hardware<ul>
+<li>separate execution environment</li>
+<li>protected</li>
+<li>can communicate with each other</li>
+<li>can share some files, etc</li>
+<li>paravirtualisation: guest OS is provided with system similar to (but not identical to) hardware<ul>
+<li>guest OS must be modified to run on paravirtualised hardware</li>
+<li>smaller virtualisation layer, more efficient use of resources</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>system boot<ul>
+<li>bootstrap loader locates the kernel, loads it into memory, starts it</li>
+<li>can be a 2-step process: boot block loads bootstrap loader, etc</li>
+<li>execution then starts at a fixed memory location</li>
+<li>stored in firmware (ROM) not RAM because RAM is volatile and at an unknown state when the system starts up, and because ROM needs no initialisation and cannot be easily infected by a virus</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.1</i>Sample questions<a class="headerlink" href="#sample-questions_1" name="sample-questions_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Parameter-passing<a class="headerlink" href="#parameter-passing" name="parameter-passing">&para;</a></h4>
+<blockquote>
+<p>What are the three methods for passing parameters in a system call?</p>
+</blockquote>
+<p>Registers, memory block (or table) - address passed as parameter in register, stack</p>
+<h4 class="header"><i>2.1.2</i>Microkernels<a class="headerlink" href="#microkernels" name="microkernels">&para;</a></h4>
+<blockquote>
+<p>Benefits of microkernels? Disadvantages?</p>
+</blockquote>
+<p>Benefits: easier to extend, more portable, more reliable, more secure</p>
+<p>Disadvantage: performance overheard of user space to kernel space communication</p>
+<h4 class="header"><i>2.1.3</i>Virtual machines<a class="headerlink" href="#virtual-machines" name="virtual-machines">&para;</a></h4>
+<blockquote>
+<p>What is a virtual machine etc</p>
+</blockquote>
+<p>Application program that provides interface identical to underlying hardware so that it can run other operating systems, unmodified</p>
+<h4 class="header"><i>2.1.4</i>Paravirtualisation<a class="headerlink" href="#paravirtualisation" name="paravirtualisation">&para;</a></h4>
+<blockquote>
+<p>What is paravirtualisation</p>
+</blockquote>
+<p>When the interface is similar but not identical to the underlying hardware. Smaller virtualisation layer, more efficient use of resources. The guest OS must be modified, though.</p>
+<h4 class="header"><i>2.1.5</i>Bootloaders<a class="headerlink" href="#bootloaders" name="bootloaders">&para;</a></h4>
+<blockquote>
+<p>Why in ROM and not RAM</p>
+</blockquote>
+<p>Well, RAM is volatile, don't know what state it could be in when you start up a system. Also, ROM needs no initialisation and cannot easily be infected with a virus.</p>
+<h3 class="header"><i>2.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_1" name="answers-to-textbook-exercises_1">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Question 2.5<a class="headerlink" href="#question-25" name="question-25">&para;</a></h4>
+<blockquote>
+<p>5 file-management activities of an OS</p>
+</blockquote>
+<p>Creating, deleting, renaming, copying, listing</p>
+<h4 class="header"><i>2.2.2</i>Question 2.6<a class="headerlink" href="#question-26" name="question-26">&para;</a></h4>
+<blockquote>
+<p>Pros/cons of using the same system call interface for manipulating files and devices?</p>
+</blockquote>
+<p>Pros: easier to use and remember</p>
+<p>Cons: more overhead maybe? some things aren't really applicable to both</p>
+<h4 class="header"><i>2.2.3</i>Question 2.9<a class="headerlink" href="#question-29" name="question-29">&para;</a></h4>
+<blockquote>
+<p>Why is separation of mechanism and policy desirable</p>
+</blockquote>
+<p>Easier to change</p>
+<h4 class="header"><i>2.2.4</i>Question 2.14<a class="headerlink" href="#question-214" name="question-214">&para;</a></h4>
+<blockquote>
+<p>Advantages of using virtual machines</p>
+</blockquote>
+<p>For the user: can run multiple OSes at a time, they're all isolated (so more secure), easier and faster to set up</p>
+<h2 class="header"><i>3</i>Chapter 3: Processes<a class="headerlink" href="#chapter-3-processes" name="chapter-3-processes">&para;</a></h2>
+<ul>
+<li>Process includes:<ul>
+<li>program counter</li>
+<li>stack (for temporary data - function params, return addresses)</li>
+<li>data section (global variables)</li>
+</ul>
+</li>
+<li>in memory, we have:<ul>
+<li>stack</li>
+<li>heap, which grows upwards as the stack grows downwards (towards each other), it doesn't seem to count though</li>
+<li>data section</li>
+<li>text (program code)</li>
+</ul>
+</li>
+<li>process states:<ul>
+<li>new: being created</li>
+<li>ready: waiting to be assigned to a processor</li>
+<li>running: being executed</li>
+<li>waiting: waiting for something to occur (e.g., I/O completion, signal reception)</li>
+<li>terminated: done</li>
+</ul>
+</li>
+<li>only one process can be running on one processor at a time</li>
+<li>process control block, data structure in OS kernel, for storing process info; includes:<ul>
+<li>process state</li>
+<li>program counter (address of next instruction)</li>
+<li>CPU registers</li>
+<li>CPU scheduling info</li>
+<li>memory management info</li>
+<li>accounting info (CPU used, time used, process number, etc - stuff you see using <code>top</code>)</li>
+<li>I/O status info (list of devices allocated and open files)</li>
+<li>(the first three are saved when interrupt occurs)</li>
+</ul>
+</li>
+<li>switching between processes<ul>
+<li>CPU executes process, then along comes an interrupt of some sort</li>
+<li>the process state is saved into PCB<sub>0</sub></li>
+<li>OS handles interrupt</li>
+<li>now it's time for another process, which uses PCB<sub>1</sub> to execute</li>
+<li>OS loads state from PCB<sub>1</sub>, then the other process executes</li>
+<li>etc</li>
+</ul>
+</li>
+<li>process scheduling queues (implemented via linked lists)<ul>
+<li>job queue: set of all processes in system</li>
+<li>ready queue: set of all processes residing in main memory that are ready to execute</li>
+<li>device queues: set of processes waiting for each I/O device</li>
+<li>processes migrate between queues (or rather, the PCBs do)</li>
+</ul>
+</li>
+<li>schedulers<ul>
+<li>long-term scheduler: decides which processes should be loaded from disk and brought into the ready queue (in memory)<ul>
+<li>invoked very infrequently, can be slow</li>
+<li>controls degree of multiprogramming</li>
+</ul>
+</li>
+<li>short-term scheduler: decides which process should be executed next and allocates CPU for it<ul>
+<li>invoked frequently, must be fast</li>
+</ul>
+</li>
+<li>medium-term scheduler: removes processes from memory to reduce degree of multiprogramming</li>
+</ul>
+</li>
+<li>I/O-bound: more time spent doing I/O (so many short CPU bursts); CPU-bound: more time doing computations (so long CPU bursts)</li>
+<li>context switching<ul>
+<li>info saved in PCB</li>
+<li>overhead, no useful work done</li>
+</ul>
+</li>
+<li>creating process babies<ul>
+<li>parent processes create child processes, and so on (--&gt; tree)</li>
+<li>processes identified by pid, integer</li>
+<li>different resource sharing schemes:<ul>
+<li>parent, child share all</li>
+<li>child has access to some of parent's</li>
+<li>parent, child share nothing</li>
+</ul>
+</li>
+<li>different execution schemes:<ul>
+<li>concurrent execution</li>
+<li>parent waits until children die</li>
+</ul>
+</li>
+<li>child is first a duplicate of parent, with the same program and data, then has a new program loaded into it</li>
+<li>UNIX examples<ul>
+<li>fork: new process, identical to parent</li>
+<li>exec: after fork, process' memory space replaced by new program</li>
+</ul>
+</li>
+<li>solaris example<ul>
+<li>root of tree: scheduler, pid = 0; creates other processes, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>termination<ul>
+<li>after a process executes its last statement, it asks the OS to delete it (<code>exit</code>)</li>
+<li>return status is passed to the parent, if the parent used <code>wait</code></li>
+<li>OS deallocates the process' resources</li>
+<li>parents can abort their children - reasons include<ul>
+<li>child is using too many resources</li>
+<li>whatever the child is doing is no longer useful</li>
+</ul>
+</li>
+<li>if parent exists, the children may all be terminated (depends on OS)</li>
+</ul>
+</li>
+<li>inter-process communication<ul>
+<li>processes can be independent or cooperating</li>
+<li>cooperating processes can share data, etc - need communication</li>
+<li>shared memory, via some location in memory accessible by both processes</li>
+<li>message passing, via kernel</li>
+<li>producer-consumer problem: which paradigm to use?<ul>
+<li>unbounded buffer vs bounded buffer</li>
+<li>if bounded (which is the only feasible one really), producer needs to wait if full; consumer, if empty (in all cases)</li>
+<li>shared memory solution for a bounded (circular) buffer:<ul>
+<li>save a pointer to the first free position (in), and a pointer to the first full position (out)</li>
+<li>producer: while there are no free buffers, wait; when there are, add an item, increase the pointer to the first free position</li>
+<li>consumer: while there are no items, wait; when there are, remove an item, increase the pointer to the first full position</li>
+</ul>
+</li>
+<li>can only use BUFFER_SIZE - 1 elements</li>
+<li>empty when in == out</li>
+<li>full when (int + 1) % BUFFER_SIZE == out</li>
+</ul>
+</li>
+<li>message passing:<ul>
+<li>IPC facility provides <code>send</code>, <code>receive</code> functions</li>
+<li>if processes P and Q want to communicate, they first establish a link, then exchange messages</li>
+<li>can be direct (must explicitly name the other process) or indirect (using mailboxes)</li>
+<li>direct communication links:<ul>
+<li><code>send(P, message)</code> and <code>receive(Q, message)</code></li>
+<li>each link associated with exactly 2 processes</li>
+<li>between two processes there can be at most one link</li>
+<li>can be unidirectional or bidirectional (more common)</li>
+<li>disadvantages: hard-coded identity, hard to make changes later</li>
+</ul>
+</li>
+<li>indirect:<ul>
+<li>"mailboxes"; but really, just ports lol</li>
+<li>each port has unique ID</li>
+<li>processes can only communicate if they share a common port</li>
+<li>link can be associated with many processes</li>
+<li>each pair of processes can share several links</li>
+<li>can be uni or bidirectional</li>
+<li>operations: create mailbox, send/receive, destory</li>
+<li><code>send(A, message)</code> where A is the mailbox, etc</li>
+</ul>
+</li>
+<li>link: only two processes?</li>
+<li>only one process can execute receive operation at a time?</li>
+<li>round-robin scheme - sender throws it out randomly, some receiver gets it, sender gets notified as to who</li>
+</ul>
+</li>
+<li>message passing: blocking or not, on part of sender or receiver</li>
+<li>queue of messages attached to link<ul>
+<li>zero capacity: sender waits for receiver (rendez-vous)</li>
+<li>bounded (finite) capacity: sender waits if queue full</li>
+<li>unbounded (infinite) capacity: sender never waits, is this even possible?</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li>POSIX shared memory<ul>
+<li>process creates shared memory segment, returns an ID</li>
+<li>processes wanting access to that segment must attach to it by ID (call returns pointer)</li>
+<li>can write to that memory segment (using the pointer)</li>
+<li>can detach it from its address space when done</li>
+</ul>
+</li>
+<li>Mach:<ul>
+<li>message-based (everything! even system calls)</li>
+<li>all tasks are created with 2 mailboxes (which are created with <code>port_allocate()</code>: kernel, and notify</li>
+<li>three system calls: <code>msg_send</code>, <code>msg_receive</code>, <code>msg_rpc</code> (remote procedure call, to execute something elsewhere)</li>
+</ul>
+</li>
+<li>Windows XP:<ul>
+<li>message-based using "local procedure call" (can only be used by local processes)</li>
+<li>communication channels established using ports (sort of like mailboxes)</li>
+<li>client opens handle to subsystem's connection port, sends a connect request</li>
+<li>server creates two private communication ports, sends one to client, keeps the other one</li>
+<li>corresponding ports are used by server and client to send/receive messages</li>
+<li>INSERT DIAGRAM LATER</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client-server communication<ul>
+<li>sockets (endpoints for communication)<ul>
+<li>IP address + port</li>
+<li>different services listen on different ports, e.g. ssh on 22, typical web servers on 80, etc</li>
+</ul>
+</li>
+<li>remote-procedure calls<ul>
+<li>allows clients to invoke a procedure on a remote host as if it were local</li>
+<li>client-side stub locates server, marshalls parameters, sends them over (underlying details abstracted)</li>
+<li>server-side stub receives messages, unmarshalls parameters, performs procedure</li>
+<li>INSERT DIAGRAM LATER (or describe it at least)</li>
+</ul>
+</li>
+<li>remote method invocation (java only)<ul>
+<li>java program on one machine can call a method on a remote java object</li>
+<li>basically the same as RMI except there are objects involved</li>
+<li>THERE IS A DIAGRAM HERE. it doesn't really say much though. look it over anyway</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.1</i>Sample questions<a class="headerlink" href="#sample-questions_2" name="sample-questions_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Processes in memory<a class="headerlink" href="#processes-in-memory" name="processes-in-memory">&para;</a></h4>
+<blockquote>
+<p>What is associated with process in memory etc</p>
+</blockquote>
+<p>Stack (which grows downward), heap (which grows upward), data section (for global variables), text (program code)</p>
+<h4 class="header"><i>3.1.2</i>Process states<a class="headerlink" href="#process-states" name="process-states">&para;</a></h4>
+<blockquote>
+<p>Five process states?</p>
+</blockquote>
+<p>New, ready, running, waiting, terminated</p>
+<h4 class="header"><i>3.1.3</i>Process control blocks<a class="headerlink" href="#process-control-blocks" name="process-control-blocks">&para;</a></h4>
+<blockquote>
+<p>What's contained in a PCB, and which of these things are saved (updated) when an interrupt occurs?</p>
+</blockquote>
+<ul>
+<li>Process state</li>
+<li>Program counter</li>
+<li>CPU registers</li>
+<li>CPU scheduling info</li>
+<li>Memory management info</li>
+<li>Accounting info</li>
+<li>I/O status info</li>
+</ul>
+<p>First three are saved when an interrupt occurs</p>
+<h4 class="header"><i>3.1.4</i>Process scheduling queues<a class="headerlink" href="#process-scheduling-queues" name="process-scheduling-queues">&para;</a></h4>
+<blockquote>
+<p>Types of queues? What are the elements of these queues?</p>
+</blockquote>
+<p>Job queue (all processes), ready queue (those residing in main memory that are ready to execute), device queues (those waiting for each I/O device, so a different one for each device). Elements: PCBs</p>
+<h4 class="header"><i>3.1.5</i>Schedulers<a class="headerlink" href="#schedulers" name="schedulers">&para;</a></h4>
+<blockquote>
+<p>Describe the types of schedulers and how often they're invoked, etc.</p>
+</blockquote>
+<p>Long-term scheduler: decides which processes to bring into main memory (ready queue), invoked infrequently</p>
+<p>Short-term scheduler: which process should be executed next (from ready queue to CPU), invoked frequently</p>
+<p>There is also a medium-term scheduler which is probably less important but apparently it removes processes from memory once in a while.</p>
+<h4 class="header"><i>3.1.6</i>I/O and CPU bound processes<a class="headerlink" href="#io-and-cpu-bound-processes" name="io-and-cpu-bound-processes">&para;</a></h4>
+<blockquote>
+<p>What is an I/O-bound process? What is a CPU bound process?</p>
+</blockquote>
+<p>I/O-bound: spends a lot of time doing I/O (and thus waiting for that). Characterised by many short CPU bursts.</p>
+<p>CPU-bound: guess</p>
+<h4 class="header"><i>3.1.7</i>Context switching<a class="headerlink" href="#context-switching" name="context-switching">&para;</a></h4>
+<blockquote>
+<p>What happens during context switching</p>
+</blockquote>
+<p>Registers, PC, process state saved in PCB (no useful work done)</p>
+<h4 class="header"><i>3.1.8</i>Forking and execing<a class="headerlink" href="#forking-and-execing" name="forking-and-execing">&para;</a></h4>
+<blockquote>
+<p>What does <code>fork</code> do, and how does it differ from <code>exec</code></p>
+</blockquote>
+<p>Fork creates a new process identical to the parent. Exec uses fork, then replaces the child process' memory space with that of a new program.</p>
+<h4 class="header"><i>3.1.9</i>Abortion<a class="headerlink" href="#abortion" name="abortion">&para;</a></h4>
+<blockquote>
+<p>Why would a parent abort a child?</p>
+</blockquote>
+<p>If the child is consuming too many resources (e.g., milk) or the child is not doing anything useful (a very common occurrence).</p>
+<h4 class="header"><i>3.1.10</i>Inter-process communication<a class="headerlink" href="#inter-process-communication" name="inter-process-communication">&para;</a></h4>
+<blockquote>
+<p>How can two processes communicate and shit (the two main methods)</p>
+</blockquote>
+<p>Message-passing and shared mailboxes</p>
+<h4 class="header"><i>3.1.11</i>Producer-consumer problem<a class="headerlink" href="#producer-consumer-problem" name="producer-consumer-problem">&para;</a></h4>
+<blockquote>
+<p>Describe the bounded buffer thing.</p>
+</blockquote>
+<p>in: pointer to first free position; out: pointer to first full position</p>
+<p>Producer needs to wait when full (when (in + 1) % BUFFER_SIZE == out). Otherwise, add an item, increase in.</p>
+<p>Consumer needs to wait when empty (when in == out). Othewise, remove an item, increase out.</p>
+<h4 class="header"><i>3.1.12</i>Direct communication<a class="headerlink" href="#direct-communication" name="direct-communication">&para;</a></h4>
+<blockquote>
+<p>Describe direct communication. Advantages? Disadvantages?</p>
+</blockquote>
+<p>A process specifies another process by name, establishes a link between the two. Advantages: simple; disadvantages: hard-coded identity, hard to make changes later</p>
+<h4 class="header"><i>3.1.13</i>Indirect communication<a class="headerlink" href="#indirect-communication" name="indirect-communication">&para;</a></h4>
+<blockquote>
+<p>what is it</p>
+</blockquote>
+<p>Ports ("mailboxes"), each has unique ID, processes put shit in ports</p>
+<h4 class="header"><i>3.1.14</i>Round-robin communication<a class="headerlink" href="#round-robin-communication" name="round-robin-communication">&para;</a></h4>
+<blockquote>
+<p>what is it</p>
+</blockquote>
+<p>Sender randomly throws a message into the air, some receiver gets it and consequently will be the next to get married. Sender gets notified as to who.</p>
+<h4 class="header"><i>3.1.15</i>Message queues<a class="headerlink" href="#message-queues" name="message-queues">&para;</a></h4>
+<blockquote>
+<p>Types of queues (for messages, attached to link)?</p>
+</blockquote>
+<ul>
+<li>Zero capacity (sender must wait for receiver - they must meet)</li>
+<li>Bounded (sender waits if queue is full)</li>
+<li>Unbounded (sender never waits, but this isn't really feasible lol)</li>
+</ul>
+<h4 class="header"><i>3.1.16</i>IPC in various operating systems<a class="headerlink" href="#ipc-in-various-operating-systems" name="ipc-in-various-operating-systems">&para;</a></h4>
+<blockquote>
+<p>Describe IPC implementations for POSIX, Mach, Windows XP.</p>
+</blockquote>
+<p>POSIX: shared memory. Process creates shared memory segment, which returns an ID. Processes wanting access to that segment attach to it by ID (this function returns a pointer to that memory segment), and can then write to it using the pointer. Can detach from segment when done.</p>
+<p>Mach: message-based (everything is, even system calls). All tasks are created with 2 mailboxes.</p>
+<p>Windows XP: message-based using local procedure call. Communication channels established using ports. Whatever</p>
+<h4 class="header"><i>3.1.17</i>Client-server communication<a class="headerlink" href="#client-server-communication" name="client-server-communication">&para;</a></h4>
+<blockquote>
+<p>What does a socket consist of</p>
+</blockquote>
+<p>IP address and port</p>
+<h4 class="header"><i>3.1.18</i>Remote procedure calls<a class="headerlink" href="#remote-procedure-calls" name="remote-procedure-calls">&para;</a></h4>
+<blockquote>
+<p>What is this, how does it differ from remote method invocation</p>
+</blockquote>
+<p>Allows clients to invoke procedures on remote hosts as if they were local. Client-side "stub" locates server, marshalls parameters, sends them over; server-side stub unmarshalls, executes procedure.</p>
+<p>Remote method invocation is a Java-only thing that allows programs on one machine to call methods on remote objects. Same as above except, objects.</p>
+<h3 class="header"><i>3.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_2" name="answers-to-textbook-exercises_2">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>Question 3.5<a class="headerlink" href="#question-35" name="question-35">&para;</a></h4>
+<blockquote>
+<p>Pros and cons of: (a) sync/async communication; (b) automatic and explicit buffering; (c) send by copy and send by reference; (d) fixed-size and variable-size messages.</p>
+</blockquote>
+<p>(a) sync is blocking, so it can slow down processes. Sometimes it's necessary though.</p>
+<p>(b) Explicit buffering has to be dealt with by the programmer, and it can be cumbersome; however, it's easier to fine-tune it to the requirements of the program.</p>
+<p>(c) Send-by-copy results in more time/memory used (to copy it), but it means that the original isn't modified</p>
+<p>(d) Fixed-size easier to deal with for the receiver maybe? Could be wasteful of space though</p>
+<p>The rest of the questions in this chapter are insane</p>
+<h2 class="header"><i>4</i>Chapter 4: Threads<a class="headerlink" href="#chapter-4-threads" name="chapter-4-threads">&para;</a></h2>
+<ul>
+<li>Thread: unit of CPU utilisation, forms basis of multithreaded computers<ul>
+<li>things unique to each thread: thread ID, program counter, register set, stack</li>
+<li>things threads from the same process share: code, data (statically-created variables), OS resources (open files, signals)</li>
+<li>single-threaded process: code + data + files, then registers + stack</li>
+<li>multi-threaded: code + data + files, then each thread gets its own registers and stack</li>
+<li>Benefits of threading<ul>
+<li>Greater responsiveness (if one thread is blocked or busy, can keep going - e.g., webservers)</li>
+<li>Resource sharing (memory, other resources)</li>
+<li>Cheapter than creating new processes in terms of allocating memory and resources (context-switching is easier)</li>
+<li>Scalability: threads can run in parallel on multiple processors (I don't really see how this is best characterised as "scalability"; perhaps making full use of resources?)<em> scalable in term of webserver, you can throw more hardware at it and it will run to respond to more web request. I guess it is also more independent and volatile.</em></li>
+</ul>
+</li>
+<li>In the client-server model: client sends request, server spawns new thread to handle request, server resumes listening for requests</li>
+</ul>
+</li>
+<li>Single vs. multicore<ul>
+<li>on a single-core system, threads are allocated in a cycle: t1, t2, t3, t4, t1, t2, t3, t4 etc (this is what is meant by concurrency apparently?)</li>
+<li>on a multicore system, concurrency means that threads are actually executed at the same time. could be t1 t3 t1 t3 on one core, t2 t4 t2 t4 on the other, etc</li>
+<li>challenges of multicore systems:<ul>
+<li>how to divide up activities? need to find parts of application that can be divided into smaller tasks that can run in parallel</li>
+<li>how to split data? must be divided to run on separate cores (? how does this make sense)<em>check map reduce,data must be able to be processed in a divide and conquered way, like merge sort or some other polynomial algorithm=same processing step executed by looping entry of some array which is independent of each other.</em> </li>
+<li>data dependency: what if one task depends on the results of another?</li>
+<li>testing/debugging: many different execution paths</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>user-level thread libraries:<ul>
+<li>POSIX threads</li>
+<li>win32 threads</li>
+<li>Java threads</li>
+</ul>
+</li>
+<li>Kernel threads: handled by the kernel</li>
+<li>Multithreading models, per process (user-to-kernel):<ul>
+<li>many-to-one (many user-level, single kernel)<ul>
+<li>examples: solaris green threads library, gnu portable threads</li>
+<li>thread management done by user space thread library (efficient)</li>
+<li>but only thread can access the kernel at a time, so if any user thread makes a blocking syscall entire process will block</li>
+</ul>
+</li>
+<li>one-to-one (one kernel thread per user thread)<ul>
+<li>examples: windows nt/xp/2000, linux, solaris 9+</li>
+<li>benefits: more concurrency (syscalls are not blocking for other threads)</li>
+<li>downsides: can result in decreased performance as you have to create many kernel threads, etc</li>
+<li>also, some OSes limit the number of kernel threads possible at any given time</li>
+</ul>
+</li>
+<li>many-to-many<ul>
+<li>examples: solaris before 9, windows nt/2000 with threadfiber package (how cute)</li>
+<li>many user threads mapped to the same number of or fewer kernel threads</li>
+<li>OS can create as many user threads as it needs to, since it doesn't have to create a kernel thread for each one</li>
+<li>true concurrency: corresponding kernel threads can run in parallel on a multiprocessor (what does this have to do with anything)</li>
+</ul>
+</li>
+<li>two-level model<ul>
+<li>examples: IRIX, HP-UX, Tru64 unix, solaris before 9</li>
+<li>like the many-to-many model, except user threads can be bound to kernel threads as well (so a superset of many-to-many)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread libraries<ul>
+<li>APIs for creating, managing threads</li>
+<li>can be implemented in user space<ul>
+<li>calling a function in library results in a local call (not sys call) in user space</li>
+</ul>
+</li>
+<li>or, using the kernel-level library provided by OS<ul>
+<li>code, data structures of library exist in kernel space</li>
+<li>invoking APi function usually results in sys call</li>
+</ul>
+</li>
+<li>pthreads: a POSIX standard for APIs for thread creation and sync<ul>
+<li>provided as user-level or kernel-level</li>
+<li>the behaviour is specified by this standard, but it can be implemented differently by different OSes</li>
+<li>examples: Solaris, Mac OS X, FreeBSD, Linux (there is even a windows implementation)</li>
+</ul>
+</li>
+<li>Java threads<ul>
+<li>managed by the JVM, implemented using underlying thread library provided by OS</li>
+<li>these threads can be created by extending the <code>Thread</code> class or implementing the <code>Runnable</code> interface</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>various issues (and non-issues) relating to threads<ul>
+<li>behaviour of <code>fork()</code><ul>
+<li>should it duplicate only the calling thread or all threads of that process?</li>
+<li>some unix systems thus have two versions of <code>fork()</code></li>
+<li><code>exec</code>, when invoked by a thread, will replace all the threads in that process. wait wtf? how? and why is this relevant to fork? <em>I think it is more about, if we duplicate process,how does it affect the thread in the resulting process, is it duplicated, or just restart, or ignored....</em></li>
+</ul>
+</li>
+<li>thread cancellation (premature termination)<ul>
+<li>how to deal with resource allocation, or if it's updating a data segment shared by other threads?</li>
+<li>asynchronous cancellation: terminates the thread immediately (bit of a misleading name)</li>
+<li>deferred cancellation: thread periodically checks if it should be cancelled, giving it the chance to die nobly<ul>
+<li>aside: signal handling (i think this section should count as an aside, even though it has its own slide)</li>
+<li>signal handlers used to notify processes that specific events (e.g., kill events) have occurred</li>
+<li>event generates signal, signal gets delivered to process, signal is handled</li>
+<li>many options as to whom the signal is delivered to:<ul>
+<li>only the relevant thread</li>
+<li>every thread in the process to which the relevant thread belongs</li>
+<li>certain threads in the relevant process</li>
+<li>a specific thread that receives all signals for the process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread pools<ul>
+<li>create some threads, throw them into a pool in which they wait around for work to be doled out, the poor creatures</li>
+<li>faster to make an existing thread service a request than to create a new thread</li>
+<li>number of threads in application bounded by the size of the pool</li>
+<li>of course, this has the slight disadvantage of having to create all the threads at the very beginning (slower startup maybe)</li>
+</ul>
+</li>
+<li>thread-specific data<ul>
+<li>so that each thread can have its own copy of data</li>
+<li>supported by most threading libraries</li>
+<li>e.g., transaction system (?)</li>
+</ul>
+</li>
+<li>scheduler activation: scheme for communication between a user-thread library and the kernel<ul>
+<li>both the many-to-many and the two-level models require communication to ensure correct number of kernel threads</li>
+<li>the mechanism for this communication is via upcalls (like the opposite of a system call?), from the kernel to the thread library</li>
+<li>for indicating that a user thread is about to block</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>threads in different OSes<ul>
+<li>windows XP<ul>
+<li>each app runs as a separate process</li>
+<li>each can have one or more threads</li>
+<li>thread library included in win32 api, one-to-one</li>
+<li>fiber library (many-to-many) available too</li>
+<li>each thread contains thread ID, register set, separate user/kernel stacks, private data storage area (last three collectively known as context)</li>
+<li>primary data structures of a thread:<ul>
+<li>ethread: executive thread block (thread start address, pointer to parent block, pointer to kthread) - kernel space</li>
+<li>kthread: kernel thread block (scheduling and sync info, kernel stack, pointer to teb) - kernel space</li>
+<li>teb: thread environment block (thread identifier, user stack, thread-local storage) - user space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linux<ul>
+<li>called tasks not threads</li>
+<li>one-to-one</li>
+<li>threads created by calling <code>clone()</code> (allows child task to share address space of parent task, or process)</li>
+<li>amount of sharing that takes place is controlled by flags<ul>
+<li>CLONE_FS: file-system info shared</li>
+<li>CLONE_VM: same memory space</li>
+<li>CLONE_SIGHAND: share signal handlers</li>
+<li>CLONE_FILES: share open files (how does this differ from CLONE_FS?)</li>
+</ul>
+</li>
+<li>NPTL (Native POSIX Thread Library) supported by most modern distros, POSIX-compliant</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.1</i>Sample questions<a class="headerlink" href="#sample-questions_3" name="sample-questions_3">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Things associated with threads<a class="headerlink" href="#things-associated-with-threads" name="things-associated-with-threads">&para;</a></h4>
+<blockquote>
+<p>What is unique to each thread? What do threads from the same process share?</p>
+</blockquote>
+<p>Unique: Thread ID, program counter, register set, stack</p>
+<p>Shared: code, data (statically-created variables), OS resources (open files, signals)</p>
+<h4 class="header"><i>4.1.2</i>Benefits of threading<a class="headerlink" href="#benefits-of-threading" name="benefits-of-threading">&para;</a></h4>
+<blockquote>
+<p>^</p>
+</blockquote>
+<ul>
+<li>More responsive</li>
+<li>Can share memory, other resources</li>
+<li>Cheaper than creating processes, context-switching is easier</li>
+<li>More scalable? for multiple processors</li>
+</ul>
+<h4 class="header"><i>4.1.3</i>Multithreading models<a class="headerlink" href="#multithreading-models" name="multithreading-models">&para;</a></h4>
+<blockquote>
+<p>What are the multithreading models, describe them, pros, cons, etc</p>
+</blockquote>
+<ul>
+<li>Many-to-one (many user-level threads per kernel thread). Only one thread can access kernel at each time, so if one thread makes a blocking call, entire process blocks</li>
+<li>One-to-one (one kernel per user): not blocking so more concurrency, but decreased performance as you have to create many kernel threads; also, some OSes limit number of kernel threads that can be created, so the number of user threads is limited too</li>
+<li>Many-to-many (many user to some kernel): true concurrency, OS can create as many user threads as it wants, etc. Variant: two-level model, where you can have one user thread per kernel thread maybe</li>
+</ul>
+<h4 class="header"><i>4.1.4</i>Thread cancellation<a class="headerlink" href="#thread-cancellation" name="thread-cancellation">&para;</a></h4>
+<blockquote>
+<p>Different methods for dealing with thread cancellation</p>
+</blockquote>
+<p>Asynchronous: terminates it immediately</p>
+<p>Deferred: thread periodically checks to see if it should be cancelled</p>
+<h4 class="header"><i>4.1.5</i>Thread pools<a class="headerlink" href="#thread-pools" name="thread-pools">&para;</a></h4>
+<blockquote>
+<p>What are thread pools, pros and cons</p>
+</blockquote>
+<p>Create a bunch of threads, throw them into a pool. There they wait to be given stuff to do. Pros: faster for existing thread to service request than to make a new thread. Cons: increased startup time to create all the threads, etc</p>
+<h3 class="header"><i>4.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_3" name="answers-to-textbook-exercises_3">&para;</a></h3>
+<h4 class="header"><i>4.2.1</i>Question 4.4<a class="headerlink" href="#question-44" name="question-44">&para;</a></h4>
+<blockquote>
+<p>Which of the following components of program state are shared across threads in a multithreaded process?</p>
+</blockquote>
+<p>Heap memory, global variables. Stack, registers are per-thread.</p>
+<h2 class="header"><i>5</i>Chapter 5: CPU scheduling<a class="headerlink" href="#chapter-5-cpu-scheduling" name="chapter-5-cpu-scheduling">&para;</a></h2>
+<ul>
+<li>Multiprogramming - needed for efficiency; ensures that CPU always has something to do<ul>
+<li>only a <strong>subset of all jobs kept in memory</strong>; <strong>one</strong> job is selected and <strong>run at a time</strong>, via job scheduling</li>
+<li>when the OS has to wait (e.g. for I/O device), it switches to another job</li>
+<li>maximum CPU utilisation is attained this way</li>
+<li>CPU-I/O burst cycle: CPU executes, then waits for I/O (cycle)</li>
+<li>for ex, do some calculations (CPU), read from file (I/O), do more calculations (CPU), write back to file (I/O), etc</li>
+<li>most CPU bursts are really short<ul>
+<li>you really need to think that <em>processing</em> and <em>I/O</em> are two different jobs, even they are in the same program</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CPU scheduler<ul>
+<li>short-term: looks through ready-to-execute processes in memory and selects one for the CPU to run next<ul>
+<li>can take place when a process is switching from running to waiting (I/O), or is terminating (non-preemptive in this case - no other choice, has to find another program to run)</li>
+<li>or, when from running to ready (interrupt), or waiting to ready (completion of I/O) - preemptive, because why? what?--&gt; scheduler dispatcher</li>
+</ul>
+</li>
+<li>dispatcher<ul>
+<li>gives the new process selected by the scheduler control of the CPU</li>
+<li>requires switching context, switching to user mode, and jumping to the proper location in the user program</li>
+</ul>
+</li>
+<li>things to consider when designing a scheduling algorithm, slash choosing processes (which is it? can it be both??):<ul>
+<li><strong>maximise cpu utilisation</strong>: keep CPU as <strong>busy</strong> as possible</li>
+<li><strong>maximise throughput</strong>: number of processes <strong>completing per unit of time</strong></li>
+<li><strong>minimise turnaround time</strong>: amount of <strong>time</strong> it takes for a process <strong>to complete, start to finish</strong></li>
+<li><strong>minimise waiting time</strong>: amount of <strong>time</strong> process has been <strong>waiting in the ready queue</strong></li>
+<li><strong>minimise response time</strong>: time taken from <strong>request submission until response</strong> (think interactive process, gui, it give impression it is instantaneous, but it is just doing a little bit all the time; or in networking, instead of downloading an image in one shot and showing it to you after it finish downloading, showing you bit and bit of it in case you are not interested...)</li>
+</ul>
+</li>
+<li>types of scheduling<ul>
+<li><strong>first-come, first-served</strong><ul>
+<li>ex: P1 has burst time of 24, P2 of 3, P3 of 3</li>
+<li>If they arrive in order, then, Gantt chart: P1 from 0 to 24, P2 from 24 to 27, P3 from 27 to 30</li>
+<li>average waiting time: <span>$(0 + 24 + 27) / 3 = 17$</span></li>
+<li>If they arrive like P2 P3 P1, then, Gantt chart of P2 from 0 to 3, P3 from 3 to 6, P1 from 6 to 30</li>
+<li>average waiting time: <span>$(0 + 3 + 6) / 3 = 3$</span> - much better!</li>
+<li>known as the <strong>convoy effect</strong>: short processes waiting for long processes, etc</li>
+</ul>
+</li>
+<li><strong>shortest-job first</strong><ul>
+<li>optimal, but, knowing length of request is hard (estimate, <strong>exponential averaging</strong> : <span>$estimatedET_{n+1}=actualET_n * alpha+estimatedET_n * (1-alpha))$</span></li>
+<li>only takes last burst into account</li>
+</ul>
+</li>
+<li><strong>priority scheduling</strong><ul>
+<li>SJF is priority</li>
+<li>problem: starvation, low-priority jobs never execute</li>
+<li>solution: aging, increase priority with age</li>
+</ul>
+</li>
+<li><strong>round-robin</strong><ul>
+<li>everything gets max q units of number of time</li>
+<li>with lots of jobs, equivalent to FIFO</li>
+<li>preemptive</li>
+<li>small amount of CPU time</li>
+<li>time unit must be large compared to context switch time or overhead is too high</li>
+<li>higher turnaround than SJF, better response (which decreases as time quantum increases)</li>
+</ul>
+</li>
+<li><strong>multi-level queue</strong><ul>
+<li>foreground: RR, background, FCFS</li>
+<li>each has its own scheduling algorithm</li>
+<li>processes permanently assigned to a queue</li>
+<li>scheduling done between queues</li>
+<li>fixed priority (foreground first, then background): possibility of starvation</li>
+<li>time slice: 80% to foreground, 20% background</li>
+</ul>
+</li>
+<li><strong>multi-level feedback queue</strong><ul>
+<li>2 RRs, different q, and FCFS</li>
+<li>low q, then high q, then FCFS</li>
+</ul>
+</li>
+<li><strong>thread scheduling</strong><ul>
+<li>distinguishes between user, kernel threads</li>
+<li>process-contention scope, scheduling competition is within the process</li>
+<li>system-contention scope: kernel thread has all the other threads in system to compete with</li>
+</ul>
+</li>
+<li><strong>Multi-processor scheduling</strong><ul>
+<li>homogeneous processors</li>
+<li>asymmetric</li>
+<li>symmetric</li>
+<li>processor affinity (hard/soft)</li>
+<li>complications: non-uniform memory access, etc</li>
+<li>multicore processors: cores on same chip, faster and less power, but scheduling is harder</li>
+<li>memory stall: when processor accesses memory, spends a lot of time waiting</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>windows XP<ul>
+<li>priority based, preemptive</li>
+</ul>
+</li>
+<li>linux<ul>
+<li>same, constant-time, smaller priority values --&gt; higher priority (like, runs first)</li>
+</ul>
+</li>
+<li>evaluating algos<ul>
+<li>deterministic modeling</li>
+<li>simulation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>5.1</i>Sample questions<a class="headerlink" href="#sample-questions_4" name="sample-questions_4">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>Short-term scheduling<a class="headerlink" href="#short-term-scheduling" name="short-term-scheduling">&para;</a></h4>
+<blockquote>
+<p>When is the short-term scheduler invoked?</p>
+</blockquote>
+<p>When an executing process is forced to wait (e.g., for the completion of I/O), or is terminating.</p>
+<h4 class="header"><i>5.1.2</i>Scheduling algorithm factors<a class="headerlink" href="#scheduling-algorithm-factors" name="scheduling-algorithm-factors">&para;</a></h4>
+<blockquote>
+<p>What are the factors that should be considered when designing a scheduling algorithm?</p>
+</blockquote>
+<ul>
+<li>CPU utilisation: should be maximised</li>
+<li>Throughput (process completing / time): max</li>
+<li>Turnaround time (time taken for the average (?) process to complete): min</li>
+<li>Waiting time (time a process waits in the ready queue): min</li>
+<li>Response time (time it takes for a process to be <em>responsive</em><sup id="fnref:response time"><a href="#fn:response time" rel="footnote" title="The textbook definition never really made sense to...">5</a></sup>): min</li>
+</ul>
+<h3 class="header"><i>5.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_4" name="answers-to-textbook-exercises_4">&para;</a></h3>
+<h4 class="header"><i>5.2.1</i>Question 5.5<a class="headerlink" href="#question-55" name="question-55">&para;</a></h4>
+<blockquote>
+<p>Which of the following scheduling algorithms could result in starvation? FCFS, SJF, RR, priority.</p>
+</blockquote>
+<p>Not FCFS. SJF could unless you add aging (in which case it's called priority). Not RR. MLQ could, incidentally.</p>
+<h4 class="header"><i>5.2.2</i>Question 5.8<a class="headerlink" href="#question-58" name="question-58">&para;</a></h4>
+<blockquote>
+<p>Consider a system implementing multilevel queue scheduling. What strategy can a computer user employ to maximize the amount of CPU time allocated to the user's process?</p>
+</blockquote>
+<p>Don't run background processes?</p>
+<h4 class="header"><i>5.2.3</i>Question 5.9<a class="headerlink" href="#question-59" name="question-59">&para;</a></h4>
+<blockquote>
+<p>Question omitted</p>
+</blockquote>
+<p>(a) FCFS (aging)</p>
+<p>(b) LIFO (discriminatory aging)</p>
+<p>See <a href="http://www.csee.umbc.edu/courses/undergraduate/421/spring06/homework1-soln.pdf">http://www.csee.umbc.edu/courses/undergraduate/421/spring06/homework1-soln.pdf</a></p>
+<h4 class="header"><i>5.2.4</i>Question 5.10<a class="headerlink" href="#question-510" name="question-510">&para;</a></h4>
+<blockquote>
+<p>Explain the differences in the degree to which the following scheduling algorithms discriminate in favor of short processes.</p>
+</blockquote>
+<p>(a) FCFS: Not really. No discrimination.</p>
+<p>(b) RR: Shorter processes usually get to finish faster, and don't have to be preempted. That's it though.</p>
+<p>(c) MFQ: Depends ...</p>
+<h2 class="header"><i>6</i>Chapter 6: Process synchronisation<a class="headerlink" href="#chapter-6-process-synchronisation" name="chapter-6-process-synchronisation">&para;</a></h2>
+<ul>
+<li>need to prevent concurrent access to shared data (inconsistency can result)<ul>
+<li>to do this, need mechanisms to ensure orderly execution of processes</li>
+<li>otherwise, we get <strong>race conditions</strong> (multiple processes accessing/manipulating data concurrently)<br />
+        * consumer/producer problem <br />
+            * for example, if we just want to increment the variable x with x++<ul>
+<li>what actually happens is: set a register to x, increment the register, set x to the value of the register</li>
+<li>if this is done concurrency with another register, you'll obviously have problems</li>
+<li>to solve this: synchronisation</li>
+</ul>
+</li>
+<li>also known as the critical section problem (for n processes)<ul>
+<li>each process has a "critical section" in which common variables may be changed</li>
+<li>the solution to this problem must satisfy:<ul>
+<li><strong>mutual exclusion</strong>: only one process can be in its critical section at a time</li>
+<li><strong>progress</strong>: can't get stuck in a situation where processes are waiting to enter their critical sections but can't even though no other process is</li>
+<li><strong>bounded waiting</strong>: after a process has made a request to enter its critical section (but before it is granted), only a limited number of other processes are allowed to enter theirs. in other words, wait time should be bounded</li>
+<li>assumption: processes execute at non-zero speeds</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>peterson's solution, for <strong>2 processes</strong><ul>
+<li>assumes that LOAD, STORE instructions are atomic (which isn't always true)</li>
+<li>two shared variables: <code>turn</code>, <code>flag[2]</code></li>
+<li>algorithm:<ul>
+<li>enter a <code>while (1)</code> loop</li>
+<li>set <code>flag[i] = TRUE</code> (to indicate that you want to enter your critical section)</li>
+<li>set <code>turn = j</code> (give the other process a chance to go)</li>
+<li><code>while (flag[j] &amp;&amp; turn == j)</code>, do nothing</li>
+<li>then, enter your critical section</li>
+<li>leave it, set <code>flag[i] = FALSE</code></li>
+<li>pretty self-explanatory</li>
+</ul>
+</li>
+<li>proving that it satisfies mutex and progress is fairly simple, just think about it (contradiction)<ul>
+<li>atomic assignment ensures that processes that will fight for control and one will win</li>
+<li>if i is in the critical section, flag[j]=false or turn=i</li>
+<li>if j is in the critical section, flag[i]=false or turn=j</li>
+<li>if both process are in the critical section: flag[i]=flag[j]=true, turn=i=j;</li>
+<li>flag can only be true for one and turn can only equal one value: contradiction!!!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hardware support for synchronisation (the critical section thing)<ul>
+<li>interrupt disabling for single-processor systems<ul>
+<li>allows code that is running to execute without preemption (execution critical section will not be interrupted by "signal", in c, you can register a program to listen to a specific signal alarm, when that signal/interrupt happens, program will switch control to the signal handler...signal is per process, thus not scalable)</li>
+<li>not really feasible with multiple processors, since you have to send a message to all processors</li>
+<li>also, this isn't scalable</li>
+</ul>
+</li>
+<li>atomic hardware instructions<ul>
+<li>test memory word, set value (<code>TestAndSet</code>, what kind of capitalisation is this)<ul>
+<li>pass in a boolean</li>
+<li>the function sets the boolean variable <code>lock</code> to TRUE</li>
+<li>returns <code>lock</code>'s original value</li>
+</ul>
+</li>
+<li>or, swap contents of two words in memory<ul>
+<li>uses a temp variable</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>implementations of locking<ul>
+<li>acquire lock, execute critical section code, release lock<ul>
+<li>use <code>TestAndSet</code>, pass in the lock variable</li>
+<li>while its value is true (meaning someone has it), do nothing</li>
+<li>once it returns FALSE, execute critical section code</li>
+<li>at the end, set lock (which is set to true in <code>TestAndSet</code>) to false</li>
+</ul>
+</li>
+<li>can also be implemented by swapping<ul>
+<li>set key, lock to TRUE</li>
+<li>while <code>key == TRUE</code> swap the lock and key</li>
+<li>once lock has been set to false (by the other process), this will return false</li>
+<li>so, exit the while loop, execute critical section</li>
+<li>then, set lock to false</li>
+</ul>
+</li>
+<li>semaphores - simpler, abstraction onto of 2 algorithm mention previously and now also use as a variable to be specified for a task you need to lock<ul>
+<li>integer variable</li>
+<li>two operations: <code>wait()</code>, <code>signal()</code><ul>
+<li>wait: while the semaphore is &lt; 1, do nothing; then, decrement it</li>
+<li>signal: just increment it</li>
+</ul>
+</li>
+<li>counting (just integer values) vs binary (basically a mutex lock)<ul>
+<li>counting is used when you have N resources available</li>
+<li>initialise it to N (wait() = N--)</li>
+</ul>
+</li>
+<li>provides mutual exclusion:<ul>
+<li>initialise the semaphore to 1</li>
+<li>call <code>wait()</code> (does nothing until we can acquire a lock)</li>
+<li>execute the critical section</li>
+<li>signal (basically releases a lock)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>deadlock</strong>: when two or more processes are waiting for something that will NEVER HAPPEN (basically, they are waiting for each other, and thus are stuck)<ul>
+<li>example: two semaphores, S and Q</li>
+<li>process 1 does <code>wait(S)</code> and <code>wait(Q)</code> in that order</li>
+<li>process 2 does <code>wait(Q)</code> and <code>wait(S)</code> in that order</li>
+<li>if processes 1 and 2 begin at the same time, then they'll both get stuck on their second wait</li>
+</ul>
+</li>
+<li><strong>starvation</strong>: when a process is denied the resources it needs to complete (e.g., CPU time, memory, love, etc)</li>
+<li><strong>priority inversion</strong>: when a lower-priority process holds a lock needed by a higher-priority process</li>
+</ul>
+</li>
+<li>the bounded-buffer problem, or, producer-consumer problem<ul>
+<li>you have a producer, and a consumer, and a fixed-size queue (N buffers, each of which can hold one item)</li>
+<li>shared variables:<ul>
+<li>semaphore <code>mutex</code>, initialised to 1</li>
+<li>semaphore <code>full</code>, holds the number of full buffers, initialised to 0</li>
+<li>semaphore <code>empty</code>, holds the number of empty buffers, initialised to N</li>
+</ul>
+</li>
+<li>algorithm for producers:<ul>
+<li><code>wait(empty)</code> (if there are no empty buffers, do nothing)</li>
+<li><code>wait(mutex)</code> (wait until we acquire the lock)</li>
+<li>add the item to the buffer</li>
+<li><code>signal(mutex)</code> (release the lock)</li>
+<li><code>signal(full)</code> (increase the number of full buffers)</li>
+</ul>
+</li>
+<li>algorithm for consumers:<ul>
+<li><code>wait(full)</code> (if there are no buffers containing things, do nothing)</li>
+<li><code>wait(mutex)</code> (wait until we acquire the lock)</li>
+<li>remove an item from the buffer</li>
+<li><code>signal(mutex)</code> (release the lock)</li>
+<li><code>signal(empty)</code> (increase the number of empty buffers)</li>
+<li>do stuff with the item that has been removed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>the readers-writers problem<ul>
+<li>there is some data shared among processes</li>
+<li>some can only read (readers)</li>
+<li>others can both read and write (writers)</li>
+<li>multiple readers can read at the same time, but only one writer is allowed</li>
+<li>shared variables:<ul>
+<li>the dataset</li>
+<li>integer <code>readcount</code>, initialised to 0 (the number of readers)</li>
+<li>semaphore <code>mutex</code>, initialised to 1 (it's a lock for updating <code>readcount</code>)</li>
+<li>semaphore <code>wrt</code>, initialised to 1 (so that writing can be done initially)</li>
+</ul>
+</li>
+<li>algorithm for writers:<ul>
+<li><code>wait(wrt)</code> - can't write unless no one else is reading <em>or</em> writing</li>
+<li>write, etc</li>
+<li><code>signal(wrt)</code> - release the lock</li>
+</ul>
+</li>
+<li>algorithm for readers:<ul>
+<li><code>wait(mutex)</code> - no concurrent updates to <code>readcount</code></li>
+<li>increment <code>readcount</code> by 1</li>
+<li>if <code>readcount == 1</code>, call <code>wait(wrt)</code> (don't read if someone else is writing, and prevent new writers from writing)<sup id="fnref:readcount"><a href="#fn:readcount" rel="footnote" title="Note that this check actually does prevent concurr...">1</a></sup></li>
+<li><code>signal(mutex)</code> - allow other readers to join in</li>
+<li>read</li>
+<li><code>wait(mutex)</code> - no concurrent updates to <code>readcount</code></li>
+<li>decrement <code>readcount</code> by 1</li>
+<li>if <code>readcount == 0</code>, call <code>signal(wrt)</code> (if there are no more readers, allow writers to write; otherwise, keep starving them)</li>
+<li><code>signal(mutex)</code> - release the lock</li>
+<li>pretty cool</li>
+</ul>
+</li>
+<li>the version of this problem studied in class seems to be the <a href="http://en.wikipedia.org/wiki/Readers-writers_problem#The_first_readers-writers_problem">readers-preference version</a></li>
+</ul>
+</li>
+<li>the dining philosophers problem<ul>
+<li>let's say there are 5 bowls of rice (one for each person) and 5 individual chopsticks</li>
+<li>each philosopher needs two<sup id="fnref:chopsticks"><a href="#fn:chopsticks" rel="footnote" title="Have you tried eating rice with just one chopstick...">2</a></sup> chopsticks to eat his rice</li>
+<li>philosophers can alternate between thinking (not using chopsticks) and eating (using chopsticks)</li>
+<li>shared data:<ul>
+<li>semaphore <code>chopstick[5]</code>, for protecting each chopstick</li>
+</ul>
+</li>
+<li>algorithm for philosopher <code>i</code>:<ul>
+<li><code>wait(chopstick[i])</code> (wait for the left chopstick to be free, and grab it)</li>
+<li><code>wait(chopstick[(i+1) % 5])</code> (wait for the right chopstick to be free, and grab it)</li>
+<li>eat rice until satiated or bored</li>
+<li><code>signal(chopstick[i])</code> (release the left chopstick)</li>
+<li><code>signal(chopstick[(i+1) % 5])</code> (release the right chopstick)</li>
+<li>think until hungry or bored</li>
+</ul>
+</li>
+<li>algorithm for chopsticks:<ul>
+<li>just kidding, chopsticks have no free will<sup id="fnref:freewill"><a href="#fn:freewill" rel="footnote" title="Do philosophers? Have some rice and think about it...">3</a></sup>. <em>and philosopher will starve to death thinking about this problem dellsystem</em></li>
+</ul>
+</li>
+<li>problems with the previous algorithm:<ul>
+<li>a deadlock could occur, if all the philosophers take their own left chopsticks simultaneously, _too bad they are eating rice, dumpling will solve all problem....or eating with their hand, but I guess they are too polite to do it. _</li>
+</ul>
+</li>
+<li>solutions:<ul>
+<li>philosphers 0, 2 and 4 pick their left (or right) chopstick first; philosophers 1 and 3 pick up their right (or left) chopstick first</li>
+<li>philosophers can only acquire both chopsticks at a time (if both are available)</li>
+</ul>
+</li>
+<li>this is a classical synchronisation problem, which is representative of many other concurrency-control problems</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>6.1</i>Sample questions<a class="headerlink" href="#sample-questions_5" name="sample-questions_5">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Requirements for the critical-section problem<a class="headerlink" href="#requirements-for-the-critical-section-problem" name="requirements-for-the-critical-section-problem">&para;</a></h4>
+<blockquote>
+<p>What are they</p>
+</blockquote>
+<p>Mutual exclusion (only one process can be in its critical section at a time)</p>
+<p>Bounded waiting (no starvation)</p>
+<p>Progress (can't get stuck at a point where nothing is in its critical section)</p>
+<h4 class="header"><i>6.1.2</i>Assumptions for Peterson's solution<a class="headerlink" href="#assumptions-for-petersons-solution" name="assumptions-for-petersons-solution">&para;</a></h4>
+<blockquote>
+<p>What are they</p>
+</blockquote>
+<p>2 processes, LOAD and STORE are atomic</p>
+<h4 class="header"><i>6.1.3</i>Test and set<a class="headerlink" href="#test-and-set" name="test-and-set">&para;</a></h4>
+<blockquote>
+<p>What does this do? How can you use this method to implement locking?</p>
+</blockquote>
+<p>Takes a boolean, sets it to true, returns the original value.</p>
+<p>Locking: <code>test_and_set(lock)</code>; while that returns true, do nothing; the moment it returns false, you have the lock</p>
+<h4 class="header"><i>6.1.4</i>Swapping implementation of locking<a class="headerlink" href="#swapping-implementation-of-locking" name="swapping-implementation-of-locking">&para;</a></h4>
+<blockquote>
+<p>How can you implement locking by swapping two variables?</p>
+</blockquote>
+<p>one variable called key, set to true. continually swap lock and key. once lock has been set to false, key will be set to false; then, we can proceed as we've acquired the lock (it's set to true at this point). at the end, set lock to false again.</p>
+<h3 class="header"><i>6.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_5" name="answers-to-textbook-exercises_5">&para;</a></h3>
+<p>Nah.</p>
+<h2 class="header"><i>7</i>Chapter 7: Deadlocks<a class="headerlink" href="#chapter-7-deadlocks" name="chapter-7-deadlocks">&para;</a></h2>
+<ul>
+<li>recap: deadlocks occur when there is a set of blocked processes, each holding a resource, and waiting to acquire a resource held by another process<ul>
+<li>example: two processes, each using one disk drive in a 2-disk system, each needs another</li>
+<li>processes can never finish executing, and system resources are tied up at the same time, so it's a very bad situation</li>
+</ul>
+</li>
+<li>modelling this situation<ul>
+<li><span>$m$</span> resource types: <span>$R_1, R_2, \ldots, R_m$</span> (things like CPU cycles, memory space, I/O devices)</li>
+<li>each resource type has <span>$W_i$</span> instances (available for use)</li>
+<li>a process can use a resource by requesting it, waiting until that request is granted, using the resource, then releasing it</li>
+</ul>
+</li>
+<li>for deadlock to arise, the following four conditions must hold simultaneously:<ul>
+<li><strong>mutual exclusion</strong>: only one process can use a resource at a time</li>
+<li><strong>hold and wait</strong>: a process holding 1+ resources is waiting to use other resources (that are currently being used)</li>
+<li><strong>no preemption</strong>: a resource can only be released by a process once it has completed its task</li>
+<li><strong>circular wait</strong>: there is a set of waiting processes <span>$\{P_0, P_1, \ldots P_n\}$</span>, with <span>$P_0$</span> waiting for a resource being used by <span>$P_1$</span>, <span>$P_1$</span> waiting for a resource being used by something in <span>$\{P_2, \ldots, P_n\}$</span>, and <span>$P_n$</span> is waiting for <span>$P_0$</span></li>
+</ul>
+</li>
+<li>request-allocation graph formulation<ul>
+<li>turn all the processes into vertices</li>
+<li>turn the resources into vertices as well (note that each resource can have multiple edges pointing out of it, depending on the number of available instances)<ul>
+<li>claim edge: dashed lined from process to a resource: process may request resource in the future</li>
+</ul>
+</li>
+<li>request edge: directed edge from a process to a resource</li>
+<li>assignment edge: directed edge from a resource to a process</li>
+<li>remove the request when the request is granted (well, turn it into an assignment edge)<ul>
+<li>assignment edge become a claim edge once the process finish using the resource</li>
+</ul>
+</li>
+<li>cycles:<ul>
+<li>if the graph contains <em>no</em> cycles, there is no deadlock</li>
+<li>if the graph contains a cycle, and there is <strong>only one instance per resource type</strong> in the cycle, definitely deadlock</li>
+<li>if there is a cycle and there are several instances per resource type, maybe deadlock (banker algorithm is more effective for multiple resource instance deadlock detection)</li>
+<li>i guess beyond the "no cycles" one there are no hard rules?</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>methods of handling deadlocks (implemented by the OS)<ul>
+<li>ensure that deadlocks are never encountered</li>
+<li>graceful recovery from deadlocks</li>
+<li>ignore the problem and pretend that they never happen lol<ul>
+<li>this is used by most operating systems</li>
+<li>the application programmer is responsible for ensuring that deadlocks do not occur</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>preventing deadlocks by ensuring that not all the deadlock conditions hold:<ul>
+<li>mutual exclusion: don't implement this for shareable resources (like read-only files)<ul>
+<li>of course, certain resources cannot escape this (e.g. no printing 2 documents on the same page)</li>
+</ul>
+</li>
+<li>hold and wait: ensure that when a process is waiting for a resource, it isn't using any other resources<ul>
+<li><strong>no wait</strong>: processes must request all the resources it needs before beginning execution (can result in starvation)</li>
+<li><strong>no hold</strong>: processes can only request new resources when not using any</li>
+<li>of course, this can result in low resource utilization (less than is optimal)</li>
+</ul>
+</li>
+<li>no preemption: if a process is waiting for a resource, release all of its current resources<ul>
+<li>keep track of which resources it lost, obviously</li>
+<li>only restart the process when it can acquire <strong>all</strong> the resources it needs at once</li>
+<li>applies to things where state can be easily stashed and popped (CPU registers, memory space)</li>
+</ul>
+</li>
+<li>circular wait: impose a total ordering on resource types, and require that each process requests resources in order</li>
+</ul>
+</li>
+<li>dynamic deadlock avoidance (ensure that the system will never enter an unsafe state)<ul>
+<li>periodically check the state of resource allocation to make sure that circular waiting cannot happen</li>
+<li>simplest method: have each process <strong>declare the max number of resources</strong> (a priori info needed) of each type it will need</li>
+<li>when a process requests a resource, system needs to check that allocating it will leave the system in a <strong>safe state</strong> (non-deadlocked)</li>
+<li>slightly more formal definition for safe state: you can order the processes such that the resources that any process needs can be satisfied by the free/available resources plus the resources held by all previous processes</li>
+<li>so if the resource that a process needs are immediately available, it just has to wait for the other processes to finish, that's it (nothing circular)</li>
+<li>safe state: no deadlock</li>
+<li>unsafe state: possibility of deadlock</li>
+<li>if you have a single instance per resource type: use a resource-allocation graph<ul>
+<li><strong>claim edge</strong>: directed edge from a process to a resource, meaning that the process may request that resource at some point (uses a dashed line)</li>
+<li>when the process actually requests the resource, change it to a request edge</li>
+<li>and when the resource is actually allocated, convert to an assignment edge</li>
+<li>when the resource is released, convert it back to a claim edge</li>
+<li>claim edges must be drawn before a process can begin executing</li>
+<li>now, if a process requests a resource, can we grant that request?</li>
+<li>ONLY if converting the request edge to an assignment edge does not result in a cycle (include the dashed lines obviously... this is a bit confusing, I guess in this case, we assume that the process cannot complete the task by just using the "claimed" resource , it may also need the resource it is already allocated. we could say thus that it is unsafe and just have every high chance of deadlock)s </li>
+<li>for this reason it only applies if all resource types have only one instance</li>
+</ul>
+</li>
+<li>multiple instances per resource type: banker's algorithm<ul>
+<li>each process claims, at the start, the max number of resources it needs (of each type)</li>
+<li>when a process requests a resource, it may have to wait (obviously lol)</li>
+<li>when a process receives all its resources, it must release them eventually (it can be a bastard, and "yes" itself to hell)</li>
+<li>shared variables:<ul>
+<li><code>n</code>: number of processes</li>
+<li><code>m</code>: number of resources</li>
+<li><code>available[m]</code>: array listing the number of instances available for each resource at any given time</li>
+<li><code>max[n][m]</code>: 2D array. For each process, there is an array listing the max number of instances needed per resource type(what it claim it need)</li>
+<li><code>allocation[n][m]</code>: like above but the number of resource instances <strong>already allocated</strong> in each entry</li>
+<li><code>need[n][m]</code>: number of instances of a resource that a process still needs (relative to the current number being used), set equal to <code>max - allocation</code></li>
+</ul>
+</li>
+<li>safety algorithm (for periodically checking that the system is in a safe state):<ul>
+<li>create an array of length m, called <code>work</code>; copy <code>available</code> over to it</li>
+<li>create an array of length n, called <code>finish</code>; initialize entries to false</li>
+<li>find a process to execute by finding <code>i</code> such that <code>finish[i] == FALSE</code> and <code>need[i] &lt; work</code> (for every entry in both arrays)<ul>
+<li><em><code>need[i] &lt; work</code> is really confusing remember that work is initialized to available resource, so you are essentially comparing what amount of resource this process need and what resource are available (the later == resource that are free before you do work, and resource free after you done the work of other processes)</em></li>
+</ul>
+</li>
+<li>update work, add <code>allocation[i]</code> to it (for each entry - equivalent to releasing all held resources)</li>
+<li>set <code>finish[i]</code> to true (indicates that the process is finished)</li>
+<li>if <code>finish[i] == TRUE</code> for all i, then we're good</li>
+</ul>
+</li>
+<li><strong>resource-request algorithm</strong> (to check if a request can be granted to a process <code>i</code>)<ul>
+<li>let <code>request[i]</code> be the request array for the process (each entry is the number of instances requested for each resource)</li>
+<li>if any entry in this array exceeds the corresponding entry in <code>need</code>, error (cuz then it has exceeded what was supposed to be its max for some resource)</li>
+<li>if any entry &gt; corresponding entry in <code>available</code>, force the process to wait, since there are simply not enough resources available to service it</li>
+<li>now, "pretend" to allocate requested resources to this process, by modifying the state as follows:<ul>
+<li><code>available = available - request[i]</code> (update the number of instances available for each resource)</li>
+<li><code>allocation[i] = allocation[i] + request[i]</code> (update the number of instances being used by the process)</li>
+<li><code>need[i] = need[i] - request[i]</code> (update the number of instances the process still needs for each resource)</li>
+</ul>
+</li>
+<li>if this resulting state is safe(which we check with banker's algorithm), then we can go ahead and allocate etc</li>
+<li>if it's not, the process must wait, and we can restore the old state</li>
+</ul>
+</li>
+<li>applying the banker's algorithm to a concrete example<ul>
+<li>not going to give the example itself because tables and lists are hard to combine</li>
+<li>but the idea is: to prove that the system is in a safe state, find a sequence (ANY sequence) that satisfies the safety criteria</li>
+<li>to check if a particular request can be granted, just run through the algorithms, etc</li>
+<li>questions involving this are highly likely to appear on the final</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre>--&gt;3 types of resources : A, B, and C
+     Max      Alloc      Avail          Need = (Max-Alloc)
+     ABC      ABC        ABC             ABC
+                         332
+P0    753      010   4th  10,5,7          743 
+P1    322      200   1th  743             122
+P2    902      302   3th  10,4,7          600    ---&gt; this is already safe if run banker 
+P3    222      211   0th  543             011    1. if Avail &gt; Need
+P4    433      002   2th  745             431    2. then Need= Need +Alloc
+                                                3. loop 1, 2 until find ordering of &lt;P3, P1, P4,P2,P0&gt;... more than one ordering works
+
+--&gt; if P0 request (1,0,2): WIP
+</pre></div>
+
+
+<ul>
+<li><strong>deadlock detection</strong><ul>
+<li>if neither deadlock prevention nor deadlock avoidance algorithms are employed, deadlocks can, of course, result</li>
+<li>in that case, we need to make use of deadlock detection algorithms, and have a recovery scheme planned</li>
+<li>if each resource type has only one instance, we can use the following algorithm:<ul>
+<li>first, construct a "wait-for" graph, where the nodes are processes (and keep it updated, etc)</li>
+<li>there is a directed edge from a process to a process it is waiting for (because that process is using a resource the first process needs)</li>
+<li>periodically search this graph for a cycle - if there is one, there is a deadlock</li>
+<li>making the corresponding wait-for graph for an arbitrary resource-allocation graph sounds like a good question for the final, so make sure you know this</li>
+</ul>
+</li>
+<li>if each resource type can have several instances:<ul>
+<li>n = number of processes</li>
+<li>m = number of resource types</li>
+<li><code>available[m]</code>: array, holding the number of instances available for each resource at any point in time</li>
+<li><code>allocation[n][m]</code>: 2D array, number of instances of each resource used by each process</li>
+<li><code>request[n][m]</code>: holds the current request for each process</li>
+<li>detection algorithm:<ul>
+<li>set <code>work = available</code></li>
+<li>create an array of length <code>n</code> called <code>finish</code></li>
+<li>for each i, if <code>sum(allocation[i]) = 0</code>, set <code>finish[i] = TRUE</code> (if a process isn't using resources, we can ignore it)</li>
+<li>find an index i such that <code>finish[i] == FALSE</code> and <code>request[i] &lt;= work</code> (find a process that is still running, whose current request can be satisfied)</li>
+<li>then, set <code>work = work + allocation[i]</code> and set <code>finish[i] = true</code> (incorporate the running of this process into our calculations)</li>
+<li>if we've gone through all the indices, and if <code>not all(finish)</code>, then we have a deadlock</li>
+<li>also likely to be asked on the exam</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre>--&gt;3 types of resources : A, B, and C, here I already order the process from the fewest resources requested to the most resources requested
+     Alloc    Requested    Work=Work+Alloc
+     ABC        ABC          ABC
+P0    010      000            work=000+010=010 
+P2    303      000            work=010+303=313
+P4    002      002            work=313 &gt; 002, 313+002=315
+P3    211      100            work=315 &gt; 100, 315+211=526 
+P1    200      202            work=536 &gt;202,  work= 736
+</pre></div>
+
+
+<h3 class="header"><i>7.1</i>Sample questions<a class="headerlink" href="#sample-questions_6" name="sample-questions_6">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Conditions needed for deadlock<a class="headerlink" href="#conditions-needed-for-deadlock" name="conditions-needed-for-deadlock">&para;</a></h4>
+<blockquote>
+<p>?</p>
+</blockquote>
+<p>Mutual exclusion - two processes cannot use the same resource simultaneously</p>
+<p>Hold and wait - a process using a resource is waiting to use another resource that currently being used</p>
+<p>No preemption - resources can only be released when a process has completed</p>
+<p>Circular wait - waiting cycle (implies hold and wait)</p>
+<h4 class="header"><i>7.1.2</i>Methods of handling deadlock<a class="headerlink" href="#methods-of-handling-deadlock" name="methods-of-handling-deadlock">&para;</a></h4>
+<blockquote>
+<p>Implemented by the OS</p>
+</blockquote>
+<p>Preventing: ensuring that at least one of the conditions never occurs, dynamic avoidance (banker's algorithm, etc)</p>
+<p>Recovering: dynamic detection, then recover somehow (abort all, or some, processes; or, take away resources from some processes)</p>
+<p>Ignoring the possibility of deadlocks</p>
+<h4 class="header"><i>7.1.3</i>Limitations of resource-allocation graphs<a class="headerlink" href="#limitations-of-resource-allocation-graphs" name="limitations-of-resource-allocation-graphs">&para;</a></h4>
+<blockquote>
+<p>Why can't we just use the resource-allocation graph algorithm everywhere?</p>
+</blockquote>
+<p>Doesn't apply when there is more than one instance of each resource type.</p>
+<h3 class="header"><i>7.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_6" name="answers-to-textbook-exercises_6">&para;</a></h3>
+<h4 class="header"><i>7.2.1</i>Question 7.12<a class="headerlink" href="#question-712" name="question-712">&para;</a></h4>
+<blockquote>
+<p>What is the optimistic assumption made in the deadlock-detection algorithm? How could this assumption be violated?</p>
+</blockquote>
+<p>That as soon as a process' resource requests are satisfied, it will complete, and will release all its resources. It could be that it'll still take quite a while to complete, and the immediate reassignment of its resources will lead to a deadlock.</p>
+<h2 class="header"><i>8</i>Chapter 8: Main memory<a class="headerlink" href="#chapter-8-main-memory" name="chapter-8-main-memory">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Background<a class="headerlink" href="#background" name="background">&para;</a></h3>
+<ul>
+<li>for a program to run (as a process), it must be read from disk into memory<ul>
+<li>recall: the only storage media the CPU can access directly are main memory and registers (with the CPU cache between registers and main memory)</li>
+<li>accessing registers can be done within one clock cycle</li>
+<li>accessing main memory can take many clock cycles</li>
+</ul>
+</li>
+<li>each process has a separate memory space, defined by <strong>base</strong> and <strong>limit</strong> registers<ul>
+<li>base: smallest legal physical memory address</li>
+<li>limit: the size of the address space</li>
+</ul>
+</li>
+<li>processing of a user program:<ul>
+<li>the variables used are symbolic addresses in the source program</li>
+<li>the source program is then compiled/assembled to an object module</li>
+<li>the compiler binds the symbolic addresses to relocatable addresses ("x bytes from start of module")</li>
+<li>loader/linkage editor then binds the relocatable addresses to absolute addresses</li>
+<li>in fact, final-address-binding can happen at various stages<ul>
+<li>at compile time, if the memory location is known beforehand, absolute code can be generated (although if the starting location changes, code must be recompiled)</li>
+<li>at load time, if relocatable code is generated by the compiler</li>
+<li>at run time, if the process can be moved (in memory) during execution (needs hardware - MMU - support)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>logical vs. physical address spaces<ul>
+<li>logical address: virtual</li>
+<li>physical address: the one used by the memory unit (like latitude/longitude vs. street names, etc)</li>
+</ul>
+</li>
+<li>memory management unit (MMU)<ul>
+<li>hardware device mapping virtual to physical addresses (dynamically)</li>
+<li>uses TLB</li>
+<li>allows user programs to deal with virtual rather than physical addresses</li>
+<li>makes use of a <strong>relocation register</strong>: given a virtual address, it adds the value of that register to it, then uses that as the physical address</li>
+</ul>
+</li>
+<li>dynamic loading<ul>
+<li>routines are not loaded into memory until they are needed (called)</li>
+<li>results in better memory usage</li>
+<li>useful for things like error routines (large amounts of code, called infrequently)</li>
+<li>can be handled by the process itself - the calling routine will call a relocatable linking loader to load the desired routine in memory if it is not already in it</li>
+<li>no special support from the OS is needed</li>
+<li>however, it falls on the programmer to make use of dynamic loading in their programs</li>
+</ul>
+</li>
+<li>dynamic vs static linking<ul>
+<li>static: system libraries are treated like any other object module and are combined by the loader into the binary</li>
+<li>dynamic: the linking happens at execution time</li>
+<li>advantage: more space efficient</li>
+<li>a code stub handles locating the library if it's in memory already, or loading it if it is not</li>
+<li>the stub then replaces itself with the address of the routine for the library, which is then executed</li>
+<li>needs support from the OS, to check if the routine is in the process' memory address (what does this mean???)</li>
+<li>useful for libraries</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.2</i>Swapping<a class="headerlink" href="#swapping" name="swapping">&para;</a></h3>
+<ul>
+<li>processes can be temporarily <strong>swapped</strong> to disk (known as the <strong>backing store</strong>), then brought back into memory to continue execution</li>
+<li>roll out, roll in: lower-priority processes are swapped out in favour of higher-priority processes</li>
+<li>the time it takes to swap something to disk is proportional to the amount of memory swapped (as the limiting factor is the transfer time)</li>
+<li><strong>ready queue</strong>: holds the list of ready-to-run processes which have memory images on disk</li>
+</ul>
+<h3 class="header"><i>8.3</i>Contiguous memory allocation<a class="headerlink" href="#contiguous-memory-allocation" name="contiguous-memory-allocation">&para;</a></h3>
+<ul>
+<li>main memory is usually divided into two partitions: a "high" partition, and a "low" partition</li>
+<li>since the interrupt vector is usually in low memory, the OS is usually placed in low memory as well</li>
+<li>then, user processes are placed in high memory</li>
+<li>relocation registers (base, limit) used to protect processes</li>
+<li>if the logical address is less than the limit register, then you add the base register to it to get the physical address</li>
+<li>otherwise you get a trap (addressing error, maybe segfault)</li>
+<li>multiple-partition allocation<ul>
+<li><strong>hole</strong>: block of available memory</li>
+<li>holes of various sizes are scattered throughout memory</li>
+<li>when a process begins execution, it is allocated memory from a large-enough hole</li>
+<li>OS keeps info on which partitions are free and which have already been allocated</li>
+<li>ways of satisfying requests:<ul>
+<li>first-fit: allocate the first hole that is big enough</li>
+<li>best-fit: allocate the smallest hole that is big enough (requires searching the entire list, unless it has been ordered by size)</li>
+<li>worst-fit: allocates the largest hole that is big enough (same as above)</li>
+<li>usually first-fit and best-fit use storage more effectively</li>
+<li>first-fit is typically fastest</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>fragmentation<ul>
+<li>external fragmentation: there is enough space in all of memory to satisfy a request, but it is not contiguous (due to processes being loaded and removed from memory, etc)</li>
+<li>internal fragmentation: when the amount of memory allocated is larger than that requested, so there's some space within partitions that is not being used</li>
+<li>external frag. can be reduced by compaction (shuffling memory contents to place all the free blocks together)</li>
+<li>compaction is only possible if relocation is dynamic (done at execution time)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.4</i>Paging<a class="headerlink" href="#paging" name="paging">&para;</a></h3>
+<ul>
+<li>allows the physical address space of a process to be noncontiguous</li>
+<li>physical memory is divided into fixed-size blocks called <strong>frames</strong> (size between 2<sup>9</sup> and 2<sup>24</sup> bytes per page)</li>
+<li>virtual memory is divided into fixed-size blocks called <strong>pages</strong></li>
+<li>OS keeps track of all free frames</li>
+<li>to run a program, you need as many free frames as it needs lol</li>
+<li>then you have a page table to translate virtual to physical addresses</li>
+<li>the virtual address consists of two parts:<ul>
+<li>page number: used as an index into the page table, contains base address of each page in physical memory</li>
+<li>page offset: combined with base address, defines the physical memory address</li>
+</ul>
+</li>
+<li>if the page size is 2<sup>n</sup> bytes, the page offset is n bits</li>
+<li>if there are 2<sup>m</sup> possible virtual addresses, then the page number is m-n bits</li>
+<li>so in virtual memory you have pages, and each page corresponds to a frame in physical memory<ul>
+<li>that mapping is defined in the page table (so index 0 corresponds to frame 1)</li>
+<li>then, a thing in a page corresponds to the same location in the frame itself, etc</li>
+</ul>
+</li>
+<li>from virtual address to fetching the thing in memory, it goes like:<ul>
+<li>the page table index is used to look up the frame index via the page table</li>
+<li>the page offset is added to the end of the frame index</li>
+<li>goes to that location in physical memory, fetches the relevant byte</li>
+</ul>
+</li>
+<li>implementation of the page table<ul>
+<li>one scheme: kept in main memory<ul>
+<li>page table base register: starting address of the page table</li>
+<li>page table length register: size of it</li>
+<li>in this scheme, accessing anything requires two memory accesses: one to find the page table, then another to get the thing itself (which is inefficient)</li>
+</ul>
+</li>
+<li>another scheme: special hardware caches to speed up lookup<ul>
+<li>associative memory or translation lookaside buffers (cache for the page table)</li>
+<li>if the desired page is not in the TLB, then go to memory, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>calculating the effective access time when looking up something<ul>
+<li>let <span>$\epsilon$</span> be the amount of time it takes to look up a page in the TLB</li>
+<li>assume it takes 1 unit of time to look up something in memory</li>
+<li>hit ratio for TLB: <span>$\alpha$</span></li>
+<li>time taken if the page is in the TLB: <span>$(1 + \epsilon)$</span> since you look it up in memory afterwards</li>
+<li>time taken if it's not: <span>$2 + \epsilon$</span> since you have to look it up in the TLB anyway, then access memory to find the page table translation, then again to find the thing itself</li>
+<li>then effective access time is <span>$(1 + \epsilon) \alpha + (2+\epsilon)(1-\alpha) = 2 + \epsilon - \alpha$</span></li>
+</ul>
+</li>
+<li>memory protection<ul>
+<li>protection bit associated with each frame</li>
+<li>corresponding valid/invalid bit attached to each entry in the page table</li>
+<li>if the page is in the process' logical address space, then it's valid; otherwise, invalid</li>
+<li>for example, if that page is not being used by the process, then it would be marked invalid</li>
+<li>note that page tables are per-process ..........</li>
+</ul>
+</li>
+<li>shared pages<ul>
+<li>common code can be shared in a paging scheme</li>
+<li>read-only (reentrant) code shared among multiple processes (maybe different users)<ul>
+<li>must appear in the same location in the logical address space of all processes (?)</li>
+<li>i.e., the frames are shared (so the page tables for these different processes have some overlap)</li>
+<li>reentrant: non-self-modifying, can never change during execution</li>
+</ul>
+</li>
+<li>processes can also have their own private code and data, can appear anywhere in virtual memory etc</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.5</i>Structure of the page table<a class="headerlink" href="#structure-of-the-page-table" name="structure-of-the-page-table">&para;</a></h3>
+<ul>
+<li>hierarchical paging<ul>
+<li>since modern OSes support very large virtual address spaces (2<sup>32</sup> or 2<sup>64</sup>, etc), the page table itself can become very large</li>
+<li>solution: use a multiple-level page table scheme</li>
+<li>you have an outer page table, and each entry points to the location of an inner page table (not standard terminology)</li>
+<li>then each entry in each inner page table points to a frame in physical memory</li>
+<li>basically you're paging the page table itself</li>
+<li>example: 32-bit addresses, page size of 2<sup>10</sup> bytes<ul>
+<li>page number: 22 bits, page offset: 10 bits</li>
+<li>then, the page number has a 12-bit page number page number (lol) and a 10-bit page number page offset</li>
+<li>the 12-bit page number page number is used for the outer page table, then the 10-bit page number page offset is used for the inner page table</li>
+</ul>
+</li>
+<li>of course, you can also have three-level paging schemes, etc</li>
+<li>example: 64-bit addresses, page size still 2<sup>10</sup><ul>
+<li>if 2 levels: 12 bit offset, 10 bit inner page, 42 bit outer page</li>
+<li>if 3 levels: 12 bit offset, 10 bit inner page, 10 bit middle page, 32 bit outer page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>hashed page tables<ul>
+<li>common for &gt; 32-bit address spaces</li>
+<li>the page number is hashed; collisions are handled by using buckets</li>
+<li>frame found by hashing it, then searching along the bucket chain</li>
+</ul>
+</li>
+<li>inverted page tables<ul>
+<li>usually, each process has one page table, which has one entry for each page the process is using</li>
+<li>con: lots of memory used just to store page tables</li>
+<li>solution: one entry for each frame of memory</li>
+<li>each entry contains virtual address of page, and information about the owning process</li>
+<li>so there's only one page table needed in the system, and only one entry per page (reduces duplication, so, less memory needed overall)</li>
+<li>however, when a page reference occurs, you need to search through this larger table, which would be slower (since can't index it directly)<ul>
+<li>the inverted page table is sorted by physical address</li>
+<li>go through entries one by one, find the physical address matching the virtual address (also the process ID)</li>
+<li>can use a hash table to limit the search a bit. but each access to the hash table would add a memory reference</li>
+</ul>
+</li>
+<li>also, harder to implement shared memory pages<ul>
+<li>since in shared memory, multiple virtual addresses are mapped to one physical address</li>
+<li>but in this scheme, there is only one virtual page entry for each physical page</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.6</i>segmentation<a class="headerlink" href="#segmentation" name="segmentation">&para;</a></h3>
+<ul>
+<li>memory-management scheme that corresponds to a user's view of memory</li>
+<li>collection of variable-sized segments (not ordered)</li>
+<li>program: collection of segments</li>
+<li>segment: logical unit, like an array, method, function, program, section of variables, etc</li>
+<li>just a way of grouping together things logically (even though they may not be grouped together physically)</li>
+<li>a logical address consists of a 2-tuple: segment number, offset</li>
+<li>segment table: maps the above logical address to physical addresses<ul>
+<li>each entry (one per segment) has a base and a limit</li>
+<li>hardware view:<ul>
+<li>segment number is translated using the segment table, to get the limit and base for this segment</li>
+<li>the offset is compared with the limit; if it exceeds it, we get a trap</li>
+<li>then, the base is added to the offset, and used as the physical address</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>8.7</i>Sample questions<a class="headerlink" href="#sample-questions_7" name="sample-questions_7">&para;</a></h3>
+<h4 class="header"><i>8.7.1</i>CPU and storage<a class="headerlink" href="#cpu-and-storage" name="cpu-and-storage">&para;</a></h4>
+<blockquote>
+<p>What are the two storage media that the CPU can access directly, and how do their access times compare?</p>
+</blockquote>
+<p>Main memory, and registers. Accessing registers can be done in less than 1 clock cycle, whereas accessing main memory can take multiple.</p>
+<h4 class="header"><i>8.7.2</i>Address binding<a class="headerlink" href="#address-binding" name="address-binding">&para;</a></h4>
+<blockquote>
+<p>At what stages can final address binding happen?</p>
+</blockquote>
+<p>At compile time, to generate absolute code (code must be recompiled if starting location changes - is this ever used?)</p>
+<p>At load time, if the compiler has generated relocatable code</p>
+<p>At run time, if the process can be moved in memory during execution (requires MMU support)</p>
+<h4 class="header"><i>8.7.3</i>MMU<a class="headerlink" href="#mmu" name="mmu">&para;</a></h4>
+<blockquote>
+<p>Wtf is an MMU</p>
+</blockquote>
+<p>Memory management unit. Hardware device, translates virtual addresses to physical addresses so that programmers don't have to deal with physical addresses. Uses a TLB, etc.</p>
+<h4 class="header"><i>8.7.4</i>Loading vs. linking<a class="headerlink" href="#loading-vs-linking" name="loading-vs-linking">&para;</a></h4>
+<blockquote>
+<p>What is the difference between dynamic loading and linking? What are the advantages of both compared to their static counterparts?</p>
+</blockquote>
+<p>Dynamic loading: parts of a process that are not needed right away are not brought into memory until they are called. Useful for things like error handling routines, which are typically large blocks of code that get called infrequently. Results in a smaller memory footprint. It falls upon the programmer to make use of dynamic loading in their programs by calling a "relocatable linking loader" that will either locate a part in memory (if it is there) or else bring it into memory.</p>
+<p>Dynamic linking: system libraries and other commonly-used code are linked at execution time, with the programmer making use of a "code stub" that locates the library in memory and replaces itself (during execution time) with the address of that routine. Needs support from the OS, to check that the desired routine is in the process' memory space. Also results in a smaller memory footprint.</p>
+<h4 class="header"><i>8.7.5</i>Backing store<a class="headerlink" href="#backing-store" name="backing-store">&para;</a></h4>
+<blockquote>
+<p>Define this.</p>
+</blockquote>
+<p>A large storage device, commonly a disk, to which things in memory can be swapped.</p>
+<h4 class="header"><i>8.7.6</i>Memory partitions<a class="headerlink" href="#memory-partitions" name="memory-partitions">&para;</a></h4>
+<blockquote>
+<p>Main memory is usually divided into two partitions. What are they called and what goes into each?</p>
+</blockquote>
+<p>High: user processes. Low: interrupt vector, OS.</p>
+<h4 class="header"><i>8.7.7</i>Multiple-partition allocation<a class="headerlink" href="#multiple-partition-allocation" name="multiple-partition-allocation">&para;</a></h4>
+<blockquote>
+<p>Ways of satisfying allocation requests? Which is fastest?</p>
+</blockquote>
+<p>First-fit: first hole that is big enough. Fastest if the list of holes is not ordered by size.</p>
+<p>Best-fit: smallest hole that is big enough</p>
+<p>Worst fit: largest hole that is big enough (why would even do this??)</p>
+<h4 class="header"><i>8.7.8</i>Fragmentation<a class="headerlink" href="#fragmentation" name="fragmentation">&para;</a></h4>
+<blockquote>
+<p>Difference between internal, external</p>
+</blockquote>
+<p>External fragmentation: when you have small holes scattered throughout memory, and you can't use them because they're just too small individually. For example, there is a hole of size 10, and three others of size 4 (all non-contiguous), and a process comes along requesting a hole of size 6, which is granted. Then you're just left with (at best) 4 holes of size 4. If a process comes along needing a hole of size 16, well, it can't be given because the holes are not contiguous</p>
+<p>Internal fragmentation: when you have leftover space (not being used by anything) <em>within</em> the partitions being used, due to the way blocks are allocated. For instance, if a process requests 15 bytes, but it's given 16 because it has to be a power of 2 (etc).</p>
+<h4 class="header"><i>8.7.9</i>Compaction<a class="headerlink" href="#compaction" name="compaction">&para;</a></h4>
+<blockquote>
+<p>What is it, what is a requirement for this to be possible, when can it be done</p>
+</blockquote>
+<p>Compaction is a way to reduce external fragmentation, and consists of shuffling the contents of memory so as to place all the holes together. This is done at execution time and thus is only possible if relocation is dynamic.</p>
+<h4 class="header"><i>8.7.10</i>Pages and frames<a class="headerlink" href="#pages-and-frames" name="pages-and-frames">&para;</a></h4>
+<blockquote>
+<p>Difference?</p>
+</blockquote>
+<p>Pages: used in the logical (virtual) view of memory. Frames: physical view. One-to-one correspondence.</p>
+<h4 class="header"><i>8.7.11</i>Virtual address calculations<a class="headerlink" href="#virtual-address-calculations" name="virtual-address-calculations">&para;</a></h4>
+<blockquote>
+<p>Explain what the bits of a virtual address mean if a virtual address is 32 bits, and the page size is 16 kilobytes.</p>
+</blockquote>
+<p>16 KB = 2<sup>4</sup> * 2<sup>10</sup> so 2<sup>14</sup> bytes. You need 2<sup>14</sup> bits to indicate the page offset for any byte on a page. The remaining 18 bits can be used for the page index, and so there needs be 2<sup>18</sup> pages in order to store 2<sup>32</sup> bytes.</p>
+<h4 class="header"><i>8.7.12</i>Page table implementations<a class="headerlink" href="#page-table-implementations" name="page-table-implementations">&para;</a></h4>
+<blockquote>
+<p>How is the page table stored?</p>
+</blockquote>
+<p>In main memory, with base and limit registers. To speed up lookup, a special hardware cache (TLB) is used to store part of the page table.</p>
+<h4 class="header"><i>8.7.13</i>Page table EAT calculations<a class="headerlink" href="#page-table-eat-calculations" name="page-table-eat-calculations">&para;</a></h4>
+<blockquote>
+<p>Let's say the hit ratio for the TLB is 0.9, and it takes 100 units of time to look something up in memory. To look something up in the TLB takes 1 unit of time. What's the EAT?</p>
+</blockquote>
+<p>101 for anything in the TLB, so 101 * 0.9. Then, 201 for anything not in the TLB, since you have to look up the page table in memory as well, so 201 * 0.1. Total: 90.9 + 20.1 = 111.</p>
+<h4 class="header"><i>8.7.14</i>Reentrant code<a class="headerlink" href="#reentrant-code" name="reentrant-code">&para;</a></h4>
+<blockquote>
+<p>What is? Use?</p>
+</blockquote>
+<p>Non-self modifying, or read-only, code. Never changes during its execution. Can be shared among processes.</p>
+<h4 class="header"><i>8.7.15</i>Why pages<a class="headerlink" href="#why-pages" name="why-pages">&para;</a></h4>
+<blockquote>
+<p>Why do we even need pages in the first place</p>
+</blockquote>
+<p>To allow memory usage to be non-contiguous</p>
+<h4 class="header"><i>8.7.16</i>Page table structures<a class="headerlink" href="#page-table-structures" name="page-table-structures">&para;</a></h4>
+<blockquote>
+<p>What are the different structures, and how do they work</p>
+</blockquote>
+<p>Hierarchical paging: paging the page table.</p>
+<p>Hashed page tables: hash the page number, then handle collisions using a bucket chain.</p>
+<p>Inverted page tables: one entry per frame (not per-process), sorted by physical address. Less memory used, but slower, and harder to implement sharing.</p>
+<h4 class="header"><i>8.7.17</i>Hierarchical paging calculations<a class="headerlink" href="#hierarchical-paging-calculations" name="hierarchical-paging-calculations">&para;</a></h4>
+<p>Taken from <a href="http://stackoverflow.com/questions/5558886/multi-level-page-tables-hierarchical-paging">stack overflow</a> (actual source: some exam):</p>
+<blockquote>
+<p>A computer has a 64-bit virtual address space and 2048-byte pages. A page table entry takes 4 bytes. A multi-level page table is used because each table must be contained within a page. How many levels are required?</p>
+</blockquote>
+<p>2048 is 2<sup>11</sup>, so each table can hold 2<sup>9</sup> entries. Since 11 bits are required for the page offset, 53 bits remain to encode the entry for each page level. 53/9 is 6 (rounded up), so we need 6 levels.</p>
+<p>Another calculation question:</p>
+<blockquote>
+<p>32-bit virtual addresses, 4 KB pages, 2 levels of paging. What do the bits in an address mean?</p>
+</blockquote>
+<p>4KB = 2<sup>12</sup> bytes in each page. So, 12 bits required for the page offset. Apparently the other two are both 10 bits each, though I don't know why (<a href="http://www.gitam.edu/eresource/comp/gvr(os)/8.4.htm">source</a>).</p>
+<h4 class="header"><i>8.7.18</i>Segment tables<a class="headerlink" href="#segment-tables" name="segment-tables">&para;</a></h4>
+<blockquote>
+<p>What are they</p>
+</blockquote>
+<p>Logical addresses (consisting of a segment number and an offset) are mapped to physical addresses</p>
+<h3 class="header"><i>8.8</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_7" name="answers-to-textbook-exercises_7">&para;</a></h3>
+<p>N/A</p>
+<h2 class="header"><i>9</i>Chapter 9: Virtual memory<a class="headerlink" href="#chapter-9-virtual-memory" name="chapter-9-virtual-memory">&para;</a></h2>
+<ul>
+<li>background<ul>
+<li>virtual memory allows for the separation of logical (user) memory from physical memory<ul>
+<li>the logical view consists of: a stack that grows downwards, a heap that grows upwards, a data section, and a code section (with shared libraries in the middle between the heap and the stack)</li>
+</ul>
+</li>
+<li>for programs, this means that not everything needs to be in memory for execution to begin</li>
+<li>also, the logical address space can be much larger than physical address space</li>
+<li>and, address spaces can be shared by different processes</li>
+<li>process creation is more efficient</li>
+<li>can be implemented via demand paging, and demand segmentation</li>
+</ul>
+</li>
+<li>demand paging<ul>
+<li>a page is brought into memory only when it is needed</li>
+<li>less unnecessary I/O and less memory needed</li>
+<li>a page is determined to be "needed" when there is a reference to it<ul>
+<li>if a reference is invalid, abort</li>
+<li>if a reference is to a page that is not in memory, it will be brought into memory</li>
+</ul>
+</li>
+<li>to execute a process, we swap the pages for it into memory (lazily)</li>
+<li><strong>pager</strong>: swapper that deals with pages (does this really need its own term)</li>
+<li>valid/invalid bits for the page table<ul>
+<li>like those used introduced in the memory protection section, but serving another purpose as well</li>
+<li>valid: legal and in memory</li>
+<li>invalid: either illegal or not in memory</li>
+<li>all entries initially set to invalid</li>
+<li>if we ever need to lookup an invalid entry, we get a <strong>page fault</strong>, so the OS needs to:<ol>
+<li>look at another table (one stored within the PCB) to decide if it was an invalid memory reference or just a swapped-to-disk page</li>
+<li>find an empty frame from the free frame list</li>
+<li>read the page from disk and swaps it into the frame</li>
+<li>modify the table in the PCB</li>
+<li>update the validation bit and the entry in the page table</li>
+<li>restart the instruction that caused the page fault</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>effective access time:<ul>
+<li>let <span>$p$</span> be the page fault rate</li>
+<li>let <span>$t$</span> be the time it takes to handle a page fault</li>
+<li>let <span>$m$</span> be the time it takes to access memory (to read a page, say)</li>
+<li>EAT: <span>$(1-p) \cdot  m + p \cdot t$</span></li>
+</ul>
+</li>
+<li>the time it takes to handle a page fault is determined by:<ul>
+<li>time to service the interrupt<ul>
+<li>save user registers, process state</li>
+<li>check if the interrupt is a page fault</li>
+<li>check if the page reference is legal</li>
+<li>if so, find the location of the page on disk</li>
+</ul>
+</li>
+<li>time to read in the page to a free frame (usually slowest)<ul>
+<li>influenced by disk latency, seek time, queueing time on the device</li>
+</ul>
+</li>
+<li>then, time to restart the instruction that was interrupted (why is this here)</li>
+</ul>
+</li>
+<li>example for calculating EAT:<ul>
+<li>m = 200 nanoseconds = 0.0002 milliseconds</li>
+<li>t = 8 milliseconds</li>
+<li>p = 0.001</li>
+<li>EAT = <span>$(1-0.001) \cdot 0.0002 + 0.001 \cdot 8 = 0.0001998 + 0.008 \approx 0.0082$</span> milliseconds so 8.2 microseconds or 8200 nanoseconds</li>
+<li>this shows that even if page faults are relatively rare, they can still introduce huge slowdowns (40x slower in this case)</li>
+<li>obviously, we want to keep page-fault-rate low</li>
+<li>if we want to keep it below, say, 5%, then we need for the EAT to be less than 210</li>
+<li>the calculation's not hard, just make <span>$p$</span> the variable </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>copy-on-write<ul>
+<li>a benefit of virtual memory realised during process creation</li>
+<li>normally, the <code>fork()</code> system call duplicates the parent's pages for the child</li>
+<li>however, many ungrateful children invoke <code>exec()</code> immediately after birth, making this copying unnecessary</li>
+<li>copy-on-write allows the parent and child to initially share the parent's pages in memory</li>
+<li>only if either process modifies a shared page is that page copied</li>
+<li>results in more efficient process creation (so that fewer pages need to be allocated to child processes)</li>
+</ul>
+</li>
+<li>page replacement<ul>
+<li>what happens when we need to swap a new page into memory but there are no free frames????????</li>
+<li>in that case, we need some sort of page replacement policy to get rid of pages we don't need</li>
+<li>such a policy should minimise the number of page faults (obviously)</li>
+<li>basic algorithm:<ul>
+<li>find location of desired page on disk</li>
+<li>find a free frame, if one exists</li>
+<li>if no free frames exist, find a victim frame, write it to disk (if dirty), and change the page and frame tables accordingly</li>
+<li>bring the desired page into the newly freed frame, update tables</li>
+</ul>
+</li>
+<li>makes use of a dirty bit in the page table so that only modified pages are written back to disk when they are evicted from memory</li>
+<li>evaluating different page replacement policies<ul>
+<li>FIFO: remove the least-recently-added pages first</li>
+<li>belady's anomaly: for some page replacement policies, more frames can result in more page faults (which seems paradoxical)</li>
+<li>OPT/MIN: theoretical algorithm (lol) that has the lowest page-fault rate and will never suffer from belady's anomaly<ul>
+<li>you evict the page that will not be used for the longest period of time</li>
+<li>obviously this is impossible to implement in practice unless you know the future</li>
+<li>however, it's useful as a comparison point for other page replacement policies ("how does this algorithm behave compared to OPT")</li>
+</ul>
+</li>
+<li>LRU: use recent history to simulate OPT<ul>
+<li>evict the page that was least recently used</li>
+<li>implementation: every page entry has a "counter" (really a timestamp for the last use)</li>
+<li>when we need to evict one, we just replace the page with the smallest timestamp</li>
+<li>this has the added overhead of needing to search the table to find the LRU page each time, and we also need to write the timestamp to memory during every memory access</li>
+<li>still, it's pretty efficient as it tends to reduce the number of page faults compared to most other algorithms</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>allocation of frames<ul>
+<li>how do we allocate the fixed amount of free memory among the various processes running on a system?</li>
+<li>two methods: fixed, priority</li>
+<li>fixed allocation - doesn't take priorities into account; 2 methods<ul>
+<li>equal allocation:<ul>
+<li>all animals are equal</li>
+<li>each process gets the same number of frames</li>
+</ul>
+</li>
+<li>proportional allocation:<ul>
+<li>some are more equal than others</li>
+<li>frames allocated according to the size (virtual memory) of a process</li>
+<li>how do they know that???</li>
+<li>for example, if there are 2 processes, one of size 5, and one of size 10, and there are 30 frames, the first would get 10 frames, the second would get 20</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>priority allocation - takes priorities into account<ul>
+<li>high-priority processes are given more memory to speed their execution</li>
+<li>uses a proportional allocation scheme using priority rather than size (or possibly both priority and size)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thrashing<ul>
+<li>if a process has too few frames, its page fault rate will be very high</li>
+<li>result: low CPU usage, so the OS thinks it needs to increase the degree of multiprogramming, so it adds more processes, then it all goes to hell</li>
+<li>then the OS will spend more time paging than executing processes (i.e., thrashing)</li>
+<li>to prevent this, we must provide a process with as many frames as it needs</li>
+<li>how do we know this magic number?</li>
+<li><strong>working-set strategy</strong>: looks at how many frames a process is actually using<ul>
+<li>purpose: to prevent thrashing while keeping the degree of multiprogramming as high as possible</li>
+<li>makes use of the <strong>locality model</strong> of process execution<ul>
+<li>locality: set of pages commonly used together</li>
+<li>for instance, when a function is called, a new locality is defined</li>
+<li>thrashing occurs when the size of the locality is greater than the total memory size</li>
+</ul>
+</li>
+<li>in the working-set model, we have a parameter <span>$\Delta$</span> (working-set window) which is a fixed number of page references</li>
+<li>working-set size of a process: number of pages referenced in the most recent <span>$\Delta$</span></li>
+<li>need an optimal size of <span>$\Delta$</span> so that we get exactly one locality (not less, not more), or at least, estimate it better</li>
+<li>the total number of frames we need is the sum of all the working set sizes (for all the processes)</li>
+<li>if this number &gt; total number of available frames, then we'll have thrashing</li>
+<li>so, we need to suspend a process</li>
+<li>if we have extra frames, then we can start a new process</li>
+<li>for example, if the last few pages referenced were: 12323434343334<ul>
+<li>then, if <span>$\Delta = 10$</span>, we look at the last 10 page references --&gt; pages 3 and 4</li>
+</ul>
+</li>
+<li>not entirely sure how this is supposed to work</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>9.1</i>Sample questions<a class="headerlink" href="#sample-questions_8" name="sample-questions_8">&para;</a></h3>
+<h4 class="header"><i>9.1.1</i>Demand paging<a class="headerlink" href="#demand-paging" name="demand-paging">&para;</a></h4>
+<blockquote>
+<p>What is this? What do valid and invalid bits mean for the page table in this scheme?</p>
+</blockquote>
+<p>A page is only brought into memory when there is a reference to it (lazy loading). Valid = page is in memory. Invalid = page is illegal or not in memory.</p>
+<h4 class="header"><i>9.1.2</i>Page faults<a class="headerlink" href="#page-faults" name="page-faults">&para;</a></h4>
+<blockquote>
+<p>What are page faults, and what happens when they are encountered?</p>
+</blockquote>
+<p>When we hit a reference to a page marked invalid in the page table (so either illegal or just not in memory). The OS needs to look at another table in the PCB to check if it's illegal, and, if not, finds an empty frame using the free frame list, reads the page from disk into the frame, updates all the tables, then restarts the instruction.</p>
+<h4 class="header"><i>9.1.3</i>Page fault EAT calculations<a class="headerlink" href="#page-fault-eat-calculations" name="page-fault-eat-calculations">&para;</a></h4>
+<blockquote>
+<p>Accessing memory takes 0.0005 (ignore the unit). The page fault rate is 0.01, and it takes 2.0 to handle a page fault. What's the EAT?</p>
+</blockquote>
+<p><span>$(0.0005 \cdot 0.99) + (\cdot 2.0 \cdot 0.01) = 0.020495$</span> which is a ~40x slowdown</p>
+<blockquote>
+<p>Same numbers as above, but we want to find the highest page fault rate that will result in a 10x slowdown</p>
+</blockquote>
+<p><span>$0.0005 \cdot (1-p) + 2.0p = 0.0005 + 1.9995p = 0.005$</span>, so <span>$1.9995p = 0.0045$</span> and <span>$p \approx 0.0023$</span></p>
+<h4 class="header"><i>9.1.4</i>Copy-on-write<a class="headerlink" href="#copy-on-write" name="copy-on-write">&para;</a></h4>
+<blockquote>
+<p>What is it? Benefits?</p>
+</blockquote>
+<p>During process creation (with fork), instead of copying all the parent pages over for the child, let the child share the parent's pages and only copy when one process writes to a page. More efficient process creation and less memory wasted.</p>
+<h4 class="header"><i>9.1.5</i>Page replacement policies<a class="headerlink" href="#page-replacement-policies" name="page-replacement-policies">&para;</a></h4>
+<blockquote>
+<p>List them</p>
+</blockquote>
+<p>FIFO: replaces the first one in</p>
+<p>OPT: theoretical, replaces the one that will be used latest</p>
+<p>LRU: replaces the least recently used one (smallest timestamp). overhead: searching the entire table, and updating the page table whenever you need to access a page</p>
+<h4 class="header"><i>9.1.6</i>Belady's anomaly<a class="headerlink" href="#beladys-anomaly" name="beladys-anomaly">&para;</a></h4>
+<blockquote>
+<p>What is Belady's anomaly? Give a page replacement algorithm that does not suffer from it.</p>
+</blockquote>
+<p>When increasing the number of frames increases the number of page faults for a page replacement policy. OPT does not (though LRU tries).</p>
+<h4 class="header"><i>9.1.7</i>Frame allocation<a class="headerlink" href="#frame-allocation" name="frame-allocation">&para;</a></h4>
+<blockquote>
+<p>Methods of allocating frames?</p>
+</blockquote>
+<p>Fixed allocation, equal.</p>
+<p>Fixed allocation, proportional to size of memory used by a process.</p>
+<p>Priority allocation, based on priority (and possibly size).</p>
+<h4 class="header"><i>9.1.8</i>Thrashing<a class="headerlink" href="#thrashing" name="thrashing">&para;</a></h4>
+<blockquote>
+<p>What is thrashing</p>
+</blockquote>
+<p>OS is constantly paging rather than doing useful work. Page fault rate is high, OS thinks it needs to add more processes to improve CPU utilisation, etc.</p>
+<h4 class="header"><i>9.1.9</i>Working-set model<a class="headerlink" href="#working-set-model" name="working-set-model">&para;</a></h4>
+<blockquote>
+<p>How does this work</p>
+</blockquote>
+<p>Looks at the number of frames a process is using to try and prevent thrashing while having as many processes running as possible. We look at the number of different pages used by a process per locality. Make sure the sum of working set sizes for all processes is smaller than the number of pages available in memory, etc.</p>
+<h3 class="header"><i>9.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_8" name="answers-to-textbook-exercises_8">&para;</a></h3>
+<p>N/A</p>
+<h2 class="header"><i>10</i>Chapter 10: File-system interface<a class="headerlink" href="#chapter-10-file-system-interface" name="chapter-10-file-system-interface">&para;</a></h2>
+<ul>
+<li>attributes (kept in dir structure, which is on disk)<ul>
+<li>name</li>
+<li>system identifier</li>
+<li>type</li>
+<li>location</li>
+<li>size</li>
+<li>protection (permissions)</li>
+<li>time, date, user identification</li>
+</ul>
+</li>
+<li>operations<ul>
+<li>create: allocate space in system, make new entry in directory</li>
+<li>write: given file name and info to be written, system searches for it, keeps a write pointer</li>
+<li>read: ^ but read pointer</li>
+<li>reposition in file: seek, pointer value changes</li>
+<li>delete: find file, release space, delete dir entry</li>
+<li>truncate: delete contents, keep attributes</li>
+</ul>
+</li>
+<li><code>open()</code> system call avoids constant searching for dir entry (saves it in memory; <code>close()</code> frees)<ul>
+<li>takes file name, copies dir entry into open file table, returns pointer</li>
+<li>per-process table (pointer, rights), system-wide (location, access dates, file size)</li>
+<li>to manage open files, need pointer, open count, location, access rights</li>
+</ul>
+</li>
+<li>access methods<ul>
+<li>sequential</li>
+<li>direct</li>
+<li>index</li>
+<li>can simulate sequential on direct</li>
+<li>direct on sequential is inefficient</li>
+</ul>
+</li>
+<li>storing files on disks<ul>
+<li>partitions</li>
+<li>raw or formatted</li>
+<li>RAID protection</li>
+<li>volume = entity with filesystem</li>
+</ul>
+</li>
+<li>directory structure<ul>
+<li>collection of nodes pointing to files</li>
+<li>operations<ul>
+<li>search for file</li>
+<li>create</li>
+<li>delete</li>
+<li>list</li>
+<li>rename</li>
+<li>traverse</li>
+</ul>
+</li>
+<li>single-level directory for all users: dumb</li>
+<li>two-level, one for each user: bad for cooperation</li>
+<li>tree-structured: each file has unique path name<ul>
+<li>acyclic graph</li>
+<li>hard links?</li>
+<li>multiple abs path names</li>
+<li>reference list: delete files when no references to it exist</li>
+<li>self-reference?</li>
+<li>check that there are no cycles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mounting</li>
+<li>sharing, etc, nothing special</li>
+<li>failure<ul>
+<li>directory corruption, disk-controller failure, etc</li>
+</ul>
+</li>
+<li>types of access (for right management):<ul>
+<li>read</li>
+<li>write</li>
+<li>execute</li>
+<li>append</li>
+<li>delete</li>
+<li>list</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>10.1</i>Sample questions<a class="headerlink" href="#sample-questions_9" name="sample-questions_9">&para;</a></h3>
+<h4 class="header"><i>10.1.1</i>File attributes?<a class="headerlink" href="#file-attributes" name="file-attributes">&para;</a></h4>
+<blockquote>
+<p>What are they?</p>
+</blockquote>
+<ul>
+<li>Name</li>
+<li>System identifier</li>
+<li>Type</li>
+<li>Location on disk</li>
+<li>Size</li>
+<li>Permissions</li>
+<li>Time, date, user identification</li>
+</ul>
+<h4 class="header"><i>10.1.2</i>The open system call<a class="headerlink" href="#the-open-system-call" name="the-open-system-call">&para;</a></h4>
+<blockquote>
+<p>Purpose? What does close do?</p>
+</blockquote>
+<p>To cache file info in memory, to avoid constantly searching for the dir entry. Close frees that memory. It takes the file name, copies the the dir entry into the open file table, and returns the pointer.</p>
+<h4 class="header"><i>10.1.3</i>Open file tables<a class="headerlink" href="#open-file-tables" name="open-file-tables">&para;</a></h4>
+<blockquote>
+<p>What's stored in the per-process table? System-wide table?</p>
+</blockquote>
+<p>Per-process: pointer (to file contents, in memory), access rights</p>
+<p>System-wide: location on disk (?), access dates, file size</p>
+<h3 class="header"><i>10.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_9" name="answers-to-textbook-exercises_9">&para;</a></h3>
+<p>N/A</p>
+<h2 class="header"><i>11</i>Chapter 11: File-system implementation<a class="headerlink" href="#chapter-11-file-system-implementation" name="chapter-11-file-system-implementation">&para;</a></h2>
+<ul>
+<li>Structure<ul>
+<li>Organised into layers somehow</li>
+<li>File system resides on disk, provides efficient and convenient access to disk</li>
+<li>File control block: storage structure, contains info about file (owner, permissions, location on disk)</li>
+<li>Device driver controls physical device</li>
+</ul>
+</li>
+<li>Implementation<ul>
+<li>Boot control block: contains info needed by system to boot OS from volume</li>
+<li>Volume control block (per volume): contains details for that partition (number of blocks, block size, etc)</li>
+<li>File control block:<ul>
+<li>permissions</li>
+<li>file create, access, write dates</li>
+<li>file owner, group</li>
+<li>file size</li>
+<li>pointers to data blocks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Directories<ul>
+<li>linear list of file names is very inefficient</li>
+<li>instead, we use a hash table</li>
+<li>linear list to store the directory entries, hash data structure for accessing pointers</li>
+<li>pros: directory search time decreases</li>
+<li>cons: collisions, etc</li>
+</ul>
+</li>
+<li>Allocation methods<ul>
+<li>contiguous allocation: each file occupies a set of consecutive blocks on disk<ul>
+<li>dir entry indicates address of starting block, number of blocks</li>
+<li>pros: simple, sequential access is easy, direct access isn't too hard</li>
+<li>cons:<ul>
+<li>wasteful of space (can result in external fragmentation)</li>
+<li>files cannot grow in size after they are first created (like arrays in C)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linked allocation: file is linked list of disk blocks<ul>
+<li>blocks can be stored anywhere</li>
+<li>directory contains pointer to first, last blocks of file</li>
+<li>each block contains pointer to next block</li>
+<li>pros: no external fragmentation, because any free block can be used; files can grow; simple</li>
+<li>cons: random access is inefficient, lots of space overhead for pointers</li>
+<li>FAT (file allocation table): used by MS-DOS<ul>
+<li>variation on linked allocation</li>
+<li>dir entry contains block number of first block in file</li>
+<li>a section of disk at the beginning of each volume is reserved for a table</li>
+<li>that table contains the next block number for each block in the file</li>
+<li>unused blocks indicated by value of 0</li>
+<li>last block contains EOF value</li>
+<li>pros: random access is fast</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>indexed allocation<ul>
+<li>all pointers stored in index block (one for each file)</li>
+<li>_i_th entry in the index block points to _i_th block of file</li>
+<li>directory contains address of index block</li>
+<li>pros:<ul>
+<li>direct access</li>
+</ul>
+</li>
+<li>cons:<ul>
+<li>pointer overhead of index block (usually greater than the pointer overhead for linked allocation)</li>
+<li>if most files are small, then linked allocation wins - only one pointer per block for linked, but an entire index block for indexed</li>
+</ul>
+</li>
+<li>optimal size for index blocks? if small, less overhead, but may not be able to hold enough pointers</li>
+<li>linked scheme: link together several index blocks<ul>
+<li>one block contains n file block addresses</li>
+<li>large files may need several index blocks</li>
+<li>multi-level index: one index block points to other blocks, etc</li>
+<li>example: 4096-byte blocks, each pointer 4 bytes, 2-level index</li>
+<li>store 1024 = 2<sup>10</sup> pointers per index block</li>
+<li>2 levels of indexes, so 1024<sup>2</sup> = 10<sup>20</sup> data blocks</li>
+<li>so 10<sup>20</sup> * 4096 = 10<sup>20</sup> * 10<sup>12</sup> = 10<sup>32</sup> = 4 * 10<sup>30</sup> = 4 GB</li>
+</ul>
+</li>
+<li>combined scheme: used in UFS (UNIX file system)<ul>
+<li>keep first 15 pointers of index block in file's inode (FCB for UNIX)</li>
+<li>first 12 pointers: directly to blocks (so small files don't need separate index blocks)</li>
+<li>the 13th: points to index block containing addresses of file blocks</li>
+<li>14th points to double indirect block (pointer to index block containing pointers to file block, what is this i don't even)</li>
+<li>15th: triple indirect block</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Free space management<ul>
+<li>disk space is limited, need to reuse space from deleted files</li>
+<li>to keep track of free disk space, system maintains free space list for free blocks</li>
+<li>usually implemented as a list (bit vector, length n where n is the number of blocks)<ul>
+<li>if 1, free; if 0, occupied</li>
+<li>block number calculations are supported by the hardware somehow<ul>
+<li>to find the first free block number: number of bits per word * number of 0-value words + offset of first 1 bit, what</li>
+</ul>
+</li>
+<li>this bit map requires extra space</li>
+<li>if block size = 2<sup>12</sup> bytes, and disk size = 2<sup>30</sup> bytes (1 GB), then you need 2<sup>18</sup> bytes for the bit map (so 32 KB)</li>
+<li>but, it's easy to get contiguous blocks</li>
+</ul>
+</li>
+<li>another solution: linked list (free list)<ul>
+<li>link together all the free disk blocks</li>
+<li>pointer to the first free block in a special location on disk (also cached in memory)</li>
+<li>harder to get contiguous space</li>
+<li>but, less space is wasted</li>
+</ul>
+</li>
+<li>grouping: modification of the linked list approach<ul>
+<li>first free block stores the addresses of n free blocks, and then one other block which is not actually a free block but instead contains address of another n free blocks</li>
+<li>faster to find a large number of free blocks using this method</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Recovery<ul>
+<li>files, directories kept in main memory (for speed) but also disk (for consistency)</li>
+<li>system failure/crash can result in data loss or inconsistency</li>
+<li>consistency checking: compares data in dir structure with data blocks on disk, etc</li>
+<li>fsck for Unix, chkdsk for windows</li>
+<li>journaling (like ext3/4 for linux)<ul>
+<li>each update to file system recorded as transaction</li>
+<li>same techniques used by databases to guarantee FS consistency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NFS<ul>
+<li>Sun Network File System</li>
+<li>implementation/specification of software system for accessing remote files across LANs/WANs</li>
+<li>part of Solaris, SunOS operating systems</li>
+<li>Ethernet: family of computer networking technologies for LAN, part of IEEE standard</li>
+<li>independent machines can access shared file systems transparently (i.e. user doesn't need to see the details)</li>
+<li>remote directory mounted over a local file system directory</li>
+<li>the mounting operation isn't "transparent", though</li>
+<li>cascading mount: allowed in some NFS implementations (remote file systems mounted on a remote file system can be accessed, etc)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>11.1</i>Sample questions<a class="headerlink" href="#sample-questions_10" name="sample-questions_10">&para;</a></h3>
+<h4 class="header"><i>11.1.1</i>File control blocks<a class="headerlink" href="#file-control-blocks" name="file-control-blocks">&para;</a></h4>
+<blockquote>
+<p>What's in a file control block</p>
+</blockquote>
+<ul>
+<li>Permissions</li>
+<li>Create, last accessed, last modified dates</li>
+<li>File owner, group</li>
+<li>File size</li>
+<li>Pointers to data blocks</li>
+</ul>
+<h4 class="header"><i>11.1.2</i>Directory implementation<a class="headerlink" href="#directory-implementation" name="directory-implementation">&para;</a></h4>
+<blockquote>
+<p>How</p>
+</blockquote>
+<p>Linear list (like an array? linked list?) to store the dir entries, hash data for accessing pointers to files</p>
+<h4 class="header"><i>11.1.3</i>Allocation methods<a class="headerlink" href="#allocation-methods" name="allocation-methods">&para;</a></h4>
+<blockquote>
+<p>What are they, pros and cons of each</p>
+</blockquote>
+<p>Contiguous, linked allocation, indexed allocation.</p>
+<p>Contiguous: consecutive blocks. wasteful of space (results in external fragmentation), files cannot grow in size.</p>
+<p>Linked: Linked list, each thing has some content and pointer to next thing. No external fragmentation, and files can grow, but random access is inefficient and there's lots of space overhead for the pointers.</p>
+<p>Indexed: pointers stored in index block (one for each file), basically an array. Dir entry contains address of index block. Direct access is fast, pointer overhead is greater than for linked if files are small</p>
+<h4 class="header"><i>11.1.4</i>Linked index allocation calculations<a class="headerlink" href="#linked-index-allocation-calculations" name="linked-index-allocation-calculations">&para;</a></h4>
+<blockquote>
+<p>Given x-byte blocks, each pointer = y bytes, 2-level index. Can store x / y pointers per index block. 2 levels of indexes, so (x/y)<sup>2</sup> data blocks. So x<sup>2</sup>/y<sup>2</sup> * x = x<sup>3</sup>/y<sup>3</sup> bytes that can be stored total</p>
+</blockquote>
+<h4 class="header"><i>11.1.5</i>Free space management<a class="headerlink" href="#free-space-management" name="free-space-management">&para;</a></h4>
+<blockquote>
+<p>Describe the different solutions</p>
+</blockquote>
+<p>Bit vector: length n, where n is the number of blocks. 1 if free, 0 if occupied. To find the first free block number: number of bits per word * number of 0-value words + offset of first 1-bit block. If block size is x, and disk size is y, you need y/x bytes for the bit map. Easy to get contiguous space.</p>
+<p>Linked list: each element is a free disk block, pointer to first block from special location in disk and memory. Harder to get contiguous space but less is wasted.</p>
+<p>Grouping: like linked list. First free block stores addresses of n free blocks, and then a pointer to the next thing like this. Faster to find a large number of free blocks.</p>
+<h4 class="header"><i>11.1.6</i>Journaling<a class="headerlink" href="#journaling" name="journaling">&para;</a></h4>
+<blockquote>
+<p>What is it</p>
+</blockquote>
+<p>Like transactions with databases. For guaranteeing consistency.</p>
+<h4 class="header"><i>11.1.7</i>Cascading mount<a class="headerlink" href="#cascading-mount" name="cascading-mount">&para;</a></h4>
+<blockquote>
+<p>What is it</p>
+</blockquote>
+<p>NFS, when you mount a remote file system somewhere on a machine, then that is mounted by another machine</p>
+<h4 class="header"><i>11.1.8</i>Blocks and partial storage<a class="headerlink" href="#blocks-and-partial-storage" name="blocks-and-partial-storage">&para;</a></h4>
+<blockquote>
+<p>Can blocks be partially written to? That is, can part of one block be used for something, with the other part being used for something else?</p>
+</blockquote>
+<p>No. Even if only one bit in the block is actually written to, the entire block is considered used. (I couldn't find the right place for this in the notes above.)</p>
+<h3 class="header"><i>11.2</i>Answers to textbook exercises<a class="headerlink" href="#answers-to-textbook-exercises_10" name="answers-to-textbook-exercises_10">&para;</a></h3>
+<p>N/A</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:readcount">
+<p>Note that this check actually does prevent concurrent read and write operations, not just for the first reader. Here's why. Let's say someone is writing, and along comes reader 1 who wants to read. Well, since readcount will be 1 at this point, reader 1 will have to wait until the writer (<code>wait(wrt)</code>), which is what we want. What happens if reader 2 comes along, before the writer has finished writing? Well, since <code>mutex</code> is still 0 (as we haven't reached the <code>signal(mutext)</code> line in the thread for reader 1), then reader 2 will be stopped on the first line (<code>wait(mutex)</code>). Only when the writer has finished writing will reader 1 be able to proceed, followed shortly by reader 2.<br />
+On the other hand, if someone is reading the data and a writer comes along, the writer won't be able to acquire a lock on <code>wrt</code> because the first reader has already taken it. Only when all the readers are done reading will the writer be able to write. How much wood could a woodchuck chuck if a woodchuck could chuck wood?<br />
+We can see immediately that this is indeed a "readers-preference" algorithm, for as long as there is a never-ending stream of readers, writers are starved. Which sounds almost paradoxical but it really does happen.&#160;<a href="#fnref:readcount" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:chopsticks">
+<p>Have you tried eating rice with just one chopstick? It's really hard.&#160;<a href="#fnref:chopsticks" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:freewill">
+<p>Do philosophers? Have some rice and think about it.<sup id="fnref:lol"><a href="#fn:lol" rel="footnote" title="At least I make myself laugh">4</a></sup>&#160;<a href="#fnref:freewill" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:lol">
+<p>At least I make myself laugh&#160;<a href="#fnref:lol" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:response time">
+<p>The textbook definition never really made sense to me, but it seems that this is only relevant for "interactive" processes. Not completely sure. I suppose one could just memorise the textbook definition and regurgitate it when asked, though that is of course far from ideal.&#160;<a href="#fnref:response time" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

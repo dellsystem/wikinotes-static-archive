@@ -1,0 +1,203 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, September 5, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, September 5, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                DFAs for determining validity of words
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>How can we use a DFA to determine if a particular string is a valid word in a language?</p>
+<div class="toc">
+<ul>
+<li><a href="#definitions">1 Definitions</a></li>
+<li><a href="#theory-of-deterministic-finite-automata-dfa">2 Theory of deterministic finite automata (DFA)</a><ul>
+<li><a href="#dfa-diagrams">2.1 DFA diagrams</a><ul>
+<li><a href="#combination-lock-example">2.1.1 Combination lock example</a></li>
+<li><a href="#divisibility-by-3-example">2.1.2 Divisibility by 3 example</a></li>
+</ul>
+</li>
+<li><a href="#delta">2.2 $\delta^*$</a></li>
+<li><a href="#optional-topic-monoids">2.3 Optional topic: monoids</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h2>
+<dl>
+<dt>Alphabet</dt>
+<dd>A finite<sup id="fnref:finite"><a href="#fn:finite" rel="footnote" title="Not always finite, but in this course, we'll only ...">1</a></sup> set of symbols/letters denoted <span>$\Sigma$</span>. Example: <span>$\Sigma = \{a, b, c\}$</span> or <span>$\Sigma = \{0, 1\}$</span> (bits).</dd>
+<dt>Word</dt>
+<dd>A finite sequence of letters. Example: <span>$a$</span>, <span>$b$</span>, <span>$ab$</span>, <span>$aaabac$</span>, etc. There is also the empty word: <span>$\epsilon$</span>.</dd>
+</dl>
+<p>We define the <strong>concatenation</strong> operation on words in the usual way: <span>$w_1 \cdot w_2$</span> (with the dot symbol often omitted) simply means we write the letters in <span>$w_1$</span> followed by the letters in the word <span>$w_2$</span> to get a new word. This is an associative operation (so we can drop the parentheses), but it's not commutative, and there is an identity element (<span>$\epsilon$</span>). Thus, this is a <strong>monoid</strong>, but not a group, as groups have inverses and obviously concatenation does not.</p>
+<dl>
+<dt><span>$\Sigma^*$</span></dt>
+<dd>The collection of all possible words that can be formed from an alphabet <span>$\Sigma$</span>. If <span>$\Sigma \neq \varnothing$</span>, then clearly <span>$\Sigma^*$</span> is infinite. Note that even if <span>$\Sigma = \varnothing$</span>, <span>$\Sigma^*$</span> is still not an empty set - it would be <span>$\{\epsilon\}$</span>.</dd>
+<dt>Language</dt>
+<dd>A language <span>$L$</span> is a subset of <span>$\Sigma^*$</span>. You can think of a language as a set of words that are valid.</dd>
+</dl>
+<p>Much of this class is going to focus on how we describe languages, and how we can identify whether or not a particular word <span>$w$</span> belongs to a language <span>$L$</span>. We'll find that for most languages, there isn't actually any way to do this! So we'll restrict our study to languages that we <em>can</em> describe, called <strong>well-behaved</strong> languages.</p>
+<h2 class="header"><i>2</i>Theory of deterministic finite automata (DFA)<a class="headerlink" href="#theory-of-deterministic-finite-automata-dfa" name="theory-of-deterministic-finite-automata-dfa">&para;</a></h2>
+<p>This theory was developed by Stephen Kleene (pronounced "clay-knee"), not that it matters.</p>
+<p>A DFA is defined by the 4-tuple <span>$(S, s_0, \delta, F)$</span>, for a fixed alphabet <span>$\Sigma$</span>:</p>
+<dl>
+<dt><span>$S$</span></dt>
+<dd>the finite set of possible states</dd>
+<dt><span>$s_0$</span></dt>
+<dd>The initial state (<span>$s_0 \in S$</span>)</dd>
+<dt><span>$\delta$</span></dt>
+<dd>A function, <span>$S \times \Sigma \to S$</span>, which, given a state and the alphabet, gives the next state. As this is a function, it is deterministic by definition, hence the "deterministic" part of DFA.</dd>
+<dt><span>$F$</span></dt>
+<dd>Final/accept states (<span>$F \subseteq S$</span>)</dd>
+</dl>
+<p>Here's how the machine works:</p>
+<ol>
+<li>Start in state <span>$s_0$</span>.</li>
+<li>Read one letter and move to the next state according to <span>$\delta$</span>.</li>
+<li>Move one letter forward and repeat step 2 until we run out of letters. Note that there is no backtracking.</li>
+</ol>
+<p>When the word is complete (and the machine has stopped), if the current state is an element of <span>$F$</span>, then we "accept" the word as a valid word in the language. Note that all the DFA keeps in its memory is the state, and the position in the word; it has no memory of <em>how</em> it got to any state.</p>
+<p>Incidentally, any finite language can be recognised by a DFA. (Proof omitted.) In general, a language that can be recognised by a DFA is called a <strong>regular language</strong>. We'll be studying these in more detail.</p>
+<h3 class="header"><i>2.1</i>DFA diagrams<a class="headerlink" href="#dfa-diagrams" name="dfa-diagrams">&para;</a></h3>
+<p><img alt="Example DFA" src="http://cs.mcgill.ca/~wliu65/media/comp330/dfa-diagram.png" title="Original diagram; released under CC0" /></p>
+<p>The circles are states; the initial state is indicated via an arrow; double-stroke circles are accept states. The behaviour of the machine is as easy to understand as following the arrows. For instance, if I'm in state <span>$s_0$</span>, and I read an a, I should move to <span>$s_1$</span>.</p>
+<p>Note that while technically every state should have <span>$|\Sigma|$</span> arrows coming out, in practice we can get rid of the arrows that lead to "death states", i.e., states from which we can never reach an accept state (like <span>$s_3$</span> in the above example). In fact, we can omit drawing death states and any associated arrows completely - if we reach a state for which the next letter in our word does not have an arrow, then we have an automatic reject.</p>
+<p>This particular DFA will accept any word that starts with an "ab". Incidentally, not all machines have such a nice natural language description; sometimes the best description is the machine itself.</p>
+<p>We could also make a machine that accepts any word:</p>
+<p><img alt="The &quot;Mickey Mouse&quot; machine" src="http://cs.mcgill.ca/~wliu65/media/comp330/mickey-mouse-machine.png" title="Original diagram; released under CC0" /></p>
+<p>Notably, this illustrates that the complexity of the DFA diagram is independent of the size of the language (i.e., the number of words that are accepted); the Mickey Mouse machine above accepts all of <span>$\Sigma^*$</span>, which, as you should recall, is infinitely large.</p>
+<h4 class="header"><i>2.1.1</i>Combination lock example<a class="headerlink" href="#combination-lock-example" name="combination-lock-example">&para;</a></h4>
+<p>Let <span>$\Sigma = \{1,2,3,4,5\}$</span>. We can represent a combination lock that only opens for the combination 4-1-2-3-5 as a DFA with the following diagram (death states omitted):</p>
+<p><img alt="Combination lock DFA" src="http://cs.mcgill.ca/~wliu65/media/comp330/combination-lock.png" title="Original diagram; released under CC0" /></p>
+<h4 class="header"><i>2.1.2</i>Divisibility by 3 example<a class="headerlink" href="#divisibility-by-3-example" name="divisibility-by-3-example">&para;</a></h4>
+<p><span>$\Sigma = \{0, 1\}$</span>, interpreted as a binary number (where <span>$\epsilon = 0$</span>). We define a language <span>$L$</span> as only those words which, when interpreted as binary, are divisible by 3. If we were to enumerate these words, we'd have <span>$\epsilon$</span>, 0, 11, 110, 1001, ... (infinite set, of course).</p>
+<p>Recall that the machine is reading the number from left to right. Let's say we have the following word <span>$w$</span>, represented in terms of its letters as follows:</p>
+<p><span>$$w = \underbrace{\_\_\_\_\_}_{x} \_ \tag{where the last letter is either 0 or 1}$$</span></p>
+<p>If the next letter is 0, then the value of the word <span>$w$</span> becomes <span>$2x$</span>. If the next letter is 1, on the other hand, the value is <span>$2x+1$</span>.</p>
+<p>A key observation for this problem is the fact that we only need to remember the state mod 3. When we divide something by 3, the possibilities are 0, 1, and 2. So we'd only need 3 states! Using this information, plus the rules we determined in the previous paragraph, we can easily draw the DFA diagram:</p>
+<p><img alt="Divisibility by 3 DFA" src="http://cs.mcgill.ca/~wliu65/media/comp330/divisibility-by-3.png" title="Original diagram; released under CC0" /></p>
+<p>We will now prove that the machine we have just drawn is the most optimal machine (as in, fewest states) for this language. This is a fairly straightforward proof by contradiction: consider any machine with exactly 2 states, A and B, which accepts exactly the same words as the machine we defined above. Consider the strings 100, 101, and 110. Only 110 is divisible by 3, so that should end up in the accept state (which we'll take to be A, WLOG). 100 and 101, on the other hand, are <em>not</em> divisible by 3, so they should end up in the reject state, B.</p>
+<p>Of course, once we are in state B, the machine has no memory of how we got there. So then if the next letter is 1, we get either 1001 or 1011; the former is divisible by 3 and thus needs to go to A, while the latter is not divisible by 3 and thus needs to stay in B. Clearly we get a contradiction, etc. <span>$\blacksquare$</span></p>
+<p>The general strategy for proving <span>$n$</span> as a lower bound on the number of states is to find <span>$n$</span> pairs of strings. For each pair <span>$(u, v)$</span>, find a string <span>$x$</span> such that <span>$ux$</span> is accepted but <span>$vx$</span> is rejected.</p>
+<h3 class="header"><i>2.2</i>$\delta^*$<a class="headerlink" href="#delta" name="delta">&para;</a></h3>
+<p>Given <span>$M = (S, s_0, \delta, F)$</span>, we define <span>$\delta^*$</span> to be a function, <span>$S \times \Sigma^* \to S$</span> (so a map from states and words to new states).</p>
+<p>We can define this by induction on the length of the word. First, the base case: <span>$\delta^*(s, \epsilon) = s$</span> (so if we're given an empty word, stay on state <span>$s$</span>). Then, <span>$\delta^*(s, a\omega) = \delta^*(\delta(s, a), \omega)$</span> where <span>$a$</span> is a letter and <span>$\omega$</span> is a word. This concept is pretty straightforward - it's just extending the concept of <span>$\delta$</span> to entire words; this inductive definition merely formalises it.</p>
+<h3 class="header"><i>2.3</i>Optional topic: monoids<a class="headerlink" href="#optional-topic-monoids" name="optional-topic-monoids">&para;</a></h3>
+<p><em>This topic is optional; excuse the free-form quality of the notes in this section</em></p>
+<p><span>$(\Sigma^*, \cdot, \epsilon)$</span> forms a <strong>free monoid</strong>.</p>
+<p>Another example of a monoid: the positive integers (including zero), with addition. This is not a group since there are no negative integers (for inverses).</p>
+<p>Also: <span>$(f: S\to S, \circ, \text{the identity function})$</span> where <span>$\circ$</span> is function composition, again not a group.</p>
+<p>Just like we have group homomorphisms, we also have monoid homomorphisms!</p>
+<p>Any DFA has a natural monoid structure.</p>
+<p>Also, there is a map <span>$\Psi: \Sigma^* \to (S \to S)$</span> which takes a word and returns a function from state to state. This is defined by <span>$\Psi(w) = s \to \delta^*(s, w)$</span>.</p>
+<p>Exercise: show that <span>$\Psi$</span> is a monoid homomorphism.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:finite">
+<p>Not always finite, but in this course, we'll only consider the finite case.&#160;<a href="#fnref:finite" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

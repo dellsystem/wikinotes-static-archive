@@ -1,0 +1,143 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 8, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 8, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Complex numbers and vector spaces
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this lecture, we got a brief introduction to complex numbers, and were given the definition of a vector space (along with some examples).</p>
+<div class="toc">
+<ul>
+<li><a href="#complex-numbers">1 Complex numbers</a></li>
+<li><a href="#vector-spaces">2 Vector spaces</a><ul>
+<li><a href="#examples-of-vector-spaces">2.1 Examples of vector spaces</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Complex numbers<a class="headerlink" href="#complex-numbers" name="complex-numbers">&para;</a></h2>
+<p><span>$$\mathbb C = \{a + bi \mid a, b \in \mathbb R, i^2 = -1 \}$$</span></p>
+<p>Note that <span>$\mathbb R \subset \mathbb C$</span>.</p>
+<p>We can then define the operations of addition and multiplication in the standard way.</p>
+<p>Exercise: Prove that <span>$\mathbb C$</span> is a field. (Need to show commutativity, associtivity, existence of identities, and existence of inverses for both operations. Also need to show distributivity.)</p>
+<h2 class="header"><i>2</i>Vector spaces<a class="headerlink" href="#vector-spaces" name="vector-spaces">&para;</a></h2>
+<p>Definition: A set <span>$V$</span> equipped with the operations of addition and scalar multiplication over a field <span>$\mathbb F$</span> for which the following properties hold:</p>
+<ol>
+<li>Commutativity of addition</li>
+<li>Associativity of addition</li>
+<li>Existence of an additive identity</li>
+<li>Existence of additive inverses</li>
+<li>Existence of a multiplicative identity (in <span>$\mathbb F$</span> - left and right multiplication)</li>
+<li>Distributivity: <span>$a(u+v) = au +av$</span> for <span>$a \in \mathbb F$</span> and <span>$u, v \in V$</span>, as well as <span>$(a+b)u = au + bu$</span> for <span>$a, b \in \mathbb F$</span> and <span>$u \in V$</span>.</li>
+</ol>
+<h3 class="header"><i>2.1</i>Examples of vector spaces<a class="headerlink" href="#examples-of-vector-spaces" name="examples-of-vector-spaces">&para;</a></h3>
+<ol>
+<li><span>$\mathbb R^2$</span>. An element of this vector space is, well, a vector, starting at the origin. To prove that this is a vector space, we define addition and scalar multiplication in the usual way, then verify the properties.</li>
+<li><span>$\mathbb F^n$</span> in general, over <span>$\mathbb F$</span>.</li>
+<li>Polynomials. <span>$x \mapsto a_0 + a_1x + a_2x^2 + \ldots + a_nx^n$</span>.</li>
+<li>Matrices. <span>$M_{m\times n}(\mathbb F) = $</span> the set of <span>$m\times n$</span> matrices with entries in <span>$\mathbb F$</span>. We define addition only on matrices with the same dimensions.</li>
+</ol>
+<p>Exercises: Verify that the following are vector spaces: <span>$\mathbb R^n$</span> over <span>$\mathbb R$</span>, <span>$\mathbb C^n$</span> over <span>$\mathbb C$</span>, <span>$\mathbb C^n$</span> over <span>$\mathbb R$</span>. Verify that the following is not a vector space: <span>$\mathbb R^n$</span> over <span>$\mathbb C$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

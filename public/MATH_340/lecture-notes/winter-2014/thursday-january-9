@@ -1,0 +1,163 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, January 9, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, January 9, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Bipartite graphs and perfect matching
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#matchings">1 Matchings</a><ul>
+<li><a href="#definitions">1.1 Definitions</a></li>
+<li><a href="#maximum-cardinality">1.2 Maximum cardinality</a></li>
+<li><a href="#bipartite-graphs">1.3 Bipartite graphs</a><ul>
+<li><a href="#halls-theorem">1.3.1 Hall's theorem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Matchings<a class="headerlink" href="#matchings" name="matchings">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<p>Let <span>$G = (V, E)$</span> be some graph. A <strong>matching</strong> in <span>$G$</span> is a set of vertex-disjoint edges (so that each vertex is incident to at most one edge in <span>$M$</span>).</p>
+<p>A vertex <span>$v \in V$</span> is <strong>matched</strong> by <span>$M$</span> if it's incident to some edge in <span>$M$</span>.</p>
+<p>A path <span>$P$</span> in <span>$G$</span> is <strong>alternating</strong> with respect to <span>$M$</span> if the edges of <span>$P$</span> alternate between being in <span>$M$</span> and not being in <span>$M$</span>.</p>
+<p>An alternating path is <strong>augmenting</strong> with respect to <span>$M$</span> if it is of odd length, and the two endpoints are unmatched.</p>
+<h3 class="header"><i>1.2</i>Maximum cardinality<a class="headerlink" href="#maximum-cardinality" name="maximum-cardinality">&para;</a></h3>
+<blockquote>
+<p>Theorem: a matching <span>$M$</span> is at maximum cardinality in <span>$G$</span> if and only if <span>$G$</span> contains no augmenting path with respect to <span>$M$</span>.</p>
+</blockquote>
+<p>Proof: <span>$(\Rightarrow)$</span> We want to show that if <span>$G$</span> contains an augmenting path with respect to <span>$M$</span>, then <span>$M$</span> is not maximal (i.e., there exists another valid matching within <span>$G$</span> containing a greater number of edges). This direction of the proof is simple - we can just flip the matched/unmatched status of the edges in the augmenting path ("augment" the path, in other words) so that the endpoints are now matched. This results in one more edge in our new matching than in the original matching.</p>
+<p>Specifically, we create a new matching <span>$M' = (M \cup (P \setminus M)) \setminus (M \cap P)$</span>, which has a greater cardinality than <span>$M$</span>, as <span>$|M'| = |M| + 1$</span>.</p>
+<p><span>$(\Leftarrow)$</span>: Suppose <span>$M$</span> is not maximal. Let <span>$M^*$</span> be a maximal matching. Consider the symmetric difference of <span>$M$</span> and <span>$M^*$</span>: <span>$M' = M \oplus M^* = (M \cup M^*) \setminus (M \cap M^*) = (M \setminus M^*) \cup (M^* \setminus M)$</span> (i.e., all the edges that are in exactly one of the matchings; analogous to the XOR operator for bits). Now, each vertex in the graph must have degree <span>$\leq 1$</span> with respect to <span>$M$</span>, and degree <span>$\leq 1$</span> with respect to <span>$M^*$</span>. Thus, each vertex in the graph must have degree <span>$\leq 2$</span> with respect to <span>$M'$</span>. It's not possible to have a vertex with degree 3 wrt <span>$M'$</span>, because then it would have to be adjacent to at least two edges that are both in <span>$M$</span> or <span>$M^*$</span>, which is not possible by the definition of a matching.</p>
+<p>It's easy to see that a graph whose vertices all have degree <span>$\leq 2$</span> consists exclusively of disjoint paths and cycles. Consider the cardinality of these paths and cycles. Since their edges must alternate between being in <span>$M$</span> and being in <span>$M^*$</span>, all of the cycles must have even length. Furthermore, there can be no odd-length path ending in edges in <span>$M$</span>, because then that would be an augmenting path, and we could make <span>$M^*$</span> even larger simply by reversing the <span>$M$</span> and <span>$M^*$</span> edges on this path (so all the <span>$M$</span> edges would now be part of <span>$M^*$</span>, and vice versa); this would contradict the premise that <span>$M^*$</span> is maximal.</p>
+<p>Thus, <span>$M'$</span> consists solely of even-length paths, even-length cycles, and odd-length paths ending in edges found in <span>$M^*$</span> (but not in <span>$M$</span>). Clearly, the even-length paths and cycles have the same number of edges from <span>$M$</span> as they do edges from <span>$M^*$</span>. The odd-length paths, however, have one additional <span>$M^*$</span> edge compared to its <span>$M$</span> edges. Furthermore, we know that there must be at least one such odd path, since <span>$M^*$</span> is maximal but <span>$M$</span> is not, so <span>$M^*$</span> must have at least one more edge than <span>$M$</span>. But then this odd path is augmenting with respect to <span>$M$</span>, which is exactly what we needed to show. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Bipartite graphs<a class="headerlink" href="#bipartite-graphs" name="bipartite-graphs">&para;</a></h3>
+<p>The above applied to graphs in general. From now on, we will focus on a specific type of graph: <strong>bipartite graphs</strong>, in which the vertices can be partitioned (separated into two groups) such that every edge has exactly one endpoint in each of the partitions. </p>
+<p>A graph is bipartite if and only if it has no odd cycles. Proof omitted, just presented as fact.</p>
+<h4 class="header"><i>1.3.1</i>Hall's theorem<a class="headerlink" href="#halls-theorem" name="halls-theorem">&para;</a></h4>
+<p>This theorem tells us when a bipartite graph has a perfect matching. First, we define the term perfect matching: a <strong>perfect matching</strong> is a matching that covers every vertex. Next, we define the <strong>neighbourhood</strong> of some set of vertices <span>$A \subseteq V$</span>: <span>$\Gamma(A)$</span> is the set of vertices adjacent to at least one vertex in <span>$A$</span>.</p>
+<blockquote>
+<p>Theorem: a bipartite graph with equal-sized partitions <span>$X$</span>, <span>$Y$</span> has a perfect matching <span>$\iff$</span> for all <span>$A \subseteq X$</span>, <span>$|\Gamma(A)| \geq |A|$</span> (this is called Hall's condition).</p>
+</blockquote>
+<p>Proof: <span>$(\Rightarrow)$</span> Suppose Hall's condition does not hold. That is, there exists some <span>$A \subseteq X$</span> such that <span>$|\Gamma(A)| &lt; |A|$</span>. But then not every vertex in <span>$A$</span> can be matched, by the pigeonhole principle. Done.</p>
+<p><span>$(\Leftarrow)$</span> Suppose Hall's condition <em>does</em> hold. Take the biggest matching that we can find in this graph, and call it <span>$M$</span>. If <span>$|M| = |X| = |Y|$</span>, then <span>$M$</span> is clearly a perfect matching (as it contains all the edges/vertices) and so we'd be done, so we assume that <span>$|M| &lt; |X|$</span>. Then, there exists some <span>$x_1 \in X$</span> such that <span>$x_1$</span> is unmatched by <span>$M$</span>. By Hall's condition, <span>$|\Gamma(\{x_1\})| \geq |\{x_1\}| = 1$</span> so the neighbourhood of <span>$x_1$</span> has at least one vertex. Thus <span>$x_1$</span> is adjacent to at least one edge. So there exists some <span>$y_1 \in Y$</span> such that <span>$y_1 \in \Gamma(\{x_1\})$</span>.</p>
+<p>Now, if <span>$y_1$</span> were unmatched, then <span>$M \cup (x_1 \cup y_1)$</span> would be a bigger matching than <span>$M$</span>. In other words, we could have just included the edge between <span>$x_1$</span> and <span>$y_1$</span> in <span>$M$</span> in the first place. So we can assume that <span>$y_1$</span> is matched. Let's call the vertex that <span>$y_1$</span> is matched to <span>$x_2$</span>. Again, by Hall's condition, <span>$|\Gamma(\{x_1, x_2\})| \geq |\{x_1, x_2\}| = 2$</span>, so there are at least 2 neighbours for those vertices. We've only found one so far, <span>$y_1$</span>. Thus there must be some <span>$y_2 \in Y$</span> such that <span>$y_2 \in \Gamma(\{x_1, x_2\})$</span> with <span>$y_2 \neq y_1$</span>.</p>
+<p>Now, if <span>$y_2$</span> is unmatched, then there exists an augmenting path from <span>$x_1$</span> to <span>$y_2$</span> - either a direct edge, or a 3-edge path - so we could just augment that to get a bigger matching. This contradicts the maximality of <span>$M$</span>! So we assume that <span>$y_2$</span> is matched to some <span>$x_3$</span>. By Hall's condition, the neighbourhood of <span>$\{x_1, x_2, x_3\}$</span> contains at least 3 vertices, thus there is some new vertex <span>$y_3 \in Y$</span> matched to <span>$x_3$</span>. This argument continues in this fashion until we've exhausted all of <span>$X$</span> (which must occur eventually, as <span>$X$</span> is finitely large, showing that this algorithm terminates), at which point we get a perfect matching between <span>$X$</span> and <span>$Y$</span>.</p>
+<p>An alternative, and more rigorous, proof for the above uses induction on <span>$|X|$</span>. In the base case, if <span>$|X| = 1$</span>, then <span>$|Y| = 1$</span> so we just include the edge between the vertex in <span>$X$</span> and the vertex in <span>$Y$</span> in the matching. (Such an edge must exist, by Hall's condition.)</p>
+<p>For the induction hypothesis, we assume that if Hall's condition is true, then there exists a perfect matching when <span>$|X| = k$</span>.</p>
+<p>Next, we perform the induction step, for <span>$|X| = k+1$</span>. We break down our analysis into two separate cases:</p>
+<p><strong>Case 1</strong>: <span>$|\Gamma(A)| \geq |A|+1$</span> for all <span>$A \subseteq X$</span> (i.e., the neighbourhood to each subset of <span>$X$</span> is strictly larger than the subset itself). Take some edge <span>$(x, y)$</span>. Consider the graph <span>$G'$</span>, which is identical to <span>$G$</span> except for the fact that it removes the vertices <span>$x$</span> and <span>$y$</span> (and the edge between them). Then <span>$X'$</span>, the left partition of <span>$G'$</span>, has <span>$k$</span> elements. Then we just need to check that Hall's condition holds for <span>$X'$</span>. Well, since we have a stricter version of Hall's condition for <span>$G$</span>, then since we only got rid of one vertex to get <span>$G'$</span>, the non-strict (canonical) version of Hall's condition does indeed hold. Thus <span>$G'$</span> has a perfect matching <span>$M'$</span>, and we can add the <span>$(x, y)$</span> edge to <span>$M'$</span> to get a perfect matching for <span>$G$</span>.</p>
+<p><strong>Case 2</strong>: <span>$\exists A \subset X$</span> such that <span>$|\Gamma(A)| = |A|$</span>. Consider <span>$G_1$</span>, which is partitioned into <span>$A$</span> and <span>$\Gamma(A)$</span>, and <span>$G_2$</span>, the complement of <span>$G_1$</span> in the graph <span>$G$</span>. Now, Hall's condition must hold for <span>$G_1$</span> and <span>$G_2$</span>, by the induction hypothesis.</p>
+<p>Now consider <span>$G_2$</span>. Take <span>$A' \subset (X \setminus A)$</span>. We want to show that <span>$|\Gamma_{G_2}(A')| \geq |A'|$</span>. Well, if this is not true, then it must be that</p>
+<p><span>$$\begin{align}
+|\Gamma_G(A \cup A')| &amp; = |\Gamma_G(A)| + |\Gamma_{G_2}(A')| \\
+&amp; = |A| + |\Gamma_{G_2}(A')| \\
+&amp; &lt; |A| + |A'| \\
+&amp; = |A \cup A'|
+\end{align}$$</span></p>
+<p>which is a contradiction to the fact that Hall's condition holds for <span>$G$</span>, the original graph. Thus there exist perfect matchings in <span>$G_1$</span> and <span>$G_2$</span>, and if we combine these matchings we get a perfect matching for <span>$G$</span>. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

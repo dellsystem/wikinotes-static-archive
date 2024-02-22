@@ -1,0 +1,291 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, October 7, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, October 7, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Logical theorems and more proofs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Logical theorems<a class="headerlink" href="#logical-theorems" name="logical-theorems">&para;</a></h2>
+<blockquote>
+<p>A <strong>logical theorem</strong> (in <span>$\Sigma$</span>) is a <span>$\Sigma$</span>-formula <span>$\Phi$</span> such that there can be a formal proof with last line <span>$\vdash \Phi$</span>.</p>
+</blockquote>
+<p>Gödel's incompleteness threorem says that nothing can algorithmically decide whether or not <span>$\Phi$</span> is a logical theorem. (Notably, there <em>are</em> algorithms for deciding if <span>$\Phi$</span> is a tautology, or formula, etc.)</p>
+<h3 class="header"><i>1.1</i>Proof of a logical theorem<a class="headerlink" href="#proof-of-a-logical-theorem" name="proof-of-a-logical-theorem">&para;</a></h3>
+<p><span>$$\forall x Px \iff \neg \exists x \neg Px$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$Px ,\,\neg Px \vdash Py \land \neg Py$</span></td>
+<td>Tautology (due to material implication, <span>$\bot \to$</span> anything)</td>
+</tr>
+<tr>
+<td>(2) <span>$\forall x Px \vdash Px$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x Px,\,Px,\,\neg Px \vdash Py \land \neg Py$</span></td>
+<td>Monotonicity from (1)</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x Px ,\,\neg Px \vdash Px$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x Px ,\,\neg Px \vdash Py \land \neg Py$</span></td>
+<td>Transitivity using (3), (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall xPx,\,\exists x \neg Px \vdash Py \land \neg Py$</span></td>
+<td><span>$\exists$</span>-elimination</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x Px \vdash \neg\exists x \neg Px$</span></td>
+<td>Contradiction from (6)</td>
+</tr>
+<tr>
+<td>(8) <span>$\vdash \forall x Px \to \neg \exists x \neg Px$</span></td>
+<td>Deduction from (7)</td>
+</tr>
+<tr>
+<td>Now we need to get the other side: <span>$\leftarrow$</span> basically</td>
+<td></td>
+</tr>
+<tr>
+<td>(9) <span>$\neg Px \vdash \neg Px$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(10) <span>$\neg Px \vdash \exists x \neg Px$</span></td>
+<td><span>$\exists$</span>-introduction from (9)</td>
+</tr>
+<tr>
+<td>(11) <span>$\vdash \neg Px \to \exists x \neg Px$</span></td>
+<td>Deduction from (10)</td>
+</tr>
+<tr>
+<td>(12) <span>$\neg Px \to \exists x \neg Px \vdash \neg \exists x \neg Px \to Px$</span></td>
+<td>Tautology, using contrapositives<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="$\neg A \to B \vdash \neg B \to A$. It's legitimat...">1</a></sup></td>
+</tr>
+<tr>
+<td>(13) <span>$\vdash \neg \exists x \neg Px \to Px$</span></td>
+<td>Transitivity using (11) and (12)</td>
+</tr>
+<tr>
+<td>(14) <span>$\neg \exists x \neg Px \vdash Px$</span></td>
+<td>Deduction from (13)</td>
+</tr>
+<tr>
+<td>(15) <span>$\neg \exists \neg P x \vdash \forall x Px$</span></td>
+<td><span>$\forall$</span>-introduction from (14)</td>
+</tr>
+<tr>
+<td>(16) <span>$\vdash \neg \exists x \neg Px \to \forall x Px$</span></td>
+<td>Deduction from (15)</td>
+</tr>
+<tr>
+<td>(17) <span>$\forall x Px \to \exists x \neg Px,\, \neg \exists x \neg Px \to \forall x Px \vdash \forall x Px \iff \neg \exists x \neg Px$</span></td>
+<td>Tautology (connecting lines (1)-(8) and (9)-(16))</td>
+</tr>
+<tr>
+<td>(18) <span>$\forall x Px \to \neg \exists x \neg Px \vdash \neg \exists x \neg Px \to \forall x Px$</span></td>
+<td>Monotonicity from (16)</td>
+</tr>
+<tr>
+<td>(19) <span>$\forall x Px \to \neg \exists x \neg Px \vdash \forall x Px \iff \neg \exists x \neg Px$</span></td>
+<td>Transitivity using (17) and (18)</td>
+</tr>
+<tr>
+<td>(20) <span>$\vdash \forall x Px \iff \neg \exists x \neg Px$</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.2</i>Proof of another logical theorem<a class="headerlink" href="#proof-of-another-logical-theorem" name="proof-of-another-logical-theorem">&para;</a></h3>
+<p><span>$$\forall x \forall y Pxy \iff \forall y \forall x Pxy$$</span></p>
+<p>where <span>$P$</span> is a binary predicate symbol. Again, we first prove the <span>$\to$</span>, then the <span>$\leftarrow$</span>.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\forall x \forall y Pxy \vdash \forall y Pxy$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(2) <span>$\forall y Pxy \vdash Pxy$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x \forall y Pxy, \,\forall y Pxy \vdash Pxy$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x \forall y Pxy \vdash Pxy$</span></td>
+<td>Transitivity using (1), (3)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x \forall y Pxy \vdash \forall x Pxy$</span></td>
+<td><span>$\forall$</span>-introduction from (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x \forall y Pxy \vdash \forall y \forall x Pxy$</span></td>
+<td><span>$\forall$</span>-introduction from (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\vdash \forall x \forall y Pxy \to \forall y \forall x Pxy$</span></td>
+<td>Deduction from (6)</td>
+</tr>
+<tr>
+<td>...</td>
+<td>Same thing for (8)-(13), just switch the order on the left</td>
+</tr>
+<tr>
+<td>(14) <span>$\vdash \forall y \forall x Pxy \to \forall x \forall y Pxy$</span></td>
+<td>Deduction from (13)</td>
+</tr>
+<tr>
+<td>(15) <span>$\forall x \forall y Pxy \to \forall y \forall x Pxy,\, \forall y \forall x Pxy \to \forall x \forall y Pxy \vdash \forall x \forall y Pxy \iff \forall y \forall x Pxy$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(16) <span>$\forall y \forall x Pxy \to \forall x \forall y Pxy \vdash \forall x \forall y Pxy \to \forall y \forall x Pxy$</span></td>
+<td>Monotonicity from (7)</td>
+</tr>
+<tr>
+<td>(17) <span>$\forall y \forall x Pxy \to \forall x \forall y Pxy \vdash \forall x \forall x Pxy \iff \forall y \forall x Pxy$</span></td>
+<td>Transitivity using (7), (16)</td>
+</tr>
+<tr>
+<td>(18) <span>$\vdash \forall x \forall y Pxy \iff \forall y \forall x Pxy$</span></td>
+<td>Transitivity using (14), (17)<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="Bet you never thought the proof could be so long">2</a></sup></td>
+</tr>
+</tbody>
+</table>
+<p>Note that <span>$\exists x \forall y Pxy$</span> and <span>$\forall y \exists x Pxy$</span> are not the same thing. However, <span>$\exists x \exists y Pxy \iff \exists y \exists x Pxy$</span> is true.</p>
+<h3 class="header"><i>1.3</i>When something isn't a logical theorem<a class="headerlink" href="#when-something-isnt-a-logical-theorem" name="when-something-isnt-a-logical-theorem">&para;</a></h3>
+<p><span>$$(\exists x Px \land \exists x Qx) \to \exists x (Px \land Qx)$$</span></p>
+<p>This is not "sound" so we shouldn't be able to prove it. In fact, we should be able to come up with an empirical counterexample, and we can: if <span>$Px$</span> means <span>$x$</span> is a peach, and <span>$Qx$</span> means <span>$x$</span> is a quince, then if the theorem is sound there should be something that is both a quince and a peach. But there isn't.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p><span>$\neg A \to B \vdash \neg B \to A$</span>. It's legitimate.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Bet you never thought the proof could be so long&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

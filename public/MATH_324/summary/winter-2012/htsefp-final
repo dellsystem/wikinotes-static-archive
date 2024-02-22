@@ -1,0 +1,463 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#sample-variance-for-two-independent-samples">1 Sample variance for two independent samples</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#mles-and-continuous-functions">2 MLEs and continuous functions</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a></li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#method-of-moments-estimators">3 Method-of-moments estimators</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#bayesian-estimation">4 Bayesian estimation</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#unbiasedness-in-estimators">5 Unbiasedness in estimators</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#minimising-variance-in-estimators">6 Minimising variance in estimators</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#efficiency-of-two-estimators">7 Efficiency of two estimators</a><ul>
+<li><a href="#general-solution_6">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#consistent-estimators">8 Consistent estimators</a><ul>
+<li><a href="#general-solution_7">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#sufficient-statistics">9 Sufficient statistics</a><ul>
+<li><a href="#general-solution_8">9.1 General solution</a></li>
+<li><a href="#examples_8">9.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#mvues">10 MVUEs</a><ul>
+<li><a href="#general-solution_9">10.1 General solution</a></li>
+<li><a href="#examples_9">10.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#estimating-with-a-bound">11 Estimating with a bound</a><ul>
+<li><a href="#general-solution_10">11.1 General solution</a></li>
+<li><a href="#examples_10">11.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#finding-distribution-functions">12 Finding distribution functions</a><ul>
+<li><a href="#general-solution_11">12.1 General solution</a></li>
+<li><a href="#examples_11">12.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#pivotal-quantities">13 Pivotal quantities</a><ul>
+<li><a href="#general-solution_12">13.1 General solution</a></li>
+<li><a href="#examples_12">13.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#confidence-intervals">14 Confidence intervals</a><ul>
+<li><a href="#general-solution_13">14.1 General solution</a></li>
+<li><a href="#examples_13">14.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#sample-sizes">15 Sample sizes</a><ul>
+<li><a href="#general-solution_14">15.1 General solution</a></li>
+<li><a href="#examples_14">15.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#hypothesis-testing">16 Hypothesis testing</a><ul>
+<li><a href="#general-solution_15">16.1 General solution</a></li>
+<li><a href="#examples_15">16.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#uniformly-most-powerful-tests">17 Uniformly most powerful tests</a><ul>
+<li><a href="#general-solution_16">17.1 General solution</a></li>
+<li><a href="#examples_16">17.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#using-the-factorisation-criterion">18 Using the factorisation criterion</a><ul>
+<li><a href="#general-solution_17">18.1 General solution</a></li>
+<li><a href="#examples_17">18.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#linear-regression">19 Linear regression</a><ul>
+<li><a href="#general-solution_18">19.1 General solution</a></li>
+<li><a href="#examples_18">19.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#anova-tables">20 ANOVA tables</a><ul>
+<li><a href="#general-solution_19">20.1 General solution</a></li>
+<li><a href="#examples_19">20.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Sample variance for two independent samples<a class="headerlink" href="#sample-variance-for-two-independent-samples" name="sample-variance-for-two-independent-samples">&para;</a></h2>
+<p>We have two random samples. The first consists of <span>$n_1$</span> values, taken from a population with a variance of <span>$\sigma_1^2$</span>; the second consists of <span>$n_2$</span> values, taken from a population with a variance of <span>$\sigma_2^2 = \alpha\sigma_1^2$</span>. Let <span>$S_1^2$</span> be the sample variance for the first sample, and let <span>$S_2^2$</span> be the sample variance for the second sample.</p>
+<p>(a) Find a number <span>$b$</span> such that</p>
+<p><span>$$P\left (\frac{S_1^2}{S_2^2} \leq b \right ) = 0.95$$</span></p>
+<p>(b) Find a number <span>$a$</span> such that</p>
+<p><span>$$P\left ( a \leq \frac{S_1^2}{S_2^2} \right ) = 0.95$$</span></p>
+<p>(c) If <span>$a$</span> and <span>$b$</span> are as in parts (a) and (b), find</p>
+<p><span>$$P\left ( a \leq \frac{S_1^2}{S_2^2} \leq b \right )$$</span></p>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>(a) <span>$$\frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2} = \frac{S_1^2/\sigma_1^2}{S_2^2/(\alpha\sigma_1^2} = \alpha\frac{S_1^2}{S_2^2}$$</span></p>
+<p>This has an <span>$F$</span> distribution with <span>$n_1 - 1$</span> numerator degrees of freedom and <span>$n_2-1$</span> denominator degrees of freedom. To find a value <span>$b$</span> such that <span>$\displaystyle P \left ( \frac{S_1^2}{S_2^2} \leq b \right ) = 0.95$</span>, we multiply both sides of the inequality by <span>$\alpha$</span>, resulting in</p>
+<p><span>$$P\left ( \alpha\frac{S_1^2}{S_2^2} \leq \alpha b \right ) = 0.95$$</span></p>
+<p>We would then look at the table <strong>Critical Values of the F distribution, <span>$\alpha = 0.05$</span></strong> near the end of the exam booklet. Let the entry in column <span>$n_1-1$</span>, row <span>$n_2-1$</span> be <span>$\alpha b = b_0$</span> (meaning that the value of <span>$\alpha b$</span> cutting off an upper-tail area of 0.05 is approximately <span>$b_0$</span>). Consequently, <span>$b = b_0 / \alpha$</span> and that is the answer.</p>
+<p>(b) This is similar, except we have to first use this relationship:</p>
+<p><span>$$P\left ( \frac{U_1}{U_2} \leq k \right ) = P \left ( \frac{U_2}{U_1} \geq \frac{1}{k} \right ) \text{ or, equivalently, } P \left ( k \leq \frac{U_1}{U_2} \right ) = P \left ( \frac{1}{k} \geq \frac{U_2}{U_1} \right )$$</span></p>
+<p>Using this, we can rewrite the equation we're given as</p>
+<p><span>$$P\left ( a \leq \frac{S_1^2}{S_2^2} \right ) = P \left ( \frac{1}{a} \geq \frac{S_2^2}{S_1^2} \right )$$</span></p>
+<p>Dividing both sides of the inequality by <span>$\alpha$</span>, we get</p>
+<p><span>$$P \left ( \frac{1}{\alpha a} \geq \frac{S_2^2}{\alpha S_1^2} \right )$$</span></p>
+<p>Now, <span>$\displaystyle \frac{S_2^2}{\alpha S_1^2}$</span> is an <span>$F$</span> distribution with <span>$n_2-1$</span> numerator degrees of freedom and <span>$n_1-1$</span> denominator degrees of freedom. Using the same table that we used above, only switching the row and the column, we find that the value of <span>$\frac{1}{\alpha a}$</span> cutting off an upper-tail area of 0.05 is approximately <span>$a_0$</span>. Consequently, <span>$a = 1 / (\alpha \cdot a_0)$</span> and that is the answer.</p>
+<p>(c) <span>$1 - 0.05 - 0.05 = 0.90$</span></p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 1</li>
+</ul>
+<h2 class="header"><i>2</i>MLEs and continuous functions<a class="headerlink" href="#mles-and-continuous-functions" name="mles-and-continuous-functions">&para;</a></h2>
+<p>Given some samples from the probability density function <span>$f(y|\theta)$</span> for some distribution <span>$Y$</span> with parameter <span>$\theta$</span>:</p>
+<p>(a) Find the MLE of <span>$\theta$</span>.<br />
+(b) Find the expected value and variance of the MLE.<br />
+(c) Supposing that <span>$\theta$</span> is actually <span>$\theta_0$</span>, give an approximate bound for the error of estimation.<br />
+(d) Find the MLE for the variance of the distribution.</p>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>(a) First, find the likelihood function, given by the joint density of the random sample:</p>
+<p><span>$$L = \prod_{i=1}^n f(y_i|\theta)$$</span></p>
+<p>Then, take the logarithm of that, <span>$\log L$</span>, and differentiate it with respect to <span>$\theta$</span>. Set that to 0, and solve the equation for <span>$\theta$</span>. This gives you the MLE for <span>$\theta$</span>. If you're also given values, you can plug those into the equation for the MLE to get a numerical MLE.</p>
+<p>(b) Expected value: <span>$E(\hat \theta)$</span>; variance: <span>$Var(\hat \theta)$</span>. Use the relevant algebraic manipulation rules if possible. With any luck the distribution given will be something we can easily figure out the mean and variance for, and the equations will involve <span>$E(Y_i)$</span> or <span>$Var(Y_i)$</span> and everything will work out and flowers pick themselves</p>
+<p>(c) Use the formula <span>$2\sqrt{Var(\hat \theta)}$</span> using the variance of the MLE obtained in (c) and using <span>$\theta_0$</span> for the value of <span>$\theta$</span>.</p>
+<p>(d) Take the value for the MLE obtained in part (a) and substitute it for <span>$\theta$</span> in the formula for the variance of <span>$Y$</span> (possibly obtained during part (b)).</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 2 and 3 (only part (a), not given numbers)</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-1">Winter 2011 final, question 1 (b)</a> (only part (a))</li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-1">Fall 2009 final, question 1</a> (only part (a))</li>
+</ul>
+<h2 class="header"><i>3</i>Method-of-moments estimators<a class="headerlink" href="#method-of-moments-estimators" name="method-of-moments-estimators">&para;</a></h2>
+<p>Let <span>$Y_1,\ldots, Y_n$</span> be a random sample (independent, identically distributed random variables) from some distribution. Find the method-of-moments estimator(s) for one or more parameters.</p>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>The first two moments are as follows:</p>
+<p><span>$$\mu_1' = E(Y) \quad \mu_2' = E(Y^2) = Var(Y) + (E(Y))^2$$</span></p>
+<p>The first two <em>sample</em> moments are as follows:</p>
+<p><span>$$m_1 = \frac{1}{n} \sum_{i=1}^n Y_i = \overline Y \quad m_2 = \frac{1}{n} \sum_{i=1}^n Y_i^2$$</span></p>
+<p>Then, we just equate them and solve for the relevant parameters. The hard part for this type of question is likely finding the moments themselves, but this shouldn't be hard if you memorise all the moments for all the distributions<sup id="fnref:memorising"><a href="#fn:memorising" rel="footnote" title="lol">1</a></sup> or know when it's necessary to integrate.</p>
+<p>As an example, for the normal distribution, the first two moments are</p>
+<p><span>$$\mu_1' = \mu \quad \mu_2 = \sigma^2 + \mu^2$$</span></p>
+<p>and the first two sample moments are what's given above (can't simplify them). Then, we just set the appropriate moments equal to each other, resulting in</p>
+<p><span>$$\hat \mu = \overline Y}$$</span></p>
+<p>as an estimator for <span>$\mu$</span> and</p>
+<p><span>$$\hat \sigma^2 = \frac{1}{n} \sum_{i=1}^n Y_i^2 - \hat \mu^2 = \frac{1}{n} \sum_{i=1}^2 Y_i^2 - \overline Y^2$$</span></p>
+<p>as an estimator for <span>$\sigma^2$</span>.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 4 and 5</li>
+</ul>
+<h2 class="header"><i>4</i>Bayesian estimation<a class="headerlink" href="#bayesian-estimation" name="bayesian-estimation">&para;</a></h2>
+<p>Oh god</p>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>Not gonna</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 6</li>
+</ul>
+<h2 class="header"><i>5</i>Unbiasedness in estimators<a class="headerlink" href="#unbiasedness-in-estimators" name="unbiasedness-in-estimators">&para;</a></h2>
+<p>Given an estimator defined in terms of other estimators whose expected values and variance are known, determine whether or not it is biased. Justify your result.</p>
+<p>Alternatively, given an estimator defined in terms of <span>$Y_i$</span> (random variable from a given distribution), same thing.</p>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>An estimator <span>$\hat \theta$</span> is unbiased iff <span>$(\hat \theta) = \theta$</span>. For the case where the estimator is defined in terms of other estimators, this shouldn't be too difficult, as you'll be given the expected value of the other estimators. It shouldn't be too difficult in the other case either, come to think of it, although this might require finding the expected value of <span>$Y_i$</span> by integrating <span>$yf(y)$</span> with respect to <span>$y$</span> from 0 to infinity first.</p>
+<p>If any of the estimators involves taking the minimum or maximum (or <span>$k$</span>th minimum etc) of several random variables, then it is likely biased, due to order statistics (?). Theoretically, even the median would be biased with respect to the mean ... not really sure about this though.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 7 (a) (the first type) and 8 (a) (the alternative type)</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-1">Winter 2011 final, question 1 (c)</a> (the alternative type)</li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-2">Fall 2009 final, question 2</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-7">Fall 2009 final, question 7 (b)</a></li>
+</ul>
+<h2 class="header"><i>6</i>Minimising variance in estimators<a class="headerlink" href="#minimising-variance-in-estimators" name="minimising-variance-in-estimators">&para;</a></h2>
+<p>Either:</p>
+<ul>
+<li>Choose a constant <span>$\alpha$</span> in the formula for an estimator such that the variance of the estimator is minimised;</li>
+<li>or, decide which estimator among several has the lowest variance.</li>
+</ul>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>In the first case, find a function involving <span>$\alpha$</span> for the variance of estimator using the algebraic manipulation rules for variance etc. Then, find the minimum of this function by taking its derivative with respect to <span>$\alpha$</span> and setting it equal to <span>$0$</span>. Solve for <span>$\alpha$</span>. To confirm that this point is a minimum, you can take the second derivative.</p>
+<p>In the second case, you just need to find the variance for several estimators. Recall that <span>$Var(Y_i) = E(Y_i^2) - (E(Y_i))^2$</span> and that <span>$\displaystyle E(Y_i) = \int_{-\infty}^{\infty} f(y) \,dy$</span> where <span>$f(y)$</span> is the probability density function.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 7 (b) (first type) and 8 (b) (second type)</li>
+</ul>
+<h2 class="header"><i>7</i>Efficiency of two estimators<a class="headerlink" href="#efficiency-of-two-estimators" name="efficiency-of-two-estimators">&para;</a></h2>
+<p>Find the efficiency of <span>$\hat \theta_1$</span> to <span>$\hat \theta_2$</span>.</p>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_6" name="general-solution_6">&para;</a></h3>
+<p><span>$$\text{efficiency}(\hat \theta_1, \hat \theta_2) = \frac{Var(\hat \theta_2)}{Var(\hat \theta_1)}$$</span></p>
+<p>(This indicates that if <span>$\hat \theta_1$</span> is a better estimator - that is, one, with a lower variance - than <span>$\hat \theta_2$</span>, then its relative efficiency will be greater than 1.)</p>
+<p>Anyway, now we just have to find the variance of both estimators. This is probably the hard part. If order statistics is involved somehow, then you'll probably need to transform coordinates or something. <strong>I should explain this in the section on order statistics.</strong></p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 1</li>
+</ul>
+<h2 class="header"><i>8</i>Consistent estimators<a class="headerlink" href="#consistent-estimators" name="consistent-estimators">&para;</a></h2>
+<p>Show that <span>$\hat \theta$</span> is a consistent estimator for <span>$\theta$</span>.</p>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_7" name="general-solution_7">&para;</a></h3>
+<p>Either show that</p>
+<p><span>$$\lim_{n \to \infty} E(\hat \theta) = \theta$$</span></p>
+<p>or that</p>
+<p><span>$$\lim_{n \to \infty} Var(\hat \theta) = 0$$</span></p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 2</li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-2">Fall 2009 final, question 2</a></li>
+</ul>
+<h2 class="header"><i>9</i>Sufficient statistics<a class="headerlink" href="#sufficient-statistics" name="sufficient-statistics">&para;</a></h2>
+<p>Show that some statistic <span>$\hat \theta$</span> is sufficient for <span>$\theta$</span>. Or, find a sufficient statistic for <span>$\theta$</span>.</p>
+<h3 class="header"><i>9.1</i>General solution<a class="headerlink" href="#general-solution_8" name="general-solution_8">&para;</a></h3>
+<p>Um ... do this later? Involves likelihood functions and theorem 9.4 (what is that again etc)</p>
+<h3 class="header"><i>9.2</i>Examples<a class="headerlink" href="#examples_8" name="examples_8">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 3 and 4</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-1">Winter 2011 final, question 1 (a)</a></li>
+</ul>
+<h2 class="header"><i>10</i>MVUEs<a class="headerlink" href="#mvues" name="mvues">&para;</a></h2>
+<p>Find the MVUE of some parameter <span>$\theta$</span>, using some statistic.</p>
+<p>OR: show that the MVUE of some parameter is something.</p>
+<p>OR: determine whether or not something is an MVUE.</p>
+<h3 class="header"><i>10.1</i>General solution<a class="headerlink" href="#general-solution_9" name="general-solution_9">&para;</a></h3>
+<p>Not too hard it seems but do this later</p>
+<h3 class="header"><i>10.2</i>Examples<a class="headerlink" href="#examples_9" name="examples_9">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 5 (first type) and 6 (a)<sup id="fnref:deriving variance"><a href="#fn:deriving variance" rel="footnote" title="6 (b) isn't mentioned as an example in any of the ...">2</a></sup> (second type)</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-1">Winter 2011 final, question 1 (d)</a> (third type)</li>
+</ul>
+<h2 class="header"><i>11</i>Estimating with a bound<a class="headerlink" href="#estimating-with-a-bound" name="estimating-with-a-bound">&para;</a></h2>
+<p>Given the sample mean and standard deviation or variance (random sampling of size <span>$n$</span>), estimate the real mean or whatever and place a bound on the error of estimation.</p>
+<h3 class="header"><i>11.1</i>General solution<a class="headerlink" href="#general-solution_10" name="general-solution_10">&para;</a></h3>
+<p>Use the sample mean/whatever for the estimate. The bound is given by the formula</p>
+<p><span>$$b = 2\sigma_{\hat \theta} = 2\frac{\theta}{\sqrt{n}}$$</span></p>
+<p>where does this come from??? what does it mean?????</p>
+<h3 class="header"><i>11.2</i>Examples<a class="headerlink" href="#examples_10" name="examples_10">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 7</li>
+</ul>
+<h2 class="header"><i>12</i>Finding distribution functions<a class="headerlink" href="#finding-distribution-functions" name="finding-distribution-functions">&para;</a></h2>
+<p>Given the probability density function, find the distribution function.</p>
+<h3 class="header"><i>12.1</i>General solution<a class="headerlink" href="#general-solution_11" name="general-solution_11">&para;</a></h3>
+<p>Integrate it. Should this be moved to the top? It's pretty basic.</p>
+<h3 class="header"><i>12.2</i>Examples<a class="headerlink" href="#examples_11" name="examples_11">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 8 (a)</li>
+</ul>
+<h2 class="header"><i>13</i>Pivotal quantities<a class="headerlink" href="#pivotal-quantities" name="pivotal-quantities">&para;</a></h2>
+<p>Given the probability density function, show that something is a pivotal quantity and use that pivotal quantity to find an <span>$\alpha$</span>% lower confidence limit for <span>$\theta$</span>.</p>
+<h3 class="header"><i>13.1</i>General solution<a class="headerlink" href="#general-solution_12" name="general-solution_12">&para;</a></h3>
+<p>What are pivotal quantities?</p>
+<h3 class="header"><i>13.2</i>Examples<a class="headerlink" href="#examples_12" name="examples_12">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 8 (b) and (c)</li>
+</ul>
+<h2 class="header"><i>14</i>Confidence intervals<a class="headerlink" href="#confidence-intervals" name="confidence-intervals">&para;</a></h2>
+<p>Find a something% confidence interval for some statistic. Use that interval to make a judgement about possible values for the statistic or interpret the results. Optionally, place a bound on the error of estimation, or just set up an upper bound or something. What assumptions are necessary for the methods used to be valid?</p>
+<h3 class="header"><i>14.1</i>General solution<a class="headerlink" href="#general-solution_13" name="general-solution_13">&para;</a></h3>
+<p>Read up on this. Making a judgement about the statistic is trivial, just see if it falls within the interval or not.</p>
+<h3 class="header"><i>14.2</i>Examples<a class="headerlink" href="#examples_13" name="examples_13">&para;</a></h3>
+<ul>
+<li>Assignment 3, questions 1, 3 (a), 5 and 6</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-2">Winter 2011 final, question 2</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-4">Fall 2009 final, question 4 (b)</a></li>
+</ul>
+<h2 class="header"><i>15</i>Sample sizes<a class="headerlink" href="#sample-sizes" name="sample-sizes">&para;</a></h2>
+<p>Find the sample size necessary to estimate some parameter <span>$\theta$</span> within some range with some probability, when either the parameter is thought to be around <span>$\theta_0$</span> or when we know nothing about <span>$\theta$</span> (but we do know the variance).</p>
+<p>Alternatively, if there are two populations and we want to estimate the distance between them or something, find the necessary sample size etc</p>
+<h3 class="header"><i>15.1</i>General solution<a class="headerlink" href="#general-solution_14" name="general-solution_14">&para;</a></h3>
+<p>Later. Converse of confidence intervals maybe?</p>
+<h3 class="header"><i>15.2</i>Examples<a class="headerlink" href="#examples_14" name="examples_14">&para;</a></h3>
+<ul>
+<li>Assignment 3, questions 2, 3 (b), and 4</li>
+</ul>
+<h2 class="header"><i>16</i>Hypothesis testing<a class="headerlink" href="#hypothesis-testing" name="hypothesis-testing">&para;</a></h2>
+<p>State the null and alternative hypotheses. Test one hypothesis against another. Make conclusions? Profit<sup id="fnref:profit"><a href="#fn:profit" rel="footnote" title="Not guaranteed">3</a></sup></p>
+<p>Also optionally find the <span>$p$</span>-value for the test. Why does it feel like this class is just about memorising? I dropped bio for a reason ;_;</p>
+<h3 class="header"><i>16.1</i>General solution<a class="headerlink" href="#general-solution_15" name="general-solution_15">&para;</a></h3>
+<p>Read up on this again sigh</p>
+<h3 class="header"><i>16.2</i>Examples<a class="headerlink" href="#examples_15" name="examples_15">&para;</a></h3>
+<ul>
+<li>Assignment 4, questions 1-6</li>
+<li>Assignment 5, question 5-7</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-3">Winter 2011 final, question 3</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-4">Fall 2009 final, question 4 (a)</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-5">Fall 2009 final, question 5</a></li>
+</ul>
+<h2 class="header"><i>17</i>Uniformly most powerful tests<a class="headerlink" href="#uniformly-most-powerful-tests" name="uniformly-most-powerful-tests">&para;</a></h2>
+<p>Find the uniformly most powerful test for testing some hypothesis against some other hypothesis.</p>
+<p>Or, a most powerful critical region</p>
+<p>What conclusion would you make given some observations</p>
+<h3 class="header"><i>17.1</i>General solution<a class="headerlink" href="#general-solution_16" name="general-solution_16">&para;</a></h3>
+<p>I don't even know what this means. I can guess but that's it</p>
+<p>Neyman-Pearson?</p>
+<h3 class="header"><i>17.2</i>Examples<a class="headerlink" href="#examples_16" name="examples_16">&para;</a></h3>
+<ul>
+<li>Assignment 4, questions 7 and 8</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-5">Winter 2011 final, question 5</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-3">Fall 2009 final, question 3</a></li>
+</ul>
+<h2 class="header"><i>18</i>Using the factorisation criterion<a class="headerlink" href="#using-the-factorisation-criterion" name="using-the-factorisation-criterion">&para;</a></h2>
+<p>Wasn't really sure how else to classify it</p>
+<h3 class="header"><i>18.1</i>General solution<a class="headerlink" href="#general-solution_17" name="general-solution_17">&para;</a></h3>
+<p>Use theorem 9.4? What is that again?</p>
+<h3 class="header"><i>18.2</i>Examples<a class="headerlink" href="#examples_17" name="examples_17">&para;</a></h3>
+<ul>
+<li>Assignment 5, question 1</li>
+</ul>
+<h2 class="header"><i>19</i>Linear regression<a class="headerlink" href="#linear-regression" name="linear-regression">&para;</a></h2>
+<p>Method of least squares, finding the least squares line (or LOBF), etc. Might even include confidence intervals or testing hypotheses, lucky you. Use the LOBF to predict things?</p>
+<h3 class="header"><i>19.1</i>General solution<a class="headerlink" href="#general-solution_18" name="general-solution_18">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>19.2</i>Examples<a class="headerlink" href="#examples_18" name="examples_18">&para;</a></h3>
+<ul>
+<li>Assignment 5, questions 2-4</li>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-6">Winter 2011 final, question 6</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-6">Fall 2009 final, question 6</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-7">Fall 2009 final, question 7 (a)</a></li>
+</ul>
+<h2 class="header"><i>20</i>ANOVA tables<a class="headerlink" href="#anova-tables" name="anova-tables">&para;</a></h2>
+<p>Given an ANOVA (analysis of variance) table, FILL IT OUT</p>
+<p>Then, do the data support some hypothesis, etc (see the hypothesis testing section)</p>
+<h3 class="header"><i>20.1</i>General solution<a class="headerlink" href="#general-solution_19" name="general-solution_19">&para;</a></h3>
+<p>i don't know ?????</p>
+<h3 class="header"><i>20.2</i>Examples<a class="headerlink" href="#examples_19" name="examples_19">&para;</a></h3>
+<ul>
+<li><a href="/MATH_324/past-exam/winter-2011/final#question-4">Winter 2011 final, question 4</a></li>
+<li><a href="/MATH_324/past-exam/fall-2009/final#question-8">Fall 2009 final, question 8</a></li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:memorising">
+<p>lol&#160;<a href="#fnref:memorising" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:deriving variance">
+<p>6 (b) isn't mentioned as an example in any of the problems because it's just deriving variance, which is a component of other problem types. Actually maybe I'll make this into a problem type eventually.&#160;<a href="#fnref:deriving variance" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:profit">
+<p>Not guaranteed&#160;<a href="#fnref:profit" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

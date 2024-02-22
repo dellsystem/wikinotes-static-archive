@@ -1,0 +1,256 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_242/">
+                MATH 242
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The third midterm will be held during class on Thursday, November 15. The rooms are assigned based on your last name:</p>
+<p>A to K - go to RPHYS 112 <br />
+L to N - go to ENGMC 13<br />
+O to V - go to BURN 1B45 <br />
+W to Z - go to BURN 1B39</p>
+<p>Sections covered: everything up until section 4.1 (inclusive) of the textbook (except the divergence criterion and with only basic treatment of cluster points). The previous midterm covered up to section 3.3 (inclusive), so this midterm will most likely focus on sections 3.4-4.1.</p>
+<p>Source: the content below is curated from the course textbook (<em>Introduction to Real Analysis</em> by Robert G. Bartle and Donald R. Sherbert). It omits much of the content and mainly attempts to summarise the important parts, and although certain (small) sections are copied verbatim from the text this usage should constitute fair dealing. Any errors or omissions should be assumed to be the fault of the author of this page (<a href="/users/dellsystem">@dellsystem</a>) and not of the textbook itself. If you have any questions or want to make a correction, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#midterm-1-review">1 Midterm 1 review</a></li>
+<li><a href="#midterm-2-review">2 Midterm 2 review</a></li>
+<li><a href="#midterm-3-review">3 Midterm 3 review</a><ul>
+<li><a href="#section-34-subsequences-and-the-bolzano-weierstrass-theorem">3.1 Section 3.4: Subsequences and the Bolzano-Weierstrass theorem</a><ul>
+<li><a href="#subsequences">3.1.1 Subsequences</a><ul>
+<li><a href="#convergent-subsequences">3.1.1.1 Convergent subsequences</a></li>
+</ul>
+</li>
+<li><a href="#divergent-subsequences">3.1.2 Divergent subsequences</a></li>
+<li><a href="#the-monotone-subsequence-theorem">3.1.3 The monotone subsequence theorem</a></li>
+<li><a href="#the-bolzano-weierstrass-theorem">3.1.4 The Bolzano-Weierstrass theorem</a></li>
+<li><a href="#limits-of-subsequences">3.1.5 Limits of subsequences</a></li>
+</ul>
+</li>
+<li><a href="#section-35-the-cauchy-criterion">3.2 Section 3.5: The Cauchy Criterion</a><ul>
+<li><a href="#introduction-to-cauchy-sequences">3.2.1 Introduction to Cauchy sequences</a></li>
+<li><a href="#the-cauchy-convergence-criterion">3.2.2 The Cauchy convergence criterion</a></li>
+<li><a href="#contractive-sequences">3.2.3 Contractive sequences</a></li>
+</ul>
+</li>
+<li><a href="#section-36-properly-divergent-sequences">3.3 Section 3.6: Properly divergent sequences</a></li>
+<li><a href="#section-37-introduction-to-infinite-series">3.4 Section 3.7: Introduction to infinite series</a></li>
+<li><a href="#section-41-limits-of-functions">3.5 Section 4.1: Limits of functions</a><ul>
+<li><a href="#cluster-points">3.5.1 Cluster points</a></li>
+<li><a href="#the-definition-of-the-limit">3.5.2 The definition of the limit</a></li>
+<li><a href="#the-sequential-criterion-for-limits">3.5.3 The sequential criterion for limits</a></li>
+<li><a href="#divergence-criteria">3.5.4 Divergence criteria</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Midterm 1 review<a class="headerlink" href="#midterm-1-review" name="midterm-1-review">&para;</a></h2>
+<p>Very basic stuff. Under construction.</p>
+<h2 class="header"><i>2</i>Midterm 2 review<a class="headerlink" href="#midterm-2-review" name="midterm-2-review">&para;</a></h2>
+<p>Under construction.</p>
+<h2 class="header"><i>3</i>Midterm 3 review<a class="headerlink" href="#midterm-3-review" name="midterm-3-review">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Section 3.4: Subsequences and the Bolzano-Weierstrass theorem<a class="headerlink" href="#section-34-subsequences-and-the-bolzano-weierstrass-theorem" name="section-34-subsequences-and-the-bolzano-weierstrass-theorem">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Subsequences<a class="headerlink" href="#subsequences" name="subsequences">&para;</a></h4>
+<p>Same order as the original sequence, just, drop select terms. A <strong>tail</strong> of a sequence is a special type of subsequence.</p>
+<h5 class="header"><i>3.1.1.1</i>Convergent subsequences<a class="headerlink" href="#convergent-subsequences" name="convergent-subsequences">&para;</a></h5>
+<p>Theorem: if a sequence of real numbers converges to something, then any subsequence also converges to it.</p>
+<p>An example using this theorem: to find the limit of <span>$x_n = b^n$</span> if <span>$0 &lt; b &lt; 1$</span>, the limit of which we will denote by <span>$x$</span>, we consider the subsequence <span>$x_{2n} = b^{2n} = (b^n)^2 = x^2_n$</span>, which has a limit of <span>$x^2$</span> (from the limit laws, etc). But it also has the same limit <span>$x$</span> as the sequence itself, due to the theorem above. So then <span>$x = \lim(x_{2n}) = (\lim(x_n))^2 = x^2$</span>. Then, either <span>$x=0$</span> or <span>$x=1$</span>. Since the sequence is decreasing and bounded above by 1, then <span>$x=0$</span>.</p>
+<p>Another example: find the limit of <span>$z_n = c^{1/n}$</span> for <span>$c &gt; 1$</span>, which we will denote by <span>$z$</span>. Consider the subsequence <span>$z_{2n} = c^{1/(2n)} = (c^{1/n})^{1/2} = z_n^{1/2}$</span>. By limit laws in 3.2, we have that <span>$z = \lim(z_{2n}) = (\lim(z_n))^{1/2} = z^{1/2}$</span> and so <span>$z^2=z$</span>, as before. In this case, since <span>$z_n &gt; 1$</span>, it can't be 0, so it must be that <span>$z=1$</span>.</p>
+<h4 class="header"><i>3.1.2</i>Divergent subsequences<a class="headerlink" href="#divergent-subsequences" name="divergent-subsequences">&para;</a></h4>
+<p>Probably not the best title for this section, but, whatever.</p>
+<p>Theorem: TFAE:</p>
+<p>(i) A sequence <span>$X = (x_n)$</span> does not converge to <span>$x$</span>.<br />
+(ii) There exists an <span>$\epsilon &gt; 0$</span> such that for any <span>$k \in \mathbb{N}$</span>, there exists <span>$n_k \in \mathbb{N}$</span> such that <span>$n_k \geq k$</span> and <span>$|x_{n_k} - x| \geq \epsilon$</span>.<br />
+(iii) There exists an <span>$\epsilon &gt; 0$</span> and a subsequence <span>$(x_{n_k})$</span> of <span>$X$</span> such that <span>$|x_{n_k} - x| \geq \epsilon$</span> for all <span>$k \in \mathbb{N}$</span>.</p>
+<p>Proof for (i) <span>$\to$</span> (ii): just the definition of converging to a limit.</p>
+<p>Proof for (ii) <span>$\to$</span> (iii): Just find terms that fit the definition and make a subsequence out of them.</p>
+<p>Proof for (iii) <span>$\to$</span> (i): A subsequence satisfying the condition in (iii) (meaning that it does <em>not</em> converge to <span>$x$</span>) exists. So, the sequence as a whole cannot converge to <span>$x$</span> either.</p>
+<p>Divergence criteria (is this covered or not?): a sequence is divergent if: 1) it contains two convergent subsequences with different limits; or 2) it is unbounded.</p>
+<p>Example: <span>$X=((-1)^n)$</span> is divergent, because the even terms converge to 1, and the odd terms converge to -1.</p>
+<p>Another example: <span>$\sin(n)$</span> is divergent. The proof given in the textbook is confusing to me.</p>
+<h4 class="header"><i>3.1.3</i>The monotone subsequence theorem<a class="headerlink" href="#the-monotone-subsequence-theorem" name="the-monotone-subsequence-theorem">&para;</a></h4>
+<blockquote>
+<p>Every sequence (even sequences that are not themselves monotone) has a monotone subsequence. </p>
+</blockquote>
+<p>Proof: Consider the concept of a "peak" (a term in a sequence that is greater than everything that follows it). Any given sequence <span>$X$</span> can have either finitely many (including zero) or infinitely many peaks. In the first case, we can simply take the first term after the last peak. Since this term is not a peak, there must be a term after it that is greater than it, and so on, until we get an increasing subsequence. In the second case, the subsequence of peaks is decreasing and thus monotone.</p>
+<h4 class="header"><i>3.1.4</i>The Bolzano-Weierstrass theorem<a class="headerlink" href="#the-bolzano-weierstrass-theorem" name="the-bolzano-weierstrass-theorem">&para;</a></h4>
+<blockquote>
+<p>A bounded sequence of real numbers has a convergent subsequence.</p>
+</blockquote>
+<p>Proof: By the monotone subsequence theorem, this sequence must contain a monotone subsequence. Since it's also bounded, we can use the monotone convergence theorem to show that this subsequence is convergent as well.</p>
+<h4 class="header"><i>3.1.5</i>Limits of subsequences<a class="headerlink" href="#limits-of-subsequences" name="limits-of-subsequences">&para;</a></h4>
+<blockquote>
+<p>If every convergent subsequence of a sequence converges to <span>$x$</span>, so does the sequence itself.</p>
+</blockquote>
+<p>Proof: by contradiction, using Bolzano-Weierstrass.</p>
+<h3 class="header"><i>3.2</i>Section 3.5: The Cauchy Criterion<a class="headerlink" href="#section-35-the-cauchy-criterion" name="section-35-the-cauchy-criterion">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>Introduction to Cauchy sequences<a class="headerlink" href="#introduction-to-cauchy-sequences" name="introduction-to-cauchy-sequences">&para;</a></h4>
+<blockquote>
+<p>A sequence <span>$X = (x_n)$</span> of real numbers is said to be a Cauchy sequence if for every <span>$\epsilon &gt; 0$</span> there exists a natural number <span>$H(\epsilon)$</span> such that for all natural numbers <span>$n, m \geq H(\epsilon)$</span>, the terms <span>$x_n$</span>, <span>$x_m$</span> satisfy <span>$|x_n - x_m| &lt; \epsilon$</span>.</p>
+</blockquote>
+<p>This is probably an important definition.</p>
+<p>Example: <span>$(1/n)$</span>. Proof: given <span>$\epsilon &gt; 0$</span>, choose <span>$H = H(\epsilon)$</span> such that <span>$H &gt; 2/\epsilon$</span>. Then if <span>$m, n \geq H$</span>, we have <span>$1/n \leq 1/H &lt; \epsilon/2$</span> and similarly <span>$1/m &lt; \epsilon/2$</span>. Then, we have:</p>
+<p><span>$$\left | \frac{1}{n} - \frac{1}{m} \right  | \leq \frac{1}{n} + \frac{1}{m} &lt; \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon$$</span></p>
+<p>which tells us that <span>$(1/n)$</span> is a Cauchy sequence.</p>
+<p>Example of something that is <em>not</em> a Cauchy sequence: <span>$(1 + (-1)^n)$</span>. The difference between any two terms is always 2, so we can always find an <span>$\epsilon$</span> such that, yeah. Remember that game?</p>
+<p>Note that to prove that a sequence <em>is</em> a Cauchy sequence, we cannot assume a relationship between <span>$m$</span> and <span>$n$</span>, for the inequality <span>$|x_n - x_m| &lt; \epsilon$</span> must hold for <em>all</em> <span>$n, m \geq H(\epsilon)$</span>. However, to prove that a sequence is <em>not</em> a Cauchy sequence, we can make use of a relation between <span>$m$</span> and <span>$n$</span> (as long as it shows that for arbitrarily large values o f <span>$m$</span> and <span>$n$</span>, the inequality does not hold).</p>
+<p>Lemma: if a sequence of real numbers is convergent, it is a Cauchy sequence. Proof: <span>$\epsilon$</span> definition.</p>
+<p>Lemma: Cauchy sequences of real numbers (does that matter) are bounded. Proof: by triangle inequality and use of supremums.</p>
+<h4 class="header"><i>3.2.2</i>The Cauchy convergence criterion<a class="headerlink" href="#the-cauchy-convergence-criterion" name="the-cauchy-convergence-criterion">&para;</a></h4>
+<blockquote>
+<p>A sequence of real numbers is convergent if and only if it is a Cauchy sequence.</p>
+</blockquote>
+<p>Proof: For →, we use the first lemma in the previous section. For ←, we first note that a Cauchy sequence is bounded (second lemma in previous section). By Bolzano-Weierstrass, there is a subsequence that converges to some number <span>$x'$</span>. We then use the <span>$\epsilon$</span> definition for the sequence and the subsequence, and then we can sort of combine the two and then use the triangle inequality to conclude that the sequence itself converges to <span>$x'$</span>, and so the sequence is convergent.</p>
+<h4 class="header"><i>3.2.3</i>Contractive sequences<a class="headerlink" href="#contractive-sequences" name="contractive-sequences">&para;</a></h4>
+<blockquote>
+<p>A sequence <span>$X = (x_n)$</span> is constractive if there exists a constant <span>$C$</span> between 0 and 1 such that</p>
+<p><span>$$|x_{n+1} - x_{n+1}| \leq C |x_{n+1} - x_n|$$</span></p>
+<p>for all <span>$n \in \mathbb{N}$</span>. <span>$C$</span> is called the <strong>constant</strong> of this contractive sequence.</p>
+</blockquote>
+<p>Every contractive sequence is a Cauchy sequence, and thus is convergent. Proof: keep applying the definition (with <span>$C$</span>) for contractive sequences until you get to <span>$C^n|x_2 - x_1|$</span> which is <span>$\leq$</span> all the others. For <span>$m &gt; n$</span>, we use the triangle inequality. This gets weird. I give up.</p>
+<h3 class="header"><i>3.3</i>Section 3.6: Properly divergent sequences<a class="headerlink" href="#section-36-properly-divergent-sequences" name="section-36-properly-divergent-sequences">&para;</a></h3>
+<blockquote>
+<p>A properly divergent sequence is one whose limit is <span>$\pm \infty$</span>. We can define an infinite limit as follows: <span>$(x_n)$</span> tends to <span>$+\infty$</span> if for every <span>$\alpha \in \mathbb R$</span> there exists <span>$K(\alpha) \in \mathbb{N}$</span> such that if <span>$n \geq K(\alpha)$</span>, then <span>$x_n &gt; \alpha$</span>. Similar for <span>$-\infty$</span>.</p>
+</blockquote>
+<p>Examples of things that tend to <span>$\infty$</span>: <span>$n$</span>, <span>$n^2$</span>, <span>$c^n$</span> for any <span>$c &gt; 1$</span>.</p>
+<p>A monotone sequence is properly divergent if and only if it is unbounded. Not too difficult to prove, just think about it.</p>
+<p>Also, this is kind of obvious, but if you have two sequences, and the first tends to infinity and all of its terms are less than those of the other sequence, then the other sequence tends to infinity as well.</p>
+<h3 class="header"><i>3.4</i>Section 3.7: Introduction to infinite series<a class="headerlink" href="#section-37-introduction-to-infinite-series" name="section-37-introduction-to-infinite-series">&para;</a></h3>
+<p>Did we even do this? Did I just sleep through this week?</p>
+<h3 class="header"><i>3.5</i>Section 4.1: Limits of functions<a class="headerlink" href="#section-41-limits-of-functions" name="section-41-limits-of-functions">&para;</a></h3>
+<h4 class="header"><i>3.5.1</i>Cluster points<a class="headerlink" href="#cluster-points" name="cluster-points">&para;</a></h4>
+<blockquote>
+<p>A point in a set <span>$A \subseteq \mathbb{R}$</span> such that for every <span>$\delta &gt; 0$</span>, there exists at least one point <span>$x \in A$</span> (<span>$x \neq c$</span>) such that <span>$|x-c| \leq \delta$</span>.</p>
+</blockquote>
+<p>Note that <span>$c$</span> may or may not be a member of <span>$A$</span>. Even if it is, we ignore the point itself.</p>
+<p>A cluster point is really just something that elements in the set get arbitrarily close to.</p>
+<p>Theorem: a number <span>$c \in \mathbb R$</span> is a cluster point of a subset <span>$A \in \mathbb R$</span> iff there exists a sequence <span>$(a_n)$</span> in <span>$A$</span> such that <span>$\lim(a_n) = c$</span> and <span>$a_n \neq c$</span> for all <span>$n \in \mathbb N$</span>.</p>
+<p>Examples: for the open interval from 0 to 1, every point in the closed interval is a cluster point. Incidentally, 0 and 1 are cluster points of the open interval even though they don't belong to it. All the points of the open interval are cluster points of itself.</p>
+<p>A finite set has no cluster points, and the infinite set <span>$\mathbb N$</span> has no cluster points.</p>
+<p>The set <span>$\{1/n:n\in \mathbb N\}$</span> has only one cluster point: 0.</p>
+<p>Every point in the closed interval from 0 to something is a cluster point of <span>$\mathbb Q$</span>.</p>
+<h4 class="header"><i>3.5.2</i>The definition of the limit<a class="headerlink" href="#the-definition-of-the-limit" name="the-definition-of-the-limit">&para;</a></h4>
+<blockquote>
+<p>The function <span>$f: A \to \mathbb R$</span> has a limit <span>$L \in \mathbb R$</span> at a cluster point <span>$c$</span> of <span>$A$</span> if, for any given <span>$\epsilon &gt; 0$</span>, there exists <span>$\delta &gt; 0$</span> such that if <span>$x \in A$</span> and <span>$|x-c| &lt; \delta$</span> (where <span>$x \neq c$</span>), then <span>$|f(x) - L| &lt; \epsilon$</span>.</p>
+</blockquote>
+<p>Note that the value of <span>$\delta$</span> depends on <span>$\epsilon$</span>.</p>
+<p>If a limit does not exist at a point <span>$c$</span>, then <span>$f$</span> diverges at <span>$c$</span>. Otherwise, it has a unique limit at that point. To prove this, do the standard thing where you get <span>$\epsilon/2 + \epsilon/2 = \epsilon$</span> from which you can conclude that <span>$L - L' = 0$</span>, etc.</p>
+<p>We can rephrase this in terms of neighbourhoods by saying that <span>$x$</span> belongs to the <span>$\delta$</span>-neighbourhood of <span>$c$</span>.</p>
+<p>Examples:</p>
+<ul>
+<li>the constant function's limit at any point is obvious</li>
+<li><span>$\lim_{x \to c} x = c$</span>. To prove, just replace <span>$f(x)$</span> with <span>$x$</span>.</li>
+<li><span>$\lim_{x \to c} x^2 = c^2$</span>, this proof is a bit longer but we use the fact that <span>$x^2-c^2$</span> (which we want to make arbitrarily small) is equivalent to <span>$(x-c)(x+c)$</span> and then we do weird stuff with the triangle inequality, so, like, yeah</li>
+</ul>
+<p>I don't know what anything means anymore</p>
+<h4 class="header"><i>3.5.3</i>The sequential criterion for limits<a class="headerlink" href="#the-sequential-criterion-for-limits" name="the-sequential-criterion-for-limits">&para;</a></h4>
+<blockquote>
+<p>TFAE:</p>
+<p>(i) <span>$\displaystyle \lim_{x \to c} f = L$</span><br />
+(ii) For every sequence <span>$(x_n)$</span> in <span>$A$</span> that converges to <span>$c$</span> (with <span>$x_n \neq c$</span>), then the sequence <span>$(f(x_n))$</span> also converges to <span>$L$</span>.</p>
+</blockquote>
+<p>Proof: (→) it involves <span>$\delta$</span> and <span>$\epsilon$</span> and <span>$K$</span>. ← contrapositive, look at neighbourhoods.</p>
+<h4 class="header"><i>3.5.4</i>Divergence criteria<a class="headerlink" href="#divergence-criteria" name="divergence-criteria">&para;</a></h4>
+<p>I think we may not have to know this. In that case, I won't.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

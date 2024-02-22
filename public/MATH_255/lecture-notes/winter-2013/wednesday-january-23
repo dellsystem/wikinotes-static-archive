@@ -1,0 +1,126 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, January 23, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, January 23, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Properties of monotone functions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Monotone functions have a countable number of discontinuities<a class="headerlink" href="#monotone-functions-have-a-countable-number-of-discontinuities" name="monotone-functions-have-a-countable-number-of-discontinuities">&para;</a></h2>
+<p>What I'm about to say caused a lot of controversy in class. Given some monotone function on an interval, the number of discontinuities in this function is countable - that is, either finite or transfinite (there is a bijection mapping the discontinuities to the natural numbers - or, if you'd like, their cardinality is <a href="http://en.wikipedia.org/wiki/Aleph_number">aleph-null</a>). This fact is codified in the following theorem:</p>
+<p><strong>Theorem:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be an interval and <span>$f : I \to \mathbb{R}$</span> be monotone on <span>$I$</span>. The set of discontinuities <span>$D \subseteq I$</span> of <span>$f$</span> is a countable set.</p>
+<p><strong>Proof:</strong> WLOG, let <span>$f$</span> be monotone increasing on <span>$I$</span> and let <span>$I = [a,b]$</span>. Define the set <span>$D = \{x \in I : J_{f}(x) &gt; 0\}$</span> as the set of jump discontinuities in <span>$f$</span>. Observe that for <span>$a \leq x_1 &lt; x_2 &lt; \ldots &lt; x_n \leq b$</span>, <span>$J_{f}(x_1) + J_{f}(x_2) + \ldots + J_{f}(x_n) \leq f(b) - f(a)$</span>. Thus there are at most <span>$k$</span> points in <span>$I$</span> where the jump <span>$J_{f}(x) \geq \frac{f(b) - f(a)}{k}$</span>. So the set of discontinuities is countable.</p>
+<p>This is technically all we need but it may be a bit unclear so we'll say this: notice that <span>$\displaystyle D = \bigcup_{k=1}^{\infty} \left\{x \in I : J_{f}(x) \geq \frac{f(b) - f(a)}{k}\right\}$</span>. Each set is finite, and since <span>$k$</span> is an element of a countable set, <span>$D$</span> is therefore countable. <span>$\blacksquare$</span></p>
+<p>Notice we can apply this to unbounded intervals such as <span>$(-\infty, \infty)$</span> by noting that <span>$\displaystyle(-\infty, \infty) = \bigcup_{N=1}^{\infty} [-N, N]$</span>, and <span>$(c, d)$</span> by noting that <span>$\displaystyle(c, d) = \bigcup_{n=1}^{\infty}[c+\frac{1}{n}, d-\frac{1}{n}]$</span>. <span>$[a, \infty)$</span> and <span>$(-\infty, d]$</span> follow similarly.</p>
+<h2 class="header"><i>2</i>The inverse of a strictly monotone function is strictly monotone<a class="headerlink" href="#the-inverse-of-a-strictly-monotone-function-is-strictly-monotone" name="the-inverse-of-a-strictly-monotone-function-is-strictly-monotone">&para;</a></h2>
+<p><strong>Theorem:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be an interval and <span>$f : I \to \mathbb{R}$</span> be strictly monotone and continuous on <span>$I$</span>. Then <span>$f^{-1}:f(I) \to I$</span> is strictly monotone and continuous.</p>
+<p><strong>Proof:</strong> First let's discuss the existence of <span>$f^{-1}$</span>. WLOG let <span>$f$</span> be strictly increasing. Let <span>$x_1, x_2 \in I$</span> be such that <span>$x_1 \neq x_2$</span>. Either <span>$x_1 &gt; x_2$</span> or <span>$x_1 &lt; x_2$</span> - thus either <span>$f(x_1) &gt; f(x_2)$</span> or <span>$f(x_1) &lt; f(x_2)$</span>. In either case, <span>$f(x_1) \neq f(x_2)$</span>. Thus <span>$f$</span> is one-to-one and onto <span>$f(I)$</span>, i.e. <span>$f : I \to f(I)$</span> is bijective and therefore the inverse <span>$f^{-1}$</span> exists.<br />
+Now we show that <span>$f^{-1}$</span> is increasing: let <span>$y_1, y_2 \in f(I)$</span> be such that <span>$y_1 &lt; y_2$</span>. Then there exist <span>$x_1, x_2 \in I$</span> such that <span>$f(x_1) = y_1$</span> and <span>$f(x_2) = y_2$</span>. Since <span>$y_1 &lt; y_2$</span>, <span>$f(x_1) &lt; f(x_2)$</span>. Since <span>$f$</span> is strictly increasing, this means <span>$x_1 &lt; x_2$</span> and therefore <span>$f^{-1}(y_1)=x_1 &lt; x_2=f^{-1}(y_2)$</span>. Thus <span>$f^{-1}$</span> must be strictly increasing as well.<br />
+Now we need to show continuity. Let <span>$c \in f(I)$</span>. Suppose <span>$f^{-1}$</span> is not continuous at <span>$c$</span>. Then <span>$J_{f^{-1}}(c) &gt; 0$</span>, i.e. </p>
+<p><span>$$ \lim_{y \to c^-} f^{-1}(y) \neq \lim_{y \to c^+} f^{-1}(y) $$</span></p>
+<p>As <span>$f^{-1}$</span> is strictly increasing:</p>
+<p><span>$$ \lim_{y \to c^-} f^{-1}(c) = m &lt; M =\lim_{y \to c^+} f^{-1}(y) $$</span></p>
+<p>Let <span>$x \in (m, M)$</span> such that <span>$x \neq f^{-1}(c)$</span>. Then <span>$x$</span> does not have a preimage <span>$y_0$</span> such that <span>$f^{-1}(y_0) = x$</span>. If <span>$y_0$</span> exists, <span>$y_0 &gt; c$</span>. But if this is true, <span>$y_0 &gt; M$</span>. Thus <span>$y_0 \not\in (m, M)$</span>. Thus <span>$f^{-1}(f(I)) = I$</span></p>
+<p>Basically what this is saying is since <span>$f$</span> is continuous and defined on some interval, a jump discontinuity in <span>$f^{-1}$</span> cannot happen as it would require <span>$f(x)$</span> to be discontinuous for some <span>$x \in I$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

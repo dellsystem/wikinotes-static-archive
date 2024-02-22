@@ -1,0 +1,182 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2014 Pre-Midterm Theorem Summary 
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2014 Pre-Midterm Theorem Summary 
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#matching">1 Matching</a><ul>
+<li><a href="#stable-marriage">1.1 Stable Marriage</a></li>
+<li><a href="#gale-shapley-method">1.2 Gale-Shapley Method</a></li>
+<li><a href="#halls-theorem">1.3 Hall's theorem</a></li>
+<li><a href="#d-regularity-in-bipartite-graph">1.4 d-regularity in bipartite graph</a></li>
+<li><a href="#definition-of-latin-rectangle">1.5 Definition of Latin rectangle</a></li>
+<li><a href="#latin-rectangle-extendability">1.6 Latin rectangle extendability</a></li>
+</ul>
+</li>
+<li><a href="#graph-coloring">2 Graph Coloring</a><ul>
+<li><a href="#edge-chromatic-number">2.1 Edge chromatic number</a></li>
+<li><a href="#vizings-theorem">2.2 Vizing's theorem</a></li>
+</ul>
+</li>
+<li><a href="#planar-graphs">3 Planar Graphs</a><ul>
+<li><a href="#eulers-theorem">3.1 Euler's Theorem</a></li>
+<li><a href="#6-color-theorem">3.2 6-color Theorem</a></li>
+<li><a href="#5-color-theorem">3.3 5-color Theorem</a></li>
+<li><a href="#4-color-theorem">3.4 4-color Theorem</a></li>
+<li><a href="#art-gallery-theorem">3.5 Art Gallery Theorem</a></li>
+<li><a href="#definition-of-graph-minor">3.6 Definition of Graph Minor</a></li>
+<li><a href="#kuratowskis-theorem">3.7 Kuratowski's theorem</a></li>
+<li><a href="#farys-theorem">3.8 Fary's Theorem</a></li>
+</ul>
+</li>
+<li><a href="#other-graph-theorems">4 Other Graph Theorems</a><ul>
+<li><a href="#menge1927s-theorem">4.1 Menge(1927)'s Theorem</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>Some of the definition and theorems are taken verbatim from <a href="http://wikinotes.ca/MATH_340/lecture-notes/winter-2014/">Winter 2014 Lecture Notes</a> maintained by <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>1</i>Matching<a class="headerlink" href="#matching" name="matching">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Stable Marriage<a class="headerlink" href="#stable-marriage" name="stable-marriage">&para;</a></h3>
+<p>Marriage between set of men <span>$A$</span> and women <span>$B$</span> is stable if and only if no man-woman pair prefer each other over their currently married ones.</p>
+<p>Proof of existence of stable marriage is constructive by Gale-Shapley.</p>
+<h3 class="header"><i>1.2</i>Gale-Shapley Method<a class="headerlink" href="#gale-shapley-method" name="gale-shapley-method">&para;</a></h3>
+<p>Each man propose to his most preferred woman who hasn't yet refused his proposal. Each woman will accept a proposal, if she prefers the candidate over her current spouse. </p>
+<h3 class="header"><i>1.3</i>Hall's theorem<a class="headerlink" href="#halls-theorem" name="halls-theorem">&para;</a></h3>
+<p>A bipartite graph with equal-sized partitions <span>$X$</span>, <span>$Y$</span> has a perfect matching <span>$\iff$</span> for all <span>$A \subseteq X$</span>, <span>$|\Gamma(A)| \geq |A|$</span></p>
+<h3 class="header"><i>1.4</i>d-regularity in bipartite graph<a class="headerlink" href="#d-regularity-in-bipartite-graph" name="d-regularity-in-bipartite-graph">&para;</a></h3>
+<p>A <span>$d$</span>-regular, bipartite graph can be decomposed into <span>$d$</span> edge-disjoint perfect matchings. Proof is by induction on <span>$d$</span>. </p>
+<h3 class="header"><i>1.5</i>Definition of Latin rectangle<a class="headerlink" href="#definition-of-latin-rectangle" name="definition-of-latin-rectangle">&para;</a></h3>
+<p>A Latin rectangle is a r×n grid (with <span>$n&gt;r$</span>) containing some subset of the numbers <span>$1,\dots,n$</span> such that each number only appears at most once in each row and column.</p>
+<h3 class="header"><i>1.6</i>Latin rectangle extendability<a class="headerlink" href="#latin-rectangle-extendability" name="latin-rectangle-extendability">&para;</a></h3>
+<p>Every Latin rectangle can be extended to get a n×n Latin square. The idea of the proof summarizes to the following: Create a bipartite graph where one partition contains the columns, the other contains the numbers. Create an edge between column and number if the number does not appear in the column. This gives a <span>$(n-r)$</span>-regular bipartite graph, where each matching is a valid row to be appended.</p>
+<h2 class="header"><i>2</i>Graph Coloring<a class="headerlink" href="#graph-coloring" name="graph-coloring">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Edge chromatic number<a class="headerlink" href="#edge-chromatic-number" name="edge-chromatic-number">&para;</a></h3>
+<p>Edge chromatic number <span>$\chi^E(G)$</span> is the min number of colors required to color edges of <span>$G$</span> such that no adjacent edges share the same color.</p>
+<p>In bipartite graph <span>$\Delta(G) = \chi^E(G)$</span>. Proof is by completing the graph with dummy edges to form a d-regular bipartite graph where <span>$d = \Delta(G)$</span>. Each edge-disjoin perfect matching can be 1-colored. </p>
+<h3 class="header"><i>2.2</i>Vizing's theorem<a class="headerlink" href="#vizings-theorem" name="vizings-theorem">&para;</a></h3>
+<p><span>$\Delta(G) \leq \chi^E(G) \leq \Delta(G)+1$</span>. Proof is not required for this course.</p>
+<h2 class="header"><i>3</i>Planar Graphs<a class="headerlink" href="#planar-graphs" name="planar-graphs">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Euler's Theorem<a class="headerlink" href="#eulers-theorem" name="eulers-theorem">&para;</a></h3>
+<p>A connected planar graph satisfies <span>$m+2=n+f$</span>. where <span>$m$</span> is number of edges, <span>$n$</span> number of vertices, <span>$f$</span> number of faces</p>
+<h3 class="header"><i>3.2</i>6-color Theorem<a class="headerlink" href="#6-color-theorem" name="6-color-theorem">&para;</a></h3>
+<p>A planar graph can be 6-colored. The proof follows directly from a corollary of Euler's theorem i.e. there's a vertex whose degree is at most 5.</p>
+<h3 class="header"><i>3.3</i>5-color Theorem<a class="headerlink" href="#5-color-theorem" name="5-color-theorem">&para;</a></h3>
+<p>A planar graph can be 5-colored. The proof is a little longer, subjected to case by case analysis.</p>
+<h3 class="header"><i>3.4</i>4-color Theorem<a class="headerlink" href="#4-color-theorem" name="4-color-theorem">&para;</a></h3>
+<p>A planar graph can be 4-colored. This is not human-provable</p>
+<h3 class="header"><i>3.5</i>Art Gallery Theorem<a class="headerlink" href="#art-gallery-theorem" name="art-gallery-theorem">&para;</a></h3>
+<p>At worst case <span>${n}\over{3}$</span> guards are necessary to guard a room, where <span>$n$</span> is the number of vertices</p>
+<h3 class="header"><i>3.6</i>Definition of Graph Minor<a class="headerlink" href="#definition-of-graph-minor" name="definition-of-graph-minor">&para;</a></h3>
+<p><span>$H$</span> is called a minor of the graph <span>$G$</span> if <span>$H$</span> can be formed from <span>$G$</span> by deleting edges and vertices and by contracting edges.</p>
+<h3 class="header"><i>3.7</i>Kuratowski's theorem<a class="headerlink" href="#kuratowskis-theorem" name="kuratowskis-theorem">&para;</a></h3>
+<p>A graph <span>$G$</span> is planar if and only if there is no <span>$K_5$</span> nor <span>$K_{3,3}$</span> minor in that </p>
+<h3 class="header"><i>3.8</i>Fary's Theorem<a class="headerlink" href="#farys-theorem" name="farys-theorem">&para;</a></h3>
+<p>Any simple planar graph can be drawn without crossing using only straight lines. </p>
+<p>Proof: <a href="http://en.wikipedia.org/wiki/F%C3%A1ry's_theorem">http://en.wikipedia.org/wiki/F%C3%A1ry's_theorem</a></p>
+<h2 class="header"><i>4</i>Other Graph Theorems<a class="headerlink" href="#other-graph-theorems" name="other-graph-theorems">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Menge(1927)'s Theorem<a class="headerlink" href="#menge1927s-theorem" name="menge1927s-theorem">&para;</a></h3>
+<p>Given a graph <span>$G=(V,E)$</span> and <span>$s,t \in V$</span>. The max number of disjoint s-t paths <span>$=$</span> min number of vertices that separates <span>$s$</span> from <span>$t$</span>.</p>
+<p>Proof: Diestel's <a href="http://diestel-graph-theory.com/basic.html">book</a> (Section 3.3)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Winter 2011 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Winter 2011 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Sample exam 3, available through WebCT. Professor Klemes is not one of the examiners.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a></li>
+<li><a href="#question-3">3 Question 3</a></li>
+<li><a href="#question-4">4 Question 4</a></li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_1">5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_1">6.1 Solution</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_2">7.1 Solution</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p><strong>(c)</strong></p>
+<p>The implicit functions <span>$F$</span> and <span>$G$</span> are as follows:</p>
+<p><span>$$F(x, y, u, v) = x^2u + y^2v^2 + uv - 3 = 0 \quad G(x, y, u, v) = u^2y - xyuv + v^2 - 3$$</span></p>
+<p>The point is <span>$(x, y, u, v) = (1, -1, 1, 1)$</span>. We then find the Jacobian, <span>$J$</span> (recall that the "new variables", i.e. the ones that are defined in terms of others, go on the bottom):</p>
+<p><span>$$J = \frac{\partial (F, G)}{\partial (x, u)} = \det \begin{pmatrix} F_x &amp; F_u \\ G_x &amp; G_u \end{pmatrix} = \det \begin{pmatrix} 2xu &amp; x^2 + v \\ -yuv &amp; 2uy - xyv \end{pmatrix} = \det \begin{pmatrix} 2 &amp; 2 \\ 1 &amp; -1 \end{pmatrix} = -4$$</span></p>
+<p>The partial derivative we're required to calculate is thus given by:</p>
+<p><span>$$\frac{\partial x}{\partial y} = -\frac{1}{J} \frac{\partial (F, G)}{\partial (y, u)} = \frac{1}{4} \det\begin{pmatrix} F_y &amp; F_u \\ G_y &amp; G_u \end{pmatrix} = \frac{1}{4} \det \begin{pmatrix} 2yv^2 &amp; x^2+v \\ u^2-xuv &amp; 2uy - xyv \end{pmatrix} = \frac{1}{4} \det \begin{pmatrix} -2 &amp; 2 \\ 0 &amp; -1 \end{pmatrix} = \frac{1}{4} \cdot 2 = \frac{1}{2}$$</span></p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>(a) and (b) don't appear to be stuff we're expected to do. (c) should be right but no guarantees.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Skipped because we didn't cover Lagrange multipliers I think?</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Skipped because it was stated explicitly on WebCT that the reading topic of question 3 of written assignment 4, part (a) of which is identical to this question, would not be on the exam.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Lol what is a past history triangle</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p><strong>(a)</strong></p>
+<p>This is straightforward - we can find a potential function by integrating each of the components with respect to <span>$x$</span>, <span>$y$</span>, and <span>$z$</span>, respectively:</p>
+<p><span>$$\int (2xyz) \,dx = x^2yz$$</span><br />
+<span>$$\int (z+x^2z)\,dy = zy + x^2yz$$</span><br />
+<span>$$\int (y+z+x^2y)\,dz = yz + \frac{z^2}{2} + x^2yz$$</span></p>
+<p>A potential function <span>$f(x, y, z)$</span> is thus given by the union of the above functions:</p>
+<p><span>$$f(x, y, z) = x^2yz + yz + \frac{z^2}{2}$$</span></p>
+<p>I'm not sure how we could show that <span>$\vec F$</span> is conservative in the process of finding this potential function. We could, however, do it by taking the curl and showing that to be equal to 0, but that doesn't seem like what is being asked.</p>
+<p><strong>(b)</strong></p>
+<p>Since the field is conservative, we can just evaluate the potential function at the start and end points and take the difference (end-start):</p>
+<p><span>$$f(0, \pi/2, \pi/2) - f(0, 0, 0) = \frac{\pi^2}{4} + \frac{\pi^2}{8}$$</span></p>
+<p>That's it.</p>
+<h3 class="header"><i>5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Can't check answers but the method feels right. Not sure how to show the vector field is conservative apart from taking its curl, though.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>So long. Later</p>
+<p><strong>(b)</strong></p>
+<p>Pretty sure I can't do this</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<p><strong>(a)</strong></p>
+<p>Gauss' theorem is simply the divergence theorem. Here it is:</p>
+<p><span>$$\iint_S F\cdot \vec n dS = \iiint_E \text{div } \vec F\,dV$$</span></p>
+<p>where <span>$E$</span> is the region bounded by the closed surface <span>$S$</span> and <span>$\vec n$</span> is the outward-pointing unit normal.</p>
+<p><strong>(b)</strong></p>
+<p>The answer is 360. I'll type up the explanation later.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

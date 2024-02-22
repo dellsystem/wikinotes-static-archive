@@ -1,0 +1,161 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_324/">
+                MATH 324
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Formulas to memorise
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Formulas to memorise
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Under construction</strong><sup id="fnref:lol"><a href="#fn:lol" rel="footnote" title="There are a shitton. Be afraid.">1</a></sup></p>
+<p>other stuff:</p>
+<ul>
+<li>expected value, variance, and covariance definitions and manipulation rules</li>
+<li>that table on the inside cover of the textbook (from 323)</li>
+<li>shit from order statistics</li>
+</ul>
+<div class="toc">
+<ul>
+<li><a href="#normal-distribution">1 Normal distribution</a><ul>
+<li><a href="#unknown-variance">1.1 Unknown variance</a></li>
+<li><a href="#unknown-mean-and-variance">1.2 Unknown mean and variance</a></li>
+<li><a href="#unknown-means">1.3 Unknown means</a></li>
+<li><a href="#unknown-but-equal-variances">1.4 Unknown but equal variances</a></li>
+<li><a href="#known-variances">1.5 Known variances</a></li>
+</ul>
+</li>
+<li><a href="#binomial-distribution">2 Binomial distribution</a><ul>
+<li><a href="#one-distribution">2.1 One distribution</a></li>
+<li><a href="#multiple-distributions">2.2 Multiple distributions</a></li>
+</ul>
+</li>
+<li><a href="#summary-table">3 Summary table</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Normal distribution<a class="headerlink" href="#normal-distribution" name="normal-distribution">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Unknown variance<a class="headerlink" href="#unknown-variance" name="unknown-variance">&para;</a></h3>
+<p>This also works for any population with <span>$n \geq 25$</span>. To test: the mean.</p>
+<h3 class="header"><i>1.2</i>Unknown mean and variance<a class="headerlink" href="#unknown-mean-and-variance" name="unknown-mean-and-variance">&para;</a></h3>
+<p>To test: the mean, or the variance.</p>
+<h3 class="header"><i>1.3</i>Unknown means<a class="headerlink" href="#unknown-means" name="unknown-means">&para;</a></h3>
+<p>Two normal distributions, don't know the mean of either. To test: the variances.</p>
+<h3 class="header"><i>1.4</i>Unknown but equal variances<a class="headerlink" href="#unknown-but-equal-variances" name="unknown-but-equal-variances">&para;</a></h3>
+<p>Two normal distributions, don't know their variances, but we assume they are equal. To test: the difference between their means.</p>
+<h3 class="header"><i>1.5</i>Known variances<a class="headerlink" href="#known-variances" name="known-variances">&para;</a></h3>
+<p>Two normal distributions (or any populations with <span>$n \geq 25$</span>, we know their variances. To test: the difference between their means.</p>
+<h2 class="header"><i>2</i>Binomial distribution<a class="headerlink" href="#binomial-distribution" name="binomial-distribution">&para;</a></h2>
+<h3 class="header"><i>2.1</i>One distribution<a class="headerlink" href="#one-distribution" name="one-distribution">&para;</a></h3>
+<p>Given a large sample (<span>$n \geq 25$</span>), we want to test <span>$p$</span>.</p>
+<h3 class="header"><i>2.2</i>Multiple distributions<a class="headerlink" href="#multiple-distributions" name="multiple-distributions">&para;</a></h3>
+<p>Given two distributions, both of which have <span>$n \geq 25$</span>, we want to test the difference between their <span>$p$</span>-values.</p>
+<h2 class="header"><i>3</i>Summary table<a class="headerlink" href="#summary-table" name="summary-table">&para;</a></h2>
+<p>All of the information above, presented in a nice table format.<sup id="fnref:why"><a href="#fn:why" rel="footnote" title="I'm hoping that typing it all up again will help m...">2</a></sup></p>
+<p>(Later)</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:lol">
+<p>There are a shitton. Be afraid.&#160;<a href="#fnref:lol" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:why">
+<p>I'm hoping that typing it all up again will help me to remember it.&#160;<a href="#fnref:why" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

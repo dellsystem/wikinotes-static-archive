@@ -1,0 +1,838 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final review: MIPS
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final review: MIPS
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Most of this information comes from Professor Langer's lecture notes, publicly available on <a href="http://www.cim.mcgill.ca/~langer/273.html">his website</a>. This page is simply a summarisation of the notes, combined with some additional information gleaned from various sources, and with some simple homemade diagrams. Please feel free to edit this page if you notice any errors or omissions. If you have questions or want to challenge the accuracy of something, please contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<p>The information is not presented in the same order as that used in the slides, but I tried to keep it as close as possible while keeping with the organisation of this page.</p>
+<div class="toc">
+<ul>
+<li><a href="#mips-the-basics">1 MIPS: the basics</a><ul>
+<li><a href="#types-of-instructions">1.1 Types of instructions</a></li>
+<li><a href="#instruction-formats">1.2 Instruction formats</a><ul>
+<li><a href="#r-format-instructions">1.2.1 R-format instructions</a></li>
+<li><a href="#i-format-instructions">1.2.2 I-format instructions</a></li>
+<li><a href="#j-format-instructions">1.2.3 J-format instructions</a></li>
+</ul>
+</li>
+<li><a href="#signed-vs-unsigned-instructions">1.3 Signed vs unsigned instructions</a></li>
+<li><a href="#register-conventions">1.4 Register conventions</a></li>
+<li><a href="#memory">1.5 Memory</a></li>
+</ul>
+</li>
+<li><a href="#various-mips-operations-and-actions">2 Various MIPS operations and actions</a><ul>
+<li><a href="#storing-an-immediate-32-bit-value">2.1 Storing an immediate 32-bit value</a></li>
+<li><a href="#bitshift-operations">2.2 Bitshift operations</a></li>
+<li><a href="#array-operations">2.3 Array operations</a></li>
+<li><a href="#working-with-strings">2.4 Working with strings</a></li>
+<li><a href="#assembler-directives">2.5 Assembler directives</a></li>
+<li><a href="#loading-addresses">2.6 Loading addresses</a></li>
+<li><a href="#io-and-system-calls">2.7 IO and system calls</a></li>
+<li><a href="#functions">2.8 Functions</a></li>
+<li><a href="#using-the-stack">2.9 Using the stack</a></li>
+<li><a href="#multiplication-and-division">2.10 Multiplication and division</a></li>
+<li><a href="#floating-point-operations">2.11 Floating point operations</a></li>
+<li><a href="#type-conversion">2.12 Type conversion</a></li>
+<li><a href="#exception-handling">2.13 Exception handling</a></li>
+</ul>
+</li>
+<li><a href="#datapaths">3 Datapaths</a><ul>
+<li><a href="#single-cycle-datapaths">3.1 Single-cycle datapaths</a><ul>
+<li><a href="#merging-datapaths">3.1.1 Merging datapaths</a></li>
+</ul>
+</li>
+<li><a href="#multi-cycle-datapaths">3.2 Multi-cycle datapaths</a><ul>
+<li><a href="#microinstructions">3.2.1 Microinstructions</a></li>
+<li><a href="#pipelining">3.2.2 Pipelining</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>MIPS: the basics<a class="headerlink" href="#mips-the-basics" name="mips-the-basics">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Types of instructions<a class="headerlink" href="#types-of-instructions" name="types-of-instructions">&para;</a></h3>
+<p>basic review of instructions (don't need to memorise, but be familiar with them)</p>
+<ul>
+<li>loading/saving from memory<ul>
+<li>lw, sw, offsets </li>
+</ul>
+</li>
+<li>basic arithmetic<ul>
+<li>add, addi, sub, subi</li>
+</ul>
+</li>
+<li>branching<ul>
+<li>program counter (PC) register holds the address of the current instruction line</li>
+<li>incremented after each instruction</li>
+<li>how to do an if-else statement (basic concept)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Instruction formats<a class="headerlink" href="#instruction-formats" name="instruction-formats">&para;</a></h3>
+<ul>
+<li>each instruction is one word</li>
+<li>upper (first) 6 bits contain "op code"</li>
+<li>but there are more than 2<sup>6</sup> = 64 instructions</li>
+<li>3 different instruction formats</li>
+<li>some instructions are actually "pseudoinstructions" in that the assembler converts them into others<ul>
+<li>not really part of MIPS</li>
+<li>e.g. <code>move $t0, $t1</code> is really just <code>addi $t0, $t1, 0</code></li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>1.2.1</i>R-format instructions<a class="headerlink" href="#r-format-instructions" name="r-format-instructions">&para;</a></h4>
+<table class="clear">
+<thead>
+<tr>
+<th class="right-align">field</th>
+<th>opcode</th>
+<th>rs</th>
+<th>rt</th>
+<th>rd</th>
+<th>shamt</th>
+<th>funct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right-align"><strong>number of bits</strong></td>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>when there's no immediate value involved and you're doing something with 1 or more registers</li>
+<li>first, 6-bit op code of 000000</li>
+<li>3 registers max, 5 bits per reg (2<sup>5</sup> = 32), so 15 bits for registers</li>
+<li>order: source, other (source/destination), destination</li>
+<li>"shamt" - shift amount (5 bits), used for srl/sll</li>
+<li>"funct" - different variants of operation, to differentiate, 6 bits</li>
+<li>for example, sub and add have same op code, but diff funct</li>
+<li>64 different R-format instructions possible, due to "funct" (2<sup>6</sup>)</li>
+<li>examples: add, sub, sll, or, slt, and, mult, div, jr</li>
+</ul>
+<h4 class="header"><i>1.2.2</i>I-format instructions<a class="headerlink" href="#i-format-instructions" name="i-format-instructions">&para;</a></h4>
+<table class="clear">
+<thead>
+<tr>
+<th class="right-align">field</th>
+<th>opcode</th>
+<th>rs</th>
+<th>rt</th>
+<th>immediate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right-align"><strong>number of bits</strong></td>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>when you want to specify some immediate value</li>
+<li>6 bits opcode</li>
+<li>10 bits, for two registers (rs, rt)</li>
+<li>16 bits for an immediate value (signed, offset); 2<sup>-15</sup> to 2<sup>15-1</sup></li>
+<li>for lw, the address is rs + offset; stored in register rt</li>
+<li>for sw, the address is rs + offset; store in it contents of rt</li>
+<li>for beq, compare rs and rt, jump to PC + offset if rs == rt<ul>
+<li>so usually we store a label, i guess the label is the offset</li>
+<li>note that the offset is always a multiple of 4 bytes</li>
+<li>cuz, instructions are 4 bytes long etc</li>
+</ul>
+</li>
+<li>must be specified entirely by the opcode</li>
+<li>things like blt, bgt, ble etc DON'T ACTUALLY EXIST IN MIPS</li>
+<li>although there are pseudo-instructions like that</li>
+<li>but those aren't really part of mips, translated by assembler</li>
+<li>blt substituted by slt, beq (using \$t0 - WILL OVERWRITE VALUE)</li>
+<li>to do something like blt: use slt - "set on less than" (R-format)</li>
+<li>then, beq with \$0 (if the slt condition is true, will NOT be 0)</li>
+<li>didn't make pseudo-instructions core to lower number of I-format</li>
+<li>this way, hardware could be simpler, run faster etc</li>
+<li>some R-formats have corresponding I-format instructions<ul>
+<li>add --&gt; addi, can put in a decimal number</li>
+<li>slt --&gt; slti</li>
+</ul>
+</li>
+<li>examples: lw, sw, beq, bne, addi, lb, sb, lui</li>
+</ul>
+<h4 class="header"><i>1.2.3</i>J-format instructions<a class="headerlink" href="#j-format-instructions" name="j-format-instructions">&para;</a></h4>
+<table class="clear">
+<thead>
+<tr>
+<th class="right-align">field</th>
+<th>opcode</th>
+<th>rs</th>
+<th>rt</th>
+<th>immediate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right-align"><strong>number of bits</strong></td>
+<td>6</td>
+<td>5</td>
+<td>5</td>
+<td>16</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>6 bit opcode</li>
+<li>26 bit address (so we can jump farther)</li>
+<li>to be specific, 2<sup>26</sup> possible instructions we can jump to</li>
+<li>examples: j, jal (the only ones)</li>
+</ul>
+<h3 class="header"><i>1.3</i>Signed vs unsigned instructions<a class="headerlink" href="#signed-vs-unsigned-instructions" name="signed-vs-unsigned-instructions">&para;</a></h3>
+<ul>
+<li>addu, addiu, etc</li>
+<li>the "u" in the name means that the immediate or source register is treated as an unsigned int</li>
+<li>-50000, for example, would be treated as a negative number if not unsigned</li>
+<li>sltu and slt can have different results if one has a MSB of 1, other 0</li>
+<li>for sign extending: to put something in an ALU (for arithmetic/logic)</li>
+<li>the sign must be extended, because ALUs operate on 32-bit numbers<ul>
+<li>if unsigned: just add 16 0's to the left (upper 16 bits)</li>
+<li>if signed: copy the MSB (far left) to the upper 16 bits (fill em all)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.4</i>Register conventions<a class="headerlink" href="#register-conventions" name="register-conventions">&para;</a></h3>
+<p>There are 32 registers, \$0 to \$31. The following table does not need to be memorised, but it's probably a good idea to at least be familiar with the different types of registers out there and their purposes.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\$0</td>
+<td>\$zero</td>
+<td>cannot be used, hardware prevents you from writing to it</td>
+</tr>
+<tr>
+<td>\$1</td>
+<td>\$at</td>
+<td>temporary, used by the assembler</td>
+</tr>
+<tr>
+<td>\$2-\$3</td>
+<td>\$v0-\$v1</td>
+<td>function return values</td>
+</tr>
+<tr>
+<td>\$4-\$7</td>
+<td>\$a0-\$a3</td>
+<td>function arguments</td>
+</tr>
+<tr>
+<td>\$8-\$15</td>
+<td>\$t0-\$t7</td>
+<td>temporary registers</td>
+</tr>
+<tr>
+<td>\$16-\$23</td>
+<td>\$s0-\$s7</td>
+<td>"save" registers (child function should not overwrite)</td>
+</tr>
+<tr>
+<td>\$24-\$25</td>
+<td>\$t8-\$t9</td>
+<td>more temporary registers</td>
+</tr>
+<tr>
+<td>\$26-\$27</td>
+<td>\$k0-\$k1</td>
+<td>reserved for the kernel</td>
+</tr>
+<tr>
+<td>\$28</td>
+<td>\$gp</td>
+<td>global pointer</td>
+</tr>
+<tr>
+<td>\$29</td>
+<td>\$sp</td>
+<td>stack pointer</td>
+</tr>
+<tr>
+<td>\$30</td>
+<td>\$fp</td>
+<td>frame pointer</td>
+</tr>
+<tr>
+<td>\$31</td>
+<td>\$ra</td>
+<td>return address, automatically saved when calling <code>jal</code></td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.5</i>Memory<a class="headerlink" href="#memory" name="memory">&para;</a></h3>
+<ul>
+<li>partitioned into "kernel" and "user" regions (2<sup>31</sup> bytes each, so the total memory size is 2<sup>32</sup> bytes)</li>
+<li>each: "instructions" region of 2<sup>28</sup> bytes (2<sup>26</sup> words), "data" region of (2<sup>31</sup> - 2<sup>28</sup>) bytes</li>
+<li>instructions are word-aligned<ul>
+<li>so, multiple of 4 etc</li>
+<li>lower two bits of each instruction are 00</li>
+</ul>
+</li>
+<li>consequently, the jump instruction can jump to any instruction in the relevant section (kernel or user)</li>
+</ul>
+<h2 class="header"><i>2</i>Various MIPS operations and actions<a class="headerlink" href="#various-mips-operations-and-actions" name="various-mips-operations-and-actions">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Storing an immediate 32-bit value<a class="headerlink" href="#storing-an-immediate-32-bit-value" name="storing-an-immediate-32-bit-value">&para;</a></h3>
+<p>what if you want to store an immediate 32-bit value in a register?</p>
+<ul>
+<li>this is possible, though not with one instruction</li>
+<li>since li etc all take a 16-bit value per instruction ...</li>
+<li>lui: loads upper two bytes with the 16 bits you specify</li>
+<li>then, to fill in the lower 16 bits (currently all 0's), use ori</li>
+<li>which ORs every bit, with an immediate (so the lower 16 become filled)</li>
+<li>we could use addiu, but sometimes it doesn't work, so don't do that</li>
+<li>this is really just a logical operation, so, use ori</li>
+</ul>
+<h3 class="header"><i>2.2</i>Bitshift operations<a class="headerlink" href="#bitshift-operations" name="bitshift-operations">&para;</a></h3>
+<p>Shifting bits to the left or right (multiplying/dividing by 2<sup>n</sup>)</p>
+<ul>
+<li>sll: multiplies by 2, so moving to the left (lower bits =&gt; 0)</li>
+<li>srl (shift right logical): divides by 2, upper bits =&gt; 0</li>
+</ul>
+<h3 class="header"><i>2.3</i>Array operations<a class="headerlink" href="#array-operations" name="array-operations">&para;</a></h3>
+<p>For arrays of ints</p>
+<ul>
+<li>can't transfer data directly from memory -&gt; memory, so, registers</li>
+<li>base address, offset is 4 * the index</li>
+<li>must increment by 4 each because each int element takes up 4 bytes </li>
+</ul>
+<h3 class="header"><i>2.4</i>Working with strings<a class="headerlink" href="#working-with-strings" name="working-with-strings">&para;</a></h3>
+<ul>
+<li>each character is a byte, just because (so 256 possible characters)</li>
+<li>lb, sb - loading/saving bytes, I-format</li>
+<li>lb saves the byte (8 bits in a 32-bit register)</li>
+<li>the loaded byte is then sign-extended</li>
+<li>so the upper 24 bits are filled with the MSB of the loaded byte</li>
+<li>the unsigned version (lbu) just fills the upper 24 with 0s</li>
+<li>sb just ignores the upper 24 bits in the register</li>
+<li>to compute the length of a string, do it the C way - stop at "\0"<ul>
+<li>since the null character "\0" is 00000000 in binary, use beq with \$0</li>
+<li>differs from a regular array because each element uses 1 BYTE, not WORD</li>
+<li>so, instead of incrementing by 4 each time, just increment by 1</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.5</i>Assembler directives<a class="headerlink" href="#assembler-directives" name="assembler-directives">&para;</a></h3>
+<ul>
+<li>.data: for stuff to be put in the data part of memory</li>
+<li>use a label like <code>string: .asciiz "this is a string"</code></li>
+<li>this label is translated into EITHER an offset or an absolute address</li>
+<li>offset for conditional branches, absolute for jump etc</li>
+<li>other things: .word, .byte, .space (reserves number of bytes, used in arrays)</li>
+<li>.text: instruction part of memory</li>
+<li><code>.align 2</code>: does word align; this is sometimes necessary if you have a string declaration right before a float declaration, as word-alignment is expected for floats<sup>confirm</sup></li>
+<li>.globl main: makes the "main" label global, seems to work without it</li>
+<li>"main" label: like the main method for C/Java/etc; program starts here</li>
+</ul>
+<h3 class="header"><i>2.6</i>Loading addresses<a class="headerlink" href="#loading-addresses" name="loading-addresses">&para;</a></h3>
+<ul>
+<li>la: pseudoinstruction, translated into "lui \$reg, address"</li>
+<li>where address is the address of the thing label refers to (in data section)</li>
+<li>this translation from label to address is done for you by the assembler</li>
+</ul>
+<h3 class="header"><i>2.7</i>IO and system calls<a class="headerlink" href="#io-and-system-calls" name="io-and-system-calls">&para;</a></h3>
+<ul>
+<li>syscalls for doing I/O or ending the program etc (operating system stuff)</li>
+<li>specify the thing to do with \$v0</li>
+<li>1-4 to print: int, float, double, string</li>
+<li>put in \$a0/\$f12 the relevant thing</li>
+<li>5-8 to read: the above order</li>
+<li>int is stored in \$v0, \$f12, or the address specified in \$a0 (length \$a1)</li>
+<li>10 to exit. For example:</li>
+</ul>
+<div class="codehilite"><pre><span class="nf">li</span> <span class="no">$v0</span><span class="p">,</span> <span class="mi">10</span>
+<span class="nf">syscall</span>
+</pre></div>
+
+
+<h3 class="header"><i>2.8</i>Functions<a class="headerlink" href="#functions" name="functions">&para;</a></h3>
+<ul>
+<li>jal, stores the return address in \$ra (J format)</li>
+<li>you can then return to the next line with jr \$ra (R format)</li>
+<li>pass the child function arguments in \$a0-\$a3</li>
+<li>typically, the returned values are in \$v0, \$v1</li>
+<li>child function should not overwrite \$s0-\$s7 registers</li>
+<li>instead, if it needs those, it should save the contents to the stack</li>
+<li>the stack is explained in the next section</li>
+</ul>
+<h3 class="header"><i>2.9</i>Using the stack<a class="headerlink" href="#using-the-stack" name="using-the-stack">&para;</a></h3>
+<ul>
+<li>used when a child function wants to preserve values in the \$s0-\$s7 regs</li>
+<li>special region of MIPS memory</li>
+<li>grows downwards rather than upwards</li>
+<li>the "base" of the stack is the address at the "top" (really the bottom) when stack is empty</li>
+<li>the base is at a fixed address of 0x7fffffff (halfway point in mips memory)</li>
+<li>(also note that the kernel begins at 0x80000000)</li>
+<li>the address of the "top" of the stack is called the stack pointer, in \$sp</li>
+<li>to push a word onto the stack, FIRST decrease \$sp by 4, then do sw</li>
+<li>to pop, do lw, THEN increase \$sp by 4</li>
+<li>if there are multiple things to store, then, put in a code example:</li>
+</ul>
+<div class="codehilite"><pre><span class="nf">addi</span> <span class="no">$sp</span><span class="p">,</span> <span class="no">$sp</span><span class="p">,</span> <span class="p">-</span><span class="mi">8</span>
+<span class="nf">sw</span> <span class="no">$t0</span><span class="p">,</span> <span class="p">(</span><span class="no">$sp</span><span class="p">)</span>
+<span class="nf">sw</span> <span class="no">$t1</span><span class="p">,</span> <span class="mi">4</span><span class="p">(</span><span class="no">$sp</span><span class="p">)</span>
+
+<span class="c"># Do things here, making use of the $t0 and $t1 registers if desired</span>
+
+<span class="c"># Now get the words back into $t0 and $t1</span>
+<span class="nf">lw</span> <span class="no">$t0</span><span class="p">,</span> <span class="p">(</span><span class="no">$sp</span><span class="p">)</span>
+<span class="nf">lw</span> <span class="no">$t1</span> <span class="mi">4</span><span class="p">(</span><span class="no">$sp</span><span class="p">)</span>
+<span class="nf">addi</span> <span class="no">$sp</span><span class="p">,</span> <span class="no">$sp</span><span class="p">,</span> <span class="mi">8</span>
+</pre></div>
+
+
+<p>A very simplified and not-to-scale diagram of the situation is below:</p>
+<p><img alt="Stack and memory usage diagram" src="http://cs.mcgill.ca/~wliu65/media/comp273/stack.png" title="Original diagram" /></p>
+<ul>
+<li>if a child function is also a parent, you'll probably have to push \$ra here</li>
+<li>may also need to preserve argument registers or temp registers in that case</li>
+<li>stack frames: the contiguous set of words on the stack used to store shit</li>
+<li>per function. makes sense: say you decrease \$sp by 12, then, 3 words in your stack frame</li>
+<li>if you don't know the stack frame size in advance (only determined during runtime) ...</li>
+<li>for example, if the amount of memory allocated is based on I/O stuff ...</li>
+<li>then you need to move the stack pointer as the stack frame changes size</li>
+<li>to mark the beginning of the stack frame, use \$fp</li>
+<li>don't know how the above really works or if it's ever actually necessary</li>
+</ul>
+<h3 class="header"><i>2.10</i>Multiplication and division<a class="headerlink" href="#multiplication-and-division" name="multiplication-and-division">&para;</a></h3>
+<ul>
+<li>since int multiplication takes two 32-bits and returns a 64 bit ...</li>
+<li>the product of <code>mult $t0, $t1</code> is located in a "product" register, which is read-only</li>
+<li>accessed using two separate instructions</li>
+<li>mfhi \$t0, stores the "hi" (upper) 32 bits from it in \$t0</li>
+<li>mflo \$t1, stores the "lo" (lower) 32 bits from it in \$t1</li>
+<li>i think there is a "hi" register and a "lo" one, so two separate regs</li>
+<li>for division, call div</li>
+<li>mfhi to get the remainder and store it in a reg</li>
+<li>mflo to get the quotient and store it in a reg</li>
+<li>mult, div, mflo, mfhi are all R-format</li>
+</ul>
+<h3 class="header"><i>2.11</i>Floating point operations<a class="headerlink" href="#floating-point-operations" name="floating-point-operations">&para;</a></h3>
+<ul>
+<li>floating-point operations need to be done with special circuits/regs</li>
+<li>located on a physically separate chip (no room on the original lol)</li>
+<li>called the floating-point coprocessor/unit (FPU), coprocessor 1</li>
+<li>has its own set of registers, \$f0 to \$f31</li>
+<li>for double precision, two registers, starts with an even (\$f0, \$f2, etc)</li>
+<li>only need to mention the first register, the second is used automatically</li>
+<li>lwc1/swc1 to load/save to/from memory (address held in CPU register)</li>
+<li>for doubles, there are pseudoinstructions to make it faster: l.d, s.d</li>
+<li>mfc1/mtc1 to move from/to the CPU (specify the CPU register)<ul>
+<li>note that the order of operands is reversed from the usual for mtc1</li>
+<li>FROM _ to _, not destination, source as it usually is</li>
+<li>e.g. mtc1 \$s0, \$f0</li>
+</ul>
+</li>
+<li>floating point ops: add.s, add.d, sub.s, sub.d, etc</li>
+<li>have to use \$f? registers for the above</li>
+<li>can't mix and match \$f and non-\$f registers here</li>
+<li>similarly, can't use \$f registers for non-floating-point operations</li>
+<li>multiplication and division are easier here, same style as add.s etc</li>
+<li>mul.s, div.s, mul.d, div.d (no separate circuit, no remainder, etc)</li>
+<li>conditional branching: c.__.s/d \$f0, \$f1/2; bc1t label</li>
+<li>the result of the comparison is stored in a special D flip-flop</li>
+<li>bc1t label: if the condition is true, branch to label</li>
+<li>bc1f label: if the condition is FALSE, go to the label</li>
+</ul>
+<h3 class="header"><i>2.12</i>Type conversion<a class="headerlink" href="#type-conversion" name="type-conversion">&para;</a></h3>
+<p>All arithmetic operations (add, sub, mult, etc) have to be done with either integers for both inputs or floats for both inputs - you can't mix and match. So what do you do if you have to perform some arithmetic operation on an integer and a float? Depending on the type of the desired result, you can either convert the integer to a float or the float to an integer, and perform that operation on the appropriate coprocessor.</p>
+<p>To convert from int to float:</p>
+<div class="codehilite"><pre><span class="nf">mtc1</span> <span class="no">$t0</span><span class="p">,</span> <span class="no">$f0</span>
+<span class="nf">cvt.s.w</span> <span class="no">$f0</span><span class="p">,</span> <span class="no">$f0</span>
+</pre></div>
+
+
+<p>To convert from float to int:</p>
+<div class="codehilite"><pre><span class="nf">cvt.w.s</span> <span class="no">$f0</span><span class="p">,</span> <span class="no">$f0</span>
+<span class="nf">mfc1</span> <span class="no">$t0</span><span class="p">,</span> <span class="no">$f0</span>
+</pre></div>
+
+
+<p>Note that the above just truncates the value, so 1.01, 1.99, 1.00 etc would all become 1. Also note that this method of type conversion differs from using trunc.s, round.s, ceil.s, etc as the output type is still a float, part of the FPU.</p>
+<ul>
+<li>converting from single to double - tack on 0's but only to the significand part</li>
+<li>converting from double to single - this rounds the figure, as opposed to only truncating it</li>
+</ul>
+<h3 class="header"><i>2.13</i>Exception handling<a class="headerlink" href="#exception-handling" name="exception-handling">&para;</a></h3>
+<ul>
+<li>done in coprocessor 0</li>
+<li>an event that requires the program to stop, OS has to do something</li>
+<li>has special registers, used only in kernel mode:<ul>
+<li>EPC, \$14: return address, the one that follows the line that caused the exception</li>
+<li>cause, \$13: code for what kind of exception occurred</li>
+<li>BadVaddr, \$8: holds the address that led to an exception if user tried to access an illegal address</li>
+<li>Status, \$12: whether the program is running in kernel mode or in user mode</li>
+</ul>
+</li>
+<li>examples of things that cause errors/exceptions etc:<ul>
+<li>overflow, e.g. adding 2<sup>31</sup> to itself</li>
+<li>division by 0 (same error as above)</li>
+<li>illegal address, e.g. trying to jump to something in the data segment</li>
+<li>note that trying to load from the text segment doesn't cause an exception as mips can't detect (2 lines etc)</li>
+</ul>
+</li>
+<li>note that with floating points, certain things don't cause exceptions ...<ul>
+<li>e.g. overflow, would result in +infinity in certain cases</li>
+<li>division by zero also results in +infinity</li>
+<li>except when dividing 0 by 0 - NaN</li>
+</ul>
+</li>
+<li>what actually happens is that the program jumps to the first address in the kernel, 0x80000000</li>
+<li>so 0x80000000 is written into the PC by the PCSrc (the selector)</li>
+</ul>
+<h2 class="header"><i>3</i>Datapaths<a class="headerlink" href="#datapaths" name="datapaths">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Single-cycle datapaths<a class="headerlink" href="#single-cycle-datapaths" name="single-cycle-datapaths">&para;</a></h3>
+<ul>
+<li>single cycle as in, one instruction per clock cycle</li>
+<li>first, to fetch the current instruction out of memory, store its address in the PC (program counter) register</li>
+<li>for a simple non-branching instruction, PC becomes PC + 4 at the end of the clock cycle</li>
+<li>only at the END i believe (you use PC for this instruction)</li>
+<li>then to get it out of memory, use a huge multiplexor circuit and PC, selects one of 2^30 words from memory</li>
+<li>the opcode + funct code (for R-format only) control what happens next</li>
+<li>for example, for add (R-format), after it is read out of memory:<ul>
+<li>two ReadReg and one WriteReg is selected (the registers to read from/write to)</li>
+<li>the control signals for the ALU are determined <sup>needs explanation?</sup></li>
+<li>RegData values are read from the source registers, sent as input to the ALU</li>
+<li>the ALU operation is performed</li>
+<li>result is written to the WriteReg</li>
+<li>the new value for the PC is written</li>
+<li>this can all be done in a single clock cycle, if it's long enough for the circuits to stabilise (it should be)</li>
+<li>(for example, the ALU operation involves carry values to ripple though, which takes time)</li>
+</ul>
+</li>
+<li>another example, for lw (I-format):<ul>
+<li>first two are the same, ReadReg and WriteReg selected</li>
+<li>base address for memory word is read from the source register, fed to the ALU</li>
+<li>the provided offset is sign-extended, also fed to the ALU</li>
+<li>control signals are set for the ALU operation <sup>needs explanation?</sup></li>
+<li>ALU computes the sum of the base address + offset</li>
+<li>the resulting address is used to select a word from memory, which is then written to the register</li>
+<li>PC + 4 is written</li>
+</ul>
+</li>
+<li>sw:<ul>
+<li>first two are the same, two ReadReg are selected</li>
+<li>get the resulting memory address, offset + base using ALU etc</li>
+<li>the word in one of the registers is written to the specified address in memory</li>
+<li>PC + 4 is written</li>
+</ul>
+</li>
+<li>bne:<ul>
+<li>in this case, PC might not take the value PC + 4 at the end of the clock cycle</li>
+<li>note: because instructions are word-aligned in memory, MIPS assumes lowest two bits are 00</li>
+<li>therefore it doesn't store those two bits in memory, so the 16-bit field is really 16 + 00 at the end</li>
+<li>no shift register is required for turning it into a 32-bit word eventually: 16 -&gt; 30 etc (sign-extended)</li>
+<li>anyways, select between PC + 4 and PC + 4 + offset</li>
+<li>read from the registers, subtract, if the result is NotZero, select PC + 4 + offset; else, PC + 4</li>
+<li>this value is written back into PC</li>
+</ul>
+</li>
+<li>jump, J-format:<ul>
+<li>26 bits to specify address; as address is word-aligned, bits 0 and 1 are always 0 and 0</li>
+<li>so you specify bits 2-27 with the 26-bit address</li>
+<li>as for bits 28-31, based on the upper 4 bits of the current PC - 0000 for user, 1000 for kernel programs</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.1.1</i>Merging datapaths<a class="headerlink" href="#merging-datapaths" name="merging-datapaths">&para;</a></h4>
+<p>merging datapaths (i.e. how they all work together)</p>
+<ul>
+<li>Obviously, there is only one chip layout which has to accommodate all the different possible instructions</li>
+<li>So now we merge together all the datapaths and illustrate how they function in tandem</li>
+<li>The controls:<ul>
+<li>RegDst: the register to be written to; bits 16-20 or 11-15 or not used at all, depending on the instruction</li>
+<li>ALUSrc: one of the ReadData registers is hardwired to be an input for the ALU<ul>
+<li>the other input either comes from a register (e.g. in add) or the immediate (addi, etc)</li>
+<li>so we need a multiplexor to determine where the other input comes from</li>
+</ul>
+</li>
+<li>MemToReg: selects where the thing to write to the register (if there is one) comes from (memory, or ALU)</li>
+<li>RegWrite: specifies whether or not we are writing to a register at all (also called WriteEnable in lecture notes)</li>
+<li>MemWrite: whether or not we are writing to memory</li>
+<li>MemRead: whether or not we are reading from memory</li>
+<li>ALUOp: specifies the operation that the ALU should perform (addition, subtraction, etc)<ul>
+<li>Recall from previous lectures that the ALU has two control inputs</li>
+<li>One is the Binvert, which specifies whether or not we are doing subtraction</li>
+<li>The other is the "op" field, which controls if it's AND, OR, or XOR (i.e. +, includes subtraction)</li>
+<li>10 for addition, 00 for AND, 01 for OR, 11 for slt (set less than; 1 if the difference is negative, 0 otherwise)</li>
+<li>show the truth table, make sure it's correct somehow</li>
+<li>If ALUOp is 10, then, use the funct field to determine Binvert and op</li>
+<li>Otherwise, the opcode determines Binvert and op directly</li>
+<li>Draw the circuit</li>
+</ul>
+</li>
+<li>show a table linking the input (opcode) to the output (the values of the controls)</li>
+</ul>
+</li>
+<li>In the case of bne, there are two things to compute: the final address, and whether or not the inputs are equal<ul>
+<li>Since the ALU can only be used for one of them, we use a separate adder circuit for the address calculation</li>
+<li>draw out a basic version, and explain what's going on</li>
+</ul>
+</li>
+<li>Datapath for jal</li>
+<li>Datapath for jr<ul>
+<li>jr is obviously R format since there is no intermediate; funct field is used here</li>
+</ul>
+</li>
+<li>Of course, this is all done in one clock cycle. We must choose a clock rate to ensure that the slowest operation gets carried out in that time<ul>
+<li>The worst case is the lw instruction, and this is fairly slow</li>
+<li>But designing for the worst case doesn't seem like the best way of doing it</li>
+<li>Some instructions are quick, some are slow, but if they're all the same length they all become slow</li>
+<li>Which seems silly and inefficient</li>
+<li>Consequently, most MIPS implementations actually make use of multiple cycles, next section</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.2</i>Multi-cycle datapaths<a class="headerlink" href="#multi-cycle-datapaths" name="multi-cycle-datapaths">&para;</a></h3>
+<ul>
+<li>Multi-cycle models: pipelining and microinstructions<ul>
+<li>Continued from above: we break each instruction into short stages</li>
+<li>The clock cycle only has to be as long as the longest stage</li>
+</ul>
+</li>
+</ul>
+<h4 class="header"><i>3.2.1</i>Microinstructions<a class="headerlink" href="#microinstructions" name="microinstructions">&para;</a></h4>
+<p>The first method of doing this: microinstructions</p>
+<ul>
+<li>Hold the PC constant during an instruction, only update the PC at the END of the instruction (after the stages are all complete)</li>
+<li>Each stage in the instruction is defined by the control settings that carry the data from one datapath to the next</li>
+<li>i.e. by a <strong>microinstruction</strong></li>
+<li>we can naturally partition each instruction into stages based on the main actions performed</li>
+<li>that is, fetching the instruction, reading from the source register, ALU stuff, accessing memory, writing to the dest register</li>
+<li>so, 5 stages max, per instruction (not all stages needed for each instruction)</li>
+<li>we then have a bunch of different possible stages, each with its own microinstruction</li>
+<li>certain specific stages are used in more than one instruction - for example, fetch instruction<ul>
+<li>(in which the PC address is read from memory, etc)</li>
+<li>this microinstruction is used in every instruction</li>
+</ul>
+</li>
+<li>but we need a way of knowing which microinstruction we're on, and which is next</li>
+<li>solution: microPC, which is just like PC except at a lower level, of sorts</li>
+<li>each microinstruction/stage thing has 2 controls: next, and fetch</li>
+<li>if "next" is 1, then the next microinstruction will just be the next address (presumably microPC + 4, if each is a word)</li>
+<li>if next is 0, then the next instruction is "fetch instruction", so jump to there</li>
+<li>fetching the next instruction is always the last real microinstruction for this instruction</li>
+<li>the next microinstruction is the first one for the next instruction, if there is one</li>
+<li>of course, we need a table to store the first microinstruction address for each instruction</li>
+<li>this could be implemented as a read-only combinatorial circuit</li>
+<li>PCWriteEnable is a control that specifies when to write to PC (at the end of the instruction)</li>
+<li>the lecture notes indicate that this is set only when Next=Fetch=0, so presumably this happens at the same time as fetching?</li>
+<li>Not really sure ...</li>
+<li>anyway, although this method is an improvement over the single cycle, it has its downsides</li>
+<li>for instance, most parts of the CPU are doing nothing in any given clock cycle</li>
+<li>since only one thing is active at a time (only one microinstruction etc)</li>
+<li>for ex, if the ALU is active, then all the memory-related stuff is just idling</li>
+<li>so now we come to another method</li>
+</ul>
+<h4 class="header"><i>3.2.2</i>Pipelining<a class="headerlink" href="#pipelining" name="pipelining">&para;</a></h4>
+<ul>
+<li>the PC still changes at the end of each clock cycle</li>
+<li>but more than one instruction is in the data path at any given time (sort of like parallel processing)</li>
+<li>you still partition instructions into stages</li>
+<li>but, you have more than one stage running per clock cycle</li>
+<li>ideally, one instruction completes per clock cycle (this is the maximum efficiency)</li>
+<li>if there are 5 stages in a pipeline, then there's a 5x speedup relative to the single cycle model</li>
+<li>this reduces the time per clock cycle, AND ALSO the clock cycles per instruction (theoretically)</li>
+<li>in any case, here's the process:<ul>
+<li>each stage completes in one clock cycle (which is long enough for the longest stage)</li>
+<li>there are five stages:<ul>
+<li>IF: instruction fetch</li>
+<li>ID: instruction decode AND register read</li>
+<li>ALU: ALU operation</li>
+<li>MEM: reading from/writing to memory</li>
+<li>WB: writing data into the destination register</li>
+</ul>
+</li>
+<li>we need new registers to control the flow from one stage to another<ul>
+<li>because new instructions are needed for ID after IF, etc</li>
+<li>so there's IF/ID for that case, which contains the fetched instruction</li>
+<li>and ID/ALU, ALU/MEM, MEM/WB, each of which contains data necessary to execute the next stage</li>
+<li>these registers only hold their value for one clock cycle, they propagate along sort of, or overwritten by the next instruction</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>data hazards in pipelining:<ul>
+<li>when a register is read from (second instruction) before it can be written to (first instruction)</li>
+<li>example: adding two numbers and storing it in \$t0, then subtracting \$t0 from something else right after<ul>
+<li>obviously this will produce the wrong result</li>
+<li>as in, by the time add is in the ALU stage, sub will be in ID, and so will read the OLD value of \$t0</li>
+<li>several ways to avoid this; one is to insert a "nop" (no operation) between add and sub</li>
+<li>basically, stalling</li>
+<li>but this is not the most desirable, as this shuts down the pipeline, which wastes a turn ...</li>
+<li>another method: data forwarding</li>
+<li>this way, the results of the addition could be carried forward to sub, so no useless write/read of registers is needed</li>
+<li>we could put a new multiplexor in front of each ALU - if the one we're writing to is the same as the one we're reading from next</li>
+<li>then, pass it backwards (not really forwards, physically) so that sub (in this case) can use the computed value for \$t0</li>
+</ul>
+</li>
+<li>another example: lw, then add<ul>
+<li>we could stall by adding 3 nops</li>
+<li>or, data forwarding, by stalling with one nop, then forward (pass backwards) the value read at MEM/WB as an ALU input</li>
+<li>we could add multiplexors in this case, may draw diagrams later</li>
+<li>another solution is to reorder, by taking other nearby instructions (that don't use the lw register etc) and putting them betwee</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>control hazards:<ul>
+<li>unconditional jumps:<ul>
+<li>you only realise that you need to jump after the sequentially "next" instruction has been fed in</li>
+<li>so you need to get rid of it once you've reached the ID stage and determined that you have to jump somewhere else</li>
+<li>this is done by writing nop instead of that instruction (overwriting it)</li>
+<li>stalls it by one clock cycle</li>
+<li>not really sure how this is done ...</li>
+</ul>
+</li>
+<li>conditional jumps (branching):<ul>
+<li>you can't really know until after the ALU stage whether or not you need to branch</li>
+<li>one way is to stall until the ALU stage is done, after which, feed in the next instruction (whichever is necessary)</li>
+<li>another: put in the sub the usual way, but change it to nop (also: change RegWrite to 0) if the branch is taken (not sure how)</li>
+<li>or: we can reorder, by taking the instruction before the beq (if there is no clash etc) and putting it after</li>
+<li>the instruction before is executed anyway, regardless of the branch condition, so it should only be after in the assembled code</li>
+<li>i.e. it's all taken care of by the compiler</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>incidentally, for floating point ops, the "execute" stage (equivalent of ALU stage) is broken down into multiple stages<ul>
+<li>so, it takes more than one clock cycle to finish the computation, though each individual stage is still one clock cycle</li>
+<li>this makes it more complicated etc, but we're not going to go into that</li>
+</ul>
+</li>
+<li>Comparing computer speeds<ul>
+<li>comparing computer speeds based on their clock speeds is naive</li>
+<li>it's only one indicator of performance</li>
+<li>a more useful way is to see how two computers run a particular program on some input (high level --&gt; assembly)</li>
+<li>three factors come into play: time per clock cycle, clock cycles per instructions, instructions in the program (all are variable)<ul>
+<li>(the last one is variable because the number of instructions in the program depends on the assembly language for the CPU)</li>
+<li>(this is the number of instructions EXECUTED, not necessarily in memory ... takes into account loops, etc)</li>
+<li>if the time per clock cycle is low (high clock speed), that's good, BUT, it might mean more cycles per intruction</li>
+<li>of course, number of clock cycles per instruction can vary for multi-cycle models (always 1 for single-cycle implementation)</li>
+</ul>
+</li>
+<li>also, for computers with multiple processors, it's harder to compare, depends on how work is divvied up among the processors</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

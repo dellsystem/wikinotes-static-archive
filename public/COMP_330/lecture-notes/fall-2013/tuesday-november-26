@@ -1,0 +1,199 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, November 26, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, November 26, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Recursion theorem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Any errors in the final exam due to the use of these notes will not be given any special consideration. Prakash has not endorsed these notes and is not responsible for any mistakes in them.</strong> You can find Prakash's own notes on this topic <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/fixed_pt_thm.pdf">here</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#the-recursion-theorem">1 The recursion theorem</a><ul>
+<li><a href="#warm-up-quines">1.1 Warm-up: quines</a></li>
+<li><a href="#obtaining-the-text-of-a-program">1.2 Obtaining the text of a program</a></li>
+<li><a href="#statement-of-the-theorem">1.3 Statement of the theorem</a></li>
+<li><a href="#self-reproducing-programs">1.4 Self-reproducing programs</a></li>
+<li><a href="#the-set-of-minimal-programs">1.5 The set of minimal programs</a></li>
+<li><a href="#some-stuff-about-fixed-point-theory">1.6 Some stuff about fixed-point theory</a><ul>
+<li><a href="#finding-fixed-points">1.6.1 Finding fixed points</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The recursion theorem<a class="headerlink" href="#the-recursion-theorem" name="the-recursion-theorem">&para;</a></h2>
+<p>This is actually a fixed-point theorem, though it won't be presented as such.</p>
+<h3 class="header"><i>1.1</i>Warm-up: quines<a class="headerlink" href="#warm-up-quines" name="warm-up-quines">&para;</a></h3>
+<p>As a warm-up topic, we'll talk about quines. As a simple example, we could tell a computer to write the following sentence twice, the second time in quotes. "As a simple example, we could tell a computer to write the following sentence twice, the second time in quotes."</p>
+<p>Pretty much any quine behaves in a manner similar to this. Note that quines have access to their own text so they're a special case of the recursion theorem.</p>
+<h3 class="header"><i>1.2</i>Obtaining the text of a program<a class="headerlink" href="#obtaining-the-text-of-a-program" name="obtaining-the-text-of-a-program">&para;</a></h3>
+<p>Recall that if <span>$P$</span> is a program, <span>$\langle P \rangle$</span> is a procedure that can be used within programs to get the text of <span>$P$</span>. We will now prove that we <em>don't</em> need this procedure - in fact, we already have this power!</p>
+<p>Consider the program which does the following:</p>
+<ul>
+<li>obtain <span>$\langle P \rangle$</span></li>
+<li>output <span>$\langle P \rangle$</span></li>
+</ul>
+<p>Alternatively:</p>
+<ul>
+<li>obtain <span>$\langle P \rangle$</span></li>
+<li>run <span>$\langle P \rangle$</span></li>
+</ul>
+<p>Also consider this program, which takes in a word <span>$w$</span>:</p>
+<ul>
+<li>If <span>$w = \epsilon$</span> then output 0</li>
+<li>Else:</li>
+<li>Obtain <span>$\langle P \rangle$</span></li>
+<li>Run <span>$\langle P \rangle$</span> on <span>$\text{tail}(w)$</span>, store it as <span>$n$</span></li>
+<li>Output <span>$n+1$</span></li>
+</ul>
+<p>Clearly this program gives us the length of the word.</p>
+<p>Alternatively, if we were to just run <span>$\langle P \rangle$</span> on <span>$w$</span>, either the return value would be 0 (if the length is 0) or the program would diverge. (Why is this relevant?)</p>
+<h3 class="header"><i>1.3</i>Statement of the theorem<a class="headerlink" href="#statement-of-the-theorem" name="statement-of-the-theorem">&para;</a></h3>
+<p>Now back to the theorem itself. Let <span>$T$</span> be a Turing machine that computes some function <span>$t: \Sigma^* \times \Sigma^* \to \Sigma^*$</span>. In general, <span>$t$</span> may be a partial function if <span>$T$</span> fails to halt. There is another Turing machine <span>$R$</span>, which computes <span>$r: \Sigma^* \to \Sigma^*$</span> where <span>$\forall w \in \Sigma^*$</span>, <span>$r(w) = t(\langle R \rangle, w)$</span>. so it's like <span>$T$</span> except one of the inputs is replaced by its own code. So this will tell us that a program can obtain its own code naturally.</p>
+<h3 class="header"><i>1.4</i>Self-reproducing programs<a class="headerlink" href="#self-reproducing-programs" name="self-reproducing-programs">&para;</a></h3>
+<p>First, let's distinguish between three different things:</p>
+<ul>
+<li>the machine</li>
+<li>the code of the machine</li>
+<li>a machine that prints out its own code</li>
+</ul>
+<p>Given any <span>$w \in \Sigma^*$</span>, we can construct a Turing machine <span>$P_w$</span> such that <span>$P_w$</span> ignores its input and outputs <span>$w$</span>. From there, it's easy to construct a total computable function <span>$q: \Sigma^* \to \Sigma^*$</span> such that <span>$q(w) = \langle P_w \rangle$</span> (so just the text of a program that prints <span>$w$</span>). I guess this has to be <em>a</em> machine and not <em>the</em> machine.</p>
+<p>Notation: <span>$A; B$</span> means that you run <span>$A$</span>, and the output of <span>$A$</span> is fed as input to <span>$B$</span> (with UNIX-style piping: <code>A | B</code>). So <span>$\langle A; B\rangle$</span> is the code for <span>$A$</span>, then a semicolon, then the code for <span>$B$</span> (?).</p>
+<p>Now, this <span>$B$</span> expects the description for a Turing machine as input. We'll call this description <span>$\langle M \rangle$</span>. <span>$B$</span> outputs <span>$\langle P_{\langle M \rangle}; M \rangle$</span>. First, it creates the description of a program that just prints out <span>$M$</span>. (We can force <span>$B$</span> to receive the code for a machine, since we are controlling its input - i.e., the output of <span>$A$</span>.) <span>$B$</span> is fairly easy to write, so we can obtain <span>$\langle B \rangle$</span> easily.</p>
+<p>Then we just let <span>$A$</span> be <span>$P_{\langle B\rangle}$</span>, i.e., a program that outputs <span>$\langle B \rangle$</span>. So <span>$B$</span> receives <span>$\langle B \rangle$</span> (its own source code!) as input, and outputs <span>$\langle P_{\langle B\rangle}; B \rangle = \langle A, B \rangle$</span>. Voilà, a self-reproducing program.</p>
+<p><em>TODO: Add diagrams.</em></p>
+<h3 class="header"><i>1.5</i>The set of minimal programs<a class="headerlink" href="#the-set-of-minimal-programs" name="the-set-of-minimal-programs">&para;</a></h3>
+<p>Consider the following set:</p>
+<p><span>$$MIN_{TM} = \{\langle M \rangle \mid \text{No TM with a shorter description recognises $L(M)$}\}$$</span></p>
+<p>i.e., the set of all "minimal" programs. Obviously this set <em>exists</em>, but can we produce it? The answer is no, we can't. This set is not even RE. Here's a proof by contradiction: Assume that the set is RE, and so we have an enumerator, <span>$E$</span>. Define some program <span>$R$</span> which runs <span>$E$</span> to produce the Turing machines in <span>$MIN_{TM}$</span>, and keeps going until it finds some <span>$M$</span> such that <span>$|\langle &lt;_i \rangle| &gt; |\langle R \rangle|$</span> (i.e., a machine whose description is longer than that of <span>$R$</span>). Then we simply run the machine <span>$M_i$</span> on <span>$w$</span> and do whatever <span>$M_i$</span> does. But then <span>$R$</span> is a machine that does exactly the same thing as <span>$M_i$</span>, and yet <span>$R$</span> is shorter, by the way we chose <span>$M_i$</span>. So <span>$M_i$</span> can't actually be in <span>$MIN_{TM}$</span> after all, since it's not the minimal machine for the language that it recognises! Contradiction, and so the set is not RE.</p>
+<p>Note that this proof works because we must eventually encounter some <span>$M_i$</span> whose description is longer than that of <span>$R$</span> eventually. If all the descriptions were shorter, then there would only be finitely many programs, but we know that there are infinitely many programs.</p>
+<h3 class="header"><i>1.6</i>Some stuff about fixed-point theory<a class="headerlink" href="#some-stuff-about-fixed-point-theory" name="some-stuff-about-fixed-point-theory">&para;</a></h3>
+<p>Take an arbitrary total computable function <span>$\sigma: \mathbb N \to \mathbb N$</span>. There exists a <span>$u \in \mathbb N$</span> such that <span>$G_u = G_{\sigma(n)}$</span><sup id="fnref:G"><a href="#fn:G" rel="footnote" title="$G$ is a Godel universal function. See [the detail...">1</a></sup>. Consider the following factorial function (written in Python because that's about as close to pseudocode as we can get):</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>Now consider the following function:</p>
+<div class="codehilite"><pre><span class="k">def</span> <span class="nf">H</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+  <span class="k">return</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+
+
+<p>Then <code>H(fact) = fact</code>, which is kind of cool. So every recursive definition is actually a fixed-point equation.</p>
+<h4 class="header"><i>1.6.1</i>Finding fixed points<a class="headerlink" href="#finding-fixed-points" name="finding-fixed-points">&para;</a></h4>
+<p>How did we know that <code>H</code> has a fixed point? In fact, the recursion theorem tells us this. It even tells us how to find it!</p>
+<p>Consider a function on a closed interval whose range is that same interval. As long as the function is continuous, then the function has a fixed point somewhere on the interval. On the other hand, if it were an <em>open</em> interval, there wouldn't necessarily be a fixed point (example: <span>$f(x) = x/2$</span>; if 0 is omitted, there is no fixed point).</p>
+<p>Sidenote: computability and continuity are related concepts! We can rewrite the <span>$\delta$</span>-<span>$\epsilon$</span> definition of continuity in terms of bits: <span>$f$</span> is continuous at <span>$x_0$</span> if <span>$\forall n &gt;0$</span>, <span>$\exists m &gt; 0$</span> such that <span>$\forall y$</span> such that <span>$|x_0 - y| &lt; 2^{-m}$</span>, <span>$|f(x_0) - f(y) | &lt; 2^{-m}$</span>. This has to do with how much precision is needed in the inputs to get a certain amount of precision in the output.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:G">
+<p><span>$G$</span> is a Godel universal function. See <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/comp-notes-2.pdf">the detailed notes on the instructor's website</a> for more information.&#160;<a href="#fnref:G" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

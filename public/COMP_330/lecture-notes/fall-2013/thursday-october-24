@@ -1,0 +1,233 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, October 24, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, October 24, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Algorithms for CFLs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Algorithms for CFLs, mostly incorporating dynamic programming. This lecture is the last on CFLs/PDAs.</p>
+<p>This lecture's notes were originally typed up by <a href="/users/ikones">@ikones</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#algorithms-for-cfls">1 Algorithms for CFLs</a><ul>
+<li><a href="#determining-if-w-in-lg">1.1 Determining if $w \in L(G)$</a><ul>
+<li><a href="#example">1.1.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#determining-if-lg-varnothing">1.2 Determining if $L(G) = \varnothing$</a></li>
+</ul>
+</li>
+<li><a href="#comments-on-compilers">2 Comments on compilers</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Algorithms for CFLs<a class="headerlink" href="#algorithms-for-cfls" name="algorithms-for-cfls">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Determining if $w \in L(G)$<a class="headerlink" href="#determining-if-w-in-lg" name="determining-if-w-in-lg">&para;</a></h3>
+<p>Given <span>$w\in \Sigma^*$</span>, a CFG <span>$G$</span>, how can we determine if <span>$w\in L(G)$</span> ? </p>
+<p>The naive algorithm runs in <span>$O(2^n)$</span>: convert <span>$G$</span> to CNF, produce all the possible parse (binary) trees of height <span>$|w|$</span>, and check if <span>$w$</span> is produced by any of them.</p>
+<p>A better approach would be to use dynamic programming - the above, plus memoisation. Given <span>$G = (V, \Sigma, P, S)$</span> and input <span>$w = a_1\ldots a_n$</span>, <span>$a_i \in \Sigma$</span>, create all possible substrings of <span>$w$</span> of length <span>$1$</span>, length <span>$2$</span>, and so on, memoising the partial results.</p>
+<p>We describe a 2-indexed family of subsets of <span>$V$</span>. Define <span>$X_{ij} = \{A \in V \mid A \overset{*}{\Rightarrow} a_i\ldots a_j \}$</span> (where <span>$V$</span> is the set of variables). For example, <span>$X_{35}$</span> is the set of variables which produce <span>$a_3 a_4 a_5 $</span>. Observe that <span>$w\in L(G) \Leftrightarrow S\in X_{1n}$</span>, i.e., our word is in the language if and only if our start variable is in the set of variables which can produce <span>$a_1\ldots a_n$</span>. </p>
+<p>Our base case for the program will be <span>$X_{ii} = \{A\in V \mid A\Rightarrow a_i \}$</span>. </p>
+<p>Our inductive rule will be if <span>$B\in X_{ik}$</span>, <span>$C\in X_{(k+1)j}$</span>, and <span>$A\to BC \in P$</span> (where <span>$P$</span> is taken to be our set of production rules), then <span>$A \in X_{ij}$</span> for <span>$i\le k \le j$</span>. </p>
+<p>The general strategy is to compute all the <span>$X_{ii}$</span>, work up to <span>$X_{1n}$</span>, and check if <span>$S\in X_{1n}$</span> (i.e., build the memoisation matrix based on <span>$i -j $</span> in <span>$X_{ij}$</span>).</p>
+<h4 class="header"><i>1.1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Consider the grammar with the following production rules:</p>
+<p><span>$$\begin{align}
+S &amp; \to AB \mid BC \\
+A &amp; \to BA \mid a \\
+B &amp; \to CC \mid b \\
+C &amp; \to AB \mid a
+\end{align}$$</span></p>
+<p>and suppose we want to find out if <span>$baaba \in L(G)$</span>. We would build the following table, starting from the bottom row and working our way up:</p>
+<table class="clear">
+<thead>
+<tr>
+<th>5</th>
+<th><span>$\{A, S, C\}$</span></th>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td><span>$\emptyset$</span></td>
+<td><span>$\{S,A,C\}$</span></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>3</td>
+<td><span>$\emptyset$</span></td>
+<td><span>$\{B\}$</span></td>
+<td><span>$\{B\}$</span></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>2</td>
+<td><span>$\{A,S\}$</span></td>
+<td><span>$\{B\}$</span></td>
+<td><span>$\{C,S\}$</span></td>
+<td><span>$\{A,S\}$</span></td>
+<td>-</td>
+</tr>
+<tr>
+<td>1</td>
+<td><span>$\{B\}$</span></td>
+<td><span>$\{A,C\}$</span></td>
+<td><span>$\{A,C\}$</span></td>
+<td><span>$\{B\}$</span></td>
+<td><span>$\{A,C\}$</span></td>
+</tr>
+<tr>
+<td></td>
+<td><span>$b$</span></td>
+<td><span>$a$</span></td>
+<td><span>$a$</span></td>
+<td><span>$b$</span></td>
+<td><span>$a$</span></td>
+</tr>
+</tbody>
+</table>
+<p>where the number in the leftmost column presents <span>$(i-j)+1$</span> in <span>$X_{ij}$</span>, and, for example, the first entry in the '3' column is obtained by checking if any symbols produce the concatenation of an element of <span>$X_{11}$</span> and <span>$X_{23}$</span> or a concatenation of an element of <span>$X_{12}$</span> and <span>$X_{33}$</span>, as formulated in our inductive rule. Since <span>$S \in X_{1n}$</span>, we determine that <span>$baaba$</span> is in fact in <span>$L(G)$</span>.</p>
+<p>The total size of this table is <span>$O(n^2)$</span>. Each check of the form <span>$B\in X_{ik}$</span>, <span>$C \in X_{(k+1)j}$</span>, and <span>$A\to BC \in \mathcal{P}$</span> takes time independent of the input, so <span>$O(1)$</span>, and for each entry in the table this check has to be performed <span>$O(n)$</span> times. So our algorithm runs in <span>$O(n^3)$</span>.</p>
+<h3 class="header"><i>1.2</i>Determining if $L(G) = \varnothing$<a class="headerlink" href="#determining-if-lg-varnothing" name="determining-if-lg-varnothing">&para;</a></h3>
+<p>How do we check if the language produced by a given grammar is empty?</p>
+<p>Suppose our production rules are of the form</p>
+<p><span>$$\begin{align}
+S &amp; \to \text{whatever} \\
+A &amp; \to \alpha_1 \mid \alpha_2 \mid \ldots \mid \alpha_k \\
+B &amp; \to \beta_1 \mid \beta_2 \mid \ldots \mid \beta_k \\
+C &amp; \to \gamma_1 \mid \gamma_2 \mid \ldots \mid \gamma_k
+\end{align}$$</span></p>
+<p>Recall that a variable <span>$A$</span> is said to be <strong>productive</strong> if and only if it eventually generates a terminal variable (i.e., <span>$A \overset{*}{\Rightarrow} \alpha \in \Sigma^*$</span>). The idea is we iteratively check to see if <span>$S$</span> can eventually produce a variable which is productive.</p>
+<p>We can use the following algorithm, in which we iterate until there are no more changes:</p>
+<p><strong>Empty-Test</strong>:<br />
+<strong>Given</strong>: Production rules <span>$\mathcal{P}$</span><br />
+<strong>Prod</strong> <span>$\leftarrow$</span> <span>$\emptyset$</span> <br />
+Look for <span>$A\in \mathcal{P} $</span> such that <span>$A$</span> is productive<br />
+Add each such <span>$A$</span> to <strong>Prod</strong><br />
+Loop until no change to <strong>Prod</strong>:<br />
+Look for <span>$B \in \mathcal{P}$</span> such that <span>$B \to C$</span> where <span>$C\in (\Sigma \cup $</span><strong>Prod</strong><span>$)^*$</span><br />
+End-Loop<br />
+If <span>$S\in$</span><strong>Prod</strong> then <span>$L(G) \ne \emptyset$</span>.<br />
+Else <span>$L(G) = \emptyset$</span></p>
+<p>Here's a more verbose description:</p>
+<ul>
+<li>Look for <span>$A \in V$</span> such that <span>$A \overset{*}{\Rightarrow} \alpha \in \Sigma^*$</span></li>
+<li>If there aren't any, then yes, <span>$L(G) = \varnothing$</span>. If there are any such variables, add them to some set which we'll call <span>$\text{Prod}$</span> (initialised to be empty).</li>
+<li>Look for <span>$B \in V$</span> such that <span>$B \to \beta \in (\Sigma^* \cup \text{Prod})^*$</span>.</li>
+<li>Iff <span>$S \in \text{Prod}$</span>, then <span>$L(G) \neq \varnothing$</span>.</li>
+<li>If, at any point, we see that <span>$S \in \text{Prod}$</span>, we can stop and return false (i.e., <span>$L(G) \neq \varnothing$</span>).</li>
+</ul>
+<p>Note that there is no algorithm that can check if <span>$L(G) = \Sigma^*$</span> for general <span>$G$</span>.</p>
+<h2 class="header"><i>2</i>Comments on compilers<a class="headerlink" href="#comments-on-compilers" name="comments-on-compilers">&para;</a></h2>
+<p><strong>Parsing</strong> is the process of extracting a parse tree for a string.</p>
+<p>Compilers work by first performing lexical analysis via a DFA (for annotating types, etc) then parsing.</p>
+<p>My notes for this section aren't very well-structured so I'm going to leave out the rest (it was only a few lines anyway).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

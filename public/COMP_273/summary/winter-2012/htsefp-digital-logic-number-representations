@@ -1,0 +1,267 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_273/">
+                COMP 273
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Digital logic - number representations
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Digital logic - number representations
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                HTSEFP: Digital logic - number representations
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#converting-integers-from-decimal">1 Converting integers from decimal</a><ul>
+<li><a href="#general-solution">1.1 General solution</a><ul>
+<li><a href="#unsigned-binary">1.1.1 Unsigned binary</a></li>
+<li><a href="#signed-binary">1.1.2 Signed binary</a></li>
+<li><a href="#converting-to-hexadecimal">1.1.3 Converting to hexadecimal</a></li>
+</ul>
+</li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#converting-non-integers-from-decimal">2 Converting non-integers from decimal</a><ul>
+<li><a href="#general-solution_1">2.1 General solution</a><ul>
+<li><a href="#getting-the-binary-representation">2.1.1 Getting the binary representation</a></li>
+<li><a href="#scientific-notation-in-base-2">2.1.2 Scientific notation in base 2</a></li>
+<li><a href="#converting-into-ieee-format">2.1.3 Converting into IEEE format</a></li>
+</ul>
+</li>
+<li><a href="#examples_1">2.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#converting-from-binary">3 Converting from binary</a><ul>
+<li><a href="#general-solution_2">3.1 General solution</a></li>
+<li><a href="#examples_2">3.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#converting-from-hexadecimal">4 Converting from hexadecimal</a><ul>
+<li><a href="#general-solution_3">4.1 General solution</a></li>
+<li><a href="#examples_3">4.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#properties-of-binary-numbers">5 Properties of binary numbers</a><ul>
+<li><a href="#general-solution_4">5.1 General solution</a></li>
+<li><a href="#examples_4">5.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#properties-of-ieee-single-precision-floats">6 Properties of IEEE single precision floats</a><ul>
+<li><a href="#general-solution_5">6.1 General solution</a></li>
+<li><a href="#examples_5">6.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Converting integers from decimal<a class="headerlink" href="#converting-integers-from-decimal" name="converting-integers-from-decimal">&para;</a></h2>
+<blockquote>
+<p>Given an integer in decimal, convert it into X-bit (or variable bit length) signed (or unsigned) binary (two's complement), and represent it in hexadecimal format.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Unsigned binary<a class="headerlink" href="#unsigned-binary" name="unsigned-binary">&para;</a></h4>
+<p>For unsigned binary, we can only represent positive numbers, so just convert from decimal to binary. If X bits are required and the binary representation has fewer than X bits, just pad it with 0's on the left until X bits are reached.</p>
+<h4 class="header"><i>1.1.2</i>Signed binary<a class="headerlink" href="#signed-binary" name="signed-binary">&para;</a></h4>
+<p>For signed binary, we can represent positive numbers in much the same way - just make sure the most significant bit (the left-most bit) is 0. This shouldn't be a problem. For example, 3012 in 16-bit signed binary is simply 2048 + 512 + 256 + 128 + 64 + 4 = <span>$2^{11} + 2^9 + 2^8 + 2^7 + 2^6 + 2^2$</span> = 0000101111000100<sub>two</sub>.</p>
+<p>To represent negative numbers using the <strong>two's complement</strong> method, we first convert the number into binary, take the complement of the number (switch all 0's into 1's etc), and add 1. Then pad it with 1's to the left until X bits are reached. For example, to convert -435 into 16-bit signed binary:</p>
+<ol>
+<li>Convert to binary as usual: 435 = 256 + 128 + 32 + 16 + 2 + 1 = <span>$2^8 + 2^7 + 2^5 + 2^4 + 2^1 + 2^0$</span> = 110110011<sub>two</sub></li>
+<li>Take the complement: 001001100<sub>two</sub></li>
+<li>Add one: 001001101<sub>two</sub></li>
+<li>Pad it with 1's on the left until 16 bits are reached: 1111111001001101<sub>two</sub></li>
+</ol>
+<h4 class="header"><i>1.1.3</i>Converting to hexadecimal<a class="headerlink" href="#converting-to-hexadecimal" name="converting-to-hexadecimal">&para;</a></h4>
+<p>To convert the binary number into hexadecimal, first split the number into groups of four, starting from the right if the number of bits is not a multiple of four. For example, the bitstring 10011010 would be split as <code>1001 1010</code>, and the bitstring 101011110 would be split as <code>1 0101 1110</code> (which is equivalent to <code>0001 0101 1110</code>).</p>
+<p>Then, just take each 4-bit group and convert into decimal. If the number lies between 0 and 9 (inclusive), then the hexadecimal equivalent is the same; otherwise, if it's between 10 and 15 (inclusive), then use the following mapping: 10 = a, 11 = b, 12 = c, 13 = d, 14=e, 15 = f. Write the hexadecimal equivalents in the same order as in the split bitstring and prefix it with <code>0x</code><sup id="fnref:capital x"><a href="#fn:capital x" rel="footnote" title="In his notes for lecture 1, Professor Langer menti...">1</a></sup>.</p>
+<p>For example, the bitstring 111111001001101 would be split as <code>1111 1110 0100 1101</code>. The decimal equivalents for each bit group are: 15, 14, 4, 13. Thus, in hexadecimal, we have <code>0xfe4d</code> (or <code>0xFE4D</code>).</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Exercises 1, questions 1, 3, 5 (a) and 14</li>
+</ul>
+<h2 class="header"><i>2</i>Converting non-integers from decimal<a class="headerlink" href="#converting-non-integers-from-decimal" name="converting-non-integers-from-decimal">&para;</a></h2>
+<blockquote>
+<p>Given a real number in decimal, convert it first into a normalised binary number using scientific notation, then write it as a single-precision float (IEEE format), then represent it in hexadecimal format.</p>
+</blockquote>
+<h3 class="header"><i>2.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Getting the binary representation<a class="headerlink" href="#getting-the-binary-representation" name="getting-the-binary-representation">&para;</a></h4>
+<p>First, figure out how to represent the floor of the given number in binary, the usual way. For example, if the number is 86.5625, first convert 86 into binary: 64 + 16 + 4 + 2 = <span>$2^6 + 2^4 + 2^2 + 2^1$</span> = 1010110<sub>two</sub>. Then, take the part to the right of the decimal point and convert that: 0.5625 = 0.5 + 0.0625 = <span>$2^{-1} + 2^{-4}$</span> = 0.1001. Put the two together to get 86.5625 in binary: 1010110.1001.</p>
+<h4 class="header"><i>2.1.2</i>Scientific notation in base 2<a class="headerlink" href="#scientific-notation-in-base-2" name="scientific-notation-in-base-2">&para;</a></h4>
+<p>Now we need to write it using scientific notation. If we moved the binary point<sup id="fnref:binary points"><a href="#fn:binary points" rel="footnote" title="Like a decimal point, but for binary, lol">2</a></sup> 7 places to the left, we would have 1.0101101001, and so 1010110.1001 and 1.0101101001<sub>two</sub> <span>$\times 2^6$</span> are equivalent. We can drop the 1 to the left of the binary point to obtain the <strong>significand</strong>, which is <code>0101101001</code> (note the presence of the leading 0 - required in this situation).</p>
+<h4 class="header"><i>2.1.3</i>Converting into IEEE format<a class="headerlink" href="#converting-into-ieee-format" name="converting-into-ieee-format">&para;</a></h4>
+<p>Since we need 23 bits for the significand, we pad it with zeroes on the <em>right</em>, resulting in <code>01011010010000000000000</code>.</p>
+<p>To get the exponent code, we add 127 to exponent of 2 used (6 in this case), resulting in 133, then represent this as an 8-bit unsigned int: <code>10000101</code>.</p>
+<p>Since the number is positive, the <strong>sign bit</strong> is 0.</p>
+<p>Consequently, we can write the number in IEEE format: <code>01000010101011010010000000000000</code> (sign bit, then the exponent bitstring, then the significand bitstring).</p>
+<p>To convert this into hexadecimal, we use the following grouping: <code>0100 0010 1010 1101 0010 0000 0000 0000</code> to obtain <code>0x42ad2000</code>.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Exercises 1, questions 6, 9 and 11</li>
+</ul>
+<h2 class="header"><i>3</i>Converting from binary<a class="headerlink" href="#converting-from-binary" name="converting-from-binary">&para;</a></h2>
+<blockquote>
+<p>Given a binary number:</p>
+<p>a. Convert it into decimal, treating it as unsigned<br />
+b. Convert it into decimal, treating it as signed<br />
+c. Convert it into hexadecimal<br />
+d. Write it as an IEEE single precision float</p>
+</blockquote>
+<h3 class="header"><i>3.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>a. Just convert it from binary to decimal, the standard way. Example: 11101110<sub>two</sub> is <span>$128+64+32+8+4+2 = 238$</span>.<br />
+b. Take the first bit as the sign bit. If it's 0, then it's a positive number, and you convert it the same way you would convert an unsigned number. On the other hand, if the sign bit is 1, then it's a negative number. Take all the digits but the first one, take the complement, then add one and convert that to decimal. Example: <code>1111101001</code> has a sign bit of 1, so we take the complement of <code>111101001</code> to get <code>000010110</code>, add one to get <code>000010111</code>, and finally convert that to decimal: 23. So the original decimal number is -23.<br />
+c. See the <a href="#converting-to-hexadecimal">Converting to hexadecimal</a> section above.<br />
+d. See the <a href="#scientific-notation-in-base-2">Scientific notation in base 2</a> and <a href="#converting-into-ieee-format">Converting into IEEE format</a> sections above. As an example, if the binary number is <code>0.10101010...</code> (10 repeating on the right side of the binary point), then the significand would be <code>0101010101010101010101010101</code>, the exponent would be 1 + 127 = 128 so <code>10000000</code>, and the sign bit would be 0, resulting in <code>0100000000101010101010101010101010101</code>.</p>
+<h3 class="header"><i>3.2</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Exercises 1, questions 2 and 13</li>
+</ul>
+<h2 class="header"><i>4</i>Converting from hexadecimal<a class="headerlink" href="#converting-from-hexadecimal" name="converting-from-hexadecimal">&para;</a></h2>
+<blockquote>
+<p>Given a hexadecimal number, convert it into signed (or unsigned) binary, then into decimal.</p>
+</blockquote>
+<h3 class="header"><i>4.1</i>General solution<a class="headerlink" href="#general-solution_3" name="general-solution_3">&para;</a></h3>
+<p>First, just convert the number from hexadecimal to binary. This is pretty straightforward - for example, to convert <code>0xff3e</code>, write out the bit group corresponding to each hexadecimal number: <code>1111 1111 0011 1110</code>. See the <a href="#converting-from-binary">Converting from binary</a> section for how to proceed from there.</p>
+<p>To continue the above example: if <code>1111111100111110</code> is treated as a signed binary integer, then we would first take the complement of <code>111111100111110</code> to get <code>000000011000001</code>, then add one to get <code>`000000011000010</code>, then convert that to decimal to get 194. So the answer is -194.</p>
+<p>If this number were treated as unsigned, then it would be the large and unwieldy 65342 in decimal.</p>
+<h3 class="header"><i>4.2</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Exercises 1, questions 4 and 5 (b)</li>
+</ul>
+<h2 class="header"><i>5</i>Properties of binary numbers<a class="headerlink" href="#properties-of-binary-numbers" name="properties-of-binary-numbers">&para;</a></h2>
+<blockquote>
+<p>What are the largest and smallest numbers that can be represented in X-bit signed and unsigned binary?</p>
+</blockquote>
+<h3 class="header"><i>5.1</i>General solution<a class="headerlink" href="#general-solution_4" name="general-solution_4">&para;</a></h3>
+<p>For X-bit unsigned binary, the smallest number that can be represented is 0, for obvious reasons, and the largest is <span>$2^X - 1$</span>.</p>
+<p>For X-bit signed binary, the largest number that can be represented is <span>$2^{X-1}-1$</span>, and the smallest is <span>$-(2^{X-1})$</span><sup id="fnref:smallest signed"><a href="#fn:smallest signed" rel="footnote" title="For example, if we have 8 bits, the largest signed...">3</a></sup>.</p>
+<h3 class="header"><i>5.2</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Exercises 1, question 8 (a) and (b)</li>
+</ul>
+<h2 class="header"><i>6</i>Properties of IEEE single precision floats<a class="headerlink" href="#properties-of-ieee-single-precision-floats" name="properties-of-ieee-single-precision-floats">&para;</a></h2>
+<blockquote>
+<p>a. How many different numbers represented in IEEE single precision float format are strictly between X and Y?<br />
+b. If the bitstrings for two different numbers represented in IEEE single precision float format were treated instead as signed (or unsigned) integers, what can we conclude about their relationship to each other?<br />
+c. What are the largest and smallest numbers that can be represented in this format?<br />
+d. What is the smallest difference between two distinct and normalised floating point numbers? In other words, what is the smallest unit of precision?</p>
+</blockquote>
+<h3 class="header"><i>6.1</i>General solution<a class="headerlink" href="#general-solution_5" name="general-solution_5">&para;</a></h3>
+<p>a. If X and Y are both powers of 2 in the form <span>$2^{a}$</span> and <span>$2^{b}$</span> (for instance, <span>$2^{-5}$</span> and <span>$2^{-3}$</span>, or <span>$2^{17}$</span> and <span>$2^{19}$</span>), then there are <span>$(b-a) \times (2^{23} - 1)$</span> different numbers strictly between them. <sup>Not sure if correct</sup><br />
+b. Nothing, really. (Well, the first bit is still a sign bit -EhsanKia)<br />
+c. <span>$+\infty$</span> (<code>01111111100000000000000000000000</code>) and <span>$-\infty$</span> (<code>11111111100000000000000000000000</code>) are both possible, although they probably don't count. The smallest positive normalised number is <span>$2^{-126}$</span> (the smallest negative number is its counterpart - the additive inverse), and the smallest positive denormalised number (with an exponent code of <code>00000000</code>) is <span>$2^{-149}$</span>, which is represented as <code>00000000000000000000000000000001</code>. The largest number is <span>$1.11111111111111111111111 \times 2^{127}$</span> (according to the answer key to question 7 in exercises 1), which is represented as <code>01111111011111111111111111111111</code>.<br />
+d. Theoretically, <span>$0.00000000000000000000001 \times 2^{-126}$</span> in binary, which is <span>$2^{-149}$</span>. Confirmation needed.</p>
+<h3 class="header"><i>6.2</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Exercises 1, questions 7, 8 (c), 10 and 12</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:capital x">
+<p>In his notes for lecture 1, Professor Langer mentions that when hexadecimal numbers are written with capital letters (so A, B, etc instead of a, b etc), then we prefix it with <code>0X</code> instead of <code>0x</code>. Although this may be true in some specific context, this does not appear to be generally true, so whenever capital letters are used in hex codes, we use the <code>0x</code> prefix instead of <code>0X</code>.&#160;<a href="#fnref:capital x" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:binary points">
+<p>Like a decimal point, but for binary, lol&#160;<a href="#fnref:binary points" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:smallest signed">
+<p>For example, if we have 8 bits, the largest signed number is 127 and the smallest is -128. This is because 10000000 is -128, as is mentioned in the lecture notes. See the <a href="http://dev.mysql.com/doc/refman/5.0/en/integer-types.html">MySQL docs</a> for a very application-specific example.&#160;<a href="#fnref:smallest signed" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

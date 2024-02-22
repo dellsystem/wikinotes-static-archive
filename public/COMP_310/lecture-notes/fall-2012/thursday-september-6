@@ -1,0 +1,161 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, September 6, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, September 6, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to the course
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for the first COMP 310 class, taught by <a href="http://www.cs.mcgill.ca/~xueliu/">Xue Liu</a>. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly,</p>
+<p>The slides for this lecture are available through <a href="http://www.mcgill.ca/mycourses">MyCourses</a>. Slides covered: 1.1-1.27 (approximate).</p>
+<div class="toc">
+<ul>
+<li><a href="#course-information">1 Course information</a><ul>
+<li><a href="#about-the-professor">1.1 About the professor</a></li>
+<li><a href="#programming-language-used">1.2 Programming language used</a></li>
+<li><a href="#grading">1.3 Grading</a></li>
+<li><a href="#textbook">1.4 Textbook</a></li>
+</ul>
+</li>
+<li><a href="#introduction-to-operating-systems">2 Introduction to operating systems</a><ul>
+<li><a href="#the-kernel">2.1 The kernel</a></li>
+<li><a href="#booting-up">2.2 Booting up</a></li>
+<li><a href="#device-controllers-and-interrupts">2.3 Device controllers and interrupts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Course information<a class="headerlink" href="#course-information" name="course-information">&para;</a></h2>
+<p>In this course, you will learn about <strong>operating systems</strong>, which you may have deduced from the course name. You will learn all about how they work and why they work that way. The main operating system studied is Linux (although many of the concepts apply to operating systems in general).</p>
+<h3 class="header"><i>1.1</i>About the professor<a class="headerlink" href="#about-the-professor" name="about-the-professor">&para;</a></h3>
+<p>Professor Liu's office hours will be on Tuesday from 9:55-11:00 in McConnell 326. If you wish to contact him outside of these hours, send him an email (his first name and his last name, no separator, at the <a href="http://cs.mcgill.ca">cs.mcgill.ca</a> domain). Make sure the subject begins with <strong>COMP 310/ECSE 427: </strong>. For example: <strong>COMP 310/ECSE 427: Question about assignment 1</strong>.</p>
+<h3 class="header"><i>1.2</i>Programming language used<a class="headerlink" href="#programming-language-used" name="programming-language-used">&para;</a></h3>
+<p>The language used in this course is C. If you <em>really</em> want to use something else (e.g. Java, Python), you <em>may</em>, but it is definitely not recommended. For instance, if you use Java to answer a programming question on an exam, your exam may take longer to be marked and whoever marks it may or may not be happy with you. Also, assignment help and the like will only be provided for C.</p>
+<h3 class="header"><i>1.3</i>Grading<a class="headerlink" href="#grading" name="grading">&para;</a></h3>
+<p>There will be two written assignments, neither of which will be graded. There will also be random in-class quizzes, worth a total of 10%. There will be 3 programming assignments, worth 5%, 10%, and 15%, chronologically. (Note that if your grade on any assignment is better than your grade for the previous one(s), it will subsume those marks, but only if you got a non-zero grade on them. For example, if you get 90% on assignment 1 and 95% on assignment 2, then your mark on assignment 1 will be treated as if it were 95%.) The midterm exam will be worth 20%, and the final exam will be worth 40%.</p>
+<h3 class="header"><i>1.4</i>Textbook<a class="headerlink" href="#textbook" name="textbook">&para;</a></h3>
+<p>Operating Systems Concepts, by A. Silberschatz, P. B. Galvin, and G. Gagne. The latest edition is the 8th edition, but the 6th and 7th versions are acceptable as well.</p>
+<h2 class="header"><i>2</i>Introduction to operating systems<a class="headerlink" href="#introduction-to-operating-systems" name="introduction-to-operating-systems">&para;</a></h2>
+<p>An operating system is a <strong>program</strong> that acts as an intermediary between the hardware of a computer and the user-facing programs that run on it. Such a program has three main goals:</p>
+<ul>
+<li>Execute user programs (e.g., music players, web browsers, text editors);</li>
+<li>Ensure that using the computer is convenient;</li>
+<li>Use the hardware efficiently.</li>
+</ul>
+<p>A computer system can be divided into four components. There is the hardware, which provides the resources needed to perform computing. There is the operating system, which coordinates usage of hardware by applications. There are applications, which are self-explanatory. Then there are "users", which include humans and other computers.</p>
+<p>There is no universally-accepted definition of an operating system, but we can say that an operating system has two primary functions. It is a <strong>resource allocator</strong>, which manages all computing resources and decides how to dole out access efficiently (through resource-sharing and multitasking) and fairly. It is also a <strong>control program</strong>, which oversees program execution to ensure that applications behave properly, and to catch errors.</p>
+<h3 class="header"><i>2.1</i>The kernel<a class="headerlink" href="#the-kernel" name="the-kernel">&para;</a></h3>
+<p>The <strong>kernel</strong>, the main component of most operating systems, acts as a bridge between user programs and the hardware. This is the one program running on the computer at all times. Other programs that come with the OS can be thought of as <strong>system programs</strong>; everything else is an <strong>application program</strong>.</p>
+<p>Some operating systems, such as Mac OS and MINIX, have a <strong>microkernel</strong>, following the philosophy that one should put as little as possible in the kernel itself and that things like device drivers and file systems should be put in the user space. The opposite extreme is the <strong>monolithic kernel</strong>, in which the entire operating system runs in kernel space. This method is employed by GNU/Linux and Windows, among others.</p>
+<h3 class="header"><i>2.2</i>Booting up<a class="headerlink" href="#booting-up" name="booting-up">&para;</a></h3>
+<p>The first operating system program to be loaded when a computer starts up is a <strong>bootstrap program</strong>. Such a program is usually stored in read-only memory (ROM, or EPROM for erasable programmable read-only memory - both are non-volatile memory stores). This program will load the operating system kernel into main memory and begin its execution. Through this bootstrapping process, all the other aspects of the operating system will be loaded.</p>
+<h3 class="header"><i>2.3</i>Device controllers and interrupts<a class="headerlink" href="#device-controllers-and-interrupts" name="device-controllers-and-interrupts">&para;</a></h3>
+<p>Usually, we have one or more CPUs and device controllers connected to each other and to memory through a common bus. One important consequence of this is that I/O devices and the CPU can execute independently, and thus concurrently. Although device controllers compete with each other and with the CPU(s) to use the memory, each has a (small) local buffer that can be used; it is the job of the CPU to move data from local buffers into main memory. Once a device controller has finished its operation (e.g. calculating the new position of the cursor after the mouse has been moved), it indicates this to the CPU by triggering an <strong>interrupt</strong>.</p>
+<p>Once an interrupt has been triggered, the CPU first looks up the memory address of the relevant <strong>interrupt handler</strong> (or interrupt service routine), based on the type of interrupt, from the <strong>interrupt vector table</strong>. The address of the instruction that is currently being interrupted is saved, along with its registers, and control is then transferred to the interrupt handler. While this interrupt is being processed, incoming interrupts are ignored to prevent a <strong>lost interrupt</strong>.</p>
+<blockquote>
+<p>Put a diagram in here one day</p>
+</blockquote>
+<p>Interrupts can be generated by hardware or by software (although terminology can vary; some use the word "interrupt" to refer solely to hardware-generated interrupts, for example). Software-generated interrupts are generally called <strong>traps</strong>, and can be triggered by runtime errors or exceptions such as division by zero and segmentation faults. When a trap occurs in a user program, control is usually returned to the operating system, with some action being performed in kernel mode. Traps that occur in system programs can be fatal, and may lead to your computer exploding.</p>
+<p>Interrupts are a popular way of accomplishing multitasking, and operating systems that use these principles are said to be <strong>interrupt-driven</strong>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, November 9, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, November 9, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                More sets theory - ordinals and cardinals
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Finite sets<a class="headerlink" href="#finite-sets" name="finite-sets">&para;</a></h2>
+<p>Informally, a <strong>hereditarily</strong> finite set is one that is finite,</p>
+<ul>
+<li>all its elements are finite</li>
+<li>all the elements of its elements are finite</li>
+<li>etc...</li>
+</ul>
+<p>Using the axioms we listed in the last lecture, we can prove the existence of any such set.</p>
+<h3 class="header"><i>1.1</i>Ordered pairs<a class="headerlink" href="#ordered-pairs" name="ordered-pairs">&para;</a></h3>
+<blockquote>
+<p><span>$(a,b)$</span>: The ordered pair with first entry <span>$a$</span> and second entry <span>$b = \{ \{a\}, \{a,b\} \}$</span></p>
+</blockquote>
+<p>Note: <span>$(a,b) = (c,d) \iff a = c \land b = d$</span></p>
+<p><span>$A \times B = \{(a,b): a \in A \land b \in B\}$</span> if it exists. If we assume the power set axiom then we can prove <span>$A \times B$</span> exists for any <span>$A,B$</span></p>
+<h3 class="header"><i>1.2</i>Power set axiom<a class="headerlink" href="#power-set-axiom" name="power-set-axiom">&para;</a></h3>
+<blockquote>
+<p><span>$\forall x \exists y (\forall z ( z \subseteq x \to z \in y))$</span></p>
+</blockquote>
+<p>Using comprehension we can show the existence of <span>$\mathcal{P}(A)$</span> for any <span>$A = \{B : B \subseteq A\}$</span><sup>subseteq here not proper subset right?</sup></p>
+<p>Suppose we have <span>$A, B$</span>. Where <sup>missing word?</sup> is <span>$\{a\}$</span> (for <span>$a \in A$</span>) <span>$\in \mathcal{P}(A) \subseteq \mathcal{P}(A \cup B)$</span></p>
+<p><span>$\{a,b\} \in \mathcal{P}(A \cup B)$</span></p>
+<p><span>$(a,b) \in \{\{a\}, \{a,b\}\} \subseteq \mathcal{P}(A \cup B)$</span></p>
+<p>So <span>$(a,b) \in \mathcal{P}(\mathcal{P}(A \cup B))$</span></p>
+<p>By comprehension, we can "cut" down <span>$\mathcal{P}(\mathcal{P}(A \cup B))$</span> to <span>$A \times B$</span></p>
+<p>Once a set exists that is "big enough" you can cut it down using a comprehension.</p>
+<h3 class="header"><i>1.3</i>Properties of sets<a class="headerlink" href="#properties-of-sets" name="properties-of-sets">&para;</a></h3>
+<p>We can now define relations functions, equivalence relations, (strict) partial orders<sup>?</sup></p>
+<p><strong>Transitivity</strong>: A set is called transitive if whenever <span>$x \in X \land y \in X$</span> then <span>$y \in X$</span> (ie if <span>$x \in X, x \subseteq X$</span>)</p>
+<p>So <span>$\{0,1,2\}$</span> is transitive but say <span>$\{0,2\}$</span> is not.</p>
+<p>A <em>well order'</em> of a set <span>$A$</span> is a relation <span>$R$</span> on <span>$A$</span> which is</p>
+<ol>
+<li>a total order of <span>$A$</span></li>
+<li>if <span>$B \subseteq A, b \neq \varnothing$</span> then <span>$B$</span> has an <span>$R$</span>-least element</li>
+</ol>
+<p>ie: there is <span>$b \in B$</span> such that there is no <span>$c \in B, c \neq b$</span> such that <span>$cRb$</span></p>
+<h4 class="header"><i>1.3.1</i>Ordinals<a class="headerlink" href="#ordinals" name="ordinals">&para;</a></h4>
+<p>A set <span>$A$</span> is an <strong>ordinal</strong> if <span>$A$</span> is transitive and <span>$\in A$</span><sup>missing something?</sup> strictly well-orders it</p>
+<p>That is:</p>
+<ol>
+<li>(irreflexive) <span>$a \not \in a$</span> for any <span>$a \in A$</span></li>
+<li>(antisymmetric) <span>$a \in b \land b \in a$</span> never happens for <span>$a,b \in A$</span></li>
+<li>(transitive) If <span>$a,b,c \in A, a \in b \land b \in c$</span> then <span>$a \in c$</span></li>
+<li>(total) For any <span>$a,b \in A$</span> either <span>$a \in b \lor b \in a \lor b = a$</span></li>
+<li>For any nonempty <span>$B \subseteq A$</span> there is <span>$b \in B$</span> such that for no <span>$c \in B$</span> do we have <span>$c \in b$</span></li>
+</ol>
+<p>Note: if we assume the <strong>axiom of regularity</strong> (also known as the axiom of foundation**) then every set satisfies properties 1, 2 and 5.</p>
+<p>Given a set <span>$A, SA = A \cup \{A\}$</span> (where S is the successor symbol just like in Peano arithmetic).</p>
+<p>Fact: If <span>$A$</span> is an ordinal then so is <span>$SA$</span>.</p>
+<h4 class="header"><i>1.3.2</i>Cardinals<a class="headerlink" href="#cardinals" name="cardinals">&para;</a></h4>
+<p>An ordinal <span>$\alpha$</span> is called a <strong>cardinal</strong> if there are no <span>$\beta \in \alpha$</span> and bijection <span>$f: \alpha \to \beta$</span><sup>what?</sup></p>
+<p>Fact: Any element of any ordinal is an ordinal. Proof in next lecture!</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

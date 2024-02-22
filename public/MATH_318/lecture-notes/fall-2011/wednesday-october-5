@@ -1,0 +1,314 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, October 5, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, October 5, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Existential rules and more example proofs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Existential quantifier rules<a class="headerlink" href="#existential-quantifier-rules" name="existential-quantifier-rules">&para;</a></h2>
+<p>Continued from last class.</p>
+<h3 class="header"><i>1.1</i>Exists introduction<a class="headerlink" href="#exists-introduction" name="exists-introduction">&para;</a></h3>
+<p>If you can do <span>$\forall$</span>-elimination, then you can do <span>$\exists$</span>-introduction, and vice versa.</p>
+<h3 class="header"><i>1.2</i>Exists elimination<a class="headerlink" href="#exists-elimination" name="exists-elimination">&para;</a></h3>
+<p><span>$$\frac{\Gamma, \Phi(x) \vdash \Psi}{\Gamma, \exists x \Phi(x) \vdash \Psi}$$</span></p>
+<p>provided <span>$x$</span> is not free in <span>$\Gamma$</span> or <span>$\Phi$</span>.</p>
+<p>For example, if <span>$x$</span> is rational, then there exist <span>$a, b$</span> such that <span>$a / b = x$</span>.</p>
+<p>Or, if <span>$x$</span> is even, then <span>$x^2$</span> is divisible by 4; let <span>$x = 2y$</span>, <span>$x^2 = (2y)^2 = 4y^2$</span> so <span>$4 \mid x^2$</span> where <span>$y \in \mathbb{N}$</span>. So <span>$\exists y(x = 2y) \vdash 4 \mid x^2$</span>. What?</p>
+<h2 class="header"><i>2</i>An example proof<a class="headerlink" href="#an-example-proof" name="an-example-proof">&para;</a></h2>
+<p>"Every good boy deserves fudge. There exists a good boy. Therefore, there exists a boy that deserves fudge."</p>
+<p><span>$$\forall x ((Bx \land Gx) \to Fx),\, \exists x (Bx \land Gx) \vdash \exists x (Bx \land Fx)$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$(Bx \land Gx) \to Fx, \, Bx \land Gx \vdash Bx \land Fx$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(2) <span>$(Bx \land Gx) \to Fx,\,Bx \land Gx \vdash \exists x(Bx \land Fx)$</span></td>
+<td><span>$\exists$</span>-introduction from (1)</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x((Bx \land Gx) \to Fx) \vdash (Bx \land Gx) \to Fx)$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x((Bx \land Gx) \to Fx),\, Bx \land Gx \vdash (Bx \land Gx) \to Fx$</span></td>
+<td>Monotonicity from (3)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x ((Bx \land Gx) \to Fx),\, Bx \land Gx,\,(Bx \land Gx) \to Fx \vdash \exists x(Bx \land Fx)$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x ((Bx \land Gx) \to Fx), \, Bx \land Gx \vdash \exists x (Bx \land Fx)$</span></td>
+<td>Transitivity from (4), (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x((Bx \land Gx) \to Fx) ,\,\exists x (Bx \land Gx) \vdash \exists x (Bx \land Fx)$</span></td>
+<td><span>$\exists$</span>-elimination</td>
+</tr>
+</tbody>
+</table>
+<p>An alternative proof<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Main difference: the $\forall$ was put back in bef...">1</a></sup>:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\forall x((Bx \land Gx) \to Fx) \vdash (Bx \land Gx) \to Fx$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(2) <span>$(Bx \land Gx) \to Fx,\, Bx \land Gx \vdash Bx \land Fx$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(3) <span>$\forall x ((Bx \land Gx) \to Fx),\, Bx \land Gx \vdash (Bx \land Gx) \to Fx$</span></td>
+<td>Monotonicity from (1)</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x ((Bx \land Gx) \to Fx),\, (Bx \land Gx) \to Fx,\,Bx \land Gx \vdash Bx \land Fx$</span></td>
+<td>Monotonicity from (2)</td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x ((Bx \land Gx) \to Fx),\, Bx \land Gx \vdash Bx \land Fx$</span></td>
+<td>Transitivity using (3), (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x ((Bx \land Gx) \to Fx),\,Bx \land Gx \vdash \exists x (Bx \land Fx)$</span></td>
+<td><span>$\exists$</span>-introduction from (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x ((Bx \land Gx) \to Fx), \, \exists x (Bx \land Gx) \vdash \exists x(Bx \land Fx)$</span></td>
+<td><span>$\exists$</span>-elimination from (6)</td>
+</tr>
+</tbody>
+</table>
+<p>Note that if we replaced the last two lines by the following (switched order of <span>$\exists$</span>-elimination and introduction):</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(6') <span>$\forall x ((Bx \land Gx) \to Fx),\,\exists x (Bx \land Gx) \vdash Bx \land Fx$</span></td>
+<td><span>$\exists$</span>-elimination from (5)</td>
+</tr>
+<tr>
+<td>(7') <span>$\forall x((Bx \land Gx) \to Fx),\,\exists x (Bx \land Gx) \vdash \exists x (Bx \land Fx)$</span></td>
+<td><span>$\exists$</span>-introduction from (6')</td>
+</tr>
+</tbody>
+</table>
+<p>then this would <em>not</em> be valid, as there would be a free <span>$x$</span> in (6') and so <span>$\exists$</span>-elimination could not be done. It would have to be done in the original order (from the alternative proof), to respect the free/bound limitations.</p>
+<h2 class="header"><i>3</i>An impossible proof<a class="headerlink" href="#an-impossible-proof" name="an-impossible-proof">&para;</a></h2>
+<p>"There are boys. There are girls. Therefore there is someone who is both a boy and a girl."</p>
+<p><span>$$\exists x Bx,\,\exists x Gx \vdash \exists x (Bx \land Gx)$$</span></p>
+<p>We should not be able to prove this, and fortunately, we can't using the rules of formal logic. However, if one were to misuse the <span>$\exists$</span>-elimination rule (by not respecting the clash of variables thing) then this "proof" might result:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$Bx,\, Gx \vdash Bx \land Gx$</span></td>
+<td>Tautology (valid)</td>
+</tr>
+<tr>
+<td>(2) <span>$Bx, \, Gx \vdash \exists x (Bx \land Gx)$</span></td>
+<td><span>$\exists$</span>-introduction from (1) (valid)</td>
+</tr>
+<tr>
+<td>(3) <span>$\exists x Bx,\, Gx \vdash \exists x (Bx \land Gx)$</span></td>
+<td><span>$\exists$</span>-elimination from (2) (invalid - clash of variables)</td>
+</tr>
+<tr>
+<td>(4) <span>$\exists x Bx,\, \exists x Gx \vdash \exists x (Bx \land Gx)$</span></td>
+<td><span>$\exists$</span>-elimination from (3) (invalid conclusion due to (3))</td>
+</tr>
+</tbody>
+</table>
+<h2 class="header"><i>4</i>A possible proof<a class="headerlink" href="#a-possible-proof" name="a-possible-proof">&para;</a></h2>
+<p>"There are boys. There are girls. Therefore there is someone who is a boy and someone who is a girl."</p>
+<p><span>$$\exists x Bx, \,\exists x Gx \vdash \exists y \exists x (By \land Gx)$$</span></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification/rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$By, \, Gx \vdash By \land Gx$</span></td>
+<td>Tautology</td>
+</tr>
+<tr>
+<td>(2) <span>$By,\,Gx \vdash \exists x (By \land Gx)$</span></td>
+<td><span>$\exists$</span>-introduction from (1)</td>
+</tr>
+<tr>
+<td>(3) <span>$By,\,Gx \vdash \exists y \exists x (By \land Gx)$</span></td>
+<td><span>$\exists$</span>-introduction from (2)</td>
+</tr>
+<tr>
+<td>(4) <span>$\exists y By,\, Gx \vdash \exists y \exists x (By \land Gx)$</span></td>
+<td><span>$\exists$</span>-elimination from (3)</td>
+</tr>
+<tr>
+<td>(5) <span>$\exists y By,\,\exists x Gx \vdash \exists y \exists x(By \land Gx)$</span></td>
+<td><span>$\exists$</span>-elimination from (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$Bx \vdash Bx$</span></td>
+<td>Tautology lol</td>
+</tr>
+<tr>
+<td>(7) <span>$Bx \vdash \exists x Bx$</span></td>
+<td><span>$\exists$</span>-introduction from (6)</td>
+</tr>
+<tr>
+<td>(8) <span>$\exists x Bx \vdash \exists y By$</span></td>
+<td><span>$\exists$</span>-elimination from (7)</td>
+</tr>
+<tr>
+<td>...</td>
+<td>(skipped some steps I guess)</td>
+</tr>
+<tr>
+<td>(12) <span>$\exists x Bx,\,\exists x Gx \vdash \exists y \exists x (By \land Gx)$</span></td>
+<td>idk</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <span>$\exists x Bx \vdash \exists y By$</span> may be logically provable, but it's not a tautology because it's not a logical theorem<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="A formula $\Phi$ such that $\vdash \Phi$ can show ...">2</a></sup>. Not that relevant, just a sidenote.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Main difference: the <span>$\forall$</span> was put back in before the <span>$\exists$</span>. Equally valid though.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>A formula <span>$\Phi$</span> such that <span>$\vdash \Phi$</span> can show up in some correct proof. Note: tautologies are logical theorems.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

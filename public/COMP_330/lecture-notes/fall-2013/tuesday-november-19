@@ -1,0 +1,179 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, November 19, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, November 19, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Validity in first-order logic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The undecidability of validity in first-order logic. This lecture's notes are brought to you by <a href="/users/wetmore">@wetmore</a>. Due to time constraints this only introduces first-order logic, and attempts to make it familiar and understandable. </p>
+<p>Prakash's notes are very complete and detail why validity of first-order logic is undecidable.</p>
+<p><a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/fol_val_und.pdf">Detailed notes on the instructor's website</a></p>
+<div class="toc">
+<ul>
+<li><a href="#first-order-logic">1 First-order logic</a><ul>
+<li><a href="#terms-and-formulas">1.1 Terms and formulas</a></li>
+<li><a href="#interpretation">1.2 Interpretation</a></li>
+<li><a href="#what-is-truth-anyway">1.3 What is truth, anyway?</a></li>
+</ul>
+</li>
+<li><a href="#validity">2 Validity</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>First-order logic<a class="headerlink" href="#first-order-logic" name="first-order-logic">&para;</a></h2>
+<p>First we'll begin with a overview of first-order logic. You may recall the basics of propositional logic, which informally allows us to build up propositional statements and ask whether they have the value of <em>true</em>, or <em>false</em>. That is, if I were to tell you "<span>$P$</span> is true", you'd be able to infer that "<span>$P$</span> or <span>$Q$</span>" is true. First-order logic is a "stronger" system that lets us quantify over variables and introduce predicates.</p>
+<p>The ingredients of first-order logic are the following:</p>
+<ul>
+<li>A countable set of symbols called <em>variables</em>, <span>$Var$</span>: we often use the traditional <span>$x,y,z, \ldots$</span></li>
+<li>A set of symbols called <em>constants</em>. Variables can range over some set, but constants are fixed. We'll use arbitrary symbols <span>$a,b,c,\ldots$</span>.</li>
+<li>A finite set of <em>function symbols</em>: <span>$f,g,h, \ldots$</span>. A function has <em>arity</em>, a positive integer representing the number of arguments it takes.</li>
+<li>A finite set of <em>predicate symbols</em>: <span>$P,Q,R,\ldots$</span>. Predicate symbols also have arity. Intuitively one might want to think of a predicate as a function returning "true" or "false", but the concept of truth is currently ill-defined. We'll make this clearer shortly.</li>
+</ul>
+<h3 class="header"><i>1.1</i>Terms and formulas<a class="headerlink" href="#terms-and-formulas" name="terms-and-formulas">&para;</a></h3>
+<p>With the first three of these building blocks we can assemble <em>terms</em>: constants are terms, variables are terms, and if <span>$f$</span> is a function symbol of arity <span>$n$</span>, and <span>$t_1, \ldots, t_n$</span> are terms then <span>$f(t_1, \ldots, t_n)$</span> is a term. We call terms with no variables <em>ground terms</em>.</p>
+<p>Finally, we may build <em>formulas</em> from these terms. We'll use the logical symbols you may be used to (<span>$\lnot, \land, \lor, =, \Rightarrow$</span>) and the quantifiers <span>$\forall$</span> and <span>$\exists$</span>, but for the moment you do not need to attach meaning to them, just recognize that we can create well-formed formulas with them inductively in the following ways:</p>
+<ol>
+<li>If <span>$t_1, t_2$</span> are <em>terms</em> then <span>$t_1 = t_2$</span> is a formula</li>
+<li>If <span>$P$</span> is a predicate symbol of arity <span>$n$</span> and <span>$t_1, \ldots, t_n$</span> are terms then <span>$P(t_1, \ldots, t_n)$</span> is a formula</li>
+<li>If <span>$\varphi$</span> is a formula then <span>$\lnot\varphi$</span> is a formula</li>
+<li>If <span>$\varphi$</span> and <span>$\psi$</span> are formulas then so are <span>$\varphi \land \psi$</span>, <span>$\varphi \lor \psi$</span> and <span>$\varphi \Rightarrow \psi$</span>.</li>
+<li>If <span>$\varphi$</span> is a formula and <span>$x$</span> is a variable then <span>$\forall x.\varphi$</span> and <span>$\exists x.\varphi$</span> are formulas.</li>
+</ol>
+<h3 class="header"><i>1.2</i>Interpretation<a class="headerlink" href="#interpretation" name="interpretation">&para;</a></h3>
+<p>So far we've merely specified what formulas are legal, but they don't mean anything yet - they're just a string of symbols. Meaning comes from <em>interpretation</em>. We set a structure (a <a href="http://en.wikipedia.org/wiki/Domain_of_discourse">"domain of discourse"</a>) <span>$D$</span>, which is some set. An interpretation <span>$\mathcal I$</span> is a structure <span>$D$</span>, plus:</p>
+<ol>
+<li>For each constant <span>$a$</span> there is an element <span>$d_a \in D$</span></li>
+<li>For each function symbol <span>$f$</span> of arity <span>$n$</span> there is a function <span>$f : D^n \to D$</span></li>
+<li>For each predicate symbol <span>$P$</span> of arity <span>$n$</span> there is a set <span>$P_D \subseteq D^n$</span></li>
+</ol>
+<p>Note <span>$D^n$</span> denotes the <span>$n$</span>-fold cartesian product <span>$D \times D \times \ldots \times D$</span>, <span>$n$</span> times. Also, note the formal structure of a predicate is similar to that of a relation.</p>
+<p>A <em>valuation</em> (or environment) is a map <span>$\rho : Var \to D$</span>, where we give each variable a concrete interpretation as an element of our structure/domain <span>$D$</span>. Let the notation <span>$\rho[x \mapsto d]$</span> denote a valuation that is the same as <span>$\rho$</span>, except <span>$x$</span> maps to <span>$d$</span> instead of <span>$\rho(x)$</span>. We often fix <span>$\mathcal I$</span>, and if we fix some valuation <span>$\rho$</span> we can write ⟦<span>$t$</span>⟧ to represent the interpretation of term <span>$t$</span> given <span>$\mathcal I$</span> and <span>$\rho$</span>. This is defined as follows:</p>
+<ol>
+<li>⟦<span>$a$</span>⟧ = <span>$d_a$</span></li>
+<li>⟦<span>$x$</span>⟧ = <span>$\rho(x)$</span></li>
+<li>⟦<span>$f(t_1, \ldots, t_n)$</span>⟧ = ⟦<span>$f($</span>⟦<span>$t_1$</span>⟧<span>$, \ldots, $</span>⟦<span>$t_n$</span>⟧<span>$)$</span>⟧</li>
+</ol>
+<h3 class="header"><i>1.3</i>What is truth, anyway?<a class="headerlink" href="#what-is-truth-anyway" name="what-is-truth-anyway">&para;</a></h3>
+<p>With <span>$\mathcal I$</span> and <span>$\rho$</span> we can finally define truth. We write <span>$\mathcal I, \rho \models \varphi$</span> to mean that the formula <span>$\varphi$</span> is true given the interpretation <span>$\mathcal I$</span> and valuation <span>$\rho$</span>. What this means exactly is defined inductively:</p>
+<ol>
+<li><span>$\mathcal I, \rho \models t_1 = t_2$</span> if ⟦<span>$t_1$</span>⟧ = ⟦<span>$t_2$</span>⟧</li>
+<li><span>$\mathcal I, \rho \models P(t_1, \ldots, t_n)$</span> if <span>$($</span>⟦<span>$t_1$</span>⟧<span>$, \ldots, $</span>⟦<span>$t_n$</span>⟧<span>$) \in P_D$</span></li>
+<li><span>$\mathcal I, \rho \models \varphi \land \psi$</span> if <span>$\mathcal I, \rho \models \varphi$</span> and <span>$\mathcal I, \rho \models \psi$</span> (we can define <span>$\mathcal I, \rho \models \varphi \lor \psi$</span> similarly)</li>
+<li><span>$\mathcal I, \rho \models \lnot\varphi$</span> if <span>$\mathcal I, \rho \not\models \varphi$</span></li>
+<li><span>$\mathcal I, \rho \models \exists x.\varphi$</span> if there is some element <span>$d \in D$</span> such that <span>$\mathcal I, \rho[x \mapsto d] \models \varphi$</span></li>
+<li><span>$\mathcal I, \rho \models \forall x.\varphi$</span> if for every <span>$d \in D$</span>, <span>$\mathcal I, \rho[x \mapsto d] \models \varphi$</span></li>
+</ol>
+<p>This illustrates the difference between terms and formulas - we cannot ask whether or not a term is true. It is merely a "thing" that we can use in actual questions: does <span>$P$</span> imply <span>$Q$</span>? Is <span>$x$</span> equal to <span>$y$</span>? These are questions we can (hopefully) answer as true or false. But it makes no sense to ask if, say, "2" is true or false.</p>
+<p>So the truth of a formula depends on what we let the symbols in the formula mean. For example, consider the predicate <span>$\text{sqrt2}(x)$</span>, which we'll define for two choices of <span>$D$</span>: <span>$\mathbb N$</span>,the natural numbers, and <span>$\mathbb R$</span>, the real numbers. Informally, we want the predicate to return true if <span>$x^2 = 2$</span>. So then <span>$\text{sqrt2}_{\mathbb N} = \varnothing$</span> and <span>$\text{sqrt2}_{\mathbb R} = \{ \sqrt{2} \}$</span>. Then formula <span>$\exists x.\text{sqrt2}(x)$</span> is true if we let <span>$D = \mathbb R$</span> but not if <span>$D = \mathbb N$</span>.</p>
+<h2 class="header"><i>2</i>Validity<a class="headerlink" href="#validity" name="validity">&para;</a></h2>
+<p>As we've seen, a formula is detached from its interpretation - we may have a single formula but whether or not it is true depends on the interpretation. In fact, for a given formula there are three possibilities:</p>
+<ol>
+<li>The formula is true in <em>any</em> interpretation</li>
+<li>The formula is true in some interpretations and false in others</li>
+<li>The formula is false in <em>any</em> interpretation</li>
+</ol>
+<p>If the first case holds, i.e. the formula is true in every interpretation, then the formula is <em>valid</em>. Valid formulas are true based purely on the formula and its symbols, irrespective of choice of interpretation. For example, the formula <span>$x = x$</span> is valid - no matter what we substitute in for <span>$x$</span>, it will be true.</p>
+<p>If, however, a formula is only true in some interpretations, we say the formula is <em>satisfiable</em> - there is some choice of interpretation and valuation in which this formula is true. We call this choice of interpretation and valuation a <em>model</em>, and this model <em>satisfies</em> the formula.</p>
+<p>In the last case, the formula cannot be satisfied by any model, and it is <em>invalid</em>. These are all semantic notions about the formula itself. </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

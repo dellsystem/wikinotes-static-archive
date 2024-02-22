@@ -1,0 +1,1385 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_310/">
+                COMP 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Midterm review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Midterm review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The midterm will take place on Tuesday, October 23, during class (in the regular room). Chapters covered: 1-4, 10, 11 (notably not chapter 5).</p>
+<div class="toc">
+<ul>
+<li><a href="#chapter-1-introduction">1 Chapter 1: Introduction</a><ul>
+<li><a href="#sample-questions">1.1 Sample questions</a><ul>
+<li><a href="#components-of-a-computer-system">1.1.1 Components of a computer system</a></li>
+<li><a href="#bootstrap-programs">1.1.2 Bootstrap programs</a></li>
+<li><a href="#monolithic-kernels-and-microkernels">1.1.3 Monolithic kernels and microkernels</a></li>
+<li><a href="#computer-system-organisation">1.1.4 Computer system organisation</a></li>
+<li><a href="#the-interrupt-model">1.1.5 The interrupt model</a></li>
+<li><a href="#interrupt-timelines">1.1.6 Interrupt timelines</a></li>
+<li><a href="#traps">1.1.7 Traps</a></li>
+<li><a href="#device-status-tables">1.1.8 Device status tables</a></li>
+<li><a href="#direct-memory-access">1.1.9 Direct memory access</a></li>
+<li><a href="#storage-structure-hierarchy">1.1.10 Storage structure hierarchy</a></li>
+<li><a href="#multiprocessor-systems">1.1.11 Multiprocessor systems</a></li>
+<li><a href="#multicore-systems">1.1.12 Multicore systems</a></li>
+<li><a href="#timesharing">1.1.13 Timesharing</a></li>
+<li><a href="#modes">1.1.14 Modes</a></li>
+<li><a href="#processes">1.1.15 Processes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-2-operating-system-structures">2 Chapter 2: Operating system structures</a><ul>
+<li><a href="#sample-questions_1">2.1 Sample questions</a><ul>
+<li><a href="#parameter-passing">2.1.1 Parameter-passing</a></li>
+<li><a href="#microkernels">2.1.2 Microkernels</a></li>
+<li><a href="#virtual-machines">2.1.3 Virtual machines</a></li>
+<li><a href="#paravirtualisation">2.1.4 Paravirtualisation</a></li>
+<li><a href="#bootloaders">2.1.5 Bootloaders</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-3-processes">3 Chapter 3: Processes</a><ul>
+<li><a href="#sample-questions_2">3.1 Sample questions</a><ul>
+<li><a href="#processes-in-memory">3.1.1 Processes in memory</a></li>
+<li><a href="#process-states">3.1.2 Process states</a></li>
+<li><a href="#process-control-blocks">3.1.3 Process control blocks</a></li>
+<li><a href="#process-scheduling-queues">3.1.4 Process scheduling queues</a></li>
+<li><a href="#schedulers">3.1.5 Schedulers</a></li>
+<li><a href="#io-and-cpu-bound-processes">3.1.6 I/O and CPU bound processes</a></li>
+<li><a href="#context-switching">3.1.7 Context switching</a></li>
+<li><a href="#forking-and-execing">3.1.8 Forking and execing</a></li>
+<li><a href="#abortion">3.1.9 Abortion</a></li>
+<li><a href="#inter-process-communication">3.1.10 Inter-process communication</a></li>
+<li><a href="#producer-consumer-problem">3.1.11 Producer-consumer problem</a></li>
+<li><a href="#direct-communication">3.1.12 Direct communication</a></li>
+<li><a href="#indirect-communication">3.1.13 Indirect communication</a></li>
+<li><a href="#round-robin-communication">3.1.14 Round-robin communication</a></li>
+<li><a href="#message-queues">3.1.15 Message queues</a></li>
+<li><a href="#ipc-in-various-operating-systems">3.1.16 IPC in various operating systems</a></li>
+<li><a href="#client-server-communication">3.1.17 Client-server communication</a></li>
+<li><a href="#remote-procedure-calls">3.1.18 Remote procedure calls</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-4-threads">4 Chapter 4: Threads</a><ul>
+<li><a href="#sample-questions_3">4.1 Sample questions</a><ul>
+<li><a href="#things-associated-with-threads">4.1.1 Things associated with threads</a></li>
+<li><a href="#benefits-of-threading">4.1.2 Benefits of threading</a></li>
+<li><a href="#multithreading-models">4.1.3 Multithreading models</a></li>
+<li><a href="#thread-cancellation">4.1.4 Thread cancellation</a></li>
+<li><a href="#thread-pools">4.1.5 Thread pools</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-10-filesystem-interface">5 Chapter 10: Filesystem interface</a><ul>
+<li><a href="#sample-questions_4">5.1 Sample questions</a><ul>
+<li><a href="#file-attributes">5.1.1 File attributes?</a></li>
+<li><a href="#the-open-system-call">5.1.2 The open system call</a></li>
+<li><a href="#open-file-tables">5.1.3 Open file tables</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chapter-11-filesystem-implementation">6 Chapter 11: Filesystem implementation</a><ul>
+<li><a href="#sample-questions_5">6.1 Sample questions</a><ul>
+<li><a href="#file-control-blocks">6.1.1 File control blocks</a></li>
+<li><a href="#directory-implementation">6.1.2 Directory implementation</a></li>
+<li><a href="#allocation-methods">6.1.3 Allocation methods</a></li>
+<li><a href="#linked-index-allocation-calculations">6.1.4 Linked index allocation calculations</a></li>
+<li><a href="#free-space-management">6.1.5 Free space management</a></li>
+<li><a href="#journaling">6.1.6 Journaling</a></li>
+<li><a href="#cascading-mount">6.1.7 Cascading mount</a></li>
+<li><a href="#blocks-and-partial-storage">6.1.8 Blocks and partial storage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Chapter 1: Introduction<a class="headerlink" href="#chapter-1-introduction" name="chapter-1-introduction">&para;</a></h2>
+<ul>
+<li>OS: program, between user and hardware<ul>
+<li>goals:<ul>
+<li>execute user programs, solve user problems</li>
+<li>make computer convenient to use</li>
+<li>use hardware efficiently</li>
+</ul>
+</li>
+<li>allocates resources fairly and efficiently</li>
+<li>controls execution of programs to prevent errors, etc</li>
+</ul>
+</li>
+<li>4 components of a computer system<ul>
+<li>hardware: computing resources</li>
+<li>OS: controls, coordinate hardware use</li>
+<li>application programs</li>
+<li>users</li>
+</ul>
+</li>
+<li>kernel: one program always running; everything else = system/application program<ul>
+<li>monolithic: put as much as possible in the kernel; used by windows and GNU/linux</li>
+<li>microkernel: put as little as possible in the kernel, have everything else run in user space; used by Mac OS (Linus Torvalds thinks this is dumb)</li>
+</ul>
+</li>
+<li>bootstrap program: stored in ROM/EPROM, aka firmware (and not RAM, because RAM is volatile, lol)<ul>
+<li>loads kernel, begins its execution; bootstraps everything else</li>
+</ul>
+</li>
+<li>computer system organisation<ul>
+<li>CPUs and device controllers compete for access to shared memory, using a common bus</li>
+<li>I/O devices and CPUs can execute concurrently</li>
+<li>each device controller is responsible for a particular device (or multiple devices, e.g., disks), has a local buffer</li>
+<li>data is first stored in controller's local buffer</li>
+<li>CPU moves data between local buffers and main memory</li>
+<li>when device controller is done, it causes an interrupt to let the CPU know<ul>
+<li>CPU looks up memory address of the relevant interrupt handler (aka interrupt service routine) based on the type of interrupt, using the interrupt vector table</li>
+<li>the address and PC of instruction that is currently being interrupted is saved (along with registers)</li>
+<li>control is transferred to interrupt handler</li>
+<li>incoming interrupts are ignored to prevent a lost interrupt</li>
+<li>once the interrupt handler has completed, returns to previous instructions (return address, flags popped from stack - what flags?)</li>
+</ul>
+</li>
+<li>trap: software-generated interrupt (caused by error or user request)</li>
+<li>interrupts form the basis of modern operating systems</li>
+<li>interrupt timeline diagram, explained in words:<ul>
+<li>at first, CPU is executing user process</li>
+<li>then, I/O device receives data, takes some time to complete the transfer</li>
+<li>once the transfer is complete, CPU processes the interrupt; I/O device is idle again</li>
+<li>CPU returns to executing user process</li>
+<li>I/O device remains idle until another I/O request occurs - repeat the process</li>
+</ul>
+</li>
+<li>System call: request to OS, user waits for I/O completion</li>
+<li>Device status table: comtains type, address and state for each I/O device<ul>
+<li>When an interrupt occurs, OS updates the DST entry for the device to indicate interrupt</li>
+</ul>
+</li>
+<li>direct memory access:<ul>
+<li>special controller (DMA controller) takes care of transmitting data to/from main memory, without involving the CPU</li>
+<li>increased data throughput</li>
+<li>CPU can do other work while data is being transferred</li>
+<li>data can be transferred faster (useful for sound, network, graphics cards)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>storage structures<ul>
+<li>main memory: only large storage media that CPU can access directly; volatile, quick to access, limited in size</li>
+<li>secondary: disk storage i think? not sure, access managed via disk controller</li>
+<li>hierarchy:<ul>
+<li>registers</li>
+<li>CPU cache</li>
+<li>main memory</li>
+<li>electronic disk</li>
+<li>magnetic disk</li>
+<li>optical disk</li>
+<li>magnetic tapes lol</li>
+</ul>
+</li>
+<li>caching<ul>
+<li>performed at many levels (hardware, OS, software)</li>
+<li>copied from larger but slower storage to a smaller, faster one</li>
+<li>I'm sure everyone knows how caching works by now</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>computer system architecture<ul>
+<li>usually one general-purpose processor, and possibly special-purpose ones too (e.g., GPU)</li>
+<li>multiple cores = still one processor, just more than one core on a single chip (efficient for communication and power usage)</li>
+<li>multiprocessor systems:<ul>
+<li>asymmetric (master-slave) or symmetric (peers)</li>
+<li>increased throughput, shared peripherals, graceful degradation</li>
+<li>each CPU still has its own registers and cache</li>
+</ul>
+</li>
+<li>clustered systems<ul>
+<li>multiple computers working in tandem</li>
+<li>asymmetric or symmetric clustering</li>
+<li>usually shared storage via a storage area network (SAN)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>operating system structure<ul>
+<li>multiprogramming: organises jobs so that CPU always has one to execute (fair scheduling)</li>
+<li>timesharing: always 1 process running in memory<ul>
+<li>other jobs kept in memory, OS switches between processes very quickly</li>
+<li>if all the processes don't fit in memory, they're swapped to disk (virtual memory)</li>
+</ul>
+</li>
+<li>dual-mode: user mode, kernel mode<ul>
+<li>some instructions are "privileged" - can only be executed in kernel mode</li>
+<li>system calls are executed in kernel mode, returns to user mode after (if relevant)</li>
+<li>mode bit: 1 for user mode, 0 for kernel mode</li>
+<li>programs can leave user mode by triggering interrupt</li>
+<li>there is a timer to prevent user programs from causing infinite loops and whatnot; when a counter reaches 0, OS generates interrupt</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Processes<ul>
+<li>process: program in execution</li>
+<li>needs resources: CPU, memory, I/O, files, initial data</li>
+<li>single-threaded process: has one PC, instructions executed sequentially</li>
+<li>multi-threaded: one PC per thread (more detail later)</li>
+<li>the OS must take care of:<ul>
+<li>creating, deleting user/system processes</li>
+<li>suspending and resuming processes as necessary</li>
+<li>providing mechanisms for process synchronisation</li>
+<li>providing mechanisms for process communication</li>
+<li>handling deadlock</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>memory management: keeps track of what is being used, deciding which to swap, allocating and deallocating shit etc</li>
+<li>storage management<ul>
+<li>OS provides an abstraction for physical storage devices; logical storage unit = file</li>
+<li>file system management: access control, creating/deleting, mapping files onto physical location, etc</li>
+</ul>
+</li>
+<li>I/O subsystems<ul>
+<li>hide details of I/O devices</li>
+<li>take care of memory management, including buffering, caching, spooling (simultaneous peripheral operations on line), drivers, etc</li>
+</ul>
+</li>
+<li>computing environments<ul>
+<li>client-server (fileserver, webserver, etc)</li>
+<li>peer-to-peer (distributed)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.1</i>Sample questions<a class="headerlink" href="#sample-questions" name="sample-questions">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Components of a computer system<a class="headerlink" href="#components-of-a-computer-system" name="components-of-a-computer-system">&para;</a></h4>
+<blockquote>
+<p>Name the four components of a computer system.</p>
+</blockquote>
+<p>Hardware, operating system, application programs, users</p>
+<h4 class="header"><i>1.1.2</i>Bootstrap programs<a class="headerlink" href="#bootstrap-programs" name="bootstrap-programs">&para;</a></h4>
+<blockquote>
+<p>What is a bootstrap program?</p>
+</blockquote>
+<p>Program that loads the kernel and begins its execution, bootstrapping everything else</p>
+<h4 class="header"><i>1.1.3</i>Monolithic kernels and microkernels<a class="headerlink" href="#monolithic-kernels-and-microkernels" name="monolithic-kernels-and-microkernels">&para;</a></h4>
+<blockquote>
+<p>Difference between the two, name one OS that uses each method.</p>
+</blockquote>
+<p>Monolithic: put as much as you can inside the kernel itself; used by GNU/Linux, Windows<br />
+Microkernel: put very little inside the kernel, and let most things be user programs; used by Mac OS</p>
+<h4 class="header"><i>1.1.4</i>Computer system organisation<a class="headerlink" href="#computer-system-organisation" name="computer-system-organisation">&para;</a></h4>
+<blockquote>
+<p>Draw a diagram showing how CPUs, devices, device controllers and main memory are connected in a standard computer system.</p>
+</blockquote>
+<p>CPUs on same level as device controllers, devices connected to controllers, CPUs and controllers connected to main memory via a shared bus</p>
+<h4 class="header"><i>1.1.5</i>The interrupt model<a class="headerlink" href="#the-interrupt-model" name="the-interrupt-model">&para;</a></h4>
+<blockquote>
+<p>Draw a diagram illustrating the interrupt model, and explain what happens.</p>
+</blockquote>
+<p>i hope this isn't on the midterm</p>
+<h4 class="header"><i>1.1.6</i>Interrupt timelines<a class="headerlink" href="#interrupt-timelines" name="interrupt-timelines">&para;</a></h4>
+<blockquote>
+<p>Draw the interrupt timeline.</p>
+</blockquote>
+<p><img alt="lol" src="https://lh6.googleusercontent.com/-KYVSP8aznd8/UGsQpI2r5AI/AAAAAAAAARI/cOc1nTt_umM/s1024/Sketch221234.png" title="lol" /></p>
+<h4 class="header"><i>1.1.7</i>Traps<a class="headerlink" href="#traps" name="traps">&para;</a></h4>
+<blockquote>
+<p>What is a trap, and how are they caused?</p>
+</blockquote>
+<p>Software-generated interrupt, caused by errors or user requets</p>
+<h4 class="header"><i>1.1.8</i>Device status tables<a class="headerlink" href="#device-status-tables" name="device-status-tables">&para;</a></h4>
+<blockquote>
+<p>What information does a device status table contain?</p>
+</blockquote>
+<p>Type, address, and state for each I/O device</p>
+<h4 class="header"><i>1.1.9</i>Direct memory access<a class="headerlink" href="#direct-memory-access" name="direct-memory-access">&para;</a></h4>
+<blockquote>
+<p>How does direct memory access work, and what are its benefits?</p>
+</blockquote>
+<p>A special controller, called a DMA controller, takes care of transmitting data to and from main memory so that the CPU doesn't have to. Benefits: increased data throughput, CPU can do other work when the data is being transferred, data can be transferred faster (useful for sound, network, graphics cards, etc).</p>
+<h4 class="header"><i>1.1.10</i>Storage structure hierarchy<a class="headerlink" href="#storage-structure-hierarchy" name="storage-structure-hierarchy">&para;</a></h4>
+<blockquote>
+<p>What factors determine the storage structure hierarchy and what are its components?</p>
+</blockquote>
+<p>Closer to CPU: faster, more volatile, more expensive, smaller. Hierarchy: registers, CPU cache, main memory, electronic disk, etc.</p>
+<h4 class="header"><i>1.1.11</i>Multiprocessor systems<a class="headerlink" href="#multiprocessor-systems" name="multiprocessor-systems">&para;</a></h4>
+<blockquote>
+<p>Types of multiprocessor systems, and benefits of multiprocessing in general</p>
+</blockquote>
+<p>Asymmetric (master-slave), symmetric (peers). Benefits: increased throughput, shared peripherals, graceful degradation.</p>
+<h4 class="header"><i>1.1.12</i>Multicore systems<a class="headerlink" href="#multicore-systems" name="multicore-systems">&para;</a></h4>
+<blockquote>
+<p>Benefits of placing multiple cores on a single chip?</p>
+</blockquote>
+<p>More efficient for communication and power consumption</p>
+<h4 class="header"><i>1.1.13</i>Timesharing<a class="headerlink" href="#timesharing" name="timesharing">&para;</a></h4>
+<blockquote>
+<p>How does timesharing work? What happens if there are too many processes to fit in main memory?</p>
+</blockquote>
+<p>one process running in memory, other jobs waiting to run, OS switches between jobs quickly (creating the illusion of interactive computing)</p>
+<p>Swapped to disk</p>
+<h4 class="header"><i>1.1.14</i>Modes<a class="headerlink" href="#modes" name="modes">&para;</a></h4>
+<blockquote>
+<p>Difference between user and kernel mode, mode bits for each</p>
+</blockquote>
+<p>Kernel: for privileged system programs, mode bit 0; user: for application programs, mode bit 1</p>
+<h4 class="header"><i>1.1.15</i>Processes<a class="headerlink" href="#processes" name="processes">&para;</a></h4>
+<blockquote>
+<p>Difference between a program and process</p>
+</blockquote>
+<p>Process: program in execution</p>
+<h2 class="header"><i>2</i>Chapter 2: Operating system structures<a class="headerlink" href="#chapter-2-operating-system-structures" name="chapter-2-operating-system-structures">&para;</a></h2>
+<ul>
+<li>Operating system services, provided for users:<ul>
+<li>user interface (GUI or CLI)</li>
+<li>program execution</li>
+<li>I/O operations</li>
+<li>file system manipulation</li>
+<li>inter-process communication</li>
+<li>error detection (could occur in hardware, I/O, or user programs)</li>
+</ul>
+</li>
+<li>services needed for efficient operation of system<ul>
+<li>resource allocation</li>
+<li>accounting (keep track of resource usage)</li>
+<li>protection (resource usage is controlled properly)</li>
+<li>security (from outsiders)</li>
+</ul>
+</li>
+<li>system calls: programming interface to OS-provided services<ul>
+<li>usually accessed via APIs (different one for each type of OS) - more portable, etc</li>
+<li>three methods for passing parameters to OS:<ul>
+<li>registers (limiting)</li>
+<li>block, or table, in memory; address of block passed as parameter in a register</li>
+<li>pushed onto stack by program, popped off by OS</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>system programs<ul>
+<li>can be simply interfaces to system calls, or more complex</li>
+<li>file management: create, delete, copy, rename, etc</li>
+<li>status info: date, du, top, etc</li>
+<li>file modification: sed, vim, etc</li>
+<li>programming support: compilers, assemblers, interpreters</li>
+<li>program loading and execution: gdb, loaders</li>
+<li>communication: email, scp, ssh, IPC, etc</li>
+</ul>
+</li>
+<li>OS design<ul>
+<li>user goals: convenient to use, easy to learn, reliable, safe, fast</li>
+<li>system goals: easy to design and implement, reliable, flexible, error-free, efficient</li>
+<li>policy: what will be done</li>
+<li>mechanism: how to do it</li>
+<li>the two should be separate. e.g., scheduling is controlled by loadable tables in solaris - can be time-shared, real-time, etc</li>
+<li>MS-DOS:<ul>
+<li>not modular, interfaces and levels of functionality not well separated</li>
+<li>applications can access basic I/O routines, write directly to disk/display</li>
+</ul>
+</li>
+<li>UNIX<ul>
+<li>system programs, then the kernel (everything below syscall interface)</li>
+<li>kernel provides file system, CPU scheduling, memory management, etc</li>
+<li>traditional structure: some layers, but a lot of functionality per level</li>
+</ul>
+</li>
+<li>layered approach: N + 1 layers; 0 is hardware, N is user interface<ul>
+<li>each layer only uses functions defined in lower layers</li>
+</ul>
+</li>
+<li>microkernel<ul>
+<li>easier to extend</li>
+<li>easier to port to new architectures</li>
+<li>more reliable (less code running in kernel mode)</li>
+<li>more secure</li>
+<li>performance overhead of user space to kernel space communication</li>
+</ul>
+</li>
+<li>modular kernels (like with solaris)<ul>
+<li>each module talks to others over defined interfaces</li>
+<li>similar to layers but more flexible, as any module can call any other module</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>virtual machine: provides interface identical to underlying hardware<ul>
+<li>separate execution environment</li>
+<li>protected</li>
+<li>can communicate with each other</li>
+<li>can share some files, etc</li>
+<li>paravirtualisation: guest OS is provided with system similar to (but not identical to) hardware<ul>
+<li>guest OS must be modified to run on paravirtualised hardware</li>
+<li>smaller virtualisation layer, more efficient use of resources</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>system boot<ul>
+<li>bootstrap loader locates the kernel, loads it into memory, starst it</li>
+<li>can be a 2-step process: boot block loads bootstrap loader, etc</li>
+<li>execution then starts at a fixed memory location</li>
+<li>stored in firmware (ROM) not RAM because RAM is volatile and at an unknown state when the system starts up, and because ROM needs no initialisation and cannot be easily infected by a virus</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.1</i>Sample questions<a class="headerlink" href="#sample-questions_1" name="sample-questions_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>Parameter-passing<a class="headerlink" href="#parameter-passing" name="parameter-passing">&para;</a></h4>
+<blockquote>
+<p>What are the three methods for passing parameters in a system call?</p>
+</blockquote>
+<p>Registers, memory block (or table) - address passed as parameter in register, stack</p>
+<h4 class="header"><i>2.1.2</i>Microkernels<a class="headerlink" href="#microkernels" name="microkernels">&para;</a></h4>
+<blockquote>
+<p>Benefits of microkernels? Disadvantages?</p>
+</blockquote>
+<p>Benefits: easier to extend, more portable, more reliable, more secure</p>
+<p>Disadvantage: performance overheard of user space to kernel space communication</p>
+<h4 class="header"><i>2.1.3</i>Virtual machines<a class="headerlink" href="#virtual-machines" name="virtual-machines">&para;</a></h4>
+<blockquote>
+<p>What is a virtual machine etc</p>
+</blockquote>
+<p>Application program that provides interface identical to underlying hardware so that it can run other operating systems, unmodified</p>
+<h4 class="header"><i>2.1.4</i>Paravirtualisation<a class="headerlink" href="#paravirtualisation" name="paravirtualisation">&para;</a></h4>
+<blockquote>
+<p>What is paravirtualisation</p>
+</blockquote>
+<p>When the interface is similar but not identical to the underlying hardware. Smaller virtualisation layer, more efficient use of resources. The guest OS must be modified, though.</p>
+<h4 class="header"><i>2.1.5</i>Bootloaders<a class="headerlink" href="#bootloaders" name="bootloaders">&para;</a></h4>
+<blockquote>
+<p>Why in ROM and not RAM</p>
+</blockquote>
+<p>Well, RAM is volatile, don't know what state it could be in when you start up a system. Also, ROM needs no initialisation and cannot easily be infected with a virus.</p>
+<h2 class="header"><i>3</i>Chapter 3: Processes<a class="headerlink" href="#chapter-3-processes" name="chapter-3-processes">&para;</a></h2>
+<ul>
+<li>Process includes:<ul>
+<li>program counter</li>
+<li>stack (for temporary data - function params, return addresses)</li>
+<li>data section (global variables)</li>
+</ul>
+</li>
+<li>in memory, we have:<ul>
+<li>stack</li>
+<li>heap, which grows upwards as the stack grows downwards (towards each other), it doesn't seem to count though</li>
+<li>data section</li>
+<li>text (program code)</li>
+</ul>
+</li>
+<li>process states:<ul>
+<li>new: being created</li>
+<li>ready: waiting to be assigned to a processor</li>
+<li>running: being executed</li>
+<li>waiting: waiting for something to occur (e.g., I/O completion, signal reception)</li>
+<li>terminated: done</li>
+</ul>
+</li>
+<li>only one process can be running on one processor at a time</li>
+<li>process control block, data structure in OS kernel, for storing process info; includes:<ul>
+<li>process state</li>
+<li>program counter (address of next instruction)</li>
+<li>CPU registers</li>
+<li>CPU scheduling info</li>
+<li>memory management info</li>
+<li>accounting info (CPU used, time used, process number, etc - stuff you see using <code>top</code>)</li>
+<li>I/O status info (list of devices allocated and open files)</li>
+<li>(the first three are saved when interrupt occurs)</li>
+</ul>
+</li>
+<li>switching between processes<ul>
+<li>CPU executes process, then along comes an interrupt of some sort</li>
+<li>the process state is saved into PCB<sub>0</sub></li>
+<li>OS handles interrupt</li>
+<li>now it's time for another process, which uses PCB<sub>1</sub> to execute</li>
+<li>OS loads state from PCB<sub>1</sub>, then the other process executes</li>
+<li>etc</li>
+</ul>
+</li>
+<li>process scheduling queues (implemented via linked lists)<ul>
+<li>job queue: set of all processes in system</li>
+<li>ready queue: set of all processes residing in main memory that are ready to execute</li>
+<li>device queues: set of processes waiting for each I/O device</li>
+<li>processes migrate between queues (or rather, the PCBs do)</li>
+</ul>
+</li>
+<li>schedulers<ul>
+<li>long-term scheduler: decides which processes should be loaded from disk and brought into the ready queue (in memory)<ul>
+<li>invoked very infrequently, can be slow</li>
+<li>controls degree of multiprogramming</li>
+</ul>
+</li>
+<li>short-term scheduler: decides which process should be executed next and allocates CPU for it<ul>
+<li>invoked frequently, must be fast</li>
+</ul>
+</li>
+<li>medium-term scheduling: removes processes from memory to reduce degree of multiprogramming</li>
+</ul>
+</li>
+<li>I/O-bound: more time spent doing I/O (so many short CPU bursts); CPU-bound: more time doing computations (so long CPU bursts)</li>
+<li>context switching<ul>
+<li>info saved in PCB</li>
+<li>overhead, no useful wrk done</li>
+</ul>
+</li>
+<li>creating process babies<ul>
+<li>parent processes create child processes, and so on (--&gt; tree)</li>
+<li>processes identified by pid, integer</li>
+<li>different resource sharing schemes:<ul>
+<li>parent, child share all</li>
+<li>child has access to some of parent's</li>
+<li>parent, child share nothing</li>
+</ul>
+</li>
+<li>different execution schemes:<ul>
+<li>concurrent execution</li>
+<li>parent waits until children die</li>
+</ul>
+</li>
+<li>child is first a duplicate of parent, with the same program and data, then has a new program loaded into it</li>
+<li>UNIX examples<ul>
+<li>fork: new process, identical to parent</li>
+<li>exec: after fork, process' memory space replaced by new program</li>
+</ul>
+</li>
+<li>solaris example<ul>
+<li>root of tree: scheduler, pid = 0; creates other processes, etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>termination<ul>
+<li>after a process executes its last statement, it asks the OS to delete it (<code>exit</code>)</li>
+<li>return status is passed to the parent, if the parent used <code>wait</code></li>
+<li>OS deallocates the process' resources</li>
+<li>parents can abort their children - reasons include<ul>
+<li>child is using too many resources</li>
+<li>whatever the child is doing is no longer useful</li>
+</ul>
+</li>
+<li>if parent exists, the children may all be terminated (depends on OS)</li>
+</ul>
+</li>
+<li>inter-process communication<ul>
+<li>processes can be independent or cooperating</li>
+<li>cooperating processes can share data, etc - need communication</li>
+<li>shared memory, via some location in memory accessible by both processes</li>
+<li>message passing, via kernel</li>
+<li>producer-consumer problem: which paradigm to use?<ul>
+<li>unbounded buffer vs bounded buffer</li>
+<li>if bounded (which is the only feasible one really), producer needs to wait if full; consumer, if empty (in all cases)</li>
+<li>shared memory solution for a bounded (circular) buffer:<ul>
+<li>save a pointer to the first free position (in), and a pointer to the first full position (out)</li>
+<li>producer: while there are no free buffers, wait; when there are, add an item, increase the pointer to the first free position</li>
+<li>consumer: while there are no items, wait; when there are, remove an item, increase the pointer to the first full position</li>
+</ul>
+</li>
+<li>can only use BUFFER_SIZE - 1 elements</li>
+<li>empty when in == out</li>
+<li>full when (int + 1) % BUFFER_SIZE == out</li>
+</ul>
+</li>
+<li>message passing:<ul>
+<li>IPC facility provides <code>send</code>, <code>receive</code> functions</li>
+<li>if processes P and Q want to communicate, they first establish a link, then exchange messages</li>
+<li>can be direct (must explicitly name the other process) or indirect (using mailboxes)</li>
+<li>direct communication links:<ul>
+<li><code>send(P, message)</code> and <code>receive(Q, message)</code></li>
+<li>each link associated with exactly 2 processes</li>
+<li>between two processes there can be at most one link</li>
+<li>can be unidirectional or bidirectional (more common)</li>
+<li>disadvantages: hard-coded identity, hard to make changes later</li>
+</ul>
+</li>
+<li>indirect:<ul>
+<li>"mailboxes"; but really, just ports lol</li>
+<li>each port has unique ID</li>
+<li>processes can only communicate if they share a common port</li>
+<li>link can be associated with many processes</li>
+<li>each pair of processes can share several links</li>
+<li>can be uni or bidirectional</li>
+<li>operations: create mailbox, send/receive, destory</li>
+<li><code>send(A, message)</code> where A is the mailbox, etc</li>
+</ul>
+</li>
+<li>link: only two processes?</li>
+<li>only one process can execute receive operation at a time?</li>
+<li>round-robin scheme - sender throws it out randomly, some receiver gets it, sender gets notified as to who</li>
+</ul>
+</li>
+<li>message passing: blocking or not, on part of sender or receiver</li>
+<li>queue of messages attached to link<ul>
+<li>zero capacity: sender waits for receiver (rendez-vous)</li>
+<li>bounded (finite) capacity: sender waits if queue full</li>
+<li>unbounded (infinite) capacity: sender never waits, is this even possible?</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li>POSIX shared memory<ul>
+<li>process creates shared memory segment, returns an ID</li>
+<li>processes wanting access to that segment must attach to it by ID (call returns pointer)</li>
+<li>can write to that memory segment (using the pointer)</li>
+<li>can detach it from its address space when done</li>
+</ul>
+</li>
+<li>Mach:<ul>
+<li>message-based (everything! even system calls)</li>
+<li>all tasks are created with 2 mailboxes (which are created with <code>port_allocate()</code>: kernel, and notify</li>
+<li>three system calls: <code>msg_send</code>, <code>msg_receive</code>, <code>msg_rpc</code> (remote procedure call, to execute something elsewhere)</li>
+</ul>
+</li>
+<li>Windows XP:<ul>
+<li>message-based using "local procedure call" (can only be used by local processes)</li>
+<li>communication channels established using ports (sort of like mailboxes)</li>
+<li>client opens handle to subsystem's connection port, sends a connect request</li>
+<li>server creates two private communication ports, sends one to client, keeps the other one</li>
+<li>corresponding ports are used by server and client to send/receive messages</li>
+<li>INSERT DIAGRAM LATER</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>client-server communication<ul>
+<li>sockets (endpoints for communication)<ul>
+<li>IP address + port</li>
+<li>different services listen on different ports, e.g. ssh on 22, typical web servers on 80, etc</li>
+</ul>
+</li>
+<li>remote-procedure calls<ul>
+<li>allows clients to invoke a procedure on a remote host as if it were local</li>
+<li>client-side stub locates server, marshalls parameters, sends them over (underlying details abstracted)</li>
+<li>server-side stub receives messages, unmarshalls parameters, performs procedure</li>
+<li>INSERT DIAGRAM LATER (or describe it at least)</li>
+</ul>
+</li>
+<li>remote method invocation (java only)<ul>
+<li>java program on one machine can call a method on a remote java object</li>
+<li>basically the same as RMI except there are objects involved</li>
+<li>THERE IS A DIAGRAM HERE. it doesn't really say much though. look it over anyway</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.1</i>Sample questions<a class="headerlink" href="#sample-questions_2" name="sample-questions_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Processes in memory<a class="headerlink" href="#processes-in-memory" name="processes-in-memory">&para;</a></h4>
+<blockquote>
+<p>What is associated with process in memory etc</p>
+</blockquote>
+<p>Stack (which grows downward), heap (which grows upward), data section (for global variables), text (program code)</p>
+<h4 class="header"><i>3.1.2</i>Process states<a class="headerlink" href="#process-states" name="process-states">&para;</a></h4>
+<blockquote>
+<p>Five process states?</p>
+</blockquote>
+<p>New, ready, running, waiting, terminated</p>
+<h4 class="header"><i>3.1.3</i>Process control blocks<a class="headerlink" href="#process-control-blocks" name="process-control-blocks">&para;</a></h4>
+<blockquote>
+<p>What's contained in a PCB, and which of these things are saved (updated) when an interrupt occurs?</p>
+</blockquote>
+<ul>
+<li>Process state</li>
+<li>Program counter</li>
+<li>CPU registers</li>
+<li>CPU scheduling info</li>
+<li>Memory management info</li>
+<li>Accounting info</li>
+<li>I/O status info</li>
+</ul>
+<p>First three are saved when an interrupt occurs</p>
+<h4 class="header"><i>3.1.4</i>Process scheduling queues<a class="headerlink" href="#process-scheduling-queues" name="process-scheduling-queues">&para;</a></h4>
+<blockquote>
+<p>Types of queues? What are the elements of these queues?</p>
+</blockquote>
+<p>Job queue (all processes), ready queue (those residing in main memory that are ready to execute), device queues (those waiting for each I/O device, so a different one for each device). Elements: PCBs</p>
+<h4 class="header"><i>3.1.5</i>Schedulers<a class="headerlink" href="#schedulers" name="schedulers">&para;</a></h4>
+<blockquote>
+<p>Describe the types of schedulers and how often they're invoked, etc.</p>
+</blockquote>
+<p>Long-term scheduler: decides which processes to bring into main memory (ready queue), invoked infrequently</p>
+<p>Short-term scheduler: which process should be executed next (from ready queue to CPU), invoked frequently</p>
+<p>There is also a medium-term scheduler which is probably less important but apparently it removes processes from memory once in a while.</p>
+<h4 class="header"><i>3.1.6</i>I/O and CPU bound processes<a class="headerlink" href="#io-and-cpu-bound-processes" name="io-and-cpu-bound-processes">&para;</a></h4>
+<blockquote>
+<p>What is an I/O-bound process? What is a CPU bound process?</p>
+</blockquote>
+<p>I/O-bound: spends a lot of time doing I/O (and thus waiting for that). Characterised by many short CPU bursts.</p>
+<p>CPU-bound: guess</p>
+<h4 class="header"><i>3.1.7</i>Context switching<a class="headerlink" href="#context-switching" name="context-switching">&para;</a></h4>
+<blockquote>
+<p>What happens during context switching</p>
+</blockquote>
+<p>Registers, PC, process state saved in PCB (no useful work done)</p>
+<h4 class="header"><i>3.1.8</i>Forking and execing<a class="headerlink" href="#forking-and-execing" name="forking-and-execing">&para;</a></h4>
+<blockquote>
+<p>What does <code>fork</code> do, and how does it differ from <code>exec</code></p>
+</blockquote>
+<p>Fork creates a new process identical to the parent. Exec uses fork, then replaces the child process' memory space with that of a new program.</p>
+<h4 class="header"><i>3.1.9</i>Abortion<a class="headerlink" href="#abortion" name="abortion">&para;</a></h4>
+<blockquote>
+<p>Why would a parent abort a child?</p>
+</blockquote>
+<p>If the child is consuming too many resources (e.g., milk) or the child is not doing anything useful (a very common occurrence).</p>
+<h4 class="header"><i>3.1.10</i>Inter-process communication<a class="headerlink" href="#inter-process-communication" name="inter-process-communication">&para;</a></h4>
+<blockquote>
+<p>How can two processes communicate and shit (the two main methods)</p>
+</blockquote>
+<p>Message-passing and shared mailboxes</p>
+<h4 class="header"><i>3.1.11</i>Producer-consumer problem<a class="headerlink" href="#producer-consumer-problem" name="producer-consumer-problem">&para;</a></h4>
+<blockquote>
+<p>Describe the bounded buffer thing.</p>
+</blockquote>
+<p>in: pointer to first free position; out: pointer to first full position</p>
+<p>Producer needs to wait when full (when (int + 1) % BUFFER_SIZE == out). Otherwise, add an item, increase in.</p>
+<p>Consumer needs to wait when empty (when in == out). Othewise, remove an item, increase out.</p>
+<h4 class="header"><i>3.1.12</i>Direct communication<a class="headerlink" href="#direct-communication" name="direct-communication">&para;</a></h4>
+<blockquote>
+<p>Describe direct communication. Advantages? Disadvantages?</p>
+</blockquote>
+<p>A process specifies another process by name, establishes a link between the two. Advantages: simple; disadvantages: hard-coded identity, hard to make changes later</p>
+<h4 class="header"><i>3.1.13</i>Indirect communication<a class="headerlink" href="#indirect-communication" name="indirect-communication">&para;</a></h4>
+<blockquote>
+<p>what is it</p>
+</blockquote>
+<p>Ports ("mailboxes"), each has unique ID, processes put shit in ports</p>
+<h4 class="header"><i>3.1.14</i>Round-robin communication<a class="headerlink" href="#round-robin-communication" name="round-robin-communication">&para;</a></h4>
+<blockquote>
+<p>what is it</p>
+</blockquote>
+<p>Sender randomly throws a message into the air, some receiver gets it and consequently will be the next to get married. Sender gets notified as to who.</p>
+<h4 class="header"><i>3.1.15</i>Message queues<a class="headerlink" href="#message-queues" name="message-queues">&para;</a></h4>
+<blockquote>
+<p>Types of queues (for messages, attached to link)?</p>
+</blockquote>
+<ul>
+<li>Zero capacity (sender must wait for receiver - they must meet)</li>
+<li>Bounded (sender waits if queue is full)</li>
+<li>Unbounded (sender never waits, but this isn't really feasible lol)</li>
+</ul>
+<h4 class="header"><i>3.1.16</i>IPC in various operating systems<a class="headerlink" href="#ipc-in-various-operating-systems" name="ipc-in-various-operating-systems">&para;</a></h4>
+<blockquote>
+<p>Describe IPC implementations for POSIX, Mach, Windows XP.</p>
+</blockquote>
+<p>POSIX: shared memory. Process creates shared memory segment, which returns an ID. Processes wanting access to that segment attach to it by ID (this function returns a pointer to that memory segment), and can then write to it using the pointer. Can detach from segment when done.</p>
+<p>Mach: message-based (everything is, even system calls). All tasks are created with 2 mailboxes.</p>
+<p>Windows XP: message-based using local procedure call. Communication channels established using ports. Whatever</p>
+<h4 class="header"><i>3.1.17</i>Client-server communication<a class="headerlink" href="#client-server-communication" name="client-server-communication">&para;</a></h4>
+<blockquote>
+<p>What does a socket consist of</p>
+</blockquote>
+<p>IP address and port</p>
+<h4 class="header"><i>3.1.18</i>Remote procedure calls<a class="headerlink" href="#remote-procedure-calls" name="remote-procedure-calls">&para;</a></h4>
+<blockquote>
+<p>What is this, how does it differ from remote method invocation</p>
+</blockquote>
+<p>Allows clients to invoke procedures on remote hosts as if they were local. Client-side "stub" locates server, marshalls parameters, sends them over; server-side stub unmarshalls, executes procedure.</p>
+<p>Remote method invocation is a Java-only thing that allows programs on one machine to call methods on remote objects. Same as above except, objects.</p>
+<h2 class="header"><i>4</i>Chapter 4: Threads<a class="headerlink" href="#chapter-4-threads" name="chapter-4-threads">&para;</a></h2>
+<ul>
+<li>Thread: unit of CPU utilisation, forms basis of multithreaded computers<ul>
+<li>things unique to each thread: thread ID, program counter, register set, stack</li>
+<li>things threads from the same process share: code, data (statically-created variables), OS resources (open files, signals)</li>
+<li>single-threaded process: code + data + files, then registers + stack</li>
+<li>multi-threaded: code + data + files, then each thread gets its own registers and stack</li>
+<li>Benefits of threading<ul>
+<li>Greater responsiveness (if one thread is blocked or busy, can keep going - e.g., webservers)</li>
+<li>Resource sharing (memory, other resources)</li>
+<li>Cheapter than creating new processes in terms of allocating memory and resources (context-switching is easier)</li>
+<li>Scalability: threads can run in parallel on multiple processors (I don't really see how this is best characterised as "scalability"; perhaps making full use of resources?)</li>
+</ul>
+</li>
+<li>In the client-server model: client sends request, server spawns new thread to handle request, server resumes listening for requests</li>
+</ul>
+</li>
+<li>Single vs. multicore<ul>
+<li>on a single-core system, threads are allocated in a cycle: t1, t2, t3, t4, t1, t2, t3, t4 etc (this is what is meant by concurrency apparently?)</li>
+<li>on a multicore system, concurrency means that threads are actually executed at the same time. could be t1 t3 t1 t3 on one core, t2 t4 t2 t4 on the other, etc</li>
+<li>challenges of multicore systems:<ul>
+<li>how to divide up activities? need to find parts of application that can be divided into smaller tasks that can run in parallel</li>
+<li>how to split data? must be divided to run on separate cores (? how does this make sense)</li>
+<li>data dependency: what if one task depends on the results of another?</li>
+<li>testing/debugging: many different execution paths</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>user-level thread libraries:<ul>
+<li>POSIX threads</li>
+<li>win32 threads</li>
+<li>Java threads</li>
+</ul>
+</li>
+<li>Kernel threads: handled by the kernel</li>
+<li>Multithreading models, per process (user-to-kernel):<ul>
+<li>many-to-one (many user-level, single kernel)<ul>
+<li>examples: solaris green threads library, gnu portable threads</li>
+<li>thread management done by user space thread library (efficient)</li>
+<li>but only thread can access the kernel at a time, so if any user thread makes a blocking syscall entire process will block</li>
+</ul>
+</li>
+<li>one-to-one (one kernel thread per user thread)<ul>
+<li>examples: windows nt/xp/2000, linux, solaris 9+</li>
+<li>benefits: more concurrency (syscalls are not blocking for other threads)</li>
+<li>downsides: can result in decreased performance as you have to create many kernel threads, etc</li>
+<li>also, some OSes limit the number of kernel threads possible at any given time</li>
+</ul>
+</li>
+<li>many-to-many<ul>
+<li>examples: solaris before 9, windows nt/2000 with threadfiber package (how cute)</li>
+<li>many user threads mapped to the same number of or fewer kernel threads</li>
+<li>OS can create as many user threads as it needs to, since it doesn't have to create a kernel thread for each one</li>
+<li>true concurrency: corresponding kernel threads can run in parallel on a multiprocessor (what does this have to do with anything)</li>
+</ul>
+</li>
+<li>two-level model<ul>
+<li>examples: IRIX, HP-UX, Tru64 unix, solaris before 9</li>
+<li>like the many-to-many model, except user threads can be bound to kernel threads as well (so a superset of many-to-many)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread libraries<ul>
+<li>APIs for creating, managing threads</li>
+<li>can be implemented in user space<ul>
+<li>calling a function in library results in a local call (not sys call) in user space</li>
+</ul>
+</li>
+<li>or, using the kernel-level library provided by OS<ul>
+<li>code, data structures of library exist in kernel space</li>
+<li>invoking APi function usually results in sys call</li>
+</ul>
+</li>
+<li>pthreads: a POSIX standard for APIs for thread creation and sync<ul>
+<li>provided as user-level or kernel-level</li>
+<li>the behaviour is specified by this standard, but it can be implemented differently by different OSes</li>
+<li>examples: Solaris, Mac OS X, FreeBSD, Linux (there is even a windows implementation)</li>
+</ul>
+</li>
+<li>Java threads<ul>
+<li>managed by the JVM, implemented using underlying thread library provided by OS</li>
+<li>these threads can be created by extending the <code>Thread</code> class or implementing the <code>Runnable</code> interface</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>various issues (and non-issues) relating to threads<ul>
+<li>behaviour of <code>fork()</code><ul>
+<li>should it duplicate only the calling thread or all threads of that process?</li>
+<li>some unix systems thus have two versions of <code>fork()</code></li>
+<li><code>exec</code>, when invoked by a thread, will replace all the threads in that process. wait wtf? how? and why is this relevant to fork?</li>
+</ul>
+</li>
+<li>thread cancellation (premature termination)<ul>
+<li>how to deal with resource allocation, or if it's updating a data segment shared by other threads?</li>
+<li>asynchronous cancellation: terminates the thread immediately (bit of a misleading name)</li>
+<li>deferred cancellation: thread periodically checks if it should be cancelled, giving it the chance to die nobly<ul>
+<li>aside: signal handling (i think this section should count as an aside, even though it has its own slide)</li>
+<li>signal handlers used to notify processes that specific events (e.g., kill events) have occurred</li>
+<li>event generates signal, signal gets delivered to process, signal is handled</li>
+<li>many options as to whom the signal is delivered to:<ul>
+<li>only the relevant thread</li>
+<li>every thread in the process to which the relevant thread belongs</li>
+<li>certain threads in the relevant process</li>
+<li>a specific thread that receives all signals for the process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>thread pools<ul>
+<li>create some threads, throw them into a pool in which they wait around for work to be doled out, the poor creatures</li>
+<li>faster to make an existing thread service a request than to create a new thread</li>
+<li>number of threads in application bounded by the size of the pool</li>
+<li>of course, this has the slight disadvantage of having to create all the threads at the very beginning (slower startup maybe)</li>
+</ul>
+</li>
+<li>thread-specific data<ul>
+<li>so that each thread can have its own copy of data</li>
+<li>supported by most threading libraries</li>
+<li>e.g., transaction system (?)</li>
+</ul>
+</li>
+<li>scheduler activations<ul>
+<li>what does this even meeeeeean</li>
+<li>both the many-to-many and the two-level models require communication to ensure correct number of kernel threads</li>
+<li>the mechanism for this communication is via upcalls (like the opposite of a system call?), from the kernel to the thread library, provided by "scheduler activations" whatever those are</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>threads in different OSes<ul>
+<li>windows XP<ul>
+<li>each app runs as a separate process</li>
+<li>each can have one or more threads</li>
+<li>thread library included in win32 api, one-to-one</li>
+<li>fiber library (many-to-many) available too</li>
+<li>each thread contains thread ID, register set, separate user/kernel stacks, private data storage area (last three collectively known as context)</li>
+<li>primary data structures of a thread:<ul>
+<li>ethread: executive thread block (thread start address, pointer to parent block, pointer to kthread) - kernel space</li>
+<li>kthread: kernel thread block (scheduling and sync info, kernel stack, pointer to teb) - kernel space</li>
+<li>teb: thread environment block (thread identifier, user stack, thread-local storage) - user space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linux<ul>
+<li>called tasks not threads</li>
+<li>one-to-one</li>
+<li>threads created by calling <code>clone()</code> (allows child task to share address space of parent task, or process)</li>
+<li>amount of sharing that takes place is controlled by flags<ul>
+<li>CLONE_FS: file-system info shared</li>
+<li>CLONE_VM: same memory space</li>
+<li>CLONE_SIGHAND: share signal handlers</li>
+<li>CLONE_FILES: share open files (how does this differ from CLONE_FS?)</li>
+</ul>
+</li>
+<li>NPTL (Native POSIX Thread Library) supported by most modern distros, POSIX-compliant</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.1</i>Sample questions<a class="headerlink" href="#sample-questions_3" name="sample-questions_3">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Things associated with threads<a class="headerlink" href="#things-associated-with-threads" name="things-associated-with-threads">&para;</a></h4>
+<blockquote>
+<p>What is unique to each thread? What do threads from the same process share?</p>
+</blockquote>
+<p>Unique: Thread ID, program counter, register set, stack</p>
+<p>Shared: code, data (statically-created variables), OS resources (open files, signals)</p>
+<h4 class="header"><i>4.1.2</i>Benefits of threading<a class="headerlink" href="#benefits-of-threading" name="benefits-of-threading">&para;</a></h4>
+<blockquote>
+<p>^</p>
+</blockquote>
+<ul>
+<li>More responsive</li>
+<li>Can share memory, other resources</li>
+<li>Cheaper than creating processes, context-switching is easier</li>
+<li>More scalable? for multiple processors</li>
+</ul>
+<h4 class="header"><i>4.1.3</i>Multithreading models<a class="headerlink" href="#multithreading-models" name="multithreading-models">&para;</a></h4>
+<blockquote>
+<p>What are the multithreading models, describe them, pros, cons, etc</p>
+</blockquote>
+<ul>
+<li>Many-to-one (many user-level threads per kernel thread). Only one thread can access kernel at each time, so if one thread makes a blocking call, entire process blocks</li>
+<li>One-to-one (one kernel per user): not blocking so more concurrency, but decreased performance as you have to create many kernel threads; also, some OSes limit number of kernel threads that can be created, so the number of user threads is limited too</li>
+<li>Many-to-many (many user to some kernel): true concurrency, OS can create as many user threads as it wants, etc. Variant: two-level model, where you can have one user thread per kernel thread maybe</li>
+</ul>
+<h4 class="header"><i>4.1.4</i>Thread cancellation<a class="headerlink" href="#thread-cancellation" name="thread-cancellation">&para;</a></h4>
+<blockquote>
+<p>Different methods for dealing with thread cancellation</p>
+</blockquote>
+<p>Asynchronous: terminates it immediately</p>
+<p>Deferred: thread periodically checks to see if it should be cancelled</p>
+<h4 class="header"><i>4.1.5</i>Thread pools<a class="headerlink" href="#thread-pools" name="thread-pools">&para;</a></h4>
+<blockquote>
+<p>What are thread pools, pros and cons</p>
+</blockquote>
+<p>Create a bunch of threads, throw them into a pool. There they wait to be given stuff to do. Pros: faster for existing thread to service request than to make a new thread. Cons: increased startup time to create all the threads, etc</p>
+<h2 class="header"><i>5</i>Chapter 10: Filesystem interface<a class="headerlink" href="#chapter-10-filesystem-interface" name="chapter-10-filesystem-interface">&para;</a></h2>
+<ul>
+<li>attributes (kept in dir structure, which is on disk)<ul>
+<li>name</li>
+<li>system identifier</li>
+<li>type</li>
+<li>location</li>
+<li>size</li>
+<li>protection (permissions)</li>
+<li>time, date, user identification</li>
+</ul>
+</li>
+<li>operations<ul>
+<li>create: allocate space in system, make new entry in directory</li>
+<li>write: given file name and info to be written, system searches for it, keeps a write pointer</li>
+<li>read: ^ but read pointer</li>
+<li>reposition in file: seek, pointer value changes</li>
+<li>delete: find file, release space, delete dir entry</li>
+<li>truncate: delete contents, keep attributes</li>
+</ul>
+</li>
+<li><code>open()</code> system call avoids constant searching for dir entry (saves it in memory; <code>close()</code> frees)<ul>
+<li>takes file name, copies dir entry into open file table, returns pointer</li>
+<li>per-process table (pointer, rights), system-wide (location, access dates, file size)</li>
+<li>to manage open files, need pointer, open count, location, access rights</li>
+</ul>
+</li>
+<li>access methods<ul>
+<li>sequential</li>
+<li>direct</li>
+<li>index</li>
+<li>can simulate sequential on direct</li>
+<li>direct on sequential is inefficient</li>
+</ul>
+</li>
+<li>storing files on disks<ul>
+<li>partitions</li>
+<li>raw or formatted</li>
+<li>RAID protection</li>
+<li>volume = entity with filesystem</li>
+</ul>
+</li>
+<li>directory structure<ul>
+<li>collection of nodes pointing to files</li>
+<li>operations<ul>
+<li>search for file</li>
+<li>create</li>
+<li>delete</li>
+<li>list</li>
+<li>rename</li>
+<li>traverse</li>
+</ul>
+</li>
+<li>single-level directory for all users: dumb</li>
+<li>two-level, one for each user: bad for cooperation</li>
+<li>tree-structured: each file has unique path name<ul>
+<li>acyclic graph</li>
+<li>hard links?</li>
+<li>multiple abs path names</li>
+<li>reference list: delete files when no references to it exist</li>
+<li>self-reference?</li>
+<li>check that there are no cycles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mounting</li>
+<li>sharing, etc, nothing special</li>
+<li>failure<ul>
+<li>directory corruption, disk-controller failure, etc</li>
+</ul>
+</li>
+<li>types of access (for right management):<ul>
+<li>read</li>
+<li>write</li>
+<li>execute</li>
+<li>append</li>
+<li>delete</li>
+<li>list</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>5.1</i>Sample questions<a class="headerlink" href="#sample-questions_4" name="sample-questions_4">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>File attributes?<a class="headerlink" href="#file-attributes" name="file-attributes">&para;</a></h4>
+<blockquote>
+<p>What are they?</p>
+</blockquote>
+<ul>
+<li>Name</li>
+<li>System identifier</li>
+<li>Type</li>
+<li>Location on disk</li>
+<li>Size</li>
+<li>Permissions</li>
+<li>Time, date, user identification</li>
+</ul>
+<h4 class="header"><i>5.1.2</i>The open system call<a class="headerlink" href="#the-open-system-call" name="the-open-system-call">&para;</a></h4>
+<blockquote>
+<p>Purpose? What does close do?</p>
+</blockquote>
+<p>To cache file info in memory, to avoid constantly searching for the dir entry. Close frees that memory. It takes the file name, copies the the dir entry into the open file table, and returns the pointer.</p>
+<h4 class="header"><i>5.1.3</i>Open file tables<a class="headerlink" href="#open-file-tables" name="open-file-tables">&para;</a></h4>
+<blockquote>
+<p>What's stored in the per-process table? System-wide table?</p>
+</blockquote>
+<p>Per-process: pointer (to file contents, in memory), access rights</p>
+<p>System-wide: location on disk (?), access dates, file size</p>
+<h2 class="header"><i>6</i>Chapter 11: Filesystem implementation<a class="headerlink" href="#chapter-11-filesystem-implementation" name="chapter-11-filesystem-implementation">&para;</a></h2>
+<ul>
+<li>Structure<ul>
+<li>Organised into layers somehow</li>
+<li>File system resides on disk, provides efficient and convenient access to disk</li>
+<li>File control block: storage structure, contains info about file (owner, permissions, location on disk)</li>
+<li>Device driver controls physical device</li>
+</ul>
+</li>
+<li>Implementation<ul>
+<li>Boot control block: contains info needed by system to boot OS from volume</li>
+<li>Volume control block (per volume): contains details for that partition (number of blocks, block size, etc)</li>
+<li>File control block:<ul>
+<li>permissions</li>
+<li>file create, access, write dates</li>
+<li>file owner, group</li>
+<li>file size</li>
+<li>pointers to data blocks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Directories<ul>
+<li>linear list of file names is very inefficient</li>
+<li>instead, we use a hash table</li>
+<li>linear list to store the directory entries, hash data structure for accessing pointers</li>
+<li>pros: directory search time decreases</li>
+<li>cons: collisions, etc</li>
+</ul>
+</li>
+<li>Allocation methods<ul>
+<li>contiguous: each file occupies a set of consecutive blocks on disk<ul>
+<li>dir entry indicates address of starting block, number of blocks</li>
+<li>pros: simple, sequential access is easy, direct access isn't too hard</li>
+<li>cons:<ul>
+<li>wasteful of space (can result in external fragmentation)</li>
+<li>files cannot grow in size after they are first created (like arrays in C)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>linked allocation: file is linked list of disk blocks<ul>
+<li>blocks can be stored anywhere</li>
+<li>directory contains pointer to first, last blocks of file</li>
+<li>each block contains pointer to next block</li>
+<li>pros: no external fragmentation, because any free block can be used; files can grow; simple</li>
+<li>cons: random access is inefficient, lots of space overhead for pointers</li>
+<li>FAT (file allocation table): used by MS-DOS<ul>
+<li>variation on linked allocation</li>
+<li>dir entry contains block number of first block in file</li>
+<li>a section of disk at the beginning of each volume is reserved for a table</li>
+<li>that table contains the next block number for each block in the file</li>
+<li>unused blocks indicated by value of 0</li>
+<li>last block contains EOF value</li>
+<li>pros: random access is fast</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>indexed allocation<ul>
+<li>all pointers stored in index block (one for each file)</li>
+<li>ith entry in the index block points to ith block of file</li>
+<li>directory contains address of index block</li>
+<li>pros:<ul>
+<li>direct access</li>
+</ul>
+</li>
+<li>cons:<ul>
+<li>pointer overhead of index block (usually greater than the pointer overhead for linked allocation)</li>
+<li>if most files are small, then linked allocation wins - only one pointer per block for linked, but an entire index block for indexed</li>
+</ul>
+</li>
+<li>optimal size for index blocks? if small, less overhead, but may not be able to hold enough pointers</li>
+<li>linked scheme: link together several index blocks<ul>
+<li>one block contains n file block addresses</li>
+<li>large files may need several index blocks</li>
+<li>multi-level index: one index block points to other blocks, etc</li>
+<li>example: 4096-byte blocks, each pointer 4 bytes, 2-level index</li>
+<li>store 1024 = 2<sup>10</sup> pointers per index block</li>
+<li>2 levels of indexes, so 1024<sup>2</sup> = 10<sup>20</sup> data blocks</li>
+<li>so 10<sup>20</sup> * 4096 = 10<sup>20</sup> * 10<sup>12</sup> = 10<sup>32</sup> = 4 * 10<sup>30</sup> = 4 GB</li>
+</ul>
+</li>
+<li>combined scheme: used in UFS<ul>
+<li>keep first 15 pointers of index block in file's inode (FCB for UNIX)</li>
+<li>first 12 pointers: directly to blocks (so small files don't need separate index blocks)</li>
+<li>the 13th: points to index block containing addresses of file blocks</li>
+<li>14th points to double indirect block (pointer to index block containing pointers to file block, what is this i don't even)</li>
+<li>15th: triple indirect block</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Free space management<ul>
+<li>disk space is limited, need to reuse space from deleted files</li>
+<li>to keep track of free disk space, system maintains free space list for free blocks</li>
+<li>usually implemented as a list (bit vector, length n where n is the number of blocks)<ul>
+<li>if 1, free; if 0, occupied</li>
+<li>block number calculations are supported by the hardware somehow<ul>
+<li>to find the first free block number: number of bits per word * number of 0-value words + offset of first 1 bit, what</li>
+</ul>
+</li>
+<li>this bit map requires extra space</li>
+<li>if block size = 2<sup>12</sup> bytes, and disk size = 2<sup>30</sup> bytes (1 GB), then you need 2<sup>18</sup> bytes for the bit map (so 32 KB)</li>
+<li>but, it's easy to get contiguous blocks</li>
+</ul>
+</li>
+<li>another solution: linked list (free list)<ul>
+<li>link together all the free disk blocks</li>
+<li>pointer to the first free block in a special location on disk (also cached in memory)</li>
+<li>harder to get contiguous space</li>
+<li>but, less space is wasted</li>
+</ul>
+</li>
+<li>grouping: modification of the linked list approach<ul>
+<li>first free block stores the addresses of n free blocks, and then one other block which is not actually a free block but instead contains address of another n free blocks</li>
+<li>faster to find a large number of free blocks using this method</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Recovery<ul>
+<li>files, directories kept in main memory (for speed) but also disk (for consistency)</li>
+<li>system failure/crash can result in data loss or inconsistency</li>
+<li>consistency checking: compares data in dir structure with data blocks on disk, etc</li>
+<li>fsck for Unix, chkdsk for windows</li>
+<li>journaling (like ext3/4 for linux)<ul>
+<li>each update to file system recorded as transaction</li>
+<li>same techniques used by databases to guarantee FS consistency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>NFS<ul>
+<li>Sun Network File System</li>
+<li>implementation/specification of software system for accessing remote files across LANs/WANs</li>
+<li>part of Solaris, SunOS operating systems</li>
+<li>Ethernet: family of computer networking technologies for LAN, part of IEEE standard</li>
+<li>independent machines can access shared file systems transparently (i.e. user doesn't need to see the details)</li>
+<li>remote directory mounted over a local file system directory</li>
+<li>the mounting operation isn't "transparent", though</li>
+<li>cascading mount: allowed in some NFS implementations (remote file systems mounted on a remote file system can be accessed, etc)</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>6.1</i>Sample questions<a class="headerlink" href="#sample-questions_5" name="sample-questions_5">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>File control blocks<a class="headerlink" href="#file-control-blocks" name="file-control-blocks">&para;</a></h4>
+<blockquote>
+<p>What's in a file control block</p>
+</blockquote>
+<ul>
+<li>Permissions</li>
+<li>Create, last accessed, last modified dates</li>
+<li>File owner, group</li>
+<li>File size</li>
+<li>Pointers to data blocks</li>
+</ul>
+<h4 class="header"><i>6.1.2</i>Directory implementation<a class="headerlink" href="#directory-implementation" name="directory-implementation">&para;</a></h4>
+<blockquote>
+<p>How</p>
+</blockquote>
+<p>Linear list (like an array? linked list?) to store the dir entries, hash data for accessing pointers to files</p>
+<h4 class="header"><i>6.1.3</i>Allocation methods<a class="headerlink" href="#allocation-methods" name="allocation-methods">&para;</a></h4>
+<blockquote>
+<p>What are they, pros and cons of each</p>
+</blockquote>
+<p>Contiguous, linked allocation, indexed allocation.</p>
+<p>Contiguous: consecutive blocks. wasteful of space (results in external fragmentation), files cannot grow in size.</p>
+<p>Linked: Linked list, each thing has some content and pointer to next thing. No external fragmentation, and files can grow, but random access is inefficient and there's lots of space overhead for the pointers.</p>
+<p>Indexed: pointers stored in index block (one for each file), basically an array. Dir entry contains address of index block. Direct access is fast, pointer overhead is greater than for linked if files are small</p>
+<h4 class="header"><i>6.1.4</i>Linked index allocation calculations<a class="headerlink" href="#linked-index-allocation-calculations" name="linked-index-allocation-calculations">&para;</a></h4>
+<blockquote>
+<p>Given x-byte blocks, each pointer = y bytes, 2-level index. Can store x / y pointers per index block. 2 levels of indexes, so (x/y)<sup>2</sup> data blocks. So x<sup>2</sup>/y<sup>2</sup> * x = x<sup>3</sup>/y<sup>3</sup> bytes that can be stored total</p>
+</blockquote>
+<h4 class="header"><i>6.1.5</i>Free space management<a class="headerlink" href="#free-space-management" name="free-space-management">&para;</a></h4>
+<blockquote>
+<p>Describe the different solutions</p>
+</blockquote>
+<p>Bit vector: length n, where n is the number of blocks. 1 if free, 0 if occupied. To find the first free block number: number of bits per word * number of 0-value words + offset of first 1-bit block. If block size is x, and disk size is y, you need y/x bytes for the bit map. Easy to get contiguous space.</p>
+<p>Linked list: each element is a free disk block, pointer to first block from special location in disk and memory. Harder to get contiguous space but less is wasted.</p>
+<p>Grouping: like linked list. First free block stores addresses of n free blocks, and then a pointer to the next thing like this. Faster to find a large number of free blocks.</p>
+<h4 class="header"><i>6.1.6</i>Journaling<a class="headerlink" href="#journaling" name="journaling">&para;</a></h4>
+<blockquote>
+<p>What is it</p>
+</blockquote>
+<p>Like transactions with databases. For guaranteeing consistency.</p>
+<h4 class="header"><i>6.1.7</i>Cascading mount<a class="headerlink" href="#cascading-mount" name="cascading-mount">&para;</a></h4>
+<blockquote>
+<p>What is it</p>
+</blockquote>
+<p>NFS, when you mount a remote file system somewhere on a machine, then that is mounted by another machine</p>
+<h4 class="header"><i>6.1.8</i>Blocks and partial storage<a class="headerlink" href="#blocks-and-partial-storage" name="blocks-and-partial-storage">&para;</a></h4>
+<blockquote>
+<p>Can blocks be partially written to? That is, can part of one block be used for something, with the other part being used for something else?</p>
+</blockquote>
+<p>No. Even if only one bit in the block is actually written to, the entire block is considered used. (I couldn't find the right place for this in the notes above.)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 16, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 16, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Atomicity and mutual exclusion
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#what-is-atomic">1 What is "atomic"?</a><ul>
+<li><a href="#appearing-atomic">1.1 Appearing atomic</a></li>
+</ul>
+</li>
+<li><a href="#mutual-exclusion">2 Mutual-exclusion</a><ul>
+<li><a href="#ways-to-achieve-mutual-exclusion">2.1 Ways to achieve mutual exclusion</a><ul>
+<li><a href="#first-way">2.1.1 First way</a></li>
+<li><a href="#second-way">2.1.2 Second way</a></li>
+<li><a href="#third-way">2.1.3 Third way</a></li>
+<li><a href="#fourth-way">2.1.4 Fourth way</a></li>
+<li><a href="#fifth-way-dekkers-algorithm">2.1.5 Fifth way: Dekkers' algorithm</a></li>
+<li><a href="#sixth-way-peterson-2-processes-tie-breaker">2.1.6 Sixth way: Peterson 2-processes tie breaker</a></li>
+<li><a href="#kessels-single-writes-alg">2.1.7 Kessel's single writes alg</a></li>
+</ul>
+</li>
+<li><a href="#nb-performance-and-patterns">2.2 Nb: Performance and patterns</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>What is "atomic"?<a class="headerlink" href="#what-is-atomic" name="what-is-atomic">&para;</a></h2>
+<p>Essentially, it varies by context, but still, some things are expected to be same anywhere.</p>
+<p>For exemple, <code>y = 1</code> is atomic in most cases, e.g. if the expression deals with a 32-bit value on a 32-bit architecture.</p>
+<p>However, if the value is larger than the natural word size of the architecture, a simple assignment is expected not to be atomic, e.g. <code>long long x</code> on a 32-bit machine, as it is a 64-bit variable.</p>
+<p>Usually, the machine will deal with assignments in such cases by splitting them in parts i.e.<code>upper</code> and <code>lower</code> in our previous exemple. This incurs some concurrency issues. For exemple, say two threads want to execute <code>x = 0</code> and <code>x = -1</code>, respectively:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x.upper = 00000000</code></td>
+<td><code>x.upper = FFFFFFFF</code></td>
+</tr>
+<tr>
+<td><code>x.lower = 00000000</code></td>
+<td><code>x.lower = FFFFFFFF</code></td>
+</tr>
+</tbody>
+</table>
+<p>This may yield the following results: <code>0000000000000000</code>, <code>00000000FFFFFFFF</code>, <code>FFFFFFFF00000000</code> or <code>FFFFFFFFFFFFFFFF</code>.</p>
+<p>In <strong>Java</strong> and <strong>C</strong>, assignment (of natural word size) will be atomic. For exemple, in the statement <code>x = y + 3</code>, <code>y + 3</code> may not be atomic, but the assignment itself (giving a value to <code>x</code>) will be.</p>
+<p><strong>Nb</strong>: Assignment to a <code>long</code> in Java is <strong>not</strong> necessarily atomic (except when using a 64-bit JVM on a 64-architecture), unless you declare <code>volatile</code>. This keyword will be explored more in depth later in the course.</p>
+<h3 class="header"><i>1.1</i>Appearing atomic<a class="headerlink" href="#appearing-atomic" name="appearing-atomic">&para;</a></h3>
+<p>Consider the statement <code>x = y</code> where the value must be loaded in a register, then assigned to <code>x</code>, thus being, formally, not atomic.</p>
+<p>However, if the RHS is not being altered by another thread, it can "appear" atomic.</p>
+<dl>
+<dt>Formally:</dt>
+<dd>Consider the statement <code>x = e</code> where <code>e</code> is an expression.</dd>
+<dd><code>e</code> has a <strong>critical reference</strong> if <code>e</code> uses a variable some other threads may change or write. </dd>
+<dd><code>x = e</code> satisfies an <strong>"at-most-one"</strong> property if either of two properties hold:</dd>
+</dl>
+<ol>
+<li><code>e</code> has at most 1 critical reference and <code>x</code> is not used by another thread.</li>
+<li><code>e</code> has no critical reference ( <code>x</code> may be read by another thread.)</li>
+</ol>
+<p><strong>Exemple 1</strong>: Let <code>x = y = 0;</code>, the thread <strong>T<sub>0</sub></strong> execute <code>x = y + 1;</code> and the thread <strong>T<sub>1</sub></strong> execute <code>y = y + 1;</code>. Are any of those last two statements at-most-one?</p>
+<ol>
+<li><code>x</code> is not read in the other thread, so it is allowed to have 1 critical reference. Yes, it is at-most-one.</li>
+<li><code>y</code> is read in the other thread, but this thread is the only one to alter <code>y</code>. Yes, it is at-most-one.</li>
+</ol>
+<p>We thus have those two scenarios:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Scenario 1</th>
+<th>Scenario 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = y + 1</code></td>
+<td><code>y = y + 1</code></td>
+</tr>
+<tr>
+<td><code>y = y + 1</code></td>
+<td><code>x = y + 1</code></td>
+</tr>
+<tr>
+<td><code>x</code>: 1, <code>y</code>: 1</td>
+<td><code>y</code>: 1, <code>x</code>:2</td>
+</tr>
+</tbody>
+</table>
+<p>You could look at the machine code instructions, but those two scenarios are still the only two possibilities.</p>
+<p><strong>Example 2</strong>: Let <code>x = y = 0;</code> again, the thread <strong>T<sub>0</sub></strong> execute <code>x = y + 1;</code> and thread <strong>T<sub>1</sub></strong> execute <code>y = x + 1;</code> Are any of those last two statements at-most-one?</p>
+<ol>
+<li>No. The LHS is a critical reference in <strong>T<sub>1</sub></strong>.</li>
+<li>No, for the same reason.</li>
+</ol>
+<p>Let's look at the different scenarios at the level of single instructions:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Scenario 1</th>
+<th>Scenario 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = y + 1</code></td>
+<td><code>y = x + 1</code></td>
+</tr>
+<tr>
+<td><code>y = x + 1</code></td>
+<td><code>x = y + 1</code></td>
+</tr>
+<tr>
+<td><code>x</code>: 1, <code>y</code>: 2</td>
+<td><code>y</code>: 1, <code>x</code>:2</td>
+</tr>
+</tbody>
+</table>
+<p>At the machine code level, however, things are different (remember that each thread has its own registers, either through context switching, with each CPU physically having its own set, or both):</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 1</th>
+<th>Thread 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Load    r1, [y]   # Load the value of y into Register 1</code></td>
+<td><code>Load    r1, [x]   # Load the value of x into Register 1</code></td>
+</tr>
+<tr>
+<td><code>Inc     r1        # Increment Register 1</code></td>
+<td><code>Inc     r1        # Increment Register 1</code></td>
+</tr>
+<tr>
+<td><code>Store   r1, [x]   # Store the value of Register 1 into x</code></td>
+<td><code>Store   r1, [y]   # Store the value of Register 1 into y</code></td>
+</tr>
+</tbody>
+</table>
+<p>Any of those 6 instructions could be executed in different orders. As such, for <span>$n$</span> threads that do <span>$m$</span> atomic operations, there are</p>
+<p><span>$$ \frac{(nm)!}{m!^{n}} \text{ possible interleavings}$$</span></p>
+<p>In our case, <span>$n = 2$</span> and <span>$m = 3$</span>. This gives us <span>$20$</span> different scenarios.</p>
+<h2 class="header"><i>2</i>Mutual-exclusion<a class="headerlink" href="#mutual-exclusion" name="mutual-exclusion">&para;</a></h2>
+<p>This is when we make sure that only 1 thread at a time can execute some code, called the <strong>critical section</strong>.</p>
+<div class="codehilite"><pre>|----------| enter protocol
+ |        |
+ |        |  critical section (mut. ex)
+ |  code  |
+ |        |
+ |        |
+|----------| exit protocol
+</pre></div>
+
+
+<h3 class="header"><i>2.1</i>Ways to achieve mutual exclusion<a class="headerlink" href="#ways-to-achieve-mutual-exclusion" name="ways-to-achieve-mutual-exclusion">&para;</a></h3>
+<p>There is more than one way to achieve mutual exclusion. Say we have <strong>2 threads</strong>, each with their own <strong>thread ID</strong> (0 and 1, in our case) and they can <strong>access it</strong> (through the <code>id</code> variable).</p>
+<p>No matter the method, a common protocol has to be followed:</p>
+<ol>
+<li><strong>Init</strong>: Which happens only once, before anything else</li>
+<li><strong>Enter</strong>: In which a thread must wait before entering the critical section</li>
+<li><strong>Exit</strong>: In which the thread has finished, and may allow another thread to enter the critical section</li>
+</ol>
+<h4 class="header"><i>2.1.1</i>First way<a class="headerlink" href="#first-way" name="first-way">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Init</strong></td>
+<td><code>turn = 0;</code></td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>while (turn != id); // Spin</code></td>
+</tr>
+<tr>
+<td><strong>Exit</strong></td>
+<td><code>turn = 1-turn;</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Works.</li>
+</ul>
+<p>However,</p>
+<ul>
+<li>It is over-constrained.</li>
+<li>There is a strict alternation that requires <strong>T<sub>0</sub></strong> to be the first to execute. <code>T0 -&gt; T1 -&gt; T0 -&gt; T1</code> works. Doesn't work: <code>T0 -&gt; T0 -&gt; T1 -&gt; ...</code></li>
+</ul>
+<h4 class="header"><i>2.1.2</i>Second way<a class="headerlink" href="#second-way" name="second-way">&para;</a></h4>
+<p>Trying to improve on the first way...</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Init</strong></td>
+<td><code>flag[0] = flag[1] = false;</code></td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>while (flag[1-id]); flag[id] == true;</code></td>
+</tr>
+<tr>
+<td><strong>Exit</strong></td>
+<td><code>flag[id] = false;</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does this work?</strong><br />
+<strong><em>No</em></strong>. They could both do the check at the same time and both enter.</p>
+<h4 class="header"><i>2.1.3</i>Third way<a class="headerlink" href="#third-way" name="third-way">&para;</a></h4>
+<p>Trying to fix the second way...<br />
+<strong>Key</strong>: signal the intention of going into c.s., rather than going in directly.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Init</strong></td>
+<td><code>flag[0] = flag[1] = false;</code></td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>flag[id] = true; while (flag[1-id]); //Spin</code></td>
+</tr>
+<tr>
+<td><strong>Exit</strong></td>
+<td><code>flag[id] = false</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Does this work?</strong><br />
+<strong><em>Sort of</em></strong></p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flag[0] = true;</code></td>
+<td><code>flag[1] = true;</code></td>
+</tr>
+<tr>
+<td><code>Check flag[1]...</code></td>
+<td><code>Check flag[0]...</code></td>
+</tr>
+</tbody>
+</table>
+<p>If those instruction happen as follows: <strong>T<sub>0</sub></strong>.0; <strong>T<sub>1</sub></strong>.0; <strong>T<sub>0</sub></strong>.1; <strong>T<sub>1</sub></strong>.1 (Z-pattern), then neither threads gets in the critical section. So:</p>
+<ul>
+<li>Enforces m.t.</li>
+<li>May deadlock (actually, livelock, because they're still doing work...)</li>
+</ul>
+<h4 class="header"><i>2.1.4</i>Fourth way<a class="headerlink" href="#fourth-way" name="fourth-way">&para;</a></h4>
+<p>Trying to fix the third way.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Init</strong></td>
+<td><code>flac[0] = flag[1] = false;</code></td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>flag[id] = true;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>while (flag[1-id]) {</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>flag[id] = false;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>// delay</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>flag[id] = true;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>}</code></td>
+</tr>
+<tr>
+<td><strong>Exit</strong></td>
+<td><code>flag[id] = false</code></td>
+</tr>
+</tbody>
+</table>
+<p>This somewhat works, if delay is not identical. Otherwise both threads might wait the same amount of time and cause the previous problem.</p>
+<h4 class="header"><i>2.1.5</i>Fifth way: Dekkers' algorithm<a class="headerlink" href="#fifth-way-dekkers-algorithm" name="fifth-way-dekkers-algorithm">&para;</a></h4>
+<p>Either I slept through this whole section, or the prof told us to <a href="http://en.wikipedia.org/wiki/Dekker%27s_algorithm">look it up ourselves</a>.</p>
+<h4 class="header"><i>2.1.6</i>Sixth way: Peterson 2-processes tie breaker<a class="headerlink" href="#sixth-way-peterson-2-processes-tie-breaker" name="sixth-way-peterson-2-processes-tie-breaker">&para;</a></h4>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>Instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Init</strong></td>
+<td><code>flac[0] = flag[1] = false;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>turn = 0;</code></td>
+</tr>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>flag[id] = true;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>turn = id;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>while(turn == id &amp;&amp; flag[1-id]); // Spin</code></td>
+</tr>
+<tr>
+<td><strong>Exit</strong></td>
+<td><code>flag[id] = false;</code></td>
+</tr>
+</tbody>
+</table>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread 0</th>
+<th>Thread 1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>flag[0] = true;</code></td>
+<td><code>flag[1] = true;</code></td>
+</tr>
+<tr>
+<td><code>turn = 0;</code></td>
+<td><code>turn = 1;</code></td>
+</tr>
+<tr>
+<td><code>Check turn == 0 &amp;&amp; flag[1];</code></td>
+<td><code>Check turn == 1 &amp;&amp; flag[0];</code></td>
+</tr>
+</tbody>
+</table>
+<h4 class="header"><i>2.1.7</i>Kessel's single writes alg<a class="headerlink" href="#kessels-single-writes-alg" name="kessels-single-writes-alg">&para;</a></h4>
+<ul>
+<li>"Split up" turn.</li>
+</ul>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Peterson</th>
+<th>Kessel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>turn = 0</code></td>
+<td><code>turn[0] = turn[1]</code></td>
+</tr>
+<tr>
+<td><code>turn = 1</code></td>
+<td><code>turn[0] != turn[1]</code></td>
+</tr>
+</tbody>
+</table>
+<p>also add load[0], load[1]</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Phase</th>
+<th>T0</th>
+<th>T1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Enter</strong></td>
+<td><code>flag[0] = true;</code></td>
+<td><code>flag[1] = true;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>load[0] = turn[1]</code></td>
+<td><code>load[1] = turn[0]</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>turn[0] = load[0]</code></td>
+<td><code>turn[1] = load[1]</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>await(flag[1] == false or load[0] != turn[1])</code></td>
+<td><code>await(flag[0] == false or load[1] != turn[0])</code></td>
+</tr>
+</tbody>
+</table>
+<p>T0 only writes to flag[0], turn[0], load[0]. Single writer solution (a single-writer register is a register that can be written by a single process only).</p>
+<h3 class="header"><i>2.2</i>Nb: Performance and patterns<a class="headerlink" href="#nb-performance-and-patterns" name="nb-performance-and-patterns">&para;</a></h3>
+<p>[TODO: Decipher, image]</p>
+<p>What we are looking for:</p>
+<ol>
+<li>Mutual exclusion</li>
+<li>Absence of deadlock</li>
+<li>No unnecessary delay</li>
+<li>Eventual entry (starvation-free)</li>
+</ol>
+<p><strong>1</strong>, <strong>2</strong> and <strong>3</strong> concern <strong>safety</strong> whereas <strong>4</strong> concerns <strong>liveness</strong>.</p>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_09-16" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

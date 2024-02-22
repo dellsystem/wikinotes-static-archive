@@ -1,0 +1,354 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Final exam review exercises
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Final exam review exercises
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Exercises (and solutions) available on <a href="http://www.docuum.com/McGill/document/view_class/1453">Docuum</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a><ul>
+<li><a href="#part-a">1.1.1 Part (a)</a></li>
+<li><a href="#part-b-i">1.1.2 Part (b) (i)</a></li>
+<li><a href="#part-b-ii">1.1.3 Part (b) (ii)</a></li>
+<li><a href="#part-b-iii">1.1.4 Part (b) (iii)</a></li>
+<li><a href="#part-b-iv">1.1.5 Part (b) (iv)</a></li>
+<li><a href="#part-b-v">1.1.6 Part (b) (v)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#solution_1">2.1 Solution</a></li>
+<li><a href="#accuracy-and-discussion_1">2.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_2">3.1 Solution</a><ul>
+<li><a href="#part-a_1">3.1.1 Part (a)</a></li>
+<li><a href="#part-b">3.1.2 Part (b)</a></li>
+<li><a href="#part-c">3.1.3 Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_2">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_3">4.1 Solution</a><ul>
+<li><a href="#part-a_2">4.1.1 Part (a)</a></li>
+<li><a href="#part-b_1">4.1.2 Part (b)</a></li>
+<li><a href="#part-c_1">4.1.3 Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_3">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_4">5.1 Solution</a><ul>
+<li><a href="#part-a_3">5.1.1 Part (a)</a></li>
+<li><a href="#part-b_2">5.1.2 Part (b)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_4">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_5">6.1 Solution</a><ul>
+<li><a href="#part-a_4">6.1.1 Part (a)</a></li>
+<li><a href="#part-b_3">6.1.2 Part (b)</a></li>
+<li><a href="#part-c_2">6.1.3 Part (c)</a></li>
+<li><a href="#part-d">6.1.4 Part (d)</a></li>
+<li><a href="#part-e">6.1.5 Part (e)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_5">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_6">7.1 Solution</a><ul>
+<li><a href="#part-a_5">7.1.1 Part (a)</a></li>
+<li><a href="#part-b_4">7.1.2 Part (b)</a></li>
+<li><a href="#part-c_3">7.1.3 Part (c)</a></li>
+<li><a href="#part-d_1">7.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy">7.2 Accuracy</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>FPT</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Part (a)<a class="headerlink" href="#part-a" name="part-a">&para;</a></h4>
+<blockquote>
+<p>State the fixed-point theorem.</p>
+</blockquote>
+<p>ez</p>
+<h4 class="header"><i>1.1.2</i>Part (b) (i)<a class="headerlink" href="#part-b-i" name="part-b-i">&para;</a></h4>
+<blockquote>
+<p>Show fixed point of iteration</p>
+</blockquote>
+<p>ez</p>
+<h4 class="header"><i>1.1.3</i>Part (b) (ii)<a class="headerlink" href="#part-b-ii" name="part-b-ii">&para;</a></h4>
+<blockquote>
+<p>Show that it satisfies conditions</p>
+</blockquote>
+<p>ez</p>
+<h4 class="header"><i>1.1.4</i>Part (b) (iii)<a class="headerlink" href="#part-b-iii" name="part-b-iii">&para;</a></h4>
+<blockquote>
+<p>Order of convergence?</p>
+</blockquote>
+<p>Find <span>$g'$</span>, evaluate at <span>$x=x^*$</span>. If <span>$g'(x^*) = 0$</span>, it's quadratic.</p>
+<h4 class="header"><i>1.1.5</i>Part (b) (iv)<a class="headerlink" href="#part-b-iv" name="part-b-iv">&para;</a></h4>
+<blockquote>
+<p>Compute <span>$x_3$</span> given some <span>$x_0$</span></p>
+</blockquote>
+<p>ez</p>
+<h4 class="header"><i>1.1.6</i>Part (b) (v)<a class="headerlink" href="#part-b-v" name="part-b-v">&para;</a></h4>
+<blockquote>
+<p>Relative error?</p>
+</blockquote>
+<p><span>$$\frac{|x_3-x^*|}{|x^*}$$</span></p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>See solutions</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<blockquote>
+<p>Construct the table of divided diffs, etc</p>
+</blockquote>
+<p>Same as 2004 q3 (d) and 2008 q2 (d)</p>
+<h3 class="header"><i>2.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>fwd diff</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Part (a)<a class="headerlink" href="#part-a_1" name="part-a_1">&para;</a></h4>
+<blockquote>
+<p>Use Taylor series to show some formula holds</p>
+</blockquote>
+<p>Write out the expansion, rearrange terms</p>
+<h4 class="header"><i>3.1.2</i>Part (b)<a class="headerlink" href="#part-b" name="part-b">&para;</a></h4>
+<blockquote>
+<p>Use Richardson extrap to show some formula holds</p>
+</blockquote>
+<p>Replace <span>$h$</span> by <span>$h/2$</span> in the expression for <span>$f'(x_0)$</span>, and eliminate the terms aren't present in the formula we want to prove. Add/subtract expressions until you get the desired one.</p>
+<h4 class="header"><i>3.1.3</i>Part (c)<a class="headerlink" href="#part-c" name="part-c">&para;</a></h4>
+<blockquote>
+<p>Use the above to find some approximations</p>
+</blockquote>
+<p>ez</p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Part (a)<a class="headerlink" href="#part-a_2" name="part-a_2">&para;</a></h4>
+<blockquote>
+<p>Define deg of acc</p>
+</blockquote>
+<p>largest positive <span>$n$</span> such that for any poly <span>$p$</span> of degree <span>$n$</span> or less, <span>$I(p) = I_h(p)$</span></p>
+<h4 class="header"><i>4.1.2</i>Part (b)<a class="headerlink" href="#part-b_1" name="part-b_1">&para;</a></h4>
+<blockquote>
+<p>Find deg of acc</p>
+</blockquote>
+<p>Substitute the values given into the formula. Don't even need to choose an interval, just keep <span>$a$</span> and <span>$b$</span> there (though we could if we wanted). Then try <span>$x^n$</span> for all <span>$n$</span> starting from <span>$n=0$</span> and see which value of <span>$n$</span> breaks it</p>
+<h4 class="header"><i>4.1.3</i>Part (c)<a class="headerlink" href="#part-c_1" name="part-c_1">&para;</a></h4>
+<blockquote>
+<p>Find constants to max the deg of acc</p>
+</blockquote>
+<p>There are 3 constants. Try polynomials of up to degree 2 (since then we'd get a system of 3 linear equations, which is the perfect number to fully constrain the constants), so <span>$f(x) = 1$</span>, <span>$f(x) = x$</span>, and <span>$f(x) = x^2$</span>. Evaluate <span>$I(f)$</span> and <span>$I_h(f)$</span> for each <span>$f$</span>, and equate them to get an equation with the possible variables <span>$a, b, \alpha, \beta, \gamma, h$</span>. (Leave <span>$h$</span> as-is as much as you can, and try to cancel it if possible.) This gives us a nonlinear system of 3 equations. Solve it, algebraically (can't use a matrix cus not linear). It's kind of a bitch but it works out in the end.</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>Part (a)<a class="headerlink" href="#part-a_3" name="part-a_3">&para;</a></h4>
+<blockquote>
+<p>Diff between Lagrange/Hermite interp? Diff between clamped/natural cubic splines?</p>
+</blockquote>
+<p>Hermite interpolation: match the derivative of the function at the nodes, whereas with Lagrange it's just the value of the nodes.</p>
+<p>Clamped cubic spline: we impose the extra conditions and <span>$S'(x_0) = f'(x_0)$</span> and <span>$S'(x_n) = f'(x_n)$</span> (so the first deriv is the same at the endpoints). Natural cubic spline: No such condition for the first deriv, but we set the second deriv to 0 at the endpoints (so <span>$S''(x_0) = S''(x_n) = 0$</span>).</p>
+<h4 class="header"><i>5.1.2</i>Part (b)<a class="headerlink" href="#part-b_2" name="part-b_2">&para;</a></h4>
+<blockquote>
+<p>Find constants in formula for natural cubic spline</p>
+</blockquote>
+<p>Given the equation(s) for the cubic spline, take the first and second derivs, and evaluate it at the midpoints (the <span>$x$</span>-values where the equations change). We know that <span>$S_0$</span> and <span>$S_1$</span> have to agree at the first midpoint (and the first and second derivs too), and since it's a natural cubic spline, just set the second deriv to 0 at the endpoints (use the endpoint that gives you info ... one doesn't tell you anything). That is enough to uniquely determine the constants.</p>
+<p>pretty easy.</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>There's a typo in the solutions for (a) ... the two extra conditions for clamped cubic splines are actually the same condition &gt;_&gt;</p>
+<p>Also pretty sure there's a typo in the solutions for (b) as well. <span>$a$</span> should be 2, not 1, since <span>$S_0(1) = 1 + 2(1) -1^3 = 2$</span> and <span>$S_1(1) = a$</span> ... <span>$b$</span> is still <span>$-1$</span> and <span>$c$</span> is still <span>$-3$</span>, and <span>$d$</span> is still <span>$-1$</span>.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Part (a)<a class="headerlink" href="#part-a_4" name="part-a_4">&para;</a></h4>
+<blockquote>
+<p>Derive Newton's method using Taylor expansions.</p>
+</blockquote>
+<p>The Taylor expansion should be given. Drop the error term and rearrange to get <span>$x^*$</span> on the LHS:</p>
+<p><span>$$x^* = \frac{f(x^*)-f(x)}{f'(x)} + x$$</span></p>
+<p>Since <span>$x^*$</span> is a root, we should have <span>$f(x^*) \approx 0$</span>, so drop that term and rearrange again:</p>
+<p><span>$$x^* = x - \frac{f(x)}{f'(x)}$$</span></p>
+<p>Then just replace <span>$x^*$</span> by <span>$x_{n+1}$</span> and <span>$x$</span> by <span>$x_n$</span> (which makes sense if you think about it ... <span>$x^*$</span> is the true root) to get</p>
+<p><span>$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$</span></p>
+<p>which is Newton's method.</p>
+<h4 class="header"><i>6.1.2</i>Part (b)<a class="headerlink" href="#part-b_3" name="part-b_3">&para;</a></h4>
+<blockquote>
+<p>Write it as a fixed-point iteration</p>
+</blockquote>
+<p>so easy</p>
+<h4 class="header"><i>6.1.3</i>Part (c)<a class="headerlink" href="#part-c_2" name="part-c_2">&para;</a></h4>
+<blockquote>
+<p>If <span>$f'(x^*) \neq 0$</span>, show that <span>$g'(x^*) = 0$</span>.</p>
+</blockquote>
+<p>Take the first deriv of <span>$g$</span> (use the quotient rule, or, if you're like me and can never remember the quotient rule, derive it using the multiplication rule). You should get</p>
+<p><span>$$\frac{f(x)f''(x)}{[f'(x)]^2}$$</span></p>
+<p>Then, if the first deriv is non-zero, the denom is non-zero so we get a valid expression, and since <span>$f(x) = 0$</span> at <span>$x=x^*$</span> (cus root etc) then the numerator is 0 so yeah 0 all the way down</p>
+<h4 class="header"><i>6.1.4</i>Part (d)<a class="headerlink" href="#part-d" name="part-d">&para;</a></h4>
+<blockquote>
+<p>If <span>$f'(x^*) = 0$</span> but <span>$f''(x^*) \neq 0$</span>, find the limit of <span>$g'(x)$</span> as <span>$x \to x^*$</span>.</p>
+</blockquote>
+<p>The method presented in the solutions seems a bit arbitrary but let's run with it. Write <span>$f(x) = (x-x^*)^2r(x)$</span> where <span>$r(x^*) \neq 0$</span>. Take the first and second derivatives, then substitute that into the formula for <span>$g'$</span> and find the limit, etc. Not really sure where the <span>$1/2$</span> pops out from, though. If I had to actually do this question on the exam I probably wouldn't do very well. I think I'll just forego trying to understand this fully. Gotta cut your losses at some point amirite</p>
+<h4 class="header"><i>6.1.5</i>Part (e)<a class="headerlink" href="#part-e" name="part-e">&para;</a></h4>
+<blockquote>
+<p>Order of convergence?</p>
+</blockquote>
+<p>First, make sure that it converges. Then, look at the limit from the previous part. Since it's between 0 and 1 we can safely say that the order of convergence is 1 (linear)</p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>There's a typo in the question for (c) - it omits the <span>$=0$</span> from the <span>$g'(x^*) = 0$</span>. Not a big deal though. In the solution for (c), the expression for <span>$g'(x)$</span> could be more simplified, but whatever.</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Runge-Kutta</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_6" name="solution_6">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Part (a)<a class="headerlink" href="#part-a_5" name="part-a_5">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$y(t_{i+1}) = e^{h\lambda}y(t_i)$</span>.</p>
+</blockquote>
+<p>We're given that <span>$y(t) = \lambda y(t)$</span>. Hopefully you know how to solve this ODE - it's just <span>$y(t) = \alpha e^{\lambda t}$</span>. Recall that <span>$t_{i+1} = t_i + h$</span>. Then, substituting that into the expression for <span>$y(t_{i+1})$</span>:</p>
+<p><span>$$y(t_{i+1}) = \alpha e^{\lambda t_{i+1}} = \alpha e^{\lambda(t_i + h)} = \alpha e^{\lambda t_i}e^{\lambda h} = y(t_i)e^{\lambda h} = e^{h\lambda}y(t_i) \;\checkmark$$</span></p>
+<h4 class="header"><i>7.1.2</i>Part (b)<a class="headerlink" href="#part-b_4" name="part-b_4">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$y_{i+1}$</span> is equal to some expression.</p>
+</blockquote>
+<p>I don't know if there's a typo in the solution or what, but it doesn't seem to work ... there's an extra <span>$3/4h$</span> that is unaccounted for. On the other hand, if I completely ignore the provided solutions and treat the first argument to the last <span>$f$</span> as <span>$t_i$</span> instead of <span>$t_i + 2/3h$</span> then everything seems to work okay. Not sure why? Why can I just ignore that argument? Whatever.</p>
+<h4 class="header"><i>7.1.3</i>Part (c)<a class="headerlink" href="#part-c_3" name="part-c_3">&para;</a></h4>
+<blockquote>
+<p>Under what conditions on <span>$h$</span> does the limit of <span>$y_{i} = 0$</span> as <span>$i \to \infty$</span></p>
+</blockquote>
+<p>Well, <span>$y_{i+1} = \beta y_i$</span> which will converge to 0 if <span>$|\beta| &lt;1$</span>. <span>$\beta$</span> in this case is <span>$1 + h\lambda + (h\lambda)^2/2$</span>. Replace <span>$h\lambda$</span> by <span>$x$</span> and write it as a function <span>$g$</span>:</p>
+<p><span>$$g(x) = 1 + x + \frac{x^2}{2}$$</span></p>
+<p>Take the first deriv, find the zeroes of that. <span>$g$</span> has a min at <span>$x=-1$</span>, at which point it's <span>$1/2$</span>. <span>$g(x) &lt; 1$</span> when <span>$g(x) - 1&lt; 0$</span>, i.e., <span>$x(1+x/2)$</span>. This happens when <span>$x &gt; 0$</span> and <span>$1+x/2 &lt; 0$</span> (obviously not possible) and when <span>$x &lt;0$</span> and <span>$1 + x/2 &gt; 0$</span>, i.e., <span>$0 &gt; x &gt; -2$</span>. Thus <span>$0 &gt; h\lambda &gt; -2$</span>. We're given that <span>$\lambda &lt; 0$</span>, and <span>$h &gt; 0$</span> by definition, so all we need to specify is that <span>$h &lt; -2/\lambda$</span>.</p>
+<h4 class="header"><i>7.1.4</i>Part (d)<a class="headerlink" href="#part-d_1" name="part-d_1">&para;</a></h4>
+<blockquote>
+<p>Define local truncation error, prove that the given expression for it holds</p>
+</blockquote>
+<p>Local truncation error is given by</p>
+<p><span>$$\tau_{i+1}(h) = y(t_{i+1}) - y_{i+1} = y(t_{i+1}) - \left (1+h\lambda + \frac{(h\lambda)^2}{2} \right )y(t_i)$$</span></p>
+<p>Now use Taylor expansions to rewrite <span>$y(t_{i+1})$</span>, using the fact that <span>$y(t_{i+1}) = y(t_i + h)$</span>:</p>
+<p><span>$$y(t_{i+1}) = y(t_i + h) = y(t_i) + hy'(t_i) + \frac{h^2}{2}y''(t_i) + \frac{h^3}{6} y'''(\xi)$$</span></p>
+<p>Recall that <span>$y'(t) = \lambda y(t)$</span> (given as a premise). Then <span>$y''(t) = \lambda^2 y(t)$</span>, <span>$y'''(t) = \lambda^3 y(t)$</span>. Substitute those into the formula above to get</p>
+<p><span>$$y(t_{i+1}) = y(t_i) + h\lambda y(t_i) + \frac{(h\lambda)^2}{2}y(t_i) + \frac{(h\lambda)^3}{6}y(\xi) = y(t_i)\left (1 + h\lambda + \frac{(h\lambda)^2}{2}  \right ) + \frac{(h\lambda)^3}{6}y(\xi)$$</span></p>
+<p>for some <span>$\xi \in (t_i, t_{i+1})$</span>. Then, for some reason, you divide the expression for <span>$\tau$</span> I had above by <span>$h$</span> to get the true local truncation error. Why is that? Not sure. Every resource I can find tells me that my formula for LTE above is correct, and yet, it looks like dividing by <span>$h$</span> is needed for some reason. In the end, you're supposed to end up with</p>
+<p><span>$$\frac{h^2\lambda^3}{6}y(\xi)$$</span></p>
+<p>which makes sense if you somehow require dividing by <span>$h$</span>.</p>
+<h3 class="header"><i>7.2</i>Accuracy<a class="headerlink" href="#accuracy" name="accuracy">&para;</a></h3>
+<p>I like my solution for (a) better than the provided solution but I guess they're equivalent.</p>
+<p>Also, there's a typo in the question for (a). I think it's supposed to say <span>$y'(t) = f(t, y(t)) = \lambda y(t)$</span>. I actually found 3 different possible spots for the missing parenthesis that I thought were right before I realised what the correct one was. Which just goes to show how important properly closed parentheses are. Also how bad I am at math because there is only one possibility that makes sense. It's ok, I just need to pass.</p>
+<p>Probable typo for solution in (b) (there's a <span>$3/4hy_i$</span> that is completely unaccounted for in the last line).</p>
+<p>Typo for the question in (c) (missing the limit function). Also, I feel like it has to be <span>$&lt; 1$</span> not <span>$\leq 1$</span> because otherwise how does that make sense? If it were <span>$ \leq 1$</span>, wouldn't it just converge to <span>$\alpha$</span>? A definite typo in the definition of <span>$g$</span> - should be <span>$x^2/$</span> not <span>$x/2$</span>.</p>
+<p>Part (d): no idea where that <span>$h$</span> came from</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

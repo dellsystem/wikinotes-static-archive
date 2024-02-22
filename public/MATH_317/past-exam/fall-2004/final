@@ -1,0 +1,454 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2004 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2004 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><a href="http://s3.amazonaws.com/docuum/attachments/5248/Final%20Fall%202004%20-%20Humphreys.pdf">View the exam on docuum</a></p>
+<p>Under construction.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a><ul>
+<li><a href="#part-a">1.1.1 Part (a)</a></li>
+<li><a href="#part-b">1.1.2 Part (b)</a></li>
+<li><a href="#part-c">1.1.3 Part (c)</a></li>
+<li><a href="#part-d">1.1.4 Part (d)</a></li>
+<li><a href="#part-e-i">1.1.5 Part (e) (i)</a></li>
+<li><a href="#part-e-ii">1.1.6 Part (e) (ii)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion">1.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a></li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#solution_1">3.1 Solution</a><ul>
+<li><a href="#part-a_1">3.1.1 Part (a)</a></li>
+<li><a href="#part-b_1">3.1.2 Part (b)</a></li>
+<li><a href="#part-c_1">3.1.3 Part (c)</a></li>
+<li><a href="#part-d_1">3.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_1">3.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#solution_2">4.1 Solution</a><ul>
+<li><a href="#part-a_2">4.1.1 Part (a)</a></li>
+<li><a href="#part-b_2">4.1.2 Part (b)</a></li>
+<li><a href="#part-c_2">4.1.3 Part (c)</a></li>
+<li><a href="#part-d_2">4.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_2">4.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#solution_3">5.1 Solution</a><ul>
+<li><a href="#part-a_3">5.1.1 Part (a)</a></li>
+<li><a href="#part-b_3">5.1.2 Part (b)</a></li>
+<li><a href="#part-c_3">5.1.3 Part (c)</a></li>
+<li><a href="#part-d_3">5.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_3">5.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#solution_4">6.1 Solution</a><ul>
+<li><a href="#part-a_4">6.1.1 Part (a)</a></li>
+<li><a href="#part-b_4">6.1.2 Part (b)</a></li>
+<li><a href="#part-c_4">6.1.3 Part (c)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_4">6.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#solution_5">7.1 Solution</a><ul>
+<li><a href="#part-a_5">7.1.1 Part (a)</a></li>
+<li><a href="#part-b_5">7.1.2 Part (b)</a></li>
+<li><a href="#part-c_5">7.1.3 Part (c)</a></li>
+<li><a href="#part-d_4">7.1.4 Part (d)</a></li>
+</ul>
+</li>
+<li><a href="#accuracy-and-discussion_5">7.2 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<p>Newton's method</p>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>Part (a)<a class="headerlink" href="#part-a" name="part-a">&para;</a></h4>
+<blockquote>
+<p>Use a Taylor expansion to derive Newton's method.</p>
+</blockquote>
+<p>Let <span>$x = x_n$</span> and <span>$x^* = x_{n+1}$</span>. Substituting these into the Taylor expansion (ignoring the error term), we get:</p>
+<p><span>$$f(x_{n+1}) = f(x_n) + (x_{n+1} - x_n)f'(x_n) \approx 0 \tag{since $f(x_{n+1}) \approx 0$ as $n \to \infty$}$$</span></p>
+<p>Solving for <span>$x_{n+1}$</span>, we get:</p>
+<p><span>$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$$</span></p>
+<p>which is indeed Newton's method.</p>
+<h4 class="header"><i>1.1.2</i>Part (b)<a class="headerlink" href="#part-b" name="part-b">&para;</a></h4>
+<blockquote>
+<p>Write Newton's method as a fixed-point iteration</p>
+</blockquote>
+<p>We need to find a <span>$g$</span> such that we can write</p>
+<p><span>$$x_{n+1} = g(x_n)$$</span></p>
+<p>This is kind of a freebie ...</p>
+<p><span>$$g(x) = x - \frac{f(x)}{f'(x)}$$</span></p>
+<h4 class="header"><i>1.1.3</i>Part (c)<a class="headerlink" href="#part-c" name="part-c">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$g'(x^*) = 0$</span> provided <span>$f'(x^*) \neq 0$</span>.</p>
+</blockquote>
+<p>Take the derivative of <span>$g$</span>:</p>
+<p><span>$$g'(x) = \frac{f(x)f''(x)}{(f'(x))^2}$$</span></p>
+<p>As long as <span>$f'(x^*) \neq 0$</span>, then the denominator is non-zero and so the expression is valid. Since <span>$f(x^*) = 0$</span> if <span>$x^*$</span> is the root, then <span>$g(x^*) = 0$</span> (since the numerator is zero).</p>
+<p>This tells us that the fixed-point iterations will converge quadratically provided our initial guess <span>$x_0$</span> is close enough to <span>$x^*$</span> (where "close enough" means <span>$x_0$</span> is in some <span>$\delta$</span>-neighbourhood of <span>$x^*$</span>).</p>
+<h4 class="header"><i>1.1.4</i>Part (d)<a class="headerlink" href="#part-d" name="part-d">&para;</a></h4>
+<blockquote>
+<p>Find some limit for <span>$g'(x)$</span>.</p>
+</blockquote>
+<p>We're given that <span>$f'(x^*) = 0$</span> but <span>$f''(x^*) \neq 0$</span>. Thus <span>$f'(x)$</span> must be of the form <span>$f'(x) = (x-x^*)h(x)$</span> for some function <span>$h(x)$</span> (where <span>$h(x^*) \neq 0)$</span>. Then <span>$f(x) = (x-x^*)^2i(x)$</span> where <span>$i(x)$</span> is some function such that <span>$i(x^*) \neq 0$</span>. We can rewrite <span>$f'(x)$</span> in terms of <span>$i(x)$</span>: <span>$f'(x) = 2(x-x^*)i(x) + (x-x^*)^2i'(x) = (x-x^*)(2i(x) + (x-x^*)i'(x))$</span>. Then, <span>$f''(x) = 2(x-x^*)i'(x) + 2i(x) + 2(x-x^*)i'(x) + (x-x^*)^2i''(x) = 2i(x) + 4(x-x^*)i'(x) + (x-x^*)^2i''(x)$</span>. Now let's find the limit for <span>$g'(x)$</span>:</p>
+<p><span>$$\lim_{x \to x^*} g'(x) = \lim_{x \to x^*} \frac{f(x)f''(x)}{(f'(x))^2} = \text{some really long derivation} = \frac{1}{2}$$</span></p>
+<p>This tells us that the fixed-point iteration will converge linearly to <span>$x^*$</span> given <span>$x_0$</span> is close enough to <span>$x^*$</span>.</p>
+<h4 class="header"><i>1.1.5</i>Part (e) (i)<a class="headerlink" href="#part-e-i" name="part-e-i">&para;</a></h4>
+<blockquote>
+<p>Use Newton's method to compute <span>$x_5$</span> for the root of some function.</p>
+</blockquote>
+<p><span>$f(x) = x^3 - 9x^2 + 15x + 25$</span>. Since we know that <span>$x=5$</span> is one of the roots, we can rewrite this as <span>$f(x) = (x-5)(x^2-4x-5) = (x-5)(x-5)(x+1)$</span>. Also, <span>$f'(x) = 3x^2 - 18x + 15$</span>. Let <span>$x_0 = 3$</span> be our initial approximation. We can calculate subsequent approximations using the formula from part (a):</p>
+<p><span>$$\begin{align}
+x_1 &amp; = x_0 - \frac{f(x_0)}{f'(x_0)} = 3 - \frac{f(3)}{f'(3)} = 3 - \frac{16}{-12} = \frac{13}{3} \\
+x_2 &amp; = x_1 - \frac{f(x_1)}{f'(x_1)} = \frac{211}{45} \\
+x_3 &amp; \approx 4.84881749219099 \tag{got lazy} \\
+x_4 &amp; \approx 4.9253984938432955 \\
+x_5 &amp; \approx 4.9629355449998265
+\end{align}$$</span></p>
+<h4 class="header"><i>1.1.6</i>Part (e) (ii)<a class="headerlink" href="#part-e-ii" name="part-e-ii">&para;</a></h4>
+<blockquote>
+<p>What's the apparent rate of convergence?</p>
+</blockquote>
+<p>To find the apparent rate of convergence, we look at the following:</p>
+<p><span>$$\lim_{k \to \infty} \frac{|x_{k+1} - 5|}{|x_{k} - 5|}$$</span></p>
+<p>This seems to be around 0.5 so the order of convergence is 1.</p>
+<h3 class="header"><i>1.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>See q6 in the instructor-provided solutions to the final review exercises, hosted on <a href="http://www.docuum.com/McGill/document/view_class/1453">docuum</a>. Part (e) in the exercises doesn't have the "compute <span>$x_5$</span>" bit, though.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<p>Fixed-point theorem &amp; proving it. See HTSEFP for the proof.</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<p>Divided differences</p>
+<h3 class="header"><i>3.1</i>Solution<a class="headerlink" href="#solution_1" name="solution_1">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>Part (a)<a class="headerlink" href="#part-a_1" name="part-a_1">&para;</a></h4>
+<blockquote>
+<p>Define the zeroth divided differences for all <span>$j$</span>.</p>
+</blockquote>
+<p>Just <span>$f[x_j] = f(x_j)$</span>.</p>
+<h4 class="header"><i>3.1.2</i>Part (b)<a class="headerlink" href="#part-b_1" name="part-b_1">&para;</a></h4>
+<blockquote>
+<p>Describe the interpolating polynomial in Newton form.</p>
+</blockquote>
+<p>We are given the following formula for the interpolating polynomial in Newton form:</p>
+<p><span>$$p_n(x) = \sum_{j=0}^n c_j w_j(x)$$</span></p>
+<p>Our job is to define the <span>$w$</span>'s and <span>$c$</span>'s:</p>
+<ul>
+<li><span>$w_0(x) = 1$</span> </li>
+<li><span>$\displaystyle w_j(x) = \prod_{i=0}^{j-1}(x-x_i) \quad j = 1, \ldots, n$</span></li>
+<li><span>$c_j = f[x_0, x_1, \ldots, x_j] \quad j=0, 1, \ldots, n$</span></li>
+</ul>
+<h4 class="header"><i>3.1.3</i>Part (c)<a class="headerlink" href="#part-c_1" name="part-c_1">&para;</a></h4>
+<blockquote>
+<p>Assuming that <span>$f$</span> is <span>$n$</span>-times diff'able, show there exists <span>$\xi \in [x_0, x_n]$</span> such that</p>
+<p><span>$$f[x_0, \ldots, x_n] = \frac{f^{(n)}(\xi)}{n!}$$</span></p>
+</blockquote>
+<p>We define a new function <span>$g$</span> as <span>$g(x) = f(x) - p_n(x)$</span>. By the definition of the interpolating polynomial, we know that <span>$f(x_i) = p_n(x_i)$</span> for <span>$i \in 0, \ldots, n$</span>. So <span>$g(x)$</span> has <span>$n+1$</span> zeros. By the generalised version of Rolle's theorem, we know that <span>$g^{(n)}(x)$</span> has a zero, which we'll call <span>$\xi$</span>. Thus there is a <span>$\xi \in [x_0, x_n]$</span> such that <span>$g^{(n)}(\xi) = f^{(n)}(\xi) - p_n^{(n)}(\xi) = 0$</span>.</p>
+<p>Let's look more closely at <span>$p_n^{(n)}$</span>. We know that the highest-order term in <span>$p_n$</span> is <span>$x^n$</span>, which has a coefficient of <span>$f[x_0, \ldots, x_n]$</span>. Since all lower-order terms will become 0 in the <span>$n$</span><sup>th</sup> derivative, we can ignore those. Then, if we take the <span>$n$</span><sup>th</sup> of <span>$p_n$</span>, we get <span>$p_n^{(n)}(x) = n!f[x_0, \ldots, x_n]$</span>. If we substitute this into the formula for <span>$g^{(n)}(\xi)$</span>, we get:</p>
+<p><span>$$g^{(n)}(\xi) = f^{(n)}(\xi)  - n!f[x_0, \ldots, x_n] = 0$$</span></p>
+<p>and if we rearrange this, we get</p>
+<p><span>$$f[x_0, \ldots, x_n] = \frac{f^{(n)}(\xi)}{n!}$$</span></p>
+<p>exactly as desired.</p>
+<h4 class="header"><i>3.1.4</i>Part (d)<a class="headerlink" href="#part-d_1" name="part-d_1">&para;</a></h4>
+<blockquote>
+<p>Construct the table of centered differences given some values for <span>$x_i$</span> and <span>$f(x_i)$</span>.</p>
+</blockquote>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th></th>
+<th><span>$f[x_i]$</span></th>
+<th><span>$f[x_{i-1}, x_i]$</span></th>
+<th><span>$f[x_{i-2}, x_{i-1}, x_i]$</span></th>
+<th><span>$f[x_{i-3}, x_{i-2}, x_{i-1}, x]$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$x_0 = 0$</span></td>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span>$x_1 = 1$</span></td>
+<td>5</td>
+<td><span>$(5-3)/(1-0) = 2$</span></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><span>$x_2 = 2$</span></td>
+<td>9</td>
+<td><span>$(9-5)/(2-1) = 4$</span></td>
+<td><span>$(4-2)/(2-0) = 1$</span></td>
+<td></td>
+</tr>
+<tr>
+<td><span>$x_3 = 3$</span></td>
+<td>17</td>
+<td><span>$(17-9)/(3-2) = 8$</span></td>
+<td><span>$(8-4)/(3-1) = 2$</span></td>
+<td><span>$(2 - 1)/(3-0) = 1/3$</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>State the polynomial of degree 3 which interpolates at <span>$x_0, x_1, x_2, x_3$</span>.</p>
+</blockquote>
+<p>Take the coefficients from the diagonal of the table:</p>
+<p><span>$$p_3(x) = 3 + 2(x-0) + 1(x-0)(x-1) + 1/3(x-0)(x-1)(x-2) = 3+2x + x(x-1) + 1/3x(x-1)(x-2)$$</span></p>
+<blockquote>
+<p>State the polynomial of degree 2 which interpolates at <span>$x_0, x_1, x_2$</span>.</p>
+</blockquote>
+<p>Take the coefficients from one level below the diagonal:</p>
+<p><span>$$p_2(x) = 5 + 4(x-1) + 2(x-1)(x-2)$$</span></p>
+<h3 class="header"><i>3.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Same as question 2 for the Fall 2008 final. <a href="http://s3.amazonaws.com/docuum/attachments/5251/Final%202008%20Solutions.pdf">Solutions here.</a> Note that part (d) has different numbers (but the method is identical).</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<p>Forward difference approximations</p>
+<h3 class="header"><i>4.1</i>Solution<a class="headerlink" href="#solution_2" name="solution_2">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Part (a)<a class="headerlink" href="#part-a_2" name="part-a_2">&para;</a></h4>
+<blockquote>
+<p>Use the fwd diff formula with <span>$h=0.1$</span> and <span>$h=0.2$</span> to get 2 approximations for <span>$f'(0)$</span>.</p>
+</blockquote>
+<p>Free points basically ...</p>
+<p><span>$$\begin{align}
+h = 0.1: &amp; f'(0) \approx \frac{f(0+0.1) - f(0)}{0.1} = \frac{f(0.1) - f(0)}{0.1} = \frac{0.090483}{0.1} = 0.90483 \\
+h = 0.2: &amp; f'(0) \approx \frac{f(0 + 0.2) - f(0)}{0.1} = \frac{f(0.2) - f(0)}{0.2} = \frac{0.163746}{0.2} = 0.81873
+\end{align}$$</span></p>
+<h4 class="header"><i>4.1.2</i>Part (b)<a class="headerlink" href="#part-b_2" name="part-b_2">&para;</a></h4>
+<blockquote>
+<p>Using Taylor series or otherwise find the error term</p>
+</blockquote>
+<p>Using Taylor series:</p>
+<p><span>$$f(x_0 + h) = f(x_0) + hf'(x_0) + \frac{h^2}{2} f''(x_0) + \frac{h^3}{6} f'''(x_0) + \ldots$$</span></p>
+<p>Rearranging to solve for <span>$f'(x_0)$</span>, we have:</p>
+<p><span>$$f'(x_0) = \frac{f(x_0 + h) - f(x_0)}{h} - \underbrace{\left ( \frac{h^2}{2} f''(x_0) + \frac{h^3}{6} f'''(x_0) + \ldots \right )}_{\text{error terms}}$$</span></p>
+<h4 class="header"><i>4.1.3</i>Part (c)<a class="headerlink" href="#part-c_2" name="part-c_2">&para;</a></h4>
+<blockquote>
+<p>Use Richardson extrapolation to get a better approximation</p>
+</blockquote>
+<p>Replace <span>$h$</span> by <span>$h/2$</span>, do 2(2) - (1), should get <span>$\approx 0.99093$</span></p>
+<h4 class="header"><i>4.1.4</i>Part (d)<a class="headerlink" href="#part-d_2" name="part-d_2">&para;</a></h4>
+<blockquote>
+<p>State a finite formula for approximating <span>$f''(x_0)$</span>, and use it to approximate <span>$f''(0.1)$</span>.</p>
+</blockquote>
+<p><span>$$f''(x) \approx \frac{f(x+h) - 2f(x) + f(x-h)}{h^2}$$</span></p>
+<p>Let <span>$h=0.1$</span>. Then: <span>$(f(0.2) - 2f(0.1) + f(0))/0.01 = 100*(0.163746 - 2*0.090483) = -1.722$</span>.</p>
+<h3 class="header"><i>4.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Similar to q3 in the <a href="http://s3.amazonaws.com/docuum/attachments/7654/Solutions%20to%20review%20exercises.pdf">exercises</a></p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<p>Quadrature</p>
+<h3 class="header"><i>5.1</i>Solution<a class="headerlink" href="#solution_3" name="solution_3">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>Part (a)<a class="headerlink" href="#part-a_3" name="part-a_3">&para;</a></h4>
+<blockquote>
+<p>Define degree of accuracy</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.2</i>Part (b)<a class="headerlink" href="#part-b_3" name="part-b_3">&para;</a></h4>
+<blockquote>
+<p>Find deg of acc</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.3</i>Part (c)<a class="headerlink" href="#part-c_3" name="part-c_3">&para;</a></h4>
+<blockquote>
+<p>Find <span>$k$</span></p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>5.1.4</i>Part (d)<a class="headerlink" href="#part-d_3" name="part-d_3">&para;</a></h4>
+<blockquote>
+<p>Approximate <span>$\ln(2)$</span></p>
+</blockquote>
+<p>see htsefp</p>
+<h3 class="header"><i>5.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Similar to q4 in the <a href="http://s3.amazonaws.com/docuum/attachments/7654/Solutions%20to%20review%20exercises.pdf">exercises</a> (slightly different though). Also similar to q4 for <a href="http://s3.amazonaws.com/docuum/attachments/5251/Final%202008%20Solutions.pdf">fall 2008</a>.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>Simpson's rule</p>
+<h3 class="header"><i>6.1</i>Solution<a class="headerlink" href="#solution_4" name="solution_4">&para;</a></h3>
+<h4 class="header"><i>6.1.1</i>Part (a)<a class="headerlink" href="#part-a_4" name="part-a_4">&para;</a></h4>
+<blockquote>
+<p>Derive composite rule</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>6.1.2</i>Part (b)<a class="headerlink" href="#part-b_4" name="part-b_4">&para;</a></h4>
+<blockquote>
+<p>Prove error formula for composite rule</p>
+</blockquote>
+<p>see htsefp</p>
+<h4 class="header"><i>6.1.3</i>Part (c)<a class="headerlink" href="#part-c_4" name="part-c_4">&para;</a></h4>
+<blockquote>
+<p>Show that <span>$I(f) \leq I_h(f)$</span>.</p>
+</blockquote>
+<p>This whole question is so ridiculously easy. I can't believe I was actually worried for this exam<sup id="fnref:ez"><a href="#fn:ez" rel="footnote" title="This sentiment may change in 12 hours' time.">1</a></sup>. To show that <span>$I(f) \leq I_h(f)$</span>, we can just use the formula from part (b) for <span>$I(f) - I_h(f)$</span>. As long as this difference is negative, <span>$I(f) \leq I_h(f)$</span>. Well, <span>$b-a$</span> is obviously positive, and <span>$h^4$</span> is also obviously positive. So to ensure that the difference is negative, we just need <span>$f^{(4)}$</span> to be positive. Let's take a look at the fourth derivative:</p>
+<p><span>$$f'(x) = 3x^2 + \pi\cos(\pi x) \quad f''(x) = 6x - \pi^2\sin(\pi x) \quad f'''(x) = 6 - \pi^3\cos(\pi x) \quad f^{(4)}(x) = \pi^4\sin(\pi x)$$</span></p>
+<p>Consider the behaviour of <span>$\sin(\pi x)$</span> over the interval <span>$[0, 1]$</span>. (This is equivalent to the behaviour of <span>$\sin(x)$</span> over the interval <span>$[0, \pi]$</span>.) Notably, consider the fact that it's never negative at any point in this interval. So yeah, <span>$I(f) \leq I_h(f)$</span>. <span>$\blacksquare$</span></p>
+<blockquote>
+<p>Find an upper bound for the error when <span>$h = 1/10$</span>.</p>
+</blockquote>
+<p>When <span>$h=1/10$</span>, the upper bound is given by</p>
+<p><span>$$\max_{\xi \in [0, 1]} -\frac{(b-a)}{180}h^4 f^{(4)}(\xi) = -\frac{(1-0)}{180} \cdot \frac{1}{10^4} \cdot \max_{\xi \in [0, 1]} f^{(4)}(\xi) = -\frac{1}{1800000} \cdot \pi^4 \approx$</span>5.4109 \times 10^{-5}$</p>
+<p>since the max of <span>$\sin(x)$</span> in the interval is obviously 1.</p>
+<blockquote>
+<p>What value of <span>$h$</span> is required to ensure that <span>$|I(f) - I_h(f)| \leq 10^{-4}$</span>?</p>
+</blockquote>
+<p><span>$$h \leq \sqrt{\frac{10^{-4} \cdot 180}{\pi^4}}[4] \approx 0.116595$$</span></p>
+<h3 class="header"><i>6.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Identical to q5 for <a href="http://s3.amazonaws.com/docuum/attachments/5251/Final%202008%20Solutions.pdf">fall 2008</a>.</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<p>Runge-Kutta</p>
+<h3 class="header"><i>7.1</i>Solution<a class="headerlink" href="#solution_5" name="solution_5">&para;</a></h3>
+<h4 class="header"><i>7.1.1</i>Part (a)<a class="headerlink" href="#part-a_5" name="part-a_5">&para;</a></h4>
+<blockquote>
+<p>Prove something</p>
+</blockquote>
+<p>same as exercises</p>
+<h4 class="header"><i>7.1.2</i>Part (b)<a class="headerlink" href="#part-b_5" name="part-b_5">&para;</a></h4>
+<blockquote>
+<p>Prove something else</p>
+</blockquote>
+<p>ditto</p>
+<h4 class="header"><i>7.1.3</i>Part (c)<a class="headerlink" href="#part-c_5" name="part-c_5">&para;</a></h4>
+<blockquote>
+<p>Conditions on <span>$h$</span>, etc</p>
+</blockquote>
+<p>same</p>
+<h4 class="header"><i>7.1.4</i>Part (d)<a class="headerlink" href="#part-d_4" name="part-d_4">&para;</a></h4>
+<blockquote>
+<p>Define local truncation error, etc</p>
+</blockquote>
+<p>Slightly different from the one in the exercises. Define local truncation error as</p>
+<p><span>$$\tau_{i+1} = y(t_{i+1}) - w_{i+1}$$</span></p>
+<p>and use a Taylor expansion on <span>$y(t_{i+1}) = y(t_i + h)$</span>. Recall that <span>$y' = \lambda y, $</span>y'' = \lambda^2 y$, etc, and substitute those into the expansion. Should work out.</p>
+<h3 class="header"><i>7.2</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Similar to q7 for the <a href="http://s3.amazonaws.com/docuum/attachments/7654/Solutions%20to%20review%20exercises.pdf">exercises</a> and q6 for <a href="http://s3.amazonaws.com/docuum/attachments/5251/Final%202008%20Solutions.pdf">fall 2008</a>.</p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<p>Linear shooting method. Skipped cus that's not covered in fall 2013.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:ez">
+<p>This sentiment may change in 12 hours' time.&#160;<a href="#fnref:ez" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

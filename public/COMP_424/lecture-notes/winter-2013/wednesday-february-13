@@ -1,0 +1,261 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_424/">
+                COMP 424
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, February 13, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, February 13, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Bayes Networks
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <ul>
+<li>You are allowed one cheat sheet for the midterm</li>
+<li>Today's lecture is the last lecture being evaluated</li>
+</ul>
+<p>-Today's lecture is on the board<br />
+- Bayes Nets are a probabilistic graphical model<br />
+- The word probabilistic tells you that they represent some kind of probability distribution. The word graphical means they do this through a graph which is going to be annotated with some quantitative information that is going to let us talk about the probability distribution<br />
+- We've spoken about a model previously called the Naive Bayes Model. --&gt; This model looks like this:<br />
+- I have some random variable, eg: Disease, and some other random variables, e.g. symptom 1, symptom 2; the graph tells us that the disease influences these symptoms. This graph will tell us that if we have this disease, how the symptoms will be mapped out.<br />
+- This will be an acyclic directed edge graph where the arcs represent influences.<br />
+- More importantly, the lack of arcs will be equivalent to conditional independence<br />
+- In this particular case, the way the graph is interpreted is that the disease influences the symptoms but the symptoms don't affect each other<br />
+- So symptom 1 will be conditional independent given the disease<br />
+- So this graph represents a probability distribution of these variables and we will annotate it<br />
+- On each node we'll have some probability of the symptom, given the disease<br />
+- In general, this graph may be given but not the numbers<br />
+- We will later talk how to acquire the numbers from the data<br />
+- We can factorize the distribution using the graph<br />
+- We're going to write this as a product of all the probabilities in the nodes in the graph. So P(D, S1, S2....,Sn) = P(S1|D) * P(S2|D)...etc<br />
+- I can always write any joint distribution in this way using the chain rule<br />
+- But the graph tells me that I can simplify things<br />
+- So what we're doing is that for S2 you don't need to know S1 so long as you know D.<br />
+- This lack of arcs is equivalent to saying we can drop variables in the conditions.<br />
+- This basically means that we have some conditional independence relations<br />
+- Why would we want to do this kind of thing? Why is this useful?<br />
+- Consider these are binary variables. I am going to use binary distributions for all these nodes in order to represent the numbers<br />
+- So P(S1|D=0), P(S1|D=1), etc. How many numbers will I need in order to make this kind of model? O(n)<br />
+- How many numbers do we need if we assume that we have a full joint distribution, and we have binary variables so we're looking at the joint distribution of the n symptoms. O(2^n)<br />
+- If we pick a model which is simplified, we have that many fewer parameters that we need to figure out.<br />
+- The game is a simpler model, and fewer parameters<br />
+- What's the catch? The assumption may not be true.<br />
+- She might have the wrong model.<br />
+- Of course, in many cases very often conditional independent assumptions are pretty good. In many cases, we can partition our knowledge into chunks that are simpler.<br />
+- Sometimes, we make some wrong assumptions and then our model is wrong.<br />
+- Bear in mind that the assumptions and structure are very important.<br />
+- Now we're going to look at some very simple cases over 3 variables.<br />
+- That gives us a canonical set of graphs that we need to look at.<br />
+- We're going to have 3 random variables. One of them is going to be Quality of Education (Q), one of them is going Funding for University (F), and the other is going to be Your chances of getting a good job (J).<br />
+- And so, these are somewhat interconnected. I can write down different graphical models about the relationships between these variables.<br />
+F --&gt; Q --&gt; J<br />
+This is an instance of a Markov Chain.<br />
+- Now we can take this graph and annotate it<br />
+- So P(F) --&gt; we can picture some numbers<br />
+- Then we can put over the Q node a, P(Q|F), and over J P(J|Q)<br />
+- Then if I want to write the joint distribution of these variables<br />
+P(F) * P(Q|F) * P(J|Q)<br />
+- And now I can see evidence.<br />
+- Evidence means that I can observe the value of some of these random variables.<br />
+For example: I may observe that Funding = No. Then I can use the probability distribution to see what the likelihood is of getting a good job.<br />
+- This is the canonical example of a chain<br />
+- They encode an interesting conditional independence<br />
+- What this says is that F and J are independent given the variable Q<br />
+F |_|  J|Q (Symbol is like an upside down </p>
+<p>hw: Check that P(J|Q,F) = P(J|Q)</p>
+<p>Now we'll look at the V-structure.</p>
+<p>Again, we'll have 3 random variables.<br />
+First one is that a Crime has been commited (C), I'll have 2 suspects (S1, and S2)<br />
+- Either of them could have committed the crime, but they each have some chance. They didn't like the person or whatever.<br />
+- What kind of graph structure would I use to encode this kind of influence or independence.<br />
+- Have the 2 suspects as nodes feeding into crime<br />
+S1 --&gt; C<br />
+S2 --&gt; C - Looks like a V but I can't draw it properly on notepad<br />
+- We're assuming the 2 suspects are independent --&gt; this may be wrong<br />
+- There may be some other random variable: Like a mafia boss (Feeding into S1 and S2) that ordered the 2. But this is all we have so far.<br />
+- Suppose that a crime has been committed and the police have done interviews and S1 has a really good alibi.<br />
+- The probability of S1 will go down, which automatically means the probability of S2 will automatically go up. They're not independent anymore.<br />
+- So this is another time point<br />
+- We got an interesting reasoning pattern called: Explaining away<br />
+- Explaining away means that if I have evidence for the value of one those variables, that's going to influence the probability of the other variable; even though they were initially independent<br />
+- It's a good reasoning patterns for all kinds of faults, including debugging<br />
+- This kind of computation is happening at query answering<br />
+- This is important in Bioinformatics gene networks<br />
+- For any kind of graph now, I can think of writing it down in this way.<br />
+- For example, I could have a program which is a random variable and I could have a test on the program which might fail or succeed<br />
+- This program is perhaps written by two people on the fail. Human1 and Human2.<br />
+- Tests can either Pass or Fail.<br />
+- I want to know things like: Given H1 which is a good programmer or Given H2 which is a bad programmer, what is the probability tha the test is going to succeed?<br />
+- Or I may want to do another kind of reasoning which is what the probability that H1 is a good programmer given that I tested the program and failed.<br />
+- We need the things we observed, and what influence the variable will have on others.<br />
+- In the first case we have two programmers, there's some a priori probability that they're good. I can look at the program and then the program influences the outcome of the test.<br />
+H1 ---&gt; P<br />
+H2 ---&gt; P<br />
+P ---&gt; T</p>
+<p>I can make this more complicated. For example, it's not just the program that influences a Test but the data.<br />
+- When I make a graph, this automatically tells us our probability distribution.<br />
+For example P(T|P)<br />
+P(P|H1, H2)<br />
+- I'm assuming I can factorize over this and this gives us the distribution for the whole set of random variables.<br />
+- Now suppose that I want to answer queries. I'm going to ask something like: What is the probability of H1 having some particular value given that the test fails?<br />
+- How do I do this? I can go through the joint probability distribution.<br />
+So<br />
+P(H1 = G| T = F) = P(H1 = G, T = F) / P(T = F)<br />
+- We know the term on the bottom happened, so we're going to focus on the term on top.<br />
+- If I were to write this in terms of joint prob distribution of all the variables, that I know. I can write the term as<br />
+the sum of all possible values of H2 times the sum of all possible values of P P(H1 = G, H2, P, T = F).<br />
+- H2 and P aren't evidence or query variables. In statistics they're called nuisance variables.<br />
+- The way we get rid of themm is by the operation called "Summing Up"<br />
+- Then we're left with the thing we actually want.<br />
+- Here we have discrete values so we can do sums. Continuous values are expensive, we won't worry about them for now. This is going to be the marginal probability of these two variables.<br />
+- The interesting thing is we know how to obtain the joint. Factorization.<br />
+P(H1) * P(H2) * P(P|H1 = G, H2)<em>P(T=F|P)<br />
+- This is specified by the graph structure<br />
+- Now we have this structure but if I tried to do this kind of reasoning, how many operations am I going to have to do for these sums?<br />
+- k ^number of nuisance variables<br />
+- Notice, that not all factors depend on everything.<br />
+- Some factors may depend on some of the variables. Not all of the variables. I don't need to compute all these big factors.<br />
+- I can take these sums and distribute them over the multiplications in order to compute them quicker in different parts of the Net.<br />
+- In this case,<br />
+Sum over H2(Sum over P(P(H1 = G)</em>P(H2)<em>P(P|H1, H2) </em>P(T|P)))<br />
+First of all P(H1 = G) is a constant, so it can be pulled out. Then there are sums that don't depend on P and we can pull them out and then put the sum in.<br />
+So P(H1 = G) * Sum over H2(P(H2)) * sum over P(P(P|H1,H2)<em> etc<br />
+- You can marginilize further through Variable elimination<br />
+- This is an algorithm which will always let you compute exactly the right answer using your graph<br />
+- But given the structure of the graph and how smart you are in eliminating it may be significantly cheaper.<br />
+- Say<br />
+a = (A) --&gt; (B) --&gt; (C) --&gt; (D)<br />
+I could think of doing these sums over D and over C, but first i can sum out the things I don't care about.<br />
+- I can take out the terms P(A)</em>P(B|A) * P(C|B) and can sum over what has to do with B first.<br />
+If I do this kind of sum, what I end up with is a term that tells you the probability of C given what I had in A.<br />
+- P(C|A) depends only on the numbers in C.<br />
+- She's explaining this a bit poorly. I am REALLY confused. Find stuff online.<br />
+- In the worst case: Variable elimination has no computational benefit.<br />
+- Best case, you can go from exponential to roughly linear.<br />
+- On the average, it tends to help but it's not really enough for big graphs.<br />
+- For big graphs we're going to need a better tool. <br />
+- Let's consider a larger graph<br />
+(A) --&gt; (D)<br />
+(B) --&gt; (D)<br />
+(D) --&gt; (Z)<br />
+(C) ---&gt; (Z)<br />
+(Z) = e<br />
+(Z) --_&gt; (F)<br />
+(Z) ---&gt; (G)<br />
+(G) ---&gt; (H)<br />
+- What can we ignore?<br />
+- We're not interested in indirect influences. (Z) has happened. Everything that influences (Z) doesn't impact what may happen in (H) anymore.<br />
+- It blocks flow of information from its parents to its children.<br />
+- If I didn't know (Z), do I care about (F)? If I observed (Z)'s value, I won't care about (F). But if I didn't (F) may be influencing (Z).<br />
+- The question is: Given the evidence, which conditional independencies are implied by a graph?<br />
+- A related question is: if I want to determine the value of some particular node, and by value I mean some probability distribution, what other nodes do I need to know?<br />
+- The first question is useful when I try to think of the computational aspect.<br />
+- The second question is an experimental design question.<br />
+- Which nodes do I need to probe in order to find the values?<br />
+- We're going to start with the second question because it's easier and more intuitive.<br />
+- Suppose we're in a Bayes net and maybe you have children and maybe you don't, which nodes influence you?<br />
+- Stop caring.<br />
+- V-structures introduce complexity into these models. If I have information going in, information will get reflected to everybody else.<br />
+- Wrap Up: The base cases that are interesting are the markov chain, naive base and the v-structure.<br />
+- In the Markov chain if I have evidence, this blocks the flow of information. <br />
+- In the naive base case, if I have evidence that blocks the flow of information.<br />
+- The v-structure is the only case where it's the other way around. If I have a value that allows the flow of generation. </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

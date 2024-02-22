@@ -1,0 +1,1100 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_204/">
+                MATH 204
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course Review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course Review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#testing-hypotheses-about-population-means">1 Testing hypotheses about population means</a></li>
+<li><a href="#testing-hypothesis-about-a-single-variance">2 Testing hypothesis about a single variance</a></li>
+<li><a href="#experimental-design-and-analysis-of-variance">3 Experimental Design and Analysis of Variance</a><ul>
+<li><a href="#definitions">3.1 Definitions</a></li>
+<li><a href="#completely-randomized-designs">3.2 Completely randomized designs</a></li>
+<li><a href="#the-anova-table">3.3 The ANOVA table</a></li>
+<li><a href="#comparing-multiple-means">3.4 Comparing multiple means</a></li>
+<li><a href="#randomized-block-designs-and-two-way-anova">3.5 Randomized block designs and two-way ANOVA</a><ul>
+<li><a href="#the-two-way-anova-table">3.5.1 The Two-Way ANOVA table</a></li>
+</ul>
+</li>
+<li><a href="#factorial-experiments-and-two-way-anova">3.6 Factorial experiments and two-way ANOVA</a></li>
+</ul>
+</li>
+<li><a href="#regression">4 Regression</a><ul>
+<li><a href="#simple-linear-regression-model">4.1 Simple linear regression model</a></li>
+<li><a href="#hypothesis-testing">4.2 Hypothesis Testing</a></li>
+<li><a href="#correlation">4.3 Correlation</a></li>
+<li><a href="#two-kinds-of-prediction">4.4 Two kinds of prediction</a></li>
+</ul>
+</li>
+<li><a href="#multiple-regression">5 Multiple Regression</a><ul>
+<li><a href="#what-is-linear">5.1 What is linear?</a></li>
+<li><a href="#interpreting-the-multiple-linear-regression-model">5.2 Interpreting the multiple linear regression model</a></li>
+<li><a href="#single-hypothesis-tests">5.3 Single Hypothesis tests</a></li>
+<li><a href="#measuring-the-fit-of-the-model">5.4 Measuring the fit of the model</a></li>
+<li><a href="#testing-the-global-fit">5.5 Testing the global fit</a></li>
+<li><a href="#prediction-and-confidence-intervals-for-future-values">5.6 Prediction and confidence intervals for future values</a></li>
+<li><a href="#interactions">5.7 Interactions</a></li>
+<li><a href="#polynomial-regression">5.8 Polynomial Regression</a></li>
+<li><a href="#using-qualitative-variables-in-regression-models">5.9 Using qualitative variables in regression models</a></li>
+<li><a href="#using-qualitative-and-quantitative-variables-together-in-perfect-harmony">5.10 Using qualitative and quantitative variables together in perfect harmony</a></li>
+<li><a href="#comparing-nested-models">5.11 Comparing Nested Models</a></li>
+<li><a href="#stepwise-regression">5.12 Stepwise regression</a></li>
+<li><a href="#residual-analysis">5.13 Residual analysis</a></li>
+<li><a href="#other-issues-in-multiple-regression">5.14 Other issues in multiple regression</a></li>
+</ul>
+</li>
+<li><a href="#categorical-data">6 Categorical data</a><ul>
+<li><a href="#the-multinomial-distribution">6.1 The multinomial distribution</a></li>
+<li><a href="#hypotheses">6.2 Hypotheses</a></li>
+<li><a href="#contingency-tables">6.3 Contingency tables</a></li>
+<li><a href="#independence">6.4 Independence</a></li>
+<li><a href="#issues-with-the-chi-square-test">6.5 Issues with the chi-square test</a></li>
+</ul>
+</li>
+<li><a href="#non-parametric-statistics">7 Non-parametric statistics</a><ul>
+<li><a href="#two-sample-shift-model">7.1 Two sample shift model</a></li>
+<li><a href="#wilcoxon-paired-rank-sum-test-for-matched-pairs">7.2 Wilcoxon Paired Rank Sum test for matched pairs</a></li>
+<li><a href="#wilcoxon-rank-sum-test-for-independent-random-samples">7.3 Wilcoxon rank sum test for independent random samples</a></li>
+<li><a href="#kruskal-wallis-test">7.4 Kruskal-Wallis test</a></li>
+<li><a href="#friedman-fr-test-for-randomized-blocks">7.5 Friedman Fr-test for randomized blocks</a></li>
+<li><a href="#spearman-rank-correlation">7.6 Spearman rank correlation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Testing hypotheses about population means<a class="headerlink" href="#testing-hypotheses-about-population-means" name="testing-hypotheses-about-population-means">&para;</a></h2>
+<p>Hypothesis testing about the real mean of a sample:</p>
+<p><span>$$Z = \frac{\bar{X}-\mu_0}{S/\sqrt{n}}$$</span></p>
+<p>Use T instead Z if there are less than 30 samples<br />
+Assumptions: Data sampled independently and identically distributed, data are drawn from a normal distribution</p>
+<p>Testing if two samples have the same proportion:<br />
+<span>$$p = \frac{n_1p_1 + n_2p_2}{n_1+n_2}$$</span><br />
+<span>$$Z = \frac{p_1-p_2}{\sqrt{pq/n_1 + pq/n_2}}$$</span></p>
+<p>Testing if two dependent samples have the same mean:<br />
+<span>$$Z = \frac{\bar{X}_D-\mu_0}{S_D/\sqrt{n_D}}$$</span></p>
+<p>Testing if two independent samples have the same mean:<br />
+<span>$$Z = \frac{\bar{X}_A-\bar{X}_B-\mu_0}{\sqrt{S^2_A/n_A+S^2_B/n_B}}$$</span></p>
+<p>Testing if two independent small pooled samples have the same mean:</p>
+<p><span>$$Z = \frac{\bar{X}_A-\bar{X}_B-\mu_0}{\sqrt{S^2_P/n_A+S^2_P/n_B}}$$</span><br />
+<span>$$S^2_p = \frac{(n_A-1)s^2_A+(n_B-1)s^2_B}{n_A+n_B-2}$$</span></p>
+<p>Testing about the real proportion of one sample:<br />
+<span>$$Z = \frac{p-p_0}{\sqrt{p_0q_0/n}}$$</span></p>
+<p>Two samples with small n but assume same pop. variance:<br />
+<span>$$s^2_p=\frac{(n_A-1)s^2_A+(n_B-1)s^2_B}{n_A+n_B-2}$$</span><br />
+<span>$$df = n_A+n_B-2$$</span></p>
+<p>When describing, always list assumptions:</p>
+<ul>
+<li>Large: Independent, identically distributed, large n for CLT to be valid</li>
+<li>Small: Independent, identically distributed, population is normally distributed</li>
+</ul>
+<h2 class="header"><i>2</i>Testing hypothesis about a single variance<a class="headerlink" href="#testing-hypothesis-about-a-single-variance" name="testing-hypothesis-about-a-single-variance">&para;</a></h2>
+<p>Testing the real standard dev of a sample:<br />
+<span>$$W=\frac{(n-1)S^2}{\sigma^2_0}$$</span><br />
+W is distributed under a chi-square distribution with <span>$n-1$</span> degrees of freedom</p>
+<p>Assumptions: </p>
+<ul>
+<li>Random sample from target population</li>
+<li>The population is normally distributed -&gt; very important</li>
+</ul>
+<p>Testing if two population variances are the same:<br />
+<span>$$F= \frac{S^2_1}{S^2_2}$$</span><br />
+If F is close to 1, then they're obviously the same. F is distributed under an F-distribution with <span>$n_1 -1$</span> and <span>$n_2 -1$</span> degrees of freedom.<br />
+We should be sure that the two groups are normally distributed</p>
+<h2 class="header"><i>3</i>Experimental Design and Analysis of Variance<a class="headerlink" href="#experimental-design-and-analysis-of-variance" name="experimental-design-and-analysis-of-variance">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<dl>
+<dt>Response variable</dt>
+<dd>Dependent variable, random and out of our control</dd>
+<dt>Factor variable</dt>
+<dd>Independent variable/covariates, we can control it, can be quantitative or qualitative</dd>
+<dt>Factor levels</dt>
+<dd>Possible values of the factors</dd>
+<dt>Treatments</dt>
+<dd>If there is only a single factor, the different levels of that factor is called treatments. If there are multiple factors, combinations of factors and their levels are the treatements</dd>
+<dt>Experimental units</dt>
+<dd>Objects on which the response and factor variables are observed</dd>
+<dt>Designed experiment</dt>
+<dd>The experimenter could control the assignment of treatments to experimental units</dd>
+<dt>Observational experiment/study</dt>
+<dd>The experimenter can only observe</dd>
+</dl>
+<h3 class="header"><i>3.2</i>Completely randomized designs<a class="headerlink" href="#completely-randomized-designs" name="completely-randomized-designs">&para;</a></h3>
+<p>We want to examine qualitative factor variable vs quantitative response variable. </p>
+<p>We have discrete levels of the factor variable, for each level it has a mean corresponding to that level.</p>
+<p>If there's no association between the factor/response, it means the means would all be the same: <span>$\mu_1 = \mu_2 = \mu_3 ... = \mu_k$</span>, if any <span>$\mu_i$</span> is different, then these two variables are dependent</p>
+<p>Therefore <span>$H_0: \mu_1 = \mu_2 = \mu_3 ... = \mu_k$</span></p>
+<p>We assign experimental units <em>randomly</em> to the treatments. =&gt; completely randomized design</p>
+<p>If K=2, then it would be a 2 sample means test, but with K &gt; 2 it is more complicated.</p>
+<p>We assume the variances of the response are the same for each treatment AND the response is normally distributed.</p>
+<p>If we let <span>$Y_k$</span> be the mean of the response in the Kth treatment group, and if <span>$H_0$</span> is true, then the response variables are distributed under <span>$N(\sigma, \mu)$</span>. But if <span>$H_0$</span> is true, we can estimate <span>$\mu$</span> by averaging ALL observations, and that mean should be close to <span>$Y_k$</span></p>
+<p>One way to measure how close each <span>$Y_k$</span> is to the mean is looking at the sum of the squared deviations from the overall mean, weighted by the number of observations in each group:</p>
+<p><span>$$SST = \sum_{k=1}^K n_k(Y_k - \hat Y)^2$$</span></p>
+<p>This gives us an overall measure of how far the means are from the overall mean.</p>
+<p>To simplify, assume <span>$n_1 = n_2 ... = n_k = m$</span>, so we have mK total experimental units. Because experimental units are independently allocated to groups, <span>$Y_j$</span> is independent from <span>$Y_k$</span><br />
+Therefore we can calculate the sample variance of <span>$Y_k$</span>:<br />
+<span>$$\frac{\Sigma_{k=1}^{k}(Y_k-\hat Y)^2}{K-1}$$</span><br />
+If we multiply by m, we get <span>$MST = \frac{SST}{K-1}$</span>, we can use MST to estimate the population variance if <span>$H_0$</span> is true, but we don't know <span>$\sigma^2$</span></p>
+<p>If we estimate <span>$\sigma^2$</span> within EACH treatment group, it would be<br />
+<span>$$s_k^2 = \frac{\sigma_{i=k}^{n_k}(Y_{ij}-Y_k)^2}{n_k-1}$$</span><br />
+This is always true, we can combine ALL the <span>$s_k^2$</span> together to estimate the common <span>$\sigma^2$</span>, like the pooled two-sample t-test, we just generalize it to K samples<br />
+<span>$$SSE = \sum_{k=1}^K\sum_{i=1}^{n_k}(Y_{ij} - Y_k)^2$$</span><br />
+<span>$$s_p^2 = MSE = \frac{SSE}{n-K}$$</span><br />
+This will be valid whether <span>$H_0$</span> is true or not.</p>
+<p>Now we can just compare those two estimators by taking a ratio of those two:<br />
+<span>$$F=\frac{MST}{MSE}$$</span><br />
+If <span>$H_0$</span> is true, then they should have a ratio of close to 1.<br />
+IF <span>$H_0$</span> is not true, then MST will be <em>too large</em> on average, so we only reject for large values of F<br />
+F has <span>$K - 1$</span> and <span>$n - K$</span> degrees of freedom.</p>
+<h3 class="header"><i>3.3</i>The ANOVA table<a class="headerlink" href="#the-anova-table" name="the-anova-table">&para;</a></h3>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+<th>p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$K-1$</span></td>
+<td><span>$SST$</span></td>
+<td><span>$MST=\frac{SST}{K-1}$</span></td>
+<td><span>$\frac{MST}{MSE}$</span></td>
+<td>Pr(F* &gt; F)</td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-K$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE=\frac{SST}{K-1}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<p><span>$$TSS = \Sigma_{k=1}^K\Sigma_{i=1}^{n_k}(Y_{ij} - Y)^2 = (n-1)s^2$$</span></p>
+<p>The R command is </p>
+<div class="codehilite"><pre>model = aov(response~factor)
+summary(model)
+</pre></div>
+
+
+<p>We can assess normality by looking at the deviations of each group from their sample means(these deviations are called <em>residuals</em>)</p>
+<h3 class="header"><i>3.4</i>Comparing multiple means<a class="headerlink" href="#comparing-multiple-means" name="comparing-multiple-means">&para;</a></h3>
+<p>ANOVA only detects when one mean is different amongs the treatment groups.</p>
+<p>If there are <span>$K$</span> treatment means, then there are <span>$K(K-1)/2$</span> pairwise comparisons</p>
+<p>If <span>$K = 2$</span> then it's EZ, if we have <span>$n_1$</span> samples from group 1 and <span>$n_2$</span> samples from group 2, and we assume:</p>
+<ul>
+<li>Equal variances </li>
+<li>Normality of the outcome variable</li>
+</ul>
+<p>Then we can construct a <span>$100(1-\alpha)%$</span> confidence interval based on:<br />
+<span>$$y_1 - y_2 \pm t_{\alpha/2,n_1+n_2-2}\sqrt{\frac{s^2_p}{n_1}+\frac{s^2_p}{n_2}}$$</span></p>
+<p>We can use the above equation to compute a confidence interval for any 2 groups i,j.</p>
+<p>We use MSE for a good estimator of <span>$s^2_p$</span> because the usual ANOVA assumption is that the variances within each treatment group are approximately equal. Thus the confidence interval is:<br />
+<span>$$y_1-y_2\pm t_{\alpha/2,n-K}\sqrt{\frac{MSE}{n_i}+\frac{MSE}{n_j}}$$</span></p>
+<blockquote>
+<p>Note: it now has <span>$n - K$</span> degrees of freedom rather than <span>$n_1+n_2-2$</span>.</p>
+</blockquote>
+<p>If we can compute <span>$100(1-\alpha)%$</span> confidence intervals for each pair... we can calculate the probability that at least one interval would not contain the true difference.<br />
+The probability of at least one interval NOT containing the true difference will be 1 minus the probability of ALL the intervals containing the true difference:</p>
+<p>Thus it is <span>$1-(1-\alpha)^{K(K+1)/2}$</span></p>
+<p>We can control for multiple comparisons for various kinds of statistical models:</p>
+<ul>
+<li>The Bonferroni method</li>
+<li>Tukey's Honest Significant Differences (HSD) method</li>
+<li>Scheffe's method for contrasts</li>
+</ul>
+<p><strong>The Bonferroni method</strong> is the most conservative and the most general.</p>
+<p>Recall: Pr(At least one wrong interval) = <span>$1-(1-\alpha)^{K(K+1)/2}$</span></p>
+<p>It can be shown that <span>$1-(1-\alpha)^{K(K+1)/2} = \alpha K(K+1)/2$</span>. Thus if we should divide <span>$\alpha$</span> by <span>$K(K+1)/2$</span> for an experimentwise error of <span>$\alpha$</span></p>
+<p>Bonferroni can be overly conservative because our intervals are not independent. Bonferroni will give us MORE confidence than we think.</p>
+<p>Tukey's HSD uses the fact that the groups are sampled independently to find the distribution of ranked sample means.Tukey's HSD restricts all groups to the same size, and it is only useful when making pairwise comparisons.</p>
+<p>Scheffe's method applied to ANOVA is a more general method that allows us to calculate confidence intervals for linear combinations of population means. </p>
+<h3 class="header"><i>3.5</i>Randomized block designs and two-way ANOVA<a class="headerlink" href="#randomized-block-designs-and-two-way-anova" name="randomized-block-designs-and-two-way-anova">&para;</a></h3>
+<p>For one-way ANOVA, the model was:<br />
+<span>$$Y_{ij} = \mu + \tau_i + \epsilon_{ij}$$</span><br />
+<span>$\epsilon_{ij}$</span> are uncorrelated(independent), and <span>$\mu + \tau_i = \mu_j$</span></p>
+<p>We restrict that the sum of all <span>$\tau$</span> is 0, and <span>$\tau_i$</span> represent treatment level contrasts about the overall mean of the data.<br />
+That means <span>$H_0 : \mu_i = \mu_j$</span> is equivalent to <span>$H_0 : \tau_i = \tau_j = 0$</span>. Thus <span>$H_a$</span> would be <span>$H_a : \tau_i \neq 0$</span>. </p>
+<p>We assume <span>$\epsilon_{ij}$</span> are normally distributed.</p>
+<dl>
+<dt>Block</dt>
+<dd>a group of experimental units that, together, receives all levels of treatment exactly once</dd>
+<dt>Randomized block design</dt>
+<dd>when the treatments are randomly assigned to the units in each block</dd>
+</dl>
+<p>If B is the number of blocks and K is the number of treatments, then we have <span>$B \times K$</span> total observations. We want experimental units within the same block to be as homogeneous as possible. We also want the order of the treatments to be randomly assigned to each subject.<br />
+If there are 5 treatments, ideally we want 5! blocks for all possible orderings, if we can't get that many, we can use a <em>Latin Square design</em> where each treatment appears one time for each order, thus reducing it to 5 blocks.</p>
+<p>The real goal is to choose blocks which are as similar as possible, so any differences between experimental units within a block are due only to the treatments.</p>
+<p>Suppose we have B blocks and K treatments<br />
+<span>$$Y_{ij} = \mu + \tau_i + \beta_j + \epsilon_{ij}$$</span><br />
+<span>$Y_{ij}$</span> is the observation on treatment i in block j,</p>
+<p><span>$\mu$</span> is the overall mean</p>
+<p><span>$\tau_i$</span> is the non random effect of treatment i with the sum of all <span>$\tau$</span> = 0</p>
+<p><span>$\beta_j$</span> is the non random effect of block j where the sum is 0</p>
+<p><span>$\epsilon_{ij}$</span> is the random error term where it's distributed under <span>$N(0,\sigma^2)$</span>.</p>
+<p>We have two factors now, the factor of interest with K treatments, and the blocking factor with B levels.</p>
+<p>If all <span>$\tau$</span> and all <span>$\beta$</span> are constant, then it is a <em>fixed block effect model</em>.</p>
+<p>They are not fixed though, they are random variables, so they are uncorrelated with <span>$\epsilon_{ij}$</span>. This model is called <em>random block effect model</em>.</p>
+<p>We decompose the total sum of squares into components.</p>
+<p>We now have a sums of squares due to differences in means between treatments and differences in means between blocks. Thus:<br />
+<span>$$TSS = \sum_{i=1}^K\sum_{j=1}^B(Y_{ij}-Y)^2$$</span><br />
+<span>$$SST = B\sum_{i=1}^K(Y_{i-} - Y)^2$$</span><br />
+<span>$$SSB = K\sum_{j=1}^B(Y_{-j}-Y)^2$$</span><br />
+<span>$$SSE = TSS - SSB - SST = \sum_{i_1}^{K}\sum_{j=1}^{B}(Y_{ij}-Y_{i-}-Y_{-j}+Y)^2$$</span><br />
+where <span>$Y_{i-}$</span> is the mean for the ith treatment, averaged over blocks, and <span>$Y_{-j}$</span> is the mean for the jth block, averaged over all treatments, and <span>$Y$</span> is the overall mean of the <span>$n = B \times K$</span> treatments</p>
+<h4 class="header"><i>3.5.1</i>The Two-Way ANOVA table<a class="headerlink" href="#the-two-way-anova-table" name="the-two-way-anova-table">&para;</a></h4>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Treatments</td>
+<td><span>$K-1$</span></td>
+<td><span>$SST$</span></td>
+<td><span>$MST=\frac{SST}{K-1}$</span></td>
+<td><span>$\frac{MST}{MSE}$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Blocks</td>
+<td><span>$B-1$</span></td>
+<td><span>$SSB$</span></td>
+<td><span>$MSB=\frac{SSB}{B-1}$</span></td>
+<td><span>$\frac{MSB}{MSE}$</span></td>
+<td></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-K-B+1$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE=\frac{SSE}{n-K-B+1}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<p>One can perform F-tests for both <span>$H_0 : \tau_i = 0$</span> and <span>$H_0 : \beta_i = 0$</span> using the two F-statistics. All degrees of freedom must add up to n-1</p>
+<p>You can do this in R:</p>
+<div class="codehilite"><pre>model = aov(response~factor+block)
+summary(model)
+</pre></div>
+
+
+<h3 class="header"><i>3.6</i>Factorial experiments and two-way ANOVA<a class="headerlink" href="#factorial-experiments-and-two-way-anova" name="factorial-experiments-and-two-way-anova">&para;</a></h3>
+<p>Suppose we have two factor variables of interest. If the association of one factor(A) with the response depends on the level of a second factor(B), we say that A interacts with B or B interacts with A.</p>
+<p>In order to test the interaction of two factor variables and their association with the response variable, we need to use a complete factorial experiment</p>
+<dl>
+<dt>Complete factorial experiment</dt>
+<dd>a factorial experiment in which every factor-level combination is used</dd>
+</dl>
+<p>If there are two factors, A with  K levels and B with J levels, then we need observations at each of the <span>$K \times J$</span> combinations of the different levels.</p>
+<p>We assume that that the factorial is balanced - same number of experimental units (R) for each of the <span>$K \times J$</span> factor combinations.</p>
+<p>We will assume there are n = <span>$R \times K \times J$</span> total experimental units.</p>
+<p>The statistical model will be:<br />
+<span>$$Y_{ijr} = \mu + \alpha_i + \beta_i + \tau_{ij} + \epsilon_{ijr}$$</span><br />
+where<br />
+<span>$Y_{ijr}$</span> is the r-th observation at level i of factor A and level j of factor B</p>
+<p><span>$\mu$</span> is the overall mean</p>
+<p><span>$\alpha_i$</span> is the non random main effect of factor A at level i, with sum of zero</p>
+<p><span>$\beta_j$</span> is the non random main effect of factor B at level j, with sum of zero</p>
+<p><span>$\tau_{ij}$</span> is the non random interaction effect of levels i and j and the sum of zero</p>
+<p><span>$\epsilon_{ijr}$</span> is the random error terms distributed under $N(0,\sigma^2)</p>
+<p>If two factors interact, it means the association of each factor with the outcome depends on the other factor.<br />
+As long as <span>$\tau_{ij} \neq 0$</span> for any i or j, there is an interaction.</p>
+<p>Once there is an interaction, the main effects can't be interpreted any more, since the association always depends of the other factor.</p>
+<p>We can think of each combination of factor levels as a different group. Each treatment has the same mean, thus for each treatment, we can estimate <span>$\sigma^2$</span> by:<br />
+<span>$$s_{ij}^2 = \frac{1}{R-1}\sigma^2_{r=1}(Y_{ijr} - \bar Y_{ij-})^2$$</span><br />
+<span>$\bar Y_{ij-}$</span> is the mean of the i,j-th treatment group. But we assume the variance is the same in each treatment, so a pooled estimate would be better.</p>
+<p><span>$$SSE = \sum_{i=1}^{K}\sum_{j=1}^{J}\sum_{r=1}^{R}(Y_{ijr} - Y_{ij-})^2$$</span><br />
+<span>$$MSE = \frac{SSE}{n-KJ}$$</span></p>
+<p><span>$$SST = R\sum_{i=1}^{K}\sum_{j=1}^{J}(Y_{ij-}-Y)^2$$</span><br />
+<span>$$MST = \frac{SST}{JK-1}$$</span></p>
+<p>We can do this in R:</p>
+<div class="codehilite"><pre>model = aov(response~factor1:factor2)
+summary(model)
+</pre></div>
+
+
+<p>If the result is statistically significant, we need to decompose the treatment sums of square into their individual pieces to figure out what the differences are caused by(could be either of the two factors or their association)</p>
+<p>We can take the sums of squares due to treatment(SST) and decompose these into three sources: corresponding to <span>$\alpha_i$</span>, <span>$\beta_j$</span>, or <span>$\tau_{ij}$</span></p>
+<p><span>$$SS(A) = RJ\sum_{i=1}^{K}(\bar y_{i--} - \bar y_{---})^2$$</span><br />
+<span>$$MS(A) = \frac{SS(A)}{K-1}$$</span><br />
+<span>$$SS(B) = RK\sum_{j=1}^{J}(\bar y_{-j-} - \bar y_{---})^2$$</span><br />
+<span>$$MS(B) = \frac{SS(B)}{J-1}$$</span><br />
+<span>$$SS(AB) = R\sum_{j=1}^J\sum_{i=1}^{K}(\bar y_{ij-} - \bar y_{i--} - \bar y_{-j-} + \bar y_{---})^2$$</span><br />
+<span>$$MS(AB) = \frac{SS(AB)}{KJ-J-K+1}$$</span></p>
+<p>First test is always test for interaction, then the tests for A/B are meaningless if interaction exists.</p>
+<p>null hypothesis of no interaction is: <span>$H_0(AB) : \tau_{ij} = 0$</span>, under <span>$H_0(AB)$</span>:<br />
+<span>$$F_{AB} = \frac{MS(AB)}{MSE}$$</span><br />
+with <span>$KJ-J-K+1$</span> and <span>$n-JK$</span> degrees of freedom. </p>
+<p>If we reject <span>$H_0$</span> for interaction, then we're done, if we don't, we have to test both factors for association with the response.<br />
+<span>$$F_A = \frac{MS(A)}{MSE}$$</span><br />
+with <span>$K-1$</span> and <span>$n-JK$</span> degrees of freedom, where there are K levels of factor A, same with B except with J.<br />
+We can reject for both, but still no association, or fail to reject both, and fail to reject association either.</p>
+<p>We can organize this into another ANOVA table:</p>
+<table class="clear">
+<thead>
+<tr>
+<th>Source</th>
+<th>df</th>
+<th>SS</th>
+<th>MS</th>
+<th>F</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$A$</span></td>
+<td><span>$K-1$</span></td>
+<td><span>$SS(A)$</span></td>
+<td><span>$MS(A)=\frac{SS(A)}{K-1}$</span></td>
+<td><span>$\frac{MS(A)}{MSE}$</span></td>
+</tr>
+<tr>
+<td><span>$B$</span></td>
+<td><span>$J-1$</span></td>
+<td><span>$SS(B)$</span></td>
+<td><span>$MS(B)=\frac{SS(B)}{J-1}$</span></td>
+<td><span>$\frac{MS(B)}{MSE}$</span></td>
+</tr>
+<tr>
+<td><span>$A \times B$</span></td>
+<td><span>$KJ - K - J + 1$</span></td>
+<td><span>$SS(AB)$</span></td>
+<td><span>$MS(AB)=\frac{SS(AB)}{KJ-K-J+1}$</span></td>
+<td><span>$\frac{MS(AB)}{MSE}$</span></td>
+</tr>
+<tr>
+<td>Error</td>
+<td><span>$n-KJ$</span></td>
+<td><span>$SSE$</span></td>
+<td><span>$MSE = \frac{SSE}{n-KJ}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n-1$</span></td>
+<td><span>$TSS$</span></td>
+</tr>
+</tbody>
+</table>
+<p>To break it down in R, we use:</p>
+<div class="codehilite"><pre>model = aov(response~factor1*factor2)
+summary(model)
+</pre></div>
+
+
+<h2 class="header"><i>4</i>Regression<a class="headerlink" href="#regression" name="regression">&para;</a></h2>
+<dl>
+<dt>Regression</dt>
+<dd>modelling expected/average of an outcome or a response variable</dd>
+</dl>
+<p>Purposes of regression:</p>
+<ul>
+<li>Prediction</li>
+<li>Covariate selection, determine which variables are associated with an outcome</li>
+<li>Model specification, choosing a most appropriate model for the relationship between the outcome and the covariate</li>
+<li>Parameter estimation, estimating the parameters from a hypothesized model</li>
+</ul>
+<h3 class="header"><i>4.1</i>Simple linear regression model<a class="headerlink" href="#simple-linear-regression-model" name="simple-linear-regression-model">&para;</a></h3>
+<p>Simple linear regression model assumes<br />
+<span>$$Y_i = \beta_0 + \beta_1x_i + \epsilon_i$$</span><br />
+where <span>$\beta_0$</span> is ther intercept, <span>$\beta_1$</span> is the slope and <span>$\epsilon_i$</span> is the model error.</p>
+<p>We assume:</p>
+<ul>
+<li>Error around the measurement of <span>$X_i$</span> is negligible(x is not a random variable)</li>
+<li><span>$\epsilon_i$</span> are independent random variables with mean=0 and variance of <span>$\sigma^2$</span></li>
+<li><span>$Y_i$</span> are random variables such that <span>$E(Y_i|Xi = xi) = \beta_0 + \beta_1x_i$</span>, <span>$Var(Y_i|X_i = x_i)=\sigma^2$</span></li>
+</ul>
+<p>This means <span>$\beta_1$</span> is the change in the mean of <span>$Y_i$</span> per unit change in <span>$x_i$</span>, <span>$\beta_0$</span> is the mean of an observation with the covariates being zero. This is just a rough measurement of the overall level of the response.</p>
+<p>We want to estimate <span>$\beta_0$</span> and <span>$\beta_1$</span> such that the estimate <span>$\hat{y}_i = \hat{\beta}_0 + \hat{\beta}_1x_i$</span> is close to observed <span>$y_i$</span>, thus we want <span>$y_i - \hat{y}_i$</span> be as small as possible.</p>
+<p>We want to minimize this equation:<br />
+<span>$$\sum_{i=1}^{n}(y_i-\hat{y}_i)^2 = \sum_{i=1}^n(y_i-[\hat{\beta}_0 + \hat{\beta}_1x_i])^2$$</span><br />
+With the power of math unknown to us plebs, it can be shown that:</p>
+<p><span>$$\hat{\beta}_1 = \frac{\sum_{i=1}^n(y_i-\bar{y})(x_i-\bar{x})}{\sum_{i=1}^n(x_i-\bar{x})^2} = \frac{SS_{XY}}{SS_{XX}}$$</span><br />
+<span>$$\hat{\beta}_0 = \bar{y} - \hat{\beta}_1\bar{x}$$</span></p>
+<p>These values of <span>$\hat{\beta}_1$</span> and <span>$\hat{\beta}_0$</span> give us the best predictions. To calculate them in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor)
+coef(model)
+</pre></div>
+
+
+<p>If our model is correct, then <span>$E(\hat{\beta}_1) = \beta_1$</span> and same with <span>$\beta_0$</span></p>
+<p>Through fancy math, it turns out that the standard deviation(error) of <span>$\hat{\beta}_1$</span> is:<br />
+<span>$$\sigma_{\hat{\beta}_1} = \frac{\sigma}{\sqrt{S_{XX}}}$$</span><br />
+and the standard error of <span>$\hat{\beta}_0$</span> is equal to<br />
+<span>$$\sigma_{\hat{\beta}_0} = \sqrt{\sigma^2(\frac{1}{n} + \frac{\bar{x}^2}{SS_{XX}})}$$</span><br />
+Not many fucks will given about <span>$\beta_0$</span>.</p>
+<p>We still need to estimate the residual variance, <span>$\sigma^2$</span>. We estimate it with:<br />
+<span>$$s^2 = \frac{\sigma_{i=1}^{n}(y_i-\hat{y}_i)^2}{n-2} = \frac{SSE}{n-2}$$</span><br />
+<span>$$SSE = SS_{YY} - \hat{\beta}_1SS_{XY}$$</span></p>
+<p>We need to assume that the data are normally distributed, and we need large sample for CLT to work, as well as independent data. The residuals also need to have a mean of zero and constant variance</p>
+<h3 class="header"><i>4.2</i>Hypothesis Testing<a class="headerlink" href="#hypothesis-testing" name="hypothesis-testing">&para;</a></h3>
+<p>The hypothesis of interest is that the covariate is linearly associated with the response variable.</p>
+<p>We say there is a linear association between them when <span>$\beta_1 \neq 0$</span>, thus <span>$H_0 : \beta_1 = 0$</span></p>
+<p>Since <span>$\hat{\beta}_1$</span> is distributed under <span>$N(\beta_1, \sigma^2_{\hat{\beta}_1})$</span>, where <span>$\sigma_{\hat{\beta}_1} = \frac{\sigma}{\sqrt{SS_{XX}}}$</span>, we can testing <span>$H_0$</span> by testing if its true mean is 0.<br />
+Therefore we can use the T-statistic:<br />
+<span>$$T = \frac{\hat{\beta}_1 - 0}{\sigma/\sqrt{SS_{XX}}}$$</span><br />
+we use s to estimate <span>${\sigma}$</span>, and it is distributed with n - 2 degrees of freedom.</p>
+<p>To construct a confidence interval for <span>$\hat{\beta}_1$</span>, we would simply use:<br />
+<span>$$\hat{\beta}_1 \pm t_{n-2,\alpha/2}\frac{s}{\sqrt{SS_{XX}}}$$</span></p>
+<h3 class="header"><i>4.3</i>Correlation<a class="headerlink" href="#correlation" name="correlation">&para;</a></h3>
+<dl>
+<dt>correlation</dt>
+<dd>a measure of linear association that is symmetric(correlation between X and Y is the same as Y and X). Different than regression because regression is not symmetric</dd>
+</dl>
+<p>Through mathemagics, we derive an equation for r:<br />
+<span>$$r = \frac{SS_{XY}}{\sqrt{SS_{XX}SS_{YY}}}$$</span></p>
+<p>where<br />
+<span>$$SS_{XY} = \sum_{i=1}^n(y_i - \bar{y})(x_i - \bar{x})$$</span><br />
+<span>$$SS_{XX} = \sum_{i=1}^n(x_i - \bar{x})^2$$</span><br />
+<span>$$SS_{YY} = \sum_{i=1}^n(y_i - \bar{y})^2$$</span><br />
+r must be between -1 and +1, and it is scaleless, where as <span>$\beta_1$</span> depends on the scale of both x and y. </p>
+<p>r is an estimator for the population correlation, <span>$\rho$</span>. The test for no association between two random variables would be <span>$H_0 : \rho = 0$</span>, and this is equivalent to <span>$\beta_1 = 0$</span>. <br />
+However, distribution for r under <span>$H_0$</span> is a bit more difficult to work with.</p>
+<p>To calculate r in R(lol):</p>
+<div class="codehilite"><pre>cor(response,factor)
+</pre></div>
+
+
+<p>Through algebraic manipulation:<br />
+<span>$$r = \hat{\beta}_1\frac{s_x}{s_y}$$</span><br />
+where <span>$s_x$</span> and <span>$s_y$</span> are the sample std dev for x and y.</p>
+<p>If SSE is the standard error of the residuals(<span>$\sum_{i=1}^n(y_i - \hat{y}_i)^2$</span>), we can derive:<br />
+<span>$$r^2 = 1 - \frac{SSE}{SS_{YY}}$$</span><br />
+<span>$r^2$</span> is often written as <span>$R^2$</span>, and it the measure of the proportion of variance of Y explained by X. To calculate <span>$R^2$</span> in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor)
+summary(model)
+</pre></div>
+
+
+<p>To construct a confidence interval for the population correlation coefficent(<span>$\rho$</span>), we can do:<br />
+<span>$$r \pm t_{\alpha/2,n-2}\sqrt{(1-r^2)/(n-2)}$$</span><br />
+However the above interval can be undependable in small samples, in which case we use Fisher's <span>$\rho$</span> transformation:<br />
+We first transform r to:<br />
+<span>$$Z = \ln{\frac{1+r}{1-r}}$$</span><br />
+Then we can build a confidence interval using Z of the form:<br />
+<span>$$Z \pm z_{\alpha/2}/\sqrt{(n-3)} = (c_L, c_U)$$</span><br />
+Then we reverse the transformation and get the confidence interval for <span>$\rho$</span>:<br />
+<span>$$[\frac{exp(2*c_L - 1)}{exp(2*c_L + 1)},\frac{exp(2*c_U - 1)}{exp(2*c_U + 1)}]$$</span></p>
+<p>We can do this in R:</p>
+<div class="codehilite"><pre>library(psych)
+r.con(rValue,n,p=width)
+</pre></div>
+
+
+<h3 class="header"><i>4.4</i>Two kinds of prediction<a class="headerlink" href="#two-kinds-of-prediction" name="two-kinds-of-prediction">&para;</a></h3>
+<p>We distinguish between the two types of predicted values:</p>
+<ul>
+<li>Estimated mean of the response for a particular x_0 value</li>
+<li>Predicted value of the response for a particular x_0 value</li>
+</ul>
+<p>For any <span>$\hat{\beta}_0$</span> and <span>$\hat{\beta}_1$</span> and <span>$x_0$</span> we have <span>$\hat{y}(x_0) = \hat{\beta}_0 + \hat{\beta}_1x_0$</span></p>
+<p>Then <span>$E(\hat{y}(x_0))$</span> is obviously <span>$\beta_0 + \beta_1x_0$</span>, and using math beyond us untermenschs, we can show:<br />
+<span>$$Var(\hat{y}(x_0)) = Var(\bar{y} + \hat{\beta}_1(x_0 - \bar{x})) = \sigma^2(\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{SS_{XX}})$$</span><br />
+$$s_{\hat y(x_0)} = s\sqrt{\frac{1}{n} + \frac{(x_0 - \bar x)^2}{SS_{XX}}}<br />
+This gives point-wise confidence bands for the mean of the response, not confidence bands for actual responce values. </p>
+<p>We substitue <span>$s^2$</span> for <span>$\sigma^2$</span> to get estimated standard error of prediction, and since <span>$s^2$</span> is estimated, we must use t-quantiles with n-2 degrees of freedom rather than normal for confidence intervals.</p>
+<p>If we want actual prediction intervals, rather than a prediction interval for the mean, we need to take in account additional variability.<br />
+The variance of deviation from <span>$\hat{y}(x_0)$</span> is:<br />
+<span>$$Var(y_0 - \hat{y}(x_0)) = \sigma^2 + \sigma^2(\frac{1}{n} + \frac{(x_0 - \bar{x})^2}{SS_{XX}})$$</span><br />
+We can estimate the prediction error with<br />
+<span>$$S_{\tilde{y}(x_0)} = s\sqrt{1 + \frac{1}{n} + \frac{(x_0 - \bar{x})^2}{SS_{XX}}}$$</span><br />
+This is just isolating the <span>$\sigma$</span> from the previous equation. We also use a t-distribution.</p>
+<p>To find a 90% confidence interval for the mean for a given covariate value in R we can do:</p>
+<div class="codehilite"><pre>model = lm(response~factor)
+predict(model, newdata=data.frame(factor=n), se.fit=T, interval=c(&quot;confidence&quot;), level=0.90)
+</pre></div>
+
+
+<p>To find a 90% confidence interval for the predicted response for a given covariate value in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor)
+predict(model, newdata=data.frame(factor=n), se.fit=T, interval=c(&quot;prediction&quot;), level=0.90)
+</pre></div>
+
+
+<h2 class="header"><i>5</i>Multiple Regression<a class="headerlink" href="#multiple-regression" name="multiple-regression">&para;</a></h2>
+<p>Sometimes in life, we have a desire to find the association between a response variable and multiple covariates. Having more than one covariate could improve our prediction.</p>
+<ul>
+<li>Parameter estimation - we have more parameters, how do we estimate and interpret them?</li>
+<li>Hypothesis testing - how do our hypothesis tests change?</li>
+<li>Dagnosis of residuals - think about our assumptions</li>
+</ul>
+<p>Issues in multiple linear regression:</p>
+<ul>
+<li>Which covariates should we use?</li>
+<li>Can we test hypothesis about multiple parameters at once?</li>
+<li>Multi-collinearity - what if our covariates are associated with each other?</li>
+<li>Qualitive covariates</li>
+<li>Interactions - association of one covariate with response depends on the values of other covariates</li>
+</ul>
+<p>Covariates still have linear association with the response variable, the model will be:<br />
+<span>$$Y_i = \beta_0 + \beta_1x_{i1} + ... + \beta_Kx_{iK} + \epsilon_i$$</span><br />
+We will assume that the response variable is a non random linear function + random error.</p>
+<h3 class="header"><i>5.1</i>What is linear?<a class="headerlink" href="#what-is-linear" name="what-is-linear">&para;</a></h3>
+<p>A linear model is a model that is linear in the parameters, not necessarily in the covariates. =&gt; all <span>$\beta_i$</span> are linear, and no term is a product of more than one <span>$\beta$</span>.</p>
+<h3 class="header"><i>5.2</i>Interpreting the multiple linear regression model<a class="headerlink" href="#interpreting-the-multiple-linear-regression-model" name="interpreting-the-multiple-linear-regression-model">&para;</a></h3>
+<p>Basic assumptions of the model:</p>
+<ul>
+<li><span>$E(\epsilon_i) = 0$</span> for all i</li>
+<li><span>$Var(\epsilon_i) = \sigma^2$</span>, (variance of the response). Therefore the error doesn't depend on any covariate <span>$X_j$</span> and is the same for all observation i</li>
+<li>Model errors are independently distributed</li>
+<li><span>$\epsilon_i$</span> are normally distributed. For large samples only need to be approximately true</li>
+</ul>
+<p><span>$\beta_j$</span> is the increase in the mean of <span>$Y_i$</span> observed for a unit increase in <span>$x_{ij}$</span>, holding all other values for <span>$x_{ik},\:k\neq j$</span> constant<br />
+<span>$\beta_j$</span> is the association of <span>$X_j$</span> with <span>$Y$</span> while accounting for the associations of all the other covariates with Y</p>
+<p>The model for multiple regression as follow:<br />
+<span>$$y = X\beta + \epsilon$$</span><br />
+<span>$$y = (Y_1,...,Y_n)$$</span><br />
+<span>$$X = \begin{pmatrix} 1 &amp; x_{11} &amp; \cdots &amp; x_{1K} \\ 1 &amp; x_{21} &amp; \cdots &amp; x_{2k} \\ \vdots &amp;  \vdots &amp;  \vdots &amp;  \vdots \\ 1 &amp; x_{n1} &amp; \cdots &amp; x_{nK} \\\end{pmatrix}$$</span><br />
+<span>$$\beta = (\beta_0,\beta_1, ... , \beta_K)$$</span><br />
+<span>$$\epsilon = (\epsilon_1, ... \epsilon_n)$$</span></p>
+<p>X is called the model matrix/design matrix.</p>
+<p>We're still trying find parameter estimates for <span>$\beta$</span> that minimize the distance between the predicted values of the model, thus we're trying to minimize:<br />
+<span>$$\sum_{i=1}^n(y_i-\hat{y}_i)^2$$</span><br />
+If we just biject it to a thrice-differentiable monoid whose elements are clopen generating functions, we can see that the vector of coefficents that minimizes the above equation is equal to:<br />
+<span>$$\hat{\beta} = (X^tX)^{-1}X^ty$$</span><br />
+Where <span>$\hat{\beta}$</span> is a vector containing the parameter estimates. It is much easier if we use the computer:</p>
+<div class="codehilite"><pre>model = lm(response~factor1+factor2+factor3)
+coef(model)
+</pre></div>
+
+
+<p>The estimate we obtain for each factor will be different than if we were to simply do:</p>
+<div class="codehilite"><pre>model = lm(response~factor1)
+coef(model)
+</pre></div>
+
+
+<p>Because we are not adjusting for other covariates in the above case.</p>
+<p>For each coefficient, we have <span>$E(\hat{\beta}_j) = \beta_j$</span></p>
+<p>The variances of each <span>$\hat{\beta}_j$</span> is difficult to express individually, so we write it in a matrix:<br />
+<span>$$Var(\hat{\beta}) = \sigma^2(X^tX)^{-1}$$</span><br />
+Where \sigma is a constant. The variances of individual <span>$\hat{\beta}_j$</span> will be the diagnonal elements of this matrix.</p>
+<p>In general you don't really need to give a fuck about this because we use the computer to do the math.</p>
+<p>However, we still need to estimate <span>$\sigma^2$</span>, we can use the standard error of the residuals in the numerator:<br />
+<span>$$s^2 = \frac{\sum_{i=1}^n(y_i-\hat{y}_i)^2}{n-(K+1)}$$</span><br />
+Not quite sure why the denominator is n-(K+1), maybe it's magic, maybe it's maybelline. For the simple linear regression case, K = 1, so we divided by n - 2.</p>
+<h3 class="header"><i>5.3</i>Single Hypothesis tests<a class="headerlink" href="#single-hypothesis-tests" name="single-hypothesis-tests">&para;</a></h3>
+<p>Our hypothesis tests will be the form:<br />
+<span>$$ H_0 : \beta_j = 0$$</span><br />
+<span>$$ H_a : \beta_j \neq 0$$</span><br />
+If we failed to reject <span>$H_0$</span> for some j, it doesn't mean the covariate <span>$X_j$</span> is not associated with the response, it just means it is not associated with the response after adjusting for the association of the other covariates with the response.</p>
+<p>More generally we can test:<br />
+<span>$$ H_0 : \beta_j = \beta^*_j$$</span><br />
+<span>$$ H_a : \beta_j \neq \beta^*_j$$</span><br />
+The general form of the T-statistic is:<br />
+<span>$$t = \frac{\hat{\beta}_j - \beta^*_j}{s\sqrt{c_{jj}}}$$</span><br />
+<span>$c_{jj}$</span> is the variance of <span>$\hat{\beta}_j$</span>.</p>
+<p>To do all of this in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor1+factor2+factor3)
+summary(model)
+</pre></div>
+
+
+<p>If we use a Type I error rate of <span>$\alpha = 0.05$</span> for each covariate, to have an overall Type I error rate of 0.05, we need to correct the <span>$\alpha$</span> values used, like using Bonferroni.</p>
+<h3 class="header"><i>5.4</i>Measuring the fit of the model<a class="headerlink" href="#measuring-the-fit-of-the-model" name="measuring-the-fit-of-the-model">&para;</a></h3>
+<p>Same idea as simple linear regression, we use the percentage of variance explained in the reponse by the model.<br />
+We use residual sums of squares for error:<br />
+<span>$$ SSE = \sum_{i=1}^n(y_i-\hat{y}_i)^2$$</span><br />
+and we compare this to the total sum of square for the response:<br />
+<span>$$ SS_{yy} = \sum_{i=1}^n(y_i - \bar{y})^2$$</span><br />
+Then we can calculate <span>$R^2$</span><br />
+<span>$$R^2 = 1 - \frac{SSE}{TSS}$$</span></p>
+<p>How do we choose which covariates to include in the model? If we compare two models that are nested(one model contains all the covariates of the other and more), the larger model will have an <span>$R^2$</span> value which is at least as big as the other model's.</p>
+<p>We will never obtain a worse fitting model than the one we have by adding additional covariates, thus by this logic, we would include all the covariates!</p>
+<p>We can use an adjusted coefficient of determination(adjusted <span>$R^2$</span>)<br />
+<span>$$R^2_a = 1 - [\frac{n-1}{n-(K+1)}](\frac{SSE}{SS_{yy}})$$</span><br />
+The more covariates there are, the higher K is, and it lowers <span>$R^2_a$</span> if the fit is not improved.</p>
+<p>To remove a covariate in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor1+factor2+factor3)
+updatedModel = update(model,.~.-factor1)
+</pre></div>
+
+
+<h3 class="header"><i>5.5</i>Testing the global fit<a class="headerlink" href="#testing-the-global-fit" name="testing-the-global-fit">&para;</a></h3>
+<p>We test for a global association of our set of covariates to the response using an F-test:<br />
+<span>$$F = \frac{(SS_{YY} - SSE)/k}{SSE/[n-(K+1)]} = \frac{R^2/K}{(1-R^2)/(n-(K+1))} = \frac{MSR}{MSE}$$</span><br />
+This is distributed with K and n - (K+1) degrees of freedom. It's possible to reject <span>$H_0$</span> without rejecting a single null hypothesis of the form <span>$H_0:\beta_j = 0$</span>, in that case, covariates go in, response comes out, we can't explain that.<br />
+But if we do not reject this <span>$H_0$</span>, then none of the covariates will be able to reject their <span>$H_0$</span>.</p>
+<h3 class="header"><i>5.6</i>Prediction and confidence intervals for future values<a class="headerlink" href="#prediction-and-confidence-intervals-for-future-values" name="prediction-and-confidence-intervals-for-future-values">&para;</a></h3>
+<p>The fitted value for a particular set of covariates will equal to:<br />
+<span>$$\hat{y}_0 = \hat{\beta}_0 +x_{10}\hat{\beta}_1 + ... + x_{k0}\hat{\beta}_k$$</span><br />
+<span>$\hat{y}_0$</span> could be used to estimate:</p>
+<ul>
+<li>The mean of observations at a particular set of covariate values</li>
+<li>The future observation at a particular set of covariate values</li>
+</ul>
+<p>We're too stupid to understand the formulae for the standard errors for these, so we just use R for everything here.</p>
+<p>To obtain an interval for the mean of a future observation:</p>
+<div class="codehilite"><pre>predict(model,newdata=data.fram(factor1=a,factor2=b,factor3=c),interval=&quot;confidence&quot;,se.fit=T)
+</pre></div>
+
+
+<p>And an interval for a single future observation:</p>
+<div class="codehilite"><pre>predict(model,newdata=data.fram(factor1=a,factor2=b,factor3=c),interval=&quot;prediction&quot;,se.fit=T)
+</pre></div>
+
+
+<p>We need to be careful about extrapolating because as soon as one factor value is outside of what we have observed, we're at a risk of making a critical error.</p>
+<h3 class="header"><i>5.7</i>Interactions<a class="headerlink" href="#interactions" name="interactions">&para;</a></h3>
+<p>The concept of interactions here will be similar to that from ANOVA, they are symmetric.</p>
+<p>If <span>$X_1$</span> and <span>$X_2$</span> are our covariates of interest, the regression model including the interaction will be:<br />
+<span>$$Y_i = \beta_0 + x_{i1}\beta_1 + x_{i2}\beta_2 + x_{i1}x_{i2}\beta_3 + \epsilon_i$$</span><br />
+We refer to <span>$\beta_3$</span> as the coefficient for the interaction between <span>$X_1$</span> and <span>$X_2$</span>. <br />
+Similar to ANOVA, if we believe there is an interaction between the covariates, we want to test for the presence of that first, if we reject a null hypothesis of no interaction, then we CANNOT interpret the coefficients for the main effects.<br />
+If we conclude <span>$\beta_3 \neq 0$</span>, then we cannot interpret <span>$\beta_1$</span> as the change in the mean of Y for a single unit change in <span>$X_1$</span>, because that change now depends on <span>$\beta_3$</span> and the value of <span>$X_2$</span>.</p>
+<p>If we want to include the interaction term in R, we do:</p>
+<div class="codehilite"><pre>model = lm(response~factor1*factor2)
+summary(model)
+</pre></div>
+
+
+<h3 class="header"><i>5.8</i>Polynomial Regression<a class="headerlink" href="#polynomial-regression" name="polynomial-regression">&para;</a></h3>
+<p>There are also times in life when a linear regression just isn't enough. In those times, we can adjust our model to take into account non-linearity.<br />
+We can add a quadratic covariate in X to the model:<br />
+<span>$$Y_i = \beta_0 + \beta_1x_i+\beta_2x^2_i + \epsilon_i$$</span><br />
+This is still the same as before, and we still use our usual least squares approach to obtain <span>$\hat{\beta}$</span></p>
+<p>The hypothesis is:<br />
+<span>$$H_0 : \beta_2 = 0$$</span></p>
+<p>To do this in R:</p>
+<div class="codehilite"><pre>model = lm(response~factor+I(factor^2))
+summary(model)
+</pre></div>
+
+
+<p>We can keep trying to improve the fit by adding higher order polynomial terms.</p>
+<h3 class="header"><i>5.9</i>Using qualitative variables in regression models<a class="headerlink" href="#using-qualitative-variables-in-regression-models" name="using-qualitative-variables-in-regression-models">&para;</a></h3>
+<p>Sometimes we have binary(Yes/No) variables in our model. The key problem is that our qualitative variable is not a random variable, because random variables take values in the real numbers, and Y/N option is not a real number.<br />
+To get around this, we let <span>$Z=0$</span> if N, and <span>$Z=1$</span> if Y. We can then use Z indicator variable in our regression:<br />
+<span>$$Y_i = \beta_0 + \beta_1Z_i + \epsilon_i$$</span><br />
+Therefore the coefficient <span>$\beta_1$</span> measures the difference in mean between the two options. We can also measure the difference by taking the difference of the means of the two groups, and they're the same!</p>
+<p>It turns out, <span>$\hat{\beta}_1 = \bar{Y}_1 - \bar{Y}_0$</span>.</p>
+<p>What if we have more than two groups? We have to use multiple Z's. Suppose we now have 3 groups, the model would be:<br />
+<span>$$Y_i = \beta_0 + \beta_1Z_1 + \beta_2Z_2 + \epsilon_i$$</span><br />
+<span>$\beta_0$</span> would be the mean of the first group, <span>$\beta_1$</span> would be the difference between the first and second group, and <span>$\beta_2$</span> would be the difference between the first and third group.<br />
+The difference in means between the second and third group would be <span>$\beta_2 - \beta_1$</span><br />
+If <span>$\beta_1 = \beta_2 = 0$</span>, it means that all three groups have the same mean.</p>
+<p>An one way ANOVA also tests for a difference amongst 3 group means, we would conduct an F-test to test for any difference amongst the three groups.<br />
+We would use our overall F-test for the regression model, and since the overall F-test tests whether ALL regression coefficients are equal to zero or not, it tests whether the groups are all the same or not.<br />
+We can use a t-test on the coefficient OR the F-test to look for a difference between the two groups, and we MUST use the F-test for 3 groups. The overall F-test is equivalent to the ANOVA.</p>
+<p>If the design is balanced, we can use the <code>anova</code> command to test for the significance of factors, similar to one-way ANOVA:</p>
+<div class="codehilite"><pre>model = lm(response~factor)
+anova(model)
+</pre></div>
+
+
+<p>We can also look for interactions between the two qualitative variables, and it's the same thing as interactions between two quantitative variables.</p>
+<h3 class="header"><i>5.10</i>Using qualitative and quantitative variables together in perfect harmony<a class="headerlink" href="#using-qualitative-and-quantitative-variables-together-in-perfect-harmony" name="using-qualitative-and-quantitative-variables-together-in-perfect-harmony">&para;</a></h3>
+<p>We interpret these coefficients in the same way we interpret regression coefficients from a usual multiple linear regression model. We can even look for interactions between qualitative and quantitative variables.</p>
+<h3 class="header"><i>5.11</i>Comparing Nested Models<a class="headerlink" href="#comparing-nested-models" name="comparing-nested-models">&para;</a></h3>
+<p>How do we compare nested models which have different covariates?<br />
+That is, our null hypothesis is: <span>$H_0 : \beta_j = 0$</span> for some j, which means that covariate gives no statistically significant improvements to the model.</p>
+<p>Suppose that a model <span>$M_0$</span> is nested inside of another model <span>$M_1$</span>. We know that the SSE of <span>$M_1$</span> is at least as small as <span>$M_0$</span>. This tells us that the improvement in the SSE by using the larger model is <span>$SSE_{M_0} - SSE_{M_1}$</span>.<br />
+If that term is large, it means adding the terms into <span>$M_1$</span> explains a significantly larger amount of variance, and vice versa.</p>
+<p>We can build a test statistic around this difference.</p>
+<p>Suppose:<br />
+<span>$$M_0:\beta_0 + \beta_1x_1 + ... + \beta_gx_g$$</span><br />
+<span>$$M_1:\beta_0 + \beta_1x_1 + ... + \beta_gx_g + \beta_{g+1}x_{g+1} + ... + \beta_kx_k$$</span></p>
+<p>Then the null hypothesis would be <span>$M_1$</span> does not improve over the fit of <span>$M_0$</span>:</p>
+<p><span>$$H_0 :\beta_{g+1} = \beta_{g+2} = ... = \beta_k = 0$$</span></p>
+<p>This is a simultaneous test of the parameters of the larger model.</p>
+<p>The F statistic is:<br />
+<span>$$F = \frac{(SSE_{M_0} - SSE_{M_1})/(k-g)}{SSE_{M1}/(n-(k+1))}$$</span><br />
+and it has <span>$k-g$</span> and <span>$n-(k+1)$</span> degrees of freedom.<br />
+If <span>$H_0$</span> is true, we expect that the reduction in SSE is approximately equal to <span>$(k-g)\sigma^2$</span></p>
+<p>To do this in R, we can simply pass two models to <code>anova</code>:</p>
+<div class="codehilite"><pre>model1 = lm(response~factor)
+model2 = lm(response~factor*factor1)
+anova(model1,model2)
+</pre></div>
+
+
+<p>We can use the <code>anova</code> function for testing nested models with unbalanced designs. We couldn't use it on a single unbalanced ANOVA model.</p>
+<h3 class="header"><i>5.12</i>Stepwise regression<a class="headerlink" href="#stepwise-regression" name="stepwise-regression">&para;</a></h3>
+<p><strong>Stepwise regression via hypothesis testing</strong> is when you compare nested models with an F-test, then remove/add covariates based on the test. Backwards stepwise variable selection is when you start with all the possible covariates, then remove them one by one, until none of the terms yield a p-value larger than <span>$\alpha$</span>, or until all the terms have been deleted.<br />
+We can also do forward stepwise regression, by start with the simplest model that contains only one factor, and add factors to it, until the terms we are all above the significance level. This will sometimes give you different results than the backwards way. Generally forward will give you a model with fewer covariates, because if a term is not statistically significant, even if its interaction term is, we cannot add it in.</p>
+<h3 class="header"><i>5.13</i>Residual analysis<a class="headerlink" href="#residual-analysis" name="residual-analysis">&para;</a></h3>
+<p>Our regression model contains these assumptions:</p>
+<ul>
+<li><span>$E(\epsilon_i) = 0$</span></li>
+<li><span>$\epsilon_i$</span> are all independent</li>
+<li><span>$Var(\epsilon_i) = \sigma^2$</span></li>
+<li><span>$\epsilon_i$</span> are all normally distributed</li>
+</ul>
+<p>We need to check for these assumptions. <br />
+We can guess the value of <span>$\epsilon_i$</span>:<br />
+<span>$$e_i = y_i - \hat{y}_i$$</span><br />
+Where <span>$\hat{y}_i$</span> is the fitted value for the <span>$i^{th}$</span> observation. <span>$e_i$</span> is the sample residual/regression residual for the i<sup>th</sup> observation.<br />
+We can obtain the residuals in R by doing:</p>
+<div class="codehilite"><pre>model.residuals = resid(model)
+</pre></div>
+
+
+<p>We can then check the normality of these residuals by using the boxplot, histogram, and the Q-Q normal plot.<br />
+It is better to standardize the residuals by dividing them by the standard error, this allows us to detect outliers more accuarately:<br />
+<span>$$e^{std}_i = \frac{e_i}{s}$$</span><br />
+Or in R:</p>
+<div class="codehilite"><pre>model.stdresiduals = stdres(model)
+</pre></div>
+
+
+<p>If we're using <span>$\alpha = 0.05$</span>, it is possible for residuals to be outside the <span>$\pm1.96$</span> range. We would expect 5% of the residuals to be outside that range, even if they are really normally distributed.<br />
+We will correct for multiple comparisons using Bonferroni. If we have <span>$n$</span> observations in our dataset, we could look for observations outside a z-score of <span>$\pm(0.05/n)/2$</span>, if we're at <span>$\alpha = 0.05$</span>.</p>
+<p>We can then decide to exclude those data points if they are special cases, but if the entire sample is randomly selected and the case isn't special, then we should NOT exclude it. </p>
+<p>We still need to test our assumptions about constant variance and zero mean. To examine those, we should plot our residuals against our fitted values. We can do this in R:</p>
+<div class="codehilite"><pre>model.stdresiduals = stdres(model)
+model.fitted = fitted(model)
+plot(model.fitted, model.stdresiduals,xlab=&quot;Fitted values&quot;,ylab=&quot;Standardized residuals&quot;)
+</pre></div>
+
+
+<p>If we see any special pattern, it usually means those assumptions fail. <br />
+<img alt="crescent" src="http://i.minus.com/iboUCkmab752zM.png" /></p>
+<p>This means that we're over estimating at the lower and upper ends and underestimating in the middle of the range, and it seems to violate the principle of residuals having the same mean. To fix this we might add polynomial terms, or adding more covariates/interaction terms.</p>
+<p>Sometimes we might also see a problem with the constant variance assumption:</p>
+<p><img alt="baby you're a firework" src="http://i.minus.com/i2MYTW1VpPiL8.png" /></p>
+<p>It clearly appears to have a much larger variance for larger values, this is often a problem in the dataset itself, where large values tend to become more varied.</p>
+<p>Another shape we might see is the "football" pattern:</p>
+<p><img alt="handegg" src="http://i.minus.com/ibqSlbCqRf64w3.png" /></p>
+<p>This happens when there are extreme values at the each end of the datasets, and they pull the line towards them.</p>
+<h3 class="header"><i>5.14</i>Other issues in multiple regression<a class="headerlink" href="#other-issues-in-multiple-regression" name="other-issues-in-multiple-regression">&para;</a></h3>
+<p>The covariates must be sufficiently different from each other in order to see their associations with the response.</p>
+<p>If two covariates are highly correlated, it's difficult to see what the association of each covariate is. When two covariates in a multiple linear regression analysis are highly correlated with each other, we say there is a problem of <strong>multicollinearity</strong><br />
+When two variables are highly correlated, they compete for the explanatory power in the association, and they increase the standard error of each other. When two models are completely collinear(r=1), the multiple regression breaks down completely.</p>
+<p>We also assumed that our errors are independent, but sometimes that's not the case, for example, different data points are always taken at different points in time, but sometimes we don't include time as a variable, and so it reflects itself in the error term, and we might see the errors being dependent to each other.</p>
+<h2 class="header"><i>6</i>Categorical data<a class="headerlink" href="#categorical-data" name="categorical-data">&para;</a></h2>
+<h3 class="header"><i>6.1</i>The multinomial distribution<a class="headerlink" href="#the-multinomial-distribution" name="the-multinomial-distribution">&para;</a></h3>
+<p>Suppose we have a random variable that can take on k possible values, and a defined probability for each value. Then suppose there are <span>$n$</span> independent/identically distributed random variables with that qualitative distribution.<br />
+Let <span>$(X_1, ..., X_k)$</span> be the number of observations that fall in each category.</p>
+<p>The set of random variables <span>$(X_1, ..., X_k)$</span> is called a multinomial random variable, and it has the joint probability mass function:</p>
+<p><span>$$Pr(X_1 = x_1, X_2 = x_2, ... X_k=x_k) = \frac{n!}{x_1!x_2!..x_k!}P^{x_1}_1P^{x_2}_2...P^{x_k}_k$$</span></p>
+<p>Also,<br />
+<span>$$E(X_j) = np_j$$</span><br />
+<span>$$Var(X_j) = np_j(1-p_j)$$</span><br />
+<span>$$Cov(X_s,X_t) = -np_sp_t$$</span><br />
+(not sure what Cov() is)</p>
+<h3 class="header"><i>6.2</i>Hypotheses<a class="headerlink" href="#hypotheses" name="hypotheses">&para;</a></h3>
+<p>We want to test that <span>$p_j = p_0$</span>.</p>
+<p>We will use the Chi-Square test, which tests the deviation from what would be expected under the <span>$H_0$</span>.</p>
+<p>If we have a multinomial random variable such that <span>$E(X_j) = np_j$</span>, and we observed a count of <span>$X_j = n_j$</span> for each category, then the deviation of our observed value would be<br />
+<span>$$n_j - np_j$$</span><br />
+We can perform this for all <span>$k$</span> categories.<br />
+Our hypotheses are:<br />
+<span>$$H_0 : p_j = p_j^{(0)}$$</span><br />
+<span>$$H_a : p_j \neq p_j^{(0)}$$</span></p>
+<p>Our test statistic is:<br />
+<span>$$\chi^2 = \sum_{j=1}^k\frac{(n_j - np_j^{(0)})^2}{np_j^{(0)}}$$</span><br />
+or<br />
+<span>$$\chi^2 = \sum_{j=1}^k\frac{(observed - expected)^2}{expected}$$</span><br />
+The degrees of freedom is the difference between k - 1 and the number of unspecified probabilities in <span>$H_0$</span>.<br />
+For example:<br />
+If our <span>$H_0$</span> was <span>$p_1 = 0.25, p_2 = 0.10$</span>, and there are 4 possible probabilities, there is only 1 unspecified probability, because once <span>$p_3$</span> is specified, <span>$p_4$</span> can be calculated by <span>$1-p_1-p_2-p_3$</span>. Thus the df for the chi-square is 3 - 1 = 2.<br />
+Then we can just look up the chi-square distribution and test our hypothesis.</p>
+<h3 class="header"><i>6.3</i>Contingency tables<a class="headerlink" href="#contingency-tables" name="contingency-tables">&para;</a></h3>
+<p>We want to compare bivariate qualitative data.<br />
+Suppoose for each subject we have 2 random variables <span>$X_1$</span> and <span>$X_2$</span>. <span>$X_1$</span> can take on a set of values <span>$1, 2, ..., r$</span> and <span>$X_2$</span> can take on <span>$1, 2, ..., c$</span>, that means for each subject we have <span>$X_{i1} = j$</span> and <span>$X_{i2} = k$</span><br />
+We can represent an estimate of the bivariate distribution of <span>$X_1$</span> and <span>$X_2$</span> in the form of a contingency table.</p>
+<p>A d-way contingency table is a table listing all the possible combinations of <span>$X_1, ..., X_d$</span> in a table. <br />
+For example, a 2-way contingency table for <span>$X_1$</span> with 2 levels and <span>$X_2$</span> with 3 levels, we would have:</p>
+<table class="clear">
+<thead>
+<tr>
+<th>x1\x2</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><span>$n_{11}$</span></td>
+<td><span>$n_{12}$</span></td>
+<td><span>$n_{13}$</span></td>
+<td><span>$n_{1-}$</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span>$n_{21}$</span></td>
+<td><span>$n_{22}$</span></td>
+<td><span>$n_{23}$</span></td>
+<td><span>$n_{2-}$</span></td>
+</tr>
+<tr>
+<td>Total</td>
+<td><span>$n_{-1}$</span></td>
+<td><span>$n_{-2}$</span></td>
+<td><span>$n_{-3}$</span></td>
+<td><span>$n$</span></td>
+</tr>
+</tbody>
+</table>
+<p>We can also think of this as just a normal multinomial random variable where each <span>$X_1X_2$</span> category is a level. </p>
+<h3 class="header"><i>6.4</i>Independence<a class="headerlink" href="#independence" name="independence">&para;</a></h3>
+<p>Under a hypothesis of independence we have to assume that <span>$X_1$</span> and <span>$X_2$</span> are independent, and <span>$Pr(X_1 = j, X_2 = k) = Pr(X_1=j)Pr(X_2 = k)$</span>.<br />
+This means that we're restricting the joint probabilities. <span>$X_1$</span> can have a set of <span>$(r-1)$</span> unrestricted probabilities, and <span>$X_2$</span> can have a set of <span>$(c-1)$</span> unrestricted probabilities, then under the totally unrestricted model we have <span>$r + c - 2$</span> degrees of freedom, rather than <span>$rc - 1$</span>.</p>
+<p>If our null hypothesis was that <span>$X_1$</span> is independent of <span>$X_2$</span>, then <span>$E(n_{jk}) = n\hat{p}_{j-}\hat{p}_{-k}$</span>, where <span>$\hat{p}_{j-}$</span> is the probability for the <span>$j^{th}$</span> row, and <span>$\hat{p}_{-k}$</span> is the probability for the <span>$k^{th}$</span> column.</p>
+<p>The degrees of freedom would equal to <span>$rc - 1 - (r+c-2) = (r-1)(c-1)$</span>, because <span>$rc-1$</span> is the df for the completely unrestricted model, and <span>$r+c-2$</span> is the df for the model which <span>$X_1$</span> is independent from <span>$X_2$</span>.</p>
+<p>To do this in R:</p>
+<div class="codehilite"><pre>chisq.test(data)
+# to get the expected value
+chisq.test(data)$expected
+# to get the residuals
+resid(chisq.test(data))
+</pre></div>
+
+
+<p>What if either the row or column totals are fixed?<br />
+Suppose the row totals are fixed and we want to test that the portion for each column is the same, the our null hypothesis is:<br />
+<span>$$H_0 : p^*_1 = p^*_2 =p^*_3$$</span><br />
+where <span>$p^*_j$</span> is the probability of column j. This is the same thing as a multinomial variable, we just add up all the rows for each column and treat it as a multinomial distribution.</p>
+<h3 class="header"><i>6.5</i>Issues with the chi-square test<a class="headerlink" href="#issues-with-the-chi-square-test" name="issues-with-the-chi-square-test">&para;</a></h3>
+<p>If the expected value for any cell in the contingency table is too small(&lt;5), the distribution might not be chi-square. <br />
+The observations must be independently and identically distributed.</p>
+<h2 class="header"><i>7</i>Non-parametric statistics<a class="headerlink" href="#non-parametric-statistics" name="non-parametric-statistics">&para;</a></h2>
+<p>Non-parametric statistics is hypothesis testing based on minimal assumptions, which are that the data are independently and identically distributed according to some cumulative distribution <span>$F(x) = Pr(X \le x)$</span></p>
+<p>If we have <span>$X_1, ..., X_n$</span> independently and identically distributed according to a cdf F(x), and we want to test the general central tendency of F(X), we can use the population median, <span>$\eta$</span>.</p>
+<p>Thus the cumulative probability function for F as <span>$Pr(X \le \eta) = F(\eta) = 0.50$</span>.</p>
+<p>We want to test if the population median is some value:</p>
+<p><span>$$H_0 : \eta = \eta_0$$</span><br />
+<span>$$H_a : \eta \neq \eta_0$$</span></p>
+<p>We could use the sample median to try and test the hypothesis. It turns out that the variance of the sample median depends on value of the probability density function at the mediance, this is hard to get.<br />
+Which is why we use the sample mean, because the sample mean only depends on the mean/variance of the population.</p>
+<p>However, we can look at the differences between each data value and <span>$\eta_0$</span> (<span>$D_i = X_i - \eta_0$</span>). We know that if <span>$H_0$</span> is true, then <span>$Pr(D_i \ge 0) = 0.50$</span><br />
+If <span>$\eta &lt; \eta_0$</span>, then most <span>$D_i$</span> would be negative and vice versa.<br />
+Therefore our hypothesis test is based on <span>$W$</span> = |Number of positive <span>$D_i$</span>|<br />
+<span>$W$</span> is just a binomial distributed random variables with parameters <span>$n$</span> and <span>$p$</span>.<br />
+Under <span>$H_0$</span> we know that <span>$p = 0.5$</span>, and we must assume that no <span>$D_i = 0$</span>, shit goes bad if there are.<br />
+Then we can just use a binomial test:</p>
+<div class="codehilite"><pre>binom.test(positiveDiCount, n=total, alternative=&quot;greater&quot;)  #could be &quot;less&quot; or &quot;two.sided&quot;
+</pre></div>
+
+
+<h3 class="header"><i>7.1</i>Two sample shift model<a class="headerlink" href="#two-sample-shift-model" name="two-sample-shift-model">&para;</a></h3>
+<p>We can extend this to paired data as well. We want to test if two samples have the same distribution.<br />
+We assume that <span>$Y_i = W_i + \theta$</span>, where <span>$Y_i$</span> is the distribution of one sample, and <span>$W_i$</span> is the distribution of the other sample.<br />
+If the two samples are identically distributed, then <span>$\theta = 0$</span></p>
+<p>We can calculate the differences: <span>$D_i = X_i - Y_i$</span>, then we can just test if the median of <span>$D_i$</span> is zero. That test would just be the same as before.<br />
+This is the same thing as testing that the median of <span>$Y$</span> is the same as the median of <span>$X$</span>.</p>
+<h3 class="header"><i>7.2</i>Wilcoxon Paired Rank Sum test for matched pairs<a class="headerlink" href="#wilcoxon-paired-rank-sum-test-for-matched-pairs" name="wilcoxon-paired-rank-sum-test-for-matched-pairs">&para;</a></h3>
+<p>The problem with before is that we reduced every data point to its sign, and we threw away their magnitude.<br />
+An alternate approach would be to use the sample ranks of the absolute value of thedifferences. We're just ranking all <span>$|D_i| = |X_i - Y_i|$</span> from 1 to <span>$n$</span>.<br />
+We sum up the ranks for the positive <span>$D_i$</span> (<span>$T^+$</span>) and the ranks for (<span>$T^-$</span>), if Y is shifted to the right(bigger than X), then we expect <span>$T^+$</span> to be small and vice versa.<br />
+The rejection values for certain sample sizes are given and the distribution of the test statistics is foreign and exotic, like mangos.</p>
+<p>If the sample size is 25 or more, we can use a normal approximation:<br />
+<span>$$E(T^+) = \frac{n(n+1)}{4}$$</span> <br />
+<span>$$Var(T^+) = \frac{n(n+1)(2n+1)}{24}$$</span></p>
+<p>The expected value is just the sum of all ranks from 1 to n divided by 2, which means under <span>$H_0$</span>, the <span>$T^+$</span> is under half of the total ranks. <br />
+The test statistic is:</p>
+<p><span>$$Z=\frac{T^+-E(T^+)}{\sqrt{Var(T^+)}}$$</span></p>
+<p>We can do this in R:</p>
+<div class="codehilite"><pre>wilcox.test(X1,Y1,paired=TRUE)
+</pre></div>
+
+
+<p>The biggest problem with Wilcoxon is that there might be even more ties, because the ranks could be tied, which impact the accuracy.</p>
+<h3 class="header"><i>7.3</i>Wilcoxon rank sum test for independent random samples<a class="headerlink" href="#wilcoxon-rank-sum-test-for-independent-random-samples" name="wilcoxon-rank-sum-test-for-independent-random-samples">&para;</a></h3>
+<p>If we have two independent samples with different sizes, we use the Wilcoxon rank sum test. <br />
+We pool all the observations together and rank the two samples against each other, and compare the ranks of the first group relative to the second group.<br />
+We count the number of observations in the first sample that precede each observations in the second sample. Suppose X contains 3,9,11, and Y contains 1,4,5,12</p>
+<table class="clear">
+<thead>
+<tr>
+<th>Value</th>
+<th>1</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>9</th>
+<th>11</th>
+<th>12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Group</td>
+<td>y</td>
+<td>x</td>
+<td>y</td>
+<td>y</td>
+<td>x</td>
+<td>x</td>
+<td>y</td>
+</tr>
+<tr>
+<td>Count</td>
+<td>0</td>
+<td>-</td>
+<td>1</td>
+<td>1</td>
+<td>-</td>
+<td>-</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>The Mann Whitney U statistic is equal to <span>$U = 1 + 1 + 3 = 5$</span><br />
+<span>$U$</span> can also be calculated as <span>$U = n_1n_2 + \frac{n_1(n_1 + 1)}{2} - W$</span>, where W is the sum of ranks for the first sample.</p>
+<p><span>$U$</span> is symmetric around <span>$n_1n_2/2$</span></p>
+<p>If both <span>$n_1$</span> and <span>$n_2$</span> are larger than 10, we can use a normal approximation. The Z statistic is calculated as follows:<br />
+<span>$$Z = \frac{U-(n_1n_2/2)}{\sqrt{n_1n_2(n_1+n_2+1)/12}}$$</span><br />
+There is another way we can calculate Z, but the sign changes:<br />
+<span>$$Z = \frac{W-n_1(n_1+n_2+1)/2}{\sqrt{n_1n_2(n_1+n_2+1)/12}}$$</span></p>
+<h3 class="header"><i>7.4</i>Kruskal-Wallis test<a class="headerlink" href="#kruskal-wallis-test" name="kruskal-wallis-test">&para;</a></h3>
+<p>If we want to see if more than 2 groups have the same distribution, we need a non-parametric test that is analogous to one-way ANOVA. The test is called <strong>Kruskal-Wallis H-test</strong><br />
+The null hypothesis is that all the observations come from the same distribution.</p>
+<p>Under <span>$H_0$</span>, if we pooled the groups together, no group's observations will be larger/smaller than any other group. So we can pool all groups together, then take the average of each group's rank.<br />
+Under <span>$H_0$</span>, the averages should be approximately the same.</p>
+<p>If <span>$\bar{R}_j$</span> is the average rank of the <span>$j^{th}$</span> group, under <span>$H_0$</span> <span>$\bar{R}_j$</span> would be approximately equal to <span>$\bar{R} = \frac{n+1}{2}$</span><br />
+The test statistic is:</p>
+<p><span>$$H = \frac{12}{n(n+1)}\sum_{j=1}^Kn_j(\bar{R}_j - \bar{R})^2$$</span><br />
+H is distributed according to a <span>$\chi^2$</span> distribution, with <span>$K-1$</span> degrees of freedom.</p>
+<p>This test will be generally accurate if one of the sample sizes of the groups is larger than 5, and we average the ranks for ties.</p>
+<p>We do this in R:</p>
+<div class="codehilite"><pre>kruskal.test(response, groups)
+</pre></div>
+
+
+<h3 class="header"><i>7.5</i>Friedman Fr-test for randomized blocks<a class="headerlink" href="#friedman-fr-test-for-randomized-blocks" name="friedman-fr-test-for-randomized-blocks">&para;</a></h3>
+<p>Friedman's F<sub>r</sub>-test statistic looks for deviations of the ranks of a treatment within a block across all blocks.<br />
+The null hypothesis is that the average rank of each level of the <span>$K$</span> treatment factors across <span>$B$</span> blocks would be same.<br />
+If <span>$\bar{R}_j$</span> is the average rank of the <span>$j^{th}$</span> level of treatment across the <span>$B$</span> blocks, the <span>$F_r$</span> statistic would be:<br />
+<span>$$F_r = \frac{12B}{K(K+1)}\sum_{j=1}^K(\bar{R}_j-\bar{R})^2$$</span><br />
+Again it is <span>$\chi^2$</span> sitribution with <span>$K-1$</span> degrees of freedom if either <span>$B$</span> or <span>$K$</span> is larger than 5, and we reject for large values of <span>$F_r$</span>.<br />
+To do this in R:</p>
+<div class="codehilite"><pre>friedman.test(response,factor,block)
+</pre></div>
+
+
+<h3 class="header"><i>7.6</i>Spearman rank correlation<a class="headerlink" href="#spearman-rank-correlation" name="spearman-rank-correlation">&para;</a></h3>
+<p>We need a non-parametric way of assessing association between two quantitative variables.</p>
+<p>Suppose we have pairs of variables, <span>$(X_i, Y_i$</span> from <span>$n$</span> independently and identically distributed random variables. If they are highly associated, we would see small values of X that are paired with small values of Y, and large values of X that are paired with large values of Y.<br />
+We can just consider using the correlation of the ranks of X and Y.</p>
+<p>This measure of correlation is known as <strong>Spearman's rank correlation coefficient</strong></p>
+<p>Let <span>$u_i$</span>,<span>$v_i$</span> be the rank of the <span>$i^{th}$</span> observation in <span>$X$</span> and <span>$Y$</span> respectively. We can calculate the sample correlation of the ranks by:<br />
+<span>$$r_s = \frac{SS_{uv}}{\sqrt{SS_{uu}SS_{vv}}}$$</span><br />
+Where:</p>
+<p><span>$$SS_{uv} = \sum_{i=1}^nu_iv_i - n\bar{u}\bar{v}$$</span><br />
+<span>$$SS_{uu} = \sum_{i=1}^nu_i^2 - n\bar{u}^2$$</span><br />
+<span>$$SS_{vv} = \sum_{i=1}^nv_i^2 = n\bar{v}^2$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

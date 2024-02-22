@@ -1,0 +1,208 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, December 3, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, December 3, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Dynamic dataflow and Review
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Dynamic dataflow<a class="headerlink" href="#dynamic-dataflow" name="dynamic-dataflow">&para;</a></h2>
+<p>In static dataflow, we were worried about the regularity of actors, even computing bounds on the channels. In dynamic dataflow, we allow actors in full generality.</p>
+<p><img alt="Partial sum" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-80.png" title="" /></p>
+<p><code>partial sum</code> is not even irregular, but its input is coming as a stream of ones. It outputs the partial sum of all of its input so far, at each input. If we have an actor like this, we have to keep an internal state on top of having inputs. It is no longer purely functional.</p>
+<p>However, it <em>is</em> functional in another domain. It is a <strong>function on streams.</strong> It takes in an infinite stream of ones, and outputs a stream of naturals.</p>
+<p>In the regular model, we were able to initialize values. That behavior can be viewed as an actor called <strong>cons</strong>.<br />
+<img alt="cons" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-81.png" title="" /></p>
+<p><code>cons</code> takes two streams as input and takes the first element in stream 1 and pre-appends it to the stream on 2. It is not a regular actor because it takes one element from the first stream, after which it becomes the identity function.</p>
+<p><img alt="Fibonacci" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-82.png" title="" /></p>
+<p>This circuit generates the Fibonacci sequence. <code>CDR</code> throws the first number away, then becomes the identity function.</p>
+<p>We must understand circuits as a computation on streams.<br />
+<strong>1)</strong> We start each stream as the empty stream.<br />
+<strong>2)</strong> Solve the recursive stream equations</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>-</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x</td>
+<td>1:1:</td>
+<td>1:1:2:</td>
+<td>1:1:2:3</td>
+<td>1:1:2:3:5</td>
+</tr>
+<tr>
+<td>y</td>
+<td>1:-</td>
+<td>1:2:-</td>
+<td>1:2:3</td>
+<td>...</td>
+</tr>
+<tr>
+<td>z</td>
+<td>2:-</td>
+<td>2:3:</td>
+<td>2:3:5</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<p><span>$$
+\begin{equation}
+    x::1:1:z \\
+    y::CDR(x) \\
+    z:: x \oplus y
+\end{equation}
+$$</span></p>
+<h2 class="header"><i>2</i>Final<a class="headerlink" href="#final" name="final">&para;</a></h2>
+<ul>
+<li>expressiveness</li>
+<li>MA/NUMA, SMP, CMD, FMT, SMT</li>
+<li>atomicity, at most 1</li>
+<li>mutual exclusion, peterson's 2-process</li>
+<li>properties, safety/liveliness</li>
+<li>java/pthreads</li>
+<li>filter: look, threads, boundaries</li>
+<li>queue locks, MCS, CLH</li>
+<li>tas, fa, cas</li>
+<li>java locks</li>
+<li>semaphores: binary, ..., counting</li>
+<li>producer/consumer model</li>
+<li>monitor</li>
+<li>semantics (conditions)</li>
+<li>r/w: pref/fair</li>
+<li>terminate cancel</li>
+<li>barriers: one-shot, sense-reversing, cyclic</li>
+<li>priority inversion</li>
+<li>TSD, TLS</li>
+<li>deadlocks: coffman's condition</li>
+<li>race condition</li>
+<li>consensus, wait free</li>
+<li>(not) FMF</li>
+<li>(not) glitches</li>
+<li>linearization</li>
+<li>memory model: sc, consensus, pc, x86-tso</li>
+<li>jmm: HB, justification</li>
+<li>c++</li>
+<li>ABA problem: LL/SC</li>
+<li>reusable lock-fence</li>
+<li>elimination stack</li>
+<li>lock free LL</li>
+<li>OpenMP</li>
+<li>PGAS, spmd, x10, (not) titanium</li>
+<li>work distribution: thread pool, task scheduling</li>
+<li>work stealing, transaction, stm: pessimistic/optimistic</li>
+<li>HTM: (not) TLS</li>
+<li>message passing (sync, async)</li>
+<li>process alg (CSP)</li>
+<li>(not) pi-calculus</li>
+<li>dataflow: static/dynamic</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

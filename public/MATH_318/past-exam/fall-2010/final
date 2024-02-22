@@ -1,0 +1,364 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2010 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2010 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#question">1.1 Question</a></li>
+<li><a href="#answer">1.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion">1.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#question_1">2.1 Question</a></li>
+<li><a href="#answer_1">2.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_1">2.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#question_2">3.1 Question</a></li>
+<li><a href="#answer_2">3.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_2">3.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#question_3">4.1 Question</a></li>
+<li><a href="#answer_3">4.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_3">4.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#question_4">5.1 Question</a></li>
+<li><a href="#answer_4">5.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_4">5.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#question_5">6.1 Question</a></li>
+<li><a href="#answer_5">6.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_5">6.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#question_6">7.1 Question</a></li>
+<li><a href="#answer_6">7.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_6">7.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#question_7">8.1 Question</a></li>
+<li><a href="#answer_7">8.2 Answer</a></li>
+<li><a href="#accuracy-and-discussion_7">8.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question<a class="headerlink" href="#question" name="question">&para;</a></h3>
+<p>Translate into propositional formulas and determine validity.</p>
+<p>(a) If queens are quizzical or rooks run rampant, then pawns don't prefer palindromes. Either pawns prefer palindromes and queens are quizzical, or rooks run rampant. Therefore pawns don't prefer palindromes and rooks run rampant. <em>(5 marks)</em><br />
+(b) If queens are quizzical and roks run rampant, then pawns don't prefer palindromes. Either pawns prefer palinromes and queens are quizzical, or rooks run rampant. Therefore pawns don't prefer palindromes and rooks run rampant. <em>(5 marks)</em></p>
+<h3 class="header"><i>1.2</i>Answer<a class="headerlink" href="#answer" name="answer">&para;</a></h3>
+<p>(a) <span>$(q \lor r) \to \neg p,\, (p \land q) \lor r \vdash \neg p \land r$</span>. This is valid, as it's impossible to invalidate it. This can be proved by contradiction. Assume there is a valuation <span>$V$</span> that makes all the premises come out <span>$\top$</span> but makes the conclusion come out <span>$\bot$</span>. To make the second premise come out <span>$\top$</span>, there are two possibilities. The first is that <span>$V(r) = \top$</span>, in which case, for the first premise to come out <span>$\top$</span>, we must have <span>$V(p) = \bot$</span>, in which case the conclusion would also come out <span>$\top$</span>. The second is that <span>$V(p) = V(q) = \top$</span>. But in this case, the first premise would evaluate to <span>$V(\top \to \bot)$</span> which comes out <span>$\bot$</span>. So there is no valuation that invalidates this argument and so the argument is valid.<br />
+(b) <span>$(q \land r) \to \neg p, \, (p \land q) \lor r \vdash \neg p \land r$</span>. This is invalid. For instance, if <span>$V(p) = V(q) = \top$</span> and <span>$V(r) = \bot$</span>, then the conclusion comes out <span>$\bot$</span> due to the valuation of <span>$r$</span> but the premises both come out <span>$\top$</span>, as the first premise becomes <span>$V(\bot \to \bot)$</span> and the second becomes <span>$V(\top \lor \bot)$</span>. So this is an invalid argument as there is a valuation that invalidates it.</p>
+<h3 class="header"><i>1.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<blockquote>
+<p>I think</p>
+</blockquote>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question<a class="headerlink" href="#question_1" name="question_1">&para;</a></h3>
+<p>Suppose that <span>$R$</span> is a binary relation on the non-empty set <span>$A$</span>. We define another binary relation <span>$S \subseteq A \times A$</span> as follows: for <span>$a, b \in A$</span> we put <span>$(a, b) \in S$</span> if and only if there is a natural number <span>$n$</span> and <span>$a_0, a_1 ... a_n$</span> such that <span>$a_0 = a$</span>, <span>$a_n = b$</span> and for each <span>$j &lt; n$</span>, <span>$(a_j, a_{j+1}) \in R$</span>.</p>
+<p>(a) Show that <span>$S$</span> is transitive and <span>$R \subseteq S$</span>. <em>(5 marks)</em><br />
+(b) Prove that, if <span>$T \subseteq A \times A$</span> is transitive and <span>$R \subseteq T$</span>, then <span>$S \subseteq T$</span>. <em>(5 marks)</em><br />
+(c) Show that, if <span>$R$</span> is reflexive and symmetric, then <span>$S$</span> is an equivalence relation. <em>(5 marks)</em></p>
+<h3 class="header"><i>2.2</i>Answer<a class="headerlink" href="#answer_1" name="answer_1">&para;</a></h3>
+<p>(a) Transitivity of <span>$S$</span>: Later</p>
+<h3 class="header"><i>2.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Question<a class="headerlink" href="#question_2" name="question_2">&para;</a></h3>
+<p>(a) Suppose that <span>$(L_1; \leq_1)$</span> and <span>$(L_2; \leq_2)$</span> are lattices such that <span>$L_1 \cap L_2 = \{ \top_2 = \bot_1 \}$</span>. That is, the bottom element of <span>$L_1$</span> is the top element of <span>$L_2$</span>, and otherwise they have no elements in common. Show that the lattice <span>$L$</span> with underlying set <span>$L_1 \cup L_2$</span> is modular if and only if each of <span>$L_1$</span> and <span>$L_2$</span> is; show that <span>$L$</span> is distributive if and only if each of <span>$L_1$</span> and <span>$L_2$</span> is. (So the order on <span>$L$</span> is given by <span>$a \leq b$</span> for any <span>$a \in L_2$</span>, <span>$b \in L_1$</span>; and if both <span>$a, b \in L_j$</span>, then <span>$a \leq b$</span> if and only if <span>$a \leq_j b$</span> for <span>$j = 1, 2$</span>. <em>(8 marks)</em><br />
+(b) Hasse diagram not included, can't do this question</p>
+<h3 class="header"><i>3.2</i>Answer<a class="headerlink" href="#answer_2" name="answer_2">&para;</a></h3>
+<p>(a) Later</p>
+<h3 class="header"><i>3.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Question<a class="headerlink" href="#question_3" name="question_3">&para;</a></h3>
+<p>One of the following can be proved logically; i.e., it is valid. The other is not. Identify which is which. Give a quasi-formal proof for the valid one, and a structure showing that the other is not valid. [<span>$f$</span>, <span>$g$</span> and <span>$h$</span> are unary function symbols. You may use transitivity and symmetry of equality freely in your proof.]</p>
+<p><span>$$\forall (gfx = hfx), \forall y \exists x (fx = y) \vdash \forall y (gy = hy)$$</span></p>
+<p><span>$$\forall (fgx = fhx),\, \forall y \exists x (fy = y) \vdash \forall y (gy = hy)$$</span></p>
+<h3 class="header"><i>4.2</i>Answer<a class="headerlink" href="#answer_3" name="answer_3">&para;</a></h3>
+<p>The first is valid, the second is not.</p>
+<p>A short and elegant proof of the first<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Incidentally, if one wanted to prove the following...">1</a></sup>:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(1) <span>$\forall x(gfx = hfx) \vdash gfx = hfx$</span></td>
+<td>Straightforward <span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(2) <span>$\forall y \exists x(fx = y) \vdash \exists x (fx = y)$</span></td>
+<td><span>$\forall$</span>-elimination</td>
+</tr>
+<tr>
+<td>(3) <span>$fx = y, gfx = hfx \vdash gy = hy$</span></td>
+<td>Substitution rule 1</td>
+</tr>
+<tr>
+<td>(4) <span>$\forall x (gfx = hfx), fx = y \vdash gy = hy$</span></td>
+<td>Informal transitivity using (1), (3)<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="&quot;Informal&quot; because the premises haven't been expli...">2</a></sup></td>
+</tr>
+<tr>
+<td>(5) <span>$\forall x (gfx=hfx),\,\exists x (fx=y) \vdash gy = hy$</span></td>
+<td><span>$\exists$</span>-elimination from (4)</td>
+</tr>
+<tr>
+<td>(6) <span>$\forall x(gfx=hfx),\,\forall y \exists x (fx=y) \vdash gy=hy$</span></td>
+<td>Informal transitivity using (2), (5)</td>
+</tr>
+<tr>
+<td>(7) <span>$\forall x (gfx=hfx), \, \forall y \exists x (fx=y) \vdash \forall y gy=hy)$</span></td>
+<td><span>$\forall$</span>-introduction from (6)</td>
+</tr>
+</tbody>
+</table>
+<p>Counterexample to the second:</p>
+<p>Let <span>$f(x) = \left \lfloor \frac{x}{2} \right \rfloor$</span>, <span>$g(x) = 0$</span>, <span>$h(x) = 1$</span>, over the natural numbers. The first premise, that <span>$\forall (fgx = fhx)$</span>, is indeed true, as <span>$f(0) = \left \lfloor 0 \right \rfloor = 0 = \left \lfloor 0.5 \right \rfloor = f(1)$</span>. The second premise is also true, as <span>$f(x)$</span> is indeed onto. However, it is not true that <span>$\forall y (gy = hy)$</span>, since <span>$g(y) = 0$</span> and <span>$h(y) = 1$</span> and <span>$0 \neq 1$</span>.</p>
+<h3 class="header"><i>4.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<blockquote>
+<p>Done in-class on Friday, November 25.</p>
+</blockquote>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Question<a class="headerlink" href="#question_4" name="question_4">&para;</a></h3>
+<p>We invent a structure <span>$\mathcal{M} = (M; f^{\mathcal{M}}, P^{\mathcal{M}})$</span>, where <span>$f$</span> is a unary function symbol and <span>$P$</span> is a binary relation symbol as follows: <span>$M = \{a, b, c, d\}, f^{\mathcal{M}}(a) = f^{\mathcal{M}}(b) = d, f^{\mathcal{M}}(c) = a, f^{\mathcal{M}}(d) = b$</span>, and <span>$P^{\mathcal{M}} = \{(a, b), (a, d), (b, c), (c, a), (d, b), (d, c)\}$</span>. Decide whether or not</p>
+<p><span>$$\mathcal{M} \models \forall x \exists y (Pfyfx)$$</span></p>
+<p>and justify your answer.</p>
+<h3 class="header"><i>5.2</i>Answer<a class="headerlink" href="#answer_4" name="answer_4">&para;</a></h3>
+<p>No. This fails if <span>$x = c$</span>, because then <span>$Pfyfx = P(fy)a$</span>, and so <span>$fy$</span> must be <span>$c$</span> in order for <span>$P(fy)a$</span> to be true. But there is no <span>$x$</span> in the domain such that <span>$fx = c$</span>.</p>
+<h3 class="header"><i>5.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<blockquote>
+<p>A bit short but it should be right?</p>
+</blockquote>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Question<a class="headerlink" href="#question_5" name="question_5">&para;</a></h3>
+<p>Give an informal proof from Peano arithmetic of the following. You may use anything done in class or on the assignments, but for not instance the fundamental theorem of arithmetic, since we did not prove that. Recall we use the abbreviation <span>$\Phi(x)$</span> for "<span>$x$</span> is a prime number". <em>(15 marks)</em></p>
+<p><span>$$\forall x \forall y \forall z ((\Pi(x) \land \Pi(y) \land \Pi(y) \land y \neq z) \to x \cdot x \neq y \cdot z)$$</span></p>
+<h3 class="header"><i>6.2</i>Answer<a class="headerlink" href="#answer_5" name="answer_5">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>6.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Question<a class="headerlink" href="#question_6" name="question_6">&para;</a></h3>
+<p>One of the following distributive laws holds for all ordinals and the other sometimes doesn't. Give an informal proof for the true one, and a counterexample for the (sometimes) false one. (The addition and multiplcation are of course ordinal addition and multiplication). <em>(10 marks)</em></p>
+<p><span>$$\alpha \cdot (\beta + \gamma) = (\alpha \cdot \beta) + (\alpha \cdot \gamma)$$</span></p>
+<p><span>$$(\alpha + \beta) \cdot \gamma = (\alpha \cdot \gamma) + (\beta \cdot \gamma)$$</span></p>
+<h3 class="header"><i>7.2</i>Answer<a class="headerlink" href="#answer_6" name="answer_6">&para;</a></h3>
+<p>Later</p>
+<h3 class="header"><i>7.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<blockquote>
+<p>Later</p>
+</blockquote>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<h3 class="header"><i>8.1</i>Question<a class="headerlink" href="#question_7" name="question_7">&para;</a></h3>
+<p>Give a formal in Prenex normal form which is equivalent to the formula</p>
+<p><span>$$(\exists Pxy \to \forall x Qxy) \land \neg \forall y \exists x ((Pxy \lor \neg Qyx) \land \neg Pxz)$$</span></p>
+<p>Here of course P and Q are binary predicate symbols. <em>(10 marks)</em></p>
+<h3 class="header"><i>8.2</i>Answer<a class="headerlink" href="#answer_7" name="answer_7">&para;</a></h3>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$(\exists x Pxy \to \forall x Qxy) \land \exists y \forall x(\neg ((Pxy \lor \neg Qyx) \land \neg Pxz)))$</span></td>
+<td>Not sure how this is justified but it works</td>
+</tr>
+<tr>
+<td><span>$(\neg \exists x Pxy  \lor \forall x Qxy) \land ...$</span></td>
+<td>Replacing the implies</td>
+</tr>
+<tr>
+<td><span>$(\forall x \neg Pxy \lor \forall x Qxy) \land ...$</span></td>
+<td>Replacing <span>$\neg \exists$</span> with <span>$\forall \neg$</span></td>
+</tr>
+<tr>
+<td><span>$(\forall u \neg Puy \lor \forall x Qxy) \land ...$</span></td>
+<td>Change of bound variables</td>
+</tr>
+<tr>
+<td><span>$\forall u (\neg Puy \lor \forall v Qvy) \land ...$</span></td>
+<td>Moving a <span>$\forall$</span> outside, changing a bound variable</td>
+</tr>
+<tr>
+<td><span>$\forall u \forall v (\neg Puy \lor Qvy) \land ...$</span></td>
+<td>Moving another <span>$\forall$</span> outside</td>
+</tr>
+<tr>
+<td><span>$\forall u \forall v \exists y \exists x (...)$</span></td>
+<td>Moving everything outside</td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>8.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<blockquote>
+<p>Done in class, something might have been incorrectly copied though. Not sure about the justification.</p>
+</blockquote>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Incidentally, if one wanted to prove the following statement (same meaning as the given theorem, just expressed slightly differently):</p>
+<p><span>$$\forall x (gfx =hfx),\,\forall x \exists y (fy=x) \vdash \forall x(gx = hx)$$</span></p>
+<p>one would have to do some changing of bound variables first:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Sequent</th>
+<th>Justification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(8) <span>$\forall x \exists y (fy=x) \vdash \forall y \exists x(fx=y)$</span></td>
+<td>Change of bound variables, twice (informal)</td>
+</tr>
+<tr>
+<td>(9) <span>$\forall x \exists y(fy=x), \, \forall x(gfx=hfx) \vdash \forall y (gy=hy)$</span></td>
+<td>Informal transitivity using (7), (8)</td>
+</tr>
+<tr>
+<td>(10) <span>$\forall y (gy=hy) \vdash \forall x (gx=hx)$</span></td>
+<td>Change of bound variables</td>
+</tr>
+<tr>
+<td>(11) <span>$\forall x (gfx =hfx),\,\forall x \exists y (fy=x) \vdash \forall x(gx = hx)$</span></td>
+<td>Transitivity using (9), (10)</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>"Informal" because the premises haven't been explicitly fattened out using monotonicity. This is fine for a quasi-formal proof though.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

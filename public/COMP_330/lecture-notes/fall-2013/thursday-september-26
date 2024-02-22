@@ -1,0 +1,174 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, September 26, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, September 26, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Behaviour of finite state systems
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The behaviour of finite state systems. Verification. Bisimilarity.</p>
+<p>About half of the received assignments (for assignment 1) were handed back. The rest will be returned next class.</p>
+<p>Detailed notes have been written by the professor and are available <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/lts13.pdf">here (PDF)</a>. Only the first 7 pages are examinable material.</p>
+<div class="toc">
+<ul>
+<li><a href="#comments-on-finite-state-machines">1 Comments on finite state machines</a></li>
+<li><a href="#observed-behaviour">2 Observed behaviour</a><ul>
+<li><a href="#labelled-transition-systems">2.1 Labelled transition systems</a></li>
+<li><a href="#bisimilarity">2.2 Bisimilarity</a><ul>
+<li><a href="#co-induction">2.2.1 Co-induction</a></li>
+<li><a href="#bisimulation-relations">2.2.2 Bisimulation relations</a></li>
+<li><a href="#fixed-point-theory">2.2.3 Fixed-point theory</a></li>
+<li><a href="#two-way-similarity">2.2.4 Two-way similarity</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Comments on finite state machines<a class="headerlink" href="#comments-on-finite-state-machines" name="comments-on-finite-state-machines">&para;</a></h2>
+<p>Finite state machines can be found in the lexical analysers of compilers.</p>
+<p>Incidentally, any program that uses finite datatypes can be represented as a finite state machine.</p>
+<p>Verification: proving that a program behaves as expected for all possible inputs. Makes use of the relationship between structure (algebra) and behaviour (co-algebra). Contrast this with testing, in which you try a finite number of inputs and check that you get the correct output.</p>
+<h2 class="header"><i>2</i>Observed behaviour<a class="headerlink" href="#observed-behaviour" name="observed-behaviour">&para;</a></h2>
+<p>So far, our definition of "behaviour" has been limited to "what strings are recognised by this machine". There is another definition of behaviour we can consider, which includes interactions.</p>
+<p>For instance, take a vending machine that dispenses either tea or coffee. (For simplicity, we ignore the fact that it should go back to the initial state after dispensing - we can treat it as a one-time dispenser.) We describe it with the following diagram:</p>
+<p><img alt="LTS for a coffee/tea dispenser" src="http://cs.mcgill.ca/~wliu65/media/comp330/coffee-tea-lts.png" title="Original diagram; released under CC0" /></p>
+<p>Suppose we're given another vending machine, which can be described by the following (non-deterministic) diagram:</p>
+<p><img alt="LTS for an alternate coffee/tea dispenser" src="http://cs.mcgill.ca/~wliu65/media/comp330/coffee-tea-other-lts.png" title="Original diagram; released under CC0" /></p>
+<p>Are these two vending machines the same, in terms of observed behaviour? Clearly not: with the first machine, if we give it a coin, we can then choose either coffee or tea. With the first machine, if we give it a coin, we can again choose either coffee or tea, but sometimes nothing is dispensed unless we choose the other beverage. And yet, if we were to describe these machines in terms of strings, both would be \$C and \$T - so evidently this description fails the capture the subtleties of what's actually going on.</p>
+<p>So the above two machines are not observably equivalent. We will formalise this concept in the next section. Before we do that, a quick example of two machines that <em>are</em> observably equivalent:</p>
+<p><img alt="Two observably equivalent machines" src="http://cs.mcgill.ca/~wliu65/media/comp330/observable-equivalence.png" title="Original diagram; released under CC0" /></p>
+<h3 class="header"><i>2.1</i>Labelled transition systems<a class="headerlink" href="#labelled-transition-systems" name="labelled-transition-systems">&para;</a></h3>
+<p>First, we define a <strong>labelled transition system</strong> as <span>$\mathcal L = (S, \mathcal A, \to)$</span> where:</p>
+<ul>
+<li><span>$S$</span> is the set of states;</li>
+<li><span>$\mathcal A$</span> is the set of actions;</li>
+<li><span>$\to \subseteq S \times \mathcal A \times S$</span> is a relation. For convenience, instead of writing <span>$(s, a, s') \in \to$</span>, we write <span>$s \overset{a}{\to} s'$</span>. We can think of it as representing a potential transition from state <span>$s$</span> to state <span>$s'$</span> to another though action <span>$a$</span>. In order words, <span>$s$</span> can perform action <span>$a$</span> to get to <span>$s'$</span>.</li>
+</ul>
+<p>Note that actions can be non-deterministic.</p>
+<h3 class="header"><i>2.2</i>Bisimilarity<a class="headerlink" href="#bisimilarity" name="bisimilarity">&para;</a></h3>
+<p>Definition: Given a labelled transition system <span>$\mathcal L = (S, \mathcal A, \to)$</span>, we say that <span>$s$</span> and <span>$t$</span> (where <span>$s, t \in S$</span>) are <strong>bisimilar</strong> if, for every state <span>$s'$</span> and action <span>$a$</span> such that <span>$s \overset{a}{\to} s'$</span> is possible, there is a state <span>$t$</span> such that <span>$t \overset{a}{\to} t'$</span> is possible, with <span>$s'$</span> and <span>$t'$</span> also being bisimilar; also, we need that for every state <span>$t'$</span> and action <span>$a$</span> such that <span>$t \overset{a}{\to} t'$</span> is possible, there is a state <span>$s$</span> such that <span>$s \overset{a}{\to} s'$</span> is possible, with <span>$s'$</span> and <span>$t'$</span> being bisimilar.</p>
+<p>This definition seems pretty complicated, and even appears to be a circular definition. How can we make sense of it? There are actually 4 different ways. We'll examine each of them in turn, though note that this material is optional. Understanding bisimulation is important, though, and the explanations below may help with that.</p>
+<h4 class="header"><i>2.2.1</i>Co-induction<a class="headerlink" href="#co-induction" name="co-induction">&para;</a></h4>
+<p><em>The "co" means that this is kind of like the opposite of induction: instead of starting from the base case and building up, we start with everything and pare down (intersection instead of union at each step).</em></p>
+<p>We define an <span>$n$</span>-indexed family of equivalence relations, denoted by <span>$\sim_n$</span> (so <span>$\sim_0, \sim_1, \ldots$</span>), inductively. <span>$\forall s, t \in S$</span>, we have that <span>$s \sim_0 t$</span> (so all states are 0-equivalent). Then, <span>$s \sim_{n+1} t$</span> if, whenever <span>$s \overset{a}{\to} s'$</span>, then <span>$t \overset{a}{\to} t'$</span> (and vice versa) where <span>$s' \sim_{n} t'$</span>.</p>
+<p>So then we have that <span>$\sim_0 \supseteq \sim_1 \supseteq \cdots \supseteq \sim_n$</span>. Then we define the equivalence relation <span>$\sim$</span> as follows: <span>$s \sim t$</span> if and only if <span>$\forall n, s \sim_n t$</span>.</p>
+<p>Here's an example:</p>
+<p><img alt="Two LTS diagrams that are not observably equivalent" src="http://i.imgur.com/IO4vgmD.png" title="Original diagram; released under CC0" /></p>
+<p>We know that <span>$s_0 \sim_0 t_0$</span>. What about <span>$s_0 \sim_1 t_0$</span>? Yes, this is also true. However, <span>$s_0 \sim_2 t_0$</span> is not true, since <span>$s_1$</span> and <span>$t_1$</span> are not 1-equivalent, because you can make a <span>$c$</span> transition from <span>$s_1$</span> but not from <span>$t_1$</span>.</p>
+<p>As an exercise: for every <span>$n$</span>, define a pair of states that are <span>$n$</span>-equivalent but not <span>$n+1$</span> equivalent, using the above diagrams.</p>
+<p>This method removes the apparent circularity in the definition through indexing. However, this method is somewhat clunky, and we don't want to use this in practice.</p>
+<h4 class="header"><i>2.2.2</i>Bisimulation relations<a class="headerlink" href="#bisimulation-relations" name="bisimulation-relations">&para;</a></h4>
+<p>Let <span>$R$</span> be any relation. We say that <span>$R$</span> is a <strong>bisimulation relation</strong> (where bisimulation is merely a property that a relation can have) if, whenever <span>$sRt$</span> and <span>$s \overset{a}{\to} s'$</span>, then <span>$t \overset{a}{\to} t'$</span>, with <span>$s' Rt'$</span>, and vice versa. Then, given any relation, we can check whether or not it is a bisimulation relation.</p>
+<p>Finally, we define a new relation <span>$\sim$</span>, expressing bisimilarity, as follows: <span>$s \sim t$</span> if there exists a bisimulation relation <span>$T$</span> such that <span>$sRt$</span>. So bisimilarity, as a property of states, is simply the union of all bisimulation relations on those states.</p>
+<h4 class="header"><i>2.2.3</i>Fixed-point theory<a class="headerlink" href="#fixed-point-theory" name="fixed-point-theory">&para;</a></h4>
+<p>Let <span>$R$</span> be the lattice (!!) of all binary relations ordered by inclusion. (So we have the empty relation at the bottom, and the universal relation - the one that relates everything to everything else - at the top.) We define a function <span>$\mathcal F: R \to \mathcal R$</span> (which takes in a relation and produces a new one) as follows. <span>$s \mathcal F(R) t$</span> if, whenever <span>$s \overset{a}{\to} s'$</span>, then <span>$t \overset{a}{\to} t'$</span> and <span>$s'Rt'$</span> and vice versa.</p>
+<p>Theorem: there is a unique greatest fixed point for <span>$\mathcal F$</span> (i.e., the largest relation <span>$R$</span> such that <span>$R = \mathcal F(R)$</span>). This relation is a bisimulation. (We will not prove this theorem in class. See the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/lts13.pdf">notes</a> for more details.)</p>
+<p>Incidentally, automated tools for checking bisimilarity are based on this method.</p>
+<h4 class="header"><i>2.2.4</i>Two-way similarity<a class="headerlink" href="#two-way-similarity" name="two-way-similarity">&para;</a></h4>
+<p>We define the <strong>similarity</strong> relation as follows. <span>$s$</span> simulates <span>$t$</span> if, whenever <span>$t \overset{a}{\to} t'$</span>, there exists <span>$s'$</span> such that <span>$s \overset{a}{\to} s'$</span> and <span>$s'$</span> simulates <span>$t$</span>.</p>
+<p>We say that <span>$s$</span> and <span>$t$</span> are in a 2-way simulation if <span>$s$</span> simulates <span>$t$</span> and <span>$t$</span> simulates <span>$s$</span>. Note that this is <strong>not</strong> quite the same as bisimulation; for example, in the diagram below, the two LTS are clearly not bisimilar, and yet they are 2-way similar.</p>
+<p><img alt="2-way similarity" src="http://i.imgur.com/NVrvyOX.png" title="Original diagram; released under CC0" /></p>
+<p>We can use this definition to create a game-like way of understanding bisimulation. Suppose you're given one machine, and your opponent is given another. If, no matter what move you make, your opponent can make an equivalent move on the other machine, then your opponent's machine simulates your own. However, if your opponent has the ability to switch machines with you at any point, and still you can simulate any move he makes, then the two machines are bisimilar.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Multivariable calculus
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Multivariable calculus
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Basic multivariable calculus. Should be mostly review from Calculus 3 or A/B.</p>
+<div class="toc">
+<ul>
+<li><a href="#reversing-the-order-of-integration">1 Reversing the order of integration</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#change-of-variables-over-a-region">2 Change of variables over a region</a><ul>
+<li><a href="#examples_1">2.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#deriving-surface-area-in-a-specific-coordinate-system">3 Deriving surface area in a specific coordinate system</a><ul>
+<li><a href="#examples_2">3.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#integrating-using-spherical-coordinates">4 Integrating using spherical coordinates</a><ul>
+<li><a href="#examples_3">4.1 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Reversing the order of integration<a class="headerlink" href="#reversing-the-order-of-integration" name="reversing-the-order-of-integration">&para;</a></h2>
+<p>A seemingly impossible integral involving e, and a simple region in two dimensions.</p>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>Have to change the order of integration. After that it should be a breeze.</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li><a href="/MATH_314/past-exam/winter-2010/final#question-1">Winter 2010 final, question 1</a></li>
+</ul>
+<h2 class="header"><i>2</i>Change of variables over a region<a class="headerlink" href="#change-of-variables-over-a-region" name="change-of-variables-over-a-region">&para;</a></h2>
+<p>Notes: For the Jacobian: new variables go on the bottom, but take the inverse of that because otherwise it's hard to compute (so 1 over the value). Also positive (since, abs value etc)</p>
+<h3 class="header"><i>2.1</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 1-3</li>
+<li><a href="/MATH_314/past-exam/winter-2006/final#question-3">Winter 2006 final, question 3</a></li>
+<li><a href="/MATH_314/past-exam/winter-2010/final#question-2">Winter 2010 final, question 2</a></li>
+</ul>
+<h2 class="header"><i>3</i>Deriving surface area in a specific coordinate system<a class="headerlink" href="#deriving-surface-area-in-a-specific-coordinate-system" name="deriving-surface-area-in-a-specific-coordinate-system">&para;</a></h2>
+<p>Won't need to do this (no proofs etc)</p>
+<h3 class="header"><i>3.1</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 4</li>
+</ul>
+<h2 class="header"><i>4</i>Integrating using spherical coordinates<a class="headerlink" href="#integrating-using-spherical-coordinates" name="integrating-using-spherical-coordinates">&para;</a></h2>
+<p>Basically a surface integral. Parametrise it, take the cross-product of the two partial derivatives, use that as the integrand and integrate over the limits of the region.</p>
+<h3 class="header"><i>4.1</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li><a href="/MATH_314/past-exam/winter-2006/final#question-4">Winter 2006 final, question 4</a></li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

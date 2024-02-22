@@ -1,0 +1,158 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, November 14, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, November 14, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Limitations of CFLs
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>THESE NOTES HAVE NOT BEEN VERIFIED BY THE INSTRUCTOR. USE AT YOUR OWN RISK.</strong></p>
+<p>Taught by Artem. Limitations of CFLs. This class ended early, which is why these notes are not very long.</p>
+<div class="toc">
+<ul>
+<li><a href="#the-limitations-of-cfls">1 The limitations of CFLs</a><ul>
+<li><a href="#undecidability-of-the-ambiguity-question">1.1 Undecidability of the ambiguity question</a></li>
+<li><a href="#valcomp">1.2 VALCOMP</a></li>
+<li><a href="#other-undecidable-problems">1.3 Other undecidable problems</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The limitations of CFLs<a class="headerlink" href="#the-limitations-of-cfls" name="the-limitations-of-cfls">&para;</a></h2>
+<p>Unlike with regular languages, there are many questions that can't be answered at all for CFLs. Although certain questions for regular languages cannot be answered efficiently, all of them can at least be <em>answered</em>. With CFLs, however, some questions are simply undecidable.</p>
+<h3 class="header"><i>1.1</i>Undecidability of the ambiguity question<a class="headerlink" href="#undecidability-of-the-ambiguity-question" name="undecidability-of-the-ambiguity-question">&para;</a></h3>
+<p>We'll use the Post correspondence problem to show that the question of whether or not a context-free grammar is ambiguous is undecidable.</p>
+<p>Suppose we have the following blocks:</p>
+<p><span>$$\left \{ \left [ \frac{t_1}{b_1} \right ], \ldots, \left [ \frac{t_n}{b_n} \right ] \right \}\tag{where $t_i, b_i \in \Sigma^*$}$$</span></p>
+<p>Also, we add the following to the set of symbols, which will be used to tag which type of tile was used: <span>$\Delta = \{d_1, \ldots, d_n\}$</span> (so the set of symbols that we can use is <span>$\Sigma \cup \Delta$</span>).</p>
+<p>Create a CFL with the following rules:</p>
+<ul>
+<li><span>$S \to T \mid B$</span></li>
+<li><span>$T_i \to t_iTd_i$</span> for all <span>$i \in \{1, \ldots, n\}$</span></li>
+<li><span>$B_i \to b_iBd_i$</span> for all <span>$i \in \{1, \ldots, n\}$</span></li>
+<li><span>$T \to T_1 \mid \ldots \mid T_n \mid \epsilon$</span></li>
+<li><span>$B \to B_1 \mid \ldots \mid B_n \mid \epsilon$</span></li>
+</ul>
+<p>If the grammar is ambiguous, then there are two different ways to get the same string, which happens if and only if the instance of PCP has a solution.  Thus we've reduced PCP to ambiguity. <span>$\blacksquare$</span></p>
+<p><em>TODO: Come back to this and make this explanation more detailed.</em></p>
+<h3 class="header"><i>1.2</i>VALCOMP<a class="headerlink" href="#valcomp" name="valcomp">&para;</a></h3>
+<p>We'll define a language VALCOMP which takes as input a deterministic Turing machine, <span>$M$</span>, and a letter set <span>$z$</span>, and consists of the set of all valid computations of <span>$M$</span> on <span>$z$</span> (i.e., computations that halt). So if your machine never halts on <span>$z$</span> for any input, then VALCOMP is <span>$\varnothing$</span>.</p>
+<p>Now, we create a machine to recognise the <em>complement</em> of VALCOMP, which happens to be a context-free language. The algorithm works as follows: count the number of hashes (separators), and do something for every other separator. This machine never halts! It's undecidable. This shows how even innocent-sounding questions about CFLs can be as difficult as solving the halting problem.</p>
+<p><em>TODO: This section is incomplete. Check back later, or feel free to edit it yourself to fill in the missing notes.</em></p>
+<h3 class="header"><i>1.3</i>Other undecidable problems<a class="headerlink" href="#other-undecidable-problems" name="other-undecidable-problems">&para;</a></h3>
+<ul>
+<li>Given <span>$G$</span>, is <span>$L(G)$</span> context-free?<sup id="fnref:grammars"><a href="#fn:grammars" rel="footnote" title="I think this includes context-sensitive grammars (...">1</a></sup></li>
+<li>Given <span>$G_1$</span> and <span>$G_2$</span>, is <span>$L(G_1) \cap L(G_2)$</span> context-free?</li>
+<li>Given <span>$G$</span>, is <span>$L(G)$</span> regular?</li>
+<li>Given <span>$G$</span>, is <span>$L(G)$</span> ambiguous?</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:grammars">
+<p>I think this includes context-sensitive grammars (which we haven't studied) but I'm sure. It seems that the question wouldn't make any sense otherwise, though, since any context-free grammar should of course generate a context-free language?&#160;<a href="#fnref:grammars" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

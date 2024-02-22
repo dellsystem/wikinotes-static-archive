@@ -1,0 +1,177 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 21, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 21, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction to linear maps
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Material covered: proposition 2.19 and the end of chapter 2, and the start of chapter 3 (linear maps).</p>
+<div class="toc">
+<ul>
+<li><a href="#proposition-219">1 Proposition 2.19</a></li>
+<li><a href="#chapter-3-linear-maps">2 Chapter 3: Linear maps</a><ul>
+<li><a href="#the-underlying-vector-space-structure">2.1 The underlying vector space structure</a></li>
+<li><a href="#examples">2.2 Examples</a></li>
+<li><a href="#product-structures">2.3 Product structures</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Proposition 2.19<a class="headerlink" href="#proposition-219" name="proposition-219">&para;</a></h2>
+<blockquote>
+<p>Suppose <span>$V$</span> is a finite-dimensional vector space. Let <span>$U_1, \ldots, U_m$</span> be subspaces of <span>$V$</span>, such that the following hold true:</p>
+<p><span>$$\begin{cases} &amp; V = U_1 + \ldots + U_m \, (1) \\ &amp; \dim V = \dim U_1 + \ldots + \dim U_m \, (2) \end{cases}$$</span></p>
+<p>Then, <span>$V = U_1 \oplus \ldots \oplus U_m$</span>.</p>
+</blockquote>
+<p>Proof: Let <span>$B_i = (V_1^i, \ldots, V_{n_i}^i)$</span> be a basis for <span>$U_i$</span>. (The use of superscripts is not exponentation or anything like that, it's just notation for differentiating the bases from each other.) Now, let's take all the basis vectors and combine them in one list, <span>$B = (B_1, \ldots, B_m)$</span> (with each new basis extending the list as opposed to being appended). Clearly, <span>$B$</span> spans <span>$V$</span>, by (1). Also, the length of <span>$B$</span> is <span>$\dim(U_1) + \ldots + \dim(U_m) = \dim(V)$</span>. Hence, <span>$B$</span> is a basis for <span>$V$</span>, by proposition 2.16 (<a href="/MATH_236/lecture-notes/winter-2013/thursday-january-17#proposition-215-217">#2 here</a>).</p>
+<p>Now we need to show that if <span>$0 = u_1 + \ldots + u_m$</span><sup id="fnref:coefficients"><a href="#fn:coefficients" rel="footnote" title="Note the absence of coefficients here (usually nee...">1</a></sup>, where <span>$u_i \in U_i$</span>, then <span>$u_1 = \ldots = u_m = 0$</span>. We can write each vector <span>$u_i$</span> as a linear combination of the relevant basis vectors:</p>
+<p><span>$$0 = \sum_{j=1}^n a_j^1 v_j^1 + \sum_{j=1}^{n_2} a_j^2 v_j^2 + \ldots + \sum_{j=1}^{n_m} a_j^m v_j^m$$</span></p>
+<p>But <span>$B$</span> is a basis. So we have <span>$a_j^1 = a_j^2 = \ldots = a_j^m = 0$</span>. Thus, <span>$u_1 = \ldots = u_m = 0$</span>. So the set is linearly independent. I feel like there may be a more elegant way of doing it, but I can't find it. Good enough for now <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Chapter 3: Linear maps<a class="headerlink" href="#chapter-3-linear-maps" name="chapter-3-linear-maps">&para;</a></h2>
+<p>A <strong>linear map</strong> (or linear transformation, or linear operator), defined by <span>$T: V \to W$</span> where <span>$V$</span> and <span>$W$</span> are vector spaces, has the property that for all <span>$u, v \in V$</span> and <span>$\alpha \in \mathbb F$</span>:</p>
+<p><span>$$T(\alpha \cdot u + v) = \alpha \cdot T(u) + T(v)$$</span></p>
+<h3 class="header"><i>2.1</i>The underlying vector space structure<a class="headerlink" href="#the-underlying-vector-space-structure" name="the-underlying-vector-space-structure">&para;</a></h3>
+<p>Let <span>$\mathcal L(V, W) = \{T: V \to W \,|\, T \text{ is linear } \}$</span> be the set of all linear maps from <span>$V$</span> to <span>$W$</span> (for some specified <span>$V$</span> and <span>$W$</span>). We claim that <span>$\mathcal (V, W)$</span>, together with the operations of addition and scalar multiplication (defined in the most natural way), is a vector space.</p>
+<p>Here are the definitions of addition and scalar multiplication:</p>
+<ul>
+<li>Addition: <span>$(S+T)(v) = S(v) + T(V)$</span>, where <span>$S, T \in \mathcal L(V, W)$</span>, <span>$v \in V$</span></li>
+<li>Scalar multiplication: <span>$(\alpha \cdot T)(v) = \alpha \cdot T(v)$</span>, where <span>$T \in \mathcal L(V, W)$</span>, <span>$v \in V$</span> and <span>$\alpha \in \mathbb F$</span></li>
+</ul>
+<p>Let's check that this proposed vector space is closed under addition:</p>
+<p><span>$\begin{align} (S+T)(\alpha v + u) &amp; = S(\alpha v + u) + T(\alpha v + u) \tag{by the definition of addition} \\
+&amp; = \alpha S(v) + S(u) + \alpha T(v) + T(u) \tag{by the definition of linear operators} \\
+&amp; = \alpha(S(v) + T(v)) + (S(u) + T(u)) \tag{by distributivity} \\
+&amp; = \alpha(S+T)(v) + (S+T)(u) \tag{by the definition of scalar multiplication} \\
+\therefore &amp; \mathcal(L, W) \text{ is closed under addition.} \, \blacksquare \end{align}$</span></p>
+<p>Verifying closure under scalar multiplication (as well as the rest of the properties) is left as an exercise for the reader.</p>
+<p>The fact that the set of all linear maps is itself a vector space is quite an interesting result. Vector spaces, all the way down.</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ol>
+<li>The zero map. <span>$0: V \to W, v \mapsto 0$</span></li>
+<li>The identity/self map. <span>$I: V \to V, v \mapsto v$</span></li>
+<li>The differentiation map, defined on real polynomials<sup id="fnref:diff"><a href="#fn:diff" rel="footnote" title="This is of course not the general differentation m...">2</a></sup>. <span>$\displaystyle D: P(\mathbb R) \to P(\mathbb R), p(x) \mapsto \frac{dp}{dx}$</span>. Proving that this is a linear operator requires a basic fact from calculus: <span>$\displaystyle \frac{d(\alpha p(x) + q(x))}{dx} = \alpha\frac{dp}{dx} + \frac{dq}{dx}$</span>. As <span>$D$</span> is a linear map, we can say that <span>$D \in \mathcal L(P(\mathbb R), P (\mathbb R))$</span>. </li>
+<li>The integration map, defined on real polynomials for a particular interval<sup id="fnref:int"><a href="#fn:int" rel="footnote" title="Same as above">3</a></sup>. <span>$\displaystyle S: P(\mathbb R) \to \mathbb R, p(x) \mapsto \int_0^1 p(x) \,dx$</span>. Proving that this is a linear operator again requires a basic fact from calculus (omitted) - we just have to show that it satisfies the defining property of a linear map (mentioned at the beginning of <a href="#chapter-3-linear-maps">this chapter</a>).</li>
+<li><span>$T: \mathbb R^3 \to \mathbb R^2, (x, y, z) \mapsto (3x-z, y)$</span>. <span>$T \in \mathcal L(\mathbb R^3, \mathbb R^2)$</span>. Proof left as an exercise.</li>
+<li>The general linear transformation between Euclidean spaces: <span>$T: \mathbb F^n \to \mathbb F^m, (x_1, \ldots, x_n) \mapsto (a_{1,1}x_1 + \ldots + a_{1,m}x_n, \ldots, a_{1, m} x_1 + \ldots + a_{n, m}x_n)$</span>.</li>
+</ol>
+<h3 class="header"><i>2.3</i>Product structures<a class="headerlink" href="#product-structures" name="product-structures">&para;</a></h3>
+<p>We can define a "product structure" (i.e., composition) on a set of linear maps, where <span>$T \in \mathcal (U, V)$</span> and <span>$S \in \mathcal (V, W)$</span>:</p>
+<p><span>$$(S \circ T)(v) = (ST)(v) = S(T(V))$$</span></p>
+<p>From this, we shall see, matrices will naturally arise. We will continue this next lesson.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:coefficients">
+<p>Note the absence of coefficients here (usually needed to prove linear independence). It's not needed in this because they are just arbitrary vectors from the various subspaces.&#160;<a href="#fnref:coefficients" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:diff">
+<p>This is of course not the general differentation map; it is merely a specific example of one.&#160;<a href="#fnref:diff" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:int">
+<p>Same as above&#160;<a href="#fnref:int" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

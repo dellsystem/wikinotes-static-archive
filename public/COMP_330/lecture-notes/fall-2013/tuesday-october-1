@@ -1,0 +1,197 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, October 1, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, October 1, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The pumping lemma
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The pumping lemma: statement, proof, and how to use it to prove that a language is not regular.</p>
+<div class="toc">
+<ul>
+<li><a href="#the-pumping-lemma">1 The pumping lemma</a><ul>
+<li><a href="#statement-of-the-lemma">1.1 Statement of the lemma</a></li>
+<li><a href="#interpretation">1.2 Interpretation</a></li>
+<li><a href="#proof">1.3 Proof</a></li>
+<li><a href="#using-the-contrapositive">1.4 Using the contrapositive</a><ul>
+<li><a href="#game-formulation">1.4.1 Game formulation</a></li>
+<li><a href="#examples">1.4.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The pumping lemma<a class="headerlink" href="#the-pumping-lemma" name="the-pumping-lemma">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Statement of the lemma<a class="headerlink" href="#statement-of-the-lemma" name="statement-of-the-lemma">&para;</a></h3>
+<p>For any regular language <span>$L$</span>, there exists a positive integer <span>$p$</span> such that for every word <span>$w \in L$</span> (where <span>$|w| \geq p$</span>), there exists a triple of strings <span>$x, y, z \in \Sigma^*$</span> such that:</p>
+<p>(i) <span>$|xy| \leq p$</span><br />
+(ii) <span>$|y| &gt; 0$</span> (equivalently: <span>$y \neq \epsilon$</span>)<br />
+(iii) for every <span>$i \geq 0$</span>, <span>$xyiz \in L$</span>.</p>
+<p>In (mostly) symbolic notation, this is:</p>
+<p><span>$\forall L \,\text{reg}, \exists p &gt; 0$</span> such that <span>$\forall w \in L$</span> with <span>$|w| \geq p, \exists x, y, z \in \Sigma^*$</span> such that: (0) <span>$w = xyz$</span>; (i) <span>$|xy| \leq p$</span>; (ii) <span>$y \neq \epsilon$</span>; (iii) <span>$\forall i,\, xy^iz \in L$</span>.</p>
+<h3 class="header"><i>1.2</i>Interpretation<a class="headerlink" href="#interpretation" name="interpretation">&para;</a></h3>
+<p>What this is saying is that for any word of a certain length (or more) in a regular language, we can remove a particular middle section of it, or repeat that middle section any number of times, and still get a valid word in that language.</p>
+<p>Now, at first glance this might seem to imply that any regular language must be infinite! Of course, this is not true, as finite regular languages clearly exist. We can reconcile this apparent contradiction as follows: any finite language <span>$L$</span> has a longest word, which we'll call <span>$w_0$</span>. Let <span>$p = |w_0| + 1$</span>. Then the pumping lemma applies to any word in <span>$L$</span> with length <span>$\geq p$</span>. But, of course, there are no such words. Thus the pumping lemma is only of interest in relation to infinite languages.</p>
+<h3 class="header"><i>1.3</i>Proof<a class="headerlink" href="#proof" name="proof">&para;</a></h3>
+<p>We will make use of the fact that regular languages can be recognised by DFAs. Suppose <span>$L$</span> is a regular language, which is recognised by <span>$M = (S, s_0, \delta, F)$</span>.</p>
+<p>Choose <span>$p$</span> to be <span>$|S|$</span> (note: this is merely <em>an</em> example of a value of <span>$p$</span> that will work, not the only value). Consider any word <span>$w \in L$</span> such that <span>$|w| \geq p$</span>. So there are at least <span>$p$</span> letters in <span>$w$</span>, which means that when <span>$w$</span> is fed as input to <span>$M$</span>, there are at least <span>$p + 1$</span> states visited (including the initial state). Bu the total number of states is <span>$p$</span>. So, by the pigeonhole principle<sup id="fnref:pigeon"><a href="#fn:pigeon" rel="footnote" title="Incidentally, this is the reason that $|xy| \leq p...">1</a></sup>, the machine must visit the same state twice (at least) when processing <span>$w$</span>! Indeed, there could be more than one state visited more than once, but we only need to concentrate on <em>one</em> state that is visited more than once. We'll call this state <span>$t$</span>. If the start state is <span>$s_0$</span>, and the accept state that <span>$w$</span> ends up in is <span>$s_f$</span>, the path taken through the machine looks something like this:</p>
+<p><img alt="Proof by picture" src="http://cs.mcgill.ca/~wliu65/media/comp330/pumping-lemma-proof.png" title="Original diagram. Released under CC0." /></p>
+<p>Hopefully the above diagram alone is sufficient for convincing you that the pumping lemma holds, because that's it for this section. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.4</i>Using the contrapositive<a class="headerlink" href="#using-the-contrapositive" name="using-the-contrapositive">&para;</a></h3>
+<p>The pumping lemma tells us that "a regular language" <span>$\to$</span> "pumpable". The contrapositive, that "not pumpable" <span>$\to$</span> "not regular", will be very useful for proving that a language is not regular.</p>
+<p>First, let's find the negation of the pumping lemma:</p>
+<p><span>$$\forall p \geq 0 \exists w\in L, |w| \geq p, \forall x,y,z \in \Sigma^*, w=xyz, |xy| \leq p, |y| &gt; 0, \exists i \geq 0, \,\text{such that} \,xy^iz \notin L$$</span></p>
+<p>Thus, if we can find a language for which this property holds, then we know that language is not regular.</p>
+<h4 class="header"><i>1.4.1</i>Game formulation<a class="headerlink" href="#game-formulation" name="game-formulation">&para;</a></h4>
+<p>We can use a game formulation of predicate calculus that will both assist our understanding of the formula above (since it's difficult to intuitively grasp any formula with so many quantifiers) and provide a simple way of proving that a language is not regular. Given a formula, pretend that you are battling an adversary who wants to falsify it, while you want to make it valid. You get to choose all the <span>$\exists$</span> variables, and your adversary gets to choose all the <span>$\forall$</span> variables, in their order of appearance.</p>
+<p>Let's apply this to the formula above. Suppose the adversary chooses some fixed <span>$p$</span>. You must then choose some <span>$w \in L$</span> (with <span>$|w| \geq p$</span>). Then, your adversary will choose <span>$x$</span>, <span>$y$</span>, and <span>$z$</span>, subject to the constraints. Your job is to choose some <span>$i$</span> such that <span>$xy^iz \notin L$</span>. If this is possible for an arbitrary adversary, then this language is not regular.</p>
+<p>Thus, <span>$L$</span> is not pumpable <span>$\Leftrightarrow$</span> you always have a winning strategy (no matter what the adversary chooses).</p>
+<h4 class="header"><i>1.4.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h4>
+<p><span>$L = \{a^nb^n|n \geq 0\}$</span>. This is clearly not regular, since you'd have to count to keep track of how many <span>$a$</span>'s have been seen, and counting isn't possible for memory-less machines like DFAs. We can prove this via the game formulation above as follows:</p>
+<ul>
+<li>A <span>$\to p$</span> (i.e., your adversary picks some <span>$p$</span>)</li>
+<li>I <span>$\to w = a^pb^p$</span> (i.e., you choose <span>$w$</span> to be <span>$a^pb^p$</span>)</li>
+<li>Then, since your adversary must choose <span>$x,y,z$</span> such that <span>$|xy| \leq p$</span>, then <span>$xy$</span> must consist purely of <span>$a$</span>'s! And <span>$y$</span> can't be <span>$\epsilon$</span>. So <span>$y = a^j$</span> where <span>$j &gt; 0$</span>. (The values of <span>$x$</span> and <span>$z$</span> are irrelevant for this example.)</li>
+<li>Then you choose <span>$i = 2$</span>. So then <span>$xy^2z = a^{p+j}b^p$</span> which is clearly not in <span>$L$</span>, since <span>$p + j \neq p$</span>. <span>$\blacksquare$</span></li>
+</ul>
+<div class="ui divider"></div>
+<p><span>$L = \{$</span> strings with an equal number of <span>$a$</span>'s and <span>$b$</span>'s <span>$\}$</span>. Since this is a superset of the previous language, we can use the exact same argument (remember that <em>you</em> choose the word).</p>
+<div class="ui divider"></div>
+<p><span>$L = \{a^mb^n|m \neq n\}$</span>. This is clearly not regular for the same reason as the first example. However, it would be difficult to use the pumping lemma for this language. What we can do instead is reduce this to something we already know. We know that if <span>$L$</span> is regular, then its complement is also regular. Furthermore, since <span>$a^*b^*$</span> is regular, then <span>$\overline{L} \cap a^*b^*$</span> should also be regular, if <span>$L$</span> is regular. But <span>$\overline{L} \cap a^*b^*$</span> is equivalent to the language from the first example. So <span>$L$</span> can't be regular (proof by contradiction).</p>
+<div class="ui divider"></div>
+<p><span>$\Sigma = \{a\}$</span>, <span>$L = \left \{a^{2^n} \,\mid\, n \geq 0 \right\}$</span>. Again, clearly not regular because, counting.</p>
+<ul>
+<li>A picks <span>$p$</span></li>
+<li>Choose <span>$w = a^{2^p}$</span></li>
+<li>A picks <span>$x, y, z$</span> such that <span>$xyz = w$</span>. Since <span>$|xy| \leq p$</span>, then the length of <span>$y$</span> is constrained as follows: <span>$0 &lt; |y| \leq p &lt; 2^p$</span> (where <span>$p &lt; 2^p$</span> is just something we know to be true for natural numbers). Let <span>$k = |y|$</span>.</li>
+<li>Choose <span>$i = 2$</span>. Then <span>$w' = xyyz = a^{2^p + k}$</span>.</li>
+</ul>
+<p>Now, it's obvious that <span>$2^p + k &gt; 2^p$</span>, but is it equal to some larger power of 2? Is there a <span>$m \in \mathbb{N}$</span> such that <span>$2^p + k = 2^m$</span>? Well, no, because the next largest power of 2 is <span>$2^{p+1} = 2^p + 2^p$</span>, but since <span>$k &lt; 2^p$</span>, then <span>$2^p + k &lt; 2^p + 2^p$</span>, so yeah. <span>$\blacksquare$</span></p>
+<div class="ui divider"></div>
+<p><span>$L = \{ww\,|\,w \in \Sigma^*\}$</span></p>
+<ul>
+<li>A picks <span>$p$</span></li>
+<li>Choose <span>$w=a^pba^pb$</span></li>
+<li>The adversary is limited to all <span>$a$</span>'s for <span>$y$</span>. So <span>$y = a^k$</span> where <span>$k &gt; 0$</span>.</li>
+<li>Choose <span>$i=2$</span>, then we win (<span>$a^{p+k}ba^pb$</span>). <span>$\blacksquare$</span></li>
+</ul>
+<p>(We could also have proven irregularity using Myhill-Nerode, but this method is much nicer.)</p>
+<div class="ui divider"></div>
+<p><span>$L = \{a^ib^j \, \mid \, i &gt; j \geq 0\}$</span></p>
+<ul>
+<li>A picks <span>$p$</span>, as always</li>
+<li>Choose <span>$w = a^pb^{p-1}$</span></li>
+<li>As before, the adversary can only choose <span>$a$</span>'s. So <span>$y = a^k$</span> where <span>$k &gt; 0$</span>.</li>
+<li>Choose <span>$i = 0$</span> (pumping down, instead of pumping up, for once). Then <span>$xy^iz = xz = a^{p-k}b^{p-1} \notin L$</span>. <span>$\blacksquare$</span></li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:pigeon">
+<p>Incidentally, this is the reason that <span>$|xy| \leq p$</span>.&#160;<a href="#fnref:pigeon" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

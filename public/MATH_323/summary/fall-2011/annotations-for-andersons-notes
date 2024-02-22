@@ -1,0 +1,459 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_323/">
+                MATH 323
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Annotations for Anderson&#x27;s notes
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Annotations for Anderson&#x27;s notes
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Annotations for the notes created by Professor William J Anderson for his fall 2011 class. Based on revision 11, last updated November 28, 2011. Includes more detailed explanations, further examples, and possibly other stuff too.</p>
+<h2 class="header"><i>1</i>Introduction and definitions<a class="headerlink" href="#introduction-and-definitions" name="introduction-and-definitions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Basic definitions<a class="headerlink" href="#basic-definitions" name="basic-definitions">&para;</a></h3>
+<h4 class="header"><i>1.1.1</i>On spinning a spinner<a class="headerlink" href="#on-spinning-a-spinner" name="on-spinning-a-spinner">&para;</a></h4>
+<p><span>$$P(A) = \frac{70}{360} \approx 0.19; \quad P(B)= \frac{279.5000 - 145.6678}{360} \approx 0.37; \quad P(C) = 0$$</span></p>
+<p>although the answer for C depends on the assumed precision; if we take 45.7 as meaning anything between 45.65 (inclusive) and 45.75 (exclusive), then the probability of C would become 0.00027 instead. But that's just being me being pedantic.</p>
+<h4 class="header"><i>1.1.2</i>On the rules for computing probabilities<a class="headerlink" href="#on-the-rules-for-computing-probabilities" name="on-the-rules-for-computing-probabilities">&para;</a></h4>
+<p><span>$P (A \cup B) = P (A) + P (B) − P (A \cap B)$</span> is an important formula, but it doesn't need to be memorised, as just drawing out the Venn diagram shows clearly why it is correct. Finding the union of <span>$P(A)$</span> and <span>$P(A^c)$</span> (that is, the probability of an event and the probability of its complement) does not require paying attention to the intersection of the two events because there is no intersection. (In other words, they are disjoint.)</p>
+<h4 class="header"><i>1.1.3</i>On tanks full of coloured fish<a class="headerlink" href="#on-tanks-full-of-coloured-fish" name="on-tanks-full-of-coloured-fish">&para;</a></h4>
+<p>The example can be more easily (and possibly more intuitively) solved without listing the sample spaces. For (1), consider that there are exactly 3 red fish out of five fish total, so the probability of getting a red fish the first time is <span>$\frac{3}{5}$</span>. Since you're not putting the fish back in the tank afterwards (poor fish ... one can only hope they've moved on to greener pastures), the number of fish remaining after the first "draw" is 4, with only two of them being red (since you've just taken one of the red brethren out). The probability of getting a blue fish on your second draw is thus <span>$\frac{2}{4}$</span>. The probability of this event following the first is the product of the two, so <span>$\frac{3}{5} \times \frac{2}{4} = \frac{6}{20} = 0.3$</span>.</p>
+<p>For (2), the probability is also <span>$0.3$</span> because the probability of getting a red fish on your second draw is also <span>$\frac{2}{4}$</span>.</p>
+<p>For (3), you can add up the separate probabilities of getting a red fish then a blue fish and getting a blue fish then a red fish. For the latter, the probability is <span>$\frac{2}{5} \times \frac{3}{4}$</span> which is of course equal to <span>$0.3$</span>. The former is also <span>$0.3$</span>. So the total probability of getting one red fish and one blue fish is <span>$0.6$</span>. </p>
+<h3 class="header"><i>1.2</i>Permutations and combinations<a class="headerlink" href="#permutations-and-combinations" name="permutations-and-combinations">&para;</a></h3>
+<h4 class="header"><i>1.2.1</i>On three-letter words<a class="headerlink" href="#on-three-letter-words" name="on-three-letter-words">&para;</a></h4>
+<p>For (1), there are five choices for the first character of the word. For the second character, there are only four letters we can choose from, and for the third, there are only three, and so the answer is undoubtedly <span>$5 \times 4 \times 3 = 60$</span>. For (2), the number of choices for each character remains five, so the answer is <span>$5^3 = 125$</span>.</p>
+<h4 class="header"><i>1.2.2</i>On permutations<a class="headerlink" href="#on-permutations" name="on-permutations">&para;</a></h4>
+<p>Instead of thinking of <span>$P^n_r$</span> being defined like this:</p>
+<p><span>$$P^n_r = \frac{n!}{(n-r)!}$$</span></p>
+<p>you could alternatively think of it as <span>$n \times (n-1) \times (n-2) \times ...$</span>, with <span>$r$</span> terms total. The former is obviously correct as well, and more mathematically precise, but I find it hard to think about it that way. Your mileage may vary of course.</p>
+<h4 class="header"><i>1.2.3</i>On combinations<a class="headerlink" href="#on-combinations" name="on-combinations">&para;</a></h4>
+<p>I can't think of a good alternative way for interpreting the formula for combinations, so the one given will have to do I guess. Essentially, you're finding the number of permutations, then ignoring the permutations that are just a different ordering of a previous one (because order doesn't matter in combinations). This can be done by dividing the first formula by the factorial of the number of things you don't have room for (if you use the analogy that 9 choose 4 means you have 9 things, and you only have room for 4, so there are 5 things you don't have room for). But this isn't very useful, so.</p>
+<h4 class="header"><i>1.2.4</i>On choosing a mediocre tire<a class="headerlink" href="#on-choosing-a-mediocre-tire" name="on-choosing-a-mediocre-tire">&para;</a></h4>
+<p>The solution provided in the notes for this confused me for a while, until I figured out what was going on. One of the tires chosen has to be the one ranked third among the 8, so that only 3 spots remain to be filled with tires. Those three must be chosen from those ranked 4, 5, 6, 8, and 8, as choosing tires ranked 1 or 2 would threaten 3's temporary feeling of superiority. So out of 5 tires, we choose 3. So the answer is <span>$C^5_3 = \frac{5 \times 4}{2} = 10$</span>.</p>
+<h4 class="header"><i>1.2.5</i>On randomly choosing fruits from a fruit box1<a class="headerlink" href="#on-randomly-choosing-fruits-from-a-fruit-box1" name="on-randomly-choosing-fruits-from-a-fruit-box1">&para;</a></h4>
+<p>(1) evaluates to <span>$\frac{60}{126} = \frac{10}{21} \approx 0.476$</span>, for those wondering. (2) can also be solved by finding the probability, at any turn, that a peach will be chosen: <span>$\frac{5}{9} \times \frac{4}{8} \times \frac{3}{7} \times \frac{2}{6} \times \frac{1}{5} = \frac{1}{126}$</span>. For (3), the possibilities are: 3 peaches and 2 bananas; 4 peaches and one banana; and 5 peaches and no bananas. So just find the probability for each (we already figured out two of the three; the remaining one can be calculated in the same manner as (1)) and add them all up. Evaluates to <span>$\frac{60}{126} + \frac{1}{126} + \frac{20}{126} = \frac{81}{126} = \frac{9}{14} \approx 0.643$</span>.</p>
+<h4 class="header"><i>1.2.6</i>On repair-needing taxis and taxi-needing airports<a class="headerlink" href="#on-repair-needing-taxis-and-taxi-needing-airports" name="on-repair-needing-taxis-and-taxi-needing-airports">&para;</a></h4>
+<p>I don't know why the solution for (1) has a random "51" next to the <span>$C^8_3$</span> part. What is it doing there? What does it mean? Is there something important that I am missing? In any case, this one can be solved by noticing that one taxi being sent to airport C conveniently removes that airport from the list of possibilities, as C only really wanted one taxi anyway. So there are 8 taxis that you want to send to either A or B. A needs 3, so the number of ways you can send 3 taxis to airport 8 is <span>$C^8_3=56$</span> (which is incidentally equal to <span>$C^8_5$</span>, which is what you might have gone with had you thought of it from the perspective of airport B, although people rarely do).</p>
+<p>For (2), we see that once again airport C is conveniently filled, making this a simple binary situation. There are 3 airports and 3 taxis that need to be repaired, and there are <span>$3 \times 2 \times 1 = 6$</span> ways of mapping one taxi to each airport (basically, sampling without replacement). For each of these ways, there are 6 other taxis that need to be sent to one of two airports, with airport A only needing 2 more. So the answer is <span>$6 \times C^6_2 = 6 \times 15 = 90$</span>. Not sure what the unexpected "41" is doing here, either.</p>
+<h3 class="header"><i>1.3</i>Conditional probability and independence<a class="headerlink" href="#conditional-probability-and-independence" name="conditional-probability-and-independence">&para;</a></h3>
+<h4 class="header"><i>1.3.1</i>On the definition of conditional probability<a class="headerlink" href="#on-the-definition-of-conditional-probability" name="on-the-definition-of-conditional-probability">&para;</a></h4>
+<p>Important formula. Don't forget it lol. Easy enough to arrive at independently, though.</p>
+<h4 class="header"><i>1.3.2</i>On rolling dice<a class="headerlink" href="#on-rolling-dice" name="on-rolling-dice">&para;</a></h4>
+<p>For the first example (where A is the event of getting sum of 5, and B that the first die is less than or equal to 2), we could have alternatively found the number of situations where both of them are true (<span>$\{(1, 4), (2, 3)\}$</span>, so 2) and found the number of situations where the latter is true (<span>$6 + 6$</span> so 12), resulting in <span>$\frac{2}{12}$</span>. This is an equivalent but perhaps more approach to solving the problem.</p>
+<h4 class="header"><i>1.3.3</i>On the tank of coloured fish, revisited<a class="headerlink" href="#on-the-tank-of-coloured-fish-revisited" name="on-the-tank-of-coloured-fish-revisited">&para;</a></h4>
+<p>So this is basically what I wrote about our first visit to this fishtank, rendering what I wrote useless, but whatever, I've already written it, not going to delete it now.</p>
+<h4 class="header"><i>1.3.4</i>On aces and drawing cards from a deck<a class="headerlink" href="#on-aces-and-drawing-cards-from-a-deck" name="on-aces-and-drawing-cards-from-a-deck">&para;</a></h4>
+<p>If A is the event that the second card drawn is an ace, and B is the event that the first card drawn is not an ace, then <span>$P(A \cap B) = \frac{50}{52} \times \frac{4}{51}$</span> (since they're independent, and since there are 4 aces in a deck, which I must say is surprisingly easy to forget) and <span>$P(B) = \frac{50}{52}$</span> so <span>$\frac{P(A \cap B)}{P(B)} = \frac{4}{51}$</span>  It took me a moment to remember how many cards were in a standard deck (I actually had to look it up to be sure) but in hindsight, of course it's 52 - 4 suits, and ace-king means 13 cards per suit, so yeah. The answer implies that there are no jokers in a "standard" deck, because otherwise it would be <span>$\frac{4}{53}$</span>.</p>
+<h4 class="header"><i>1.3.5</i>On slips<a class="headerlink" href="#on-slips" name="on-slips">&para;</a></h4>
+<p>What is a slip? I'd love to know.</p>
+<h4 class="header"><i>1.3.6</i>On independence<a class="headerlink" href="#on-independence" name="on-independence">&para;</a></h4>
+<p>The first two definitions of independence (proposition 1.3.2) simply says that the happening of one event does not affect the other one. This matches very well with the fact that events are, in fact, considered to be independent.</p>
+<h4 class="header"><i>1.3.7</i>On Susan and Georges<a class="headerlink" href="#on-susan-and-georges" name="on-susan-and-georges">&para;</a></h4>
+<p>For (ii), we could have used the complement of the given event as well - the probability that no one will pass is <span>$(1- 0.7) \times (1-0.6) = 0.3 \times 0.4 = 0.12$</span> so the probability that at least one will pass is <span>$1 - 0.12 = 0.88$</span>. There's often More Than One Way To Do It, something that contributes to the fun of probability.<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="But not Perl.">2</a></sup></p>
+<h3 class="header"><i>1.4</i>Bayes' rule and the law of total probability<a class="headerlink" href="#bayes-rule-and-the-law-of-total-probability" name="bayes-rule-and-the-law-of-total-probability">&para;</a></h3>
+<h4 class="header"><i>1.4.1</i>On the formula for Bayes' rule and dangerous Canadian bridges<a class="headerlink" href="#on-the-formula-for-bayes-rule-and-dangerous-canadian-bridges" name="on-the-formula-for-bayes-rule-and-dangerous-canadian-bridges">&para;</a></h4>
+<p>I personally make a point of not memorising the formula, and instead think through the problem and figure out the answer based on the possible situations, sometimes using numbers out of 100 (or 1000 or whatever) instead of percentages if that helps. I find it easier that way because then instead of mindlessly plugging numbers into a formula (which can be prone to incorrect recall or usage) I get a feel for what is actually going on and what is being asked. For the Canadian bridge problem, for example, 1% of the bridges are collapsed bridges built by firm 1, and 19% are collapsed, so the answer is logically <span>$\frac{1}{19}$</span>.</p>
+<h4 class="header"><i>1.4.2</i>On random sampling<a class="headerlink" href="#on-random-sampling" name="on-random-sampling">&para;</a></h4>
+<p>This definition is sort of neglected, being shoved in at the end of a section that it doesn't completely belong in and not being furnished with any examples. So I'll give one. There are 10 people in a club, and we want to choose 3 of them to be the chairs. This is a completely egalitarian club so we want to make sure that each person has the same shot at becoming a chair. Each person clearly has a <span>$3/10$</span> chance of being on the committee, but what about each possible combination of 3 people? Well, since there are <span>$C^{10}_3$</span> different combinations, each one has a <span>$\frac{1}{C^{10}_3} = \frac{1}{120}$</span> probability of being the chairs. On second thought, that was a pretty useless example; I kind of see why Anderson didn't add one in the first place.</p>
+<h2 class="header"><i>2</i>Discrete random variables<a class="headerlink" href="#discrete-random-variables" name="discrete-random-variables">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Basic definitions<a class="headerlink" href="#basic-definitions_1" name="basic-definitions_1">&para;</a></h3>
+<h4 class="header"><i>2.1.1</i>On constant random variables<a class="headerlink" href="#on-constant-random-variables" name="on-constant-random-variables">&para;</a></h4>
+<p>In the example, it says that the expected value for the constant variable is <span>$E(X) = c$</span>. So the only possible outcome is getting a 5, and all other outcomes are impossible, the expected value would be 5. And so on.</p>
+<h4 class="header"><i>2.1.2</i>On the expected value of discrete functions<a class="headerlink" href="#on-the-expected-value-of-discrete-functions" name="on-the-expected-value-of-discrete-functions">&para;</a></h4>
+<dl>
+<dt>Expected value of the discrete rv <span>$X$</span></dt>
+<dd>sum of the value times the probability of getting that value for each discrete value (<span>$\displaystyle E(X) = \sum_{x \in R_x} x P(X = x)$</span>)</dd>
+<dt>Expected value of a function <span>$f(x)$</span></dt>
+<dd>same as above, just substitute the first <span>$x$</span> with <span>$f(x)$</span> (so <span>$\displaystyle E(X^3) = \sum_{x \in R_X} x^3 P(X = x)$</span>)</dd>
+<dt>Sum of two functions</dt>
+<dd>sum of the expected values (<span>$E(f(x) + g(x)) = E(f(x)) + E(g(x))$</span>)</dd>
+<dt>A function times a constant</dt>
+<dd>constant times the expected value of the function (<span>$E(cf(x)) = cE(f(x))$</span>)</dd>
+</dl>
+<h4 class="header"><i>2.1.3</i>On variance<a class="headerlink" href="#on-variance" name="on-variance">&para;</a></h4>
+<p>Very important. Usually the second version of the formula (<span>$E(X^2) - \mu^2$</span>, where <span>$\mu$</span> is the mean) is easier to use, but sometimes the first version (<span>$E((X-\mu)^2)$</span>) is more appropriate, so make sure to keep both in mind. To show that the second version is equivalent to the first, just multiply it out.</p>
+<h3 class="header"><i>2.2</i>Special discrete distributions<a class="headerlink" href="#special-discrete-distributions" name="special-discrete-distributions">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>The binomial distribution<a class="headerlink" href="#the-binomial-distribution" name="the-binomial-distribution">&para;</a></h4>
+<h5 class="header"><i>2.2.1.1</i>On the formula for Bernoulli trials<a class="headerlink" href="#on-the-formula-for-bernoulli-trials" name="on-the-formula-for-bernoulli-trials">&para;</a></h5>
+<p>Again important - <span>$P(X = x) = C^n_x p^x q^{n-x}$</span> where <span>$x$</span> indicates the number of successes there are, with the probability of success given by <span>$p$</span>. In the edge cases, the probability of getting all successes is <span>$p^n$</span>, as expected, and the probability of getting all failures is <span>$q^n$</span>, which makes sense so all is well in the universe.</p>
+<p>The above was just the binomial formula. For distributions following this formula, the expected value is <span>$np$</span> (so the number of things times the probability of success) and the variance is <span>$npq$</span> (so the expected value times the probability of failure). The proofs for these are kind of long and involve a lot of factorials. Also, the tables in the back of the book aren't really necessary if you have a calculator, but if you don't, make use of them over trying to compute them by hand.</p>
+<h5 class="header"><i>2.2.1.2</i>On Northern Quebec getting drilled<a class="headerlink" href="#on-northern-quebec-getting-drilled" name="on-northern-quebec-getting-drilled">&para;</a></h5>
+<p>The provided answers for (1) and (2) are pretty straightforward, so no comments on those. For (3), if you want to solve it the table-less, manlier way:</p>
+<p><span>$$\begin{align*}P(3 \leq X \leq 5) &amp; = P(X = 3) + P(X = 4) + P(X = 5) \\
+&amp; = (C^7_3 0.2^3 0.8^4) + (C^7_4 0.2^4 0.8^3) + (C^7_5 0.2^5 0.8^2) \\
+&amp; \approx 0.1477
+\end{align*}$$</span></p>
+<p>which, incidentally, tells us that the probability of more than 5 holes striking oil is very unlikely indeed, as <span>$P(X \leq 2) + P(3 \leq X \leq 5) = P(X \leq 5)$</span> is nearly 1.</p>
+<p>To find <span>$n$</span> such that <span>$P(X \geq 1) \geq 0.9$</span>, consider that <span>$P(X \geq 1) = 1 - P(X = 0) = 1 - q^n = 1 - 0.8^n$</span>. So solving for <span>$n$</span> in <span>$0.8^n \leq 0.1$</span> gives us <span>$n \geq 11$</span>, so we would need at least 11 holes.</p>
+<h4 class="header"><i>2.2.2</i>The geometric distribution<a class="headerlink" href="#the-geometric-distribution" name="the-geometric-distribution">&para;</a></h4>
+<h5 class="header"><i>2.2.2.1</i>On the definition of a geometric distribution<a class="headerlink" href="#on-the-definition-of-a-geometric-distribution" name="on-the-definition-of-a-geometric-distribution">&para;</a></h5>
+<p>Same as binomial, except you don't have a fixed number of trials and instead keep going until you succeed. Which is a good attitude in general, when it comes to it. The probability of getting a success on the <span>$x$</span>th trial is just the probability of getting a failure on the first trial times the probability of getting a failure on the second trial ... times the probability of getting a success on the last trial (assuming <span>$x &gt; 2). So just $</span>q^{x-1}p$, which is much easier to write than the above.</p>
+<p>The expected value is given by <span>$\frac{1}{p}$</span> (I don't really get the proof) and the variance is given by <span>$\frac{q}{p^2}$</span>.</p>
+<h5 class="header"><i>2.2.2.2</i>On the memoryless property of geometric distributions<a class="headerlink" href="#on-the-memoryless-property-of-geometric-distributions" name="on-the-memoryless-property-of-geometric-distributions">&para;</a></h5>
+<p>This means that the probability of getting a success after trial <span>$m + n$</span> given that you've gotten a success after trial <span>$m$</span> is the same as the probability of getting a success after trial <span>$n$</span>. For instance, if Alice keeps buying lottery tickets until she wins something, and the probability of winning something is 0.1, then the probability of her taking more than 3 purchases to win something (<span>$P(B)$</span>) is found as follows:</p>
+<p><span>$$\begin{align*}
+P(X &gt; 3) &amp; = 1 - (P(X = 1) + P(X = 2) + P(X = 3)) \\
+&amp; = 1 - (0.1 + 0.9 \cdot 0.1 + 0.9 \cdot 0.1^2) \\
+&amp; = 1 - 0.1 \sum_{i = 0}^{i-1} 0.9^i \\
+&amp; = 1 - 0.271 \\
+&amp; = 0.729
+\end{align*}$$</span></p>
+<p>and the probability of her taking more than four purchases to win something (<span>$P(A)$</span>) is the above minus <span>$P(X = 4)$</span>, so <span>$P(A) = 0.729 - 0.1 \cdot 0.9^3 = 0.6561$</span>. The conditional probability of her taking more than 4 purchases given that she has taken more than 4 is given by:</p>
+<p><span>$$\frac{P(A \cap B)}{P(B)} = \frac{P(A)}{P(B)} = 0.9$$</span></p>
+<p>The probability of her taking more than one purchase to win something, on the other hand, is given by <span>$P(X &gt; 1) = 1 - P(X = 1) = 1 - 0.1 = 0.9$</span>. Which is, happily, the same as the result above.</p>
+<h4 class="header"><i>2.2.3</i>The negative binomial distribution<a class="headerlink" href="#the-negative-binomial-distribution" name="the-negative-binomial-distribution">&para;</a></h4>
+<h5 class="header"><i>2.2.3.1</i>On the definition of a negative binomial<a class="headerlink" href="#on-the-definition-of-a-negative-binomial" name="on-the-definition-of-a-negative-binomial">&para;</a></h5>
+<p>This is the general case of which the geometric distribution was merely a specific case (so instead of stopping after 1 success, we stop after <span>$r$</span> successes). The probability function is given by</p>
+<p><span>$$P(X = x) = C^{x-1}_{r-1} p^r q^{x-r}$$</span></p>
+<p>where <span>$x \geq r$</span> is the trial on which the <span>$r^th$</span> success was observed. This formula is derived kind of recursively, which is pretty weird when you think about it but I guess it makes sense.</p>
+<p>The expected value is <span>$\frac{r}{p}$</span> and the variance is <span>$\frac{rq}{p^2}$</span> (derived later, using moment-generating functions).</p>
+<h4 class="header"><i>2.2.4</i>The hypergeometric distribution<a class="headerlink" href="#the-hypergeometric-distribution" name="the-hypergeometric-distribution">&para;</a></h4>
+<h5 class="header"><i>2.2.4.1</i>On the definition of a hypergeometric distribution<a class="headerlink" href="#on-the-definition-of-a-hypergeometric-distribution" name="on-the-definition-of-a-hypergeometric-distribution">&para;</a></h5>
+<p>This is similar to the binomial distribution, except <span>$p$</span> and <span>$q$</span> change due to it being "without replacement". The formula is</p>
+<p><span>$$P(X = x) = \frac{C^r_x C^{N-r}_{n-x}}{C^N_n}$$</span></p>
+<p>where <span>$x$</span> is the number of red balls in a sample, <span>$n$</span> is the size of the sample, <span>$N$</span> is the number of balls total, and <span>$r$</span> is the number of red balls total.</p>
+<p>The expected value is <span>$\displaystyle \frac{nr}{n}$</span> and the variance is <span>$\displaystyle n\frac{r}{N} \frac{N-r}{N} \frac{N-n}{N-1}$</span>.</p>
+<h4 class="header"><i>2.2.5</i>The Poisson distribution<a class="headerlink" href="#the-poisson-distribution" name="the-poisson-distribution">&para;</a></h4>
+<h5 class="header"><i>2.2.5.1</i>On the definition of the Poisson distribution<a class="headerlink" href="#on-the-definition-of-the-poisson-distribution" name="on-the-definition-of-the-poisson-distribution">&para;</a></h5>
+<p>Used when you know events occur at an average rate, or something. The probability function looks like this:</p>
+<p><span>$$P(X = x) = \frac{\lambda ^x e^{-x}}{x!}$$</span></p>
+<p>The expected value and variance are both <span>$\lambda$</span>, which is convenient.</p>
+<h5 class="header"><i>2.2.5.2</i>On the relation between Poisson and binomial<a class="headerlink" href="#on-the-relation-between-poisson-and-binomial" name="on-the-relation-between-poisson-and-binomial">&para;</a></h5>
+<p>Apparently the Poisson distribution and the binomial distribution are related, in that the probability <span>$P(X = x)$</span> for a binomial distribution converges to the function given above as <span>$n \to infty$</span> and <span>$p \to 0$</span> (with <span>$\lambda = np$</span> remaining constant). This means that for large values of <span>$n$</span> and small values of <span>$p$</span>, we can approximate <span>$P(X = x)$</span> using the Poisson distribution formula. Ideally, <span>$np \leq 7$</span> (for a better approximation).</p>
+<h3 class="header"><i>2.3</i>Moment generating functions<a class="headerlink" href="#moment-generating-functions" name="moment-generating-functions">&para;</a></h3>
+<h5 class="header"><i>2.3.1</i>On the significance of moment generating functions<a class="headerlink" href="#on-the-significance-of-moment-generating-functions" name="on-the-significance-of-moment-generating-functions">&para;</a></h5>
+<p>Still not really sure what the point of these things is, but I hear through the grapevine that the moment generating function uniquely determines the distribution.</p>
+<p>Okay, <a href="https://onlinecourses.science.psu.edu/stat414/node/52">this</a> seems to clear it up: moments are things like <span>$E(X)$</span>, <span>$E(X^2)$</span>, <span>$E(X^n)$</span> etc. Moment generating functions simply provide an easier way of finding the values for these moments, which is useful if we want to know the mean or the variance.</p>
+<p>Since <span>$M^{(n)}(0) = E(X^n)$</span>, we just have to find the first derivative of the moment generating function at <span>$x = 0$</span> to find <span>$E(X)$</span>, the second derivative to find <span>$E(X^2)$</span>, and so on.</p>
+<h5 class="header"><i>2.3.1.1</i>On finding the moment generating function of a distribution<a class="headerlink" href="#on-finding-the-moment-generating-function-of-a-distribution" name="on-finding-the-moment-generating-function-of-a-distribution">&para;</a></h5>
+<p><span>$$M(t) = E(e^{tX}) = \sum_{x \in R_X} e^{tx} P(X = x)$$</span></p>
+<p>where <span>$M(t)$</span> is the moment generating function and <span>$R_X$</span> is the possible values of <span>$x$</span> I suppose.</p>
+<p>Incidentally, <span>$\displaystyle M(t) = \sum_{n=0}^{\infty} \frac{\mu'_n t^n}{n!}$</span>.</p>
+<h5 class="header"><i>2.3.1.2</i>On the moment generating functions of specific distributions<a class="headerlink" href="#on-the-moment-generating-functions-of-specific-distributions" name="on-the-moment-generating-functions-of-specific-distributions">&para;</a></h5>
+<dl>
+<dt>Binomial distribution</dt>
+<dd><span>$\displaystyle M(t) = \sum_{x=0}^n e^{tx} C^n_x p^x q^{n-x} = (pe^t + q)^n$</span></dd>
+<dt>Geometric distribution</dt>
+<dd><span>$\displaystyle M(t) = \sum_{x = 1}^{\infty} e^{tx} p q^{x-1} = \frac{pe^t}{1 - qe^t}$</span></dd>
+<dt>Poisson distribution</dt>
+<dd><span>$\displaystyle M(t) = \sum_{x = 0}^{\infty} e^{tx} \frac{\lambda^x e^{-\lambda}}{x!} = e^{-\lambda(1-e^t)}$</span></dd>
+</dl>
+<h2 class="header"><i>3</i>Continuous random variables<a class="headerlink" href="#continuous-random-variables" name="continuous-random-variables">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Distribution functions<a class="headerlink" href="#distribution-functions" name="distribution-functions">&para;</a></h3>
+<h4 class="header"><i>3.1.1</i>On the definition of distribution functions<a class="headerlink" href="#on-the-definition-of-distribution-functions" name="on-the-definition-of-distribution-functions">&para;</a></h4>
+<p>The distribution function differs from the probability function in that where the latter was concerned with <span>$P(X = x)$</span>, the former deals with <span>$P(X \leq x)$</span>. In other words, a cumulative probability function. The terminology is kind of confusing because it's not completely standardised, but in this class we use "distribution function" to refer to the <em>cumulatuve</em> distribution function and probability function to refer to just the <span>$P(X = x)$</span> thing.</p>
+<p>These functions are always nondecreasing, starting from 0 at <span>$- \infty$</span> converging to 1 at <span>$\infty$</span></p>
+<h3 class="header"><i>3.2</i>Continuous random variables<a class="headerlink" href="#continuous-random-variables_1" name="continuous-random-variables_1">&para;</a></h3>
+<h4 class="header"><i>3.2.1</i>On distribution and density functions for continuous random variables<a class="headerlink" href="#on-distribution-and-density-functions-for-continuous-random-variables" name="on-distribution-and-density-functions-for-continuous-random-variables">&para;</a></h4>
+<p>The distribution function is found by integrating the density function, where the density function is just the function that gives the probability of <span>$x$</span>, if that makes sense. (This is sort of misleading since the probability <span>$P(X = x)$</span> is always 0 for a specific <span>$x$</span>, but I can't find a better way to phrase it.) The integral of the density function over the entire domain is of course equal to 1.</p>
+<p>To find the probability that x falls between the real values <span>$a$</span> and <span>$b$</span>, we simply find the definite integral of the probability density function with those points as the endpoints:</p>
+<p><span>$$P(a \leq X \leq b) = \int_a^b f(x) \,dx$$</span></p>
+<p>where the <span>$\leq$</span>s can be replaced by <span>$&lt;$</span> if so desired.</p>
+<h4 class="header"><i>3.2.2</i>On expected values and variance for continuous random variables<a class="headerlink" href="#on-expected-values-and-variance-for-continuous-random-variables" name="on-expected-values-and-variance-for-continuous-random-variables">&para;</a></h4>
+<p>To find the expected value, just replace the summation for discrete random variables with an integration:</p>
+<p><span>$$E(X) = \int_{-\infty}^{\infty} x f(x) \,dx$$</span></p>
+<p>To find the expected value of a function (i.e. with <span>$g(X)$</span> instead of <span>$X$</span>), just replace <span>$X$</span> with <span>$g(x)$</span>:</p>
+<p><span>$$E(g(X)) = \int_{-\infty}^{\infty} g(x) f(x) \,dx$$</span></p>
+<p>The same things with scalar multiples and addition for discrete rvs apply.<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="As integration is closed under scalar multiplicati...">3</a></sup></p>
+<p>Variance is fairly straightforward, just replace <span>$g(x)$</span> with <span>$(x - \mu)^2$</span> and there you go.</p>
+<h4 class="header"><i>3.2.3</i>On moment generating functions for continuous random variables<a class="headerlink" href="#on-moment-generating-functions-for-continuous-random-variables" name="on-moment-generating-functions-for-continuous-random-variables">&para;</a></h4>
+<p>Again, just replace the summation with an integration:</p>
+<p><span>$$M^{(n)}(t) = \int_{-\infty}^{\infty} x^n e^{tx} f(x)\,dx$$</span></p>
+<p>so <span>$E(X)$</span> is the first derivative, <span>$E(X^2)$</span> is the second derivative, etc.</p>
+<h3 class="header"><i>3.3</i>Special continuous distributions<a class="headerlink" href="#special-continuous-distributions" name="special-continuous-distributions">&para;</a></h3>
+<h4 class="header"><i>3.3.1</i>The uniform distribution<a class="headerlink" href="#the-uniform-distribution" name="the-uniform-distribution">&para;</a></h4>
+<h5 class="header"><i>3.3.1.1</i>On the definition of the uniform distribution<a class="headerlink" href="#on-the-definition-of-the-uniform-distribution" name="on-the-definition-of-the-uniform-distribution">&para;</a></h5>
+<p>Probability density function</p>
+<p><span>$$f(x) = \begin{cases}
+0 &amp; \text{ if } -\infty &lt; x &lt; a, \\
+\frac{1}{b-a} &amp; \text{ if } a \leq x \leq b, \\
+0 &amp; \text{ if } b &lt; x &lt; \infty
+\end{cases}$$</span></p>
+<p>So it's equiprobable between the endpoints of <span>$a$</span> and <span>$b$</span>. Looks like this:</p>
+<p><img alt="Uniform distribution graph" src="http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Uniform_distribution_PDF.png/320px-Uniform_distribution_PDF.png" title="Taken from Wikimedia commons; public domain" /></p>
+<p>Expected value: <span>$\displaystyle E(X) = \frac{a+b}{2}$</span> (the midpoint of a and a)</p>
+<p>Variance: <span>$\displaystyle Var(X) = \frac{(b-a)^2)}{12}$</span></p>
+<p>Cumulative distribution function:</p>
+<p><span>$$F(x) = \begin{cases}
+0 &amp; \text{ if } x &lt; a, \\
+\frac{x-a}{b-a} &amp; \text{ if } a \leq x \leq b, \\
+1 &amp; \text{ if } x &gt; b.
+\end{cases}$$</span></p>
+<p>To find the probability that <span>$x$</span> will fall between <span>$c$</span> and <span>$d$</span>, just find the distance between the two that is also between <span>$a$</span> and <span>$b$</span>, and divide that by the distance between <span>$a$</span> and <span>$b$</span>. So if <span>$c &lt; a$</span> and <span>$d &gt; b$</span>, then the probability is obviously 1.</p>
+<p>The moment generating function is:</p>
+<p><span>$$M(t) = \frac{e^{tb} - e^{ta}}{t(b-a)}$$</span></p>
+<h4 class="header"><i>3.3.2</i>The exponential distribution<a class="headerlink" href="#the-exponential-distribution" name="the-exponential-distribution">&para;</a></h4>
+<h5 class="header"><i>3.3.2.1</i>On the definition of the exponential distribution<a class="headerlink" href="#on-the-definition-of-the-exponential-distribution" name="on-the-definition-of-the-exponential-distribution">&para;</a></h5>
+<p><span>$$f(x) = \begin{cases}
+0 &amp; \text{ if } x \leq 0,\\
+\frac{1}{\beta}e^{-x/\beta} &amp; \text{ if } x &gt; 0,
+\end{cases}$$</span></p>
+<p>Expected value: <span>$E(X) = \beta$</span></p>
+<p>Variance: <span>$E(X) = \beta^2$</span></p>
+<p>Cumulative distribution function:</p>
+<p><span>$$F(x) = \begin{cases}
+0 &amp; \text{ if } x &lt; 0,\\
+1 - e^{-x/\beta} \text{ if } x \geq 0
+\end{cases}$$</span></p>
+<p>Moment generating function:</p>
+<p><span>$$M(t) = \frac{1}{1 - \beta t}$$</span></p>
+<h5 class="header"><i>3.3.2.2</i>On the memoryless propety of the exponential distribution<a class="headerlink" href="#on-the-memoryless-propety-of-the-exponential-distribution" name="on-the-memoryless-propety-of-the-exponential-distribution">&para;</a></h5>
+<p>Like the <a href="#on-the-memoryless-property-of-geometric-distributions">geometric distribution</a>, the exponential distribution is "memoryless". In fact, any memoryless continuous random variable has the exponential distribution, which can be thought of as the continuous version of the geometric distribution.</p>
+<h4 class="header"><i>3.3.3</i>The gamma distribution<a class="headerlink" href="#the-gamma-distribution" name="the-gamma-distribution">&para;</a></h4>
+<h5 class="header"><i>3.3.3.1</i>On the definition of the gamma function<a class="headerlink" href="#on-the-definition-of-the-gamma-function" name="on-the-definition-of-the-gamma-function">&para;</a></h5>
+<p><span>$$\Gamma(\alpha) = \int_0^{\infty} x^{\alpha-1} e^{-x} \,dx, \quad \alpha &gt; 0$$</span></p>
+<p>This function has the following properties:</p>
+<ol>
+<li><span>$0 &lt; \Gamma(\alpha) &lt; \infty$</span> for all <span>$\alpha &gt; 0$</span></li>
+<li><span>$\Gamma(1) = 1$</span></li>
+<li><span>$\Gamma(\alpha + 1) = \alpha\Gamma(\alpha)$</span>, <span>$\alpha &gt; 0$</span></li>
+<li><span>$\Gamma(n + 1) = n!$</span></li>
+<li><span>$\Gamma(\frac{1}{2}) = \sqrt{\pi}$</span></li>
+</ol>
+<h5 class="header"><i>3.3.3.2</i>On the properties of the gamma distribution<a class="headerlink" href="#on-the-properties-of-the-gamma-distribution" name="on-the-properties-of-the-gamma-distribution">&para;</a></h5>
+<p>The probability density function is:</p>
+<p><span>$$f(x) = \begin{cases}
+0 &amp; \text{ if } x \leq 0, \\
+\frac{1}{\Gamma(\alpha) \beta^{\alpha}} x^{\alpha-1} e^{-x/\beta} &amp; \text{ if } x &gt; 0,
+\end{cases}$$</span></p>
+<p>where <span>$\alpha, \beta &gt; 0$</span>.</p>
+<p>Expected value: <span>$E(X) = \alpha \beta$</span></p>
+<p>Variance: <span>$E(X^2) = \alpha \beta^2$</span></p>
+<p>Moment generating function:</p>
+<p><span>$$M(t) = \frac{1}{(1-\beta t)^{\alpha}}$$</span></p>
+<p>where <span>$t &lt; \frac{1}{\beta}$</span>, not sure why.</p>
+<h4 class="header"><i>3.3.4</i>The normal distribution<a class="headerlink" href="#the-normal-distribution" name="the-normal-distribution">&para;</a></h4>
+<h5 class="header"><i>3.3.4.1</i>On the definition of the normal distribution<a class="headerlink" href="#on-the-definition-of-the-normal-distribution" name="on-the-definition-of-the-normal-distribution">&para;</a></h5>
+<p><span>$$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{1}{2}  \frac{(x - \mu)^2}{\sigma^2}}, \quad -\infty &lt; x &lt; \infty$$</span></p>
+<p>where <span>$\mu$</span> and <span>$\sigma^2$</span> are the mean and variance, respectively. It can also be written with <span>$\sigma$</span> instead of <span>$\sigma^2$</span> (and some changes to the formula to make it equivalent).</p>
+<p>This produces a bell curve centered around the mean, and with a concavity dependent on the value of the variance:</p>
+<p><img alt="Probability density function for the normal distribution" src="http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Normal_Distribution_PDF.svg/500px-Normal_Distribution_PDF.svg.png" title="Taken from Wikimedia commons; public domain" /></p>
+<p>The standard normal distribution is when <span>$\mu = 0$</span> and <span>$\sigma^2=1$</span>. There will be two tables - one for <span>$P(X &gt; x)$</span>, the other for <span>$P(0 \leq X \leq x)$</span> - at the end of the exam that can be used as reference. It should be easy enough to use; just remember that <span>$P(Z &gt; z)$</span> is the same as <span>$P(Z &lt; -z)$</span> if <span>$\mu = 0$</span> (and if <span>$\mu$</span> is not just use that as the center instead of 0).</p>
+<h5 class="header"><i>3.3.4.2</i>On the example probabilities using the standard normal distribution<a class="headerlink" href="#on-the-example-probabilities-using-the-standard-normal-distribution" name="on-the-example-probabilities-using-the-standard-normal-distribution">&para;</a></h5>
+<p>Page 37, last example:</p>
+<ol>
+<li><span>$P(0 \leq Z \leq 1.4) = 0.4192$</span></li>
+<li><span>$P(0 \leq Z \leq 1.42) = 0.4222$</span></li>
+<li><span>$P(Z &gt; 1.42) = 0.5 - (0 \leq Z \leq 1.42) = 0.0788$</span> (could also have been looked up in the table; this method simply used the fact that the probability on each side of the mean is 0.5)</li>
+<li><span>$P(Z &lt; -1.42) = P(Z &gt; 1.42) = 0.0788$</span></li>
+<li><span>$P(-1.5 &lt; Z &lt; 1.42) = P(-1.5 &lt; Z &lt; 0) + P(0 &lt; Z &lt; 1.42) = P(0 &gt; Z &gt; 1.5) + P(0 &gt; Z &gt; 1.42) = 0.4332 + 0.4222 = 0.8554$</span> (not sure why this is the only one with an answer provided - maybe because it's used below)<br />
+7 <span>$P(1.25 &lt; Z &lt; 1.42) = 0.5 - P(Z &gt; 1.42) - P(0 &lt; Z &lt; 1.25) = 0.5 - 0.0788 - 0.3944 = 0.0268$</span></li>
+</ol>
+<p>Page 38, first example:</p>
+<ol>
+<li><span>$P(Z &gt; z) = 0.05 \to z \approx 1.645$</span> (somewhere between 1.64 and 1.65, according to the table)</li>
+<li><span>$P(Z &gt; z) = 0.025 \to z = 1.96$</span> </li>
+</ol>
+<p>Page 38, second example:</p>
+<p>To do this type of problem, change the endpoints in <span>$P(a &lt; X &lt; b)$</span> to <span>$P(a - \mu &lt; X - \mu &lt; b - \mu)$</span> (so subtract <span>$\mu$</span> from all three sections) and then divide each part by the square root of the variance to find the corresponding endpoints to look up in the standard normal distribution table.</p>
+<h4 class="header"><i>3.3.5</i>The beta distribution<a class="headerlink" href="#the-beta-distribution" name="the-beta-distribution">&para;</a></h4>
+<h5 class="header"><i>3.3.5.1</i>On the definition of the beta distribution<a class="headerlink" href="#on-the-definition-of-the-beta-distribution" name="on-the-definition-of-the-beta-distribution">&para;</a></h5>
+<p>The probability density function is as follows:</p>
+<p><span>$$f(x) = \begin{cases}
+\frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} x^{\alpha - 1} (1-x)^{\beta - 1}, &amp; \text{ if } 0 &lt; x &lt; 1,\\
+0 &amp; \text{ otherwise}
+\end{cases}$$</span></p>
+<p>where <span>$\alpha, \beta &gt; 0$</span></p>
+<p>Expected value: <span>$\displaystyle E(X) = \frac{\alpha}{\alpha + \beta}$</span></p>
+<p>Variance: <span>$\displaystyle Var(X) = \frac{\alpha \beta}{(\alpha + \beta)^2 (\alpha + \beta + 1)}$</span></p>
+<p>The moment generating function cannot be obtained in closed form.<sup>?</sup></p>
+<h4 class="header"><i>3.3.6</i>The Cauchy distribution<a class="headerlink" href="#the-cauchy-distribution" name="the-cauchy-distribution">&para;</a></h4>
+<p>The probability density function is as follows:</p>
+<p><span>$$f(x) = \frac{1}{\pi} \cdot \frac{1}{1 + x^2}, \quad -\infty &lt; x &lt; \infty$$</span></p>
+<p>There is no expected value or variance for this distribution, which feels oddly unsettling.</p>
+<p>However, if we limit the domain to <span>$x \geq 0$</span>, then the expected value is just <span>$\infty$</span> (although that might require multiplying the standard equation by 2?).</p>
+<h3 class="header"><i>3.4</i>Chebychev's inequality<a class="headerlink" href="#chebychevs-inequality" name="chebychevs-inequality">&para;</a></h3>
+<h4 class="header"><i>3.4.1</i>On Markov's inequality<a class="headerlink" href="#on-markovs-inequality" name="on-markovs-inequality">&para;</a></h4>
+<p>Given a probability distribution where <span>$x$</span> cannot be negative (i.e. <span>$P(X \geq 0) = 1$</span>), we have the following inequality:</p>
+<p><span>$$P(X &gt; \epsilon) \leq \frac{E(X)}{\epsilon}$$</span></p>
+<p>where <span>$\epsilon &gt; 0$</span>. This works for both discrete and continuous random variables, and can be proven using the properties of definite integration in the latter case.</p>
+<h4 class="header"><i>3.4.2</i>On Chebychev's inequality<a class="headerlink" href="#on-chebychevs-inequality" name="on-chebychevs-inequality">&para;</a></h4>
+<p>(Also spelled Chebyshev, Tchebycheff, etc.)</p>
+<p>For a random variable with a mean of <span>$\mu$</span> and a variance of <span>$\sigma^2$</span>, the following inequality holds:</p>
+<p><span>$$P(|X - \mu| &gt; \epsilon) \leq \frac{\sigma^2}{\epsilon^2}$$</span></p>
+<p>for any <span>$\epsilon &gt; 0$</span>.</p>
+<p>If the variance is 0, then Chebychev's inequality (and by, well, common sense) then <span>$P(X = \mu) = 1$</span> (so it's always the mean).</p>
+<h2 class="header"><i>4</i>Multivariable distributions<a class="headerlink" href="#multivariable-distributions" name="multivariable-distributions">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>On joint probability functions<a class="headerlink" href="#on-joint-probability-functions" name="on-joint-probability-functions">&para;</a></h4>
+<p>Called joint density functions (jdfs). The same idea as a regular probability density function but extended to 3-dimensional space. There are also joint (cumulative) distribution functions (called JDFs, lol).</p>
+<p>Instead of single integrals, we have double integrals, etc.</p>
+<h4 class="header"><i>4.1.2</i>Marginal and conditional distributions<a class="headerlink" href="#marginal-and-conditional-distributions" name="marginal-and-conditional-distributions">&para;</a></h4>
+<h5 class="header"><i>4.1.2.1</i>On the significance of marginal probabilities<a class="headerlink" href="#on-the-significance-of-marginal-probabilities" name="on-the-significance-of-marginal-probabilities">&para;</a></h5>
+<p>The marginals are essentially what would be written in the margins of a joint probability function table, as a result of adding up all the values in that particular row or column.</p>
+<p>In the continuous case, to find the marginal for <span>$y_1$</span>, integrate with respect to <span>$y_2$</span>:</p>
+<p><span>$$f_1(y_1) = \int f(y_1, y_2) \,dy_2$$</span></p>
+<p>and vice versa.</p>
+<h4 class="header"><i>4.1.3</i>On covariance<a class="headerlink" href="#on-covariance" name="on-covariance">&para;</a></h4>
+<p>Covariance is just the bivariate analog of variance, and is given by the formula</p>
+<p><span>$$Cov(X, Y) = E(XY) - E(X)E(Y)$$</span></p>
+<p>If two variables are independent, then their covariance is 0 (but the converse is not true - two variables with a covariance of 0 may still be dependent; check that they satisfy the formula in <a href="#43-independent-random-variables">section 4.3</a>.</p>
+<p>First mentioned in the notes in <a href="#46-covariance">section 4.6</a> but there's a problem in this section that uses it so whatever.</p>
+<h4 class="header"><i>4.1.4</i>On the correlation coefficient<a class="headerlink" href="#on-the-correlation-coefficient" name="on-the-correlation-coefficient">&para;</a></h4>
+<p>The correlation coefficient is a measurement of how two variables are related, and is given by the covariance divided by the product of the standard deviations of each variable. Mathematically:</p>
+<p><span>$$\rho_{XY} = \frac{Cov(X, Y)}{\sigma_X \sigma_Y}$$</span></p>
+<p>where <span>$\sigma$</span> is the square root of the variance, <span>$\sigma^2$</span>.</p>
+<h4 class="header"><i>4.1.5</i>On the conditional probability function<a class="headerlink" href="#on-the-conditional-probability-function" name="on-the-conditional-probability-function">&para;</a></h4>
+<p><span>$$f_{12}(y_1|y_2) = P(Y_1 = y_1 | Y_2 = y_2) = \frac{P(Y_1 = y_1, Y_2 = y_2}{P(Y_2 = y_2)} = \frac{f(y_1, y_2)}{f_2(y_2)}$$</span></p>
+<p>for both probability density and probability distribution functions.</p>
+<p>The <strong>conditional expectation</strong> is just the integral of the product of the above function and the <span>$g(x)$</span> part of <span>$E(g(x))$</span>.</p>
+<h3 class="header"><i>4.2</i>Independent random variables<a class="headerlink" href="#independent-random-variables" name="independent-random-variables">&para;</a></h3>
+<h5 class="header"><i>4.2.1</i>On independent random variables in the bivariate case<a class="headerlink" href="#on-independent-random-variables-in-the-bivariate-case" name="on-independent-random-variables-in-the-bivariate-case">&para;</a></h5>
+<p><span>$$f(y_1, y_2) = f_1(y_1) \cdot f_2(y_2)$$</span></p>
+<p>where the functions are all density functions and</p>
+<p><span>$$F(y_1, y_2) = F_1(y_1) \cdot F_2(y_2)$$</span></p>
+<p>where the functions are all distribution functions.</p>
+<h3 class="header"><i>4.3</i>The expected value of a function of random variables<a class="headerlink" href="#the-expected-value-of-a-function-of-random-variables" name="the-expected-value-of-a-function-of-random-variables">&para;</a></h3>
+<h3 class="header"><i>4.4</i>Special theorems<a class="headerlink" href="#special-theorems" name="special-theorems">&para;</a></h3>
+<h3 class="header"><i>4.5</i>Covariance<a class="headerlink" href="#covariance" name="covariance">&para;</a></h3>
+<h3 class="header"><i>4.6</i>The expected value and variance of linear functions of random variables<a class="headerlink" href="#the-expected-value-and-variance-of-linear-functions-of-random-variables" name="the-expected-value-and-variance-of-linear-functions-of-random-variables">&para;</a></h3>
+<h4 class="header"><i>4.6.1</i>On some properties of covariance<a class="headerlink" href="#on-some-properties-of-covariance" name="on-some-properties-of-covariance">&para;</a></h4>
+<ul>
+<li><span>$Cov(X, Y+Z) = Cov(X, Y) + Cov(X, Z)$</span></li>
+<li><span>$Cov(aX, bY) = abCov(X, Y)$</span></li>
+<li><span>$Cov(X-Y, X + Y) = Cov(X, X+Y) + Cov(-X, X+Y) = Cov(X, X) + Cov(X, Y) + Cov(-X, X) + Cov(-X, Y)$</span><br />
+<span>$= Var(X) + Cov(X, Y) - Var(X) - Cov(X, Y) = 0$</span> <sup>I think</sup></li>
+</ul>
+<h4 class="header"><i>4.6.2</i>On the example with normal distributions<a class="headerlink" href="#on-the-example-with-normal-distributions" name="on-the-example-with-normal-distributions">&para;</a></h4>
+<p>For (2), you know that <span>$Cov(X, Y)$</span> and <span>$Cov(Y, X)$</span> (equivalent, incidentally) are 0 because the variables X and Y are stated to be independent. lol.</p>
+<h3 class="header"><i>4.7</i>The multinomial distribution<a class="headerlink" href="#the-multinomial-distribution" name="the-multinomial-distribution">&para;</a></h3>
+<h4 class="header"><i>4.7.1</i>On the definition of the multinomial distribution<a class="headerlink" href="#on-the-definition-of-the-multinomial-distribution" name="on-the-definition-of-the-multinomial-distribution">&para;</a></h4>
+<p><span>$$P(X_1 = x_1, \ldots, X_k = x_k) = \frac{n!}{x_1! \ldots x_k!} p_1^{x_1} \ldots p_k^{x_k}$$</span></p>
+<p>where all the <span>$x$</span>'s are natural numbers and their sum is <span>$n$</span>.</p>
+<h3 class="header"><i>4.8</i>More than two random variables<a class="headerlink" href="#more-than-two-random-variables" name="more-than-two-random-variables">&para;</a></h3>
+<h4 class="header"><i>4.8.1</i>Definitions<a class="headerlink" href="#definitions_1" name="definitions_1">&para;</a></h4>
+<h4 class="header"><i>4.8.2</i>Marginal and conditional distributions<a class="headerlink" href="#marginal-and-conditional-distributions_1" name="marginal-and-conditional-distributions_1">&para;</a></h4>
+<h4 class="header"><i>4.8.3</i>Expectations and conditional expectations<a class="headerlink" href="#expectations-and-conditional-expectations" name="expectations-and-conditional-expectations">&para;</a></h4>
+<h2 class="header"><i>5</i>Functions of random variables<a class="headerlink" href="#functions-of-random-variables" name="functions-of-random-variables">&para;</a></h2>
+<h3 class="header"><i>5.1</i>Functions of continuous random variables<a class="headerlink" href="#functions-of-continuous-random-variables" name="functions-of-continuous-random-variables">&para;</a></h3>
+<h4 class="header"><i>5.1.1</i>The univariate case<a class="headerlink" href="#the-univariate-case" name="the-univariate-case">&para;</a></h4>
+<h4 class="header"><i>5.1.2</i>The multivariate case<a class="headerlink" href="#the-multivariate-case" name="the-multivariate-case">&para;</a></h4>
+<h3 class="header"><i>5.2</i>Sums of independent random variables<a class="headerlink" href="#sums-of-independent-random-variables" name="sums-of-independent-random-variables">&para;</a></h3>
+<h4 class="header"><i>5.2.1</i>The discrete case<a class="headerlink" href="#the-discrete-case" name="the-discrete-case">&para;</a></h4>
+<h4 class="header"><i>5.2.2</i>The jointly continuous case<a class="headerlink" href="#the-jointly-continuous-case" name="the-jointly-continuous-case">&para;</a></h4>
+<h3 class="header"><i>5.3</i>The moment generating function method<a class="headerlink" href="#the-moment-generating-function-method" name="the-moment-generating-function-method">&para;</a></h3>
+<h4 class="header"><i>5.3.1</i>A summary of moment generating functions<a class="headerlink" href="#a-summary-of-moment-generating-functions" name="a-summary-of-moment-generating-functions">&para;</a></h4>
+<h5 class="header"><i>5.3.1.1</i>On the properties of moment generating functions<a class="headerlink" href="#on-the-properties-of-moment-generating-functions" name="on-the-properties-of-moment-generating-functions">&para;</a></h5>
+<ol>
+<li><span>$M_X(0) = 1$</span></li>
+<li><span>$M_{aX + b}(t) = e^{tb} M_X(at)$</span></li>
+<li><span>$E(X^n) = M^{(n)}_X(0)$</span></li>
+<li>Distributions with the same moment generating function are equivalent</li>
+<li>If <span>$X = X_1 + \ldots + X_n$</span>, then <span>$M_X(t) = M_{X_1}(t) \cdot ... \cdot M_{X_n}(t)$</span>.</li>
+</ol>
+<h2 class="header"><i>6</i>Law of large numbers and the central limit theorem<a class="headerlink" href="#law-of-large-numbers-and-the-central-limit-theorem" name="law-of-large-numbers-and-the-central-limit-theorem">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Law of large numbers<a class="headerlink" href="#law-of-large-numbers" name="law-of-large-numbers">&para;</a></h3>
+<h3 class="header"><i>6.2</i>The central limit theorem<a class="headerlink" href="#the-central-limit-theorem" name="the-central-limit-theorem">&para;</a></h3>
+<h2 class="header"><i>7</i>Information theory<a class="headerlink" href="#information-theory" name="information-theory">&para;</a></h2>
+<p>This section will not be on the exam, so, fuck it</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>I wonder if it's possible to actually choose a fruit out of this box randomly, since bananas and peaches don't exactly have the same shape.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>But not Perl.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>As integration is closed under scalar multiplication and addition? Not really? Sort of?&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

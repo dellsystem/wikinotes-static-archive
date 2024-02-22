@@ -1,0 +1,163 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 7, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 7, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The stable marriage problem
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Introduction to the course. First topic: the stable marriage problem.</p>
+<div class="toc">
+<ul>
+<li><a href="#about-the-course">1 About the course</a></li>
+<li><a href="#the-stable-marriage-problem">2 The stable marriage problem</a><ul>
+<li><a href="#existence-proof">2.1 Existence proof</a></li>
+<li><a href="#comments-on-optimality">2.2 Comments on optimality</a><ul>
+<li><a href="#male-optimality">2.2.1 Male optimality</a></li>
+<li><a href="#female-pessimality">2.2.2 Female pessimality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>About the course<a class="headerlink" href="#about-the-course" name="about-the-course">&para;</a></h2>
+<p><a href="http://www.math.mcgill.ca/vetta/Math340.dir/">Link to course webpage</a></p>
+<p>Office hours are on Fridays, from 13:00-14:30, in Burnside 1118.</p>
+<p>Grading scheme: 20% assignments, 20% midterm, 60% final OR 20% assignments, 80% final. there will be six assignments; the best 5 marks will be taken. No late assignments will be accepted.</p>
+<p>There is no required textbook. There will occasionally be readings, available through the <a href="http://www.math.mcgill.ca/vetta/Math340.dir/">course webpage</a>.</p>
+<h2 class="header"><i>2</i>The stable marriage problem<a class="headerlink" href="#the-stable-marriage-problem" name="the-stable-marriage-problem">&para;</a></h2>
+<p>Suppose there are <span>$n$</span> men and <span>$n$</span> women and that each person has an ordered list of marriage partner preferences (containing all the members of the opposite sex, and only those). A set of marriages, or <strong>matching</strong>, <span>$M$</span>, is stable if there does not exist an unmarried pair <span>$(m_i, f_j)$</span> such that <span>$m_i$</span> prefers <span>$f_j$</span> to his own partner and <span>$f_j$</span> prefers <span>$m_i$</span> to her own partner.</p>
+<p>This problem has many applications, including:</p>
+<ul>
+<li>Economics (in fact, the original application of the problem was for non-traditional markets, e.g., employment markets)</li>
+<li>Hospital/resident matchings (though this requires tweaking the problem formulation slightly, as hospitals can have more than one open position)</li>
+<li>Biology (comparing the structures of two proteins)</li>
+<li>Kidney exchange</li>
+</ul>
+<h3 class="header"><i>2.1</i>Existence proof<a class="headerlink" href="#existence-proof" name="existence-proof">&para;</a></h3>
+<p>Does a stable matching always exist for any instance of this problem? The answer is yes, and we can prove this via  construction proof, using the Gale-Shapley algorithm. The concept is simple: each man proposes to the first woman on his list. Each woman accepts a proposal if 1) she is unmarried or 2) the proposer is higher up in her list than her current partner.</p>
+<p>To prove that this results in a stable matching, note the following:</p>
+<ul>
+<li>Women's partners only improve (according to each woman's list of preferences) as the algorithm runs. Men's partners only get worse.</li>
+<li>Men cannot break off engagements. Women will only break off engagements if this results in a better partner.</li>
+</ul>
+<p>We will now prove that this algorithm results in a stable matching by contradiction. Suppose there exist <span>$m_1, f_1, m_2, f_2$</span> such that <span>$f_1$</span> and <span>$m_1$</span> are paired together and <span>$f_2$</span> and <span>$m_2$</span> are paired together, but <span>$f_1$</span> prefers <span>$m_2$</span> and <span>$m_2$</span> prefers <span>$f_1$</span> (i.e., the matching is not stable). Well, <span>$m_2$</span> must have proposed to <span>$f_1$</span> before he proposed to <span>$f_2$</span>, since <span>$f_1$</span> is higher up on his list. Suppose <span>$f_1$</span> accepted his proposal. Then, since she prefers <span>$m_2$</span> to <span>$m_1$</span>, she would not have left <span>$m_2$</span> for <span>$m_1$</span>. So <span>$f_1$</span> must not have accepted his proposal. But then <span>$f_1$</span> must have been paired up with a man whom she preferred to <span>$m_2$</span>. And yet, if that were the case, she would not have left that man for <span>$m_1$</span>. Contradiction. So this method will always output a stable matching. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>2.2</i>Comments on optimality<a class="headerlink" href="#comments-on-optimality" name="comments-on-optimality">&para;</a></h3>
+<h4 class="header"><i>2.2.1</i>Male optimality<a class="headerlink" href="#male-optimality" name="male-optimality">&para;</a></h4>
+<p>Let <span>$\mathcal S = \{M_1, \ldots, M_k\}$</span> be the set of all stable matchings. We say that <span>$x$</span> is a <strong>valid partner</strong> for <span>$y$</span> if there exists a <span>$x$</span>-<span>$y$</span> pair in at least one of the matchings in <span>$S$</span>. For each male <span>$m$</span>, let <span>$f^+(m)$</span> be his most preferred valid partner, and for each female <span>$f$</span>, let <span>$m^-(f)$</span> be her least preferred valid partner. A method is <strong>male-optimal</strong> if each male <span>$m$</span> is paired up with <span>$f^+(m)$</span>. A method is <strong>female-pessimal</strong> if each female <span>$f$</span> is paired up with <span>$m^-(f)$</span>.</p>
+<p>We posit that the Gale-Shapley algorithm shown above is indeed male-optimal. Furthermore, <em>it does not matter in which order you allow men to propose</em>. The algorithm will always converge to the same male-optimal, female-pessimal output. We will prove this now, using a lemma.</p>
+<blockquote>
+<p>Lemma: No woman ever rejects or leaves a valid partner.</p>
+</blockquote>
+<p>Proof by contradiction: Consider the first time that any woman rejects/leaves a valid partner. We'll refer to the woman as <span>$f$</span>, the man as <span>$m$</span>, and this time as time <span>$t$</span>. At this time, <span>$f$</span> must have rejected/left <span>$m$</span> so that she could be with <span>$m'$</span> instead, who is some other male, higher up in her preference list. So <span>$m' &gt; m$</span> for <span>$f$</span>.</p>
+<p>Now, since <span>$m$</span> is a valid partner for <span>$f$</span>, there must exist some stable matching, <span>$S$</span>, in which <span>$f$</span> and <span>$m$</span> are paired. In this matching, <span>$m'$</span> must be paired with some other woman, whom we'll call <span>$f'$</span>.</p>
+<p>Next, let's return to time <span>$t$</span> in the execution of Gale-Shapley. Recall that this is the <em>first</em> time any woman rejects/leaves a valid partner. What does this reveal about the preferences of <span>$m'$</span>? Well, since <span>$m'$</span> is going down his preference list, and has never been rejected or left by any valid partner, <span>$f$</span> must be his best valid partner. Specifically, <span>$m$</span> must prefer <span>$f$</span> to <span>$f'$</span>.</p>
+<p>What does this tell us about <span>$S$</span>? Well, in <span>$S$</span>, we have <span>$m$</span> and <span>$f$</span> paired, and <span>$m'$</span> and <span>$f'$</span> paired. However, as we deduced above, <span>$m'$</span> prefers <span>$f$</span> to his current partner; furthermore, <span>$f$</span> prefers <span>$m'$</span> to <em>her</em> current partner. But then this matching is not stable! This is a contradiction. So it must be that no woman ever rejects or leaves a valid partner. <span>$\blacksquare$</span></p>
+<p>You can find additional notes <a href="http://www.cs.umd.edu/class/spring2013/cmsc451/GS.pdf">here</a>.</p>
+<p>A corollary to the above is the fact that each man <span>$m$</span> is matched with <span>$f^+(m)$</span>, i.e., his most optimal valid partner. If there were someone else, higher in his preference list, who were also a valid partner for him, then they would just be together, since she wouldn't have rejected a valid partner. Thus Gale-Shapley is male-optimal.</p>
+<h4 class="header"><i>2.2.2</i>Female pessimality<a class="headerlink" href="#female-pessimality" name="female-pessimality">&para;</a></h4>
+<p>Next, we prove that the output is female-pessimal, via proof by contradiction. Consider some arbitrary woman <span>$f$</span>. Suppose that her worst valid partner is <span>$m'$</span>, and that she is <em>not</em> paired up with him by the end of the algorithm's run - instead, she is paired up with <span>$m$</span>. By the corollary above, <span>$m$</span> must be paired with his most optimal valid partner. So <span>$m$</span> must prefer <span>$f$</span> to any other valid partners he may have. Furthermore, since <span>$m'$</span> is the worst valid partner for <span>$f$</span>, then <span>$f$</span> must prefer all her other valid partners to <span>$m'$</span>. Specifically, <span>$f$</span> must prefer <span>$m$</span> to <span>$m'$</span>.</p>
+<p>Now, since <span>$m'$</span> is a valid partner for <span>$f$</span>, there must be some stable matching, <span>$S$</span>, in which <span>$m'$</span> and <span>$f$</span> are paired up. In this matching, <span>$m$</span> must be paired up with some other woman, whom we'll call <span>$f''$</span>. Recall that <span>$m$</span> must prefer <span>$f$</span> to any other valid partner he may have, and thus must prefer <span>$f$</span> to <span>$f''$</span>. Recall also that <span>$f$</span> prefers <span>$m$</span> to <span>$m'$</span>. But then we have an unstable matching, for each of <span>$f$</span> and <span>$m$</span> prefers the other to his or her current partner. This is a contradiction. So there is no woman who is not paired up with her worst valid partner, and thus the output of Gale-Shapley is indeed female-pessimal. <span>$\blacksquare$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

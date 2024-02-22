@@ -1,0 +1,208 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 20, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 20, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Counting using bijections
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Counting using bijections continued: labelled spanning trees in a graph, and Catalan numbers.</p>
+<div class="toc">
+<ul>
+<li><a href="#counting-using-bijections">1 Counting using bijections</a><ul>
+<li><a href="#labelled-spanning-trees">1.1 Labelled spanning trees</a><ul>
+<li><a href="#the-formula">1.1.1 The formula</a></li>
+<li><a href="#the-proof">1.1.2 The proof</a></li>
+</ul>
+</li>
+<li><a href="#catalan-numbers">1.2 Catalan numbers</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Counting using bijections<a class="headerlink" href="#counting-using-bijections" name="counting-using-bijections">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Labelled spanning trees<a class="headerlink" href="#labelled-spanning-trees" name="labelled-spanning-trees">&para;</a></h3>
+<p>Let <span>$G = (V, E)$</span> be an undirected graph where all <span>$n$</span> vertices are labelled <span>$1, \ldots, n$</span>. Consider the number of <em>distinct</em> spanning trees (taking rotation/reflection into account) present in such a graph for different values of <span>$n$</span>:</p>
+<ul>
+<li><span>$n=1$</span>: there's only one vertex, so there is clearly only one spanning tree (just the vertex itself). So: 1</li>
+<li><span>$n=2$</span>: also only one spanning tree, as there's only one way to connect the two vertices. So: 1</li>
+<li><span>$n=3$</span>: the vertices are 1, 2, and 3; we could create a spanning tree out of <span>$1-2-3$</span>, or <span>$1-3-2$</span>, or <span>$3-1-2$</span>. So: 3</li>
+<li><span>$n=4$</span>: there are two types of configurations:<ul>
+<li>if we put them in a straight line and connect them that way, there are 12 options:<ul>
+<li><span>$1-2-3-4$</span> and <span>$1-3-2-4$</span>;</li>
+<li><span>$1-2-4-3$</span> and <span>$1-4-2-3$</span>;</li>
+<li><span>$1-3-4-2$</span> and <span>$1-4-3-2$</span>;</li>
+<li><span>$2-1-4-3$</span> and <span>$2-4-1-3$</span>;</li>
+<li><span>$2-3-1-4$</span> and <span>$2-1-3-4$</span>;</li>
+<li><span>$3-1-2-4$</span> and <span>$3-2-1-4$</span>.</li>
+</ul>
+</li>
+<li>if we put one in the middle and put the other three around it, and connect them all to the middle, we have 4 options (one for each possibility in the middle)</li>
+<li>Total: 12 + 4. So: 16</li>
+</ul>
+</li>
+<li><span>$n=5$</span>: 125 (given by prof)</li>
+</ul>
+<h4 class="header"><i>1.1.1</i>The formula<a class="headerlink" href="#the-formula" name="the-formula">&para;</a></h4>
+<p>By quick inspection we can guess that the general formula for the number of labelled spanning trees is <span>$t(n) = n^{n-2}$</span>. Let's now try to prove this.</p>
+<h4 class="header"><i>1.1.2</i>The proof<a class="headerlink" href="#the-proof" name="the-proof">&para;</a></h4>
+<p>We can prove this using a bijection. Let <span>$g(n)$</span> be the number of labelled spanning trees with a particular left vertex and a particular right vertex (they can be the same vertex). So <span>$g(n) = t(n) \cdot n^2$</span>, since there are <span>$n$</span> choices for the left vertex and <span>$n$</span> choices for the right vertex. Now, if <span>$g(n) = n^n$</span>, then we are done. Can we construct a bijection between <span>$g(n)$</span> and something we know to be of size <span>$n^n$</span>?</p>
+<p>Consider the set of strings of length <span>$n$</span>, composed using an alphabet of <span>$\{1, 2, \ldots, n\}$</span>. We know this to have size <span>$n^n$</span>. This is equivalent to the set of functions from <span>$[n]$</span> to <span>$[n]$</span>, and we'll think of it using this formulation. Take any function <span>$f: [n] \to [n]$</span>. We can view <span>$f$</span> as a directed graph - for each <span>$x \in [n]$</span>, we draw a node, and for all <span>$x \in [n]$</span>, we draw a directed edge from <span>$x$</span> to <span>$f(x)$</span>. Thus each vertex will have an out-degree of 1, and an in-degree of at most <span>$n$</span>.</p>
+<p>Thus can we split the graph into connected components, each of which is called an <strong>arborescence</strong>. So the resulting graph has one cycle for each arborescence, potentially with some trees hanging off of it.</p>
+<p>Let <span>$S \subseteq [n]$</span> be the set of nodes that are directly in a cycle (i.e., not merely hanging off of a cycle). For example, if <span>$f(1) = 3$</span>, <span>$f(2) = 2$</span>, <span>$f(3)=2$</span>, and <span>$f(4)=1$</span>, then there is only one cycle (when 2 loops back to itself), with the rest of the graph hanging off of it. So <span>$S = \{2\}$</span>.</p>
+<p>Consider what happens when we restrict <span>$f$</span> to <span>$S$</span>. That is, only consider <span>$f$</span> on the domain <span>$S$</span>. Let <span>$S_0$</span> be <span>$\min(S)$</span> (i.e., the least element in <span>$S$</span>), and let <span>$S_1 = \max(S)$</span>. To find a labelled spanning tree from this, place the vertices in <span>$S$</span> in <span>$f$</span>-order. So if <span>$f(x)$</span> (on domain <span>$S$</span>) is given by</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$x$</span></th>
+<th>1</th>
+<th>4</th>
+<th>5</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$f(x)</td>
+<td>7</td>
+<td>9</td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Then 7 is the left vertex, 4 is the right vertex, and we have 9-1-5-8 in the middle.</p>
+<p>For the other vertices, connect them the way they are originally connected in the graph, since they're already trees.</p>
+<p>Thus we have all we need to create our bijection. To reverse the process - i.e., go from a labelled spanning tree to the original function - we do the following: Let <span>$P$</span> be the path from the left to the right vertex. In our example above, we would have 7-9-1-5-8-4. This is your <span>$f$</span>-order. To get the original order, just write it in ascending order: 1-4-5-7-8-9. Now draw this as a graph, using the initial <span>$f$</span>-order: 1 goes to 7, 4 goes to 9, 5 goes to 1, etc.</p>
+<p>Then we just add back the rest of the trees. From there, we can easily recover the original function based on the arcs in the forest. <span>$\blacksquare$</span></p>
+<p><em>Note: we're not expected to be able to come up with a bijection like this for the final. However, we might get something similar but simpler, so it's a good idea to verify this bijection and try to understand it.</em></p>
+<h3 class="header"><i>1.2</i>Catalan numbers<a class="headerlink" href="#catalan-numbers" name="catalan-numbers">&para;</a></h3>
+<p>How many sequences of <span>$n$</span> +'s and <span>$n$</span> -'s are there such that each partial sum (starting from the left) is non-negative?</p>
+<p>For example, when <span>$n=3$</span>, we have <span>$+-+-+-$</span>, <span>$+-++--$</span>, <span>$++-+--$</span>, <span>$++--+-$</span>, and <span>$+++---$</span>, so 5 total.</p>
+<p>What's the pattern? What's the number of Catalan numbers for general <span>$n$</span>? Well, whatever it is, it also happens to be equal to the number of paths from <span>$(0, 0)$</span> to <span>$(2n, 0)$</span> on the Cartesian plane using <span>$n$</span> <span>$(1, 1)$</span> steps (aka <span>$\nearrow$</span>) and <span>$n$</span> <span>$(1, -1)$</span> steps (aka <span>$\searrow$</span>), where we are never allowed to go below the <span>$x$</span>-axis.</p>
+<p>These are called Dyck walls (where Dyck is pronounced like "dike"). Clearly, the number of Dyck walks for a given <span>$n$</span> is equivalent to the number of Catalan numbers for the same <span>$n$</span>. We call this number <span>$C(n)$</span>.</p>
+<blockquote>
+<p>Theorem: <span>$\displaystyle C(n) = \frac{1}{n+1} \binom{2n}{n}$</span></p>
+</blockquote>
+<p>Proof: Observe that there are <span>$\binom{2n}{n}$</span> paths from <span>$(0, 0)$</span> to <span>$(2n, 0)$</span> using <span>$n$</span> <span>$\nearrow$</span>'s and <span>$n$</span> <span>$\searrow$</span>'s, because you specify the <span>$n$</span> places (with no replacement) for the <span>$\nearrow$</span>s and the <span>$\searrow$</span> spots are determined by that (or vice versa).</p>
+<p>Now consider what fraction of these paths go below the x-axis. We'll call this number <span>$D(n)$</span>. Well, any path that goes below the x-axis hits the line <span>$y=-1$</span> at some point. Let <span>$(q, -1)$</span> be the first such point for a path <span>$P$</span>. Now split <span>$P$</span> into two sub-paths at <span>$(q, -1)$</span>, such that everything from <span>$(0, 0)$</span> to <span>$(q, -1)$</span> is part of path <span>$P_1$</span>, and everything from <span>$(q, -1)$</span> to <span>$(2n, 0)$</span> is part of <span>$P_2$</span>.</p>
+<p>By design, everything in <span>$P_1$</span> is <span>$\geq$</span> the line <span>$y=-1$</span>. What if we were to reflect <span>$P_1$</span> across this line, and call the result <span>$P_1'$</span>? Well, everything in <span>$P_1'$</span> would be <span>$&lt;$</span> the line <span>$y =-1$</span>, except for the final endpoint which is at <span>$(q, -1)$</span>. Now create a new path <span>$P' = \{P_1', P_2\}$</span>. This is a path from <span>$(0, -2)$</span> to <span>$(2n, 0)$</span>, using <span>$(n+1)$</span> <span>$\nearrow$</span>s and <span>$(n-1)$</span> <span>$\searrow$</span>s, because we have one more <span>$\searrow$</span> than <span>$\nearrow$</span> in <span>$P_1$</span> and so <span>$P_1'$</span> would have one more <span>$\nearrow$</span> than <span>$\searrow$</span>s, and <span>$P_2$</span> must have one more <span>$\nearrow$</span> than <span>$\searrow$</span> as a result as well.</p>
+<p>So, because there are <span>$n+1$</span> <span>$\nearrow$</span>s, there are <span>$\binom{2n}{n+1}$</span> paths from <span>$(0, -2)$</span> to <span>$(2n, 0)$</span>. But this number is just <span>$D(n)$</span>! So we have</p>
+<p><span>$$D(n) = \binom{2n}{n+1}$$</span></p>
+<p>Using this, we derive a formula for <span>$C(n)$</span>:</p>
+<p><span>$$\begin{align}
+C(n) &amp; = \binom{2n}{n} - \binom{2n}{n+1} = \\
+&amp; = \frac{(2n)!}{n!n!} - \frac{(2n)!}{(n+1)!(n-1)!} \\
+&amp; = \frac{(2n)!}{n!n!} - \frac{(2n)!}{n!\cdot (n+1) \cdot (n-1)!} \cdot \frac{n}{n} \\
+&amp; = \frac{(2n)!}{(n!)^2} \cdot \frac{(n+1)}{(n+1)} - \frac{(2n)!\cdot n}{(n!)^2\cdot(n+1)} \tag{as $(n+1)!\cdot n = n!$} \\
+&amp; = \frac{(2n)!\cdot(n+1) - (2n)!\cdot n}{(n!)^2\cdot (n+1)} \\
+&amp; = \frac{(2n)!}{(n!)^2\cdot(n+1)} \tag{by cancelling} \\
+&amp; = \frac{(2n)!}{n!\cdot n!} \cdot \frac{1}{n+1} \\
+&amp; = \frac{1}{n+1} \binom{2n}{n}
+\end{align}$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

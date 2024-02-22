@@ -1,0 +1,334 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2007 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2007 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided questions and solutions to the December 2007 final exam. Examiner: Eyal Goren; associate examiner: John Labute.</p>
+<p>It is recommended that you do this exam yourself before checking the solutions provided here. If you notice any errors with the content on this page, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<div class="toc">
+<ul>
+<li><a href="#part-a-multiple-choice-questions">1 Part A: Multiple-choice questions</a><ul>
+<li><a href="#question-1">1.1 Question 1</a><ul>
+<li><a href="#accuracy-and-discussion">1.1.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">1.2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">1.2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">1.3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">1.3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">1.4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">1.4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">1.5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">1.5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">1.6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">1.6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">1.7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">1.7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">1.8 Question 8</a></li>
+<li><a href="#question-9">1.9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_7">1.9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">1.10 Question 10</a><ul>
+<li><a href="#accuracy-and-discussion_8">1.10.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-11">1.11 Question 11</a><ul>
+<li><a href="#accuracy-and-discussion_9">1.11.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-12">1.12 Question 12</a><ul>
+<li><a href="#accuracy-and-discussion_10">1.12.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#part-b-short-answer-questions">2 Part B: Short-answer questions</a><ul>
+<li><a href="#question-1_1">2.1 Question 1</a></li>
+<li><a href="#question-2_1">2.2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_11">2.2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3_1">2.3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_12">2.3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Part A: Multiple-choice questions<a class="headerlink" href="#part-a-multiple-choice-questions" name="part-a-multiple-choice-questions">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h3>
+<blockquote>
+<p>The group <span>$S_{17}$</span> has elements of order:</p>
+<p>(a) 19 and 66.<br />
+(b) 3 and 19.<br />
+(c) 3 and 66.</p>
+</blockquote>
+<p>(c). You can't make 19 ... there are no numbers <span>$x, y \leq 17$</span> such that <span>$\text{lcm}(x, y) = 19$</span>, because 19 is prime.</p>
+<h4 class="header"><i>1.1.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h4>
+<p>Pretty sure</p>
+<h3 class="header"><i>1.2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h3>
+<blockquote>
+<p>The <span>$\gcd$</span> of the polynomials <span>$f(x) = x^4 + 5x + 1$</span> and <span>$g(x) = x^2-1$</span> in <span>$\mathbb Z/7\mathbb Z [x]$</span> is:</p>
+<p>(a) <span>$x^2-1$</span><br />
+(b) <span>$x-1$</span><br />
+(c) <span>$1$</span><br />
+(d) <span>$x+1$</span></p>
+</blockquote>
+<p><a href="/MATH_235/past-exam/fall-2006/final#question-2">HEY THIS LOOKS FAMILIAR</a></p>
+<p>The answer is (b)</p>
+<h4 class="header"><i>1.2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h4>
+<p>^</p>
+<h3 class="header"><i>1.3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h3>
+<blockquote>
+<p>Any two groups with 6 elements are isomorphic. Yes or no?</p>
+</blockquote>
+<p>No</p>
+<h4 class="header"><i>1.3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h4>
+<p><a href="/MATH_235/past-exam/fall-2006/final#question-3">Another familiar question.</a></p>
+<h3 class="header"><i>1.4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h3>
+<blockquote>
+<p><span>$3^{144}$</span> is congruent to</p>
+<p>(a) <span>$1 \pmod{13}$</span><br />
+(b) <span>$2\pmod 5$</span><br />
+(c) <span>$1 \pmod{11}$</span></p>
+</blockquote>
+<p>Well, by FLT, <span>$3^{12} = 1$</span>, so <span>$3^{144} = 3^{12 \times 12} = (3^{12})^{12} = 1^{12} = 1$</span> so (a) lol</p>
+<h4 class="header"><i>1.4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h4>
+<p><a href="http://www.wolframalpha.com/input/?i=3%5E144+mod+13">Wolfram Alpha</a> confirms.</p>
+<h3 class="header"><i>1.5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h3>
+<blockquote>
+<p>Let <span>$n \geq 1$</span> be an integer. Every homomorphism of groups <span>$f: \mathbb Z / n \mathbb Z \to \mathbb Z$</span> is the zero homomorphism. Yes, no, or depends on <span>$n$</span>?</p>
+</blockquote>
+<p>Yes.</p>
+<h4 class="header"><i>1.5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h4>
+<p><a href="/MATH_235/past-exam/fall-2006/final#question-5">lol</a></p>
+<h3 class="header"><i>1.6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h3>
+<blockquote>
+<p>Let <span>$G$</span> be a group and <span>$H$</span> a subgroup of <span>$G$</span>. Define a relation on elements of <span>$G$</span> by saying that <span>$a \sim b$</span> if <span>$b^{-1}a \in H$</span>. This relation is:</p>
+<p>(a) reflexive and transitive, but transitive only if <span>$G$</span> is abelian.<br />
+(b) reflexive and transitive, but symmetric only if <span>$G$</span> is abelian.<br />
+(c) reflexive, symmetric, and transitive.</p>
+</blockquote>
+<p>Let's investigate all the possible properties. Is it reflexive? Do we have that <span>$a \sim a$</span>? Well, <span>$a^{-1}a = e$</span>, and <span>$e \in H$</span> because <span>$H$</span> is a subgroup, so it is reflexive. (We already knew it was reflexive from the format of the question but it's nice to verify it anyways.) Is it symmetric? Well, <span>$a \sim b$</span>, then <span>$\alpha b^{-1}a \in H$</span>, and since <span>$H$</span> is a subgroup, the inverse of <span>$\alpha$</span> is also in <span>$H$</span>. So <span>$\alpha^{-1} = (b^{-1}a)^{-1} = a^{-1}(b^{-1})^{-1} \in H$</span>. But this just means that <span>$b \sim a$</span>.</p>
+<p>Now let's look at transitivity. If <span>$a \sim b$</span>, then <span>$\alpha = b^{-1}a \in H$</span>, and if <span>$b \sim c$</span>, then <span>$\beta = c^{-1}b \in H$</span>. What can we then deduce about <span>$c^{-1}a$</span>? Well, <span>$\beta \alpha \in H$</span> by closure, and <span>$\beta\alpha = c^{-1}bb^{-2}a = c^{-1}a$</span> so yeah it's transitive whether or not <span>$G$</span> is abelian.</p>
+<p>So, (c).</p>
+<h4 class="header"><i>1.6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h4>
+<p>For showing that the relation is symmetric iff <span>$G$</span> Abelian, how about this: If <span>$a\sim b$</span>, <span>$b^{-1}a \in H$</span>. Then by definition of a subgroup <span>$(b^{-1}a)^{-1} = ba^{-1}\in H$</span>. If <span>$G$</span> abelian, this is equal to <span>$a^{-1}b \in H$</span>, so <span>$b \sim a$</span>. So if <span>$G$</span> abelian the relation is symmetric. - <a href="/users/ikones">@ikones</a></p>
+<blockquote>
+<p>Nice catch, although I don't think <span>$G$</span> even has to be abelian: <a href="http://crazyproject.wordpress.com/2010/03/22/alternate-characterization-of-cosets-as-equivalence-classes/">http://crazyproject.wordpress.com/2010/03/22/alternate-characterization-of-cosets-as-equivalence-classes/</a> - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h3 class="header"><i>1.7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h3>
+<blockquote>
+<p>Let <span>$p$</span> be  prime number. Any two groups of order <span>$p$</span> are isomorphic.</p>
+</blockquote>
+<p>Yes.</p>
+<h4 class="header"><i>1.7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h4>
+<p><a href="http://www.proofwiki.org/wiki/Prime_Groups_of_Same_Order_are_Isomorphic">A proof on ProofWiki</a></p>
+<h3 class="header"><i>1.8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h3>
+<blockquote>
+<p>Transitive actions. Ignore.</p>
+</blockquote>
+<h3 class="header"><i>1.9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h3>
+<blockquote>
+<p>The units of the ring <span>$\mathbb C[\epsilon]$</span> are</p>
+<p>(a) <span>$\mathbb C \setminus \{0\}$</span>.<br />
+(b) <span>$\{a + b\epsilon: a, b \in \mathbb C, a \neq 0\}$</span>.<br />
+(c) <span>$\{1\}$</span>.<br />
+(d) <span>$\{b\epsilon: b\in \mathbb C, b \neq 0\}$</span>.</p>
+</blockquote>
+<p>A <strong>unit</strong> is an element with a multiplicative inverse. Some examples of elements with multiplicative inverses: 1, <span>$1 + \epsilon$</span> (the inverse is <span>$1 - \epsilon$</span>). Some elements that don't have multiplicative inverses: <span>$\epsilon$</span>. Right away we can rule out (c) (since <span>$1+\epsilon$</span> is a unit) and (d) (since <span>$\epsilon$</span> is not a unit). So that leaves (a) and (b). (a) is obviously smaller than (b), and (a) doesn't include <span>$1+\epsilon$</span> so it must be (b).</p>
+<h4 class="header"><i>1.9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h4>
+<p>Apparently I'm right? <a href="http://en.wikipedia.org/wiki/Dual_number#Generalization"><em>Dual number</em> on Wikipedia</a></p>
+<h3 class="header"><i>1.10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h3>
+<blockquote>
+<p>Let <span>$B$</span> be a subset of two sets, <span>$A_1$</span> and <span>$A_2$</span>. If <span>$|A_1 \setminus B| = |A_2 \setminus B|$</span>, then the statement <span>$|A_1| = |A_2|$</span> is:</p>
+<p>(a) always true.<br />
+(b) true if <span>$A_1, A_2$</span> are finite, but need not be true in general.<br />
+(c) may be false even of <span>$A_1, A_2$</span> finite.</p>
+</blockquote>
+<p>(a) I think?</p>
+<h4 class="header"><i>1.10.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h4>
+<p>I don't know!</p>
+<h3 class="header"><i>1.11</i>Question 11<a class="headerlink" href="#question-11" name="question-11">&para;</a></h3>
+<blockquote>
+<p>Let <span>$p \neq q$</span> be positive prime numbers. Let <span>$r$</span> be the number of solutions for the equation <span>$x^3 = 1$</span> in the ring <span>$\mathbb Z/pq\mathbb Z$</span>. Then:</p>
+<p>(a) <span>$r \leq 3$</span>.<br />
+(b) <span>$r \leq 6$</span>.<br />
+(c) <span>$r \leq 9$</span>.<br />
+(d) <span>$r$</span> can be arbitrarily large.</p>
+</blockquote>
+<p>We're looking for the number of solutions to <span>$x^3 = 1$</span>. It's definitely not (a) or (b) - for example, if <span>$p = 13$</span> and <span>$q = 7$</span>, then there are 9 solutions, according to <a href="http://www.wolframalpha.com/input/?i=x%5E3+%3D+1+%28mod+91%29">Wolfram Alpha</a>. In fact, I'm pretty sure that (c) is the answer. According to a paper I found called <a href="http://www.jstor.org.proxy1.library.mcgill.ca/stable/2688306"><em>Number of Solutions of the Congruence <span>$x^m = r \pmod n$</span></em></a> (it's on jstor so if you're not on a campus Internet connection, you'll have to log in using your McGill credentials), the number of solutions is (in this particular case) limited to <span>$3 \times 3 = 9$</span>. If the equation were instead <span>$x^2 = 1$</span>, the number of solutions would be limited to <span>$2 \times 2$</span>, and if it were <span>$x^4 = 1$</span>, it would be limited to <span>$4 \times 4$</span>. Now, if instead of just <span>$p$</span> and <span>$q$</span> we had <span>$p$</span>, <span>$q$</span>, and <span>$r$</span>, all positive primes, then it would be <span>$\alpha^3$</span> where <span>$\alpha$</span> is the exponent for <span>$x$</span>.</p>
+<p>As an example, I will estimate the number of solutions to <span>$x^3 = 1 \pmod{3763}$</span>, where <span>$3763 = 53 \cdot 71$</span>, both of which are prime. The formula is <span>$\gcd(3, 52) \cdot \gcd(3, 70)$</span> (see the paper). Well, neither 52 nor 70 is divisible by 3, so we have <span>$1 \cdot 1 = 1$</span>. And indeed, <a href="http://www.wolframalpha.com/input/?i=x%5E3+%3D+1+%28mod+3763%29">Wolfram Alpha</a> confirms that there is one solution.</p>
+<p>Another example: <span>$x^3 = 1 \pmod{559}$</span>, where <span>$559=13\cdot 43$</span>, both of which are prime. Well, <span>$\gcd(3, 12) = 3$</span>, and <span>$\gcd(3, 42) = 3$</span>, so the number of solutions is <span>$3 \cdot 3 = 9$</span>. And you know what? <a href="http://www.wolframalpha.com/input/?i=x%5E3+%3D+1+%28mod+559%29">It's true!</a></p>
+<p>(I don't think we learned exactly how to do this in class, and it's not that useful in general, so this is mostly an interesting aside. We probably learned some general things about congruences that would have allowed us to solve this question, but I must have missed that class.)</p>
+<h4 class="header"><i>1.11.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h4>
+<p>Prove me wrong, I dare you</p>
+<h3 class="header"><i>1.12</i>Question 12<a class="headerlink" href="#question-12" name="question-12">&para;</a></h3>
+<blockquote>
+<p>Consider the following list of principal ideals <span>$(2), (3), (5), (6)$</span> in the ring <span>$\mathbb Z/14 \mathbb Z$</span>. There are</p>
+<p>(a) Only one ideal in this list.<br />
+(b) Two distinct ideals in this list.<br />
+(c) Three distinct ideals in this list.<br />
+(d) Four distinct ideals in this list.</p>
+</blockquote>
+<p>Let's quickly sketch each ideal:</p>
+<p><span>$(2) = \{0, 2, 4, 6, 8, 10, 12\}$</span><br />
+<span>$(3) = \{0, 3, 6, 9, 12, 1, 4, 7, 10, 13, 2, 5, 8, 11\}$</span> (so the entire ring)<br />
+<span>$(5) = $</span> same as above because 5 and 14 and relatively prime<br />
+<span>$(6) = \{0, 6, 12, 4, 10, 2, 8\}$</span> so same as (2)</p>
+<p>The answer is (b).</p>
+<h4 class="header"><i>1.12.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_10" name="accuracy-and-discussion_10">&para;</a></h4>
+<p>Feels right to me, could use confirmation though</p>
+<h2 class="header"><i>2</i>Part B: Short-answer questions<a class="headerlink" href="#part-b-short-answer-questions" name="part-b-short-answer-questions">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Question 1<a class="headerlink" href="#question-1_1" name="question-1_1">&para;</a></h3>
+<p>Ignore</p>
+<h3 class="header"><i>2.2</i>Question 2<a class="headerlink" href="#question-2_1" name="question-2_1">&para;</a></h3>
+<blockquote>
+<p>(a) Let <span>$m, n$</span> be relatively prime positive integers. Prove the Chinese Remainder Theorem: <span>$\mathbb Z/(mn)\mathbb Z \cong \mathbb Z / m \mathbb Z \times \mathbb Z /n \mathbb Z$</span> (isomorphism of rings).<br />
+(b) Find all the solutions for the equation <span>$x^2 = -1$</span> modulo <span>$17 \cdot 37$</span>. The final answer should be given as congruence classes modulo <span>$17 \cdot 37 = 629$</span>.</p>
+</blockquote>
+<p>(a) This is the same as <a href="/MATH_235/past-exam/fall-2006/final#question-3_1">question 3 (a) on fall 2006 final</a>.</p>
+<p>(b) First, we solve <span>$x^2=-1 \pmod{17}$</span>. The first few multiples of 17 are: 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187. Well, <span>$x=4$</span> works (nothing less than 4 can work). 5, 6, 7, 8, 9, 10, 11, 12 don't work. 13 does work - 169 is 170-1. So the congruence classes that work are <span>$[4], [13]$</span>.</p>
+<p>Now for <span>$x^2=-1\pmod{37}$</span>. Oh god, this is a lot longer. I guess you just have to be good at mental math (unless there's a nicer trick to it). Well, the first few multiples are: 37, 74, 111, 148, 185, 222, 259, 296, 333, 370. The first one that works is 6. 18 doesn't work. 19 is just -18, so nothing greater than 19 can work except 31 which is equal to -6. So the congruence classes that work are <span>$[6], [31]$</span>. (Actually, we didn't even have to check 13 for the previous one - we know it works because <span>$13^2 = (-4)^2 = 4^2$</span>.)</p>
+<p>Then, we just need to combine them somehow. Let's write out all the terms for each equivalence class:</p>
+<p>[4] = 4, 21, 38, 55, 72, 89, 106, 123, 140, 157, 174, 191, ...<br />
+[13] = [-4] = 13, 30, 47, 64, 81, 98, 115, 132, 149, 166, 183, 200, 217, 234, 251, 268, 285, 302, 319, ...<br />
+[6] = 6, 43, 80, 117, 154, 191, 228, 265, 302, ...<br />
+[31] = [-6] = 31, 68, 105, 142, 179, 216, 253, 327, 364 ...</p>
+<p>Now let's try to find terms that appear in one of the top lists as well as in one of the bottom lists. [191] shows up in [4] and [6] so that's good. [302] shows up in [13] and [6]. That seems like it. Of course, we also have 629 - 191 = 438 and 629 - 302 = 327. So the congruence classes are <span>$[191], [302], [327], [438]$</span>.</p>
+<h4 class="header"><i>2.2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_11" name="accuracy-and-discussion_11">&para;</a></h4>
+<p>Checked computationally. Not sure how you would know a priori that you've found all the congruence classes, though. Also, there is probably a more elegant way of doing this.</p>
+<h3 class="header"><i>2.3</i>Question 3<a class="headerlink" href="#question-3_1" name="question-3_1">&para;</a></h3>
+<blockquote>
+<p>(a) Let <span>$f \in \mathbb F[x]$</span> be an irreducible polynomial with coefficients in a field <span>$\mathbb F$</span> and of degree <span>$\geq 1$</span>. Let <span>$L = \mathbb F[x] / (f(x))$</span>. Prove that <span>$L$</span> is a field. You may assume that <span>$L$</span> is a commutative ring.<br />
+(b) Let <span>$\mathbb F$</span> now be the field of five elements <span>$\mathbb Z / 5\mathbb Z$</span> and let <span>$f(x) = x^2+2x-1$</span>. Prove that <span>$f$</span> is irreducible.<br />
+(c) Find a square root of 2 in <span>$L$</span>. Call it <span>$t$</span>.<br />
+(d) Consider the map <span>$\alpha: \mathbb F[x] \to L$</span>, given by <span>$x \mapsto t$</span>. Prove that this is a ring homomorphism.<br />
+(e) Find the kernel of <span>$\alpha$</span>.<br />
+(f) Prove that <span>$\alpha$</span> induces an isomorphism. (<span>$\mathbb F[x] /(x^2-2) \cong L$</span>)</p>
+</blockquote>
+<p>(a) This is the same as <a href="/MATH_235/past-exam/fall-2006/final#question-4_1">question 4 (a) on the 2006 final</a>.</p>
+<p>(b) <span>$f$</span> has degree 2, so for it to be reducible, it must have 2 linear factors. Since <span>$\mathbb F$</span> has 5 elements, there are 5 possible linear factors: <span>$x-0$</span>, <span>$x-1$</span>, <span>$x-2$</span>, <span>$x-3$</span>, <span>$x-4$</span>. For <span>$x-0$</span> to be a linear factor, it must be that <span>$f(0) = 0$</span> (by the relationship between linear factors and roots of a polynomial). But <span>$f(0) = 0^2+2\cdot 0 - 1 = -1 = 4$</span>, so that is not true. Also, <span>$f(1) = 1^2 + 2\cdot 1 - 1 = 2$</span>, <span>$f(2) = 2^2+2\cdot 2 - 1 = 7 = 2$</span>, <span>$f(3) = 3^2 + 2\cdot 3 - 1 = 14 = 4$</span>, and <span>$f(4) = 4^2 + 2\cdot 4 - 1 = 24-1 = 23 = 3$</span>. So none of the possible linear factors in this field are factors of <span>$f$</span>, which means that <span>$f$</span> is irreducible. <span>$\blacksquare$</span></p>
+<p>(c) Assuming that we're using the field and irreducible polynomial mentioned in part (b) (which seems like a reasonable assumption), then we just need to solve the congruence <span>$t^2 = 2 \pmod{x^2+2x-1}$</span>. Well, if <span>$t^2 = x^2+2x+1 = (x+1)^2$</span>, then <span>$t = (x+1)$</span> would work.</p>
+<p>(d) We need to check that <span>$\alpha(u + v) = \alpha(u) + \alpha(v)$</span> and that <span>$\alpha(uv) = \alpha(u) \cdot \alpha(v)$</span> for any <span>$u, v \in \mathbb F[x]$</span>. Well, anything in <span>$L$</span> can be written in the form <span>$ax + b$</span> (since <span>$f$</span> is of degree 2). Anything in <span>$\mathbb F$</span> can be written in the form <span>$c_nx^n + c_{n-1}x^{n-1} + \ldots + c_0$</span>, with <span>$n$</span> being some natural number and the <span>$c$</span>'s coming from the field. So if <span>$u = u_nx^n + u_{n-1}x^{n-1} + \ldots + u_0$</span> and <span>$v=v_nx^n + v_{n-1}x^{n-1} + \ldots + v_0$</span>, then what? ???</p>
+<p>Later.</p>
+<h4 class="header"><i>2.3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_12" name="accuracy-and-discussion_12">&para;</a></h4>
+<p>(a) See the other final.</p>
+<p>(b) Not sure if this answer is sufficient to prove irreducibility.</p>
+<p>(c) Looks ok</p>
+<p>(d) Don't know</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

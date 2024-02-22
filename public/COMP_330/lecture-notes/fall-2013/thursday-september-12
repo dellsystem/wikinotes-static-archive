@@ -1,0 +1,213 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, September 12, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, September 12, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Constructions on languages and regular expressions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Constructions on regular languages, and introduction to regular expressions.</p>
+<div class="toc">
+<ul>
+<li><a href="#constructions-on-regular-languages">1 Constructions on regular languages</a><ul>
+<li><a href="#closure-properties-of-regular-languages">1.1 Closure properties of regular languages</a><ul>
+<li><a href="#proofs">1.1.1 Proofs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#regular-expressions">2 Regular expressions</a><ul>
+<li><a href="#inductive-definition">2.1 Inductive definition</a></li>
+<li><a href="#examples">2.2 Examples</a></li>
+<li><a href="#connection-to-regular-languages">2.3 Connection to regular languages</a><ul>
+<li><a href="#proof">2.3.1 Proof</a></li>
+</ul>
+</li>
+<li><a href="#algebraic-properties">2.4 Algebraic properties</a><ul>
+<li><a href="#solving-equations">2.4.1 Solving equations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Constructions on regular languages<a class="headerlink" href="#constructions-on-regular-languages" name="constructions-on-regular-languages">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Closure properties of regular languages<a class="headerlink" href="#closure-properties-of-regular-languages" name="closure-properties-of-regular-languages">&para;</a></h3>
+<p>Proposition: If <span>$L, L_1, L_2$</span> are regular languages, then so are:</p>
+<p>(i) <span>$L_1 \cup L_2$</span><br />
+(ii) <span>$\overline{L}$</span> (the set complement)<br />
+(iii) <span>$L_1 \cdot L_2$</span> (concatenation - so if <span>$L_1 = \{aa, bb\}$</span> and <span>$L_2 = \{c\}$</span>, <span>$L_1 \cdot L_2 = \{aac, bbc\}$</span>)<br />
+(iv) <span>$L_1 \cap L_2$</span><br />
+(v) and <span>$L^*$</span>, which is defined as <span>$\displaystyle L^* = \bigcup_{i=0}^{\infty} \underbrace{L\cdot L \cdot L \cdots L}_{i \text{ times}}$</span>. The finite unions (so <span>$\displaystyle \bigcup_{i=0}^{n}$</span> for some finite <span>$n$</span>) are also regular languages: <span>$L^0 = \{\epsilon\}$</span>, <span>$L^1 = L$</span>, <span>$L^2 = L \cdot L$</span>, etc.</p>
+<h4 class="header"><i>1.1.1</i>Proofs<a class="headerlink" href="#proofs" name="proofs">&para;</a></h4>
+<p>We'll prove these by constructing an NFA, either by giving a description of the new machine or explicitly defining the variables. (During the lecture, diagrams were drawn for some of them, but it's too much work to do here. You can see them in Prakash's <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/closure_props.pdf">scanned lecture notes on this subject</a>.) </p>
+<p>(i) Suppose <span>$M_1$</span> and <span>$M_2$</span> are machines (DFAs) for <span>$L_1$</span> and <span>$L_2$</span>, respectively. Create a new start state with 2 epsilon transitions, one to the start state of <span>$M_1$</span> and the other to the start state of <span>$M_2$</span>. </p>
+<p>(ii) Given a machine for <span>$L$</span>, simply reverse the acceptedness of accepted/reject states.</p>
+<p>(iii) Given <span>$M_1$</span> and <span>$M_2$</span> (both DFAs), we make <span>$M_1$</span>'s start state the new start state for <span>$M$</span>, change <span>$M_1$</span>'s accept states into reject states, and add <span>$\epsilon$</span> transitions from them to <span>$M_2$</span>'s start state.</p>
+<p>(iv) This is equivalent to <span>$\overline{\overline{L_1} \cup \overline{L_2}}$</span>, which we can do by (i) and (ii). But here's an explicit construction anyway, as a DFA (since it's cool): given <span>$M_1 = (S_1, s_1, \delta_1, F_1)$</span> and <span>$M_2 = (S_2, s_2, \delta_2, F_2)$</span>, we build a new machine <span>$M = (S, s, \delta, F)$</span> that runs both <span>$M_1$</span> and <span>$M_2$</span> in parallel:</p>
+<ul>
+<li><span>$S = S_1 \times S_2$</span></li>
+<li><span>$s = (s_1, s_2)$</span></li>
+<li><span>$F = F_1 \times F_2$</span></li>
+<li><span>$\delta((p, q), a) = (\delta_1(p, a), \delta_2(q, a))$</span> (where <span>$a \in \Sigma$</span>, as usual) where <span>$p \in S_1$</span> and <span>$q \in S_2$</span></li>
+</ul>
+<p>(We don't need to prove that this machine works, since it's simple.)</p>
+<p>(v) Add a new start state (which should be an accept state), and add an <span>$\epsilon$</span>-transition from this to the old start state. Then, add <span>$\epsilon$</span>-transitions from the final state to the old start state (which should not be an accept state). <strong>Note</strong>: the description given in class was slightly incorrect. This is the correct version description, confirmed by Prakash.</p>
+<h2 class="header"><i>2</i>Regular expressions<a class="headerlink" href="#regular-expressions" name="regular-expressions">&para;</a></h2>
+<p><strong>Regular expressions</strong> arose out of the need for a machine-independent way of defining regular languages and operations on them. There are various distinct notations being used today (e.g., UNIX-style regex vs algebraic regex), but we'll stick with the original notation.</p>
+<h3 class="header"><i>2.1</i>Inductive definition<a class="headerlink" href="#inductive-definition" name="inductive-definition">&para;</a></h3>
+<p>For a fixed <span>$L$</span>, we have:</p>
+<p>(i) <span>$\epsilon$</span> is a regular expression<br />
+(ii) <span>$\forall a \in \Sigma$</span>, <span>$a$</span> is a regular expression<br />
+(iii) <span>$\varnothing$</span> is a regular expression (the machine for this has just one state, which is a reject state)<br />
+(iv) If <span>$r$</span> and <span>$s$</span> are regexes, so is <span>$r + s$</span> (where <span>$+$</span> means "or" (or, <span>$\cup$</span>)<br />
+(v) Same for <span>$r \cdot s$</span> (concatenating, as usual)<br />
+(vi) also <span>$r^*$</span> (same interpretation as <span>$L^*$</span>; also exactly how it works in UNIX-style regex)</p>
+<h3 class="header"><i>2.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<p>Let <span>$\Sigma = \{a, b\}$</span>.</p>
+<ul>
+<li>How do we do <span>$\Sigma^*$</span> as a regex? One method is <span>$(a + b)^*$</span>. Another (equivalent) method is <span>$(a^* \cdot b^*)^*$</span>.</li>
+<li>Everything that ends in 2 <span>$a$</span>'s: <span>$(a+b)^*\cdot (aa)$</span></li>
+</ul>
+<p>Now let <span>$\Sigma = \{0, 1\}$</span>. If we wanted to write a regular expression that recognises "all strings that, when intrepreted as an binary integer, are divisible by 3", the end result would be extremely complex. And yet, the machine is simple! This just goes to show that there is often no correlation between the complexity of the machine and that of the corresponding regex.</p>
+<h3 class="header"><i>2.3</i>Connection to regular languages<a class="headerlink" href="#connection-to-regular-languages" name="connection-to-regular-languages">&para;</a></h3>
+<p>Theorem: regular expressions define regular languages. Note that this is not a trivial fact that simply arises as a consequence of them both being called "regular"; rather, it's due to the fact that we can convert explicitly from a regular expression to a regular language, and vice versa.</p>
+<h4 class="header"><i>2.3.1</i>Proof<a class="headerlink" href="#proof" name="proof">&para;</a></h4>
+<p>Given any regex, we can construct an NFA (with <span>$\epsilon$</span>-transitions) to recognise the language. We can prove this by induction, on the structure of regular expressions.</p>
+<p>Base cases:</p>
+<ul>
+<li><span>$\varnothing$</span>: the machine is easy (described previously)</li>
+<li><span>$\epsilon$</span>: also easy (2 states, start is accept, other is death state that takes in everything)</li>
+<li><span>$a \in \Sigma$</span>: 3 states (second is accept, others are reject, the transitions are pretty obvious)</li>
+</ul>
+<p>Now the inductive step. We can prove this via constructions on machines. Conveniently, these constructions were provided <a href="#constructions-on-regular-languages">earlier in the lecture</a>! The full proof is omitted. You may be able to find more details in the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/closure_props.pdf">posted lecture notes on closures</a>.</p>
+<div class="ui divider"></div>
+<p>Next, let's prove the other direction. Given a DFA <span>$M = (S, s_0, \delta, F)$</span> with <span>$n$</span> states (which we explicitly enumerate from 1 to <span>$n$</span>, with 1 being the start state), we can construct a family of regexes</p>
+<p><span>$$R^{(k)}_{ij} \tag{where $i, j$ are from $1, \ldots, n$}$$</span></p>
+<p>where each <span>$R$</span> describes all the possible paths to lead from state <span>$i$</span> to state <span>$j$</span>, using only states whose number is <span>$\leq k$</span> as intermediate states. (This is a bit confusing; just note that <span>$k$</span> does not refer to <em>quantity</em> of intermediate states, but rather to the number of each state.) <span>$i$</span> and <span>$j$</span> do not count as intermediate states.</p>
+<p>Now, if <span>$k=0$</span>, this is easy to evaluate: either there's a direct transition from <span>$i$</span> to <span>$j$</span>, or there's no direct transition. Formally: Assuming <span>$i \neq j$</span>, then if <span>$\delta(i, a) = j$</span> for any <span>$a \in \Sigma$</span>, we will include <span>$a$</span> in <span>$R_{ij}^{(0)}$</span>. So <span>$R_{ij}^{(0)} = a_1 + a_2 + \cdots + a_k$</span> for each <span>$a_p \in \Sigma$</span>, where <span>$\delta(i, a_p) = j$</span>. If <span>$i = j$</span>, then we do the same thing (look for loops, but we have to add <span>$\epsilon$</span> as well).</p>
+<p>Then, we induct on <span>$k$</span>. Assume that we know <span>$R^{(k-1)}_{ij}$</span> - that is, the path from <span>$i$</span> to <span>$j$</span> using only <span>$1, \ldots, k-1$</span> as intermediate states - for all states <span>$i, j \in S$</span>. Obviously, all of these paths are still valid for <span>$R_{ij}^{(k)}$</span> (since this just means that we can now use <span>$k$</span> as well, if we want). But new paths are allowed: we can now stop at <span>$k$</span>. Well, we know <span>$R_{ik}^{(k-1)}$</span> and <span>$R_{kj}^{(k-1)}$</span>. But then we know <span>$R_{ij}$</span>:</p>
+<p><span>$$R_{ij}^{(k)} = R_{ij}^{(k-1)} + R_{ik}^{(k-1)} \cdot \underbrace{\left ( R_{kk}^{(k-1)} \right )^*}_{\text{accounting for loops}} \cdot R_{ij}^{(k-1)}$$</span></p>
+<p>This concludes the proof. <span>$\blacksquare$</span></p>
+<p>More details (including a diagram explaining how we arrived at the above formula for <span>$R_{ij}^{(k)}$</span>) can be found in the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/regexp.pdf">scanned lecture notes</a>.</p>
+<h3 class="header"><i>2.4</i>Algebraic properties<a class="headerlink" href="#algebraic-properties" name="algebraic-properties">&para;</a></h3>
+<p>Now onto the algebraic properties of regular expressions (where algebra, in its simplest form, refers to "equations"):</p>
+<ol>
+<li><span>$R + \varnothing = \varnothing + R = R$</span> (identity for <span>$+$</span>)</li>
+<li><span>$R + S = S + R$</span> (commutativity of <span>$+$</span>)</li>
+<li><span>$R + (S + T) = (R + S) + T$</span> (associativity of <span>$+$</span>)</li>
+<li><span>$R + R = R$</span> (not sure what to call this)</li>
+<li><span>$R \cdot \varnothing = \varnothing \cdot R = \varnothing$</span> (the zero element for <span>$\cdot$</span>)</li>
+<li><span>$R \cdot \epsilon = \epsilon \cdot R = R$</span> (the identity/unit element for <span>$\cdot$</span>)</li>
+<li><span>$R \cdot (S \cdot T) = (R \cdot S) \cdot T$</span> (associativity of <span>$\cdot$</span>)</li>
+<li><span>$R \cdot (S + T) = R \cdot S + R \cdot T$</span> (distributivity)</li>
+<li><span>$(R + S) \cdot T = R \cdot T + S \cdot T$</span> (also distributivity)</li>
+<li><span>$\epsilon + R\cdot R^* = \epsilon + R^*\cdot R = R^*$</span></li>
+</ol>
+<p>Also: <span>$(R + S)^* = (R^*S)^*R^*$</span>. For proof of this, and of the 10 rules above, see the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/alg_reg_exp.pdf">scanned lecture notes</a>.</p>
+<p>In addition, note that we can drop the <span>$\cdot$</span> when its presence is clear (e.g., <span>$RR^*$</span> instead of <span>$R\cdot R^*$</span>)</p>
+<h4 class="header"><i>2.4.1</i>Solving equations<a class="headerlink" href="#solving-equations" name="solving-equations">&para;</a></h4>
+<p>How would we solve <span>$X = SX + T$</span> where <span>$S, T$</span> are regular expressions and <span>$X$</span> is a variable?</p>
+<p>Actually, this doesn't have a general solution! In fact, there only exists a solution when <span>$\epsilon \notin S$</span>, in which case we have <span>$X = S^*T$</span> (and this is the unique solution).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

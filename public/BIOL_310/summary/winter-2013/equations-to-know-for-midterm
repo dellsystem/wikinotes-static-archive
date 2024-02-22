@@ -1,0 +1,530 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/BIOL_310/">
+                BIOL 310
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Equations to know for midterm
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Equations to know for midterm
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#estimating-species-richness-by-rarefaction">1 Estimating species richness by rarefaction.</a><ul>
+<li><a href="#example">1.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#prestons-log-normal-distribution-of-species-abundance">2 Preston's log-normal distribution of species abundance</a><ul>
+<li><a href="#example_1">2.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#shannons-diversity-index-measure-of-informationentropy">3 Shannon's Diversity index = measure of information/entropy</a><ul>
+<li><a href="#example_2">3.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#simpsons-concentration-index">4 Simpson's concentration index</a><ul>
+<li><a href="#example_3">4.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#berger-parkers-dominance-index">5 Berger &amp; Parker's dominance index</a><ul>
+<li><a href="#example_4">5.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#renyis-generalised-entropy-measure-of-order-a">6 Renyi's generalised entropy measure of order $a$</a><ul>
+<li><a href="#example_5">6.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#expected-variance-among-species-is-linearly-related-to-the-amount-of-time-since-divergence">7 Expected variance among species is linearly related to the amount of time since divergence</a><ul>
+<li><a href="#example_6">7.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#quantifying-phylogenetic-distinctiveness">8 Quantifying phylogenetic distinctiveness</a><ul>
+<li><a href="#example_7">8.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#abundance-weighted-evolutionary-distinctiveness">9 Abundance-weighted evolutionary distinctiveness</a><ul>
+<li><a href="#example_8">9.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#the-theory-of-island-biogeography-the-species-area-relationships">10 The theory of Island Biogeography &amp; the Species-Area Relationships</a><ul>
+<li><a href="#example_9">10.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#measuring-beta-diversity-for-presence-absence-data">11 Measuring beta diversity for presence-absence data</a><ul>
+<li><a href="#example_10">11.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#additive-partition-of-gamma-diversity">12 Additive partition of $\gamma$ diversity</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Estimating species richness by rarefaction.<a class="headerlink" href="#estimating-species-richness-by-rarefaction" name="estimating-species-richness-by-rarefaction">&para;</a></h2>
+<p>Non-parametric estimator of true species richness in a community (Chao, 1984)</p>
+<p><span>$$S_{est}=S_{obs} + \frac{a^2}{2b}$$</span></p>
+<p><span>$S_{obs}$</span> = observed number of species<br />
+<span>$a$</span> = observed number of singletons (species with 1 individual)<br />
+<span>$b$</span> = observed number of doubletons (species with 2 individuals)</p>
+<p>Good estimate when sample size is large enough to detect the majority of species in a community.</p>
+<h3 class="header"><i>1.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h3>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>community 1</th>
+<th>-</th>
+<th>community 2</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>species</td>
+<td>#</td>
+<td>species</td>
+<td>#</td>
+<td></td>
+</tr>
+<tr>
+<td>A</td>
+<td>5</td>
+<td>A</td>
+<td>36</td>
+<td></td>
+</tr>
+<tr>
+<td>B</td>
+<td>4</td>
+<td>B</td>
+<td>11</td>
+<td></td>
+</tr>
+<tr>
+<td>C</td>
+<td>3</td>
+<td>C</td>
+<td>23</td>
+<td></td>
+</tr>
+<tr>
+<td>D</td>
+<td>8</td>
+<td>D</td>
+<td>47</td>
+<td></td>
+</tr>
+<tr>
+<td>E</td>
+<td>4</td>
+<td>E</td>
+<td>6</td>
+<td></td>
+</tr>
+<tr>
+<td>F</td>
+<td>4</td>
+<td>F</td>
+<td>21</td>
+<td></td>
+</tr>
+<tr>
+<td>G</td>
+<td>6</td>
+<td>G</td>
+<td>54</td>
+<td></td>
+</tr>
+<tr>
+<td>H</td>
+<td>5</td>
+<td>H</td>
+<td>7</td>
+<td></td>
+</tr>
+<tr>
+<td>I</td>
+<td>8</td>
+<td>I</td>
+<td>18</td>
+<td></td>
+</tr>
+<tr>
+<td>J</td>
+<td>4</td>
+<td>J</td>
+<td>16</td>
+<td></td>
+</tr>
+<tr>
+<td>K</td>
+<td>5</td>
+<td>K</td>
+<td>42</td>
+<td></td>
+</tr>
+<tr>
+<td>L</td>
+<td>3</td>
+<td>L</td>
+<td>22</td>
+<td></td>
+</tr>
+<tr>
+<td>M</td>
+<td>1</td>
+<td>M</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>N</td>
+<td>2</td>
+<td>N</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>O</td>
+<td>1</td>
+<td>O</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>P</td>
+<td>1</td>
+<td>P</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Q</td>
+<td>1</td>
+<td>Q</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>R</td>
+<td>1</td>
+<td>R</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>S</td>
+<td>1</td>
+<td>S</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>T</td>
+<td>2</td>
+<td>T</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>U</td>
+<td>1</td>
+<td>U</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>V</td>
+<td>2</td>
+<td>V</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>W</td>
+<td>2</td>
+<td>W</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>X</td>
+<td>2</td>
+<td>X</td>
+<td>2</td>
+<td></td>
+</tr>
+<tr>
+<td>Y</td>
+<td>1</td>
+<td>Y</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>Z</td>
+<td>1</td>
+<td>Z</td>
+<td>1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>For community one:</p>
+<p><span>$ S_{est} = 26 + 9^2/10 = 34.1 \approx 34$</span></p>
+<p>It's the same for community two because the number of singletons/doubletons is the same.</p>
+<h2 class="header"><i>2</i>Preston's log-normal distribution of species abundance<a class="headerlink" href="#prestons-log-normal-distribution-of-species-abundance" name="prestons-log-normal-distribution-of-species-abundance">&para;</a></h2>
+<p><span>$$\text{Total species richness}(S) = S_0\sqrt{\pi/a}$$</span></p>
+<p><span>$a$</span> is the equitability of species, typically 0.2<br />
+<span>$S_0$</span> is a known distribution parameter.</p>
+<h3 class="header"><i>2.1</i>Example<a class="headerlink" href="#example_1" name="example_1">&para;</a></h3>
+<blockquote>
+<p>What's the total species richness if <span>$S_0$</span> is 12, and <span>$a$</span> is 0.2</p>
+</blockquote>
+<p><span>$S = 12\sqrt{\pi/0.2} = 47.56$</span></p>
+<h2 class="header"><i>3</i>Shannon's Diversity index = measure of information/entropy<a class="headerlink" href="#shannons-diversity-index-measure-of-informationentropy" name="shannons-diversity-index-measure-of-informationentropy">&para;</a></h2>
+<p><span>$$H=-\sum_ip_i\ln p_i$$</span></p>
+<p><span>$p_i$</span> is the relative abundance of species <span>$i$</span><br />
+<span>$$0\leq H \leq \ln S$$</span></p>
+<h3 class="header"><i>3.1</i>Example<a class="headerlink" href="#example_2" name="example_2">&para;</a></h3>
+<p>Given the following population</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Species</th>
+<th>Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>12</td>
+</tr>
+<tr>
+<td>B</td>
+<td>5</td>
+</tr>
+<tr>
+<td>C</td>
+<td>30</td>
+</tr>
+<tr>
+<td>D</td>
+<td>10</td>
+</tr>
+<tr>
+<td>E</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+<p>What's the shannon's diversity index?</p>
+<p><span>$$Total = 12+5+30+10+8 = 65$$</span><br />
+<span>$$H = - (12/65 \ln{12/65} + 5/65 \ln{5/65} + 30/65 \ln{30/65} + 10/65 \ln{10/65} + 8/65 \ln{8/65}) = -(-1.412) = 1.412$$</span></p>
+<h2 class="header"><i>4</i>Simpson's concentration index<a class="headerlink" href="#simpsons-concentration-index" name="simpsons-concentration-index">&para;</a></h2>
+<p><span>$$\lambda = \sum_i p_i^2$$</span><br />
+<span>$$1/S \leq \lambda \leq 1$$</span><br />
+<span>$$1-\lambda=P(\text{Two individuals taken at random are from different species})$$</span></p>
+<h3 class="header"><i>4.1</i>Example<a class="headerlink" href="#example_3" name="example_3">&para;</a></h3>
+<p>Using the example above</p>
+<p><span>$$ \lambda = (12/65)^2 + (5/65)^2 + (30/65)^2 + (10/65)^2 + (8/65)^2 = 0.291 $$</span><br />
+The probability of taking two individuals at random being different species is $1-0.291 = 0.789.</p>
+<h2 class="header"><i>5</i>Berger &amp; Parker's dominance index<a class="headerlink" href="#berger-parkers-dominance-index" name="berger-parkers-dominance-index">&para;</a></h2>
+<p><span>$$d=p_1$$</span><br />
+<span>$p_1$</span> is the relative abundance of the most abundant species</p>
+<h3 class="header"><i>5.1</i>Example<a class="headerlink" href="#example_4" name="example_4">&para;</a></h3>
+<p>Using the example above</p>
+<p><span>$$d = 30/65 = 0.46$$</span></p>
+<h2 class="header"><i>6</i>Renyi's generalised entropy measure of order $a$<a class="headerlink" href="#renyis-generalised-entropy-measure-of-order-a" name="renyis-generalised-entropy-measure-of-order-a">&para;</a></h2>
+<p><span>$$H_a = \frac{1}{1-a}\ln(\sum_i p_i^a)$$</span></p>
+<h3 class="header"><i>6.1</i>Example<a class="headerlink" href="#example_5" name="example_5">&para;</a></h3>
+<p>STILL using the example from above</p>
+<blockquote>
+<p>Calculate the generalised entropy measure of order <span>$a$</span> at <span>$a$</span> = 0, 1, 2, <span>$\infty$</span></p>
+</blockquote>
+<p>At <span>$a$</span> = 0, it is just <span>$\ln S = \ln 5 = 1.609$</span>.<br />
+At <span>$a$</span> = 1, it's Shannon's index, which is 1.412.<br />
+At <span>$a$</span> = 2, it's <span>$-\ln \lambda = -\ln 0.291 = 1.234$</span>.<br />
+At <span>$a = \infty$</span>, it's <span>$-\ln d = -\ln 0.46 = 0.777$</span></p>
+<p><span>$$\text{Effective number of species (}S_a\text{)} = e^{H_a}$$</span></p>
+<p>Higher <span>$a$</span> is, the stronger the relative influence of the most dominant species and the smaller the sample size needed to obtain a reliable estimate.</p>
+<p>When <span>$a = 1$</span>, <span>$H = -\sum_i p_i \ln p_i$</span>, or shannon.</p>
+<dl>
+<dt>Brownian motion evolution</dt>
+<dd>Under brownian motion trait variance increases in proportion to square root of the sum of phylogenetic branch lengths between taxa on a dated phylogenetic tree.</dd>
+</dl>
+<h2 class="header"><i>7</i>Expected variance among species is linearly related to the amount of time since divergence<a class="headerlink" href="#expected-variance-among-species-is-linearly-related-to-the-amount-of-time-since-divergence" name="expected-variance-among-species-is-linearly-related-to-the-amount-of-time-since-divergence">&para;</a></h2>
+<p><span>$$V_b = \sigma^2t + \epsilon$$</span></p>
+<p><span>$\sigma^2$</span> is a parameter describing the rate at which taxa diverge from each other through time and <span>$\epsilon$</span> is an error term.</p>
+<h3 class="header"><i>7.1</i>Example<a class="headerlink" href="#example_6" name="example_6">&para;</a></h3>
+<blockquote>
+<p>What's the expected variance amongst the species after 2 million years if <span>$\sigma = 0.02$</span>, and the error is 1200.</p>
+</blockquote>
+<p><span>$$V_b = 0.02^2(2000000) + 1200 = 2000$$</span></p>
+<h2 class="header"><i>8</i>Quantifying phylogenetic distinctiveness<a class="headerlink" href="#quantifying-phylogenetic-distinctiveness" name="quantifying-phylogenetic-distinctiveness">&para;</a></h2>
+<p><span>$$PD = \sum_i ED_i$$</span><br />
+<span>$$H'_{ED} = -\sum_{i=1}^s \frac{ED_i}{PD} \ln \frac{ED_i}{PD}$$</span></p>
+<h3 class="header"><i>8.1</i>Example<a class="headerlink" href="#example_7" name="example_7">&para;</a></h3>
+<p><img alt="" src="http://i.imgur.com/Ve7188v.png" title="excuse the shitty pic im tired ok" /></p>
+<blockquote>
+<p>Calculate the ED for A,B,C,D and the PD.</p>
+</blockquote>
+<p>By subtracting we find that the first bit is <span>$10-5-3 = 2$</span>. </p>
+<p><span>$ED_A = 10$</span> this is trivial.</p>
+<p><span>$ED_B = 8 + 2/3 = 8.67$</span>. The first bit is separated into three species.</p>
+<p><span>$ED_C = 3 + 5/2 + 2/3 = 6.167 = ED_D$</span>. The length 5 segment is separated into two species.</p>
+<blockquote>
+<p>Calculate the PD</p>
+</blockquote>
+<p><span>$PD = 10 + 8.67 + 6.167 \times 2 = 31$</span></p>
+<blockquote>
+<p>Calculate <span>$H'_{ED}$</span></p>
+</blockquote>
+<p><span>$H'_{ED} = - (10/31 \ln{(10/31)} + 8.67/31 \ln{(8.67/31)} + 6.167/31 \ln{(6.167/31)} + 6.167/31 \ln{(6.167/31})) = 1.364$</span></p>
+<h2 class="header"><i>9</i>Abundance-weighted evolutionary distinctiveness<a class="headerlink" href="#abundance-weighted-evolutionary-distinctiveness" name="abundance-weighted-evolutionary-distinctiveness">&para;</a></h2>
+<p><span>$$AED(T,i) = \sum_{e\in q(T,i,r)} \frac{\lambda_e}{n_e}$$</span></p>
+<p>Basically for each branch you get every lambda the branch has and divide it by the abundance of the respective species.</p>
+<h3 class="header"><i>9.1</i>Example<a class="headerlink" href="#example_8" name="example_8">&para;</a></h3>
+<blockquote>
+<p>calculate the AED for the above example, if there are 40 of A, 30 of B, 20 of C, and 25 of D.</p>
+</blockquote>
+<p><span>$AED_A = 10/40 = 0.25$</span><br />
+<span>$AED_B = 8/30 + 2/75 = 0.2933$</span><br />
+<span>$AED_C = 3/20 + 5/45 + 2/75 = 0.288$</span><br />
+<span>$AED_D = 3/25 + 5/45 + 2/75 = 0.258$</span></p>
+<p>To verify that all the AED are correct, we should be able to obtain PD from <span>$\sum_i n_i AED_i$</span></p>
+<p><span>$0.25*40 + 0.2933*30 + 0.288 * 20 + 0.258*25 = 31$</span></p>
+<p>Indeed that is what we get.</p>
+<p><span>$AED = 0.25 + 0.29333 + 0.288 + 0.258 = 1.089$</span></p>
+<h2 class="header"><i>10</i>The theory of Island Biogeography &amp; the Species-Area Relationships<a class="headerlink" href="#the-theory-of-island-biogeography-the-species-area-relationships" name="the-theory-of-island-biogeography-the-species-area-relationships">&para;</a></h2>
+<p><span>$$S=CA^z$$</span></p>
+<p><span>$S$</span> is the number of species present<br />
+<span>$C$</span> is a constant which varies with the toxonomic group under study<br />
+<span>$A$</span> is the area of the island, and <span>$z$</span> is to be fairly constant for most island situations (around 0.3)</p>
+<h3 class="header"><i>10.1</i>Example<a class="headerlink" href="#example_9" name="example_9">&para;</a></h3>
+<blockquote>
+<p>If there are 3000 species, <span>$z$</span> = 0.3, and <span>$C$</span> = 50, what's the approximate area of the island?</p>
+</blockquote>
+<p><span>$3000 = 50A^0.3$</span><br />
+<span>$60 = A^0.3$</span><br />
+<span>$\ln 60 = 0.3 \ln A$</span><br />
+<span>$\ln A = \ln 60/0.3$</span><br />
+<span>$ A = 845610 $</span></p>
+<h2 class="header"><i>11</i>Measuring beta diversity for presence-absence data<a class="headerlink" href="#measuring-beta-diversity-for-presence-absence-data" name="measuring-beta-diversity-for-presence-absence-data">&para;</a></h2>
+<p><img alt="" src="http://i.imgur.com/aZfIsF3.png" title="" /></p>
+<p>Jaccard:<br />
+<span>$$ \beta = \frac{a}{a+b+c}$$</span></p>
+<p>Sorensen<br />
+<span>$$\beta = \frac{2a}{2a+b+c}$$</span></p>
+<p>Whittaker<br />
+<span>$$\beta = \frac{a+b+c}{(2a+b+c)/2}\text{ or }\frac{a+b+c}{(2a+b+c)/2} -1$$</span></p>
+<h3 class="header"><i>11.1</i>Example<a class="headerlink" href="#example_10" name="example_10">&para;</a></h3>
+<p>Using the above picture, calculate the diversity with all 3 measures.</p>
+<p>Jaccard:</p>
+<p><span>$\beta = 5/(12+5+23) = 0.125$</span></p>
+<p>Sorensen:</p>
+<p><span>$\beta = 10/(12+10+23) = 0.222$</span></p>
+<p>Whittaker:</p>
+<p><span>$\beta = \frac{12+5+23}{(12+10+23)/2} = 1.78\text{ or }0.78$</span></p>
+<h2 class="header"><i>12</i>Additive partition of $\gamma$ diversity<a class="headerlink" href="#additive-partition-of-gamma-diversity" name="additive-partition-of-gamma-diversity">&para;</a></h2>
+<p><span>$$D_\gamma = \bar{D_\alpha} + D_\beta$$</span></p>
+<p><span>$\alpha$</span> Diversity:</p>
+<p><span>$p_{ij}$</span> is the relative abundance of species <span>$i$</span> in community <span>$j$</span><br />
+<span>$\alpha$</span> diversity of community <span>$j$</span> = <span>$Shannon(p_{1j}, p_{2j}, ... p_{nj}$</span><br />
+<span>$\alpha$</span> diversity is just the weighted averages of all the communities. </p>
+<p><span>$\gamma$</span> Diversity:</p>
+<p><span>$\bar{p_i}$</span> is the mean relative abundance of species <span>$i$</span><br />
+<span>$\gamma$</span> diversity = <span>$Shannon(\bar{p_1}, \bar{p_2}, ... \bar{p_n})$</span></p>
+<p><span>$\beta$</span> Diversity = <span>$\gamma$</span> - <span>$\alpha$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

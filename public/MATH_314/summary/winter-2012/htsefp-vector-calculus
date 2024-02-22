@@ -1,0 +1,207 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_314/">
+                MATH 314
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                HTSEFP: Vector calculus
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            HTSEFP: Vector calculus
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Vector calculus. Includes some stuff on flux and surface integrals, but nothing on Green's, Stokes', or the divergence theorem.</p>
+<div class="toc">
+<ul>
+<li><a href="#find-the-flux-of-a-field-given-its-surface">1 Find the flux of a field given its surface</a><ul>
+<li><a href="#general-solution">1.1 General solution</a></li>
+<li><a href="#examples">1.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#prove-an-identity-involving-the-del-operator">2 Prove an identity involving the del operator</a><ul>
+<li><a href="#examples_1">2.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#surface-integrals-of-a-scalar-function">3 Surface integrals of a scalar function</a><ul>
+<li><a href="#examples_2">3.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#computing-the-curl-of-a-vector-field">4 Computing the curl of a vector field</a><ul>
+<li><a href="#examples_3">4.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#potential-functions-of-vector-fields">5 Potential functions of vector fields</a><ul>
+<li><a href="#examples_4">5.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#find-a-vector-function-given-its-curl">6 Find a vector function given its curl</a><ul>
+<li><a href="#examples_5">6.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#line-integrals-vector-fields">7 Line integrals - vector fields</a><ul>
+<li><a href="#general-solution_1">7.1 General solution</a></li>
+<li><a href="#examples_6">7.2 Examples</a></li>
+</ul>
+</li>
+<li><a href="#line-integrals-cartesian-coordinates">8 Line integrals - cartesian coordinates</a><ul>
+<li><a href="#general-solution_2">8.1 General solution</a></li>
+<li><a href="#examples_7">8.2 Examples</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Find the flux of a field given its surface<a class="headerlink" href="#find-the-flux-of-a-field-given-its-surface" name="find-the-flux-of-a-field-given-its-surface">&para;</a></h2>
+<p>Given the formula for the vector field and the formula for the surface (2- or 3-dimensional)</p>
+<h3 class="header"><i>1.1</i>General solution<a class="headerlink" href="#general-solution" name="general-solution">&para;</a></h3>
+<p>Take the cross-product of the partial derivs, dot it with <span>$F(r(u,v))$</span>, integrate over limits of region</p>
+<h3 class="header"><i>1.2</i>Examples<a class="headerlink" href="#examples" name="examples">&para;</a></h3>
+<ul>
+<li>Assignment 1, questions 5, 6, and 3 (c)</li>
+<li><a href="/MATH_314/past-exam/winter-2010/final#question-3">Winter 2010 final, question 3</a></li>
+</ul>
+<h2 class="header"><i>2</i>Prove an identity involving the del operator<a class="headerlink" href="#prove-an-identity-involving-the-del-operator" name="prove-an-identity-involving-the-del-operator">&para;</a></h2>
+<p>Won't be necessary</p>
+<h3 class="header"><i>2.1</i>Examples<a class="headerlink" href="#examples_1" name="examples_1">&para;</a></h3>
+<ul>
+<li>Assignment 1, question 7</li>
+<li>Assignment 4, question 2</li>
+</ul>
+<h2 class="header"><i>3</i>Surface integrals of a scalar function<a class="headerlink" href="#surface-integrals-of-a-scalar-function" name="surface-integrals-of-a-scalar-function">&para;</a></h2>
+<p>Meh</p>
+<h3 class="header"><i>3.1</i>Examples<a class="headerlink" href="#examples_2" name="examples_2">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 2</li>
+</ul>
+<h2 class="header"><i>4</i>Computing the curl of a vector field<a class="headerlink" href="#computing-the-curl-of-a-vector-field" name="computing-the-curl-of-a-vector-field">&para;</a></h2>
+<p>Easy, take it's curl (see formulas page), if it's 0 then it's conservative</p>
+<h3 class="header"><i>4.1</i>Examples<a class="headerlink" href="#examples_3" name="examples_3">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 3 (b) and 4 (a)</li>
+<li><a href="/MATH_314/past-exam/winter-2010/final#question-4">Winter 2010 final, question 4 (a)</a></li>
+</ul>
+<h2 class="header"><i>5</i>Potential functions of vector fields<a class="headerlink" href="#potential-functions-of-vector-fields" name="potential-functions-of-vector-fields">&para;</a></h2>
+<p>And using that to compute a line integral (given that the vector field is conservative - wait, is that just a given if you can find the potential function?)</p>
+<h3 class="header"><i>5.1</i>Examples<a class="headerlink" href="#examples_4" name="examples_4">&para;</a></h3>
+<ul>
+<li>Assignment 2, question 4 (b)</li>
+<li><a href="/MATH_314/past-exam/winter-2010/final#question-4">Winter 2010 final, question 4 (b)</a></li>
+<li><a href="/MATH_314/past-exam/winter-2011/final#question-5">Winter 2011 final, question 5</a></li>
+</ul>
+<h2 class="header"><i>6</i>Find a vector function given its curl<a class="headerlink" href="#find-a-vector-function-given-its-curl" name="find-a-vector-function-given-its-curl">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Examples<a class="headerlink" href="#examples_5" name="examples_5">&para;</a></h3>
+<ul>
+<li>Assignment 4, question 1</li>
+</ul>
+<h2 class="header"><i>7</i>Line integrals - vector fields<a class="headerlink" href="#line-integrals-vector-fields" name="line-integrals-vector-fields">&para;</a></h2>
+<p>This is the one where you have <span>$\displaystyle \int_C \vec F \cdot \,d\vec r$</span>, where <span>$\vec F$</span> is some vector field (given) and <span>$C$</span> is some boundary curve (could be given in terms of its formula or a description of its shape or whatever) and no mention is made of Green's theorem.</p>
+<h3 class="header"><i>7.1</i>General solution<a class="headerlink" href="#general-solution_1" name="general-solution_1">&para;</a></h3>
+<p>Parametrise the curve <span>$C$</span>, resulting in <span>$r(t)$</span> (possibly more than one, if you need to parametrise in segments). Then, use the following formula:</p>
+<p><span>$$\int_a^b \vec F(r(t)) \cdot r'(t)\,dt$$</span></p>
+<p>where <span>$a$</span> and <span>$b$</span> are the lower and upper limits for <span>$t$</span> along the curve, respectively.</p>
+<h3 class="header"><i>7.2</i>Examples<a class="headerlink" href="#examples_6" name="examples_6">&para;</a></h3>
+<ul>
+<li>Assignment 2, questions 3 (a) and 4 (c)</li>
+<li><a href="/MATH_314/past-exam/winter-2006/final#question-6">Winter 2006 final, question 6</a></li>
+</ul>
+<h2 class="header"><i>8</i>Line integrals - cartesian coordinates<a class="headerlink" href="#line-integrals-cartesian-coordinates" name="line-integrals-cartesian-coordinates">&para;</a></h2>
+<p>Same as above but Cartesian coordinates instead of a parametrised curve</p>
+<h3 class="header"><i>8.1</i>General solution<a class="headerlink" href="#general-solution_2" name="general-solution_2">&para;</a></h3>
+<p>Parametrise the curve <span>$C$</span> and use the x and y components of <span>$r(t)$</span> to transform x and y into functions of t. Then integrate with respect to t, using the limits for <span>$t$</span> from the curve you parametrised.</p>
+<h3 class="header"><i>8.2</i>Examples<a class="headerlink" href="#examples_7" name="examples_7">&para;</a></h3>
+<ul>
+<li>I'm sure there are some though I can't find any at the moment</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

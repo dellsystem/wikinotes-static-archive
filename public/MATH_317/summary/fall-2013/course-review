@@ -1,0 +1,143 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_317/">
+                MATH 317
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Things to remember for the final.</p>
+<div class="toc">
+<ul>
+<li><a href="#taylor-expansions">1 Taylor expansions</a></li>
+<li><a href="#fixed-point-theorem">2 Fixed-point theorem</a></li>
+<li><a href="#interpolating-polynomials">3 Interpolating polynomials</a></li>
+<li><a href="#degree-of-accuracy-quadrature">4 Degree of accuracy (quadrature)</a></li>
+<li><a href="#local-truncation-error-runge-kutta">5 Local truncation error (Runge-Kutta)</a></li>
+<li><a href="#order-of-a-method-runge-kutta">6 Order of a method (Runge-Kutta)</a></li>
+<li><a href="#error-bound-for-trapezoidal-rule">7 Error bound for trapezoidal rule</a></li>
+<li><a href="#bisection-method">8 Bisection method</a></li>
+<li><a href="#composite-simpsons-rule">9 Composite Simpson's rule</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Taylor expansions<a class="headerlink" href="#taylor-expansions" name="taylor-expansions">&para;</a></h2>
+<p>Am I the only one who is constantly forgetting how these work? Please tell me I'm not?</p>
+<p><span>$$f(x + a) = f(x) + af'(x) + \frac{a^2}{2}f''(x) + \frac{a^3}{6}f'''(x) + \ldots$$</span></p>
+<h2 class="header"><i>2</i>Fixed-point theorem<a class="headerlink" href="#fixed-point-theorem" name="fixed-point-theorem">&para;</a></h2>
+<p>Theorem: if <span>$g$</span> is continuous and differentiable over an interval <span>$[a, b]$</span> such that <span>$\forall x \in [a, b]$</span>, <span>$g(x) \in [a, b]$</span>, and the first derivative satisfies <span>$|g'(x)| &lt; 1$</span> for all <span>$x \in (a, b)$</span>. Then, for any <span>$x_0 \in [a, b]$</span>, the sequence defined by <span>$x_{n+1} = g(x_n)$</span> will converge to a unique fixed point <span>$x^* \in [a, b]$</span> such that <span>$g(x^*) = x^*$</span>.</p>
+<p>To prove it from first principles without the derivative assumption, define <span>$h(x) = g(x) - x$</span> and use IVT to show that a fixed point exists, then get a contradiction with the <span>$&lt; \gamma$</span> assumption. The convergence proof probably involves a limit, I'm not sure.</p>
+<h2 class="header"><i>3</i>Interpolating polynomials<a class="headerlink" href="#interpolating-polynomials" name="interpolating-polynomials">&para;</a></h2>
+<p><span>$$l_j = \frac{x-x_0}{x_j-x_0} \cdots \frac{x-x_{j-1}}{x_j-x_{j-1}} \cdot \frac{x-x_{j+1}}{x_j-x_{j+1}} \cdots \frac{x-x_n}{x_j-x_n}$$</span></p>
+<p>In Newton form, we have</p>
+<p><span>$$p_n(x) = \sum_{j=0}^n c_jw_j(x)$$</span></p>
+<p>where <span>$w_0(x) = 1$</span>, <span>$\displaystyle w_i(x) = \prod_{j=0}^{i-1} (x-x_j)$</span> for all other <span>$i$</span>, and <span>$c_i = f[x_0, \ldots, x_i]$</span>.</p>
+<h2 class="header"><i>4</i>Degree of accuracy (quadrature)<a class="headerlink" href="#degree-of-accuracy-quadrature" name="degree-of-accuracy-quadrature">&para;</a></h2>
+<p>The largest <span>$n$</span> such that all polys <span>$p$</span> of deg <span>$\leq n$</span> satisfy <span>$I(p) = I_h(p)$</span></p>
+<h2 class="header"><i>5</i>Local truncation error (Runge-Kutta)<a class="headerlink" href="#local-truncation-error-runge-kutta" name="local-truncation-error-runge-kutta">&para;</a></h2>
+<p><span>$$\tau_{i+1} = y(t_{i+1}) - w_{i+1}$$</span></p>
+<h2 class="header"><i>6</i>Order of a method (Runge-Kutta)<a class="headerlink" href="#order-of-a-method-runge-kutta" name="order-of-a-method-runge-kutta">&para;</a></h2>
+<p>If the error is <span>$O(h^n)$</span> the order is <span>$n-1$</span></p>
+<h2 class="header"><i>7</i>Error bound for trapezoidal rule<a class="headerlink" href="#error-bound-for-trapezoidal-rule" name="error-bound-for-trapezoidal-rule">&para;</a></h2>
+<p><span>$$\frac{(b-a)^3}{12} f''(\xi)$$</span></p>
+<h2 class="header"><i>8</i>Bisection method<a class="headerlink" href="#bisection-method" name="bisection-method">&para;</a></h2>
+<p><span>$$\text{number of steps} = \log_2\left ( \frac{b-a}{\text{max error}} \right )$$</span></p>
+<h2 class="header"><i>9</i>Composite Simpson's rule<a class="headerlink" href="#composite-simpsons-rule" name="composite-simpsons-rule">&para;</a></h2>
+<p><span>$$I_h(f) = \sum_{j=0}^{n/2-1} \frac{h}{3} (f_{2_j} + 4f_{2j+1} + f_{2j+2}) = \frac{h}{3}[f_0+f_n] +\frac{2h}{3} \sum_{j=1}^{n/2-1} f_{2j} + \frac{4h}{3}\sum_{j=0}^{n/2-1} f_{2j+1}$$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, September 10, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, September 10, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Nondeterministic finite automata
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Introduction to nondeterministic finite automata. This class was taught by Costin Popescu (who is neither the professor nor the TA for the class).</p>
+<div class="toc">
+<ul>
+<li><a href="#nondeterministic-finite-automata">1 Nondeterministic finite automata</a><ul>
+<li><a href="#delta">1.1 $\Delta^*$</a><ul>
+<li><a href="#properties">1.1.1 Properties</a></li>
+</ul>
+</li>
+<li><a href="#comparing-nfas-and-dfas">1.2 Comparing NFAs and DFAs</a><ul>
+<li><a href="#proof-by-induction">1.2.1 Proof by induction</a></li>
+</ul>
+</li>
+<li><a href="#epsilon-transitions">1.3 $\epsilon$-transitions</a><ul>
+<li><a href="#example">1.3.1 Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Nondeterministic finite automata<a class="headerlink" href="#nondeterministic-finite-automata" name="nondeterministic-finite-automata">&para;</a></h2>
+<p>Let <span>$\Sigma = \{0, 1\}$</span>, and we want to check divisibility by 4 (akin to the divisibility-by-3 problem in the previous lecture). Essentially, we accept a word if and only if the last 2 digits are 0. We can do this using a <strong>nondetermistic finite automaton</strong>. Unlike with a DFA, there can be multiple paths for a given letter (see diagram below for an illustration). We can spawn multiple threads concurrently, each to a different state, and we consider a word to be accepted if there is some possible sequence of threads that results in a final state.</p>
+<p>Our diagram for this machine would look something like this:</p>
+<p><img alt="Divisibility by 4 NFA" src="http://cs.mcgill.ca/~wliu65/media/comp330/nfa.png" title="Original diagram; released under CC0" /></p>
+<p>Thus, at <span>$q_0$</span>, if we read a 1, we stay at <span>$q_0$</span>. On the other hand, if we read a 0, we spawn two threads: one that goes to <span>$q_1$</span>, and one that stays on <span>$q_0$</span>.</p>
+<p>Alternatively, we can think of this as backtracking - first we try one path, and if it doesn't work out, we try another path, until we find one that works (among the legal possibilities). If we never find one that works, then we reject the word.</p>
+<p>An NFA is formally defined as a 4-tuple: <span>$(Q, Q_0, \Delta, F)$</span>.</p>
+<ul>
+<li><span>$Q$</span>: The set of states.</li>
+<li><span>$Q_0$</span>: The set of start states (there can be more than one - in fact it could be all of <span>$Q$</span>); <span>$Q_0 \subseteq Q$</span>.</li>
+<li><span>$\Delta$</span>: The function defining the transitions, <span>$Q \times \Sigma \to \mathcal P(Q)$</span><sup id="fnref:powerset"><a href="#fn:powerset" rel="footnote" title="$\mathcal P(Q)$ means the power set of $Q$. So the...">1</a></sup></li>
+<li><span>$F$</span>: The set of final states, <span>$F \subseteq Q$</span>.</li>
+</ul>
+<h3 class="header"><i>1.1</i>$\Delta^*$<a class="headerlink" href="#delta" name="delta">&para;</a></h3>
+<p>Similarly to <span>$\delta^*$</span> in the previous lecture, we define <span>$\Delta^*: \mathcal P(Q) \times \Sigma^* \to \mathcal P(Q)$</span>. That is, given a word and a set of states, it returns the possible next states. The mathematical definition is as follows:</p>
+<p><span>$$\Delta^*(A, ax) = \bigcup_{q \in A} \bigcup_{q' \in \Delta(q, a)} \Delta^*(\{q'\}, x)$$</span></p>
+<p>where <span>$a$</span> is a letter and <span>$x$</span> is a word.</p>
+<p>For example, if <span>$A = \{q_0, q_1\}$</span>, <span>$a = 1$</span> and <span>$x = 00$</span> (so the word <span>$w = ax$</span> is <span>$100$</span>), then</p>
+<p><span>$$\Delta^*(A, ax) = \Delta^*(\{q_0, q_1\}, ax) = \bigcup_{q_0, q_1} \bigcup_{q' \in \Delta(A, 1)} \Delta^*(\{q'\}, 00)$$</span></p>
+<p>where <span>$q' \Delta(A, 1)$</span> just means all the states we can transition to with the letter 1, given the starting states <span>$A$</span>.</p>
+<h4 class="header"><i>1.1.1</i>Properties<a class="headerlink" href="#properties" name="properties">&para;</a></h4>
+<p>Distributivity over the union operation: <span>$\Delta^*(A \cup B, x) = \Delta^*(A, x) \cup \Delta^*(B, x)$</span></p>
+<p>Not sure what to call this ("inductive definition?"): <span>$\Delta^*(A, xy) = \Delta^*(\Delta^*(A, x), y)$</span> (can be proved by induction on <span>$y$</span>)</p>
+<h3 class="header"><i>1.2</i>Comparing NFAs and DFAs<a class="headerlink" href="#comparing-nfas-and-dfas" name="comparing-nfas-and-dfas">&para;</a></h3>
+<p>First, we define <span>$L(N)$</span> to be the language accepted by the NFA <span>$N$</span>, as in, the set of words for which you end up in at least one final state in <span>$N$</span>. Formally, this is:</p>
+<p><span>$$L(N) = \{w | \Delta^*(Q_0, w) \cap F \neq \varnothing \}$$</span></p>
+<p>The question that is probably on your mind is: How do NFAs compare to DFAs? Are they more powerful than DFAs? The possibly surprising answer is no - NFAs are no more expressive than DFAs. In fact, any arbitrary NFA can be converted into a DFA that recognises the same language.</p>
+<p>Stated formally, we have the following: any NFA <span>$N = (Q, Q_0, \Delta, F)$</span> can be converted into an equivalent DFA <span>$M = (S, s_0, \delta, \hat F)$</span> such that <span>$L(N) = L(M)$</span>. We construct <span>$M$</span> explicitly:</p>
+<ul>
+<li><span>$S = \mathcal P(Q)$</span></li>
+<li><span>$s_0 = Q_0$</span> (since <span>$Q_0 \in \mathcal P(Q)$</span> and thus is an element of <span>$S$</span>)</li>
+<li><span>$\displaystyle \delta(A, a) = \bigcup_{q\in A} \Delta(q, a)$</span> - that is, <span>$\Delta^*(A, a)$</span></li>
+<li><span>$\hat F = \{A \subseteq Q | A \cap F \neq \varnothing\}$</span> (i.e., the set of elements in <span>$Q$</span> which contain a final state)</li>
+</ul>
+<h4 class="header"><i>1.2.1</i>Proof by induction<a class="headerlink" href="#proof-by-induction" name="proof-by-induction">&para;</a></h4>
+<p>We now prove that <span>$M$</span> is equivalent to <span>$N$</span>, by induction on the length of the input word <span>$w$</span>. In the base case, <span>$w = \epsilon$</span>. Then <span>$\Delta^*(A, \epsilon) = A$</span> (since if you have an empty word, you can't transition anywhere) and so <span>$\delta^*(A, \epsilon) = A$</span>, by definition.</p>
+<p>Induction hypothesis: Assume, for all <span>$A \subseteq Q$</span> (equivalent to "all <span>$A \in S$</span>"), that <span>$\Delta^*(A, x) = \delta^*(A, x)$</span>. (So we assume that the transitions coincide.) Then, suppose that <span>$ax \in \Sigma^*$</span> (where <span>$a$</span> is a letter in the alphabet, and <span>$x$</span> is a word in the language). Let's look at the execution of the <span>$\delta^*$</span> function. <span>$\delta^*(A, ax) = \delta^*(\delta(A, a), x)$</span> by definition of <span>$\delta^*$</span>, and <span>$\delta(A, a) = \Delta^*(A, a)$</span>, by the way we defined <span>$\delta$</span> for this machine <span>$M$</span>.</p>
+<p>Now:</p>
+<p><span>$$\begin{align}
+\delta^*(A, ax) &amp; = \delta^*(\Delta^*(A, a), x) \tag{by definition} \\
+&amp; = \Delta^*(\Delta^*(A, a), x) \tag{by induction hypothesis} \\
+&amp; = \Delta^*(A, ax) \tag{by definition}
+\end{align}$$</span></p>
+<p>Now let's look at <span>$L(N)$</span>:</p>
+<p><span>$$\begin{align}
+L(N) &amp; = \{w | \Delta^*(Q_0, w) \cap F \neq \varnothing\} \tag{by definition} \\
+&amp; = \{w|\Delta^*(Q_0, w) \in \hat F\} \tag{by definition of $\hat F$} \\
+&amp; = \{w|\delta^*(Q_0, w) \in \hat F\} \tag{by the thing we just proved by induction} \\
+&amp; = \{w|\delta^*(s_0, w) \in \hat F\} \\
+&amp; = L(M) \; \blacksquare
+\end{align}$$</span></p>
+<p>Sidenote: the resulting DFA will have an exponential number of states relative to the corresponding NFA, due to the way it is constructed (using power sets). This illustrates why NFAs are useful: because they are usually simpler to design. Also note that a DFA is nothing but a special case of an NFA.</p>
+<h3 class="header"><i>1.3</i>$\epsilon$-transitions<a class="headerlink" href="#epsilon-transitions" name="epsilon-transitions">&para;</a></h3>
+<p>Next, we add the following concepts to our study of NFAs: <strong><span>$\epsilon$</span>-transitions</strong> (exactly what it sounds like: when you transition from one state to the other without taking any input).</p>
+<p>Here's an example:</p>
+<p><img alt="Simple epsilon transition" src="http://cs.mcgill.ca/~wliu65/media/comp330/simple-epsilon-transition.png" title="Original diagram; released under CC0" /></p>
+<p>This machine would accept anything that does not end with 0 (i.e., anything that ends with 1 plus the empty word).</p>
+<p>We can now formally add <span>$\epsilon$</span>-transitions to our definition of an NFA <span>$N = (Q, Q_0, N, F)$</span>. First, we change <span>$\Delta$</span> to be a function from <span>$Q \times (\Sigma \cup \{\epsilon \}) \to \mathcal P(Q)$</span>. Next, we define the term <strong><span>$\epsilon$</span>-closure</strong> (of a state <span>$q \in Q$</span>) as the set of all <span>$q'$</span> such that there exists an <span>$\epsilon$</span>-transition from <span>$q$</span> to <span>$q'$</span>. Note that this always includes the state <span>$q$</span> itself. In the example above, the <span>$\epsilon$</span>-closure of <span>$q_0$</span> would be <span>$\{q_0, q_1\}$</span>, and the <span>$\epsilon$</span>-closure of <span>$q_1$</span> would be <span>$\{q_1\}$</span>.</p>
+<p>Next, we modify <span>$\Delta^*$</span> to <span>$\hat\Delta: \mathcal P(Q) \times (\Sigma \cup \{\epsilon\}) \to \mathcal P(Q)$</span>. Then <span>$\hat \Delta (A, \epsilon)$</span> returns the <span>$\epsilon$</span>-closure of <span>$A$</span> (i.e., the union of all the <span>$\epsilon$</span>-closures for the states <span>$q \in A$</span>, aka <span>$\displaystyle \bigcup_{q \in A} \epsilon-\text{closure}(q)$</span>.</p>
+<p>Then, <span>$\hat \Delta (A, ax) = \epsilon-\text{closure}(\hat \Delta(\epsilon-\text{closure}(\Delta(A, a)), x))$</span>.</p>
+<p>So our NFA with <span>$\epsilon$</span>-transitions is defined by <span>$N' = (Q, Q_0, \Delta', F')$</span> where <span>$\Delta'(q, a) = \hat \Delta(\{q\}, a)$</span> and <span>$F' = \{F \cup \{q_0\}\}$</span> if the <span>$\epsilon$</span>-closure of <span>$q_0$</span> contains something in <span>$F$</span>, and just <span>$F$</span> otherwise.</p>
+<p>In terms of expressiveness, NFAs with <span>$\epsilon$</span>-transitions are equivalent to standard NFAs.</p>
+<h4 class="header"><i>1.3.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p>Here's an example where NFAs with <span>$\epsilon$</span>-transitions can come in handy. Let's say we have two languages <span>$L_1$</span> and <span>$L_2$</span>, both of which are regular, and we have machines <span>$M_1$</span> and <span>$M_2$</span> that can recognise these languages (respectively). We want to create a machine that can recognise a new language <span>$L$</span>, which is created by interleaving <span>$L_1$</span> and <span>$L_2$</span>. For instance, if <span>$L_1 = \{aba\}$</span>, and <span>$L_2 = \{cc\}$</span>, then <span>$L=\{abacc, abcac, acbac, cabac, abcca, acbca, cabca, accba, cacba, ccaba\}$</span>.</p>
+<p>How do we construct a machine <span>$M$</span> for recognising <span>$L$</span>? A simple method is to create a new start state, add <span>$\epsilon$</span>-paths from this state to the start states of <span>$M_1$</span> and <span>$M_2$</span>, and then add <span>$\epsilon$</span>-paths between <span>$M_1$</span> and <span>$M_2$</span> (in both directions). See the diagram below for a visual representation.</p>
+<p><img alt="Constructing M using epsilon transitions" src="http://cs.mcgill.ca/~wliu65/media/comp330/epsilon-transitions.png" title="Original diagram; released under CC0" /></p>
+<p>Now let's define <span>$M$</span> formally. First, note that <span>$M_1 = (S_1, s_1, \delta_1, F_1)$</span> accepts <span>$L_1$</span>; <span>$M_2 = (S_2, s_2, \delta_2, F_2)$</span> accepts <span>$L_2$</span>. We construct the NFA <span>$M = (Q, Q_0, \Delta, F)$</span> as follows:</p>
+<ul>
+<li><span>$Q = (S_1 \times S_2 \times \{1\}) \cup (S_1 \times S_2 \times \{2\}) \cup \{q_0\}$</span> (where <span>$q_0$</span> is the new start state we have created, and the <span>$\{1\}$</span> and <span>$\{2\}$</span> are used to separate <span>$M_1$</span> and <span>$M_2$</span> in the state space)</li>
+<li><span>$Q_0 = \{q_0\}$</span></li>
+<li><span>$\Delta$</span> is defined as follows:<ul>
+<li><span>$\Delta(q_0, \epsilon) = \{(s_1, s_2, 1), (s_1, s_2, 2)\}$</span></li>
+<li><span>$\Delta((s, s', 1), a) = \{(\delta_1(s, a), s', 1)\}$</span></li>
+<li><span>$\Delta((s, s', 2), a) = \{(s, \delta_2(s', a), 2)\}$</span></li>
+<li><span>$\Delta((s, s', 1), \epsilon) = \{(s, s', 2)\}$</span> (so if we're in <span>$M_1$</span> and we get an <span>$\epsilon$</span>-transition, we go to <span>$M_2$</span>)</li>
+<li><span>$\Delta((s, s', 2), \epsilon) = \{(s, s', 1)\}$</span> (vice versa)</li>
+</ul>
+</li>
+<li><span>$F = \{(s, s', 1) \,|\, s \in F_1,\, s' \in F_2\} \cup \{(s, s', 2) \, | \, s \in F_1, \, s' \in F_2\}$</span> (note that this is a disjoint union)</li>
+</ul>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:powerset">
+<p><span>$\mathcal P(Q)$</span> means the power set of <span>$Q$</span>. So the function <span>$\Delta$</span> returns a subset of <span>$Q$</span>.&#160;<a href="#fnref:powerset" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

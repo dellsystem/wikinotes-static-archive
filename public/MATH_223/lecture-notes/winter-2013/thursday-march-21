@@ -1,0 +1,194 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_223/">
+                MATH 223
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Thursday, March 21, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Thursday, March 21, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Inner product spaces, self adjoing operators, eigenvalues and eigenvectors<a class="headerlink" href="#inner-product-spaces-self-adjoing-operators-eigenvalues-and-eigenvectors" name="inner-product-spaces-self-adjoing-operators-eigenvalues-and-eigenvectors">&para;</a></h2>
+<p><span>$V$</span> inner product space over <span>$\mathbb{C}$</span></p>
+<p><span>$&lt;\mathbf{v},\mathbf{w}&gt;$</span> hermitian inner product (<span>$&lt;v,w&gt; = \bar{&lt;w,v&gt;}$</span> etc)</p>
+<p><span>$T: V \rightarrow V$</span> self adjoint linear transformation operator if and only if <span>$&lt;\mathbf{v},T\mathbf{w}&gt; = &lt;T\mathbf{v},\mathbf{w}&gt;$</span> all <span>$\mathbf{v},\mathbf{w} \in V$</span> (corresponds to Hermitian matrices)</p>
+<p>In a finite dimensional space the matrix can be diagonalized with orthonormal vectors</p>
+<p><strong>Hypotheses</strong>: Standard basis orthonormal with respect to the complex inner product</p>
+<p>Consider <span>$&lt;\mathbf{v},T_{A}\mathbf{w}&gt; = (\mathbf{v})^{t}\bar{(A\mathbf{w})} = (v)^{t}\bar{A}\bar{\mathbf{w}} = (\bar{A}^t\mathbf{v})^{t}(\mathbf{w})$</span></p>
+<p>A Hermitian means <span>$\bar{A}^t = A$</span> so <span>$T_A$</span> is self adjoint when <span>$A$</span> is hermitian.</p>
+<p><strong>Theorem</strong> <span>$V$</span> inner product space over <span>$\mathbb{C}$</span></p>
+<p><span>$T: \ V \rightarrow V$</span> self adjoint linear transformation (operator)</p>
+<p><span>$\lambda$</span> eigenvalue of <span>$T$</span> and <span>$\mathbf{v} \neq \mathbf{0}$</span> an eigenvector for <span>$\lambda$</span></p>
+<p><strong>Conclusion</strong> <span>$\lambda is a real number i.e. \lambda = \bar{\lambda}$</span></p>
+<p><strong>Proof</strong> Let <span>$\mathbf{v}$</span> be this eigenvector, then <span>$T\mathbf{v} = \lambda\mathbf{v}, \mathbf{v} \neq \mathbf{0}$</span></p>
+<ul>
+<li>
+<p>self adjoint <span>$&lt;T\mathbf{v},\mathbf{v}&gt;$</span></p>
+</li>
+<li>
+<p>eigenvector for <span>$\lambda &lt;\lambda\mathbf{v},\mathbf{v}&gt;$</span></p>
+</li>
+</ul>
+<p><span>$\to$</span> inner product properties</p>
+<p><span>$$\begin{aligned}
+\lambda &lt;\mathbf{v},\mathbf{v}&gt; &amp;= &lt;\mathbf{v},\mathbf{v}&gt;\lambda \\
+\text{hence} \quad (\lambda - \bar{\lambda} &lt; \mathbf{v}, \mathbf{v}&gt; &amp;= 0 \neq &lt;\mathbf{v},\mathbf{v}&gt; \\
+\lambda - \bar{\lambda} &amp;= 0 \\
+\lambda &amp;= \bar{\lambda}\quad \text{ i.e. }\lambda \text{ real} \end{aligned}$$</span></p>
+<p><strong>Theorem</strong> <span>$V$</span> inner product spaces over <span>$\mathbb{C}$</span></p>
+<p><span>$T: V \rightarrow V$</span> self adjoint</p>
+<p><span>$\mathbf{0} \neq \mathbf{v_1}$</span> eigenvector for <span>$T$</span> and <span>$\lambda_1$</span></p>
+<p><span>$\mathbf{0} \neq \mathbf{v_2}$</span> eigenvector for <span>$T$</span> and <span>$\lambda_2$</span></p>
+<p><strong>Conclusion</strong> <span>$\lambda_1$</span> and <span>$\lambda_2$</span> implies <span>$&lt;\mathbf{v_1},\mathbf{v_2}&gt; = 0$</span></p>
+<p>Test <span>$&lt;T\mathbf{v_1},\mathbf{v_2}&gt; = &lt;\mathbf{v_1},T\mathbf{v_2}&gt;$</span></p>
+<p>Hence <span>$&lt;\lambda_1\mathbf{v_1},\mathbf{v_2}&gt; = &lt;\mathbf{v_1},\lambda_{2}\mathbf{v_2}&gt;$</span></p>
+<p>Recall <span>$\lambda_1,\lambda_2$</span> are real.</p>
+<p><em>Aside:</em></p>
+<p><span>$$\begin{aligned}
+\lambda_1 &lt; \mathbf{v_1}, \mathbf{v_2}&gt; &amp;= &lt; \mathbf{v_1}, \mathbf{v_2}&gt; \bar{\lambda_2} \\
+(\lambda_1 - \bar{\lambda_2}) &lt; \mathbf{v_1}, \mathbf{v_2}&gt; &amp;= 0 \qquad
+\text{ but } \bar{\lambda_2} = \lambda_2 \text{ and } \lambda_1 - \lambda_2 \neq 0 \\
+\text{ forcing } &lt; \mathbf{v_1}, \mathbf{v_2}&gt; &amp;= 0\end{aligned}$$</span></p>
+<p>Now assume dim <span>$V = n &lt; \infty$</span></p>
+<p>Eigenvalue of <span>$A$</span> such that <span>$(A-\lambda I)$</span> is not invertible i.e. <span>$det A-\lambda{I}$</span> = 0</p>
+<p><span>$det(A-\lambda{I}) = \sum$</span> sign <span>$\sigma$</span> product of entries on a generalized diagonal</p>
+<p><span>$\begin{bmatrix}
+a_{11} - \lambda &amp; a_{12} &amp; \ldots &amp; a_{1n} \\
+a_{21} &amp; a_{22} - \lambda &amp; \ldots &amp; a_{2n} \\
+\ldots &amp; \ldots &amp; \ldots &amp; \ldots \\
+a_{m1} &amp; a_{m+1 \ 1} &amp; \ldots &amp; a_{mn} -\lambda
+\end{bmatrix}
+= (a_{11} - \lambda)(a_{22} - \lambda \ldots (a_{nn} - \lambda)$</span> etc</p>
+<p><strong>Hence</strong> <span>$\mathrm{det}(A-\lambda{I})$</span> is a polynomial of degree exactly <span>$n = dim V in \lambda$</span></p>
+<p><strong>Definition</strong> <span>$\mathrm{Trace} A = a_{11} + a_{22} + \ldots + a_{nn}$</span></p>
+<p><strong>Note</strong> constant term in <span>$det(A-\lambda{I}) = 0$</span> is <span>$\mathrm{det} A (set \lambda = 0)$</span></p>
+<h2 class="header"><i>2</i>Gauss’s fundamental theorem of algebra<a class="headerlink" href="#gausss-fundamental-theorem-of-algebra" name="gausss-fundamental-theorem-of-algebra">&para;</a></h2>
+<p>If <span>$f(\lambda)$</span> is a polynomial of degree <span>$n &gt; 0 \in \lambda$</span> then there is <span>$r \in \mathbb{C}$</span> such that <span>$f(r)=0$</span>.</p>
+<p><strong>Factor Theorem</strong> then implies <span>$f(\lambda) = (\lambda-r_1) \ldots (\lambda - r_n)$</span></p>
+<p><span>$f(r) = 0 \rightarrow f(\lambda) = (\lambda - r)q(\lambda)$</span></p>
+<p><span>$2x^{2} + 3x + 4 \\
+f(r) = 0 \\
+\text{ then } f(\lambda) = (\lambda - r)q(\lambda) + \rho(\lambda)$</span></p>
+<p><strong>Definition:</strong> <span>$A$</span> is <span>$n\times n, \ n &lt; \infty$</span></p>
+<p><span>$X_A(\lambda) = det(\lambda{I}-A) = (-1)^{n}det(A-\lambda I)$</span></p>
+<p><span>$X_A(\lambda) = \lambda^{n} - (traceA)\lambda^{n-1}$</span> + other terms degree between one and <span>$n-2 + (-1)^{n}\mathrm{det} A$</span></p>
+<p><strong>Theorem</strong> <span>$V$</span> finite dimensions <span>$(dimV - n &lt; \infty)$</span> inner product space over <span>$\mathbb{C}$</span></p>
+<p><strong>Conclusion</strong> there is an arthonormal basis of <span>$V$</span> consisting entirely of eigenvectors of <span>$A$</span></p>
+<p>There is a unitary matrix <span>$P$</span> such that <span>$P^{-1}AP = \begin{pmatrix} \lambda_1 &amp; 0 \\ 0 &amp; \lambda_n \end{pmatrix}$</span></p>
+<p>Unitary: <span>$\bar{P}^t = P^{-1}$</span> continuous on <span>$P$</span> and orthonormal basis</p>
+<p><strong>Proof:</strong> Let <span>$E_{\lambda_j}$</span> = eigenspaces for the eigenvector <span>$\lambda_j$</span> of <span>$A$</span> (then <span>$dimE_{\lambda_j} \geq 1$</span>)</p>
+<p><strong>Claim</strong> (proof later) <span>$\mathbf{v}$</span> an eigenvector for <span>$\lambda$</span></p>
+<p>Then <span>$\mathbf{v^{\perp}}$</span> is an inveriant subspace under the linear transformation induced on <span>$V$</span> by <span>$A$</span>.</p>
+<p><strong>Extend</strong> <span>$\{\mathbf{v} = \mathbf{v_1}\}$</span> to an orthonormal basis of V, say <span>$\{\mathbf{v_1},\mathbf{v_2}, \ldots \mathbf{v_n}\}$</span></p>
+<p>Then <span>$\{\mathbf{v_2}, \ldots \mathbf{v_n}\}$</span> and <span>$\{\mathbf{v_2}, \ldots \mathbf{v_n}\}$</span> is an orthonormal basis of <span>$\mathbf{v_1}^+$</span></p>
+<p><span>$A$</span> then induces a self adjoint linear transformation on <span>$\mathbf{v_{1}^{\perp}}$</span></p>
+<p><strong>Induction</strong> there is an orthonormal basis of eigenvectors for <span>$\mathbf{v_{1}^{\perp}}$</span> say <span>$\{\hat{\mathbf{v_2}} \ldots \hat{\mathbf{v_n}} \}$</span></p>
+<p>Our required orthonormal basis of eigenvectors is then <span>$\{ \frac{\mathbf{v_1}}{\|v_1\|}, \hat{\mathbf{v_2}}, \ldots ,\hat{\mathbf{v_n}} \}$</span></p>
+<p>this proves a and b follows exactly.</p>
+<p>Proof of claim: re <span>$\mathbf{v^{\perp}}, \mathbf{v} \neq 0$</span> eigenvector for <span>$\lambda$</span></p>
+<p><span>$T$</span> self adjoint (corresponding to hermitian <span>$A$</span>)</p>
+<p><span>$\mathbf{w} \in \mathbf{v^{\perp}} \to &lt;\mathbf{v},\mathbf{w}&gt; = 0$</span> but <span>$&lt;\mathbf{v},T\mathbf{w}&gt; = &lt;T\mathbf{v},\mathbf{w}&gt; = &lt;\lambda\mathbf{v},\mathbf{w}&gt;$</span> (<span>$&lt;T\mathbf{v},\mathbf{w}&gt;$</span> self adjoint)</p>
+<p>Hence we have shown <span>$\mathbf{v}$</span> eigenvector of self adjoint <span>$T$</span></p>
+<p><span>$\mathbf{w} \in \mathbf{v^{\perp}} \to T\mathbf{w} \in \mathbf{v^{\perp}}$</span></p>
+<p>Hermitiam matrices in a self adjoint matrix are equivalent to <span>$$w_1,w_2 \in v^{\perp} \qquad
+&lt;w_1,Tw_2&gt; = &lt;Tw_1,w_2&gt; \qquad
+Tw_1 \in v^{\perp} \qquad
+Tw_2 \in v^{\perp}$$</span></p>
+<p>Recall eigenspace of <span>$\lambda E_{\lambda} = \{ \lambda{v} \in V | T\mathbf{v} = \lambda\mathbf{v}$</span></p>
+<p><strong>Note</strong> In our case <span>$\mathrm{dim} E_\lambda = \text{ multiplicity of } \lambda$</span> and <span>$V = E_{\lambda_1}\bigoplus \ldots \bigoplus E_{\lambda_k} $</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

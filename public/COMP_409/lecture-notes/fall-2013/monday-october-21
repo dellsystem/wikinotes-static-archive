@@ -1,0 +1,535 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, October 21, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, October 21, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Thread cancellation, barriers and priorities
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#linearization">1 Linearization</a><ul>
+<li><a href="#formalization-of-the-idea">1.1 Formalization of the idea</a><ul>
+<li><a href="#definitions">1.1.1 Definitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#linearization-review">2 Linearization review</a></li>
+<li><a href="#scheduling">3 Scheduling</a><ul>
+<li><a href="#safety-vs-liveness">3.1 Safety vs. Liveness</a></li>
+<li><a href="#fairness">3.2 Fairness</a><ul>
+<li><a href="#level-1-unconditional-fairness">3.2.1 Level 1: Unconditional fairness</a><ul>
+<li><a href="#conditional-atomic-actions">3.2.1.1 Conditional atomic actions</a></li>
+</ul>
+</li>
+<li><a href="#level-2-weak-fairness">3.2.2 Level 2: Weak fairness</a></li>
+<li><a href="#level-3-strong-fairness">3.2.3 Level 3: Strong fairness</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#race-conditions">4 Race conditions</a><ul>
+<li><a href="#orderings">4.1 Orderings</a><ul>
+<li><a href="#intra-thread-order">4.1.1 Intra-thread order</a></li>
+<li><a href="#synchronization-order">4.1.2 Synchronization order</a><ul>
+<li><a href="#why-do-we-care-about-this-synchronization-order">4.1.2.1 Why do we care about this synchronization order</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#deadlocks">5 Deadlocks</a></li>
+<li><a href="#java-concurrency-utilities">6 Java Concurrency utilities</a><ul>
+<li><a href="#callablev-interface">6.1 Callable&lt;V&gt; interface</a></li>
+<li><a href="#executor">6.2 Executor</a><ul>
+<li><a href="#futures">6.2.1 Futures</a></li>
+</ul>
+</li>
+<li><a href="#semaphores">6.3 Semaphores</a></li>
+<li><a href="#barriers">6.4 Barriers</a></li>
+<li><a href="#concurrent-data-structures">6.5 Concurrent Data structures</a></li>
+<li><a href="#locks">6.6 Locks</a></li>
+<li><a href="#atomic">6.7 Atomic</a></li>
+</ul>
+</li>
+<li><a href="#memory-consistency">7 Memory Consistency</a><ul>
+<li><a href="#write-buffering">7.1 Write buffering</a></li>
+<li><a href="#memory-model">7.2 Memory Model</a><ul>
+<li><a href="#strict-consistency">7.2.1 Strict Consistency</a></li>
+<li><a href="#sequential-consistency-sc">7.2.2 Sequential Consistency (SC)</a></li>
+<li><a href="#coherence">7.2.3 Coherence</a></li>
+<li><a href="#processor-consistency">7.2.4 Processor Consistency</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Linearization<a class="headerlink" href="#linearization" name="linearization">&para;</a></h2>
+<p>What is a <strong>correct</strong> concurrent program? Concurrent programs are not necessarily functional! Sequential execution can only happen in one way. As for a concurrent program, the outcome depends on the order of execution.</p>
+<p>In a sequential program, if <code>m1()</code> executes before <code>m2()</code>, there is no way for <code>m2()</code> to start before <code>m1()</code> finishes. There is a nice kind of ordering which is very clear and well defined</p>
+<p>In a concurrent program, if there are two threads, one executing <code>m1()</code>, and the other, <code>m2()</code>, these function will happen over two certain spans of time which may overlap in some way. This makes it harder to think about.</p>
+<p><strong>Idea</strong>: If all function have a single point in time when they take effect (e.g. set a certain variable), then it is easier to map to a sequential execution by handling those function by this point, the <strong>linearization point</strong>. Now, we just have to think about the interleaving of the <strong>linearization points</strong>.</p>
+<h3 class="header"><i>1.1</i>Formalization of the idea<a class="headerlink" href="#formalization-of-the-idea" name="formalization-of-the-idea">&para;</a></h3>
+<blockquote>
+<p>Herlihy and Wing, 1990</p>
+</blockquote>
+<p>They tried to formalize the idea, with respect of correctness, thinking in particular of <strong>abstract data types</strong> (ADTs).</p>
+<p>If we have a concurrent program, in order to reason about it, we find these linearization points (actually the easiest part of linearization), but we also want to make sure that the operations, what the functions are doing make sense in a certain order.</p>
+<p>If the ordering of the linearization points match the required ordering for the operations on the ADTs to make sense, then the program can be claimed to be <strong>correct</strong>.</p>
+<h4 class="header"><i>1.1.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h4>
+<p>There are operations that are going to happen. These operations depend on the thread that execute them, the variables they are operating on, objects and ADTs, and on the methods they are calling, or even whatever read value they get back.</p>
+<p>As such, there are some sort of tuple that we can think of as events that will happen inside the program.  These tuples will form some sort of history. </p>
+<p>The idea is to look at various histories and see if it is a valid history for a program. If one can be constructed such that it matches the way the program is supposed to work, then the program can be said to be correct.</p>
+<dl>
+<dt>History</dt>
+<dd>A <strong>history</strong> <span>$H$</span> is a sequence of method invocations and responses.</dd>
+</dl>
+<p>Different invokes will match up if they are executed by the same thread on the same object.</p>
+<p>In a certain history, we might have pending invokes (no response yet), when we are looking at fragments of execution.</p>
+<p>If that is the case, we should be able to extend the history to append all matching responses to pending invokes.</p>
+<dl>
+<dt>Complete History</dt>
+<dd>A history <span>$H$</span> is <strong>complete</strong> if all the invokes are matching a response.</dd>
+<dt>Sequential History</dt>
+<dd>A history <span>$H$</span> is <strong>sequential</strong> if the first event is an invoke and each subsequent invoke is followed by its response (except maybe the last invoke.)</dd>
+<dt>Sub-histories</dt>
+<dd>A history <span>$H$</span> can be filtered by some thread, or object. That is, a <strong>sub-history</strong> is the result of taking only the events corresponding to some thread <span>$T$</span> or some object <span>$x$</span>: <span>$\left.H\right|_T \text{ or } \left.H\right|_x$</span></dd>
+<dt>Well Formed History</dt>
+<dd>A history <span>$H$</span> is <strong>well formed</strong> if for all thread <span>$T$</span>, <span>$\left.H\right|_T$</span> is sequential.</dd>
+<dd><strong>Nb</strong>: Nested method invocations are hard to model here.</dd>
+<dt>Linearizable History</dt>
+<dd>A history <span>$H$</span> is considered <strong>linearizable</strong> if it has an extension <span>$H'$</span> and there exists a sequential history <span>$S$</span> such that:</dd>
+</dl>
+<p><span>$$
+\begin{equation}
+  \begin{split}
+    \text{a)} &amp;\text{ } H' \equiv S \\
+    \text{b)} &amp;\text{ } \text{if } n_i \rightarrow n_j \text{ in } H \Rightarrow n_i \rightarrow n_j \text{ in } S
+  \end{split}
+\end{equation}
+$$</span></p>
+<p>This says that we have some trace of events, and that trace of events can be seen to be the same as a sequential execution: any operation, any dependency due to the ADTs, and all the orderings are still preserved.</p>
+<h2 class="header"><i>2</i>Linearization review<a class="headerlink" href="#linearization-review" name="linearization-review">&para;</a></h2>
+<p><img alt="A method's Sequence Diagram" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-13.png" title="" /></p>
+<p>In sequential programs, if two methods calls are done in a row, then one happens before the other. With concurrent programs, however, we have to start thinking about the span during which the methods execute as they now generally overlap. The key idea of linearization is to think of the methods as having <strong>linearization points</strong>. If we can say there's a particular point, such as an assignment to a variable, that makes a method call finally take effect, then the method call can be seen as a point rather than a span.</p>
+<p>Correctness of abstract data types operations is also a key concept. Not only do we have to care about the linearization points, we also have to make sure that the concurrent executions correspond to something that makes sense with respect to ADTs. For example, taking something out of a queue should not happen until something has been inserted first. That is, the linearization point of a method taking something out of a queue should happen after the linearization point of a method that puts something in the queue.</p>
+<p>We start thinking about the history of a program as a series of events where a method is called, and then the method returns. There is a kind of behavior which matches invokes and responses, and the idea is that there is a linearization point somewhere in between these events take place. </p>
+<p><img alt="FIFO Concurrent History" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-14.png" title="" /></p>
+<p>Say <strong>Thread<sub>0</sub></strong> and <strong>Thread<sub>1</sub></strong> have access to the same <strong>FIFO queue</strong>. <strong>Thread<sub>0</sub></strong> enqueues a value <code>x</code>, which takes a certain time. At the same time, <strong>Thread<sub>1</sub></strong> enqueues another value, <code>y</code>. Then, <strong>Thread<sub>1</sub></strong> dequeues something and happens to get <code>x</code>. Finally, <strong>Thread<sub>0</sub></strong> dequeues something and gets <code>y</code>.</p>
+<p>Since we are dealing with a FIFO queue, there is an ordering that makes sense: the first thing dequeued should be the first thing enqueued. There is also an ordering that does not make sense. In order for <code>x</code> to be the first dequeued item, the linearization point of <strong>Thread<sub>0</sub></strong>'s enqueue should be above that of <strong>Thread<sub>1</sub></strong>'s. <strong>We have to think of the ordering of the linearization points in a way that makes sense with the ADTs.</strong></p>
+<p>There is, in this case, a sequential interleaving that does make sense:</p>
+<p><img alt="FIFO Sequential History" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-15.png" title="" /></p>
+<p>If it is impossible to come up with a sequential history for a program, then the program is not linearizable.</p>
+<h2 class="header"><i>3</i>Scheduling<a class="headerlink" href="#scheduling" name="scheduling">&para;</a></h2>
+<p>In concurrent execution, we are letting threads run, but we do not know how fast they run! That is up to the operating system, and the underlying hardware, on top of which time slicing issues can appear. So there is no way to guarantee the speed of each thread. In a kind of abstract way to represent this, we can think of <strong>threads executing at arbitrary speed</strong>. Threads might run very slowly, or very rapidly, yet programs should be correct in spite of those variations.</p>
+<h3 class="header"><i>3.1</i>Safety vs. Liveness<a class="headerlink" href="#safety-vs-liveness" name="safety-vs-liveness">&para;</a></h3>
+<p><strong>Safety</strong> is something that can be guaranteed. Once we analyze our locking code and our mutual exclusion algorithms, we can convince ourselves that things are guaranteed to be safe. Convincing ourselves that things are actually <strong>live</strong>, that threads will execute, make progress that happen, is something where we have to start thinking about whether our threads are executing, at what speed, and whether they actually get a chance to do so.</p>
+<p>Scheduling is one of the reasons why liveness ends up being a tricky problem; liveness often depends on scheduling. We already know that in Java and PThreads, we may get a nomally priority preemptive policy, but we don't get a lot of guarantees.</p>
+<div class="codehilite"><pre><span class="kt">boolean</span> <span class="n">go</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span> <span class="c1">// This should actually be &#39;volatile&#39;!</span>
+
+<span class="c1">// Thread 0</span>
+<span class="k">while</span><span class="o">(!</span><span class="n">go</span><span class="o">);</span>
+<span class="n">important</span><span class="o">();</span>
+
+<span class="c1">// Thread 1</span>
+<span class="n">go</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">stuff</span><span class="o">();</span>
+</pre></div>
+
+
+<p>What is supposed to happen inside here, is that we are setting a kind of one-way little barrier. We want to make sure that <strong>Thread<sub>0</sub></strong> does not progress into <code>important()</code> until <strong>Thread<sub>1</sub></strong> actually sets <code>go = true;</code>.</p>
+<p>However, there's already one flaw in this. The <code>boolean go</code> <strong>should be declared "volatile"</strong>. If the compiler looks at the program, trying to improve it, it will look at <code>go</code> being false, and see the <code>while</code> which tests if <code>go</code> is false. Since the value of <code>go</code>, in a sequential mindset, does not change up until the loop, then there is supposedly no need to check for the value of <code>go</code> at all; the loop could effectively be interpreted as an infinite loop and be replaced by <code>while (true);</code>.</p>
+<p>There's another reason why it might not actually work. Maybe this program will run on a single CPU system that does <strong>run-to-completion</strong>, a policy which does not use time slicing. Java does not necessarily guarantee time slicing! What is possible to happen is that <strong>Thread<sub>0</sub></strong> will execute its loop infinitely and <strong>Thread<sub>1</sub></strong> will never even get a chance to execute.</p>
+<h3 class="header"><i>3.2</i>Fairness<a class="headerlink" href="#fairness" name="fairness">&para;</a></h3>
+<p>We need an abstract guarantee that all the threads will be able to execute. It becomes an issue of <strong>fairness</strong>. In the last program, <strong>Thread<sub>1</sub></strong> should have a chance to execute eventually. If there is a guarantee that <strong>Thread<sub>1</sub></strong> has a chance to execute, then the program can be shown to actually work.</p>
+<p>There are a few levels of fairness that are certainly interesting to study:</p>
+<h4 class="header"><i>3.2.1</i>Level 1: Unconditional fairness<a class="headerlink" href="#level-1-unconditional-fairness" name="level-1-unconditional-fairness">&para;</a></h4>
+<p>This is probably the lowest, most minimal level of fairness we can imagine in a concurrent system.</p>
+<blockquote>
+<p>A scheduling policy is <strong>unconditionally fair</strong> (UF) if every <strong>unconditional atomic action</strong> that is <strong>eligible</strong> to execute eventually is executed.</p>
+</blockquote>
+<p><strong>'Unconditional'</strong> means that it is not waiting on anything. An <strong>unconditional atomic action</strong> is a statement that we can execute. <strong>'Eligible'</strong> means that some thread program counter is sitting at such a statement, ready to execute.</p>
+<p>That is exactly what we had with <strong>Thread<sub>1</sub></strong>. Its statement <code>go = true;</code> is something we can look at and consider that there is no condition, that it is not waiting after anything else to execute, that it is an atomic action, and that it is eligible. In an unconditionally fair system, it would be possible to assert that, no matter the scheduling issues, <strong>Thread<sub>1</sub></strong> will actually get to execute <code>go = true;</code>. </p>
+<h5 class="header"><i>3.2.1.1</i>Conditional atomic actions<a class="headerlink" href="#conditional-atomic-actions" name="conditional-atomic-actions">&para;</a></h5>
+<p>On such a system, however, although <strong>Thread<sub>0</sub></strong>'s <code>while (!go);</code> contains an unconditional atomic action (the check for <code>go</code>), the whole statement is not guaranteed to be executed fully in order to let the thread into the <code>important();</code> part.</p>
+<p>To counter this problem, people came up with the construct of <strong>conditional atomic actions</strong>. The idea of it is that a thread wants to wait for something to be true, and then do something. That is kind of what is done in the program (waiting for <code>go</code> to be true, then do <code>important();</code>). In general, we want to be able to check for the condition and execute something else after atomically.</p>
+<div class="codehilite"><pre><span class="n">wait</span><span class="o">(</span><span class="n">B</span><span class="o">);</span> <span class="n">C</span><span class="o">();</span> <span class="c1">// Wait for B to be true, then execute C</span>
+<span class="c1">// During which B is unchanged by anyone else.</span>
+</pre></div>
+
+
+<p>While <code>C</code> is executed, <code>B</code> does not change; it is all atomic. The program can now be rewritten differently to use a conditional atomic action.</p>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">boolean</span> <span class="n">go</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+
+<span class="c1">// Thread 0</span>
+<span class="n">wait</span><span class="o">(</span><span class="n">go</span><span class="o">);</span> <span class="n">important</span><span class="o">();</span>
+
+<span class="c1">// Thread 1</span>
+<span class="n">go</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+<span class="n">stuff</span><span class="o">();</span>
+</pre></div>
+
+
+<h4 class="header"><i>3.2.2</i>Level 2: Weak fairness<a class="headerlink" href="#level-2-weak-fairness" name="level-2-weak-fairness">&para;</a></h4>
+<p>The unconditionally fair policy does not guarantees to execute conditional statements fully. Slightly stronger than unconditional fairness, there is <strong>weak fairness</strong>. It basically does the same, only it also allows for conditional actions.</p>
+<blockquote>
+<p>A scheduling policy is <strong>weakly fair</strong> if <strong>a)</strong> it is unconditionally fair and <strong>b)</strong> every conditional atomic action that is eligible is eventually executed assuming its condition becomes true and remains true until seen by the process executing the conditional action.</p>
+</blockquote>
+<p>In a weakly fair system, the program above is <strong>guaranteed to work.</strong> However, the <code>go</code> variable only changes once. Instead, one actually can imagine a situation where the flag might toggle:</p>
+<div class="codehilite"><pre><span class="c1">// Thread 1</span>
+<span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">go</span> <span class="o">=</span> <span class="kc">true</span><span class="o">;</span>
+    <span class="n">stuff</span><span class="o">();</span>
+    <span class="n">go</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
+    <span class="n">moreStuff</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Thread<sub>1</sub></strong> is basically sitting in a loop and toggling <code>go</code>. Now, we don't have a guarantee that <strong>Thread<sub>0</sub></strong> will be able to see <code>go</code> changing  to <code>true</code> and execute its <code>important();</code> part. Realistically, we don't expect variables to change only once as in our past trivial program. It is expected for variables to change often, so we need a stronger level of fairness</p>
+<h4 class="header"><i>3.2.3</i>Level 3: Strong fairness<a class="headerlink" href="#level-3-strong-fairness" name="level-3-strong-fairness">&para;</a></h4>
+<p><strong>Strong fairness</strong> will assert that even if <strong>Thread<sub>1</sub></strong> is doing something like toggling <code>go</code>, <strong>Thread<sub>0</sub></strong> will eventually get to execute when <code>go</code>'s value is <code>true</code>. This is something to be frankly, quite hard to guarantee in practice. </p>
+<blockquote>
+<p>A scheduling policy is <strong>strongly fair</strong> if <strong>a)</strong> it is unconditionally fair and <strong>b)</strong> every conditional atomic action that is eligible is eventually executed assuming its condition is true infinitely often.</p>
+</blockquote>
+<p>However, a strongly fair scheduling policy, which guarantees <strong>Thread<sub>0</sub></strong> to execute, is <strong>not feasible</strong> in practice. A scheduler knows nothing about the programs executing; how could it know how to schedule the threads properly?</p>
+<p>Since no such scheduling policy exists, there is no guarantee that every concurrent program will actually work.</p>
+<h2 class="header"><i>4</i>Race conditions<a class="headerlink" href="#race-conditions" name="race-conditions">&para;</a></h2>
+<p>A <strong>race condition</strong> is considered an error in concurrent programming. Race conditions are not always bad, however, as all the low-level locking algorithms we have seen are actually built on race conditions. So, at some very low level, race conditions are necessary, but at any higher level, programs should not have race conditions.</p>
+<p>Often, a race condition is, to some degree, mistakenly interpreted as a problem which has something to do with non-determinism. For example, let's have the variable <code>int x;</code> and <strong>Thread<sub>0</sub></strong> execute <code>x = 1;</code> while <strong>Thread<sub>1</sub></strong> executes <code>x = 2;</code>. The speed of execution determines the outcome; the value of <code>x</code> is either <code>1</code> or <code>2</code> depending on which thread executed their respective statement first. There is, in effect, a race condition, as the threads are <em>racing</em> (to be last) and have their value persist.</p>
+<p>This interpretation is not quite true, however. The program does have a race condition, but such an outcome itself is not always caused by race condition! For example, if we keep that last program the same, but put the threads' assignments in synchronized blocks:</p>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+
+<span class="c1">// Thread 0</span>
+<span class="kd">synchronized</span> <span class="o">(</span><span class="n">lock</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="c1">// Thread 1</span>
+<span class="kd">synchronized</span> <span class="o">(</span><span class="n">lock</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Then, the outcome, the value of <code>x</code>, will still be <code>1</code> or <code>2</code> depending on which thread executed their statement first, but this time, there is no race condition. The behavior is kind of the same, but since the statements are placed in <code>synchronized</code> blocks, the actions are still well ordered, even though this order depends on timing at run time.</p>
+<p>So, a race condition is not a problem with non-determinism, it is rather a problem caused by actions that are not well ordered. Non-determinism is not necessarily a problem in concurrent programming, although it does make programs harder to understand.</p>
+<h3 class="header"><i>4.1</i>Orderings<a class="headerlink" href="#orderings" name="orderings">&para;</a></h3>
+<h4 class="header"><i>4.1.1</i>Intra-thread order<a class="headerlink" href="#intra-thread-order" name="intra-thread-order">&para;</a></h4>
+<p>Firstly, there is the normal control flow within a thread. That is, there is a control flow that defines the order in which the actions are done that respects the program order.</p>
+<div class="codehilite"><pre><span class="c1">// No surprise in the order of the actions here</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">d</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">A</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+    <span class="n">B</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>This is what is called <strong>intra-thread ordering</strong>. Within any thread, we have normal control flow. Within a single thread that executes a program, the statements are executed sequentially.</p>
+<h4 class="header"><i>4.1.2</i>Synchronization order<a class="headerlink" href="#synchronization-order" name="synchronization-order">&para;</a></h4>
+<p>There is another kind of ordering within concurrent programs because we are dealing with interactions <em>between</em> threads. The <strong>synchronization order</strong> is the ordering of synchronization actions; it does depend on the semantics of what the sync action actually mean.</p>
+<p>If <strong>Thread<sub>0</sub></strong> locks <code>x</code> and then unlocks it, another thread cannot acquire the lock at the same time. Therefore, at run time, only one synchronization order can happen. Either <strong>Thread<sub>0</sub></strong> locks and unlocks <code>x</code> before <strong>Thread<sub>1</sub></strong> or vice-versa.</p>
+<p>In Java, there is also a synchronization order between <code>volatile</code> variables. For example, if we declare <code>volatile int x;</code>, after which <strong>Thread<sub>0</sub></strong> executes <code>x = 1;</code> and <strong>Thread<sub>1</sub></strong> executes <code>x = 2;</code>, then there is a synchronization order between those two statements; one of them will happen first at run time.</p>
+<p>Without that <code>volatile</code> keyword, the synchronization order is not there. The two statements would not be ordered anymore. There is no synchronization order with data races!</p>
+<dl>
+<dt>Data race (better definition)</dt>
+<dd>A <strong>data race</strong> in a multi-threaded program occurs when two (or more) threads access the same memory location, without any ordering constraint, and at least one of them is a write.</dd>
+</dl>
+<h5 class="header"><i>4.1.2.1</i>Why do we care about this synchronization order<a class="headerlink" href="#why-do-we-care-about-this-synchronization-order" name="why-do-we-care-about-this-synchronization-order">&para;</a></h5>
+<p>The reason why synchronization ordering is important is because we want to make things visible to the hardware and to the concurrent system. The hardware knows that when we lock things, using special locking instructions in the hardware or with the software (using <code>synchronized</code>), we are doing something that another thread needs to know about. As such, the hardware has to make sure that what has just been done needs to be visible to other threads. Otherwise, nothing special would be done with the registers and the cache. As such, our synchronization methodology interacts with how the program is compiled to more efficiently use the hardware.</p>
+<h2 class="header"><i>5</i>Deadlocks<a class="headerlink" href="#deadlocks" name="deadlocks">&para;</a></h2>
+<p>Deadlocks occur when threads are stuck waiting after each other. Then, the whole program freezes up as everybody is waiting after everybody else and the program does not make any progress.</p>
+<h2 class="header"><i>6</i>Java Concurrency utilities<a class="headerlink" href="#java-concurrency-utilities" name="java-concurrency-utilities">&para;</a></h2>
+<p>Java has a fairly rich library of high level concurrency constructs, available in the <code>java.util.concurrent.*</code> package. All those features could be implemented on our own using basic constructs. Here are some of the main features:</p>
+<h3 class="header"><i>6.1</i>Callable&lt;V&gt; interface<a class="headerlink" href="#callablev-interface" name="callablev-interface">&para;</a></h3>
+<p>Instead of just having <code>Runnable</code>, we also have a <code>Callable&lt;V&gt;</code> interface. The problem with <code>Runnable</code> is that the <code>run()</code> neither takes any arguments nor returns any value. That is, in order to share data, it had to be stored somewhere else. <code>Callable&lt;V&gt;</code> actually returns something and can also throw exceptions.</p>
+<h3 class="header"><i>6.2</i>Executor<a class="headerlink" href="#executor" name="executor">&para;</a></h3>
+<p>An <code>Executor</code> gives us an high-level access to doing tasks in parallel (with or without threads). Tasks (<code>Runnable</code> or <code>Callable</code>) are fed into an <code>Executor</code> and it does them. There is an <code>Executor</code> class that acts as a factory by instantiating executor services. There are many different implementations:</p>
+<dl>
+<dt><strong>Thread pool Executor</strong></dt>
+<dd>Defining a min/max of threads, we can feed tasks to this executor and it will use threads to execute them as concurrently as it possible can (with an at least <code>min</code>, at most <code>max</code> number of threads).</dd>
+<dt><strong>Cached Thread pool Executor</strong></dt>
+<dd>Maintains some number of threads (it adaptively decides how many threads it should use).</dd>
+<dt><strong>Fixed Thread pool Executor</strong></dt>
+<dd>Where the number of threads is fixed. Given a number of threads, it will never use less or more than this number.</dd>
+<dt><strong>Single Thread Executor</strong></dt>
+<dd>Executes everything with exacly one thread, executing all the tasks sequentially.</dd>
+<dt><strong>Scheduled Executor</strong></dt>
+<dd>Executes tasks in a <em>scheduled fashion</em>, to be repeated at some frequency.</dd>
+</dl>
+<h4 class="header"><i>6.2.1</i>Futures<a class="headerlink" href="#futures" name="futures">&para;</a></h4>
+<p>When we pass a task to an <code>Executor</code>, how do we know once it is actually done? What an <code>Executor</code> returns is a <code>Future</code> object, a promise to do something in the future: <code>f = new Future(task);</code>. It has a <code>f.get()</code> method which either returns what the task ended up returning, or makes the caller wait if it has not yet been executed.</p>
+<h3 class="header"><i>6.3</i>Semaphores<a class="headerlink" href="#semaphores" name="semaphores">&para;</a></h3>
+<p>Java does not originally have semaphores. We can build them, but <code>java.util.concurrent.*</code> provides some classes for that.</p>
+<h3 class="header"><i>6.4</i>Barriers<a class="headerlink" href="#barriers" name="barriers">&para;</a></h3>
+<dl>
+<dt><strong>Countdown Latch</strong></dt>
+<dd>A one-shot barrier</dd>
+<dt><strong>Cyclic barrier</strong></dt>
+<dd>A reusable barrier (there is a <code>reset()</code> method)</dd>
+<dd>It has the ability to use a <em>barrier thread</em> which gets executed once all the other thread has gotten to the barrier point, before everyone is released.</dd>
+</dl>
+<h3 class="header"><i>6.5</i>Concurrent Data structures<a class="headerlink" href="#concurrent-data-structures" name="concurrent-data-structures">&para;</a></h3>
+<ul>
+<li><code>ConcurrentHashMap</code></li>
+<li><code>ConcurrentLinkingQueue</code></li>
+<li><code>BlockingQueue</code>: Fixed size, wait if full</li>
+<li>...</li>
+</ul>
+<h3 class="header"><i>6.6</i>Locks<a class="headerlink" href="#locks" name="locks">&para;</a></h3>
+<p>In <code>java.util.concurrent.locks</code> there are explicit locks; we do not have to always use <code>synchronized</code> blocks. A <code>Lock</code> is used very much like a mutex in PThreads. There are also condition variables with every every lock: <code>Lock.newCondition() -&gt; Condition</code>. There are also <code>ReadWriteLock</code>s which give us a solution to the Readers Writers Problem by having a read lock which can be locked multiple time, and a write lock which can only be locked once at a time.</p>
+<h3 class="header"><i>6.7</i>Atomic<a class="headerlink" href="#atomic" name="atomic">&para;</a></h3>
+<p>In <code>java.util.concurrent.atomic</code>, there are atomic versions for primitive values that give us atomic access to primitives. While less than 32-bit primitives are already atomic by default, these atomic versions also give access to <code>test-and-set</code>, <code>fetch-and-add</code> and <code>compare-and-swap</code>. There is also a weak <code>compare-and-swap</code>, one that may fail spuriously, which may be more efficient if the condition has to be verified in a loop.</p>
+<p>One thing we cannot build easily by ourselves are <strong>atomic arrays</strong>. While it is easy to create an array of atomics, an atomic array has all its content volatile, which gives us volatile semantics for the contents.</p>
+<div class="codehilite"><pre><span class="kd">volatile</span> <span class="kt">int</span><span class="o">[]</span> <span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[</span><span class="mi">20</span><span class="o">];</span>
+</pre></div>
+
+
+<p>Normally, when we declare an array, with a <code>volatile</code> in front, the thing we are declaring <code>volatile</code> is the pointer to the array, not the array itself. When the individual elements of the array are accessed, they are not volatile. There is also no way to create an array of <code>volatiles</code>, but atomic arrays fix this issue.</p>
+<h2 class="header"><i>7</i>Memory Consistency<a class="headerlink" href="#memory-consistency" name="memory-consistency">&para;</a></h2>
+<p>In order to be able to write nice, correct concurrent programs, we need to know about <strong>memory consistency</strong>. This is a really important topic, yet fairly subtle. It is also something that is still being actively researched.</p>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+
+<span class="c1">// A perfectly sequential program</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="c1">// We know the result will be (a, b) = (1, 2)</span>
+
+<span class="c1">// Concurrently however, things are different</span>
+<span class="c1">// Thread 0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+<span class="c1">// Thread 1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+
+<span class="c1">// We get multiple possible results: (a, b) = {(1, 0), (0, 2), (1,2), ... }</span>
+<span class="c1">// However, we cannot get (a, b) = (0, 0)</span>
+</pre></div>
+
+
+<h3 class="header"><i>7.1</i>Write buffering<a class="headerlink" href="#write-buffering" name="write-buffering">&para;</a></h3>
+<p><strong>Write buffering</strong> is a technique where written data is actually stored in a faster write buffer proper to the processor before being flushed to memory (only when necessary, and in batch). The intent is to save some overhead. On a single processor, the process is entirely invisible. In a multiprocessor context, however, weird things start to happen.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>P<sub>0</sub> WB</th>
+<th>P<sub>1</sub> WB</th>
+<th>Memory</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = 1;</code></td>
+<td><code>y = 2;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>b = 0;</code></td>
+<td><code>a = 0;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>x = 1;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>y = 2;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>a = 0;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>b = 0;</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>x = 1;</code> is cached in <strong>P<sub>0</sub></strong>'s write buffer. If <code>x</code> is to be read again, then the write buffer is checked against before accessing main memory. Meanwhile, <strong>P<sub>1</sub></strong> can do the same with <code>y = 2;</code>. Then, <strong>P<sub>0</sub></strong> tries to read <code>y</code>. Seeing it has not written to <code>y</code>, it accesses it from main memory and reads a value of <code>0</code>. Similarly, <strong>P<sub>1</sub></strong> reads <code>0</code> from <code>x</code>. They then both write respectively to <code>a</code> and <code>b</code> and ultimately flush the results to main memory.</p>
+<p>Now we end up with <code>(a, b) = (0, 0)</code> despite the fact it did not make sense when looking at the possible interleavings alone.</p>
+<h3 class="header"><i>7.2</i>Memory Model<a class="headerlink" href="#memory-model" name="memory-model">&para;</a></h3>
+<p>What we need is a new way to understand how things work. What are the things we could guarantee? What are the conditions under which a thread is allowed to see the writes of other threads? </p>
+<p>There are lots of <strong>memory model</strong> to define what is allowed, and what is not allowed. A multiprocessor by itself has a bare-bone memory model which defines what happens before what at a very level, but software memory models are more clearly defined. One of the major one is called <strong>Coherence</strong>, but the easiest one is called <strong>Strict Consistency</strong>.</p>
+<h4 class="header"><i>7.2.1</i>Strict Consistency<a class="headerlink" href="#strict-consistency" name="strict-consistency">&para;</a></h4>
+<p>What this model says is that statements can be interleaved, but they must do exactly as they state. There is no funny ordering (e.g. caused by write buffering) allowed at all.</p>
+<p>All we need to do to reason about a concurrent program is to look at the possible interleaving alone. However, what strict consistency allows statements to be fiddled around by being reordered (in a way that is perfectly invisible to us).</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0 // Thread 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>      <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+
+<span class="c1">// May get reordered to</span>
+<span class="c1">// Thread 0 // Thread 1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>      <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="c1">// so as to use resources more efficiently</span>
+</pre></div>
+
+
+<h4 class="header"><i>7.2.2</i>Sequential Consistency (SC)<a class="headerlink" href="#sequential-consistency-sc" name="sequential-consistency-sc">&para;</a></h4>
+<p><strong>Sequential Consistency</strong> is basically strict consistency with the property that it just <em>has to appear</em> to be strict, it does not have to be. The instructions appear to execute as if the instructions of each thread are execute in order and interleaved. As long as we cannot tell, fiddling can happen.</p>
+<p>Basically, we define <em>some</em> global order on all instructions. We think there is some interleaving we do not know about at first, but ultimately happens.</p>
+<h4 class="header"><i>7.2.3</i>Coherence<a class="headerlink" href="#coherence" name="coherence">&para;</a></h4>
+<p><strong>Coherence</strong> says that the global order of sequential consistency does not need to be on all instructions, but rather on a variable by variable basis. Basically, we have a timeline for each variable.</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0 // Thread 1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>      <span class="n">a</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>      <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>      <span class="n">c</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+</pre></div>
+
+
+<p>In SC, <code>(b, c) = {(0, 0), (0, 1), (1, 1)}</code>. Something that cannot be seen is <code>(b, c) = (1, 0)</code>. For the variable <code>y</code>, <code>a = {0, 2}</code>. In SC, we have to think about the order of the statements.</p>
+<p>In coherence, we can choose <code>a = 2</code>, but <code>(b, c) = (0, 0)</code>. Each memory location has a defined order. We are getting sequential consistency on a variable by variably basis, not for each statement.</p>
+<h4 class="header"><i>7.2.4</i>Processor Consistency<a class="headerlink" href="#processor-consistency" name="processor-consistency">&para;</a></h4>
+<p>Operations of a single processor are SC.</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Processor<sub>0</sub></th>
+<th>Processor<sub>1</sub></th>
+<th>Processor<sub>2</sub></th>
+<th>Processor<sub>3</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x = 1;</code></td>
+<td><code>x = 3;</code></td>
+<td><code>a = x;</code> (1)</td>
+<td><code>d = x;</code> (3)</td>
+</tr>
+<tr>
+<td><code>y = 2;</code></td>
+<td><code>y = 4;</code></td>
+<td><code>b = y;</code> (4)</td>
+<td><code>e = y;</code> (2)</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td><code>c = x;</code> (3)</td>
+<td><code>f = x;</code> (1)</td>
+</tr>
+</tbody>
+</table>
+<p>Whatever <strong>Processor<sub>2</sub></strong> sees, it has to respect the fact that <strong>Processor<sub>0</sub></strong> has done <code>x = 1; y = 2;</code> and <strong>Processor<sub>1</sub></strong> has done <code>x = 3; y = 4;</code>, in these particular orders. Still, what <strong>Processor<sub>1</sub></strong> does might happen before <strong>Processor<sub>0</sub></strong> does, or it might be interleaved in some way; it is independent for any processor which looks up the variables.</p>
+<p>When <strong>Processor<sub>2</sub></strong> reads <code>x</code> for <code>a = x;</code>, maybe the value <code>1</code> is read. When the value <code>y</code> is read for <code>b = y;</code>, maybe the value <code>4</code> is read. Then, when <code>x</code> is read again for <code>c = x;</code>, it must read the value of <code>3</code>, in order to match an ordering which makes sense.</p>
+<p><strong>Processor<sub>3</sub></strong> might see a different order; instead of <strong>Processor<sub>0</sub></strong>'s actions then <strong>Processor<sub>1</sub></strong>'s, it be see the inverse. Still, both <strong>Processor<sub>2</sub></strong> and <strong>Processor<sub>3</sub></strong> are agreeing on the inner orderings of <strong>Processor<sub>0</sub></strong> and <strong>Processor<sub>1</sub></strong>.</p>
+<p>We basically have to draw a timeline for each processor (in contrast to each variable with coherence); as long as the reads respect the timelines, everything is good. Notice however that it is not coherent; there is no canonical ordering of each individual variables. <strong>P<sub>2</sub></strong> sees <code>x = 1; x= 3;</code> whereas <strong>P<sub>3</sub></strong> sees <code>x = 3; x = 1;</code>.</p>
+<p><strong>Nb:</strong> Processor consistency and coherence are not comparable. Anything that is sequentially consistent is necessarily coherent and processor consistent. However, things that are coherent are not necessarily processor consistent and vice-versa.</p>
+<p><img alt="" src="http://cs.mcgill.ca/~ejanco/wikinotes/counter.py?page=c409_10-23" title="" /></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

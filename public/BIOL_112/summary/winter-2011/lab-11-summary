@@ -1,0 +1,161 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/BIOL_112/">
+                BIOL 112
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Lab 11 summary
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Lab 11 summary
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Summary of Lab 11 for <a href="/BIOL_112/winter-2011">BIOL 112 (Winter 2011)</a>. Week of Mar 21 2011.</p>
+<blockquote>
+<p><strong>DNA electrophoresis</strong>.</p>
+<p><strong>Genetics:</strong> Double recombination and mapping problems.</p>
+</blockquote>
+<h2 class="header"><i>1</i>DNA electrophoresis<a class="headerlink" href="#dna-electrophoresis" name="dna-electrophoresis">&para;</a></h2>
+<ul>
+<li>To separate DNA fragments based on their size</li>
+<li>Electrophoresing them through agarose gel</li>
+<li>In this lab: Genomic DNA, plus DNA fragment containing the fruit fly gene cdk cloned into a plasmid<ul>
+<li>Genomic DNA more complex than the cloned cdk gene</li>
+</ul>
+</li>
+<li>Procedure:<ul>
+<li>Comb template placed in tray</li>
+<li>Agarose gel heated, cooled, poured into tray; solidifies; comb template removed</li>
+<li>To load DNA samples, use pipetter, try to place it inside well (kind of tricky)</li>
+<li>DNA samples contain bromophenol blue - blue dye, to monitor progress of electrophoresis</li>
+<li>Once the samples have been loaded, close, connect to power supply for a while</li>
+</ul>
+</li>
+<li>What is cloning genes:<ul>
+<li>Purifying a particular gene away from the rest of the genomic DNA, putting it in a bacterium</li>
+<li>To make the bacterium accept the carrier gene, we put it in carrier DNA called plasmids</li>
+<li>We also give it antibiotics to give the bacteria a reason to accept the plasmids lol</li>
+<li>To do this, we cut the plasmid open with a restriction enzyme</li>
+<li>Restrictions enzyme cut any DNA at a specific sequence, usually 6 base pairs, called a restriction site</li>
+<li>Then we cut the genomic DNA with the same enzyme, so hopefully the two end pieces stick together, mixing genomic and plasmid DNA</li>
+<li>Then, put the plasmid+cdk DNA back into bacteria (process: transformation)</li>
+<li>We throw in an an antibiotic, and only the bacteria that have accepted the plasmid DNA will grow (for the most part)</li>
+<li>To make sure we only get bacteria with the DNA we want</li>
+<li>One problem - how do we make sure we have the right DNA attached to the plasmid etc<ul>
+<li>Look at its restriction map using a restriction digest</li>
+<li>Cut the gene with restriction enzymes, see if it has the correct restriction sites in correct places etc</li>
+<li>Whatever</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Large fragments of DNA migrate more slowly than smaller fragments (so less distance travelled)</li>
+<li>ADD MORE STUFF LATER</li>
+</ul>
+<h2 class="header"><i>2</i>Double recombination<a class="headerlink" href="#double-recombination" name="double-recombination">&para;</a></h2>
+<ul>
+<li>If you have three pairs of genes, all on the same chromosome</li>
+<li>Double recombination should occur less frequently than single recombination (but less frequently than expected, due to interference)</li>
+<li>First, determine the order of the genes - abc or bac or bca</li>
+<li>Then identify the double recombinants - the least frequent class of progeny<ul>
+<li>Use that to figure out which gene is in the middle</li>
+<li>Distance between middle gene and one outer gene: frequency of just that outer gene switching (%)</li>
+<li>Same for other outer gene</li>
+<li>Distance between outer genes: add the two distances above</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

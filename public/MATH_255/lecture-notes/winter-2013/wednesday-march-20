@@ -1,0 +1,147 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, March 20, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, March 20, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Distinctions between uniform and pointwise convergence
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Consider the function <span>$f_n(x)$</span>, which is a spike of height <span>$n$</span> at <span>$x = 1 / n$</span>, then returns to 0 at <span>$x = 2/n$</span>, remaining at 0 until <span>$x = 1$</span>. </p>
+<p><strong>Claim:</strong> <span>$f_n(x) \to 0$</span> for all <span>$x \in [0,1]$</span>.</p>
+<p><strong>Proofs:</strong> <span>$f_n(0) = 0$</span> and therefore goes to 0. Let <span>$a \in (0,1]$</span>, then there exists some <span>$N \in \mathbb N$</span> such that for <span>$n \geq N$</span>, <span>$1 / n &lt; a / 2$</span> and thus <span>$2 / n &lt; a$</span>, so <span>$f_n(a) = 0$</span>, i.e. <span>$f_n(a) \to 0$</span> as <span>$n \to \infty$</span>. Thus <span>$f_n(x) \to 0$</span> for all <span>$x \in [0,1]$</span>. To see that the convergence is not uniform, consider <span>$x_n = 1 /n$</span>, then <span>$f_n(x_n) = n$</span>, i.e. for <span>$\epsilon &gt; 0$</span> given (WLOG choosing <span>$\epsilon &lt; 1$</span>) we have displayed a sequences <span>$x_n = 1 / n \in [0,1]$</span> such that <span>$|f_n(x_n) - f(x_n)| = n \geq \epsilon$</span>, ie.e we have a sequenced of continuous functions <span>$f_n$</span> converging pointwise but not uniformly to a continuous <span>$f$</span>. Notice, as well</p>
+<p><span>$$ \int_0^1 f_n = 1 \quad \text{however} \quad \int_0^1 \lim f_n = 0 $$</span></p>
+<p>i.e. <span>$\lim \int_0^1 f_n \neq \int_0^1 \lim f_n$</span>. </p>
+<div class="ui divider"></div>
+<p>Question: when is <span>$\lim \int_I f_n = \int_I \lim f_n$</span>?</p>
+<p><strong>Theorem:</strong> Let <span>$(f_n)$</span> be a sequence of integrable functions on <span>$I = [a,b]$</span>. Suppose <span>$f_n \rightrightarrows f$</span> on <span>$I$</span>. Then <span>$f$</span> is Riemann integrable on <span>$I$</span> and <span>$\lim \int_I f_n = \int_I \lim f_n = \int_I f$</span> </p>
+<p><strong>Proof:</strong> Since <span>$f_n \rightrightarrows f$</span> on <span>$I$</span>, let <span>$\epsilon &gt; 0$</span> be given, there exists some <span>$N \in \mathbb N$</span> such that if <span>$n /geq N$</span>, </p>
+<p><span>$$ |f_n(x) - f(x)| &lt; \frac{\epsilon}{4(b-a)} \qquad \forall x \in I $$</span></p>
+<p>for this <span>$N$</span>, <span>$f_N$</span> is integrable, thus there exists a partition <span>$P = \{ x_0, x_1, \ldots, x_n \}$</span> of <span>$I$</span> such that <span>$U_{f_N}(P) - L_{f_N}(P) &lt; \epsilon/2$</span>. </p>
+<p><span>$$ f(x) - f_n(x) \leq |f_n(x) - f(x)| &lt; \frac{\epsilon}{4(b-a)} \quad \text{for }n \geq N $$</span></p>
+<p>then <span>$f(x) &lt; \epsilon / 4(b-a) + f_N(x)$</span> for all <span>$x \in I$</span>. Thus </p>
+<p><span>$$ \sup \{ f(x) : x \in [x_{k-1}, x_k] \} \leq \frac{\epsilon}{4(b-a)}+\sup\{ f_N(x) : x \in [x_{k-1}, x_k] \} $$</span></p>
+<p>i.e. <span>$U_f(P) \leq \frac{\epsilon}{4} + U_{f_N}(P)$</span> since</p>
+<p><span>$$ \sum_{k=1}^n \frac{\epsilon}{4(b-a)}(x_k - x_{k-1}) = \frac{\epsilon}{4(b-a)}\sum_{k=1}^n x_k - x_{k-1} = \frac{\epsilon}{4(b-a)}(b - a) = \frac{\epsilon}{4} $$</span></p>
+<p>similarly <span>$L_{f_N}(P) \leq \epsilon / 4 + L_f(P)$</span> so that </p>
+<p><span>$$ U_f(P) - L_f(P) \leq U_{f_N}(P) - L_{f_N}(P) + \frac{\epsilon}{4} + \frac{\epsilon}{4} &lt; + \frac{\epsilon}{2} + + \frac{\epsilon}{2} = \epsilon $$</span></p>
+<p>i.e. <span>$f$</span> is integrable on <span>$I$</span>. Furthermore</p>
+<p><span>$$ \left| \int_a^b f - \int_a^b f_n \right| = \left| \int_a^b f - f_n \right| \leq \int_a^b |f_n - f| \leq \int_a^b \frac{\epsilon}{4(b-a)} = \frac{\epsilon}{4} &lt; \epsilon $$</span></p>
+<p>i.e. <span>$\lim \int_I f_n = \int_I f = \int_I \lim f_n$</span> and so <span>$\int_I f_n \to \int_I f$</span>.</p>
+<div class="ui divider"></div>
+<p>What about the derivative? if <span>$f_n \to f$</span> does <span>$f_n' \to f'$</span>?</p>
+<p>No. Consider <span>$f_n(x) = x^n$</span> on <span>$[0,1]$</span></p>
+<p><span>$$
+f_n(x) \to f(x) = \begin{cases}
+0 &amp; x \in [0,1] \\
+1 &amp; x = 1
+\end{cases}
+$$</span></p>
+<p>i.e. <span>$(f_n)$</span> differentiable but <span>$f_n \to f$</span> where <span>$f$</span> is not even continuous, much less differentiable. Of course, the convergence here is not uniform, since <span>$f$</span> is not continuous, but each <span>$f_n$</span> is!</p>
+<p>Weierstrass displayed the function</p>
+<p><span>$$ f(x) = \sum_{k=1}^\infty \frac{\cos(3^k x)}{2^k} $$</span></p>
+<p>if we consider <span>$f_n(x) = \sum_{k=1}^n \frac{\cos(3^k x)}{2^k}$</span> we will show that <span>$f_n \rightrightarrows f$</span> on <span>$\mathbb R$</span>. However, <span>$f$</span> is continuous everywhere but nowhere differentiable, showing that even uniform convergence is not strong enough to guarantee the limit is differentiable.</p>
+<div class="ui divider"></div>
+<p><strong>Theorem:</strong> Let <span>$J \subseteq \mathbb R$</span> be a bounded interval and <span>$(f_n)$</span> be a sequence of functions from <span>$J$</span> to <span>$\mathbb R$</span>. Suppose there exists some <span>$x_0 \in J$</span> such that <span>$f_n(x_0)$</span> converges and suppose that <span>$(f_n')$</span> exists on <span>$J$</span> and converges uniformly on <span>$J$</span> to <span>$g$</span>. Then <span>$(f_n)$</span> converges uniformly on <span>$J$</span> to a function <span>$f$</span> that is differentiable and <span>$f' = g$</span>.</p>
+<p><strong>Proof:</strong> next time</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

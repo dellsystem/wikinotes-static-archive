@@ -1,0 +1,284 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Practice final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Practice final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided solutions to the sample final created by Professor Darmon and made available <a href="http://www.math.mcgill.ca/darmon/courses/algebra/practice-final.pdf">here</a>. The solutions shown below are student-provided and may or may not be accurate. To correct an error, feel free to edit the page directly or contact <a href="/users/dellsystem">@dellsystem</a>.</p>
+<p>Instructor-provided solutions are available <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol6.pdf">here</a>.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#solution">1.1 Solution</a></li>
+<li><a href="#alternate-solution">1.2 Alternate Solution</a></li>
+<li><a href="#accuracy-and-discussion">1.3 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#accuracy-and-discussion_7">8.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9">9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_8">9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">10 Question 10</a><ul>
+<li><a href="#accuracy-and-discussion_9">10.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<blockquote>
+<p>Calculate <span>$3^{10000000000000000000000000000000000001} \pmod{13}$</span>.</p>
+</blockquote>
+<h3 class="header"><i>1.1</i>Solution<a class="headerlink" href="#solution" name="solution">&para;</a></h3>
+<p>First, let <span>$a = 10000000000000000000000000000000000001$</span>. Clearly we need to use FLT here. Well, by FLT, <span>$3^{12}  \equiv 1 \pmod{13}$</span>. Also, we know that <span>$12 \times 833\ldots3$</span> (35 3's total) <span>$= 99\ldots96$</span> (35 9's total). But that is equal to <span>$a-5$</span>.</p>
+<p>Then, <span>$3^a = 3^{12x + 5}$</span> (where <span>$x = 833\ldots3$</span>) <span>$= 3^{12x} \cdot 3^5 = (3^{12})^x \cdot 3^5 = 1^x \cdot 3^5 = 3^5 = 243 = 9 \pmod{13}$</span>.</p>
+<p>So the answer is 9.</p>
+<h3 class="header"><i>1.2</i>Alternate Solution<a class="headerlink" href="#alternate-solution" name="alternate-solution">&para;</a></h3>
+<p>First we can see that <span>$3^3 \equiv 1 \pmod{13}$</span> (This can be done by square rooting <span>$3^{12}$</span>.)<br />
+n is divisible by 3 if and only if the sum of each digit is equal to a multiple of 3.<br />
+then <span>$a - 2 = 9999.....99999$</span> is divisible by 3. <br />
+Then <span>$3^a = 3^{3x + 2} = 3^{3x} 3^2 \equiv 1\cdot 9 \pmod{13}$</span></p>
+<h3 class="header"><i>1.3</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p><a href="http://www.wolframalpha.com/input/?i=3%5E10000000000000000000000000000000000001+mod+13">Wolfram Alpha</a> confirms! There might be a nicer way to do this though, my solution is kind of hacky.</p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Give an example of a ring <span>$R$</span> and an ideal <span>$I$</span> in it which is <em>not</em> principal. Describe the quotient <span>$R/I$</span> for your choice.</p>
+</blockquote>
+<p><span>$R = \mathbb Z[x]$</span>, <span>$I = \langle 2, x \rangle = \{2f(x) + xg(x) : f, g \in \mathbb Z[x]\}$</span>.</p>
+<p>The quotient <span>$R/I$</span> includes all the functions with an odd constant term. So it's isomorphic to <span>$\mathbb Z / 2 \mathbb Z$</span>.</p>
+<h3 class="header"><i>2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>This so happens to be exactly the same as the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol6.pdf">provided solution</a>.</p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>Compute the gcd of the polynomials</p>
+<p><span>$$x^p - x, \quad x^3-1$$</span></p>
+<p>in the ring <span>$\mathbb Z/p \mathbb Z[x]$</span>, when<br />
+(a) <span>$p$</span> is a prime of the form <span>$1+3m$</span>;<br />
+(b) <span>$p$</span> is a prime of the form <span>$2 + 3m$</span>.</p>
+</blockquote>
+<p>(a) Our strategy is to use the Euclidean algorithm. First, we divide <span>$x^{3m+1}-x$</span> by <span>$x^3-1$</span>.</p>
+<p><span>$$x^{3m+1} - x = (x^3-1)(x^{3m+1-3} + x^{3m+1-3(2)} + \ldots) = (x^3-1)\underbrace{(x^{3(m-1) + 1} + x^{3(m-2)+1} + \ldots)}_{m \text{ terms}}$$</span></p>
+<p>with the remainder being <span>$x^1 - x = 0$</span>, so it divides evenly, which means that the gcd is <span>$x^3-1$</span>.</p>
+<p>(b) Same strategy as before, except the remainder is <span>$x^2-x$</span>. So then <span>$\gcd(x^3-1, x^p-x) = \gcd(x^3-1, x^2-x) = \gcd(x^2-x, x-1) = x-1$</span>.</p>
+<h3 class="header"><i>3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Discussed during lecture on Wednesday, December 5. Could use more rigour and a better explanation.</p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Let <span>$F$</span> be a field and let <span>$G = F^{\times}$</span> be its multiplicative group, i.e., its set of non-zero elements under the group operation. For all <span>$t \geq 1$</span>, show that <span>$G$</span> has at most <span>$t$</span> elements of order <span>$t$</span>.</p>
+</blockquote>
+<p>I don't really know how to prove this, but there are some relevant links below:</p>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Multiplicative_order#Properties">http://en.wikipedia.org/wiki/Multiplicative_order#Properties</a></li>
+<li><a href="http://math.stackexchange.com/questions/129707/number-of-elements-of-order-k-in-the-multiplicative-group-z-nz">http://math.stackexchange.com/questions/129707/number-of-elements-of-order-k-in-the-multiplicative-group-z-nz</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Order_(group_theory)#Counting_by_order_of_elements">http://en.wikipedia.org/wiki/Order_(group_theory)#Counting_by_order_of_elements</a></li>
+</ul>
+<h4 class="header"><i>4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h4>
+<p>Apparently you're supposed to use properties of polynomials ([link to solutions][solution]). I don't know if we ever proved this, but if you think about it, it makes a lot of sense, and is in fact quite pretty. Here's the gist: any element of order <span>$t$</span> satisfies the equation <span>$x^t=1$</span>, from the definition of the order. Equivalently, any element of order <span>$t$</span> satisfies <span>$x^t-1$</span>, and thus is a root of that polynomial. But <span>$x^t-1$</span> is of degree <span>$t$</span>. So it can't have <em>more</em> than <span>$t$</span> roots. !!!!!!!!</p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<blockquote>
+<p>State Fermat's little theorem, and state Lagrange's Theorem in group theory. Explain how the latter can be used to prove the former.</p>
+</blockquote>
+<p>Fermat's little theorem: if <span>$p$</span> is prime, then for any integer <span>$a$</span>, <span>$a^p \equiv a \pmod p$</span>.</p>
+<p>Lagrange's theorem: the order of a subgroup <span>$H \subseteq G$</span> divides the order of <span>$G$</span>.</p>
+<p>Let <span>$a$</span> be an element in the finite group <span>$(\mathbb Z/p\mathbb Z)^{\times}$</span>. Since <span>$\mathbb Z/p\mathbb Z$</span> consists of <span>$\{0, 1, 2, \ldots, p-1\}$</span>, and 0 is the only element that does not have an inverse (as <span>$p$</span> is prime), then <span>$(\mathbb Z/p\mathbb Z)^{\times} = \{1, 2, \ldots, p-1\}$</span>, which has order <span>$p-1$</span>. <span>$a$</span> then has a finite order, which we will denote <span>$k$</span>, such that <span>$a^k=1$</span>. The subgroup generated by <span>$a$</span> is given by <span>$\{1, a, a^2, \ldots, a^{k-1}\}$</span> and has order <span>$k$</span>. By Lagrange's theorem, <span>$k$</span> divides <span>$p-1$</span>, so we can write <span>$p-1 = mk$</span> where <span>$m\in \mathbb Z$</span>. So <span>$a^{p-1} = a^{mk} = (a^k)^m = 1^m = 1$</span>. So <span>$a^{p-1} \equiv 1 \pmod p$</span>, and if we multiply both sides by <span>$a$</span> we get <span>$a^p \equiv a\pmod p$</span>, i.e., <span>$a^p-a \equiv  0 \pmod p$</span>, proving Fermat's little theorem.</p>
+<h3 class="header"><i>5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Question 9 on assignment 5 was pretty much the same. The <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol5.pdf">instructor-provided solutions</a> are probably better.</p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<blockquote>
+<p>Show that the element <span>$1 + \sqrt{-11}$</span> is irreducible in the ring <span>$\mathbb Z[\sqrt{-11}]$</span>, and that the ideal generated by 3 and <span>$1 + \sqrt{-11}$</span> is not principal. What more familiar ring is the quotient <span>$\mathbb Z[\sqrt{-11}]/(3, 1+\sqrt{-11})$</span> isomorphic to?</p>
+</blockquote>
+<p>To show that it's irreducible, we make use of the norm function, which maps something of the form <span>$a + b\sqrt{-11}$</span> to <span>$a^2 + 11b^2$</span>, basically multiplying by the conjugate. (It's a standard tool in this sort of situation.) Let's denote this function by <span>$f$</span>. Then <span>$f(1 + \sqrt{-11} = 1^1 + 11 \cdot 1^2 = 12$</span>. Now, the norm function is multiplicative, meaning that if we have <span>$x, y \in \mathbb Z[\sqrt{-11}]$</span> and <span>$x \mid y$</span>, then <span>$f(x) \mid f(y)$</span>. Consequently, for <span>$z = 1 + \sqrt{-11}$</span> to be reducible, there must be elements <span>$u, v \in \mathbb Z[\sqrt{-11}]$</span> such that they both divide <span>$z$</span>, and so <span>$f(u)$</span> and <span>$f(v)$</span> must both divide 12 (with <span>$1 &lt; f(u), f(v) &lt; 12$</span>). So the possible values for <span>$f(u)$</span> and <span>$f(v)$</span> are 2, 3, 4 and 6.</p>
+<p>Is it possible to have an element <span>$a + b\sqrt{-11} \in \mathbb Z[\sqrt{-11}]$</span> whose norm is 2, 3, 4 or 6? Well, <span>$f(a + b\sqrt{-11}) = a^2 + 11b^2$</span>. First of all, we conclude that <span>$b = 0$</span>, or else it would be greater than 6 already lol. And only 4 can be a norm, if <span>$a = 2$</span>, since 2, 3 and 6 are not perfect squares. But then the norm for the other divisor has to be 3. But that's not possible. So we cannot have elements that are non-trivial divisors of <span>$z$</span>, and hence <span>$z$</span> is irreducible. <span>$\blacksquare$</span></p>
+<p>To show that it's not principal, we use a proof by contradiction and make use of the norm function again. We assume that this ideal <em>is</em> principal, meaning that we can write it in the form <span>$x=a + b\sqrt{-11}$</span> where <span>$a, b \in \mathbb Z$</span>. Since <span>$x$</span> must divide both 3 and <span>$z = 1 + \sqrt{-11}$</span>, we have that <span>$f(x) \mid f(3) = 9$</span> and that <span>$f(x) \mid f(z) = 12$</span>. The only non-trivial divisor of both 9 and 12 is 3. But there does not exist an element <span>$y = c + d\sqrt{-11}$</span> such that <span>$f(y) = c^2 + 11d^2 = 3$</span>, since we must have <span>$d=0$</span> (or else <span>$f(y)$</span> would already exceed 3) and there is no solution to <span>$c^2=3$</span> in <span>$\mathbb Z$</span>. Also, we know that the trivial divisor 1 doesn't work either, because the ideal generated by 1 is the whole ring and this ideal is not the whole ring (1 is not in it, for instance). This tells us that the ideal is not principal.</p>
+<p>My guess is that it's isomorphic to <span>$\mathbb Z / 3 \mathbb Z$</span>. To prove this, we sent <span>$a + b\sqrt{-11}$</span> to the class <span>$[a-b]$</span> in <span>$\mathbb Z / 3\mathbb Z$</span>. Verifying the ring homo properties is fairly easy. To show that it's surjective, we just show that we can make all of <span>$\{0, 1, 2\}$</span> (easy). Then we see that the ideal is in the kernel. So then we use the first isomorphism theorem, etc. I'm done.</p>
+<h3 class="header"><i>6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>Question 1 on assignment 2 is tangentially related to the first part, in that it uses the norm function. At least it shows that using the norm function is acceptable (my usage of it may not be rigourous enough though). I'm pretty sure that it's the right thing to do in this case, although I don't recall seeing this question in class or on an assignment. There are some useful posts about this on mathoverflow: <a href="http://math.stackexchange.com/questions/94999/irreducible-in-mathbbz-sqrt-5">http://math.stackexchange.com/questions/94999/irreducible-in-mathbbz-sqrt-5</a>, <a href="http://math.stackexchange.com/questions/86383/proving-2-3-1-sqrt-5-and-1-sqrt-5-are-irreducible-in-mathbbz-sqrt">http://math.stackexchange.com/questions/86383/proving-2-3-1-sqrt-5-and-1-sqrt-5-are-irreducible-in-mathbbz-sqrt</a></p>
+<p>The second part (not principal): <a href="http://math.stackexchange.com/questions/37468/show-that-the-ideal-2-1-sqrt-7-in-mathbbz-sqrt-7-is-no">http://math.stackexchange.com/questions/37468/show-that-the-ideal-2-1-sqrt-7-in-mathbbz-sqrt-7-is-no</a>. Another: <a href="http://math.stackexchange.com/questions/32577/show-that-a-specific-ideal-is-not-principal">http://math.stackexchange.com/questions/32577/show-that-a-specific-ideal-is-not-principal</a></p>
+<p>Last part: see <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol6.pdf">solutions</a>.</p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<blockquote>
+<p>Show that the group <span>$GL_2(\mathbb Z/2\mathbb Z)$</span> of invertible <span>$2\times 2$</span> matrices with entries in <span>$\mathbb Z / 2\mathbb Z$</span> has cardinality 6, and that it is isomorphic to the symmetric group <span>$S_3$</span> on 3 letters.</p>
+</blockquote>
+<p>There are <span>$2^4 = 16$</span> possible matrices with entries in <span>$\mathbb Z / 2 \mathbb Z$</span>, but only 6 of them are invertible. How do we know this? Well, there are 3 possibilities for the first row: <span>$[0, 1], [1, 1], [1, 0]$</span> (since <span>$[0, 0]$</span> would not result in an invertible matrix). For the second row, there are only two choices, because <span>$[0, 0]$</span> is still out but we also can't use the same row we used in the first row. So <span>$3 \times 2 = 6$</span>.</p>
+<p>Incidentally, the group looks like this:</p>
+<p><span>$$\left \{ \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}, \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}, \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}, \begin{pmatrix} 1 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}, \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 1 \end{pmatrix}, \begin{pmatrix} 1 &amp; 0 \\ 1 &amp; 1 \end{pmatrix} \right \}$$</span></p>
+<p>How do we show that it is isomorphic to <span>$S_3$</span>? We can create a homomorphism as follows: <span>$f: GL_2 (\mathbb Z/ 2\mathbb Z) \to S_3$</span> which takes a matrix and maps it to the permutation of the elements 1, 2, 3 that is induced by the matrix. If we let <span>$X$</span> be the set of possible column vectors in our group, we can enumerate the elements as follows:</p>
+<p><span>$$X = \left \{ \begin{pmatrix} 0 \\ 1 \end{pmatrix}, \begin{pmatrix} 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 1\\ 1 \end{pmatrix} \right \} = \{1, 2, 3\}$$</span></p>
+<p>So multiplying a matrix in the group by each column vector results in a permutation of the set:</p>
+<p><span>$$\begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}  \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \qquad \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix}\begin{pmatrix} 1 \\ 1\end{pmatrix} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$$</span></p>
+<p>so this maps 1 to 3, 2 to 2, and 3 to 1 so it's equivalent to <span>$(13)$</span>.</p>
+<p>We know this homomorphism is injective, because the kernel is the identity matrix. Since we know that <span>$S_3$</span> has a cardinality of 6, then it's also surjective. Hence, <span>$f$</span> is an isomorphism and so <span>$GL_2(\mathbb Z/2\mathbb Z) \cong S_3$</span>.</p>
+<p>Extension: what if we had to find the cardinality of <span>$GL_n$</span> with entries in <span>$\mathbb Z/p \mathbb Z$</span>? Well, in the first row, there are <span>$p^n-1$</span> choices. In the second row, we have to stay away from the all-zero row as well as any multiple of the first row (there are <span>$p$</span> of them). So <span>$p^n - p$</span> choices. In the third row, there are <span>$p^2$</span> combinations of the first two rows, so we have <span>$p^n-p^2$</span> possibilities. So in total we have <span>$(p^n-1)(p^n-p)(p^n-p^2) \ldots (p^n-p^{n-1})$</span> possibilities.</p>
+<h3 class="header"><i>7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>He went over this in class. My explanation is a bit handwavy though.</p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<blockquote>
+<p>Let <span>$H$</span> be a subgroup of a group <span>$G$</span> and suppose that <span>$H$</span> has <em>index two</em> in <span>$G$</span>, i.e., that there are precisely two elements in <span>$G/H$</span>. Show that <span>$H$</span> is a normal subgroup of <span>$G$</span>.</p>
+</blockquote>
+<p>The left cosets are <span>$G/H = \{H, aH\}$</span> (where <span>$a \notin H$</span>). Then, the right cosets must be <span>$H\backslash G = \{H, Ha\}$</span>. Now, the union of the left cosets is all of <span>$G$</span>. Same for the right cosets. But then we can conclude that <span>$aH=Ha$</span>, which shows that <span>$H$</span> is a normal subgroup. Of course, this is only possible because <span>$H$</span> has index two.</p>
+<p>Alternatively, we could make the following homomorphism<sup id="fnref:homo"><a href="#fn:homo" rel="footnote" title="How do we know that this is a homomorphism?? Can w...">1</a></sup> <span>$f: G \to \mathbb Z /2\mathbb Z$</span>, whose kernel would be all of <span>$H$</span>:</p>
+<p><span>$$f(g) = \begin{cases} 0 &amp; \text{if } g \in H \\ 1 &amp; \text{if } g \notin H \end{cases}$$</span></p>
+<p>Then, since the kernel of any homomorphism is a normal subgroup, <span>$\blacksquare$</span>.</p>
+<h3 class="header"><i>8.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>Discussed during lecture on Wednesday, December 5. The explanation could definitely be improved.</p>
+<h2 class="header"><i>9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h2>
+<blockquote>
+<p>Let <span>$H$</span> be a subgroup of a group <span>$G$</span>, and let <span>$N$</span> be a normal subgroup of <span>$G$</span>. Show that <span>$H \cap N$</span> is a normal subgroup of <span>$H$</span>.</p>
+</blockquote>
+<p>Let <span>$H = H_1 \cap H_2$</span>. To show that <span>$H$</span> is a subgroup, we need to show that it satisfies the following properties:</p>
+<ol>
+<li>The identity element <span>$e \in H$</span>,</li>
+<li>If <span>$h \in H$</span>, then the inverse <span>$h^{-1} \in H$</span>,</li>
+<li>If <span>$h \in H$</span> and <span>$g \in H$</span>, then <span>$gh \in H$</span>.</li>
+</ol>
+<p>So:</p>
+<ol>
+<li>Since both <span>$H_1$</span> and <span>$H_2$</span> are subgroups, we have that <span>$e \in H_1$</span> and <span>$e \in H_1$</span>. Consequently, <span>$e \in H_1 \cap H_2$</span> <span>$\checkmark$</span></li>
+<li>Let <span>$h \in H_1 \cap H_2$</span>. Then since <span>$h \in H_1$</span>, <span>$h^{-1} \in H_1$</span>, as <span>$H_1$</span> is a subgroup; by the same reasoning we can conclude that <span>$h^{-1} \in H_2$</span>. Consequently, <span>$h \in H_1 \cap H_2$</span> <span>$\checkmark$</span></li>
+<li>If <span>$h \in H$</span> and <span>$g \in H$</span>, then we have that <span>$h, g \in H_1$</span> and <span>$h, g \in H_2$</span>. Consequently, <span>$hg \in H_1$</span> and <span>$hg \in H_2$</span>, by property 3 of a subgroup. So <span>$hg \in H_1 \cap H_2$</span> <span>$\checkmark$</span> <span>$\blacksquare$</span></li>
+</ol>
+<h3 class="header"><i>9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>This was the first part of question 8 on assignment 5 (I just copied and pasted from mine). Should be accurate, barring typos and the like.</p>
+<p>Oops, forgot to show that it's normal. Whatever. See the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol6.pdf">solutions</a>.</p>
+<h2 class="header"><i>10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h2>
+<blockquote>
+<p>Recall that any group is said to be <em>simple</em> if it has no non-trivial normal subgroups other than <span>$G$</span> and <span>$\{1\}$</span>. Show that any non-trivial homomorphism <span>$f: G \to G'$</span> (i.e., for which <span>$f(G) \neq \{1\}$</span>) is necessarily injective if <span>$G$</span> is a simple group.</p>
+</blockquote>
+<p>Recall that the kernel of any group homomorphism <span>$f: G \to G'$</span> is a normal subgroup of <span>$G$</span>. Since <span>$G$</span> is simple, we have that <span>$\ker(f)$</span> is either <span>$\{e\}$</span> or all of <span>$G$</span>. Since the homomorphism is non-trivial (i.e., not the zero homomorphism), then <span>$\ker(f) \neq G$</span>, and so it must be that <span>$\ker(f) = \{e\}$</span>. This just means that <span>$f$</span> is injective, which concludes the proof.</p>
+<h3 class="header"><i>10.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p>From the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/sol6.pdf">solutions</a>. Quite nice.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:homo">
+<p>How do we know that this is a homomorphism?? Can we prove it?&#160;<a href="#fnref:homo" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

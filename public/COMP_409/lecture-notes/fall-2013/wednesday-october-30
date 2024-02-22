@@ -1,0 +1,403 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, October 30, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, October 30, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Continuation of JMM, C/C++ Memory Model and Lock-free
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#cc-memory-model">1 C/C++ Memory Model</a><ul>
+<li><a href="#drf-model">1.1 DRF Model</a></li>
+</ul>
+</li>
+<li><a href="#additional-tools">2 Additional tools</a></li>
+<li><a href="#lock-free">3 Lock-free</a><ul>
+<li><a href="#concurrent-stack-example">3.1 Concurrent stack example</a></li>
+<li><a href="#failure-of-the-lock-free-stack">3.2 Failure of the lock-free stack</a></li>
+<li><a href="#the-aba-problem">3.3 The ABA Problem</a><ul>
+<li><a href="#load-linkstore-conditional">3.3.1 Load-link/store-conditional</a><ul>
+<li><a href="#atomic-increment-example">3.3.1.1 Atomic increment example</a></li>
+<li><a href="#reservation-cancellation">3.3.1.2 Reservation cancellation</a></li>
+<li><a href="#hardware-support">3.3.1.3 Hardware support</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#cas-fulfilling-llscs-role">3.4 CAS fulfilling LL/SC's role</a></li>
+<li><a href="#the-aba-problem-and-java">3.5 The ABA Problem and Java</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>C/C++ Memory Model<a class="headerlink" href="#cc-memory-model" name="cc-memory-model">&para;</a></h2>
+<p>In a language like C or C++, which use PThreads for concurrency, what is the memory model? Historically, it was not specified; we could only get what the hardware provided. </p>
+<p>PThreads used to be orthogonal in semantics, totally unconnected with the semantics of the language. Fortunately, as inspired by the Java Memory Model approach, people came up with the C++ Memory Model, a simplified model which only takes the important bits of the JMM.</p>
+<p>Correctly synchronized programs will have sequential consistency semantics (SC). Incorrectly synchronized have no semantics. That is, any race will lead to undefined behavior, in theory. In practice, some compilers may do some optimizations on their own.</p>
+<h3 class="header"><i>1.1</i>DRF Model<a class="headerlink" href="#drf-model" name="drf-model">&para;</a></h3>
+<dl>
+<dt>Sequenced-before</dt>
+<dd>Partial order, even within a thread. Kind of like HB in Java, but different because C/C++'s semantics are not as clearly defined as Java.</dd>
+</dl>
+<p>It is a partial order on memory actions (load/store, lock, unlock, atomic { load, store, read/modify/write }).</p>
+<p>If it can be shown that there is no data races, then we get a correctly synchronized, sequentially consistent program. If not, the behavior is undefined. Still, this may seem a bit draconian; why should a single data race cause a program to exhibit completely undefined behavior? Perhaps, there should be some nice way of validating that undefined behavior.</p>
+<div class="codehilite"><pre><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span> <span class="c1">// Assuming there is a data race on x</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">foo</span><span class="p">...</span> <span class="c1">// Lots of code, no effect on i</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">0</span>: <span class="p">...</span>
+        <span class="k">case</span> <span class="mi">1</span>: <span class="p">...</span>
+        <span class="nl">default:</span> <span class="p">...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>The usual way for a compiler to implement the switch statement is as a jump table. The table would have two entries (one for <code>0</code>, the other for <code>1</code>) which contain the address of where the specific instructions are defined. Then, the program would jump to <code>table[i]</code>.</p>
+<p>Now, <code>i</code> is in a register at first (because it just got defined). In foo, which is large, all the registers are likely to end up being used. This would imply storing the value of <code>i</code> in memory and reload it after. However, considering that <code>x</code> does not change, as far as a compiler can tell, between the time <code>i</code> is defined and is used again. So, instead of storing and reloading <code>i</code>, it would be more efficient to merely load <code>x</code> once <code>i</code> is truly needed. This would be totally fine in a single threaded program.</p>
+<p>However, if some other thread changes the value of <code>x</code>, loading its value instead of <code>i</code> will rise to unexpected behavior. Since the value may be very different to what was expected (0 or 1), the jump to <code>table[i]</code> will end up somewhere arbitrary in memory.</p>
+<p>That is part of the reason why any data race can cause totally unexpected behavior.</p>
+<h2 class="header"><i>2</i>Additional tools<a class="headerlink" href="#additional-tools" name="additional-tools">&para;</a></h2>
+<p>If we really know what we are doing, we can use things called fences or barriers. They are designed to make sure that certain writes are visible to other processors. Very low level, these are assembly instructions which actually flush caches to main memory: <code>membar</code> and <code>infence</code>.</p>
+<h2 class="header"><i>3</i>Lock-free<a class="headerlink" href="#lock-free" name="lock-free">&para;</a></h2>
+<p>A lock-free data structure or algorithm allows faster and more concurrent access by avoiding locking altogether, which incurs less overhead. We still need atomicity and a data-race free (DRF) program. To do that, we typically use spin-locking with the help of low-level primitives like <code>CAS</code>.</p>
+<blockquote>
+<p>A method is lock-free if it guarantees that infinitely often, some method call finishes in a finite number of steps.</p>
+</blockquote>
+<p>It is basically a weaker form of wait-free. Trying to do this is also a tricky thing. </p>
+<h3 class="header"><i>3.1</i>Concurrent stack example<a class="headerlink" href="#concurrent-stack-example" name="concurrent-stack-example">&para;</a></h3>
+<p>To implement a concurrent stack, we can put locks around any access of the data structure, which will work. Instead, maybe we can put locks around smaller pieces, thus achieving a more fine-grained concurrency. However, in doing that, we end up facing some interesting problems.</p>
+<div class="codehilite"><pre><span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// try and push something onto the stack</span>
+    <span class="k">do</span> <span class="o">{</span>
+        <span class="n">Node</span> <span class="n">t</span> <span class="o">=</span> <span class="n">tos</span><span class="o">;</span> <span class="c1">// top of stack</span>
+        <span class="n">n</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">t</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">CAS</span><span class="o">(</span><span class="n">tos</span><span class="o">,</span> <span class="n">t</span><span class="o">,</span> <span class="n">n</span><span class="o">));</span>
+    <span class="c1">// Spin lock until CAS works to make sure t is still the top of stack</span>
+    <span class="c1">// and make n the new top of stack if it is</span>
+<span class="o">}</span>
+
+<span class="n">Node</span> <span class="nf">pop</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Node</span> <span class="n">t</span><span class="o">,</span> <span class="n">n</span><span class="o">;</span>
+    <span class="k">do</span> <span class="o">{</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">tos</span><span class="o">;</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">t</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="k">return</span> <span class="kc">null</span><span class="o">;</span> <span class="c1">// empty stack</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="na">next</span><span class="o">;</span>
+    <span class="o">}</span> <span class="k">while</span> <span class="o">(!</span><span class="n">CAS</span><span class="o">(</span><span class="n">tos</span><span class="o">,</span> <span class="n">t</span><span class="o">,</span> <span class="n">n</span><span class="o">));</span>
+    <span class="c1">// Spin lock until CAS works to make sure t is still the top of stack</span>
+    <span class="c1">// and make n the new top of stack if it is</span>
+    <span class="k">return</span> <span class="n">t</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>However, this code does not work (in C, at least).</p>
+<h3 class="header"><i>3.2</i>Failure of the lock-free stack<a class="headerlink" href="#failure-of-the-lock-free-stack" name="failure-of-the-lock-free-stack">&para;</a></h3>
+<p>To see why the lock-free stack from last lecture fails, let us consider the following scenario:</p>
+<div class="codehilite"><pre><span class="c1">// Thread 0</span>
+<span class="n">pop</span><span class="o">();</span> <span class="c1">// Tries to pop the top of the stack</span>
+
+<span class="c1">// Thread 1</span>
+<span class="c1">// Tries to delete the second element under the stack</span>
+<span class="n">pop</span><span class="o">();</span>  <span class="c1">// Pop the first</span>
+<span class="n">pop</span><span class="o">();</span>  <span class="c1">// Pop the second, delete that</span>
+<span class="n">push</span><span class="o">();</span> <span class="c1">// Push back the first</span>
+</pre></div>
+
+
+<p>Assume the current stack is <code>[x, y, z]</code>. The program can execute with the following interleaving:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread<sub>0</sub></th>
+<th>Thread<sub>1</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pop() {</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>....t = tos; // x</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>....n = t.next; // y</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>Pop() {</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....t = tos; // x</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....n = t.next; // y</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....CAS(tos, x, y); // OK</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>} // At this point, the stack is now [y, z]</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>Pop() {</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....t = tos; // y</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....n = t.next; // z</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....CAS(tos, y, z); // OK</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>} // At this point, the stack is now [z]</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>free(y); // Delete y</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>Push(x) {</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....t = tos; // z</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....x.next = z;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>....CAS(tos, z, x); // OK</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>} // At this point, stack is now [x, z]</code></td>
+</tr>
+<tr>
+<td><code>....CAS(tos, x, y);</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>Going back to <strong>Thread<sub>0</sub></strong> after <strong>Thread<sub>1</sub></strong>'s operations makes the stack inconsistent; y was actually freed! The next time <code>tos</code> will be accessed, unallocated memory will actually be accessed, which leads to unexpected behavior.</p>
+<h3 class="header"><i>3.3</i>The ABA Problem<a class="headerlink" href="#the-aba-problem" name="the-aba-problem">&para;</a></h3>
+<p>The problem depicted above is a classic problem called the ABA problem which shows up for two reasons. Firstly, <code>y</code> was freed. The main reason, however, is that <code>CAS</code> is not as powerful as we may make it out to be; if a value goes from <code>A</code> to <code>B</code> to <code>A</code> again, <code>CAS</code> will be completely oblivious of this. As far <code>CAS</code> is concerned, the value is "still" <code>A</code>, but it has actually changed in between.</p>
+<h4 class="header"><i>3.3.1</i>Load-link/store-conditional<a class="headerlink" href="#load-linkstore-conditional" name="load-linkstore-conditional">&para;</a></h4>
+<p>Another primitive (instead of <code>CAS</code>), called the <strong>load-link/store-conditional</strong>, can be used to avoid this problem altogether. However, it is fairly expensive to implement and not all CPU architectures actually support it.</p>
+<p>It is composed of two operations (PowerPC syntax presented here):</p>
+<div class="codehilite"><pre><span class="n">lwarx</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Load from x, with a reservation on x</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+    <span class="c1">// x is reserved for this process</span>
+    <span class="k">return</span> <span class="n">temp</span><span class="p">;</span>
+<span class="p">}</span> <span class="c1">// One big atomic operation</span>
+
+<span class="n">stwcx</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// If the reservation is still there, store can happen</span>
+    <span class="c1">// Else, it should fail</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="n">is</span> <span class="n">reserved</span> <span class="k">for</span> <span class="n">this</span> <span class="n">process</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+        <span class="n">Renew</span> <span class="n">the</span> <span class="n">reservation</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h5 class="header"><i>3.3.1.1</i>Atomic increment example<a class="headerlink" href="#atomic-increment-example" name="atomic-increment-example">&para;</a></h5>
+<div class="codehilite"><pre>redoit:                  # Label for looping
+    lwarx     r1, 0, x;  # x is reserved
+    addi      r1, r1, 1; # Put r1 + 1 in r1
+    stwcx     r1, 0, x;  # works if x is still reserved
+    bne       redoit     # jump back if stwcx returns false
+</pre></div>
+
+
+<h5 class="header"><i>3.3.1.2</i>Reservation cancellation<a class="headerlink" href="#reservation-cancellation" name="reservation-cancellation">&para;</a></h5>
+<p>In order to work properly, a reservation has to be cancelled by lots of things. For example, if a thread writes to <code>x</code>, then the reservation should be cancelled. If another <code>LL/SC</code> is done on <code>x</code>, the reservation should be cancelled as well.</p>
+<p>Processors, to keep things efficient, cancel if:</p>
+<ul>
+<li>any write to <code>x</code>'s cache line occurs (<code>x</code> or close to it)</li>
+<li>any context switch occurs</li>
+<li>an hardware interrupt happens</li>
+<li>another <code>LL/SC</code> happens, even on another variable</li>
+</ul>
+<p>The above conditions may not affect <code>x</code> at all, but keep things more efficient, processors have to act in a very conservative way. As such, <code>LL/SC</code> may fail spuriously; it might get cancelled for no good reason. That also means that the further apart <code>LL</code> is from <code>SC</code>, the more likely it will fail. If it is longer than a time slice, it is <em>always</em> going to fail (it will never succeed).</p>
+<h5 class="header"><i>3.3.1.3</i>Hardware support<a class="headerlink" href="#hardware-support" name="hardware-support">&para;</a></h5>
+<p><code>LL/SC</code> is found in hardware such as PowerPC, ARM and MIPS (possibly with different names). Intel does not and Java does not expose it the same way it exposes other primitives.</p>
+<h3 class="header"><i>3.4</i>CAS fulfilling LL/SC's role<a class="headerlink" href="#cas-fulfilling-llscs-role" name="cas-fulfilling-llscs-role">&para;</a></h3>
+<p>Now, we can solve the ABA problem with <code>LL/SC</code>, but in fact, we do not necessarily <em>need</em> it. <code>CAS</code> can actually solve the problem as well by using it on twice as many bits. Variables are now treated as a <code>&lt;value, version&gt;</code> pair. Every update update the version number, even if it is the same value and <code>CAS</code> checks both. Most architecture provide a double-wide <code>CAS</code> specifically for this purpose.</p>
+<p>In Java, there is the <code>AtomicStampedReference</code> which is basically a pair &lt;reference, stamp (version)&gt; which values change at the same time. It is effectively a double-wide <code>CAS</code> inside Java.</p>
+<p>One problem with counting versions in a variable is that the number might wrap around after enough iterations. In practice, 32-bits should be plenty enough, but in theory, it means the problem is not entirely solved.</p>
+<h3 class="header"><i>3.5</i>The ABA Problem and Java<a class="headerlink" href="#the-aba-problem-and-java" name="the-aba-problem-and-java">&para;</a></h3>
+<p>In the textbook, there is a lock-free stack which goes as follows:</p>
+<div class="codehilite"><pre><span class="c1">// Same code as we had, but without a loop</span>
+<span class="kt">boolean</span> <span class="nf">tryPush</span><span class="o">(</span><span class="n">Node</span> <span class="n">n</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Node</span> <span class="n">oldTop</span> <span class="o">=</span> <span class="n">tos</span><span class="o">;</span>
+    <span class="n">n</span><span class="o">.</span><span class="na">next</span> <span class="o">=</span> <span class="n">oldTop</span><span class="o">;</span>
+    <span class="k">return</span> <span class="nf">CAS</span><span class="o">(</span><span class="n">tos</span><span class="o">,</span> <span class="n">oldTop</span><span class="o">,</span> <span class="n">n</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="c1">// Actual push has the loop</span>
+<span class="kt">void</span> <span class="nf">push</span><span class="o">(</span><span class="n">T</span> <span class="n">x</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Node</span> <span class="n">n</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Node</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
+    <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">tryPush</span><span class="o">(</span><span class="n">n</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+            <span class="o">[...]</span> <span class="c1">// Something about a coefficient</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p><strong>Notice:</strong> This is basically the same as the push operation in our ABA example. The textbook is assuming that Java is to be used because we do not get the ABA problem in Java; we cannot <em>delete</em> variables. The garbage collector still sees a reference to <code>y</code>. </p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread<sub>0</sub></th>
+<th>Thread<sub>1</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Grabs <code>x</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Pop <code>x</code> to put it back</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Pop <code>y</code> for deletion</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Push <code>x</code> back</td>
+</tr>
+</tbody>
+</table>
+<p>As <code>y</code> still exists (<strong>Thread<sub>0</sub></strong> still has a reference to it and the garbage collector will not collect it), it becomes a "valid" top of stack. We end up with <code>[y, z]</code>. It is still not correct, but it does not break in the same way as in a C or C++ context.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

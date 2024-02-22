@@ -1,0 +1,530 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_206/">
+                COMP 206
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Sample Finals Answer
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Sample Finals Answer
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <blockquote>
+<p>note: may contain errors</p>
+</blockquote>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#discussion">1.1 Discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a></li>
+<li><a href="#question-3">3 Question 3</a></li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#discussion_1">4.1 Discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a></li>
+<li><a href="#question-6">6 Question 6</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+    <span class="nt">&lt;head&gt;</span>
+        <span class="nt">&lt;title&gt;</span>Sammy&#39;s Readings<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;/head&gt;</span>
+    <span class="nt">&lt;body&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;text-align: center&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;</span>Sammy&#39;s readings<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+            Please select books from the table of currently available
+        books.  Each book is displayed with a description and cost.  On the right side you can
+        select the quantity of books you would like to purchase.  Leaving the number at zero to
+        indicate that you do not want that book.  Enjoy!
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;bill.py&quot;</span> <span class="na">method=</span><span class="s">&quot;POST&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;table&gt;</span>
+                <span class="nt">&lt;thead&gt;</span>
+                    <span class="nt">&lt;tr</span> <span class="na">style=</span><span class="s">&quot;background-color: #CCCCCC&quot;</span><span class="nt">&gt;</span>
+                        <span class="nt">&lt;th&gt;</span>Title<span class="nt">&lt;/th&gt;</span>
+                        <span class="nt">&lt;th&gt;</span>Description<span class="nt">&lt;/th&gt;</span>
+                        <span class="nt">&lt;th&gt;</span>Price<span class="nt">&lt;/th&gt;</span>
+                        <span class="nt">&lt;th&gt;</span>Qty<span class="nt">&lt;/th&gt;</span>
+                    <span class="nt">&lt;/tr&gt;</span>
+                <span class="nt">&lt;/thead&gt;</span>
+                <span class="nt">&lt;tbody&gt;</span>
+                    <span class="nt">&lt;tr&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>foo<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>bar<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>10.00<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;foo&quot;</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;&lt;/td&gt;</span>
+                    <span class="nt">&lt;/tr&gt;</span>
+                    <span class="nt">&lt;tr&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>foo1<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>bar2<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;</span>10.00<span class="nt">&lt;/td&gt;</span>
+                        <span class="nt">&lt;td&gt;&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;foo1&quot;</span> <span class="na">value=</span><span class="s">&quot;0&quot;</span> <span class="nt">/&gt;&lt;/td&gt;</span>
+                    <span class="nt">&lt;/tr&gt;</span>
+                <span class="nt">&lt;/tbody&gt;</span>
+            <span class="nt">&lt;/table&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;text-align: center&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Purchase!&quot;</span> <span class="na">name=</span><span class="s">&quot;submit&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+</td></tr></table>
+
+<h3 class="header"><i>1.1</i>Discussion<a class="headerlink" href="#discussion" name="discussion">&para;</a></h3>
+<p>Made the following changes:</p>
+<ul>
+<li>XHTML for the input tags (&lt;input /&gt; instead of &lt;input&gt;)</li>
+<li>Got rid of ugly ugly &lt;center&gt; tags (preferrably, you would center them in the CSS, but, baby steps)</li>
+<li>Made use of &lt;thead&gt;, &lt;tbody&gt;, and &lt;th&gt;</li>
+<li>Made use of &lt;h1&gt; for the header</li>
+<li>Some indentation changes for clarity</li>
+<li>Added a name attribute to the submit button</li>
+<li>Enclosed the value of the "value" attribute in quotation marks</li>
+</ul>
+<blockquote>
+<p><a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<ul>
+<li>Added doctype</li>
+</ul>
+<blockquote>
+<p><a href="/users/alexangelini">@alexangelini</a></p>
+</blockquote>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c">#!/usr/bin/env python</span>
+
+<span class="kn">import</span> <span class="nn">cgi</span>
+
+<span class="k">print</span> <span class="s">&quot;Content-type: text/html&quot;</span>
+<span class="k">print</span> <span class="s">&quot;&quot;</span>
+<span class="k">print</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">&lt;html&gt;</span>
+<span class="s">&lt;head&gt;&lt;title&gt;Sammy&#39;s Readings&lt;/title&gt;&lt;/head&gt;</span>
+<span class="s">    &lt;body&gt;</span>
+<span class="s">    &lt;center&gt;&lt;span style=&quot;font-size:16px&quot;&gt;Sammy&#39;s Readings&lt;/span&gt;&lt;/center&gt;</span>
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">prices</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;products.csv&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">prices</span><span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">cgi</span><span class="o">.</span><span class="n">FieldStorage</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">quantity</span> <span class="o">=</span>  <span class="nb">int</span><span class="p">(</span><span class="n">cgi</span><span class="o">.</span><span class="n">FieldStorage</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+    <span class="k">if</span> <span class="n">quantity</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">continue</span> <span class="c"># keeps looping; not the same as pass</span>
+    <span class="n">price</span> <span class="o">=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">item</span><span class="p">])</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">quantity</span> <span class="o">*</span> <span class="n">price</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s"> x </span><span class="si">%d</span><span class="s"> at </span><span class="si">%s</span><span class="s"> each: </span><span class="si">%f</span><span class="s"> &lt;br&gt;&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">prices</span><span class="p">[</span><span class="n">item</span><span class="p">],</span> <span class="n">price</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">total</span> <span class="o">*</span> <span class="mf">1.10</span>
+<span class="k">print</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">&lt;/body&gt;</span>
+<span class="s">&lt;/html&gt;</span>
+<span class="s">&quot;&quot;&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+
+<span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">){</span>
+    <span class="kt">int</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(;</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span><span class="n">n</span><span class="o">--</span><span class="p">)</span>
+        <span class="n">s</span><span class="o">*=</span><span class="n">n</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span> <span class="n">args</span><span class="p">[]){</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(;;){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Enter an integer greater or equal to zero: </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="n">total</span><span class="o">+=</span><span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Sum =  %d&quot;</span><span class="p">,</span> <span class="n">total</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;stdio.h&gt;</span>
+<span class="cp">#include &lt;stdlib.h&gt;</span>
+
+<span class="n">BOOLEAN</span> <span class="nf">insort</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">){</span>
+    <span class="c1">//empty list</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="p">(</span><span class="n">NODE</span><span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">NODE</span><span class="p">));</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">head</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//malloc fail</span>
+        <span class="n">head</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//success</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">curVal</span> <span class="o">=</span> <span class="n">head</span><span class="o">-&gt;</span><span class="n">value</span><span class="p">;</span>
+    <span class="n">NODE</span><span class="o">*</span> <span class="n">curNode</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">head</span> <span class="o">-&gt;</span> <span class="n">value</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">){</span>
+        <span class="n">NODE</span> <span class="n">newHead</span> <span class="o">=</span> <span class="p">(</span><span class="n">NODE</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">NODE</span><span class="p">));</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">newHead</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//malloc fail</span>
+        <span class="n">newHead</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">newHead</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">head</span><span class="p">;</span>
+        <span class="n">head</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="n">head</span> <span class="o">=</span> <span class="n">newHead</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//success</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">curNode</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="o">&amp;&amp;</span> <span class="n">curNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">curNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">){</span>
+            <span class="n">curNode</span> <span class="o">=</span> <span class="n">curNode</span> <span class="o">-&gt;</span> <span class="n">next</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">NODE</span> <span class="n">newNode</span> <span class="o">=</span> <span class="p">(</span><span class="n">NODE</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="n">NODE</span><span class="p">));</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">newNode</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//malloc fail</span>
+        <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">value</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+        <span class="n">newNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">curNode</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+        <span class="n">curNode</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">newNode</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//success</span>
+    <span class="p">}</span>   
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<h3 class="header"><i>4.1</i>Discussion<a class="headerlink" href="#discussion_1" name="discussion_1">&para;</a></h3>
+<ul>
+<li>In the second if statement, why do you set head-&gt;next to NULL? Doesn't that disconnect the rest of the list from newHead and Head? </li>
+</ul>
+<blockquote>
+<p><a href="/users/s3admq">@s3admq</a></p>
+</blockquote>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="codehilite"><pre><span class="nf">all</span><span class="o">:</span>    <span class="m">myprogram</span>
+
+<span class="nf">myprogram</span><span class="o">:</span>  <span class="m">f1.o f2.o f3.o</span>
+    gcc f1.o f2.o f3.o -o myprogram
+
+<span class="nf">f1.o</span><span class="o">:</span> <span class="m">f1.c</span>
+    gcc -c f1.c
+
+<span class="nf">f2.o</span><span class="o">:</span> <span class="m">f1.c</span>
+    gcc -c f2.c
+
+<span class="nf">f3.o</span><span class="o">:</span> <span class="m">f1.c</span>
+    gcc -c f3.c
+
+<span class="nf">clean</span><span class="o">:</span>
+    rm -rf *.o a.out
+
+<span class="nf">backup</span><span class="o">:</span>
+    mkdir backup <span class="o">&amp;&amp;</span> cp *.* ./backup
+
+<span class="nf">archive</span><span class="o">:</span>
+    tar -rvf myprogram.tar myprogram *.dat
+</pre></div>
+</td></tr></table>
+
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<p>a. The end result would be the sum of all 100000 numbers in the file<br />
+b. The advantage is that it benefits from parallelization which means it can take advantage of multiple processors<br />
+c. If fork does not succeed it means the system doesn't have enough resources to fork, thus we should try to compute it in a single process instead</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">FILE</span> <span class="o">*</span><span class="n">in</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;data.txt&quot;</span><span class="p">,</span><span class="s">&quot;rt&quot;</span><span class="p">);</span>
+    <span class="kt">int</span> <span class="n">j</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">id1</span><span class="p">,</span> <span class="n">id2</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">in</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="n">exit</span><span class="p">(</span><span class="n">EXIT_FAILURE</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="mi">100000</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span> <span class="n">fscanf</span><span class="p">(</span><span class="n">in</span><span class="p">,</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">array</span><span class="p">[</span><span class="n">j</span><span class="p">]);</span>
+    <span class="n">fclose</span><span class="p">(</span><span class="n">in</span><span class="p">);</span>
+    <span class="n">id1</span><span class="o">=</span><span class="n">fork</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">id1</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">//fork failed</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">doit</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50000</span><span class="p">);</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">doit</span><span class="p">(</span><span class="mi">50001</span><span class="p">,</span><span class="mi">100000</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">id1</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">id2</span><span class="o">=</span><span class="n">fork</span><span class="p">();</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">id2</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">){</span><span class="c1">//fork failed</span>
+            <span class="n">s2</span> <span class="o">=</span> <span class="n">doit</span><span class="p">(</span><span class="mi">50001</span><span class="p">,</span><span class="mi">100000</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">id2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">wait</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> <span class="c1">// waits for all children to finish</span>
+        <span class="k">else</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">doit</span><span class="p">(</span><span class="mi">50001</span><span class="p">,</span><span class="mi">100000</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">doit</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50000</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">id1</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">id2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span><span class="p">;</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;s = %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">s</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">EXIT_SUCCESS</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

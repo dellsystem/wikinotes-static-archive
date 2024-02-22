@@ -1,0 +1,679 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_251/">
+                COMP 251
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Algorithms
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Algorithms
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#introduction-to-algorithms">1 Introduction to algorithms</a><ul>
+<li><a href="#computing-complexity">1.1 Computing complexity</a></li>
+<li><a href="#runtimes-of-simple-algorithms">1.2 Runtimes of simple algorithms</a></li>
+</ul>
+</li>
+<li><a href="#binary-search-trees">2 Binary search trees</a><ul>
+<li><a href="#standard-bst-operations">2.1 Standard BST operations</a></li>
+<li><a href="#random-bsts">2.2 Random BSTs</a></li>
+<li><a href="#two-dimensional-binary-search">2.3 Two-dimensional binary search</a></li>
+<li><a href="#red-black-trees">2.4 Red-black trees</a></li>
+</ul>
+</li>
+<li><a href="#graph-algorithms">3 Graph algorithms</a><ul>
+<li><a href="#breadth-first-search">3.1 Breadth-first search</a></li>
+<li><a href="#testing-bipartiteness">3.2 Testing bipartiteness</a></li>
+<li><a href="#depth-first-search">3.3 Depth-first search</a></li>
+<li><a href="#finding-a-path-between-two-vertices">3.4 Finding a path between two vertices</a></li>
+<li><a href="#checking-for-strongly-connectedness">3.5 Checking for strongly connectedness</a></li>
+<li><a href="#topological-sorting-and-dag-detection">3.6 Topological sorting and DAG detection</a></li>
+<li><a href="#computing-the-width-of-a-rooted-tree">3.7 Computing the width of a rooted tree</a></li>
+<li><a href="#deleting-a-vertex-from-a-path">3.8 Deleting a vertex from a path</a></li>
+<li><a href="#eulerian-cycles">3.9 Eulerian cycles</a></li>
+</ul>
+</li>
+<li><a href="#greedy-algorithms">4 Greedy algorithms</a><ul>
+<li><a href="#interval-scheduling">4.1 Interval scheduling</a></li>
+<li><a href="#weighted-interval-scheduling">4.2 Weighted interval scheduling</a></li>
+<li><a href="#graph-coloring">4.3 Graph coloring</a></li>
+<li><a href="#kruskals-algorithm">4.4 Kruskal's algorithm</a></li>
+<li><a href="#anti-kruskals-algorithm">4.5 Anti-Kruskal's algorithm</a></li>
+<li><a href="#dijkstras-algorithm">4.6 Dijkstra's algorithm</a></li>
+<li><a href="#huffman-coding">4.7 Huffman coding</a></li>
+</ul>
+</li>
+<li><a href="#divide-and-conquer">5 Divide and conquer</a><ul>
+<li><a href="#mergesort">5.1 Mergesort</a></li>
+<li><a href="#exponentiation">5.2 Exponentiation</a></li>
+<li><a href="#chip-testing">5.3 Chip testing</a></li>
+<li><a href="#finding-the-kth-smallest-element">5.4 Finding the kth smallest element</a></li>
+<li><a href="#counting-inversions">5.5 Counting inversions</a></li>
+<li><a href="#closest-pair-of-points">5.6 Closest pair of points</a></li>
+<li><a href="#karatsuba-multiplication">5.7 Karatsuba multiplication</a></li>
+<li><a href="#matrix-multiplication">5.8 Matrix multiplication</a></li>
+<li><a href="#recurrences">5.9 Recurrences</a></li>
+</ul>
+</li>
+<li><a href="#dynamic-programming">6 Dynamic programming</a><ul>
+<li><a href="#computing-the-fibonacci-numbers">6.1 Computing the Fibonacci numbers</a></li>
+<li><a href="#edit-distance">6.2 Edit distance</a></li>
+<li><a href="#subset-sum">6.3 Subset sum</a></li>
+<li><a href="#longest-common-subsequence">6.4 Longest common subsequence</a></li>
+<li><a href="#the-knapsack-problem">6.5 The knapsack problem</a></li>
+<li><a href="#the-knapsack-problem-with-repetition">6.6 The knapsack problem with repetition</a></li>
+<li><a href="#making-change">6.7 Making change</a></li>
+<li><a href="#bellman-ford-algorithm">6.8 Bellman-Ford algorithm</a></li>
+<li><a href="#floyd-warshall-algorithm">6.9 Floyd-Warshall algorithm</a></li>
+<li><a href="#optimal-binary-search-trees">6.10 Optimal binary search trees</a></li>
+<li><a href="#chain-matrix-multiplication">6.11 Chain matrix multiplication</a></li>
+<li><a href="#maximum-independent-set-in-a-tree">6.12 Maximum independent set in a tree</a></li>
+<li><a href="#diameterwidth-of-a-tree">6.13 Diameter(width) of a tree</a></li>
+</ul>
+</li>
+<li><a href="#network-flow">7 Network Flow</a><ul>
+<li><a href="#the-ford-fulkerson-algorithm">7.1 The Ford-Fulkerson algorithm</a></li>
+<li><a href="#the-edmonds-karp-algorithm">7.2 The Edmonds-Karp algorithm</a></li>
+<li><a href="#ford-fulkerson-with-scaling-capacities">7.3 Ford-Fulkerson with scaling capacities</a></li>
+<li><a href="#maximum-bipartite-matching">7.4 Maximum bipartite matching</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Introduction to algorithms<a class="headerlink" href="#introduction-to-algorithms" name="introduction-to-algorithms">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Computing complexity<a class="headerlink" href="#computing-complexity" name="computing-complexity">&para;</a></h3>
+<p>Under the uniform cost model, all primitive operations are considered to take one unit of time. We don't consider things like the number of bits of an input, even if it's actually the number of bits that determines the amount of time taken; we just consider the number of operations performed.</p>
+<h3 class="header"><i>1.2</i>Runtimes of simple algorithms<a class="headerlink" href="#runtimes-of-simple-algorithms" name="runtimes-of-simple-algorithms">&para;</a></h3>
+<dl>
+<dt><span>$O(1)$</span></dt>
+<dd>Accessing an element in an array, parity bit checking, comparison, basic operations</dd>
+<dt><span>$O(\log n)$</span> (could be to base 2, but it doesn't matter)</dt>
+<dd>Binary search, the ternary search coin-weighing problem, some other kind of search where you halve (or something) your search space at every time step</dd>
+<dt><span>$O(n)$</span></dt>
+<dd>Accessing the <span>$n$</span><sup>th</sup> element in a linked list, finding the maximum or minimum value in an unsorted array</dd>
+<dt><span>$O(n \log n)$</span></dt>
+<dd>Mergesort, finding the closest two points in a graph(achievable)</dd>
+<dd>(finding the closest two points in a graph <span>$O(n \log^2 n)$</span>)</dd>
+<dt><span>$O(n^2)$</span></dt>
+<dd>Integer Multiplication (where <span>$n$</span> is the number of digits), two dimensional array,selection sort</dd>
+<dt><span>$O(a^n)$</span></dt>
+<dd>exponential time</dd>
+</dl>
+<h2 class="header"><i>2</i>Binary search trees<a class="headerlink" href="#binary-search-trees" name="binary-search-trees">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Standard BST operations<a class="headerlink" href="#standard-bst-operations" name="standard-bst-operations">&para;</a></h3>
+<p><code>min()</code>, <code>max()</code>, <code>search()</code>, <code>insert()</code>, <code>delete()</code>, <code>next()</code> and <code>prev()</code> all have a running time of <span>$O(h)$</span>, where <span>$h$</span> is the height of the tree. </p>
+<h3 class="header"><i>2.2</i>Random BSTs<a class="headerlink" href="#random-bsts" name="random-bsts">&para;</a></h3>
+<p>A binary tree created from random permutations has an expected height of <span>$O(\log n)$</span>.</p>
+<h3 class="header"><i>2.3</i>Two-dimensional binary search<a class="headerlink" href="#two-dimensional-binary-search" name="two-dimensional-binary-search">&para;</a></h3>
+<blockquote>
+<p>Given a binary search tree in which each node contains a point and a specification of whether it divides its subtrees horizontally or vertically, find all the points that fall within a specified range.</p>
+</blockquote>
+<p><strong>Implementation</strong>: A binary search, implemented recursively, with the condition that the search doesn't stop until all of the potential nodes have been investigated. So at each node, check if that node's coordinates fall within the specified range; if not, go left or right (or both) depending on the coordinates and the division of the subtrees and repeat until all of the nodes have been searched.</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span> where <span>$n$</span> is the number of nodes in the tree, as no node needs to be visited more than once (but up to the entire tree may need to be visited).</p>
+<p>From assignment 1, question 4.</p>
+<h3 class="header"><i>2.4</i>Red-black trees<a class="headerlink" href="#red-black-trees" name="red-black-trees">&para;</a></h3>
+<p><strong>Properties</strong></p>
+<p>A red-black tree is a type of self-balancing binary search tree with the following properties:</p>
+<ol>
+<li>Every node is either red or black.</li>
+<li>The root node is black.</li>
+<li>Wherever a leaf can be (but is not) placed, add a black nil leaf.</li>
+<li>If a node is red, both children are black.</li>
+<li>The number of black nodes between a node and a nil leaf is the same for all nil leaves.</li>
+</ol>
+<p><strong>Operations</strong></p>
+<p>They are <span>$O(\log n)$</span> high, so all of the standard operations take <span>$O(\log n)$</span>, as before.</p>
+<p>Rotation is <span>$O(1)$</span> time, as it just involves changing three pointers:</p>
+<p><img alt="Red-black tree rotation" src="http://cs.mcgill.ca/~wliu65/media/rotation.png" title="Original" /></p>
+<p>Colouring a red black tree takes <span>$O(n)$</span> time.</p>
+<p>Inserting a new element as the root can be done in <span>$O(\log n)$</span> time, by inserting the new element as a leaf the standard way and then rotating the tree until the new element becomes the root. Since the tree has a height of <span>$\log n$</span>, there are at most <span>$\log n$</span> rotations needed, so the total runtime is <span>$O(2 \log n) = O(\log n)$</span>. From assignment 1, question 2.</p>
+<p><strong>Lethargic delete</strong></p>
+<blockquote>
+<p>Implement a "lethargic delete" operation which is performed by finding the node and marking it as deleted, and rebuilding the red-black tree from scratch using the non-deleted nodes only if more than 50% of nodes are deleted.</p>
+</blockquote>
+<p><strong>Implementation</strong>: The lethargic delete operation can be performed by first finding the element to delete using a binary search <span>$O(\log n)$</span> and then marking the element as deleted, which can be done in constant time. Once 50% of the nodes have been marked as deleted, it is then necessary to pull out the non-deleted nodes in a sorted order, which can be done by doing an in-order traversal of the tree <span>$O(n)$</span>. Then, the tree can be rebuilt from the array of the nodes above, using the following recursive tree-building algorithm:</p>
+<div class="codehilite"><pre><span class="n">build_tree</span><span class="p">(</span><span class="n">array</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">length</span> <span class="n">of</span> <span class="n">array</span>
+    <span class="c"># If the array has only one element, return that element</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c"># Otherwise, we build the tree recursively</span>
+    <span class="c"># Get &quot;middle&quot; element (either the middle, or the one next to it)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">array</span><span class="p">[</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span>
+    <span class="c"># Build left subtree using the elements to the left of the &quot;middle&quot;</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">left</span> <span class="o">=</span> <span class="n">build_tree</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)])</span>
+    <span class="c"># Build right subtree using the elements to the right of the &quot;middle&quot;</span>
+    <span class="n">root</span><span class="o">.</span><span class="n">right</span> <span class="o">=</span> <span class="n">build_tree</span><span class="p">(</span><span class="n">array</span><span class="p">[</span><span class="n">ceil</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:])</span>
+</pre></div>
+
+
+<p>This algorithm runs in <span>$O(1)$</span> time because node only needs to be visited once, with a constant number of operations (i.e. splitting the array) done at every node. We can then colour the tree using a <span>$O(n)$</span> breadth-first search and the following instructions:</p>
+<ol>
+<li>Save the number of nodes in the tree (obtained after the initial in-order tree traversal) as <span>$n$</span>.</li>
+<li>Number the root node i = 1.</li>
+<li>For each new node encountered during the breadth-first search, increment i . If $i \geq 2 \log (n), then the node is in the last row, and the node should be coloured red. Otherwise, the node should be coloured black.</li>
+</ol>
+<p>(In other words, if the last row is not complete, then all of its nodes should be coloured red. All other nodes should be coloured black. Note that any nodes missing a child will gain a black nil leaf as that child, to ensure that the root is the same colour as the leaves.)</p>
+<p><strong>Runtime</strong>: <span>$O(n\log n)$</span></p>
+<p>From assignment 1, question 3.</p>
+<h2 class="header"><i>3</i>Graph algorithms<a class="headerlink" href="#graph-algorithms" name="graph-algorithms">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Breadth-first search<a class="headerlink" href="#breadth-first-search" name="breadth-first-search">&para;</a></h3>
+<blockquote>
+<p>Starting at any node, visit all of that node's neighbours recursively until the entire graph has been traversed. "Breadth-first" because all the neighbours of a node are visited before moving on to the next node.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Recursively, or iteratively using a queue.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span>, where <span>$n$</span> is the number of vertices and <span>$m$</span> is the number of edges</p>
+<h3 class="header"><i>3.2</i>Testing bipartiteness<a class="headerlink" href="#testing-bipartiteness" name="testing-bipartiteness">&para;</a></h3>
+<blockquote>
+<p>Given a graph, determine whether or not is is a <strong>bipartite</strong> graph (such that the nodes can be divided into two groups, with no node having an edge to a node in the same group as itself).</p>
+</blockquote>
+<p><strong>Implementation</strong>: This involves just running BFS on the graph and alternately colouring the vertices. If this is possible, then the graph is bipartite; if there are any nodes that are coloured one way but need to be coloured the other way, then the graph is not bipartite.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span></p>
+<h3 class="header"><i>3.3</i>Depth-first search<a class="headerlink" href="#depth-first-search" name="depth-first-search">&para;</a></h3>
+<blockquote>
+<p>Same as breadth-first, except you visit the first unvisited neighbour of each node until you get to a node with no unvisited neighbours. Kind of like having a low attention span.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Recursively, or iteratively using a stack.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span></p>
+<h3 class="header"><i>3.4</i>Finding a path between two vertices<a class="headerlink" href="#finding-a-path-between-two-vertices" name="finding-a-path-between-two-vertices">&para;</a></h3>
+<blockquote>
+<p>Given two vertices in a graph, determine whether or not there exists a path from one to the other and if so, output a possible path.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Start from the first vertex and proceed along a DFS or BFS until you've either visited all the nodes that you can or have reached the second vertex.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span></p>
+<h3 class="header"><i>3.5</i>Checking for strongly connectedness<a class="headerlink" href="#checking-for-strongly-connectedness" name="checking-for-strongly-connectedness">&para;</a></h3>
+<blockquote>
+<p>Given a graph, determine whether or not the graph is <strong>strongly connected</strong> - that is, if there is a path from each vertex to every other.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Starting from any vertex, run BFS. If all the vertices are traversed, run BFS again, only on the reverse graph (so with all the edges flipped); if all the vertices are again traversed, then G is strongly connected. Other methods too.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span></p>
+<h3 class="header"><i>3.6</i>Topological sorting and DAG detection<a class="headerlink" href="#topological-sorting-and-dag-detection" name="topological-sorting-and-dag-detection">&para;</a></h3>
+<blockquote>
+<p>A graph has a topological ordering if and if it is also a directed acyclic graph (DAG). Implement an algorithm for determining whether or not a given graph is a DAG.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Iteratively remove nodes that have no incoming edges and their outgoing edges, each iteration generates a topological level. The graph is a DAG if and only if there are no nodes remaining.</p>
+<p>An optimized method would be keeping track of a list of vertices with no incoming edges, and after each 'iteration', add and remove vertices to that list accordingly. Since we have a list of the vertices we have need, we no longer need to go through the entire graph at each iteration, thus it will take <span>$Cn$</span> rather than <span>$n^2$</span>. However, it takes <span>$O(n+m)$</span> to initialise the list of the vertices with no incoming edges, thus the optimized runtime is <span>$O(n+m)$</span>.</p>
+<p><strong>Runtime</strong>: <span>$O(n^2)$</span>, optimised to <span>$O(n+m)$</span></p>
+<p>An example situation is given in assignment 1, question 7.</p>
+<h3 class="header"><i>3.7</i>Computing the width of a rooted tree<a class="headerlink" href="#computing-the-width-of-a-rooted-tree" name="computing-the-width-of-a-rooted-tree">&para;</a></h3>
+<blockquote>
+<p>Given a rooted tree, for which the descendants of each node are represented by a linked list of children, determine its width (i.e. the maximal path distance between any two nodes).</p>
+</blockquote>
+<p><strong>Implementation</strong>: Traverse nodes recursively using a post-order DFS, computing the maximum distance between a node and a leaf at each node.</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span> (since DFS is <span>$O(m+n)$</span> and in a tree, <span>$m = n - 1$</span>)</p>
+<p>From assignment 1, question 1.</p>
+<h3 class="header"><i>3.8</i>Deleting a vertex from a path<a class="headerlink" href="#deleting-a-vertex-from-a-path" name="deleting-a-vertex-from-a-path">&para;</a></h3>
+<blockquote>
+<p>A graph with <span>$n$</span> nodes contains two vertices <span>$s$</span> and <span>$t$</span> such that the distance between them is greater than <span>$n/2$</span>. Give an <span>$O(m+n)$</span> algorithm to find a node <span>$v$</span> in the graph which, when deleted from the graph, results in the destruction of all paths between <span>$s$</span> and <span>$t$</span>.</p>
+</blockquote>
+<p><strong>Implementation</strong>: First of all, this node <span>$v$</span> will always exist, because there are simply not enough nodes <em>not</em> being used in a path from <span>$s$</span> and <span>$t$</span> for there to be another path that does not have any common nodes with the original path. We are essentially looking for a node common to all paths between <span>$s$</span> and <span>$t$</span>, and this can be done using a breadth-first search, as we are looking for the node which is the only one in a layer in a BFS tree:</p>
+<div class="codehilite"><pre><span class="n">find_common_node</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span> <span class="n">starting_point</span><span class="p">):</span>
+    <span class="n">initialise</span> <span class="n">queue</span>
+    <span class="n">queue</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">starting_point</span><span class="p">)</span>
+
+    <span class="k">while</span> <span class="n">queue</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">empty</span><span class="p">:</span>
+        <span class="n">vertex</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="n">mark</span> <span class="n">vertex</span> <span class="k">as</span> <span class="n">visited</span>
+        <span class="c"># Check all the neighbouring vertices for this vertex</span>
+        <span class="k">for</span> <span class="n">neighbour</span> <span class="ow">in</span> <span class="n">neighbours</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">neighbour</span> <span class="ow">not</span> <span class="n">visited</span> <span class="ow">and</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">queue</span><span class="p">:</span>
+                <span class="n">queue</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">neighbour</span><span class="p">)</span>
+
+        <span class="c"># If queue has only one element at this point, it&#39;s the common node</span>
+        <span class="c"># So stop and return that node</span>
+        <span class="k">if</span> <span class="n">queue</span> <span class="n">has</span> <span class="n">only</span> <span class="n">one</span> <span class="n">element</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">queue</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span> 
+</pre></div>
+
+
+<p>This works because whenever the breadth-first search gets to a point where only one node is<br />
+present in the queue (even after having pushed all the neighbours of the current node into the queue)<br />
+then it means that there is only one path forward and so we have found a common node. The node<br />
+remaining in the queue is thus v.</p>
+<p><strong>Runtime</strong>: <span>$O(m+n)$</span></p>
+<p>From assignment 1, question 5.</p>
+<h3 class="header"><i>3.9</i>Eulerian cycles<a class="headerlink" href="#eulerian-cycles" name="eulerian-cycles">&para;</a></h3>
+<blockquote>
+<p>Give an algorithm that either computes an Eulerian cycle in a graph, or correctly reports that no such cycle exists.</p>
+</blockquote>
+<p><strong>Implementation</strong>: First, split the graph into edge-disjoint cycles as follows: starting at an arbitrary node, perform a depth-first search until we return to the original node, storing and marking every traversed edge as "deleted" along the way. (If it's not possible to return to the original node, then no Eulerian cycle exists.) Repeat this for every node with edges remaining. We can then recreate the graph using the information obtained from the edge deletions by merging them (arbitrarily) at common vertices until the entire graph has been built up again.</p>
+<p>Incidentally, a connected graph can only have a Eulerian cycle if all of its vertices are of even degree. The converse is true as well.</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span></p>
+<h2 class="header"><i>4</i>Greedy algorithms<a class="headerlink" href="#greedy-algorithms" name="greedy-algorithms">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Interval scheduling<a class="headerlink" href="#interval-scheduling" name="interval-scheduling">&para;</a></h3>
+<blockquote>
+<p>Given tasks which have a start and end time, maximise the number of tasks completed within a time constraint, with the condition that no tasks overlap.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Sort the tasks by finish time, and do the one which finishes the earliest, then remove the tasks that overlap with the one we've done, and repeat until no tasks are left.</p>
+<p>Alternatively, we could prioritise tasks that start the latest; this would still result in an optimal schedule.</p>
+<p><strong>Runtime</strong>: <span>$O(n \log n)$</span> (<span>$O(n\ log\ n)$</span> to sort the schedule, <span>$O(n)$</span> to order it)</p>
+<p>Example of the alternative implementation in assignment 2, question 1.</p>
+<h3 class="header"><i>4.2</i>Weighted interval scheduling<a class="headerlink" href="#weighted-interval-scheduling" name="weighted-interval-scheduling">&para;</a></h3>
+<blockquote>
+<p>Same as above, except each task has a weight. You want to minimise the sum of the product of the weight and finishing time for each task.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Order the tasks by their weight-to-time ratio, and prioritise the tasks with the highest such ratio. In pseudocode:</p>
+<div class="codehilite"><pre><span class="c"># Returns the weighted schedule duration</span>
+<span class="n">schedule_jobs</span><span class="p">(</span><span class="n">jobs</span><span class="p">):</span>
+    <span class="n">job_queue</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">jobs</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span> <span class="c"># sort the jobs based on w/t ratio, highest first</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">weighted_duration</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">job</span> <span class="ow">in</span> <span class="n">job_queue</span><span class="p">:</span>
+        <span class="n">process</span><span class="p">(</span><span class="n">job</span><span class="p">)</span>
+        <span class="n">time</span> <span class="o">+=</span> <span class="n">job</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">weighted_duration</span> <span class="o">+=</span> <span class="n">time</span> <span class="o">*</span> <span class="n">job</span><span class="o">.</span><span class="n">weight</span>
+
+    <span class="k">return</span> <span class="n">weighted_duration</span>
+</pre></div>
+
+
+<p>From assignment 2, question 2.</p>
+<h3 class="header"><i>4.3</i>Graph coloring<a class="headerlink" href="#graph-coloring" name="graph-coloring">&para;</a></h3>
+<blockquote>
+<p>We have to colour a graph with k colours such that no adjacent vertices have the same colour.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Run BFS on the graph, and colour each vertex the first available colour.</p>
+<p>Incidentally, if the graph is planar, then this can be done with 4 colours. But that's very hard to prove.</p>
+<p><strong>Runtime</strong>: <span>$O(n+m)$</span> </p>
+<h3 class="header"><i>4.4</i>Kruskal's algorithm<a class="headerlink" href="#kruskals-algorithm" name="kruskals-algorithm">&para;</a></h3>
+<p><strong>Implementation</strong>: Start with a set of 'trees' that are just the individual vertices, then for every iteration, do:</p>
+<ol>
+<li>Remove the edge with the lowest cost</li>
+<li>Check the trees which will be connected by the edge, if it forms a cycle, throw this edge out, if it doesn't,</li>
+<li>Merge the two trees which are connected by this edge</li>
+<li>GOTO 1.</li>
+</ol>
+<p>In other words, add the smallest edge that, when added to the graph, does not result in a cycle. If there are <span>$n$</span> vertices, continue until <span>$n-1$</span> edges have been added.</p>
+<p>If the edge costs are all distinct, then Kruskal's algorithm always finds the (unique) minimum spanning tree. Otherwise, we can modify the algorithm to produce all the possible minimum spanning trees, as follows:</p>
+<div class="codehilite"><pre><span class="n">find_msts</span><span class="p">(</span><span class="n">graph</span><span class="p">):</span>
+    <span class="n">msts</span> <span class="o">=</span> <span class="p">[[]]</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">edges</span><span class="p">)</span> <span class="c"># sort the set of edges by their weight, ascending</span>
+
+    <span class="c"># First use the original Kruskal&#39;s algorithm to find one minimum spanning tree</span>
+    <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span> <span class="c"># go through the edges one by one, starting with the lowest</span>
+        <span class="c"># If the edge set so far is not yet a tree and does not contain any cycles:</span>
+        <span class="n">mst_in_progress</span> <span class="o">=</span> <span class="n">msts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">edge</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_tree</span><span class="p">(</span><span class="n">mst_in_progress</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_cycles</span><span class="p">(</span><span class="n">mst_in_progress</span><span class="p">:</span> 
+            <span class="n">msts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span> <span class="c"># add the edge to the edge set and keep going</span>
+        <span class="c"># Otherwise, simply keep going, ignoring this edge</span>
+
+    <span class="c"># Now pull out the edges with non-unique weights and put them elsewhere</span>
+    <span class="c"># But only the second (and higher) edges - so 1 2 2 3 3 3 --&gt; 1 2 3 and 2 3 3</span>
+    <span class="n">dupes</span> <span class="o">=</span> <span class="n">remove_dup_weights</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span> <span class="c"># removes them from edges, pulls into dupes</span>
+
+    <span class="c"># Now we have a minimum spanning tree in msts[0]</span>
+    <span class="c"># Check if there are potentially more in the graph</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dupes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="c"># No duplicates - all edges have distinct weights; the original MST is unique</span>
+        <span class="k">return</span> <span class="n">msts</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># For each duplicate, try to insert that duplicate edge, then the others</span>
+        <span class="k">for</span> <span class="n">dupe</span> <span class="ow">in</span> <span class="n">dupes</span><span class="p">:</span>
+            <span class="n">possible_mst</span> <span class="o">=</span> <span class="p">[</span><span class="n">dupe</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+                <span class="c"># Use Kruskal&#39;s basic algorithm to try and build up an MST</span>
+                <span class="c"># Try to add each edge after the list containing dupe until we get a tree</span>
+                <span class="n">mst_in_progress</span> <span class="o">=</span> <span class="n">possible_mst</span> <span class="o">+</span> <span class="n">edge</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">is_tree</span><span class="p">(</span><span class="n">mst_in_progress</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">has_cycles</span><span class="p">(</span><span class="n">mst_in_progress</span><span class="p">):</span>
+                    <span class="n">possible_mst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+            <span class="c"># Now we have a tree - check if it&#39;s indeed minimum-spanning</span>
+            <span class="c"># For that to be true, it must have the same weight as the original, valid MST</span>
+            <span class="k">if</span> <span class="n">get_total_weight</span><span class="p">(</span><span class="n">possible_mst</span><span class="p">)</span> <span class="o">==</span> <span class="n">get_total_weight</span><span class="p">(</span><span class="n">msts</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="c"># Make sure that it&#39;s not the same MST as our original one</span>
+                <span class="k">if</span> <span class="n">possible_mst</span> <span class="o">!=</span> <span class="n">msts</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">msts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">possible_mst</span><span class="p">)</span> <span class="c"># it is indeed distinct - add it to the set</span>
+        <span class="c"># Return the set of MSTs found</span>
+        <span class="k">return</span> <span class="n">msts</span>
+</pre></div>
+
+
+<p><strong>Runtime</strong>: <span>$O(n \log n)$</span> (<span>$O(n\ log\ n)$</span> to sort the edges by weight, every iteration an edge is removed(constant time), and a union(if possible) is made, which takes constant time)</p>
+<p>Some theory and applications in assignment 2, question 3.</p>
+<h3 class="header"><i>4.5</i>Anti-Kruskal's algorithm<a class="headerlink" href="#anti-kruskals-algorithm" name="anti-kruskals-algorithm">&para;</a></h3>
+<blockquote>
+<p>The same problem statement as the above, only do the reverse.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Start with the full graph, however, keep a list of all the edges sorted by weight, then for each iteration, do:</p>
+<ol>
+<li>Remove the edge from the sorted list with the highest cost from the graph</li>
+<li>Check the graph to see if it's still connected</li>
+<li>If not, add the edge back in the graph</li>
+<li>Remove the edge from the sorted list</li>
+<li>GOTO 1.</li>
+</ol>
+<p>In other words, keep removing the highest-cost edges until there are only <span>$n-1$</span> edges left (and the graph is still connected).</p>
+<p><strong>Runtime</strong>: <span>$O(n^2)$</span> (<span>$O(n \log n)$</span> to sort the edges by weight, then <span>$n iterations to check for connectedness, with each iteration running in $</span>O(n)$ time)</p>
+<h3 class="header"><i>4.6</i>Dijkstra's algorithm<a class="headerlink" href="#dijkstras-algorithm" name="dijkstras-algorithm">&para;</a></h3>
+<blockquote>
+<p>Find the shortest path between a single node and every other node in the graph, assuming non-negative edge weights.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Create a list of distances from the source to each vertex, each of which is initialised to infinity (except the distance from the source to itself, which is 0). This list is kept in a heap so that the minimum element can be retrieved in <span>$O(\log n)$</span> time. We can also create a list of the vertices before each vertex in every optimal path, so that we can later generate the paths themselves by backtracking.</p>
+<p>For every iteration, do:</p>
+<ol>
+<li>Take out the vertex with the lowest distance to the source from the list</li>
+<li>For all of its adjacent vertices, if the distance to this vertex + the cost of the edge leading to the adjacent vertex is lower than the distance to source of the adjacent vertex, update it, and change the previous vertex list to point to this one</li>
+<li>Update the list accordingly as distances to the source has changed</li>
+<li>GOTO 1.</li>
+<li>If there are no more, or the lowest distance is infinity, the algorithm has completed.</li>
+<li>Backtrack from the destination by looking up the list of previous vertices until we get back to the source</li>
+</ol>
+<p>Implemented in assignment 2, question 5.</p>
+<p><strong>Runtime</strong>: <span>$O(n \log n)$</span> with a heap, <span>$O(n^2)$</span> without (keeping the list of distances to the source in a proper heap requires <span>$O(\log n)$</span> every iteration, and there are at most n iterations)</p>
+<h3 class="header"><i>4.7</i>Huffman coding<a class="headerlink" href="#huffman-coding" name="huffman-coding">&para;</a></h3>
+<blockquote>
+<p>Design an optimal binary, variable-length encoding algorithm (specifically, a prefix code) that uses the frequency of each characters to determine its corresponding code.</p>
+</blockquote>
+<p><strong>Implementation</strong>: We start with a list of nodes (each one corresponding to a character) sorted by the frequency of occurrence of the character. We can then build a priority queue of the nodes as follows:</p>
+<ol>
+<li>Remove the two nodes with the lowest frequency.</li>
+<li>Create a new node with the combined frequency of these two nodes, and has two children being these two nodes, and put the new node back into the heap</li>
+<li>GOTO 1.</li>
+</ol>
+<p>The structure produced at the end should be a binary tree that determines the Huffman code. To find the codeword for each character, simply traverse the tree, taking the left edge of any node as a 0, and the right as a 1 (or vice versa).</p>
+<p>We could also create a <em>ternary</em> Huffman code using a ternary tree. The algorithm is similar, only instead of removing two nodes with the lowest frequency, we remove three, and create a new node with three children. This algorithm then ends when there is only one node left in the queue, as before, although if the number of characters to encode is even, it is necessary to create an empty node initially and add it to the queue (as a full ternary tree can only have an odd number of leaves).</p>
+<p><strong>Runtime</strong>: <span>$O(n\log n)$</span> (<span>$O(n\log n)$</span> to sort the nodes at the beginning, then at most <span>$n$</span> iterations, each of which takes <span>$O(\log n)$</span> time to properly insert the new node into the heap)</p>
+<p>Example of a ternary Huffman code in assignment 2, question 4.</p>
+<h2 class="header"><i>5</i>Divide and conquer<a class="headerlink" href="#divide-and-conquer" name="divide-and-conquer">&para;</a></h2>
+<p>Divide-and-conquer algorithms work by taking a problem and breaking it down into smaller, more manageable subproblems. Once all the subproblems have been solved, their solutions can be amalgamated to obtain the solution for the entire problem.</p>
+<h3 class="header"><i>5.1</i>Mergesort<a class="headerlink" href="#mergesort" name="mergesort">&para;</a></h3>
+<p><strong>Implementation</strong>: We can create a sorted list in <span>$O(n)$</span> time by merging two sorted sublists of half lengths. These two sorted sublists can be created in the same way, until the sublists are of length 1 or 0, in which case they are already sorted.</p>
+<p>Two sorted sublists can be merged with the use of a temporary array and a linear number of comparisons. That is, for the first element in the fully sorted list, take the smaller of the first elements of the two sorted sublists, and delete that element from the array. And so on.</p>
+<p><strong>Runtime</strong>: <span>$O(n\log n)$</span> (from the recurrence <span>$T(n) = 2T(\frac{n}{2}) + n$</span>)</p>
+<h3 class="header"><i>5.2</i>Exponentiation<a class="headerlink" href="#exponentiation" name="exponentiation">&para;</a></h3>
+<p><strong>Implementation</strong>: The naive method, brute-force method is to multiply the number <span>$n$</span> times, which takes <span>$O(n)$</span>. Using a divide-and-conquer algorithm, however, we can define exponentiation in a way that scales much better: if <span>$n$</span> is even, <span>$x^n = x^{n/2} \times x^{n/2}$</span>, and if <span>$n$</span> is odd, <span>$x^n = x^{n/2} \times x^{n/2} \times x$</span>. Then <span>$x^{n/2}$</span> can be calculated the same way, etc.</p>
+<p><strong>Runtime</strong>: <span>$T(n) = 2T(\frac{n}{2}) + 2 = 3 \log n = O(\log n)$</span> <sup>confirm?</sup></p>
+<h3 class="header"><i>5.3</i>Chip testing<a class="headerlink" href="#chip-testing" name="chip-testing">&para;</a></h3>
+<p>Two chips are being put in the tester at once. The chip in slot 1 will test the condition of the chip in slot 2. A good chip will always be correct while a bad chip will give a random result. We know that in our pile, there are more good chips than bad chips. How can we accuately determine the quality of all of the chips?</p>
+<p><strong>Implementation</strong>: The naive method is to test a chip against the n-1 other chips, and the chip's quality will be indicated by the majority's result since there are more good chips than bad ones. This will take <span>$n^2$</span> time as you will need to test <span>$\frac{n}{2} chips $</span>n$ times each in the worst case.</p>
+<p>Instead, we can group chips into pairs, and test them with each other. This will either produce results GG, BB, or GB. If we only keep the GG results, we preserve the |good| &gt; |bad| property. If the number of chips is odd, we can simply test that chip against every other one. This way we are cutting the number of chips to test by at least half every iteration.</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span> (recurrence: <span>$T(n) = \frac{n}{2} + T(n/2)$</span> if n is even, <span>$T(n) = n-1 + \frac{n-1}{2} + T(\frac{n-1}{2})$</span> if n is odd)</p>
+<h3 class="header"><i>5.4</i>Finding the kth smallest element<a class="headerlink" href="#finding-the-kth-smallest-element" name="finding-the-kth-smallest-element">&para;</a></h3>
+<blockquote>
+<p>Given an unsorted list, find the <span>$k$</span><sup>th</sup> smallest element.</p>
+</blockquote>
+<p><strong>Implementation</strong>: The naive approach would be to sort the list in <span>$O(n \log n)$</span> time, then simply access the <span>$k$</span><sup>th</sup> element. However, we can develop a more efficient algorithm using a divide-and-conquer approach. We begin by splitting the list into <span>$\lceil \frac{n}{5} \rceil$</span> sublists of at most 5 elements each. For each sublist, we find the median, which can be done in constant time (so <span>$O(n)$</span> for all of the sublists). Next, we recursively find the median of all the medians found so far, then split the original list into two, with one partition containing only elements greater than the median and the other containing only elements less than or equal to the median. We then recurse on the sublist that the k<sup>th</sup> smallest element will be found in (based on the number of elements in each sublist and the value of <span>$k$</span>).</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span> (recurrence: <span>$\displaystyle T(n) = T\left (\frac{9n}{10} \right ) + cn$</span>)</p>
+<h3 class="header"><i>5.5</i>Counting inversions<a class="headerlink" href="#counting-inversions" name="counting-inversions">&para;</a></h3>
+<blockquote>
+<p>?</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong>: <span>$O(n\log n)$</span></p>
+<h3 class="header"><i>5.6</i>Closest pair of points<a class="headerlink" href="#closest-pair-of-points" name="closest-pair-of-points">&para;</a></h3>
+<blockquote>
+<p>?</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong>: <span>$O(n \log n)$</span></p>
+<h3 class="header"><i>5.7</i>Karatsuba multiplication<a class="headerlink" href="#karatsuba-multiplication" name="karatsuba-multiplication">&para;</a></h3>
+<blockquote>
+<p>?</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong>:<span>$O(n^(\log3))$</span> = <span>$O(n^(1.585))$</span></p>
+<h3 class="header"><i>5.8</i>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" name="matrix-multiplication">&para;</a></h3>
+<blockquote>
+<p>?</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong> <span>$O(n^2.81)$</span></p>
+<h3 class="header"><i>5.9</i>Recurrences<a class="headerlink" href="#recurrences" name="recurrences">&para;</a></h3>
+<blockquote>
+<p>Given a recurrence in the form <span>$\displaystyle T(n) = aT\left ( \frac{n}{b} \right ) + cn$</span>, find a suitable upper bound.</p>
+</blockquote>
+<p>This isn't really an algorithm as much as it is a type of question likely to appear on the exam. Some situations:</p>
+<ul>
+<li>When <span>$a = b$</span>, the answer is <span>$O(n \log n)$</span> no matter what <span>$c$</span> is.</li>
+<li>When <span>$b = 2$</span> and <span>$a &gt; 2$</span>, the answer is <span>$O(n^{\log_2a})$</span>.</li>
+<li>When <span>$b = 2$</span> and <span>$a = 1$</span>, the answer is <span>$O(n)$</span>.</li>
+<li>Generally, if <span>$a &lt; b$</span>, the upper bound is <span>$O(n)$</span>.</li>
+<li>If <span>$a = b = 2$</span> and <span>$n$</span> is replaced by <span>$n^2$</span>, then <span>$O(n^2)$</span> is an upper bound.</li>
+</ul>
+<p>From KT, chapter 5.</p>
+<h2 class="header"><i>6</i>Dynamic programming<a class="headerlink" href="#dynamic-programming" name="dynamic-programming">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Computing the Fibonacci numbers<a class="headerlink" href="#computing-the-fibonacci-numbers" name="computing-the-fibonacci-numbers">&para;</a></h3>
+<blockquote>
+<p>Give an algorithm to compute the <span>$n$</span><sup>th</sup> Fibonacci number.</p>
+</blockquote>
+<p><strong>Implementation</strong>: The method is the same as the tradition recursive method: <span>$F(n) = F(n-1) + F(n-2)$</span>, except we use memoization. This entails storing the results we have for <span>$F(n)$</span> in a data structure, so it doesn't need to be recomputed every time. Much more efficient than the naive method, which has a runtime of <span>$O(\varphi^n)$</span> (where <span>$\varphi = 1.618 \ldots$</span>, interestingly enough).</p>
+<p><strong>Runtime</strong>: <span>$O(n)$</span> time, since now we only calculate <span>$F(0) \ldots F(k)$</span> once for all <span>$k&lt;n$</span>.</p>
+<h3 class="header"><i>6.2</i>Edit distance<a class="headerlink" href="#edit-distance" name="edit-distance">&para;</a></h3>
+<blockquote>
+<p>Given two strings, find the minimum number of permutations necessary to transform one string into the other. Allowed changes are inserting, deleting and substituting characters.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Edit(i,j) means the edit distance between the first i letters of A and the first j letters of B.</p>
+<p>Then the general recurrence can be described as:</p>
+<div class="codehilite"><pre>Edit(i,j) = i, if j = 0
+Edit(i,j) = j, if i = 0
+Edit(i,j) = min(Edit(i-1,j)+1, Edit(i,j-1)+1, Edit(i-1,j-1)+diff(A[i],B[i])) //diff(a,b) returns 1 if a != b, 0 otherwise
+</pre></div>
+
+
+<p>To backtrack to find the difference, we can simply start at the bottom right corner, and look at the cell above, to the left, and to the left/top of it, and go to the lowest cell. We repeat this until we've reached the beginning. This takes O(n) time.</p>
+<p><strong>Runtime</strong>: From the implementation, it's easy to see that Edit(i,j) depends on Edit(i-1,j), Edit(i,j-1) and Edit(i-1,j-1).<br />
+If we have a n x m table where each cell is the result of Edit(i,j), filling one cell requires 3 look ups, so filling the entire thing requires 3mn = O(mn)</p>
+<h3 class="header"><i>6.3</i>Subset sum<a class="headerlink" href="#subset-sum" name="subset-sum">&para;</a></h3>
+<blockquote>
+<p>Given a list of items with weights and a maximum weight, we want to achieve the heaviest combined weight from the list of items without going over the maximum weight.</p>
+</blockquote>
+<p><strong>Implementation</strong>: We define the function opt(i,w) as the optimal weight with up to the i<sup>th item available, and with a maximum weight of w.<br />
+It's easy to see opt(0,w) = 0 for any w, and opt(i, 0) = 0 for any i.<br />
+If the i</sup>th item weighs more than w, it means there's no way we can put it in the bag, thus if <br />
+w<sub>i</sub> &gt; w, then opt(i,w) = opt(i-1,w).<br />
+Otherwise, we can either not put the i^th item in, or not. We would put in the option that end up giving us the better weight. Thus we would put in:<br />
+max(opt(i-1,w),opt(i-1,w-w<sub>i</sub>)+w<sub>i</sub>) The first option is not including the current item, the second option is considering it in the bag.<br />
+This recurrence will reduce this problem until it becomes trivial to solve.</p>
+<p><strong>Runtime</strong>: The table would be n x W to map out all the possible results for opt(i,w). We can see that opt(i,w) depends on opt(i-1,w) and opt(i-1,w-w<sub>i</sub>), so filling each cell requires only two look ups. The final runtime would be <span>$O(nW)$</span>. It's almost like polynomial time, except W can be arbitrarily large so we call it pseudopolynomial. <br />
+Back tracking is similar to the other dynamic prog algorithms. We start at the bottom right corner, and we go towards the top left depending on which one is optimal. Backtracking takes <span>$O(n)$</span></p>
+<h3 class="header"><i>6.4</i>Longest common subsequence<a class="headerlink" href="#longest-common-subsequence" name="longest-common-subsequence">&para;</a></h3>
+<blockquote>
+<p>Given two strings with lengths m and n, we define LCS(m,n) as the longest common subsequence between them. Design an algorithm to compute the LCS.</p>
+</blockquote>
+<p><strong>Implementation</strong>: LCS(i,j) can be defined recursively:</p>
+<p>LCS(i,j) = 0 if i or j are zero, this is trivial<br />
+or<br />
+LCS(i,j) = LCS(i-1,j-1)+1, this results when the i<sup>th</sup> character and the j<sup>th</sup> character of the two strings are the same. We can simply remove that character and find the LCS of the remaining two strings.<br />
+or<br />
+max(LCS(i-1,j),LCS(i,j-1)), the last characters of the two strings differ. The longest subsequence can either include the character from the first string or the character from the second string, so we take the longest of the two.</p>
+<p><strong>Runtime</strong>: LCS(i,j) then depends on LCS(i-1,j-1), LCS(i-1,j), LCS(i,j-1). We can set up a table with m x n size, and fill the table. Filling each cell requires 3 look ups, so filling the entire table takes 3mn = O(mn) time.<br />
+To backtrack the procedure is similar to finding the edit distance; We start at the bottom right of the table, and traverse up and to the left. We go up and left if the i<sup>th</sup> and the j<sup>th</sup> letter of the tables are the same, and we either go up or left depending on which cell is bigger</p>
+<h3 class="header"><i>6.5</i>The knapsack problem<a class="headerlink" href="#the-knapsack-problem" name="the-knapsack-problem">&para;</a></h3>
+<blockquote>
+<p>Optimise value and minimise weight. Like choosing what objects to carry in a knapsack.</p>
+</blockquote>
+<p><strong>Implementation</strong>: This is the same problem as the subset sum problem, if you replace w<sub>i</sub> with v<sub>i</sub> instead. If you think about it, the subset sum problem is just the case of the knapsack problem where the values of each item is equal to its weight.</p>
+<p><strong>Runtime</strong>: Same as subset sum, <span>$O(nW)$</span></p>
+<h3 class="header"><i>6.6</i>The knapsack problem with repetition<a class="headerlink" href="#the-knapsack-problem-with-repetition" name="the-knapsack-problem-with-repetition">&para;</a></h3>
+<blockquote>
+<p>Same as above except, different somehow?</p>
+</blockquote>
+<p><strong>Implementation</strong>: It's the subset sum problem with a subtlety. When we consider whether or not to put in the i^th item, we don't change i when we add it in the sack, so instead of: max(opt(i-1,w),opt(i-1,w-w<sub>i</sub>)+w<sub>i</sub>), we do max(opt(i-1,w),opt(i,w-w<sub>i</sub>)+w<sub>i</sub>).</p>
+<p><strong>Runtime</strong>: The runtime is the same</p>
+<h3 class="header"><i>6.7</i>Making change<a class="headerlink" href="#making-change" name="making-change">&para;</a></h3>
+<blockquote>
+<p>Given several denominations of coins and an amount, make change or something.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Again it's slightly different from subset sum, but the idea is the same. This time you're trying to optimize the number of coins to be a minimum, and similar to knapsack with repeated elements, you can have as many coins of the same type as you want. The recurrence is now:</p>
+<div class="codehilite"><pre>opt(i,0) = 0 for all i, opt(0,v) = 0 for all v
+opt(i, v) = min(opt(i-1,v),opt(i, v - d~i~) + i) //d~i~ is the coinage value of the i~th~ coin we put in.
+</pre></div>
+
+
+<p><strong>Runtime</strong>: The runtime is <span>$O(nV)$</span>, where V is the amount of change we want to make <sup>and what is n supposed to be</sup></p>
+<h3 class="header"><i>6.8</i>Bellman-Ford algorithm<a class="headerlink" href="#bellman-ford-algorithm" name="bellman-ford-algorithm">&para;</a></h3>
+<blockquote>
+<p>If we have a directed graph with edge values that could be negative, Dijkstra's algorithm becomes screwy because it would just keep going around and around a cycle with negative values. Note however, if the graph doesn't have negative values Dijkstra's algorithm is much faster.</p>
+</blockquote>
+<p><strong>Implementation</strong>: Unlike Dijkstra's algorithm which relaxes the closest vertex, this algorithm relaxes all of the vertices, and does this n-1 times, allowing the closest distance to propagate from the source to the destination. This way negative cycles can be detected without the algorithm not terminating. </p>
+<p><strong>Runtime</strong>: Relaxing all the vertices takes m time, and it does it n-1 times, so it's O(nm)</p>
+<h3 class="header"><i>6.9</i>Floyd-Warshall algorithm<a class="headerlink" href="#floyd-warshall-algorithm" name="floyd-warshall-algorithm">&para;</a></h3>
+<blockquote>
+<p>Same problem as Bellman-Ford algorithm, solved differently</p>
+</blockquote>
+<p><strong>Implementation</strong>: This algorithm calculates all possible paths and their distances between two points. <br />
+We define opt(i,j,k) as the shortest distance between i and j, using only vertices from 1 up to k. We then realize several properties for this function:<br />
+opt(i,j,k) for i=j is 0, unless there is an edge with negative cost in k. This algorithm will detect negative costs.<br />
+When going from a vertex to a vertex which is not itself, there are two options for opt(i,j,k):<br />
+Either the k<sup>th</sup> point is not being used in the path, in which case, opt(i,j,k) = opt(i,j,k-1)<br />
+Or the k<sup>th</sup> point is used in the path, so<br />
+opt(i,j,k) = opt(i,k,k-1) + opt(k,j,k-1) // we go from i to k, then k to j, effectively including k in the path<br />
+We take the minimum of these two, and so we have defined a recurrence for opt(i,j,k)</p>
+<p><strong>Runtime</strong>: Since opt(i,j,k) takes 3 parameters, all of which can be up to n, there are n<sup>3</sup> data sets we need to get. For each, we perform 2 look ups, so the running time is 2n<sup>3</sup>, which is O(n<sup>3</sup>)</p>
+<h3 class="header"><i>6.10</i>Optimal binary search trees<a class="headerlink" href="#optimal-binary-search-trees" name="optimal-binary-search-trees">&para;</a></h3>
+<blockquote>
+<p>Given a binary search tree, and the frequencies for each element to be retrieve, construct a binary search tree which has the lowest expected search time</p>
+</blockquote>
+<p><strong>Implementation</strong>: We make the observation that each optimal BSTs must be made of subtrees which themselves are optimal. Thus if we choose an optimal root, finding the subtrees are a just a subproblem. We start by finding the optimal subtrees of size 2, which can then be used to find optimal subtrees of size 3 and so on until we find the optimal BST. Finding an optimal subtree of size 3 from an optimal subtree of size 3 involves checking all possibilities for the root, then putting on the optimal subtree of size 2. <br />
+If we define P(i,j) as the search time for the optimal BST for a subtree with elements spanning from i to j, then:<br />
+P(i,j) = P(i,k-1)+ frequency of k + P(k+1,j)<br />
+But what is k? We can only figure out the value of K which gives us the lowest search time by bruteforce, so we loop through all possible values of K from i to j.</p>
+<p><strong>Runtime</strong>: The table is n x n, so we know we have to iterate at least <span>$n^2$</span> times. At each cell, we look for an optimal value of k by looking at all the possibilities from i to j, this is at worst n times. Therefore the running time is O(n<sup>3</sup>)</p>
+<h3 class="header"><i>6.11</i>Chain matrix multiplication<a class="headerlink" href="#chain-matrix-multiplication" name="chain-matrix-multiplication">&para;</a></h3>
+<blockquote>
+<p>Given a lot of matrices to multiply, figure out the way that requires the lowest number of multiplications.</p>
+</blockquote>
+<p><strong>Implementation</strong>: The approach is similar to optimal BSTs. Once again we can define a function called M(i,j) as the minimum number of multiplications needed to multiply matrices from i -&gt; j together.<br />
+M(i,j) = M(i,k-1)+ dim(i)<em>dim(k)</em>dim(k-1)+M(k+1,j)<br />
+Once again, we have to figure out the optimal value for k, which means iterating through all possibilities for k in i-&gt;j</p>
+<p><strong>Runtime</strong>: The runtime is the same as finding an optimal BST because they're fundamentally the same problem, thus the running time is O(n<sup>3</sup>)</p>
+<h3 class="header"><i>6.12</i>Maximum independent set in a tree<a class="headerlink" href="#maximum-independent-set-in-a-tree" name="maximum-independent-set-in-a-tree">&para;</a></h3>
+<blockquote>
+<p>Problem statement</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong>: <span>$O(n+n) = O(n)$</span></p>
+<h3 class="header"><i>6.13</i>Diameter(width) of a tree<a class="headerlink" href="#diameterwidth-of-a-tree" name="diameterwidth-of-a-tree">&para;</a></h3>
+<blockquote>
+<p>Problem statement</p>
+</blockquote>
+<p><strong>Implementation</strong>: ?</p>
+<p><strong>Runtime</strong>: O(n)</p>
+<h2 class="header"><i>7</i>Network Flow<a class="headerlink" href="#network-flow" name="network-flow">&para;</a></h2>
+<h3 class="header"><i>7.1</i>The Ford-Fulkerson algorithm<a class="headerlink" href="#the-ford-fulkerson-algorithm" name="the-ford-fulkerson-algorithm">&para;</a></h3>
+<blockquote>
+<p>Given a flow network with integer edge capacities, and two vertices designated as source and sinks, find the maximum amount of flow between the source and the sink.</p>
+</blockquote>
+<p><strong>Implementation</strong>: We iteratively do:<br />
+1. Use DFS to find a valid path from source to sink<br />
+2. Find the lowest capacity of the edges along that path, and augment the graph by that amount along that path<br />
+An augmented graph means lowering the flow capacity in the direction of the specified path by the specified amount, but at the same time, add flow capacity to the opposite direction of all the edges along the path by the same amount<br />
+3. Add the amount to a total count that keeps track of the total flow<br />
+4. GOTO 1. using the augmented graph<br />
+5. When no paths can be made from source to sink, we are done</p>
+<p><strong>Runtime</strong>: If all the edge capacities are integers, we always increase the flow by at least 1. In the worst case we would have to iterate F times, where F is the maximum flow. Each iteration it takes O(n) time to find a path and augment it. The runtime is then O(Fn)</p>
+<h3 class="header"><i>7.2</i>The Edmonds-Karp algorithm<a class="headerlink" href="#the-edmonds-karp-algorithm" name="the-edmonds-karp-algorithm">&para;</a></h3>
+<blockquote>
+<p>Problem statement</p>
+</blockquote>
+<p><strong>Implementation</strong>: It is identical to Ford-Fulkerson, except instead of using DFS to find a path from source to since, you use BFS instead. This magically produces short paths. </p>
+<p><strong>Runtime</strong>: Every iteration this will take O(E) E-&gt; number of edges, and at each iteration one of E number edges will become saturated. Since this guarantees that the shortest path gets picked, the path must be monotonically increasing with every iteration, so there can be at most V iterations. Thus the running time is <span>$O(E^2V)$</span></p>
+<h3 class="header"><i>7.3</i>Ford-Fulkerson with scaling capacities<a class="headerlink" href="#ford-fulkerson-with-scaling-capacities" name="ford-fulkerson-with-scaling-capacities">&para;</a></h3>
+<blockquote>
+<p>Problem statement</p>
+</blockquote>
+<p><strong>Implementation</strong>: You keep a value <span>$\delta$</span> which is the largest power of 2 smaller than the maximum capacity of any edge coming out of source, and you only allow that much flow through at each iteration. After each iteration you scale down <span>$\delta$</span> by a factor of two, until it reaches 1</p>
+<p><strong>Runtime</strong>: This turns a runtime of O(Fn) into a runtime of <span>$O(m^2log_2C)$</span>. You scale the factor log<sub>2</sub>C times, and at most 2m augmentations every scale. Each augmentation takes O(m) time, that gives us the result of <span>$O(m^2log_2C)$</span> for the running time</p>
+<h3 class="header"><i>7.4</i>Maximum bipartite matching<a class="headerlink" href="#maximum-bipartite-matching" name="maximum-bipartite-matching">&para;</a></h3>
+<blockquote>
+<p>Problem statement</p>
+</blockquote>
+<p><strong>Implementation</strong>: You set everything to have a flow capacity of 1, and connect a supersource to one side and a supersink to another. Then Ford Fulkerson that shit</p>
+<p><strong>Runtime</strong>: <span>$O(EV)$</span>, the max capacity is E, since each edge has a capacity of 1, and traversal takes V every iteration</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

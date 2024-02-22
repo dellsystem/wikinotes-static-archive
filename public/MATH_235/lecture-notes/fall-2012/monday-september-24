@@ -1,0 +1,168 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, September 24, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, September 24, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The fundamental theorem of arithmetic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Lecture notes for lecture #9 of MATH 235, normally taught by <a href="http://www.math.mcgill.ca/darmon/">Henri Darmon</a>, but with <a href="http://www.math.mcgill.ca/brakocevic/">Miljan Brakočević</a> temporarily filling in while Darmon is away for a week. These lecture notes are student-generated and any errors or omissions should be assumed to be the fault of the notetaker and not of the lecturer. To correct an error, you have to be <a href="http://beta.wikinotes.ca/register">registered</a> and logged-in; alternatively, you can contact <a href="/users/dellsystem">@dellsystem</a> directly.</p>
+<h2 class="header"><i>1</i>Primes and unique factorisation<a class="headerlink" href="#primes-and-unique-factorisation" name="primes-and-unique-factorisation">&para;</a></h2>
+<p>An integer <span>$p \in \mathbb{N} \setminus \{0, 1\}$</span> is <strong>prime</strong> if its only divisors are <span>$\pm 1$</span> and <span>$\pm p$</span>.</p>
+<h3 class="header"><i>1.1</i>The sieve of Eratosthenes<a class="headerlink" href="#the-sieve-of-eratosthenes" name="the-sieve-of-eratosthenes">&para;</a></h3>
+<p>One method for efficiently finding all the primes up to a number <span>$n$</span> is called <strong>sieve of Eratosthenes</strong>. This method has been known since the days of ancient Greece, and is illustrated in the following example, with <span>$n=120$</span> (<a href="http://en.wikipedia.org/wiki/File%3ASieve_of_Eratosthenes_animation.gif">source</a>):</p>
+<p><img alt="Sieve of Eratosthenes illustration" src="http://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif" /></p>
+<p>We start at two, and record that as prime. Then, we cross off all the multiples of two (2, 4, 6, etc). Then we move on to three, and record that as prime, then cross off all the multiples of three. And so on. We can stop the crossing-off when we reach a number <span>$&gt; \sqrt{n}$</span>, for after <span>$sqrt{n}$</span>, all the numbers that have not yet been crossed off will no longer be crossed off by subsequent multiples. Consequently, once we get to <span>$\sqrt{n}$</span>, all the non-crossed-off numbers that remain are prime.</p>
+<p>That we only need to check the numbers up until <span>$\sqrt{n}$</span> can be proved as follows. Let <span>$n = pq$</span>, where <span>$p$</span> and <span>$q$</span> are prime. Then, we have that either <span>$p \leq \sqrt{n}$</span> or <span>$q \leq \sqrt{n}$</span>. This is because if <em>both</em> <span>$p$</span> and <span>$q$</span> are greater than <span>$\sqrt{n}$</span>, then <span>$pq &gt; \sqrt{n} \cdot \sqrt{n}$</span>, and so we would have that <span>$pq &gt; n$</span>, which contradicts the premise that <span>$n = pq$</span>.</p>
+<p>The description of this algorithm is mostly a historical remark, as an introduction to prime numbers. Still, this method is quite efficient and is often used in computer algorithms for computing and detecting prime numbers.</p>
+<h3 class="header"><i>1.2</i>The fundamental theorem of arithmetic<a class="headerlink" href="#the-fundamental-theorem-of-arithmetic" name="the-fundamental-theorem-of-arithmetic">&para;</a></h3>
+<p>The <strong>fundamental theorem of arithmetic</strong> can be stated quite simply:</p>
+<blockquote>
+<p>Every non-zero number can be uniquely represented as a product of primes.</p>
+</blockquote>
+<p>The proof of this is slightly more involved. First, by convention, we allow the empty product to be equal to 1. Then, to prove the theorem, we have to prove first that every number can indeed be represented as a product of times (the <strong>existence</strong> property), and then we have to prove that this prime factorisation is unique for each integer (the <strong>uniqueness</strong> property).</p>
+<p>In symbolic notation, we are trying to prove that for all <span>$n &gt; 0$</span>, we can write <span>$n = \epsilon p_1 \ldots p_m$</span>, where <span>$\epsilon = \pm 1$</span>, and <span>$0 \leq p_1 \ldots \leq p_m$</span>, where <span>$m \geq 0$</span>, and that these values for <span>$p_i$</span> are unique. Without loss of generality (WLOG), we can restrict our proof to <span>$\mathbb{Z}^+$</span> (with <span>$\epsilon = 1$</span>, so with <span>$n \geq 0$</span>.<sup id="fnref:negative"><a href="#fn:negative" rel="footnote" title="To extend this proof to the negative integers, we ...">1</a></sup></p>
+<h4 class="header"><i>1.2.1</i>The existence property<a class="headerlink" href="#the-existence-property" name="the-existence-property">&para;</a></h4>
+<p>To prove that every <span>$n &gt; 0$</span> can be written as a product of primes, we use the well-ordering principle of the natural numbers in a proof by contradiction. Suppose that the existence property does <em>not</em> hold, i.e., there is a non-empty set <span>$S$</span> of numbers, <span>$n &gt; 0$</span>, which can not be written as a product of primes. This set <span>$S$</span> must have a minimal element, <span>$n_0$</span>, such that <span>$n_0 \leq s \forall s \in S$</span>. Now, <span>$n_0$</span> cannot be prime, or equal to 1, because those can be trivially written as the product of primes.</p>
+<p>So if <span>$n_0$</span> is not prime, then it can be written as the product of integers <span>$s, t \in \mathbb{N}$</span>, such that <span>$1 &lt; s, t &lt; n_0$</span>. Now, <span>$s$</span> and <span>$t$</span> cannot be in <span>$S$</span>, because they are less than <span>$n_0$</span> and the minimality of <span>$n_0$</span> in <span>$S$</span> would be contradicted. So <span>$s$</span> and <span>$t$</span> must not be in <span>$S$</span>, and so it must be possible to write them as the product of prime numbers:</p>
+<p><span>$\begin{align*}
+s &amp; = q_1 \ldots q_a \\
+t &amp; = p_1 \ldots p_b
+\end{align*}$</span></p>
+<p>But if <span>$s$</span> and <span>$t$</span> can be written as the product of primes, then <span>$st$</span> must also be a product of primes, and so we can write <span>$n = st = q_1\ldots q_a p_1 \ldots p_b$</span>, which is a product of primes. This contradicts our original premise that <span>$n_0$</span> cannot be written as a product of primes, by virtue of belonging to the non-empty subset <span>$S$</span>. It then follows that the the set <span>$S$</span> is empty, and so there are no numbers <span>$n$</span> where <span>$n &gt; 0$</span> that cannot be written as a product of primes.</p>
+<h4 class="header"><i>1.2.2</i>The uniqueness property<a class="headerlink" href="#the-uniqueness-property" name="the-uniqueness-property">&para;</a></h4>
+<p>Next we have to prove that there is only one way of writing a number as a product of primes. First, we prove the following lemma (proposition 10.0.5 in the <a href="http://www.math.mcgill.ca/darmon/courses/algebra/Goren-Notes.pdf">notes</a>):</p>
+<blockquote>
+<p>Let <span>$p \in \mathbb{Z}$</span>. Then, the following are equivalent (TFAE):</p>
+<ol>
+<li><span>$p$</span> is prime</li>
+<li>If <span>$p$</span> divides <span>$ab$</span>, then either <span>$p$</span> divides <span>$a$</span> or <span>$p$</span> divides <span>$b$</span>.</li>
+</ol>
+</blockquote>
+<p>First, we prove that (1) <span>$\to$</span> (2). So <span>$p$</span> is prime, which means that if has no divisors other than <span>$p$</span> and <span>$1$</span>. Well, if <span>$p \nmid a$</span>, then the gcd of <span>$p$</span> and <span>$a$</span> is, trivially, 1 (since they have no other common divisors). By corollary 9.1.3, it must be that <span>$p \mid b$</span>.</p>
+<p>Now, we prove that (2) <span>$\to$</span> (1). We can write <span>$p$</span> as the product of numbers <span>$s$</span> and <span>$t$</span>, which may or may not be prime. We have to show that <span>$s$</span> and <span>$t$</span> are none other than <span>$1$</span> and <span>$p$</span>. Since it is trivially true that <span>$p \mid st$</span>, we can use the fact that either <span>$p \mid s$</span> or <span>$p\mid t$</span>. WLOG, we let it be true that <span>$p \mid s$</span>. That means that <span>$s = p \cdot s'$</span>, where <span>$s' \in \mathbb{Z}$</span>, and so <span>$p = ps't$</span>. Clearly, <span>$s't = 1$</span>, and so <span>$s'$</span> and <span>$t$</span> are also both equal to 1; consequently, <span>$s = p \cdot 1 = p$</span>. So we've proved that <span>$s$</span> and <span>$t$</span> are none other than <span>$p$</span> and 1, and so the proof of the lemma is complete.</p>
+<p>Remark: if <span>$p$</span> (still prime) divides <span>$q_1 \ldots q_t$</span>, then <span>$p$</span> must divide one of these <span>$q$</span>s (from proposition 10.0.5 above, worked further by induction).</p>
+<p>We can now begin the proof of the uniqueness property. Suppose we have two prime factorisations for <span>$n$</span>: <span>$n = \epsilon p_1\ldots p_m = \mu q_1\ldots q_t$</span>, where <span>$p$</span> and <span>$q$</span> are ordered such that <span>$p_1 &lt; \ldots &lt; p_m$</span> and <span>$q_1 &lt; \ldots &lt; q_t$</span>. We can let <span>$\epsilon = \mu = 1$</span> since <span>$n &gt; 0$</span>. We want to prove that <span>$p_i = q_i$</span> for all <span>$i$</span>.</p>
+<p>We then proceed along a proof by induction of the uniqueness property using proposition 10.0.5. For <span>$n=1$</span>, we have the empty product on both sides, so it's trivially true. Now we assume that the uniqueness property holds for <span>$n-1$</span>, and we have to show that it holds for <span>$n$</span> as well. WLOG, let <span>$p_1 \leq q_1$</span> (we could just switch them around to account for the other case). So if <span>$p_1 \mid q_1 \ldots q_t$</span> (which is true, as <span>$p_1 \mid n$</span>, since it's a prime factor of <span>$n$</span>), then <span>$p_1 \mid q_i$</span> for some <span>$i$</span>, from proposition 10.0.5. But since all the <span>$p$</span>s and <span>$q$</span>s are prime, the it must be that <span>$p_1 = q_i$</span>, and it must also be that <span>$i = 1$</span> due to the ordering we previously imposed (that is, <span>$p_1 \leq q_1$</span>). So <span>$p_1=q_1$</span>, and we can cancel them on both sides, which reduces the statement to the induction hypothesis<sup id="fnref:IH"><a href="#fn:IH" rel="footnote" title="Actually, it seems that it doesn't reduce _exactly...">2</a></sup>. <span>$\blacksquare$</span></p>
+<p>At long last, the proof for the fundamental theorem of arithmetic is complete. Let's move on.</p>
+<h3 class="header"><i>1.3</i>Euclid's theorem<a class="headerlink" href="#euclids-theorem" name="euclids-theorem">&para;</a></h3>
+<p>Euclid's theorem, presented in section 10.0.7 of the notes, states that there are infinitely many primes. Although Euclid's original proof was not technically a proof by contradiction (though it did contain one nested within it somewhere), the proof presented in lecture is, and proceeds as follows<sup id="fnref:euclid"><a href="#fn:euclid" rel="footnote" title="The proof given here is not exactly what was given...">3</a></sup>:</p>
+<p>Assume that the set of all the primes <em>in the entire world</em> is finite, represented in an ordered set as <span>$P = \{p_1, \ldots, p_n\}$</span> (where <span>$p_n$</span> is the largest prime number). Now consider the number <span>$N = p_1\ldots p_n + 1$</span>. This number can't be a prime number, because it is greater than the largest prime number <span>$p_n$</span> by at least one, and so is not in <span>$P$</span>. And yet it <em>is</em> a prime number, because the gcd of <span>$N$</span> and any <span>$p \in P$</span> (i.e. any prime) is 1, as dividing <span>$N$</span> by <span>$p$</span> will always leave a remainder of 1. So we reach a contradiction, which implies that the set of all the primes is <em>not</em> finite.</p>
+<h3 class="header"><i>1.4</i>The number of primes in an interval<a class="headerlink" href="#the-number-of-primes-in-an-interval" name="the-number-of-primes-in-an-interval">&para;</a></h3>
+<p>The number of primes in the interval <span>$\displaystyle [1, n] \sim \frac{n}{\log n}$</span> as <span>$n \to \infty$</span>. Pretty neat.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:negative">
+<p>To extend this proof to the negative integers, we simply have to say that if <span>$n &lt; 0$</span>, then <span>$-n &gt; 0$</span>, and as the theorem holds for <span>$-n$</span> it must hold for <span>$n$</span> as well, as we can just set <span>$\epsilon = -1$</span>.&#160;<a href="#fnref:negative" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:IH">
+<p>Actually, it seems that it doesn't reduce <em>exactly</em> to the induction hypothesis. Perhaps that is not important&#160;<a href="#fnref:IH" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:euclid">
+<p>The proof given here is not exactly what was given in class, but my notes for that section don't really make sense so this will have to do.&#160;<a href="#fnref:euclid" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

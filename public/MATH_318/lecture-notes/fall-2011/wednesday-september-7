@@ -1,0 +1,228 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, September 7, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, September 7, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                More propositional logic
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Propositional formulas continued<a class="headerlink" href="#propositional-formulas-continued" name="propositional-formulas-continued">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Propositional equivalence<a class="headerlink" href="#propositional-equivalence" name="propositional-equivalence">&para;</a></h3>
+<p>Two propositional formulas <span>$\Phi$</span> and <span>$\Psi$</span> are considered <strong>propositionally equivalent</strong> if their valuations are the same for every valuation, or rather, if <span>$V(\Phi) = V(\Psi)$</span> for every valuation <span>$V$</span> (so any values of the symbols used). Another way of putting it is that they have the same truth tables.</p>
+<p>For example, the following formulas are equivalent<sup id="fnref:1"><a href="#fn:1" rel="footnote" title="Incidentally, this tells us that we don't really n...">1</a></sup>:</p>
+<blockquote>
+<p><span>$p \to q$</span> and <span>$(\neg p) \lor q$</span></p>
+</blockquote>
+<p>The equivalence can be represented in a formula using the <span>$\iff$</span> sign, as follows:</p>
+<blockquote>
+<p><span>$(p \to q) \iff ((\neg p) \lor q)$</span></p>
+</blockquote>
+<p>Since the above formula is a tautology<sup id="fnref:2"><a href="#fn:2" rel="footnote" title="Writing out the truth table will be left as an exe...">2</a></sup>, the formulas <span>$p \to q$</span> and <span>$(\neg p) \lor q$</span> are pairwise equivalent.</p>
+<p>Another pair of equivalent formulas are <span>$\neg (p \land q)$</span> and <span>$(\neg p) \lor (\neg q)$</span>, with their joint truth table shown below<sup id="fnref:3"><a href="#fn:3" rel="footnote" title="This is an example of the DeMorgan law. They're br...">3</a></sup>:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th><span>$p$</span></th>
+<th><span>$q$</span></th>
+<th><span>$\neg (p \land q)$</span></th>
+<th><span>$(\neg p) \lor (\neg q)$</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+</tr>
+<tr>
+<td><span>$\top$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+<tr>
+<td><span>$\bot$</span></td>
+<td><span>$\bot$</span></td>
+<td><span>$\top$</span></td>
+<td><span>$\top$</span></td>
+</tr>
+</tbody>
+</table>
+<h3 class="header"><i>1.2</i>Functional completeness<a class="headerlink" href="#functional-completeness" name="functional-completeness">&para;</a></h3>
+<p>A set of connectives is considered functionally complete if it is possible to generate every single truth table imaginable using just that connective. An example of a functionally complete set using the connectives we've studied so far is <span>$\{ \neg, \land \}$</span>; later on we'll encounter a binary<sup id="fnref:4"><a href="#fn:4" rel="footnote" title="It is not possible to have a functionally complete...">4</a></sup> connective that is functionally complete by itself.</p>
+<h2 class="header"><i>2</i>Propositional arguments<a class="headerlink" href="#propositional-arguments" name="propositional-arguments">&para;</a></h2>
+<p>A propositional argument appears in the form</p>
+<blockquote>
+<p><span>$\Phi_1, ... \Phi_n \vdash \Psi$</span></p>
+</blockquote>
+<p>with the <span>$\vdash$</span> symbol meaning "entails"<sup id="fnref:5"><a href="#fn:5" rel="footnote" title="The symbol for &quot;does not entail&quot; is $\nvdash$ but ...">5</a></sup>. You can think of it as saying "if we accept the premises <span>$\Phi_1$</span> and <span>$\Phi_2$</span> ... and <span>$\Phi_n$</span>, then the conclusion <span>$\Psi$</span> logically follows. Note that <span>$n$</span> can be 0 - it's perfectly acceptable to have nothing on the left side of the <span>$\vdash$</span>, in which case you're just saying that <em>everything</em> entails <span>$\Psi$</span>, which is only true if <span>$\Psi$</span> is a tautology.</p>
+<h3 class="header"><i>2.1</i>Validity of propositional arguments<a class="headerlink" href="#validity-of-propositional-arguments" name="validity-of-propositional-arguments">&para;</a></h3>
+<p>A propositional argument can be said to be either <strong>valid</strong> or <strong>invalid</strong>. An argument is <strong>valid</strong> if, for any valuation <span>$V$</span> that results in <span>$V(\Phi_1) = ... = V(\Phi_n) = \top$</span>, we have <span>$V(\Psi) = \top$</span>. This can also be thought of in terms of the <span>$\to$</span> connective - <span>$\Phi_1, ... \Phi_n \vdash \Psi$</span> is valid if and only if <span>$(\Phi_1 \land ... \land \Phi_n) \to \Psi$</span> is a tautology..</p>
+<p>In other words, for an argument to be valid, whenever the left side evaluates to true, the right side does as well. An argument is <strong>invalid</strong> if it's possible to have all the premises being true with the conclusion being false.</p>
+<h3 class="header"><i>2.2</i>Independence from valuation<a class="headerlink" href="#independence-from-valuation" name="independence-from-valuation">&para;</a></h3>
+<p>Propositional arguments are not propositional formulas. Unlike the latter, they are statements, and can be either true or false. They are independent of the values of the variables.</p>
+<p>For example, <span>$p \vdash q$</span> is an invalid (untrue) propositional argument, since <span>$p \to q$</span> is not a tautology: if <span>$V(p) = \top$</span> and <span>$V(q) = \bot$</span>, <span>$V(p \to q) = \bot$</span>. However, you don't need to refer to those particular values of <span>$p$</span> and <span>$q$</span> to state that the argument is invalid; the fact that such a valuation exists is enough to invalidate the argument. Unlike the value of a propositional formula, validity <em>is</em> an inherent property of a propositional argument.</p>
+<p>In any case, the take-home message is that you can ignore the truth or falsehood of the premises or conclusion in the "real world"; it's only necessary to look at their relation to each other.</p>
+<h3 class="header"><i>2.3</i>Converting informal arguments into propositional form<a class="headerlink" href="#converting-informal-arguments-into-propositional-form" name="converting-informal-arguments-into-propositional-form">&para;</a></h3>
+<p>An informal argument given as a series of (English) statements can be transformed into propositional form by allowing each distinct statement to be represented by a variable. For example, given the following set of sentences:</p>
+<blockquote>
+<p>If the princess is pink, then the quince<sup id="fnref:6"><a href="#fn:6" rel="footnote" title="A type of fruit. Don't worry about it. It's fine.">6</a></sup> is quizzical. The princess is pink. Therefore, the quince is quizzical.</p>
+</blockquote>
+<p>we first assign variables to the two statements found above, namely, "the princess is pink" and "the quince is quizzical". In this contrived example, we can use <span>$p$</span> for "the princess is pink" and <span>$q$</span> for "the quince is quizzical", for obvious reasons. The propositional equivalent can be written as follows:</p>
+<p><span>$$p, \, p \to q \vdash q$$</span></p>
+<p>where <span>$\Phi_1 = p$</span>, <span>$\Phi_2 = p \to q$</span>, and <span>$\Psi = q$</span>. That's it.</p>
+<h3 class="header"><i>2.4</i>Determining the validity of an argument<a class="headerlink" href="#determining-the-validity-of-an-argument" name="determining-the-validity-of-an-argument">&para;</a></h3>
+<p>To check if an argument is invalid, just try to invalidate it (that is, find a valuation <span>$V$</span> such that the premises come out <span>$\top$</span> and the conclusion comes out <span>$\bot$</span>. If you are able to, then the argument is invalid. (Note that even if you are not able to, the argument might still be valid, as the inability to invalidate an argument could be caused by personal shortcomings rather than some property of the argument itself. Be thorough and that should be avoided.) You could alternatively write out a truth table or provide reasoning based on the possible values of the variables and the roles of the connectives.</p>
+<p>In the case of the previous example, we do indeed have a valid argument, as <span>$(p \land (p \to q)) \to q$</span> is a tautology (which we can confirm by writing out the truth table if we so wished). An example of an invalid informal argument is given below:</p>
+<blockquote>
+<p>The princess is pink. If the quince is quizzical, then the princess is pink. Therefore, the quince is quizzical.</p>
+</blockquote>
+<p>Or, in propositional form:</p>
+<p><span>$$p, \,q \to p \vdash q$$</span></p>
+<p>This is not valid, as <span>$V(p) = \top$</span> and <span>$V(q) = \bot$</span> clearly results in both premises being satisfied and a conclusion that is untrue. It's not that the conclusion itself is never true, it's just that the premises being true does not guarantee that the conclusion is true. Since a propositional argument is really just saying that "whenever the premises are all true, so is the conclusion", then logically any counterexample invalidates the argument, as was done above.</p>
+<p>Another, somewhat longer informal argument:</p>
+<blockquote>
+<p>If the princess is pink, then either the quince is quizzical or the rat is not rotten. Either the rat is rotten or the princess is not pink. If the quince is quizzical, then the rat is not rotten. Therefore, either the princess is pink or the quince is quizzical.</p>
+</blockquote>
+<p>In propositional form (where <span>$r$</span> now stands for "the rat is rotten"):</p>
+<p><span>$$p \to (q \lor \neg r),\, r \lor \neg p, \, q \to \neg r \vdash p \lor q$$</span></p>
+<p>Translating it was easy enough, now let's try to invalidate it. Recall that we need to find a case where the premises come out <span>$\top$</span> but the conclusion comes out <span>$\bot$</span>. For the conclusion to come out <span>$\bot$</span>, we must have <span>$V(p) = \bot$</span> and <span>$V(q) = \bot$</span>. From the former, we are guaranteed that <span>$V(\Phi_1) = V(p \to (q \lor \neg r)) = \top$</span>, and from the latter, we are guaranteed that <span>$V(\Phi_3) = V(q \to \neg r) = \top$</span>. But <span>$V(p) = \bot$</span> also means that <span>$V(r \lor \neg p) = V(r \lor \top) = \top$</span> no matter what the value of <span>$r$</span>. So the argument is invalid.</p>
+<p>Let's try this with a slightly different conclusion. Let <span>$\Psi$</span> be instead <span>$\neg p \lor \neg q$</span> ("either the princess is not pink or the quince is not quizzical"). Is this new argument also invalid? Let's check. Similarly to before, we have that the conclusion, <span>$\Psi$</span>, only comes out <span>$\bot$</span> when <span>$V(p) = V(q) = \top$</span>. For <span>$\Phi_3$</span> to come out <span>$\top$</span>, <span>$V(r)$</span> must be <span>$\bot$</span>. But when <span>$V(r) = \bot$</span>, <span>$V(\Phi_2) = \bot$</span> as well, and so there is no valuation <span>$V$</span> such that the premises come out <span>$\top$</span> and the conclusion comes out <span>$\bot$</span>. So this is a valid argument. We could also have written out the truth table for the "implies" formula (i.e. <span>$\Phi_1 \land ... \land \Phi_n \to \Psi$</span> and seen that all the lines comes out <span>$\top$</span>, but this is quicker and possibly more elegant.</p>
+<p>This type of question is likely to turn up on an exam, so make sure you have a good understanding of how this works. You can find references to appearances in assignments and past exams as well as an overview of how to answer this type of question on the <a href="/MATH_318/course-summary/fall-2011/htsefp-propositional-logic#determining-validity-for-propositional-arguments">HTSEFP page</a>.</p>
+<h2 class="header"><i>3</i>Propositionally consistent formulas<a class="headerlink" href="#propositionally-consistent-formulas" name="propositionally-consistent-formulas">&para;</a></h2>
+<p>Let <span>$\Phi_1, ... \Phi_n$</span> be formulas. We say that <span>$\{ \Phi_1, ... \Phi_n \}$</span> are propositionally consistent if there exists a valuation <span>$V$</span> such that <span>$V(\Phi_1) = ... = V(\Phi_n) = \top$</span>. So if there is a way to make them all come out <span>$\top$</span>, then the set as a whole is consistent; otherwise, the set is inconsistent. (There may be a way to make some of the formulas come out <span>$\top$</span> and some of them come out <span>$\bot$</span>, but that says nothing about a set's consistency.)</p>
+<h3 class="header"><i>3.1</i>Determining the consistency of a set of formulas<a class="headerlink" href="#determining-the-consistency-of-a-set-of-formulas" name="determining-the-consistency-of-a-set-of-formulas">&para;</a></h3>
+<p>A set of formulas <span>$\{ \Phi_1, ... \Phi_n \}$</span> if and only if there is at least one line in the truth table for <span>$\Phi_1 \land ... \land \Phi_n$</span> that comes out <span>$\top$</span>. Writing out the truth table will therefore tell you if a set is consistent or not. You can also reason based on the interaction of the connectives or whatever that means.</p>
+<p>Example: <span>$\Phi_1 = (p \to (q \lor \neg r))$</span>, <span>$\Phi_2 = (r \lor \neg p)$</span>, <span>$\Phi_3 = (q \to \neg r)$</span>, <span>$\Phi_4 = (p \lor q)$</span>. For <span>$\Phi_4$</span> to come out <span>$\top$</span>, we need either <span>$V(p) = \top$</span> or <span>$V(q) = \top$</span>. Let's start with the former. <span>$V(r)$</span> must be <span>$\bot$</span> for <span>$V(\Phi_2) = \top$</span>. <span>$V(q)$</span> can be anything, and we would still have <span>$V(\Phi_1) = V(\Phi_3) = \top$</span>. So there you go - the set is consistent, and the valuation that makes all the formulas come out <span>$\top$</span> consists of <span>$V(p) = \bot$</span>, <span>$V(r) = \bot$</span> and <span>$V(q) = $</span> either.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:1">
+<p>Incidentally, this tells us that we don't really need the <span>$\to$</span> symbol, but that'll be addressed later. See <a href="#functional-completeness">functional completeness</a>.&#160;<a href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>Writing out the truth table will be left as an exercise to the reader, because I don't feel like doing it.&#160;<a href="#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p>This is an example of the DeMorgan law. They're briefly mentioned in the lecture notes for <a href="/MATH_318/lecture-notes/fall-2011/friday-september-9#from-disjunctive-to-conjunctive">Friday, September 9</a>.&#160;<a href="#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>It is not possible to have a functionally complete set consisting solely of one unary connective, as it would then be impossible to have more than one variable.&#160;<a href="#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p>The symbol for "does not entail" is <span>$\nvdash$</span> but I don't think we really ever use it.&#160;<a href="#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p>A type of fruit. Don't worry about it. It's fine.&#160;<a href="#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

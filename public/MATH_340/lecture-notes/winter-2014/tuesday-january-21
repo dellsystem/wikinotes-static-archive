@@ -1,0 +1,158 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 21, 2014
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 21, 2014
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Telecommunication networks
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#crossbar-switches">1 Crossbar switches</a><ul>
+<li><a href="#clos-networks">1.1 Clos networks</a></li>
+<li><a href="#online-routing">1.2 Online routing</a></li>
+<li><a href="#offline-routing">1.3 Offline routing</a></li>
+<li><a href="#benes-networks">1.4 Benes networks</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Crossbar switches<a class="headerlink" href="#crossbar-switches" name="crossbar-switches">&para;</a></h2>
+<p>The simplest kind of telecommunication network is a <strong>crossbar switch</strong>. This is essentially a complete bipartite graph (aka a <strong>bipartite clique</strong>), with <span>$N$</span> input ports, <span>$N$</span> output ports, and each input port connected to each output port.</p>
+<p>Clearly, this sort of switch can route any permutation (encoding a set of input/output port pairings). On the minus side, this sort of switch is quite expensive to build as you need <span>$N^2$</span> connections. Furthermore, there is a large number of crossovers<sup id="fnref:crossover"><a href="#fn:crossover" rel="footnote" title="A crossover is a point at which two wires cross">1</a></sup>; this is also expensive and can even decrease performance.</p>
+<p>To find how many crossovers there are, consider the following: every link from the top half of the input side to the bottom half of the output side crosses at least <span>$N/2$</span>. So there are at least <span>$(N/2)^4$</span> crossovers. There may even be more - the top half can crossover with the top half. But there are at least <span>$\Omega(N^4)$</span> crossovers. (It can't be <span>$\Omega(N^5)$</span>, since we're limited by the number of actual wires. I'm not entirely convinced by this reasoning but I can't find any information on it elsewhere so who knows.</p>
+<h3 class="header"><i>1.1</i>Clos networks<a class="headerlink" href="#clos-networks" name="clos-networks">&para;</a></h3>
+<p>A <strong>Clos network</strong> is a network that incorporates many small crossbar switches, encoded in 3 stages. Example:</p>
+<p><img alt="Example Clos network" src="http://i.imgur.com/DlKEpO3.png" title="Original diagram; released under CC0" /></p>
+<p>Let <span>$r \times n = N$</span>. We will use this new connection scheme to improve on the <span>$N\times N$</span> crossbar switch scheme we saw earlier.</p>
+<p>The crossbar stages are connected by 2 perfect matchings. Between stages 1 and 2, the output <span>$i$</span> of crossbar <span>$j$</span> connects to input <span>$j$</span> of crossbar <span>$i$</span>. The same is true between stages 2 and 3.</p>
+<p>Let's now analyse the cost of this network. Suppose <span>$r = n = m = \sqrt{N}$</span>, so that we have <span>$N$</span> inputs and outputs. We would have <span>$3\sqrt{N}$</span> crossbars total. Since each crossbar has <span>$N$</span> edges, we'd get on the order of <span>$N^2$</span> crossovers. So the total number of edges is <span>$3\sqrt{N} \cdot N$</span> and the total number of crossovers is on the order of <span>$3\sqrt{N} \cdot N^2$</span>, thus, we have <span>$O(N^{3/2})$</span> edges and <span>$O(N^{5/2})$</span> crossovers.<sup id="fnref:omega"><a href="#fn:omega" rel="footnote" title="Is it $O$ or $\Omega$???">2</a></sup> (We also have <span>$2N$</span> edges in between stages, but the <span>$2N$</span> is negligible compared to the <span>$3N^{3/2}$</span> so we omit it. Also, the crossovers from edges between stages is only <span>$N^2$</span> at most, which is also negligible.) This is quite an improvement over the standard crossbar switch.</p>
+<p>Now we have to prove that a Clos networks actually works, i.e., that any incoming packet can be routed to any output port. In other words, can we route any permutation <span>$\Pi$</span> of <span>$[N] = \{1, 2, \ldots, N\}$</span>?</p>
+<h3 class="header"><i>1.2</i>Online routing<a class="headerlink" href="#online-routing" name="online-routing">&para;</a></h3>
+<p>Suppose we're given some permutation <span>$\Pi$</span> in pairs <span>$(i, \Pi_i)$</span>, one at a time. For example, if <span>$\Pi = 365491827$</span>, then we'd be given the pairs in some order, e.g., <span>$(9, 7)$</span>, <span>$(2, 6)$</span>, <span>$(4, 4)$</span>, etc.</p>
+<p>We must decide on a path for a packet immediately when that pair arrives. For example, when we receive the pair <span>$(9, 7)$</span>, we must find a path from 9 to 7. All the paths that we choose must be vertex-disjoint, to prevent blockage.</p>
+<blockquote>
+<p>Theorem: If <span>$m = 2n-1$</span>, then all packets can be routed online.</p>
+</blockquote>
+<p>Proof: Suppose we have already routed <span>$k \leq N-1$</span> packets, in a vertex-disjoint fashion. Take the new packet <span>$s$</span>, which has destination <span>$\Pi_s = t$</span>.</p>
+<p>Suppose <span>$s$</span> is in crossbar <span>$A$</span> (in stage 1), and <span>$t$</span> is in crossbar <span>$B$</span> (in stage 3).</p>
+<p>Now, <span>$A$</span> has <span>$\leq n-1$</span> inputs being used so far, and <span>$m$</span> outputs total. The number of outputs that are free is given by <span>$m - (n-1) = (2n-1) - (n-1) = n$</span>, so there are <span>$n$</span> outputs available in <span>$A$</span>.</p>
+<p>Similarly, there are <span>$\geq n$</span> inputs of <span>$B$</span> available. There are <span>$m$</span> crossbars in the middle. <span>$n-1$</span> of them can't be used by <span>$A$</span>; <span>$n-1$</span> can't be used by <span>$B$</span>. But <span>$n$</span> are connected to <span>$A$</span>, and <span>$n$</span> are connected to <span>$B$</span>. By the pigeonhole principle, at least one of the middle crossbars is connected to both <span>$A$</span> and <span>$B$</span>. We call that crossbar <span>$C$</span>. Then we just route the packet from <span>$A$</span> to <span>$B$</span> through <span>$C$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>Offline routing<a class="headerlink" href="#offline-routing" name="offline-routing">&para;</a></h3>
+<p>Suppose we are given the entire permutation at once and thus can decide all the paths at the same time (aka <strong>rearrangeable routing</strong>). Let <span>$m = r = n = \sqrt{N}$</span>. From <span>$\Pi$</span>, create an <span>$r\times r$</span> bipartite graph, and create an edge between <span>$i$</span> and <span>$\Pi_i$</span> for each pair <span>$(i, \Pi_i)$</span>.</p>
+<p>The resulting graph <span>$G$</span> is <span>$n$</span>-regular. We showed earlier that we can apply Hall's theorem to regular bipartite graphs. So <span>$G$</span> decomposes into <span>$n$</span> perfect matchings. We can use one of the middle crossbars for each perfect matching, which gives us a valid routing, as desired.</p>
+<h3 class="header"><i>1.4</i>Benes networks<a class="headerlink" href="#benes-networks" name="benes-networks">&para;</a></h3>
+<p>We saw that dividing a crossbar switch into 3 layers reduces the number of edges and crossovers. What if we were to divide each layer into sublayers? If we keep iterating until we get <span>$2\times 2$</span> crossbars, then the result is a <strong>Benes network</strong>. I assume this will be covered next class.</p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:crossover">
+<p>A crossover is a point at which two wires cross&#160;<a href="#fnref:crossover" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:omega">
+<p>Is it <span>$O$</span> or <span>$\Omega$</span>???&#160;<a href="#fnref:omega" rev="footnote" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

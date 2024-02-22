@@ -1,0 +1,244 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_340/">
+                MATH 340
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Things to know for the final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Things to know for the final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#graph-matchings">1 Graph matchings</a><ul>
+<li><a href="#stable-marriage">1.1 Stable marriage</a></li>
+<li><a href="#matching-cardinality">1.2 Matching cardinality</a></li>
+<li><a href="#bipartite-graphs">1.3 Bipartite graphs</a><ul>
+<li><a href="#halls-theorem">1.3.1 Hall's theorem</a></li>
+<li><a href="#regular-graphs">1.3.2 Regular graphs</a></li>
+<li><a href="#latin-rectangles">1.3.3 Latin rectangles</a></li>
+<li><a href="#edge-colouring">1.3.4 Edge colouring</a></li>
+<li><a href="#systems-of-distinct-representatives">1.3.5 Systems of distinct representatives</a></li>
+<li><a href="#the-house-selling-problem">1.3.6 The house-selling problem</a></li>
+<li><a href="#telecommunication-networks">1.3.7 Telecommunication networks</a></li>
+<li><a href="#konig-egervary">1.3.8 König-Egerváry</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#planar-graphs">2 Planar graphs</a><ul>
+<li><a href="#eulers-formula">2.1 Euler's formula</a></li>
+<li><a href="#other-formulas">2.2 Other formulas</a></li>
+<li><a href="#platonic-solids">2.3 Platonic solids</a></li>
+<li><a href="#vertex-colouring">2.4 Vertex-colouring</a></li>
+<li><a href="#art-gallery-theorem">2.5 Art gallery theorem</a></li>
+<li><a href="#planar-duals">2.6 Planar duals</a></li>
+<li><a href="#graph-minors">2.7 Graph minors</a></li>
+<li><a href="#kuratowskis-theorem">2.8 Kuratowski's theorem</a></li>
+<li><a href="#farys-theorem">2.9 Fáry's theorem</a></li>
+<li><a href="#mengers-theorem">2.10 Menger's theorem</a></li>
+</ul>
+</li>
+<li><a href="#probability">3 Probability</a><ul>
+<li><a href="#union-and-intersection">3.1 Union and intersection</a></li>
+<li><a href="#conditional">3.2 Conditional</a></li>
+<li><a href="#bayes-theorem">3.3 Bayes' theorem</a></li>
+<li><a href="#discrete-random-variables">3.4 Discrete random variables</a></li>
+<li><a href="#binomial-distribution">3.5 Binomial distribution</a></li>
+<li><a href="#random-walks">3.6 Random walks</a></li>
+<li><a href="#markovs-inequality">3.7 Markov's inequality</a></li>
+<li><a href="#chernoff-bounds">3.8 Chernoff bounds</a></li>
+</ul>
+</li>
+<li><a href="#combinatorics">4 Combinatorics</a><ul>
+<li><a href="#calatan-numbers">4.1 Calatan numbers</a></li>
+<li><a href="#generating-functions">4.2 Generating functions</a><ul>
+<li><a href="#ordinary">4.2.1 Ordinary</a></li>
+</ul>
+</li>
+<li><a href="#exponential">4.3 Exponential</a></li>
+<li><a href="#binomial-theorem">4.4 Binomial theorem</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Graph matchings<a class="headerlink" href="#graph-matchings" name="graph-matchings">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Stable marriage<a class="headerlink" href="#stable-marriage" name="stable-marriage">&para;</a></h3>
+<p>Gale-Shapley: male choice method, male-optimal, female-pessimal (lemma: no woman leaves/rejects a valid partner)</p>
+<h3 class="header"><i>1.2</i>Matching cardinality<a class="headerlink" href="#matching-cardinality" name="matching-cardinality">&para;</a></h3>
+<p>Match <span>$M$</span> is maximal <span>$\iff$</span> no augmenting path for <span>$M$</span>. Proof: (<span>$\Rightarrow$</span>) just switch <span>$M$</span> and not <span>$M$</span> in the path. (<span>$\Leftarrow$</span>) Symmetric diff with <span>$M$</span> and <span>$M^*$</span> (a theoretical maximal matching); all vertices have deg <span>$\leq 2$</span>, so there are only disjoint paths and cycles. Specifically, we have even-length paths, even-length cycles, and odd-length paths ending in <span>$M^*$</span> - but the latter is augmenting wrt <span>$M$</span>.</p>
+<h3 class="header"><i>1.3</i>Bipartite graphs<a class="headerlink" href="#bipartite-graphs" name="bipartite-graphs">&para;</a></h3>
+<p>No odd cycles. Can be separated into 2 groups, each edge spans both.</p>
+<h4 class="header"><i>1.3.1</i>Hall's theorem<a class="headerlink" href="#halls-theorem" name="halls-theorem">&para;</a></h4>
+<p>Bipartite graph has a PM <span>$\iff$</span> <span>$\forall A \subseteq X$</span>, <span>$|\Gamma(A)| \geq |A|$</span>. Proof: sort of by induction on <span>$X$</span>, it's weird</p>
+<h4 class="header"><i>1.3.2</i>Regular graphs<a class="headerlink" href="#regular-graphs" name="regular-graphs">&para;</a></h4>
+<p><span>$d$</span>-regular: all vertices have <span>$\deg d$</span>. Any <span>$d$</span>-reg bipartite graph can be decomposed into <span>$d$</span> edge-disjoint PMs. Proof by induction: if it has a PM <span>$M$</span>, can apply IH to <span>$G-M$</span> (since it's <span>$(d-1)$</span>-regular) and then throw <span>$M$</span> back in there. To prove it has a PM, show that Hall's holds.</p>
+<h4 class="header"><i>1.3.3</i>Latin rectangles<a class="headerlink" href="#latin-rectangles" name="latin-rectangles">&para;</a></h4>
+<p>Extending to a square: <span>$X$</span> = columns, <span>$Y$</span> = numbers. Edge between column and number if the number is not in the column. Results in a <span>$(n-r)$</span> regular graph, decomposes into PMs, make those into new rows.</p>
+<h4 class="header"><i>1.3.4</i>Edge colouring<a class="headerlink" href="#edge-colouring" name="edge-colouring">&para;</a></h4>
+<p>Bipartite graph: <span>$\chi^E(G) = \Delta(G)$</span> (max deg); proof by adding dummy edges until it's <span>$d$</span>-regular and then decomposing</p>
+<h4 class="header"><i>1.3.5</i>Systems of distinct representatives<a class="headerlink" href="#systems-of-distinct-representatives" name="systems-of-distinct-representatives">&para;</a></h4>
+<p>SDR exists <span>$\iff$</span> union of any sets <span>$\geq$</span> size of any one set. Proof by Hall's.</p>
+<h4 class="header"><i>1.3.6</i>The house-selling problem<a class="headerlink" href="#the-house-selling-problem" name="the-house-selling-problem">&para;</a></h4>
+<p>Bipartite graph. Find a perfect matching. If you can't, find an unsuppliable set <span>$A \subseteq X$</span>; increase house prices in <span>$\Gamma(A)$</span> and decrease house prices of undemanded houses; continue until PM is found.</p>
+<h4 class="header"><i>1.3.7</i>Telecommunication networks<a class="headerlink" href="#telecommunication-networks" name="telecommunication-networks">&para;</a></h4>
+<p>Crossbar: <span>$N$</span> inputs/outputs; <span>$N^2$</span> connections, <span>$O(N^4)$</span> crossovers.</p>
+<p>Clos: <span>$r$</span> <span>$n\times m$</span>, then <span>$m$</span> <span>$r\times r$</span>, then <span>$r$</span> <span>$m \times n$</span>. Fewer connections, fewer crossovers. If <span>$m=2n-1$</span>, all packets can be routed online. For offline routing, create a bipartite graph, edge between <span>$(i, \pi_i)$</span>, use Hall's.</p>
+<h4 class="header"><i>1.3.8</i>König-Egerváry<a class="headerlink" href="#konig-egervary" name="konig-egervary">&para;</a></h4>
+<p>Largest matching = smallest vertex cover</p>
+<h2 class="header"><i>2</i>Planar graphs<a class="headerlink" href="#planar-graphs" name="planar-graphs">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Euler's formula<a class="headerlink" href="#eulers-formula" name="eulers-formula">&para;</a></h3>
+<p><span>$m+2=n+f$</span>. Proof by induction: base case = tree; otherwise, cycle - remove an edge and apply IH.</p>
+<h3 class="header"><i>2.2</i>Other formulas<a class="headerlink" href="#other-formulas" name="other-formulas">&para;</a></h3>
+<p>Any planar graph: <span>$m \leq 3n-6$</span> for <span>$n \geq 4$</span>. Proof: by Euler. An edge has at most 2 faces; face has at least 3 edges.</p>
+<p>Bipartite planar graph: <span>$m \leq 2n-4$</span>. There are no odd cycles, so, any face has at least 4 edges.</p>
+<h3 class="header"><i>2.3</i>Platonic solids<a class="headerlink" href="#platonic-solids" name="platonic-solids">&para;</a></h3>
+<p>Only 5. Proof: Euler's formula, using <span>$2m=n \cdot d$</span> (cus regular) and <span>$2m=f\cdot p$</span> (cus an edge has 2 faces).</p>
+<h3 class="header"><i>2.4</i>Vertex-colouring<a class="headerlink" href="#vertex-colouring" name="vertex-colouring">&para;</a></h3>
+<p>Six-colourability proof: using Euler's, min degree <span>$&lt; 6$</span>; remove, apply IH, add back.</p>
+<h3 class="header"><i>2.5</i>Art gallery theorem<a class="headerlink" href="#art-gallery-theorem" name="art-gallery-theorem">&para;</a></h3>
+<p><span>$n$</span> walls <span>$\to$</span> <span>$\lfloor n/3 \rfloor$</span> guards. Proof: split up floor into triangle, prove 3-colourability by induction.</p>
+<h3 class="header"><i>2.6</i>Planar duals<a class="headerlink" href="#planar-duals" name="planar-duals">&para;</a></h3>
+<p>Swap faces and vertices.</p>
+<h3 class="header"><i>2.7</i>Graph minors<a class="headerlink" href="#graph-minors" name="graph-minors">&para;</a></h3>
+<p>Contracting edges is basically all you need. Equivalent to contracting trees.</p>
+<h3 class="header"><i>2.8</i>Kuratowski's theorem<a class="headerlink" href="#kuratowskis-theorem" name="kuratowskis-theorem">&para;</a></h3>
+<p>Planar <span>$\iff$</span> no <span>$K_3$</span> or <span>$K_{5,5}$</span> minor. Proof by minimum counterexample.</p>
+<h3 class="header"><i>2.9</i>Fáry's theorem<a class="headerlink" href="#farys-theorem" name="farys-theorem">&para;</a></h3>
+<p>Any planar graph has a straight line drawing. Proof by induction?</p>
+<h3 class="header"><i>2.10</i>Menger's theorem<a class="headerlink" href="#mengers-theorem" name="mengers-theorem">&para;</a></h3>
+<p>Max flow min cut basically</p>
+<h2 class="header"><i>3</i>Probability<a class="headerlink" href="#probability" name="probability">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Union and intersection<a class="headerlink" href="#union-and-intersection" name="union-and-intersection">&para;</a></h3>
+<p><span>$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$</span></p>
+<h3 class="header"><i>3.2</i>Conditional<a class="headerlink" href="#conditional" name="conditional">&para;</a></h3>
+<p><span>$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$</span></p>
+<h3 class="header"><i>3.3</i>Bayes' theorem<a class="headerlink" href="#bayes-theorem" name="bayes-theorem">&para;</a></h3>
+<p><span>$$P(A|B) = \frac{P(B|A)\cdot P(A)}{P(B)}$$</span></p>
+<h3 class="header"><i>3.4</i>Discrete random variables<a class="headerlink" href="#discrete-random-variables" name="discrete-random-variables">&para;</a></h3>
+<p>Linearity of expectation: <span>$E(aX + bY) = aE(X) + bE(Y)$</span></p>
+<p>For independent events: <span>$E(XY) = E(X)E(Y)$</span></p>
+<h3 class="header"><i>3.5</i>Binomial distribution<a class="headerlink" href="#binomial-distribution" name="binomial-distribution">&para;</a></h3>
+<p>Bernouilli trial: success with prob <span>$p$</span>.</p>
+<p><span>$$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$</span></p>
+<h3 class="header"><i>3.6</i>Random walks<a class="headerlink" href="#random-walks" name="random-walks">&para;</a></h3>
+<p>Markov chain model. Just matrix multiplication. Stationary distribution with <span>$d_v/2m$</span> for any <span>$v$</span>.</p>
+<h3 class="header"><i>3.7</i>Markov's inequality<a class="headerlink" href="#markovs-inequality" name="markovs-inequality">&para;</a></h3>
+<p><span>$$P(Z &gt; c \cdot E(Z)) \leq \frac{1}{c}$$</span></p>
+<h3 class="header"><i>3.8</i>Chernoff bounds<a class="headerlink" href="#chernoff-bounds" name="chernoff-bounds">&para;</a></h3>
+<p>Ind. Bernouilli trials <span>$X = X_1 + X_2 + \ldots + X_j$</span>, <span>$\mu = E(X)$</span>. Then:</p>
+<p><span>$$P(X &gt; (1+\delta)\mu) \leq \left ( \frac{e^\delta}{(1+\delta)^{(1+\delta)}} \right )^\mu$$</span></p>
+<p>Proof: let <span>$f(x) = e^{tx}$</span> for some <span>$t$</span>, apply to both sides of inequality of LHS. Use Markov's, simply with <span>$p$</span>. Use the fact that <span>$1+x \leq e^x$</span> (or <span>$1-x \leq e^{-x}$</span> for the <span>$&lt;$</span> inequality). Take the deriv of the exponent, set to 0 to find <span>$t$</span>.</p>
+<p>Corollary: <span>$1 &gt; \delta &gt; 0$</span>, <span>$P(X &gt; (1+\delta)\mu)  \leq e^{-1/3\mu\delta^2}$</span>. Proof by Taylor series.</p>
+<p>Another: <span>$b \geq 6 \mu$</span>, <span>$P(X &gt; b) \leq 2^{-b}$</span>. Proof since <span>$2e &lt; 6$</span>.</p>
+<h2 class="header"><i>4</i>Combinatorics<a class="headerlink" href="#combinatorics" name="combinatorics">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Calatan numbers<a class="headerlink" href="#calatan-numbers" name="calatan-numbers">&para;</a></h3>
+<p>+-+-+ etc with each partial sum (from the left) being positive.</p>
+<p><span>$$C(n) = \frac{1}{n+1} \binom{2n}{n}$$</span></p>
+<p>Proof: Using <span>$D(n)$</span>, the reflection thing, etc.</p>
+<h3 class="header"><i>4.2</i>Generating functions<a class="headerlink" href="#generating-functions" name="generating-functions">&para;</a></h3>
+<h4 class="header"><i>4.2.1</i>Ordinary<a class="headerlink" href="#ordinary" name="ordinary">&para;</a></h4>
+<p>For counting labelled objects</p>
+<p><span>$$F(x) = \sum_{n \geq 0} f(x) x^n$$</span></p>
+<h3 class="header"><i>4.3</i>Exponential<a class="headerlink" href="#exponential" name="exponential">&para;</a></h3>
+<p>For counting unlabelled objects</p>
+<p><span>$$F(x) = \sum_{n \geq 0} f(x) \frac{x^n}{x!}$$</span></p>
+<h3 class="header"><i>4.4</i>Binomial theorem<a class="headerlink" href="#binomial-theorem" name="binomial-theorem">&para;</a></h3>
+<p><span>$$(1+x)^n = \sum_{k=0}^n \binom{n}{k} x^k$$</span></p>
+<p>Generalised: let <span>$\displaystyle \binom{n}{k} = \frac{n \cdot (n-1)\cdots (n-k+1)}{k!}$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

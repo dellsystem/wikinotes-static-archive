@@ -1,0 +1,175 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, March 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, March 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Orthogonal projections and minimisation
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>First class after the break. Continuing with chapter 6: orthogonal projections and minimisation problems, and an introduction to linear functionals and adjoints near the end. Midterms were handed back.</p>
+<div class="toc">
+<ul>
+<li><a href="#orthogonal-complements">1 Orthogonal complements</a><ul>
+<li><a href="#direct-sum-theorem">1.1 Direct sum theorem</a><ul>
+<li><a href="#corollary">1.1.1 Corollary</a></li>
+</ul>
+</li>
+<li><a href="#orthogonal-projections">1.2 Orthogonal projections</a><ul>
+<li><a href="#proposition-636">1.2.1 Proposition 6.36</a></li>
+<li><a href="#exercise">1.2.2 Exercise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#linear-functionals-and-adjoints">2 Linear functionals and adjoints</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Orthogonal complements<a class="headerlink" href="#orthogonal-complements" name="orthogonal-complements">&para;</a></h2>
+<p>The <strong>orthogonal complement</strong> of a subspace <span>$U \subseteq V$</span> is defined by<br />
+<span>$$U^{\perp} = \{ v \in V : \langle u, v \rangle = 0 \, \forall u \in U \}$$</span><br />
+Thus it consists of all the vectors in <span>$V$</span> that are orthogonal to <em>every</em> vector in <span>$U$</span>.</p>
+<h3 class="header"><i>1.1</i>Direct sum theorem<a class="headerlink" href="#direct-sum-theorem" name="direct-sum-theorem">&para;</a></h3>
+<blockquote>
+<p><span>$$V = U \oplus U^{\perp}$$</span></p>
+</blockquote>
+<p>(Where <span>$U$</span> is finite-dimensional. No such restriction on <span>$V$</span>.)</p>
+<p>Proof: First, we show that <span>$V = U + U^{\perp}$</span>: Let <span>$(e_1, \ldots, e_n)$</span> be an orthonormal basis of <span>$U$</span>. Any <span>$v \in V$</span> can be written as the following:</p>
+<p><span>$$v = \underbrace{\langle v, e \rangle e_1 + \ldots + \langle v, e_n\rangle e_n}_{\in U} + \underbrace{v - (\langle v, e \rangle e_1 + \ldots + \langle v, e_n\rangle e_n)}_{\in U^{\perp}}$$</span></p>
+<p>The first component is clearly in <span>$U$</span> since it's just a linear combination of some basis vectors of <span>$U$</span>. To show that the second component is in <span>$U^{\perp}$</span>, we call it <span>$w$</span>. Then <span>$\langle w, e_j \rangle = \langle v, e_j \rangle - \langle v, e_j \rangle = 0$</span> for each <span>$j$</span> (the rest of the terms are zero as well because all of the basis vectors are pairwise orthogonal. Thus <span>$w$</span> is orthogonal to any vector in the span of the orthonormal basis, which is to say, any vector in <span>$U$</span>. Thus <span>$w \in U^{\perp}$</span>.</p>
+<p>Next, we need to show that <span>$U \cap U^{\perp} = \{0\}$</span>. Let <span>$v$</span> be in their intersection. Then, since <span>$v \in U^{\perp}$</span>, it must be perpendicular to every vector in <span>$U$</span>, including <span>$v$</span> itself. Thus <span>$\langle v, v\rangle = 0$</span>. By positive definiteness, we know that <span>$v = 0$</span>. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.1.1</i>Corollary<a class="headerlink" href="#corollary" name="corollary">&para;</a></h4>
+<p>Any vector in <span>$V$</span> can be written as the sum of <span>$u \in U$</span> and <span>$w \in U^{\perp}$</span>. Proof: follows trivially from the theorem above.</p>
+<h3 class="header"><i>1.2</i>Orthogonal projections<a class="headerlink" href="#orthogonal-projections" name="orthogonal-projections">&para;</a></h3>
+<p>We define an orthogonal projection, <span>$P_u$</span>, as follows:</p>
+<p><span>$$\begin{align}
+P_u: V &amp; \to U \\
+v &amp; \mapsto u
+\end{align}$$</span></p>
+<p>where <span>$u$</span> is the component in <span>$U$</span> (see previous section). Thus we send any vector to the part of its decomposition that is in <span>$U$</span>. If <span>$(e_1, \ldots, e_n)$</span> is an orthonormal basis for <span>$U$</span>, then <span>$P_uv = \langle v, e_1\rangle e_1 + \ldots + \langle v, e_n \rangle e_n$</span>.</p>
+<h4 class="header"><i>1.2.1</i>Proposition 6.36<a class="headerlink" href="#proposition-636" name="proposition-636">&para;</a></h4>
+<blockquote>
+<p>Let <span>$U$</span> be a subspace of <span>$V$</span>, and let <span>$v \in V$</span> be fixed. Then, the distance between <span>$v$</span> and <span>$P_uv$</span> follows the following inequality:</p>
+<p><span>$$\lVert v - P_uv \rVert \leq \lVert v- u \rVert$$</span></p>
+<p>for any <span>$u \in U$</span>. So <span>$P_uv$</span> is closest to <span>$v$</span> among all vectors <span>$u \in U$</span>. Equality holds only when <span>$u = P_uv$</span>.</p>
+</blockquote>
+<p>Proof: Let <span>$u \in U$</span>. Then:</p>
+<p><span>$$\begin{align} \lVert v- u \rVert^2 &amp; = \lVert v- P_uv + P_uv - u \rVert^2 \\
+&amp; \geq \lVert v- P_uv \rVert^2 + \underbrace{\lVert P_uv -u\rVert^2}_{\geq 0} \tag{by the triangle inequality} \\
+&amp; \geq \lVert v - P_uv \rVert^2 \tag{since the other component $\geq 0$}
+\end{align}$$</span></p>
+<p>Then, if we take the square root of both sides, we get <span>$\lVert v - u\rVert \geq \lVert v - P_uv\rVert$</span>, as desired. When equality holds is given by the triangle inequality. <span>$\blacksquare$</span></p>
+<h4 class="header"><i>1.2.2</i>Exercise<a class="headerlink" href="#exercise" name="exercise">&para;</a></h4>
+<p>Find a polynomial <span>$u \in P_2(\mathbb R)$</span> that approximates <span>$\sin(x)$</span> on the interval <span>$[-\pi, \pi]$</span>. That is, we want to minimise</p>
+<p><span>$$\int_{-\pi}^{\pi} |\sin(x) - u(x)|^2\,dx$$</span></p>
+<p>Formulated in terms of a minimisation problem, the vector space <span>$V$</span> is the set of all continuous functions from <span>$-\pi$</span> to <span>$\pi$</span>, and <span>$U = P_2(\mathbb R)$</span>. We know that <span>$P_uv$</span> is the minimum (where <span>$v(x) = \sin(x)$</span>), so we just need to find that. We can do this by finding an orthonormal basis of <span>$P_2(\mathbb R)$</span> and then applying the projection.</p>
+<p>To find the orthonormal basis, we use Gram-Schmidt. Recall that the standard basis is <span>$\{1, x, x^2\}$</span>.=, where <span>$v_1 = 1$</span>, <span>$v_2 = x$</span>, <span>$v_3 = x^2$</span>. Note that <span>$\lVert v_1 \rVert = 1$</span> since it's just the integral of 1 from 0 to 1. Then:</p>
+<p><span>$$\begin{align} e_1 &amp; = \frac{v_1}{\lVert v_1 \rVert} = v_1 = 1 \\
+e_2 &amp; = \frac{v_2 - \langle v_2, e_1 \rangle e_1}{\lVert v_2 - \langle v_2, e_1 \rangle e_1 \rVert} = \frac{x - \int_0^1 x \,dx}{\lVert x - \int_0^1 x \,dx \rVert} = \frac{x - \frac{1}{2}}{\sqrt{\int_0^1 (x - \frac{1}{2})^2\,dx} } = \frac{x-\frac{1}{2}}{\sqrt{\frac{1}{12}}} = \sqrt{12}x - \sqrt{3} \\
+e_3 &amp; = x^2 -x + \frac{1}{6} \tag{skipping the derivation because it's tedious to type, but the answer is right don't worry}
+\end{align}$$</span></p>
+<p>Then <span>$P_uv = \langle v, e_1 \rangle e_1 + \langle v, e_2 \rangle e_2 + \langle v, e_3 \rangle e_3$</span>. The conclusion of this is left as an exercise for the reader because I don't want to have to compute all those integrals.</p>
+<h2 class="header"><i>2</i>Linear functionals and adjoints<a class="headerlink" href="#linear-functionals-and-adjoints" name="linear-functionals-and-adjoints">&para;</a></h2>
+<p>A <strong>linear functional</strong> is a linear map from <span>$V$</span> to <span>$\mathbb F$</span>. An example: <span>$\varphi: \mathbb F^3 \to \mathbb F$</span> which sends <span>$(z_1, z_2, z_3)$</span> to <span>$z_1-z_2 + 7z_3$</span>. Or, more generally, <span>$\varphi : V \to \mathbb F$</span> which sends <span>$u$</span> to <span>$\langle u, v \rangle$</span> where <span>$v$</span> is some fixed vector in <span>$V$</span>. (The first example is just a special case of the last one, where <span>$v = (1, -1, 7)$</span>.)</p>
+<p>We'll continue this next class.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

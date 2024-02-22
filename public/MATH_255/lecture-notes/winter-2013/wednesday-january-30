@@ -1,0 +1,128 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Wednesday, January 30, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Wednesday, January 30, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The chain rule, derivatives of inverse functions, and relative extrema
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Chain rule<a class="headerlink" href="#chain-rule" name="chain-rule">&para;</a></h2>
+<p><strong>Theorem:</strong> Let <span>$I, J$</span> be intervals in <span>$\mathbb{R}$</span>, <span>$g : I \to \mathbb{R}$</span> and <span>$f : J \to \mathbb{R}$</span> such that <span>$f(J) \subseteq I$</span> and let <span>$c \in J$</span>. If <span>$f$</span> is differentiable at <span>$c$</span> and <span>$g$</span> is differentiable at <span>$f(c)$</span> then <span>$g \circ f$</span> is differentiable at <span>$c$</span> and <span>$(g \circ f)'(c) = g'(f(c)) \cdot f'(c)$</span>.</p>
+<p><strong>Proof:</strong> Since <span>$f$</span> is differentiable at <span>$c$</span>, there exists a function <span>$\phi$</span> continuous at <span>$c$</span> such that <span>$f(x) - f(c) = \phi(x)(x-c)$</span> for all <span>$x \in J$</span>. Similarly, there exists a function <span>$\psi$</span> continuous at <span>$f(c)$</span> such that for all <span>$y \in I$</span>, if <span>$f(c) = d$</span> then <span>$g(y) - g(d) = \psi(y)(y-d)$</span>. Let <span>$y = f(x)$</span>. Since <span>$f(J) \subseteq I$</span>, <span>$\psi(y)(y-d) = \psi(f(x))(f(x)-f(c)) = \psi(f(x))\phi(x)(x-c)$</span>, i.e. <span>$g(f(x)) - g(f(c)) = \psi(f(x))\phi(x)(x-c)$</span>. Note that <span>$\psi(f(x))\phi(x)$</span> is continuous at <span>$c$</span>. Thus by Carathéodory's Theorem, <span>$g \circ f$</span> is differentiable at <span>$c$</span>. Furthermore, <span>$(g \circ f)'(c) = \psi(f(c))\phi(c)$</span>. As <span>$\psi(f(c))$</span> is <span>$g'(f(c))$</span> and <span>$\phi(c)$</span> is <span>$f'(c)$</span>, we are done. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Derivatives of inverse functions<a class="headerlink" href="#derivatives-of-inverse-functions" name="derivatives-of-inverse-functions">&para;</a></h2>
+<p>If <span>$y = f^{-1}(x)$</span>, what is <span>$\frac{dy}{dx}$</span>?</p>
+<p><strong>Theorem:</strong> Let <span>$I$</span> be an interval in <span>$\mathbb{R}$</span> and <span>$f : I \to \mathbb{R}$</span> be strictly monotone and continuous on <span>$I$</span>. Let <span>$J = f(I)$</span>. Let <span>$f^{-1}: J \to \mathbb{R}$</span> be the strictly monotone and continuous inverse function. If <span>$f$</span> is differentiable at <span>$c \in I$</span> and <span>$f'(c) \neq 0$</span> then <span>$f^{-1}$</span> is differentiable at <span>$f(c) = d$</span> and <span>$(f^{-1})'(f(c)) = \frac{1}{f'(c)} = \frac{1}{f'(f^{-1}(d))}$</span>.</p>
+<p><strong>Proof:</strong> By Carathéodory's Theorem there exists a function <span>$\phi$</span> on <span>$I$</span> continuous at <span>$c$</span> such that <span>$f(x) - f(c) = \phi(x)(x-c)$</span> and <span>$f'(c) = \phi(c)$</span>. By the hypotheses, <span>$f'(c) \neq 0$</span> thus there exists some <span>$\delta &gt; 0$</span> such that <span>$\phi(x) \neq 0$</span> for all <span>$x \in I$</span> such that <span>$|x-c|&lt;\delta$</span> (i.e. <span>$\phi$</span> is nonzero in some neighborhood of <span>$c$</span>). Let <span>$V_\delta(c)$</span> be such a neighborhood. Let <span>$U = f(V_\delta(c))$</span>. Thus <span>$f(f^{-1}(x)) = x$</span> for all <span>$x \in U$</span>. Hence:</p>
+<p><span>$$\begin{align*}
+x-d &amp;= f(f^{-1}(x)) - f(f^{-1}(d)) \\
+&amp;= \phi(f^{-1}(x))(f^{-1}(x) - c) \\
+&amp;= \phi(f^{-1}(x))(f^{-1}(x) - f^{-1}(d)) \\
+\end{align*}$$</span></p>
+<p>As <span>$\phi(f^{-1}(x)) \neq 0$</span>, it follows that <span>$\displaystyle f^{-1}(x) - f^{-1}(d) = \frac{1}{\phi(f^{-1}(x))}(x-d)$</span> <span>$\blacksquare$</span></p>
+<h2 class="header"><i>3</i>Relative extrema<a class="headerlink" href="#relative-extrema" name="relative-extrema">&para;</a></h2>
+<p><strong>Definition:</strong> Let <span>$f : I \to \mathbb{R}$</span>. <span>$f$</span> is said to have a relative maximum at <span>$c$</span> if there exists a neighborhood <span>$V$</span> of <span>$c$</span> where <span>$f(x) \leq f(c)$</span> for all <span>$x \in V$</span>. The definition of relative minima is similar.</p>
+<p><strong>Theorem:</strong> Let <span>$c$</span> be an interior point of the interval <span>$I = [a,b]$</span>, at which <span>$f : I \to \mathbb{R}$</span> has a relative extremum. If <span>$f$</span> is differentiable at <span>$c$</span> then <span>$f'(c) = 0$</span>.</p>
+<p><strong>Proof:</strong> Suppose <span>$f$</span> has a relative maximum at <span>$c$</span>. If <span>$f'(c) &gt; 0$</span> then there exists some neighborhood <span>$V$</span> of <span>$c$</span> on which <span>$\displaystyle \frac{f(x)-f(c)}{x-c} &gt; 0$</span>. Let <span>$x$</span> be an element of <span>$V$</span> such that <span>$x - c &gt; 0$</span>. Then <span>$\displaystyle (x-c)\frac{f(x)-f(c)}{x-c} &gt; 0 \implies f(x) &gt; f(c)$</span>. Thus <span>$f$</span> doesn't have a relative maximum at <span>$c$</span>, thus <span>$f'(c) \leq 0$</span>. We can repeat this argument for <span>$f'(c) &lt; 0$</span>, which shows <span>$f'(c) \geq 0$</span>. Thus <span>$f'(c) = 0$</span>. The proof is similar for relative minima. <span>$\blacksquare$</span></p>
+<p><strong>Corollary:</strong> Let <span>$I$</span> be an interval, <span>$f : I \to \mathbb{R}$</span> continuous and suppose <span>$f$</span> has a relative extremum at an interior point <span>$c \in I$</span>. Then either <span>$f'(c) = 0$</span> or <span>$f$</span> is not differentiable at <span>$c$</span>. </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

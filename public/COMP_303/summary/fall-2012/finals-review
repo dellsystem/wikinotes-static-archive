@@ -1,0 +1,428 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_303/">
+                COMP 303
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Finals Review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Finals Review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>This notes extends <a href="http://wikinotes.ca/COMP_303/summary/fall-2012/midterm-review">Midterm Review</a>. The final exams includes everything tested in the midterm</p>
+<div class="toc">
+<ul>
+<li><a href="#frameworks">1 Frameworks</a><ul>
+<li><a href="#framework">1.1 Framework</a></li>
+<li><a href="#example-graph-editor-framework">1.2 Example: Graph Editor Framework</a></li>
+</ul>
+</li>
+<li><a href="#objects-and-types">2 Objects and Types</a><ul>
+<li><a href="#types-and-subtypes">2.1 Types and Subtypes</a><ul>
+<li><a href="#arrays">2.1.1 Arrays</a></li>
+<li><a href="#wrapper-classes">2.1.2 Wrapper classes</a></li>
+<li><a href="#enums">2.1.3 enums</a></li>
+</ul>
+</li>
+<li><a href="#type-inquiry">2.2 Type Inquiry</a></li>
+<li><a href="#the-object-class">2.3 The Object Class</a></li>
+</ul>
+</li>
+<li><a href="#persistence">3 Persistence</a><ul>
+<li><a href="#serialization">3.1 Serialization</a></li>
+</ul>
+</li>
+<li><a href="#generics">4 Generics</a><ul>
+<li><a href="#type-variables">4.1 Type Variables</a></li>
+<li><a href="#type-erasure">4.2 Type Erasure</a></li>
+</ul>
+</li>
+<li><a href="#code-quality">5 Code quality</a></li>
+<li><a href="#thread">6 Thread</a><ul>
+<li><a href="#threads-and-the-runnable-interface-type">6.1 Threads and the Runnable Interface Type</a></li>
+<li><a href="#scheduling-threads">6.2 Scheduling Threads</a></li>
+<li><a href="#stopping-threads">6.3 Stopping threads</a></li>
+</ul>
+</li>
+<li><a href="#synchronization">7 Synchronization</a><ul>
+<li><a href="#thread-synchronization">7.1 Thread Synchronization</a></li>
+<li><a href="#locks">7.2 Locks</a></li>
+<li><a href="#deadlocks">7.3 Deadlocks</a></li>
+</ul>
+</li>
+<li><a href="#the-visitor-design-pattern">8 The Visitor Design Pattern</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Frameworks<a class="headerlink" href="#frameworks" name="frameworks">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Framework<a class="headerlink" href="#framework" name="framework">&para;</a></h3>
+<p>A framework is a set of classes and interface types that structures the essential mechanisms of a particular domain. In other words, a framework is a set of tools that change the way you program something. e.g. Swing, jQuery, django</p>
+<p>An application framework is a framework for creating applications of a particular type: it supplies a set of classes that an application programmer extends to build an app. </p>
+<p>The programmer has little or no influence on the order in which the extended classes are called - the programmer becomes the framework's bitch. This phenomenon is often called <strong>inversion of control</strong>. The flow of execution is controlled by the framework classes, not the application specific classes.</p>
+<h3 class="header"><i>1.2</i>Example: Graph Editor Framework<a class="headerlink" href="#example-graph-editor-framework" name="example-graph-editor-framework">&para;</a></h3>
+<blockquote>
+<p>Uses the prototype pattern</p>
+</blockquote>
+<h2 class="header"><i>2</i>Objects and Types<a class="headerlink" href="#objects-and-types" name="objects-and-types">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Types and Subtypes<a class="headerlink" href="#types-and-subtypes" name="types-and-subtypes">&para;</a></h3>
+<dl>
+<dt>Type</dt>
+<dd>A set of values together with a set of operations that can be applied to the values</dd>
+</dl>
+<p>Strongly typed languages: casts are almost never implicitly done, example: Java, python<br />
+Weakly typed languages: When the compiler finds the wrong type, it tries to use the operations anyway, causing weird behavior. Example: Javascript, C</p>
+<p>Java is statically typed, that means type validation is done during compile time, so if you call an undefined method on a variable, it will not compile. <br />
+Some languages like javascript or python are dynamically typed, which means types aren't known during compile time, and an undefined method will result in a runtime exception.</p>
+<p>Types in Java are:</p>
+<ol>
+<li>Primitive type(<code>int</code>, <code>short</code>, <code>long</code>, <code>byte</code>, <code>char</code>, <code>float</code>, <code>double</code>, <code>boolean</code>)</li>
+<li>A class type</li>
+<li>An interface type</li>
+<li>An array type</li>
+<li>The null type</li>
+</ol>
+<p>Values in java are:</p>
+<ol>
+<li>A primitive value</li>
+<li>A reference to an object</li>
+<li>A reference to an array</li>
+<li><code>null</code></li>
+</ol>
+<p>You can substitute a value of a subtype whenever a supertype value is required.</p>
+<p><code>S</code> is a <strong>subtype</strong> of <code>T</code> if:</p>
+<ol>
+<li><code>S</code> and <code>T</code> are the same type</li>
+<li><code>S</code> and <code>T</code> are both class types and <code>S</code> is a direct or indirect subclass of <code>T</code></li>
+<li><code>S</code> and <code>T</code> are both interface types and <code>S</code> is a direct or indirect subinterface of <code>T</code></li>
+<li><code>S</code> is a class type, and <code>T</code> is an interface type, and <code>S</code> or one of its superclasses implements <code>T</code> or a subinterface of <code>T</code></li>
+<li><code>S</code> and <code>T</code> are both array types and the component type of <code>S</code> is a subtype of <code>T</code>'s component type</li>
+<li><code>T</code> of type <code>java.lang.Object</code>, <code>S</code> is not a primitive</li>
+<li><code>S</code> is an array type and <code>T</code> is the type <code>Cloneable</code> or <code>Serializable</code></li>
+<li><code>S</code> is <code>null</code> and <code>T</code> is not a primitive type</li>
+</ol>
+<h4 class="header"><i>2.1.1</i>Arrays<a class="headerlink" href="#arrays" name="arrays">&para;</a></h4>
+<p>Arrays are annoying. The following will generate a runtime error:</p>
+<div class="codehilite"><pre><span class="n">Rectangle</span> <span class="o">[]</span> <span class="n">r</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Rectangle</span><span class="o">[</span><span class="mi">10</span><span class="o">];</span>
+<span class="n">Shape</span> <span class="o">[]</span> <span class="n">s</span> <span class="o">=</span> <span class="n">r</span><span class="o">;</span> <span class="c1">// valid because Rectangle is a subtype of Shape</span>
+<span class="n">s</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">();</span> <span class="c1">// valid because Circle is a subtype of Shape, BUT s IS NOT A SHAPE ARRAY! IT IS A RECTANGLE ARRAY!</span>
+</pre></div>
+
+
+<h4 class="header"><i>2.1.2</i>Wrapper classes<a class="headerlink" href="#wrapper-classes" name="wrapper-classes">&para;</a></h4>
+<p>Primitives types have their corresponding wrapper classes. They are all immutable classes. You can also assign primitivive values to objects of the wrapper classes because of autoboxing (Since java 1.5)</p>
+<h4 class="header"><i>2.1.3</i>enums<a class="headerlink" href="#enums" name="enums">&para;</a></h4>
+<p>An enumerated type is a type with a finite set of values, to declare an enum the syntax is:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Day</span> <span class="o">{</span><span class="n">MONDAY</span><span class="o">,</span> <span class="n">TUESDAY</span><span class="o">,</span> <span class="n">WEDNESDAY</span><span class="o">};</span> <span class="c1">// FUCK THE REST OF THE WEEK</span>
+</pre></div>
+
+
+<p>Each member in an enum is a singleton of the class, thus <code>Day.MONDAY == Day.MONDAY</code> will always be true. <code>null</code> is also a possible value of the enum.</p>
+<p>You can also add methods and fields to an enum class:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">enum</span> <span class="n">Day</span><span class="o">{</span>
+    <span class="n">MONDAY</span><span class="o">(</span><span class="mi">1</span><span class="o">),</span> <span class="n">TUESDAY</span><span class="o">(</span><span class="mi">2</span><span class="o">),</span> <span class="n">WEDNESDAY</span><span class="o">(</span><span class="mi">3</span><span class="o">);</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">foo</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="s">&quot;bar&quot;</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Enums are Comparable.</p>
+<h3 class="header"><i>2.2</i>Type Inquiry<a class="headerlink" href="#type-inquiry" name="type-inquiry">&para;</a></h3>
+<p>The <code>instanceof</code> operator can be used to test the type, with the syntax <code>if (var instanceof Type)</code>.<br />
+Typically you use it before casting to ensure safety. If var is null, it will return false.</p>
+<p>You can also find the type of an object by using the <code>Class</code> object.</p>
+<div class="codehilite"><pre><span class="n">Class</span> <span class="n">c</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="na">getClass</span><span class="o">();</span>
+</pre></div>
+
+
+<p>The object <code>c</code> contains information about the class of <code>var</code>, including its name, superclass.</p>
+<p>You can get a class object from a name by using the <code>Class.forName("java.awt.Rectangle")</code> method.</p>
+<p>Primitive types also have an associated <code>Class</code> object. </p>
+<p><code>Class</code> objects are singletons, thus you can use <code>==</code> to test type equality like so: <code>if (var.getClass() == Type.class)</code>.</p>
+<p>You can use <code>isArray()</code> to test whether a type is an array, then use <code>getComponentType()</code> to get the class of the component type.</p>
+<h3 class="header"><i>2.3</i>The Object Class<a class="headerlink" href="#the-object-class" name="the-object-class">&para;</a></h3>
+<p>All java classes are subclasses of the <code>Object</code> class. It contains the following methods:</p>
+<ul>
+<li><code>String toString()</code></li>
+<li><code>boolean equals(Object other)</code></li>
+<li><code>int hashCode()</code></li>
+<li><code>Object clone()</code></li>
+</ul>
+<p>The <code>equals</code> method must be reflexive, symmetric, and transitive. The default equals method is testing equality using <code>==</code><br />
+The default <code>hashCode()</code> method returns the memory address.</p>
+<h2 class="header"><i>3</i>Persistence<a class="headerlink" href="#persistence" name="persistence">&para;</a></h2>
+<h3 class="header"><i>3.1</i>Serialization<a class="headerlink" href="#serialization" name="serialization">&para;</a></h3>
+<p>Serialization denotes the process of storing an object and its dependent objects in a stream.</p>
+<p>To serialize something, you use an <code>ObjectOutputStream</code> on an object that implements <code>Serializable</code>:</p>
+<div class="codehilite"><pre><span class="n">Cat</span> <span class="n">kitty</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Cat</span><span class="o">();</span>
+<span class="n">ObjectOutputStream</span> <span class="n">out</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectOutputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileOutputSTream</span><span class="o">(</span><span class="s">&quot;kitty.dat&quot;</span><span class="o">));</span>
+<span class="n">out</span><span class="o">.</span><span class="na">writeObject</span><span class="o">(</span><span class="n">kitty</span><span class="o">);</span>
+<span class="n">out</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+
+
+<p>To read it back, you use an <code>ObjectInputStream</code>:</p>
+<div class="codehilite"><pre><span class="n">ObjectInputStream</span> <span class="n">in</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ObjectInputStream</span><span class="o">(</span><span class="k">new</span> <span class="n">FileInputStream</span><span class="o">(</span><span class="s">&quot;kitty.dat&quot;</span><span class="o">));</span>
+<span class="n">Cat</span> <span class="n">kitty</span> <span class="o">=</span> <span class="o">(</span><span class="n">Cat</span><span class="o">)</span><span class="n">in</span><span class="o">.</span><span class="na">readObject</span><span class="o">();</span>
+<span class="n">in</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+</pre></div>
+
+
+<p>The class <code>Cat</code> must implement <code>Serializable</code>.</p>
+<p>To have fields that you don't want to be serialized, you use the <code>transient</code> keyword.</p>
+<div class="codehilite"><pre><span class="kd">private</span> <span class="kd">transient</span> <span class="kt">boolean</span> <span class="n">badCat</span><span class="o">;</span>
+</pre></div>
+
+
+<h2 class="header"><i>4</i>Generics<a class="headerlink" href="#generics" name="generics">&para;</a></h2>
+<h3 class="header"><i>4.1</i>Type Variables<a class="headerlink" href="#type-variables" name="type-variables">&para;</a></h3>
+<p>A generic type has one or more type variables, like <code>List&lt;E&gt;</code>.</p>
+<p>Use them in the following format:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Heap</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="n">E</span> <span class="nf">pop</span><span class="o">(){}</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">set</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="n">E</span> <span class="n">value</span><span class="o">){}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Methods can also be generic:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span><span class="o">{</span>
+
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">bar</span><span class="o">(</span><span class="n">Heap</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">E</span> <span class="n">value</span><span class="o">){</span>
+    <span class="n">a</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span><span class="n">value</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>We can also specify conditions on generic types</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Foo</span><span class="o">{</span>
+
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">,</span> <span class="n">F</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">compareEF</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">F</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">){}</span>
+
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">compareExtends</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">){}</span>
+
+<span class="kd">public</span> <span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="kt">void</span> <span class="n">compareSuper</span><span class="o">(</span><span class="n">ArrayList</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">E</span><span class="o">&gt;</span> <span class="n">a</span><span class="o">,</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span> <span class="n">b</span><span class="o">){}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h3 class="header"><i>4.2</i>Type Erasure<a class="headerlink" href="#type-erasure" name="type-erasure">&para;</a></h3>
+<p>Generic types are erased during compile time</p>
+<p><a href="http://docs.oracle.com/javase/tutorial/java/generics/erasure.html">http://docs.oracle.com/javase/tutorial/java/generics/erasure.html</a></p>
+<h2 class="header"><i>5</i>Code quality<a class="headerlink" href="#code-quality" name="code-quality">&para;</a></h2>
+<p>If you hate yourself when you read your code 2 weeks later, you're doing it wrong. If you don't, then you're clueless.</p>
+<h2 class="header"><i>6</i>Thread<a class="headerlink" href="#thread" name="thread">&para;</a></h2>
+<h3 class="header"><i>6.1</i>Threads and the Runnable Interface Type<a class="headerlink" href="#threads-and-the-runnable-interface-type" name="threads-and-the-runnable-interface-type">&para;</a></h3>
+<p>In java you can implement blocks of code as separate threads of execution. They are executed independently of other parts of the program.</p>
+<p>To use threads, you use the following syntax:</p>
+<div class="codehilite"><pre><span class="n">Thread</span> <span class="n">t</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">(){</span>
+    <span class="kt">void</span> <span class="nf">run</span><span class="o">(){</span>
+        <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="o">;</span><span class="n">i</span><span class="o">++){</span>
+            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">});</span>
+<span class="n">t</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+</pre></div>
+
+
+<p>You can use the <code>sleep</code> method to put the current thread to sleep for a given number of milliseconds. A thread terminates when the <code>run()</code> method terminates.</p>
+<h3 class="header"><i>6.2</i>Scheduling Threads<a class="headerlink" href="#scheduling-threads" name="scheduling-threads">&para;</a></h3>
+<p>A thread scheduler allows each thread to execute for a short amount of time, called a time slice. Each thread has a thread state and a priority. The thread state can be:</p>
+<ul>
+<li>new (before <code>start()</code> is called)</li>
+<li>runnable</li>
+<li>blocked</li>
+<li>dead (after <code>run()</code> terminates)</li>
+</ul>
+<p>A thread enters the blocked state by either:</p>
+<ul>
+<li>Sleeping</li>
+<li>Waiting on I/O</li>
+<li>Waiting to acquire a lock</li>
+<li>Waiting for a condition</li>
+</ul>
+<p>Once a thread is blocked, it stays blocked until it gets the reason it gets blocked for is resolved (no fucking shit). <br />
+The scheduler will activate a new thread when one of three events occurs:</p>
+<ul>
+<li>A thread has completed its time slice</li>
+<li>A thread has blocked itself</li>
+<li>A thread with higher priority has become runnable</li>
+</ul>
+<h3 class="header"><i>6.3</i>Stopping threads<a class="headerlink" href="#stopping-threads" name="stopping-threads">&para;</a></h3>
+<p>To stop a thread <strong>do not</strong> use <code>stop()</code> because if your thread is holding any lock on resources, shit might happen. To stop a thread, use the <code>interrupt()</code> method.<br />
+The call doesn't terminate the thread, it just politely interrupts the thread's dinner. It's up to the thread whether or not he wants to leave the restaurant.</p>
+<h2 class="header"><i>7</i>Synchronization<a class="headerlink" href="#synchronization" name="synchronization">&para;</a></h2>
+<h3 class="header"><i>7.1</i>Thread Synchronization<a class="headerlink" href="#thread-synchronization" name="thread-synchronization">&para;</a></h3>
+<p>When threads share access to a common object, they can conflict with each other. If you have two threads adding to an ArrayList, it's possible that it might not behave as expected.</p>
+<p>A race condition occurs if the effect of multiple threads on shared data depends on the order in which the threads are scheduled.</p>
+<h3 class="header"><i>7.2</i>Locks<a class="headerlink" href="#locks" name="locks">&para;</a></h3>
+<p>A thread can acquire a lock, and when another thread tries to acquire the same lock, it is blocked. When the first thread releases the lock, the other threads are unblocked. To lock a block of code, we use <code>ReentrantLock()</code></p>
+<div class="codehilite"><pre><span class="n">l</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ReentrantLock</span><span class="o">();</span>
+<span class="n">l</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+<span class="k">try</span><span class="o">{</span>
+    <span class="c1">// only one thread can be in here at once</span>
+<span class="o">}</span>
+<span class="k">finally</span><span class="o">{</span>
+    <span class="n">l</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Putting <code>synchronized</code> in front of a method like:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">synchronized</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="n">e</span><span class="o">){}</span>
+</pre></div>
+
+
+<p>makes sure that only one thread can be inside this function at once.</p>
+<h3 class="header"><i>7.3</i>Deadlocks<a class="headerlink" href="#deadlocks" name="deadlocks">&para;</a></h3>
+<p>A deadlock occurs if no thread can proceed because each thread is waiting for another to do some work first. Most of the time it happens because a thread is blocked inside a locked block of code, and other threads can't unblock it because it has the lock, like so:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="k">new</span><span class="o">){</span>
+    <span class="n">l</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+    <span class="k">try</span><span class="o">{</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">condition</span><span class="o">()){</span>
+            <span class="c1">//condition never becomes true</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">finally</span><span class="o">{</span>
+        <span class="n">l</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+</pre></div>
+
+
+<p>To avoid deadlocks, you can use a <code>Condition</code> object to briefly release a lock, like so:</p>
+<div class="codehilite"><pre><span class="kd">private</span> <span class="n">Condition</span> <span class="n">c</span> <span class="o">=</span> <span class="n">l</span><span class="o">.</span><span class="na">newCondition</span><span class="o">();</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">E</span> <span class="k">new</span><span class="o">){</span>
+    <span class="n">l</span><span class="o">.</span><span class="na">lock</span><span class="o">();</span>
+    <span class="k">try</span><span class="o">{</span>
+        <span class="k">while</span><span class="o">(!</span><span class="n">condition</span><span class="o">()){</span>
+            <span class="n">c</span><span class="o">.</span><span class="na">await</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">finally</span><span class="o">{</span>
+        <span class="n">l</span><span class="o">.</span><span class="na">unlock</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">condition</span><span class="o">(){</span>
+    <span class="n">c</span><span class="o">.</span><span class="na">signalAll</span><span class="o">()</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>When <code>signalAll</code> is called, the waiting threads are unblocked.</p>
+<p>If <code>synchronized</code> was used, each Thread has one condition, and to block it you use <code>wait()</code>, and <code>notifyAll()</code> unblocks it.</p>
+<h2 class="header"><i>8</i>The Visitor Design Pattern<a class="headerlink" href="#the-visitor-design-pattern" name="the-visitor-design-pattern">&para;</a></h2>
+<p>Context</p>
+<ol>
+<li>An object structure contains element classes of multiple types, and you want to carry out operations that depend on the object types.</li>
+<li>The set of operations should be extensible over time.</li>
+<li>The set of element classes is fixed.</li>
+</ol>
+<p>Solution</p>
+<ol>
+<li>Define a <code>visitor</code> interface type that has methods for visiting elements of each of the given types.</li>
+<li>Each element class defines an <code>accept</code> method that invokes the matching element visitation method on the visitor parameter.</li>
+<li>To implement an operation, define a class that implements the visitor interface type and supplies the operation's action for each element type.</li>
+</ol>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

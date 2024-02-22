@@ -1,0 +1,150 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, January 18, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, January 18, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Lipschitz functions, increasing/decreasing functions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Lipschitz functions<a class="headerlink" href="#lipschitz-functions" name="lipschitz-functions">&para;</a></h2>
+<p>Last time we talked about the concept of uniform continuity. It turns out that proving a function is uniformly continuous is often difficult, except in special cases. That being said, let's introduce a new definition:</p>
+<p><strong>Definition:</strong> Let <span>$A \subseteq \mathbb{R}$</span> and <span>$f : A \to \mathbb{R}$</span>. If there exists some <span>$k &gt; 0$</span> such that <span>$|f(x) - f(y)| &lt; k|x - y|$</span> for all <span>$x, y \in A$</span> then <span>$f$</span> is said to be a <em>Lipschitz function</em> on <span>$A$</span>.</p>
+<p>What is this saying intuitively? Well, notice that when <span>$x \neq y$</span> we can rewrite this condition as:</p>
+<p><span>$$
+\left| \frac{f(x) - f(y)}{x - y} \right| \leq k
+$$</span></p>
+<p>Which can be interpreted as saying that the slope between any two points on the function must be bounded. </p>
+<p>What's the significance of Lipschitz functions? Well, it turns out that:</p>
+<p><strong>Theorem:</strong> If <span>$f : A \to \mathbb{R}$</span> is Lipschitz on <span>$A$</span> then <span>$f$</span> is uniformly continuous on <span>$A$</span>.</p>
+<p><strong>Proof:</strong> Let <span>$\epsilon &gt; 0$</span> be given, and let <span>$\delta = \frac{\epsilon}{k}$</span>. If <span>$|x-y| &lt; \delta = \frac{\epsilon}{k}$</span>, then <span>$|f(x) - f(y)| \leq k|x - y| &lt; k\frac{\epsilon}{k} = \epsilon$</span> <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.1</i>Showing a function is Lipschitz<a class="headerlink" href="#showing-a-function-is-lipschitz" name="showing-a-function-is-lipschitz">&para;</a></h3>
+<p><strong>Example:</strong> Show the function <span>$f(x) = kx$</span> for <span>$k \in \mathbb{R}$</span> is Lipschitz on <span>$\mathbb{R}$</span>.</p>
+<p>This one is easy. <span>$|f(x) - f(y)| = |kx - ky| = |k||x - y| \leq (|k| + 1)|x-y| = M|x-y|$</span> for <span>$M = |k| + 1$</span>. There's nothing more to it.</p>
+<p><strong>Example:</strong> Show <span>$f(x) = x^2$</span> is Lipschitz on <span>$[0, b]$</span>.</p>
+<p><span>$|f(x) - f(y)| = |x^2 - y^2| = |x+y||x-y| \leq (|x| + |y|)|x-y| \leq 2b|x-y|$</span> as <span>$x, y \in [0, b]$</span>.</p>
+<p>However, <span>$x^2$</span> is not Lipschitz on <span>$[0, \infty)$</span>. Intuitively, we know that the slope of <span>$x^2$</span> pretty much becomes vertical as <span>$x \to \infty$</span>, and can no longer be bounded. We can show this rigorously as follows: Let <span>$\epsilon = \frac{1}{2}$</span>. For any <span>$\delta &gt; 0$</span> there exists <span>$M \in \mathbb{N}$</span> such that <span>$0 &lt; \frac{1}{M} &lt; \delta$</span>. Let <span>$x = M + \frac{1}{M}$</span> and <span>$y = M$</span>, so <span>$|x-y| = \left|\frac{1}{M}\right| &lt; \delta$</span> and: </p>
+<p><span>$$
+|f(x) - f(y)| \\
+= |M^2 + 2 + \frac{1}{M^2} - M^2| \\
+= 2 + \frac{1}{M^2} &gt; \frac{1}{2} = \epsilon
+$$</span></p>
+<p>Note that <em>not every uniformly continuous function is Lipschitz</em>. Consider <span>$g(x) = \sqrt{x}$</span> on the interval <span>$[0, 2]$</span>. As the interval is closed and bounded and <span>$g$</span> is continuous, <span>$g$</span> is uniformly continuous on <span>$[0,2]$</span>. However, suppose there exists some <span>$k &gt; 0$</span> such that <span>$|g(x) - g(y)| \leq k|x-y|$</span> for all <span>$x, y \in [0,2]$</span> (i.e. <span>$g(x)$</span> is Lipschitz on the interval). If <span>$y = 0$</span>, there must exist some <span>$k &gt; 0$</span> such that <span>$\sqrt{x} \leq kx$</span>. We'll handle two cases:<br />
+(i) <span>$k \leq 1$</span> : <span>$\sqrt{x} \leq x$</span>. If <span>$x = \frac{1}{4}$</span> then <span>$\frac{1}{2} \leq \frac{1}{4}$</span>. Contradiction.<br />
+(ii) <span>$k &gt; 1$</span> : take <span>$x = 1 / x^4$</span>, so:</p>
+<p><span>$$ \frac{1}{k^2} \leq k\frac{1}{k^4} \implies k \leq 1 $$</span></p>
+<p>Which is another contradiction. Hence <span>$\sqrt{x}$</span> is not Lipschitz on <span>$[0,2]$</span>.</p>
+<p>This ends our coverage of section 5.4, and we're skipping 5.5 because it covers gauges, which are only useful for the book's treatment of integration, which we will not be using (instead developing integration via Riemann sums).</p>
+<h2 class="header"><i>2</i>Increasing and decreasing functions<a class="headerlink" href="#increasing-and-decreasing-functions" name="increasing-and-decreasing-functions">&para;</a></h2>
+<p>This is pretty much a repeat of increasing/decreasing/monotone sequences, but nonetheless we provide the following definitions:</p>
+<p><strong>Definition:</strong> Let <span>$A \subseteq \mathbb{R}$</span>. A function is said to be increasing on <span>$A$</span> if for <span>$x_1, x_2 \in A$</span>, <span>$x_1 \leq x_2$</span> implies <span>$f(x_1) \leq f(x_2)$</span>. A function is said to be strictly increasing on <span>$A$</span> if <span>$x_1 &lt; x_2$</span> implies <span>$f(x_1) &lt; f(x_2)$</span>. The definitions of decreasing and strictly decreasing follow similarly.</p>
+<p><strong>Definition:</strong> A function <span>$f : A \to \mathbb{R}$</span> is said to be monotone on <span>$A$</span> if it is either always increasing or always decreasing on <span>$A$</span>.  A function is strictly monotone similarly.</p>
+<p>A pretty trivial observation is that if <span>$f$</span> is decreasing then <span>$-f$</span> is increasing and vice-versa.</p>
+<p>While increasing/decreasing functions are not necessarily continuous, they are "almost" continuous in the following sense:</p>
+<p><strong>Theorem:</strong> Let <span>$I \subseteq \mathbb{R}$</span> be and interval and <span>$f : I \to \mathbb{R}$</span> be monotone increasing and <span>$c \in I$</span> such that <span>$c$</span> is not an endpoint of <span>$I$</span>. Then:</p>
+<p><span>$$
+\text{(i)} \lim_{x \to c^-} f(x) = \sup\{f(x) : x \in I, x &lt; c\} \\
+\text{(ii)} \lim_{x \to c^+} f(x) = \inf\{f(x) : x \in I, x &gt; c\}
+$$</span></p>
+<p><strong>Proof:</strong> We'll show (i), as the proof for (ii) follows similarly. Define <span>$A := \{f(x) : x \in I, x &lt; C\}$</span>. Since <span>$c$</span> is not an endpoint, <span>$A \neq \varnothing$</span>. Since <span>$f$</span> is monotone, <span>$A$</span> is bounded above by <span>$f(c)$</span> hence <span>$\sup A = s$</span> exists. We will show that <span>$\displaystyle \lim_{x \to c^-} f(x) = s$</span>. For a given <span>$\epsilon &gt; 0$</span>, <span>$s - \epsilon$</span> is no longer an upper bound, thus there exists <span>$x_0 \in I$</span> such that <span>$s - \epsilon &lt; f(x_0) \leq s$</span>. Let <span>$\delta = c - x_0$</span>. Then if <span>$0 &lt; c-x &lt; \delta = c - x_0$</span> then <span>$x &gt; x_0$</span> so <span>$f(x) \geq f(x_0)$</span> so <span>$s - \epsilon &lt; f(x_0) \leq f(x) &lt; s$</span> and therefore <span>$s - f(x) = |f(x) - s| &lt; \epsilon$</span> <span>$\blacksquare$</span>.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

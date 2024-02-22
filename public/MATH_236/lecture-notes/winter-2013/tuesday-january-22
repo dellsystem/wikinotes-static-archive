@@ -1,0 +1,154 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_236/">
+                MATH 236
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, January 22, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, January 22, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Kernels and images
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Material covered: some properties of composition of linear maps (products), and an introduction to kernels and images (or nullspaces and ranges).</p>
+<div class="toc">
+<ul>
+<li><a href="#composition-of-linear-maps-properties">1 Composition of linear maps: properties</a></li>
+<li><a href="#kernels-and-images">2 Kernels and images</a><ul>
+<li><a href="#kernels">2.1 Kernels</a><ul>
+<li><a href="#relation-to-injectivity">2.1.1 Relation to injectivity</a></li>
+</ul>
+</li>
+<li><a href="#images">2.2 Images</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Composition of linear maps: properties<a class="headerlink" href="#composition-of-linear-maps-properties" name="composition-of-linear-maps-properties">&para;</a></h2>
+<ol>
+<li>Associativity</li>
+<li>Existence of an identity, <span>$I \in \mathcal (V, V)$</span>, such that <span>$IT = T$</span> for any <span>$T \in \mathcal (V, W)$</span>.</li>
+<li>Distributivity, to tie together addition and "multiplication": <span>$(S_1 + S_2)T = S_1 T + S_2 T$</span></li>
+</ol>
+<p>Notably, composition is <em>not</em> generally commutative.</p>
+<h2 class="header"><i>2</i>Kernels and images<a class="headerlink" href="#kernels-and-images" name="kernels-and-images">&para;</a></h2>
+<p>Now, onto <strong>kernels</strong> (also known as <strong>nullspaces</strong>) and <strong>images</strong> (also known as <strong>ranges</strong>). (The professor prefers the terms in parentheses, but the notetaker likes the other ones better. Plus, <span>$\LaTeX$</span> supports \im and \ker but not \null and \range.)</p>
+<h3 class="header"><i>2.1</i>Kernels<a class="headerlink" href="#kernels" name="kernels">&para;</a></h3>
+<p>First, let's define the kernel of a transformation. For any <span>$T \in \mathcal L(V, W)$</span>:</p>
+<p><span>$$\ker(T) = \{v \in V \mid T(v) = 0_W \} \subseteq V$$</span></p>
+<p>Some trivial examples: the kernel of the zero map (which just sends everything to 0) is the whole domain, while the kernel of the identity map is just <span>$\{0\}$</span>.</p>
+<p>Now we will prove that the kernel of a linear map <span>$T \in \mathcal L(V, W)$</span> is a subspace of <span>$V$</span>:</p>
+<ol>
+<li>Show that <span>$0 \in \ker(T)$</span>: Well, <span>$T(0) = T(0 + 0) = T(0) + T(0)$</span> so it must be that <span>$T(0) = 0$</span>, since <span>$T(0)$</span> behaves as the additive identity (which is just 0).</li>
+<li>Show that scalar multiplication and addition are preserved: let <span>$u,v \in V$</span> such that <span>$Tv = Tu = 0$</span>, and let <span>$a \in \mathbb F$</span>. Then <span>$T(au + v) = aTu + Tv$</span> (by the definition of a linear map) <span>$= a\cdot 0 + 0 = 0$</span>. Thus <span>$au + v \in \ker(T)$</span>.</li>
+</ol>
+<h4 class="header"><i>2.1.1</i>Relation to injectivity<a class="headerlink" href="#relation-to-injectivity" name="relation-to-injectivity">&para;</a></h4>
+<p>Proposition: If <span>$T \in \mathcal L(V, W)$</span>, then <span>$T$</span> is injective if and only if <span>$\ker(T) = \{0\}$</span>.</p>
+<p>Proof: (<span>$\to$</span>) <span>$T$</span> is injective. We know that <span>$T0 = 0$</span>, from earlier. So if <span>$Tv = v$</span> for any <span>$v$</span>, then <span>$v = 0$</span>, by injectivity.</p>
+<p>(<span>$\rightarrow$</span>) Assume <span>$\ker(T) = \{0\}$</span>. Let <span>$u, v \in V$</span> such that <span>$T(u) = T(v)$</span>. Then <span>$Tu - Tv = 0$</span>. So <span>$T(u-v) = 0$</span> by linearity. But this means that <span>$u-v\in \ker(T)$</span> and so <span>$u-v = 0$</span>. Thus <span>$u = v$</span>.</p>
+<h3 class="header"><i>2.2</i>Images<a class="headerlink" href="#images" name="images">&para;</a></h3>
+<p>Given <span>$T \in \mathcal L(V, W)$</span>:</p>
+<p><span>$$\im(T) = \{Tv \mid v \in V\} \subseteq W$$</span></p>
+<p>If <span>$T$</span> is subjective, <span>$\im(T) = W$</span>.</p>
+<p>Proposition: the image of a linear map is a subspace of <span>$W$</span>. Proof:</p>
+<ol>
+<li>To be continued</li>
+</ol>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

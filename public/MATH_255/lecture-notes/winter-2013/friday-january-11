@@ -1,0 +1,140 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, January 11, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, January 11, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Continuous functions on closed, bounded intervals
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Let's start off today with a lemma - those useful little building blocks fo proper theorems and their proofs. If you took the exam for Analysis 1, Fall 2012, this will look familiar:</p>
+<p><strong>Lemma:</strong> If <span>$g : A \to \mathbb{R}$</span> is continuous at <span>$c \in A$</span> and <span>$g(c) \neq 0$</span>, then there exists a neighborhood of <span>$c$</span> for which <span>$g(x) \neq 0$</span> on that neighborhood.</p>
+<p><strong>Proof:</strong> <span>$g(c) \neq 0$</span>, so let <span>$\epsilon = \frac{|g(c)|}{2}$</span>. Since <span>$g$</span> is continuous at <span>$x=c$</span>, <span>$\exists \delta &gt; 0$</span> such that <span>$|x - c| &lt; \delta$</span> implies <span>$|g(x) - g(c)| &lt; \epsilon$</span>. So <span>$|g(c)| - |g(x)| \leq |g(c) - g(x)| &lt; \frac{|g(c)|}{2}$</span>. Rearranging this, we see that <span>$|g(c)| - \frac{|g(c)|}{2} &lt; |g(x)|$</span> thus <span>$0 &lt; \frac{|g(c)|}{2} &lt; |g(x)|$</span>. So in the neighborhood of our <span>$\delta$</span>, <span>$g(x) \neq 0$</span>.</p>
+<p>We can also get the following corollary out of this:</p>
+<p><strong>Corollary:</strong> If <span>$g : A \to \mathbb{R}$</span> is continuous at <span>$c \in A$</span> and <span>$g(c) \neq 0$</span>, then <span>$1 / g(x)$</span> is continuous at <span>$c$</span>.</p>
+<p><strong>Proof:</strong> For a given <span>$\epsilon &gt; 0$</span>, there exists a <span>$\delta &gt; 0$</span> such that <span>$|g(x)| &gt; \frac{|g(c)|}{2}$</span> for all <span>$x$</span> in the <span>$\delta$</span>-neighborhood of <span>$c$</span>. Thus, <span>$\frac{2}{|g(c)|} &gt; \frac{1}{|g(x)|}$</span> for those <span>$x$</span>. Thus, by the Triangle Inequality:</p>
+<p><span>$$
+\left|\frac{2}{|g(x)|}  - \frac{2}{|g(c)|}\right| = \frac{|g(c) - g(x)|}{|g(x)||g(c)|} \leq \frac{2 \cdot |g(x) - g(c)|}{|g(c)|^2}
+$$</span></p>
+<p>But <span>$g$</span> is continuous at <span>$c$</span>, so for a given <span>$\epsilon &gt; 0$</span>, there exists a <span>$\delta_1 &gt; 0$</span> such that if <span>$|x - c| &lt; \delta_1$</span>, then <span>$|g(x) - g(c)| &lt; \frac{|g(c)|^2}{2}\epsilon$</span>. Thus, if we choose a <span>$\delta_2 := \inf\{\delta, \delta_1\}$</span> and set <span>$|x - c| &lt; \delta_2$</span>, then:</p>
+<p><span>$$
+\left|\frac{1}{g(x)} - \frac{1}{g(c)}\right| \leq \frac{2 \cdot |g(x) - g(c)|}{|g(c)|^2} &lt; \epsilon
+$$</span></p>
+<p>Thus completing our proof.</p>
+<h2 class="header"><i>1</i>More combinations of continuous functions<a class="headerlink" href="#more-combinations-of-continuous-functions" name="more-combinations-of-continuous-functions">&para;</a></h2>
+<p>Now let's talk about functions that are everywhere continuous. It's easy to see that <span>$f(x) = x$</span> is a continuous function, and as we've seen, the product of a continuous function with a scalar or another continuous function is continuous. Additionally, the sum of continuous functions is continuous. Therefore <em>polynomials are continuous everywhere</em> as you can construct them with <span>$f(x) = x$</span> and some coefficients. Rational functions are also continuous everywhere in their domain.</p>
+<p>What about the composition of continuous functions? It turns out these are also continuous, which we'll state and prove as follows:</p>
+<p><strong>Theorem:</strong> Given <span>$A, B \subseteq \mathbb{R}$</span>, let <span>$f : A \to \mathbb{R}$</span> and <span>$g : B \to \mathbb{R}$</span> be functions where <span>$f(A) \subseteq B$</span>. If <span>$f$</span> is continuous at <span>$c \in A$</span> and <span>$g$</span> is continuous at <span>$f(c)$</span> then <span>$g \circ f : A \to \mathbb{R}$</span> is continuous at <span>$c$</span>.</p>
+<p><strong>Proof:</strong> <span>$g$</span> is continuous at <span>$b = f(c)$</span>, so for a given <span>$\epsilon &gt; 0$</span>, there exists a <span>$\delta &gt; 0$</span> such that <span>$|g(x) - g(b)| &lt; \epsilon$</span>. <span>$f$</span> is continuous at <span>$c$</span>. Thus there exists a <span>$\delta_1 &gt; 0$</span> such that if <span>$|x - c| &lt; \delta_1$</span> then <span>$|g(f(x)) - g(f(c))| &lt; \epsilon$</span>, thus completing our proof.</p>
+<h2 class="header"><i>2</i>Closed, bounded intervals<a class="headerlink" href="#closed-bounded-intervals" name="closed-bounded-intervals">&para;</a></h2>
+<p>Now we give a definition that will be useful (and is quite obvious):</p>
+<p><strong>Definition:</strong> A function <span>$f : A \to \mathbb{R}$</span> is said to be bounded on <span>$A$</span> if there exists some <span>$M &gt; 0$</span> such that <span>$|f(x)| \leq M$</span> for all <span>$x \in A$</span>.</p>
+<p>In general, a continuous function on an interval need not be bounded, for example the function <span>$1/x$</span> on <span>$(0,1)$</span>. However, a continuous function on a <em>closed, bounded</em> interval is bounded on that interval:</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a, b]$</span> be a closed, bounded interval and <span>$f : I \to \mathbb{R}$</span> be a continuous function on <span>$I$</span>. Then <span>$f$</span> is bounded on <span>$I$</span>.</p>
+<p><strong>Proof</strong>: Suppose <span>$f$</span> is not bounded. Then for all <span>$M \in \mathbb{N}$</span> there exists some <span>$x_M \in I$</span> such that <span>$|f(x_M)| &gt; M$</span>. Thus, <span>$(x_M)$</span> is a sequence in <span>$I$</span>. But <span>$I$</span> is a closed and bounded interval, so by Bolzano-Weierstrass it has a convergent subsequence <span>$(x_{M_k})$</span> that converges to some <span>$x_0 \in I$</span>. As <span>$f$</span> is continuous on <span>$I$</span>, <span>$f(x_{M_k}) \to f(x_0)$</span>, i.e. <span>$f(x_{M_k})$</span> is convergent and convergent sequences are bounded. Hence we conclude our proof by contradiction.</p>
+<p>This is an important result to know as it is used often. And now for another definition:</p>
+<p><strong>Definition:</strong> Let <span>$A \subseteq \mathbb{R}$</span>, <span>$f : A \to \mathbb{R}$</span>. We say <span>$f$</span> has an <em>absolute maximum</em> on <span>$A$</span> if there exists <span>$c \in A$</span> such that <span>$f(c) \geq f(x)$</span> for all <span>$x \in A$</span>. Similarly, <span>$f$</span> has an absolute minimum on <span>$A$</span> if there exists <span>$d \in A$</span> such that <span>$f(d) \leq f(x)$</span> for all <span>$x \in A$</span>.</p>
+<p>This is a pretty intuitive definition and doesn't require much thought. Now let's make use of this new definition in the following theorem:</p>
+<p><strong>Theorem:</strong> Let <span>$I = [a, b]$</span> be a closed, bounded interval, and <span>$f : I \to \mathbb{R}$</span> be continuous on <span>$I$</span>. Then <span>$f$</span> achieves both an absolute maximum and an absolute minimum on <span>$I$</span>.</p>
+<p><strong>Proof:</strong> By a previous theorem, we know there exists <span>$M &gt; 0$</span> such that <span>$|f(x)| \leq M$</span>, so <span>$f(x) \leq |f(x)| \leq M$</span> for all <span>$x \in A$</span>. Thus the set <span>$f(I) = \{f(x) : x \in A\}$</span> is bounded above, and therefore has a supremum <span>$S$</span>. Another way or saying this is that for <span>$n \in \mathbb{N}$</span>, <span>$S - 1/n$</span> is not an upper bound. So we can create a sequence <span>$(x_n)$</span> defined such that <span>$S - 1/n &lt; f(x_n) \leq S$</span>. By Bolzano-Weierstrass, there is a convergent subsequence <span>$(x_{n_k})$</span> that converges to some <span>$x_0 \in I$</span>. By the squeeze theorem we know that <span>$f(x_0) = S$</span>, giving us the absolute maximum. The proof for a minimum follows similarly.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

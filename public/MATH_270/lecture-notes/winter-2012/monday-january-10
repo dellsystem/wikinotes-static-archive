@@ -1,0 +1,345 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_270/">
+                MATH 270
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, January 10, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, January 10, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Introduction/Review
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Math 270 - Applied Linear Algebra</p>
+<p>Lecture 1</p>
+<h5 class="header"><i>1</i>Problem 1: Solve:<a class="headerlink" href="#problem-1-solve" name="problem-1-solve">&para;</a></h5>
+<p><span>$$ \begin{eqnarray*}
+\begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3|1\\
+2 &amp; -4 &amp; 1 &amp; 0|5\\
+1 &amp; -2 &amp; 2 &amp; -3|4
+\end{bmatrix} &amp; \rightarrow &amp; \begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3\\
+2 &amp; -4 &amp; 1 &amp; 0\\
+1 &amp; -2 &amp; 2 &amp; -3
+\end{bmatrix}\vec{x}=\begin{bmatrix}1\\
+5\\
+4
+\end{bmatrix}
+\end{eqnarray*} $$</span></p>
+<p>Recall general algorithm to reduce matrix into row echelon form (Gaussian Elimination).<br />
+Step 1. If the matrix has only zero entries then we stop.<br />
+Step 2. Find the first column from the left containing a nonzero entry <span>$k$</span>, move the row containing the entry to the top of the matrix.<br />
+Step 3. Multiply the first row by <span>$\frac{1}{k}$</span> to create the first leading <span>$1$</span><br />
+Step 4. Make each entry below this leading <span>$1$</span> zero by subtracting multiples of the first row from remaining rows. <br />
+Step 5. Now apply 1-5 to the matrix consisting of the remaining rows.</p>
+<p>This brings the matrix into row-echelon form. Now to make it into <strong>reduced</strong> row-echelon form use the rows with leading <span>$1$</span>'s to make the entries <strong>above</strong> the leading ones zero. Actually you can do this when doing Step 4.</p>
+<p>Continuing: <br />
+<span>$$ \begin{eqnarray*}
+R_{2}-2R_{1},R_{3}-2R_{1} &amp; \sim &amp; \begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3|1\\
+0 &amp; 0 &amp; 3 &amp; -6|3\\
+0 &amp; 0 &amp; 3 &amp; -6|3
+\end{bmatrix}\\
+\\
+R_{3}-R_{2} &amp; \sim &amp; \begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3|1\\
+0 &amp; 0 &amp; 3 &amp; -6|3\\
+0 &amp; 0 &amp; 0 &amp; 0|0
+\end{bmatrix}\\
+\\
+R_{2}/3 &amp; \sim &amp; \begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3|1\\
+0 &amp; 0 &amp; 1 &amp; -2|1\\
+0 &amp; 0 &amp; 0 &amp; 0|0
+\end{bmatrix}\\
+\\
+R_{1}+R_{2} &amp; \sim &amp; \begin{bmatrix}1 &amp; -2 &amp; 0 &amp; \,1\,\,|\,2\\
+0 &amp; 0 &amp; 1 &amp; -2\,|\,1\\
+0 &amp; 0 &amp; 0 &amp; 0|0
+\end{bmatrix}:RREF(A)
+\end{eqnarray*} $$</span></p>
+<p>translating into equations:</p>
+<p><span>$$ \begin{eqnarray*}
+x_{1}-2x_{2}+x_{4} &amp; = &amp; 2\\
+x_{3}-2x_{4} &amp; = &amp; 1\\
+0 &amp; = &amp; 0
+\end{eqnarray*} $$</span></p>
+<p>and into solutions: </p>
+<p><span>$$ \begin{eqnarray*}
+x_{2} &amp; = &amp; s\\
+x_{4} &amp; = &amp; t\\
+x_{1} &amp; = &amp; 2+2s-t\\
+x_{3} &amp; = &amp; 1+2t
+\end{eqnarray*} $$</span></p>
+<p>Other notation (the vector-parametric form of the general solution):</p>
+<p><span>$$
+X=\begin{bmatrix}x_{1}\\
+x_{2}\\
+x_{3}\\
+x_{4}
+\end{bmatrix}=\begin{bmatrix}2+2s-t\\
+s\\
+1+2t\\
+t
+\end{bmatrix}=\begin{bmatrix}2\\
+0\\
+1\\
+0
+\end{bmatrix}+s\begin{bmatrix}2\\
+1\\
+0\\
+0
+\end{bmatrix}+t\begin{bmatrix}-1\\
+0\\
+2\\
+1
+\end{bmatrix}
+$$</span></p>
+<p><em>By substituting <span>$s,t\in\Re$</span> we get some solution to the initial<br />
+system</em>. </p>
+<p><em>For example, <span>$s=t=0$</span></em>: <br />
+<span>$$
+\begin{bmatrix}1 &amp; -2 &amp; -1 &amp; 3\\
+2 &amp; -4 &amp; 1 &amp; 0\\
+1 &amp; -2 &amp; 2 &amp; -3
+\end{bmatrix}\begin{bmatrix}2\\
+0\\
+1\\
+0
+\end{bmatrix}=\begin{bmatrix}1\\
+5\\
+4
+\end{bmatrix}
+$$</span></p>
+<p>Remarks: A general soltuion to an associated homogenous system <span>$AX=0$</span><br />
+is <span>$s\begin{bmatrix}2\\
+1\\
+0\\
+0
+\end{bmatrix}+t\begin{bmatrix}-1\\
+0\\
+2\\
+1
+\end{bmatrix}$</span>, i.e. <br />
+<span>$$ \begin{eqnarray*}
+Null\left(A\right) &amp; = &amp; \mbox{span}\{ T_{1},T_{2}\} \\
+\end{eqnarray*} $$</span></p>
+<h5 class="header"><i>1.1</i>Recall Rank:<a class="headerlink" href="#recall-rank" name="recall-rank">&para;</a></h5>
+<p><em>A ton of theorems associated with rank</em>:</p>
+<p><span>$$ \begin{eqnarray*}
+rkA &amp; = &amp; \mbox{# of nonzero rows in rref(A)}\\
+\\
+ &amp; \overset{thm}{=} &amp; \mbox{# of lin. independent rows}\overset{def}{=}\mbox{dim}\left(\mbox{row}\left(A\right)\right)\\
+\\
+ &amp; \overset{thm}{=} &amp; \mbox{# of lin. independent cols}\overset{def}{=}\mbox{dim}\left(\mbox{col}\left(A\right)\right)
+\end{eqnarray*} $$</span></p>
+<p><strong><em>Exercise</em></strong><strong>: </strong></p>
+<p><span>$rkA=2$</span>. Find 2 indep rows in A. Express the third as a linear combination<br />
+of these two. And the same for columns (<span>$C_{2}=\left(-2\right)\cdot C_{1}$</span>)</p>
+<h5 class="header"><i>1.1.1</i>Example 2:<a class="headerlink" href="#example-2" name="example-2">&para;</a></h5>
+<p>For which a is <span>$D=\begin{bmatrix}1 &amp; 1 &amp; 1\\
+1 &amp; 2 &amp; a\\
+2 &amp; a &amp; 4
+\end{bmatrix}$</span></p>
+<p><strong>Thm: </strong>A is invertible <span>$\iff$</span> <span>$\mbox{det}\left(A\right)=\left|A\right|\neq0$</span></p>
+<p><em>In this case</em> (expansion along the last column):<br />
+<span>$$ \begin{eqnarray*}
+det\left(A\right) &amp; = &amp; 1\cdot\left|\begin{matrix}1 &amp; 2\\
+2 &amp; a
+\end{matrix}\right|-a\cdot\left|\begin{matrix}1 &amp; 1\\
+2 &amp; a
+\end{matrix}\right|+4\left|\begin{matrix}1 &amp; 1\\
+1 &amp; 2
+\end{matrix}\right|\\
+\\
+ &amp; = &amp; a-4-a(a-2)+4(2-1)\\
+\\
+ &amp; = &amp; 3a-a^2=a(3-a)
+\end{eqnarray*} $$</span></p>
+<p>So <span>$D$</span> is invertible <span>$\iff$</span> <span>$a\neq0$</span> and <span>$a\neq 3$</span></p>
+<h5 class="header"><i>1.1.1.1</i>Recall Cofactor and Det<a class="headerlink" href="#recall-cofactor-and-det" name="recall-cofactor-and-det">&para;</a></h5>
+<p><span>$$ \begin{eqnarray*}
+A_{m\times n} &amp; = &amp; \left[a_{ij}\right]_{m\times n}\\
+\\
+C_{ij} &amp; = &amp; \left(-1\right)^{i+j}\det\left(A_{ij}\right)
+\end{eqnarray*} $$</span> where <span>$A_{ij}$</span> is the matrix <span>$A$</span> with row <span>$i$</span> and column <span>$j$</span> deleted.</p>
+<h5 class="header"><i>1.1.1.2</i>Why is invertibility important?<a class="headerlink" href="#why-is-invertibility-important" name="why-is-invertibility-important">&para;</a></h5>
+<p>if <span>$A_{n\times n}$</span> is invertible, then any equation <span>$AX=B$</span> has a<br />
+unique solution: <br />
+Since <span>$A$</span> is invertible, <span>$A^{-1}\left(AX\right)=A^{-1}B\rightarrow\left(A^{-1}A\right)X=A^{-1}B\rightarrow IX=A^{-1}B\rightarrow X=A^{-1}B$</span></p>
+<h5 class="header"><i>1.1.1.3</i>Transformations:<a class="headerlink" href="#transformations" name="transformations">&para;</a></h5>
+<p><span>$T\cdot\Re^{n}\rightarrow\Re^{m}$</span> is a linear transformation <span>$\overset{def}{\iff}$</span><span>$\begin{cases}
+T\left(X+Y\right) &amp; =T\left(X\right)+T\left(Y\right)\\
+T\left(\lambda X\right) &amp; =\lambda T\left(X\right)
+\end{cases}$</span>. </p>
+<p>Fact: Every linear transformation between <span>$\Re^n$</span> and <span>$\Re^m$</span> is a <em>matrix </em>transformation,<br />
+i.e. <span>$T\left(X\right)=A\cdot X$</span></p>
+<p>Problem: Find a matrix of a ration in 2D by angle <span>$\theta$</span>.</p>
+<p>Let <span>$R_{\theta}$</span> be rotation by <span>$\theta$</span>. Let <span>$A$</span> be its matrix.<br />
+<span>$$ \begin{eqnarray*}
+\Re^{2} &amp; \rightarrow &amp; \Re^{2}\\
+\\
+\begin{bmatrix}x\\
+y
+\end{bmatrix} &amp; \rightarrow &amp; \begin{bmatrix}a &amp; b\\
+c &amp; d
+\end{bmatrix}\begin{bmatrix}x\\
+y
+\end{bmatrix}=\begin{bmatrix}ax+by\\
+cx+dy
+\end{bmatrix}\\
+\\
+\begin{bmatrix}x\\
+y
+\end{bmatrix} &amp; \rightarrow &amp; \begin{bmatrix}ax+by\\
+cx+dy
+\end{bmatrix}
+\end{eqnarray*} $$</span></p>
+<p>Idea: Compute <span>$R_{\theta}\left(e_{1}\right),R_{\theta}\left(e_{2}\right)$</span><br />
+where <span>$e_{1}=\begin{bmatrix}1\\
+0
+\end{bmatrix},e_{2}=\begin{bmatrix}0\\
+1
+\end{bmatrix}$</span>. </p>
+<p>In this way we compute the columns of <span>$A$</span>:</p>
+<p>if <span>$A=\begin{bmatrix}a &amp; b\\
+c &amp; d
+\end{bmatrix}$</span> then <span>$Ae_{1}=\begin{bmatrix}a &amp; b\\
+c &amp; d
+\end{bmatrix}\begin{bmatrix}1\\
+0
+\end{bmatrix}=\begin{bmatrix}a\\
+c
+\end{bmatrix}$</span> and <span>$Ae_{2}=\begin{bmatrix}b\\
+d
+\end{bmatrix}$</span></p>
+<p>Here (using a picture and definitions of trigonometric functions) we computed:<br />
+<span>$R_{\theta}\left(e_{1}\right)=Ae_{1}=\begin{bmatrix}\cos\theta\\
+\sin\theta
+\end{bmatrix}$</span> and <span>$R_{\theta}\left(e_{2}\right)=\begin{bmatrix}-\sin\theta\\
+\cos\theta
+\end{bmatrix}$</span></p>
+<h4 class="header"><i>1.1.2</i>Typical problem we will deal with later: Is A diagonalizable?*<a class="headerlink" href="#typical-problem-we-will-deal-with-later-is-a-diagonalizable" name="typical-problem-we-will-deal-with-later-is-a-diagonalizable">&para;</a></h4>
+<p>Def: A is diagonalizable <span>$\iff\exists P_{n\times n},\ \mbox{invertible}$</span><br />
+and where <span>$P^{-1}AP$</span> is a diagonal matrix.</p>
+<p>Finding the diagonalizable matrix:<br />
+\begin{enumerate}<br />
+* Characteristic polynomial: <span>$c_{A}\left(x\right)\overset{def}{=}\det\left(xI_{n}-A\right)$</span></p>
+<p><span>$$ \begin{eqnarray*}
+c_{A} &amp; = &amp; \det\left(x\begin{bmatrix}1 &amp; 0\\
+0 &amp; 1
+\end{bmatrix}-\begin{bmatrix}\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{bmatrix}\right)\\
+\\
+ &amp; = &amp; \begin{bmatrix}x-\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; x-\cos\theta
+\end{bmatrix}\\
+\\
+ &amp; = &amp; \left(x-\cos\theta\right)^{2}+\sin^{2}\theta=x^{2}-\left(2\cos\theta\right)x+1
+\end{eqnarray*} $$</span></p>
+<ul>
+<li>Recall that eigenvalues of <span>$A$</span> are roots of <span>$c_{A}\left(x\right)$</span>.<br />
+(but the definition of eigenvalue is: <span>$\lambda$</span> is an eigenvalue<br />
+for <span>$A\iff\exists X\neq0$</span> st <span>$AX=\lambda X$</span>)</li>
+</ul>
+<p>Indeed, if <span>$c_{A}=0\overset{def}{\iff}\det\left(xI_{n}-A\right)=0\iff\lambda I-A$</span><br />
+not invertible <span>$\iff\left(\lambda I-A\right)X=0$</span> has a nonzero solution<br />
+<span>$\iff\exists_{x\neq0}\, s.t.\, AX=\lambda X$</span></p>
+<p>Here. <span>$\Delta=4\cos^{2}\theta-4=4\left(\cos^{2}\theta-1\right)$</span>.<br />
+Thus, A is diagonalizable <span>$\iff\cos^{2}\theta=1\iff\theta=0,\pi$</span>\end{enumerate}</p>
+<p>Remark: So for <span>$\theta=0,\pi$</span> the matrix is not diagonalizable. The field <span>$\Re$</span> of real numbers should be blamed for this, as the polynomial has no real roots in this case. We will learn later that one can remedy this by introducing complex numbers. (The rotation matrices are diagonalizable over complex numbers).</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_330/">
+                COMP 330
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Tuesday, November 5, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Tuesday, November 5, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                The halting problem and undecidability
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>The halting problem. Undecidability and RE sets. <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/comp-notes-1.pdf">Notes on the course website</a></p>
+<div class="toc">
+<ul>
+<li><a href="#the-halting-problem">1 The halting problem</a><ul>
+<li><a href="#definitions">1.1 Definitions</a></li>
+<li><a href="#statement-of-the-problem">1.2 Statement of the problem</a></li>
+<li><a href="#proof-by-contradiction">1.3 Proof by contradiction</a></li>
+</ul>
+</li>
+<li><a href="#sidebar-on-partial-functions">2 Sidebar on partial functions</a></li>
+<li><a href="#decidability">3 Decidability</a><ul>
+<li><a href="#a-note-on-terminology">3.1 A note on terminology</a></li>
+<li><a href="#definitions_1">3.2 Definitions</a></li>
+<li><a href="#decidability-and-functions">3.3 Decidability and functions</a></li>
+<li><a href="#recursively-enumerable-sets">3.4 Recursively enumerable sets</a><ul>
+<li><a href="#some-properties">3.4.1 Some properties</a></li>
+<li><a href="#posts-theorem">3.4.2 Post's theorem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>The halting problem<a class="headerlink" href="#the-halting-problem" name="the-halting-problem">&para;</a></h2>
+<p>The proof of the undecidability of the halting problem was first proven by Alonzo Church, using his system of lambda calculus. It was later proven independently by Turing, as no one understood Church's proof until much later.</p>
+<p>The proof we will cover in this lecture is much simpler than either of the above, simply because we are familiar with the concept of software.</p>
+<h3 class="header"><i>1.1</i>Definitions<a class="headerlink" href="#definitions" name="definitions">&para;</a></h3>
+<p>If <span>$P$</span> is a program, then <span>$\langle P \rangle$</span> is its text.</p>
+<p><span>$P(x)$</span> means to run program <span>$P$</span> on input <span>$x$</span>.</p>
+<p><span>$P(x) \downarrow$</span> means that <span>$P$</span> terminates (halts) at some point, when given input <span>$x$</span>.</p>
+<p><span>$P(x) \uparrow$</span> means that <span>$P$</span> diverges on input <span>$x$</span> (so it never halts).</p>
+<h3 class="header"><i>1.2</i>Statement of the problem<a class="headerlink" href="#statement-of-the-problem" name="statement-of-the-problem">&para;</a></h3>
+<blockquote>
+<p>There does not exist a procedure <span>$H(\langle P \rangle, x)$</span> which can accurately determine whether <span>$P(x) \downarrow$</span> or <span>$P(x)\uparrow$</span> for all <span>$P$</span>, where <span>$H$</span> itself always halts.</p>
+</blockquote>
+<p>(Note that <span>$H$</span> is, by convention, a boolean-valued function that returns true if the input program halts and false if it does not.)</p>
+<h3 class="header"><i>1.3</i>Proof by contradiction<a class="headerlink" href="#proof-by-contradiction" name="proof-by-contradiction">&para;</a></h3>
+<p>Suppose that <span>$H$</span> does exist. Consider the following procedure <span>$S$</span>, which takes as input <span>$x$</span> (representing the text for some program), and is defined as follows: if <span>$H(x, x)$</span> then loop; else, halt.</p>
+<p>Now consider <span>$S(\langle S \rangle)$</span>. Does this halt or not?</p>
+<p>Well, if it does halt, then <span>$H(\langle S \rangle, \langle S\rangle)$</span> must return true, because that's what <span>$H$</span> is supposed to be able to determine. But, by the way <span>$S$</span> is defined, <span>$S$</span> must then loop. Conversely, if it does not halt, then <span>$H(\langle S \rangle, \langle S\rangle)$</span> must be true, in order for the program to have reached the "else" branch of execution. But then that means that <span>$S$</span> must halt on input <span>$\langle S \rangle$</span>. Contradiction. <span>$\blacksquare$</span></p>
+<h2 class="header"><i>2</i>Sidebar on partial functions<a class="headerlink" href="#sidebar-on-partial-functions" name="sidebar-on-partial-functions">&para;</a></h2>
+<p><em>Section omitted, see <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/comp-notes-1.pdf">notes</a> on the course website if you really want to know.</em></p>
+<h2 class="header"><i>3</i>Decidability<a class="headerlink" href="#decidability" name="decidability">&para;</a></h2>
+<h3 class="header"><i>3.1</i>A note on terminology<a class="headerlink" href="#a-note-on-terminology" name="a-note-on-terminology">&para;</a></h3>
+<p>The terminology in this field has undergone quite a bit of change. The word "recursive" used to mean "computable"; now, of course, recursive means something quite different and we just use the word "computable". In this course, however, we will be using "recursive" in the old sense: i.e., computable.</p>
+<h3 class="header"><i>3.2</i>Definitions<a class="headerlink" href="#definitions_1" name="definitions_1">&para;</a></h3>
+<p>A set <span>$X \subseteq \mathbb N$</span> is said to be <strong>decidable</strong> if there is an algorithm <span>$A$</span> such that for every <span>$x \in \mathbb N$</span>, <span>$A(x)$</span> terminates and answers the question "is <span>$x \in X$</span>". This can also be called a <strong>recursive set</strong>. Similarly, <span>$L \subseteq \Sigma^*$</span> is <strong>Turing-decidable</strong> if there is an algorithm (or Turing machine) that can decide if <span>$x \in L$</span> for any <span>$x \in \Sigma^*$</span>.</p>
+<p>A language is said to be <strong>recursively enumerable (RE)</strong> if there exists an algorithm <span>$A$</span> such that for any <span>$x \in L$</span>, <span>$A(x)$</span> terminates and "yes". For <span>$x \notin L$</span>, <span>$A$</span> must either return "no" or never halt. This concept is closely related to the idea of a semi-decision procedure. (An example of such a procedure for the halting problem would be to just run the program.)</p>
+<p>Note that all of these definitions can be made for subsets of <span>$\mathbb N$</span> <em>or</em> of <span>$\Sigma^*$</span>; they are fundamentally equivalent.</p>
+<h3 class="header"><i>3.3</i>Decidability and functions<a class="headerlink" href="#decidability-and-functions" name="decidability-and-functions">&para;</a></h3>
+<blockquote>
+<p>Proposition: Let <span>$X \subseteq \mathbb N$</span>, where <span>$X$</span> is infinite. <span>$X$</span> is <strong>decidable</strong> <span>$\iff$</span> <span>$X$</span> is the range of a total, computable<sup id="fnref:computable"><a href="#fn:computable" rel="footnote" title="A &quot;computable function&quot; is another way of saying &quot;...">1</a></sup>, non-decreasing function <span>$f: \mathbb N \to \mathbb N$</span>.</p>
+</blockquote>
+<p>Proof: (<span>$\Leftarrow$</span>) Assume that we have such an <span>$f$</span>. Let <span>$A$</span> be the algorithm that implements <span>$f$</span>. Given <span>$x \in \mathbb N$</span>, carry out the decision procedure. Run <span>$A$</span> on <span>$0, 1, 2, 3, \ldots$</span> and observe the output. (Note that <span>$A$</span> is guaranteed to halt on any input since <span>$f$</span> is total.) This gives us <span>$x_0, x_1, x_2, x_3, \ldots$</span>. If any one of these is <span>$x$</span>, then <span>$x \in X$</span>. On the other hand, if, for some <span>$n$</span>, <span>$x_n &gt; x$</span>, then <span>$x \notin X$</span>, since <span>$f$</span> is non-decreasing. This algorithm must halt because the <span>$x \in \mathbb N$</span> that we are given is a finite number, and it's not possible for the range of <span>$f$</span> to plateau indefinitely, since <span>$x$</span> is an infinite set.</p>
+<p>(<span>$\Rightarrow$</span>) Suppose <span>$X \subseteq \mathbb N$</span> is an infinite decidable set. Since it's decidable, there is an algorithm <span>$A$</span> that is guaranteed to terminate for any <span>$n \in \mathbb N$</span> such that <span>$A(n)$</span> return true <span>$\iff$</span> <span>$n \in X$</span>. Let's use this algorithm to construct a function. Run <span>$A$</span> on <span>$0, 1, 2, 3, \ldots$</span> and call the first number that <span>$A$</span> finds to be in <span>$X$</span> <span>$x_0$</span>, the next <span>$x_1$</span>, etc. Now define <span>$f(n) = x_n$</span>. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>3.4</i>Recursively enumerable sets<a class="headerlink" href="#recursively-enumerable-sets" name="recursively-enumerable-sets">&para;</a></h3>
+<p>A <em>set</em> is <strong>recursively enumerable (RE)</strong> if there is an algorithm (which may run forever) that eventually produces all members. The elements don't need to emerge in any systematic order - if this were true, you could get a decision procedure out of it, but that's not possible for all RE sets.</p>
+<p>We define the following set (<strong>important!</strong>):</p>
+<p><span>$$A_{TM} = \{\langle A, w \rangle \mid A,\text{ when run on } w,\text{ halts and accepts} \}$$</span></p>
+<p>where <span>$\langle A, w\rangle$</span> is the encoding of the algorithm <span>$A$</span> with input <span>$w \in \Sigma^*$</span>.</p>
+<p>Clearly this set is not decidable due to the halting problem. But it's the next best thing - it's an RE set.</p>
+<p>Let's sketch out a proof for that. Here's a procedure capable of producing all members of <span>$A_{TM}$</span> (eventually), which uses dovetailing. First, we list all pairs of Turing machines and words in a table:</p>
+<ul>
+<li><span>$\langle A_1, w_1 \rangle$</span>, <span>$\langle A_1, w_2 \rangle$</span>, <span>$\ldots$</span> in the first row</li>
+<li><span>$\langle A_2, w_1 \rangle$</span>, <span>$\langle A_2, w_2 \rangle$</span>, <span>$\ldots$</span> in the second etc</li>
+<li>etc</li>
+</ul>
+<p>Next, we find a way to traverse the structure. The simplest is probably the way used in the standard proof for showing that <span>$\mathbb N \times \mathbb N$</span> is countable - start at the top-left corner, then move one column over and go diagonally down and left, and repeat after each diagonal. Suppose we have a simulator that can run an algorithm on some input. First, we run <span>$A_1$</span> on <span>$w_1$</span> for one step and stop. If it accepts immediately, great; otherwise, we'll come back to it later. Then, run <span>$A_1$</span> on <span>$w_2$</span> for two steps. Then run <span>$A_1$</span> on <span>$w_1$</span> for one more step. Then <span>$A_2$</span> on <span>$w_1$</span> for three steps, <span>$A_1$</span> on <span>$w_2$</span> for one more step, and <span>$A_1$</span> on <span>$w_1$</span> for one more step. Continuing in this fashion, we see that we manage to run every word on every machine for <span>$n$</span> steps for all <span>$n$</span>, avoiding infinite branching in the process. (There are a number of ways of specifying the number of steps of the algorithm to run at each step; see the <a href="http://www.cs.mcgill.ca/~prakash/Courses/Comp330/Notes/comp-notes-1.pdf">notes</a> for a different one.)</p>
+<h4 class="header"><i>3.4.1</i>Some properties<a class="headerlink" href="#some-properties" name="some-properties">&para;</a></h4>
+<ul>
+<li>The union of any finite number of RE sets is RE</li>
+<li>The intersection of any finite number of RE sets is RE</li>
+</ul>
+<p>Proofs: run the enumerators in parallel.</p>
+<ul>
+<li>Any decidable set is RE.</li>
+<li>If <span>$X$</span> is RE and <span>$\overline{X}$</span> is RE, then <span>$X$</span> is recursive.</li>
+<li>If a set is decidable, so is its complement.</li>
+</ul>
+<p>All of these are fairly straightforward to prove.</p>
+<h4 class="header"><i>3.4.2</i>Post's theorem<a class="headerlink" href="#posts-theorem" name="posts-theorem">&para;</a></h4>
+<p>We'll now look at pairs of numbers: <span>$[n, m] \in \mathbb N \times \mathbb N$</span>. Now, we can talk about the decidability of sets of <em>pairs</em> of numbers just as easily as we could of sets of numbers. Suppose we have two functions <span>$\Pi_1$</span> and <span>$\Pi_2$</span> such that <span>$\Pi_1([n, m]) = n$</span> and <span>$\Pi_2([n, m]) = m$</span>. Post's theorem is as follows:</p>
+<blockquote>
+<p>A set <span>$X \subseteq \mathbb N$</span> is RE <span>$\Leftrightarrow$</span> (there exists a decidable set <span>$Y \subseteq \mathbb N \times \mathbb N$</span> such that <span>$x \in X \Leftrightarrow \exists y \in N$</span> with <span>$[x, y] \in Y$</span>).</p>
+</blockquote>
+<p>Proof: (<span>$\Leftarrow$</span>) If <span>$Y$</span> is decidable, we just iterate through all pairs (diagonally), and at each stage we check if the pair is in <span>$Y$</span> or not. If so, we project the first element, which is in <span>$X$</span>. This is a semi-decision procedure for <span>$X$</span>.</p>
+<p>(<span>$\Rightarrow$</span>) Since <span>$X$</span> is RE, there is an algorithm <span>$A$</span> for enumerating it. We define <span>$Y = \{[x, n] \mid A \text{ enumerates } x \text{ in } n \text{ steps.}\}$</span>. <span>$\blacksquare$</span></p>
+<div class="footnote">
+<div class="ui divider"></div>
+<ol>
+<li id="fn:computable">
+<p>A "computable function" is another way of saying "algorithm". If we're ever asked to give a computable function, it just means that we should give the algorithm.&#160;<a href="#fnref:computable" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

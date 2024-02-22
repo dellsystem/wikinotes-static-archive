@@ -1,0 +1,1170 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_133/">
+                MATH 133
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Course review
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Course review
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>A review of the course course material for MATH 133. Sections are organised based, to some extent, on Anderson's notes (available through WebCT).</p>
+<p>Written by <a href="/users/dellsystem">@dellsystem</a> for Wikinotes back when it was still on MediaWiki, and converted into Markdown. There are probably lots of formatting errors, please contact her if you notice anything major (or feel free to <a href="/help/formatting">fix it yourself</a>!).</p>
+<div class="toc">
+<ul>
+<li><a href="#linear-equations-and-matrices">1 Linear equations and matrices</a><ul>
+<li><a href="#introduction">1.1 Introduction</a></li>
+<li><a href="#row-operations">1.2 Row operations</a></li>
+<li><a href="#row-reducing-matrices">1.3 Row-reducing matrices</a></li>
+<li><a href="#elementary-matrices">1.4 Elementary matrices</a></li>
+<li><a href="#homogeneous-systems">1.5 Homogeneous systems</a></li>
+<li><a href="#matrix-multiplication">1.6 Matrix multiplication</a></li>
+<li><a href="#determinants">1.7 Determinants</a></li>
+<li><a href="#inverses">1.8 Inverses</a></li>
+</ul>
+</li>
+<li><a href="#eigenvalues-and-diagonalising-matrices">2 Eigenvalues and diagonalising matrices</a><ul>
+<li><a href="#eigenvalues">2.1 Eigenvalues</a></li>
+<li><a href="#diagonalising-matrices">2.2 Diagonalising matrices</a></li>
+</ul>
+</li>
+<li><a href="#vector-geometry">3 Vector geometry</a><ul>
+<li><a href="#basics-of-vectors">3.1 Basics of vectors</a></li>
+<li><a href="#dot-products-and-projections">3.2 Dot products and projections</a></li>
+<li><a href="#lines">3.3 Lines</a></li>
+<li><a href="#planes">3.4 Planes</a></li>
+<li><a href="#the-cross-product">3.5 The cross product</a></li>
+<li><a href="#matrix-transformations-of-r2">3.6 Matrix Transformations of R^2</a></li>
+<li><a href="#composites-of-transformations">3.7 Composites of transformations</a></li>
+<li><a href="#inverses-of-matrix-transformations">3.8 Inverses of matrix transformations</a></li>
+</ul>
+</li>
+<li><a href="#the-vector-space-rn">4 The vector space R^n</a><ul>
+<li><a href="#the-vector-space">4.1 The vector space</a></li>
+<li><a href="#linear-independence">4.2 Linear independence</a></li>
+<li><a href="#span">4.3 Span</a></li>
+<li><a href="#dimension-and-bases">4.4 Dimension and bases</a></li>
+<li><a href="#rank-row-and-column-spaces">4.5 Rank, row and column spaces</a></li>
+<li><a href="#null-space-and-image-space">4.6 Null space and image space</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Linear equations and matrices<a class="headerlink" href="#linear-equations-and-matrices" name="linear-equations-and-matrices">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Introduction<a class="headerlink" href="#introduction" name="introduction">&para;</a></h3>
+<ul>
+<li>We can use matrices to solve linear systems</li>
+<li>First, put the system in augmented matrix form</li>
+<li>Get it in reduced row-echelon form</li>
+<li>This is an equivalent, solvable system</li>
+<li>THREE POSSIBLE CASES FOR THE NUMBER OF SOLUTIONS:<ul>
+<li>No solutions (inconsistent)<ul>
+<li>all zeros in the coefficient matrix</li>
+<li>non-zero in the column to the right</li>
+<li>Occurs when you have more independent equations than variables</li>
+</ul>
+</li>
+<li>Unique solution (consistent)<ul>
+<li>when number of unknowns == number of independent equations</li>
+</ul>
+</li>
+<li>Infinite solutions (consistent)<ul>
+<li>Occurs when there are more variables than independent equations</li>
+<li>Make one non-leading variable a parameter</li>
+<li>And solve using that as a parameter</li>
+<li>You end up with a vector equation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.2</i>Row operations<a class="headerlink" href="#row-operations" name="row-operations">&para;</a></h3>
+<ul>
+<li>Switching rows</li>
+<li>Multiplying a row by a constant</li>
+<li>Adding or subtracting different rows</li>
+</ul>
+<h3 class="header"><i>1.3</i>Row-reducing matrices<a class="headerlink" href="#row-reducing-matrices" name="row-reducing-matrices">&para;</a></h3>
+<ul>
+<li>Row-echelon form:<ul>
+<li>Any zero-only rows are at the bottom</li>
+<li>The first non-zero entity in a row is a leading 1</li>
+<li>Leading 1s are to the right of all leading 1s in above rows</li>
+</ul>
+</li>
+<li>Reduced row echelon form:<ul>
+<li>Leading 1 is the only non-zero entry in column</li>
+<li>Not always possible, if there is no unique solution</li>
+<li>But it helps you see the solution</li>
+</ul>
+</li>
+<li>Rank: number of leading ones (variables)</li>
+</ul>
+<h3 class="header"><i>1.4</i>Elementary matrices<a class="headerlink" href="#elementary-matrices" name="elementary-matrices">&para;</a></h3>
+<ul>
+<li>A square matrix E is obtained by doing a single elementary row operation to an identity matrix (denoted I). This square matrix E is called the elementary matrix.</li>
+<li>An elementary row operation comes in three flavours:<ul>
+<li>Type I: Row Replacement (Example: Switching Row 1 with Row 2)</li>
+<li>Type II: Row Multiplication (Example: Multiplying Row 3 by a scalar)<ul>
+<li>Type III: Row Addition/Subtraction (Example: Adding 3*Row 1 to Row 3)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IMPORTANT: Every elementary matrix is invertible.</li>
+<li>Any elementary row operation is equivalent to multiplying that matrix on the left by an elementary matrix</li>
+<li>an elementary matrix is the identity matrix after having had that same operation performed on it</li>
+<li>note that to get a COLUMN operation, you multiply the matrix on the right</li>
+<li>thus, any series of row operations can be represented by elementary matrix</li>
+<li>this also means that you can get any (invertible) matrix by doing elementary row operations on I<ul>
+<li>also, any such matrix is invertible</li>
+</ul>
+</li>
+<li>example: let's say you have the matrix below and you want to write it as the product of elementary matrices.</li>
+</ul>
+<p><span>$$A =
+\begin{pmatrix}
+-4 &amp; -2 \\
+5 &amp; 5
+\end{pmatrix}$$</span></p>
+<ul>
+<li>So work backwards - row reduce it to the identity matrix.<ul>
+<li>(1) Row 1 = Row 1 + Row 2<ul>
+<li>(2) Row 2 = Row 2 - 5 * Row 1</li>
+</ul>
+</li>
+<li>(3) Row 2 = Row 2 / -10<ul>
+<li>(4) Row 1 = Row 1 - 3 * Row 2</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+-4 &amp; -2 \\
+5 &amp; 5
+\end{pmatrix}
+\to (1) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+5 &amp; 5
+\end{pmatrix}
+\to (2) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; -10
+\end{pmatrix}
+\to (3) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; 1
+\end{pmatrix}
+\to (4) \to
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}$$</span></p>
+<ul>
+<li>Now you get the identity matrix. To get the original matrix from the identity, do the reverse:<br />
+        * (5) Row 1 = Row 1 + 3 * Row 2<br />
+        * (6) Row 2 = Row 2 * -10<br />
+        * (7) Row 2 = Row 2 + 5 * Row 1<ul>
+<li>(8) Row 1 = Row 1 - Row 2</li>
+</ul>
+</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; 1
+\end{pmatrix}
+\to (5) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; 1
+\end{pmatrix}
+\to (6) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; -10
+\end{pmatrix}
+\to (7) \to
+\begin{pmatrix}
+1 &amp; 3 \\
+5 &amp; 5
+\end{pmatrix}
+\to (8) \to
+\begin{pmatrix}
+-4 &amp; -2 \\
+5 &amp; 5
+\end{pmatrix}$$</span></p>
+<ul>
+<li>So the four elementary matrices that correspond to these row operations are:</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; 1
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -10
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp; 0 \\
+5 &amp; 1
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp;-1 \\
+0 &amp; 1
+\end{pmatrix}$$</span></p>
+<ul>
+<li>But you have to do it in REVERSE order.</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+1 &amp;-1 \\
+0 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 0 \\
+5 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -10
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 3 \\
+0 &amp; 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-4 &amp; -2 \\
+5 &amp; 5
+\end{pmatrix}$$</span></p>
+<ul>
+<li>If you want the get the inverse of the original matrix using elementary matrices:<ul>
+<li>Use the steps you used to get the identity matrix from the original matrix</li>
+<li>So the four elementary matrices that correspond to those row operations are:</li>
+</ul>
+</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+1 &amp; 1 \\
+0 &amp; 1
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp; 0 \\
+-5 &amp; 1
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -\frac{1}{10}
+\end{pmatrix}
+,
+\begin{pmatrix}
+1 &amp; -3 \\
+0 &amp; 1
+\end{pmatrix}$$</span></p>
+<p>And since you have to do them in reverse order:</p>
+<p><span>$$\begin{pmatrix}
+1 &amp; -3 \\
+0 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 0 \\
+0 &amp; -\frac{1}{10}
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 0 \\
+-5 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+1 &amp; 1 \\
+0 &amp; 1
+\end{pmatrix}
+=
+\begin{pmatrix}
+-\frac{1}{2} &amp; -\frac{1}{5} \\
+\frac{1}{2} &amp; \frac{2}{5}
+\end{pmatrix} = A^{-1}$$</span></p>
+<ul>
+<li>Which gives you the inverse matrix. Magic</li>
+<li>ANOTHER EXAMPLE, WITH A RECTANGULAR (NON-SQUARE) MATRIX<ul>
+<li>Let <span>$A = \begin{pmatrix} 2 &amp; -1 &amp; 3 \\ 0 &amp; 1 &amp; -2 \end{pmatrix}$</span><ul>
+<li>Let's find a matrix B so that BA is the reduced row-echelon form of A:</li>
+<li>Here are the steps to get A into reduced row-echelon form:<ul>
+<li>(1) Row 1 = Row 1 + Row 2</li>
+<li>(2) Divide row 1 by 2</li>
+<li>RREF of A: <span>$\begin{pmatrix} 1 &amp; 0 &amp; \frac{1}{2} \\ 0 &amp; 1 &amp; -2 \end{pmatrix}$</span></li>
+</ul>
+</li>
+<li>Now let's find the identity matrix we will need to use. Since A is 2 x 3, we need a 2 x 2 identity matrix.</li>
+<li>So let's perform those same row operations on this identity matrix:</li>
+<li><span>$B = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \to (1) \to \begin{pmatrix} 1 &amp; 1 \\ 0 &amp; 1 \end{pmatrix} \to (2) \to \begin{pmatrix} \frac{1}{2} &amp; \frac{1}{2} \\ 0 &amp; 1 \end{pmatrix}$</span></li>
+<li><span>$BA = \begin{pmatrix} \frac{1}{2} &amp; \frac{1}{2} \\ 0 &amp; 1 \end{pmatrix} \times \begin{pmatrix} 2 &amp; -1 &amp; 3 \\ 0 &amp; 1 &amp; -2 \end{pmatrix} = \begin{pmatrix} 1 &amp; 0 &amp; \frac{1}{2} \\ 0 &amp; 1 &amp; -2 \end{pmatrix}$</span></li>
+<li>This is indeed the reduced row-echelon matrix. Again, magic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.5</i>Homogeneous systems<a class="headerlink" href="#homogeneous-systems" name="homogeneous-systems">&para;</a></h3>
+<ul>
+<li>AX = 0</li>
+<li>ALWAYS has at least the trivial solution, where all variables == 0</li>
+<li>however, we want to know if there are non-trivial solutions too</li>
+<li>this will occur if the number of variables &gt; number of independent equations</li>
+<li>note that these systems can never be inconsistent because there is always the trivial solution</li>
+<li>FINDING BASIC SOLUTIONS<ul>
+<li>Let's say you have one equation, -3x2 + x3 + x4 = 0 ==&gt; x4 = 3x2 - x3</li>
+<li>Set x1 = s, x2 = t, x3 = u</li>
+<li>And you can rewrite x4 based on t and u.</li>
+<li>So you have 3 column vectors, multiples of s, t and u</li>
+<li>x1 = 1s + 0t + 0u</li>
+<li>x2 = 0s + 1t + 0u</li>
+<li>x3 = 0s + 0t + 1u</li>
+<li>x4 = 0s + 3t - 1u</li>
+<li>You can rewrite these as vectors</li>
+</ul>
+</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+x_1 \\
+x_2 \\
+x_3 \\
+x_4
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\
+0 \\
+0 \\
+0
+\end{pmatrix}
+,
+\begin{pmatrix}
+0 \\
+1 \\
+0 \\
+3
+\end{pmatrix}
+,
+\begin{pmatrix}
+0 \\
+0 \\
+1 \\
+-1
+\end{pmatrix}$$</span></p>
+<ul>
+<li>Note that you can write the basic solution vectors in several ways<ul>
+<li>For example, any scalar multiple of the above columns in any order would also be correct</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.6</i>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" name="matrix-multiplication">&para;</a></h3>
+<ul>
+<li>Matrix: number of rows x number of columns<ul>
+<li>multiplying two matrices: m x n * n x o</li>
+<li>resultant matrix: m * o</li>
+<li>if you have a 2 x 2 * 2 x 1, you can think of it in the column picture, for example:</li>
+</ul>
+</li>
+</ul>
+<p><span>$$\begin{pmatrix}
+4 &amp; 5 \\
+2 &amp; 1
+\end{pmatrix}
+\times
+\begin{pmatrix}
+2 \\
+4
+\end{pmatrix}
+=
+2
+\times
+\begin{pmatrix}
+4 \\
+2
+\end{pmatrix}
++
+4
+\times
+\begin{pmatrix}
+5 \\
+1
+\end{pmatrix}
+=
+\begin{pmatrix}
+28 \\
+8
+\end{pmatrix}$$</span></p>
+<p>there's really not much else to say about this, it all boils down to m x n * n x o ==&gt; m x o</p>
+<h3 class="header"><i>1.7</i>Determinants<a class="headerlink" href="#determinants" name="determinants">&para;</a></h3>
+<ul>
+<li><strong>FINDING THE DETERMINANT: FROM FIRST PRINCIPLES</strong><ul>
+<li>only for square matrices</li>
+<li>Laplace expansions, for n x n matrix B:</li>
+<li>First get the minor matrix for each element of that row<ul>
+<li>Basically cross out that row and column; resulting elements = minor matrix</li>
+<li>Find the determinant of that matrix (ad-bc)</li>
+</ul>
+</li>
+<li>Now get the cofactor ... if row + column == odd, multiply minor det by -1</li>
+<li>Well you know how this works</li>
+</ul>
+</li>
+<li><strong>RULES FOR DETERMINANTS OF SIMILAR MATRICES</strong><ul>
+<li>Let A be a n x n matrix, and let c be a scalar</li>
+<li><span>$\det(A^T) == \det(A)$</span></li>
+<li><span>$\det(A^{-1}) == \det(A)^{-1}$</span></li>
+<li>Multiply one row of A by c<span>$\to c \times \det(A)$</span></li>
+<li><span>$\det(cA) == c^n \times det(A)$</span></li>
+<li>If A has two identical rows/columns: <span>$\to \det(A) == 0$</span></li>
+<li>If A has a row or column consisting solely of zeros: <span>$\to det(A) == 0$</span></li>
+<li>If A is a triangular matrix <span>$\to \det(A) ==$</span> product of diagonal elements</li>
+<li>Switching two rows/columns of A <span>$\to -\det(A)$</span></li>
+<li>Adding/subtracting different rows does not change <span>$\det(A)$</span></li>
+<li><span>$\det(adj(A)) == \det(A)^{n-1}$</span></li>
+<li><span>$\det(A \times adj(A)) == \det(A)^n$</span></li>
+<li><span>$\det(AB) == \det(A) \times \det(B)$</span> (assuming AB exists)<ul>
+<li>if BA also exists, <span>$\det(BA) == \det(AB)$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>if you can transform a matrix into another using row operations<ul>
+<li>you can get its determinant</li>
+<li>this is useful when you don't have the actual values, just the rows/etc</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>1.8</i>Inverses<a class="headerlink" href="#inverses" name="inverses">&para;</a></h3>
+<ul>
+<li><strong>FINDING THE INVERSE</strong><ul>
+<li>if a determinant is 0, there is no inverse ... matrix is singular<ul>
+<li>Matrix of cofactors: replace each element with its cofactor (minor det * -1, maybe)</li>
+</ul>
+</li>
+<li>Adjoint matrix: transpose of cofactor matrix</li>
+<li>Now divide the adjoint by the determinant ... that's the inverse</li>
+<li>You can prove that <span>$A \times adj(A) \times \frac{1}{\det(a)} == I$</span> for 2x2<ul>
+<li>Just multiply out <span>$A \times adj(A)$</span> and you get <span>$\det(A) \times I$</span></li>
+</ul>
+</li>
+<li>You can ALSO get the inverse using an augmented matrix, put the identity on the right</li>
+<li>And just do row ops until you get the identity on the left</li>
+<li>The resulting matrix on the right is the inverse</li>
+</ul>
+</li>
+<li><strong>RULES FOR INVERSES</strong><ul>
+<li><span>$(AB)^{-1} == B^{-1} \times A^{-1}$</span><ul>
+<li>proof: <span>$A \times B \times B^{-1} \times A^{-1} = A \times A^{-1} == I$</span></li>
+<li>IT MAKES SENSE</li>
+</ul>
+</li>
+<li><span>$(A^{T})^{-1} == (A^{-1})^T$</span></li>
+<li><span>$(cA^{-1}) = c^{-1} \times A^{-1}$</span></li>
+<li>I is invertible; <span>$I^{-1} == I$</span></li>
+<li>if A is invertible so is <span>$A^{-1}$</span>, and <span>$(A^{-1})^{-1} == A$</span></li>
+<li>If A is invertible so is <span>$A^k$</span>, and <span>$(A^k)^{-1} = (A^{-1})^k$</span></li>
+</ul>
+</li>
+<li><strong>CRAMER'S RULE</strong><ul>
+<li>a way to solve for X if there's a unique solution</li>
+<li>only works when there are n independent equations and n unknowns</li>
+<li>so you have AX = B, and let's say you 3 variables: <span>$x_1, x_2, x_3$</span></li>
+<li>to get <span>$x_1$</span>, replace the 1st column of A by B<ul>
+<li><span>$x_1 = \frac{\det(A_1B)}{\det(A)}$</span></li>
+</ul>
+</li>
+<li>to get <span>$x_2$</span>, replace the 2nd column of A by B<ul>
+<li><span>$x_2 = \frac{\det(A_2B)}{\det(A)}$</span></li>
+</ul>
+</li>
+<li>and so on for x3</li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>2</i>Eigenvalues and diagonalising matrices<a class="headerlink" href="#eigenvalues-and-diagonalising-matrices" name="eigenvalues-and-diagonalising-matrices">&para;</a></h2>
+<h3 class="header"><i>2.1</i>Eigenvalues<a class="headerlink" href="#eigenvalues" name="eigenvalues">&para;</a></h3>
+<ul>
+<li>Based on homogenous systems, AX = 0</li>
+<li>An eigenvalue is a value of <span>$A \mathbf{X} = \lambda \mathbf{X}$</span><ul>
+<li>where A is a square matrix, X is a vector (eigenvector - we'll solve that later), <span>$\lambda$</span> is a scalar</li>
+</ul>
+</li>
+<li>so <span>$A \mathbf{X} - \lambda \mathbf{X} == 0$</span></li>
+<li>therefore <span>$(A - \lambda I) \mathbf{X} == 0$</span><ul>
+<li>we need to find the non-trivial solutions for this</li>
+<li>so set <span>$\det(A-\lambda \mathbf{I}) = 0$</span> so we can't find the inverse to obtain the trivial solution of X</li>
+</ul>
+</li>
+<li>characteristic polynomial: <span>$\det(A-\lambda \mathbf{I}) = 0$</span><ul>
+<li>the roots of that equation ^ are the eigenvalues</li>
+<li>if the polynomial is a quadratic equation:<ul>
+<li>if <span>$b^2-4ac &gt; 0$</span>, 2 eigenvalues</li>
+<li>if <span>$b^2-4ac = 0$</span>, 1 eigenvalue</li>
+<li>The number of eigenvalues is equal to the number of rows/columns (0 is a non-trivial possibility)</li>
+<li>These eigenvalues are the ONLY values of <span>$\lambda$</span> that make <span>$\det(A-\lambda \mathbf{I}) == 0$</span></li>
+<li>This of course implies that <span>$A-\lambda \mathbf{I}$</span> is not invertible for <span>$\lambda = $</span>eigenvalues</li>
+<li>And that it is invertible for all other values of <span>$\lambda$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>algebraic muliplicity: number of times that eigenvalue shows up in the polynomial</li>
+<li>geometric multiplicity: number of linearly independent vectors in the solution for that eigenvalue<ul>
+<li>basically, plug that eigenvalue in the original matrix</li>
+<li>row reduce that</li>
+<li>use parameters to get one or more solution vectors</li>
+<li>these are the eigenvectors for this eigenvalue</li>
+<li>how many solution vectors needed? that's the geometric multiplicity</li>
+<li>geometric always &lt;= algebraic multiplicity</li>
+</ul>
+</li>
+<li><strong>trace</strong>: sum of elements on main diagonal of matrix (upper left to bottom right)<ul>
+<li>applicable for all square matrices</li>
+</ul>
+</li>
+<li><strong>PROPERTIES OF EIGENVALUES</strong><ul>
+<li>Let A be a n x n square matrix with n eigenvalues, <span>$\lambda_1, \lambda_2 ... \lambda_n$</span></li>
+<li>Trace of <span>$A = \lambda_1 + \lambda_2 + ... + \lambda_n$</span></li>
+<li>Determinant of <span>$A = \lambda_1 \times \lambda_2 \times ... \times \lambda_n$</span></li>
+<li>Eigenvalues of <span>$A^k = \lambda_1^k, \lambda_2^k ... \lambda_n^k$</span></li>
+</ul>
+</li>
+<li>EXAMPLE<ul>
+<li>Let <span>$A = \begin{pmatrix}1 &amp; 1 &amp; 3 \\ -2 &amp; -1 &amp; -2 \\ -1 &amp; -1 &amp; -3 \end{pmatrix}$</span></li>
+<li>Find the characteristic polynomial (multiply by -1 to make it easier): <span>$\lambda I - A = \begin{pmatrix} \lambda -1 &amp; -1 &amp; -3 \\ 2 &amp; \lambda + 1 &amp; 2 \\ 1 &amp; 1 &amp; \lambda + 3 \end{pmatrix} $</span></li>
+<li><span>$P(\lambda) = (\lambda+2)(\lambda+1)\lambda = 0$</span> (after simplifying)</li>
+<li>So we find the eigenvalues: <span>$\lambda_1 = -2, \lambda_2 = -1, \lambda_3 = 0$</span></li>
+<li>For <span>$\lambda_1 = -2, \lambda I - A = \begin{pmatrix} -3 &amp; -1 &amp; -3 \\ 2 &amp; -1 &amp; 2 \\ 1 &amp; 1 &amp; 1 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0\end{pmatrix} \Delta v_1 = \begin{pmatrix}-1 \\ 0 \\ 1 \end{pmatrix}t$</span></li>
+<li>For <span>$\lambda_2 = -1, \lambda I - A = \begin{pmatrix} -2 &amp; -1 &amp; -3 \\ 2 &amp; 0 &amp; 2 \\ 1 &amp; 1 &amp; 2 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; 1 \\ 0 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 0\end{pmatrix} \Delta v_1 = \begin{pmatrix}-1 \\ -1 \\ 1 \end{pmatrix}t$</span></li>
+<li>For <span>$\lambda_3 = 0, \lambda I - A = \begin{pmatrix} 1 &amp; -1 &amp; -3 \\ 2 &amp; 1 &amp; 2 \\ 1 &amp; 1 &amp; 3 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; -1 \\ 0 &amp; 1 &amp; 4 \\ 0 &amp; 0 &amp; 0\end{pmatrix} \Delta v_1 = \begin{pmatrix}1 \\ -4 \\ 1 \end{pmatrix}t$</span></li>
+<li>So we have three eigenvalues, each with geometric and algebraic multiplicity of 1.</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>2.2</i>Diagonalising matrices<a class="headerlink" href="#diagonalising-matrices" name="diagonalising-matrices">&para;</a></h3>
+<ul>
+<li>a matrix is diagonalisable when a.m. = g.m. for every eigenvalue</li>
+<li>only for square matrices obviously</li>
+<li>Let D be the diagonal matrix (a multiple of I)</li>
+<li>occurs when there exists an invertible matrix P such that <span>$P^{-1}AP = D$</span></li>
+<li>Applications:<ul>
+<li><span>$A^n = PD^nP^{-1}$</span></li>
+<li>so, useful for finding <span>$A^n$</span></li>
+<li>since for each element in <span>$D^n$</span> you just put the element of D to the power of n</li>
+</ul>
+</li>
+<li>HOW DO YOU FIND IT?<ul>
+<li>first get the eigenvalues for matrix A</li>
+<li>then find the eigenvector for each eigenvalue</li>
+<li>If you have a 3x3 matrix, you will need 3 eigenvalues (distinct or not, doesn't matter)</li>
+<li>and thus 3 eigenvectors</li>
+<li>fill each element of the diagonal of D with an eigenvalue</li>
+<li>fill each column of P with each eigenvector (in order ^)</li>
+<li>then find the inverse of P (however you want)</li>
+<li>and solve for <span>$A^n$</span></li>
+</ul>
+</li>
+<li>AN EXAMPLE:<ul>
+<li>Let's continue with the matrix we used above, in the [[MATH 133/Review#Eigenvalues|eigenvalues]] section</li>
+<li>The matrix D is given by: <span>$D = \begin{pmatrix} \lambda_1 &amp; 0 &amp; 0 \\ 0 &amp; \lambda_2 &amp; 0 \\ 0 &amp; 0 &amp; \lambda_3 \end{pmatrix} = \begin{pmatrix} -2 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}$</span></li>
+<li>The matrix P is given by <span>$P = \begin{pmatrix} v_1 \\ v_2 \\ v_3 \end{pmatrix} = \begin{pmatrix} -1 &amp; -1 &amp; 1 \\ 0 &amp; -1 &amp; -4 \\ 1 &amp; 1 &amp; 1 \end{pmatrix}$</span></li>
+<li>We can then calculate the inverse of P: <span>$P^{-1} = \begin{pmatrix} \frac{3}{2} &amp; 1 &amp; \frac{5}{2} \\ -2 &amp; -1 &amp; -2 \\ \frac{1}{2} &amp; 0 &amp; \frac{1}{2} \end{pmatrix}$</span></li>
+</ul>
+</li>
+</ul>
+<h2 class="header"><i>3</i>Vector geometry<a class="headerlink" href="#vector-geometry" name="vector-geometry">&para;</a></h2>
+<p>Let u and v be two vectors in <span>$R^3: \mathbf{u} = \begin{pmatrix} x_1 \\ y_1 \\ z_1 \end{pmatrix}, \mathbf{v} = \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix}$</span></p>
+<h3 class="header"><i>3.1</i>Basics of vectors<a class="headerlink" href="#basics-of-vectors" name="basics-of-vectors">&para;</a></h3>
+<ul>
+<li><span>$\mathbf{u} = \mathbf{v}$</span> iff <span>$x_1 = x_2, y_1 = y_2, z_1 = z_2$</span> (i.e. the vectors have the same magnitude and direction)</li>
+<li>The magnitude of the vector is given by <span>$\begin{Vmatrix} \mathbf{v} \end{Vmatrix} = \sqrt{x_1^2 + y_1^2 + z_1^2}$</span></li>
+<li><span>$\mathbf{v} = 0$</span> iff <span>$\begin{Vmatrix} \mathbf{v} \end{Vmatrix} = 0$</span> (that is, if all elements are zero)</li>
+<li><span>$\begin{Vmatrix} a\mathbf{v} \end{Vmatrix} = a \times \begin{Vmatrix} \mathbf{v} \end{Vmatrix}$</span> for any scalar a</li>
+<li>
+<p>For u and v to be parallel, they would have to be scalar multiples of each other</p>
+</li>
+<li>
+<p>Taking u and v as points, the distance vector from u to v is given by: <span>$\overrightarrow{\mathbf{u} \mathbf{v}} = \mathbf{v} - \mathbf{u} = \begin{pmatrix} x_2 - x_1 \\ y_2 - y_1 \\ z_2 - z_1 \end{pmatrix}$</span></p>
+</li>
+<li>The distance between the points u and v is given by:<span>$\begin{Vmatrix} \overrightarrow{\mathbf{u} \mathbf{v}} \end{Vmatrix} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2 + (z_1 - z_2)^2}$</span></li>
+</ul>
+<h3 class="header"><i>3.2</i>Dot products and projections<a class="headerlink" href="#dot-products-and-projections" name="dot-products-and-projections">&para;</a></h3>
+<ul>
+<li><strong>Dot-product</strong> (or scalar product) of two vectors:<ul>
+<li><span>$\mathbf{u} \bullet \mathbf{v} = \mathbf{u}^T \times \mathbf{v} = (x_1, y_1, z_1) \times \begin{pmatrix} x_2 \\ y_2 \\ z_2 \end{pmatrix} = x_1 x_2 + y_1 y_2 + z_1 z_2$</span></li>
+<li>Order does not matter; <span>$\mathbf{u} \bullet \mathbf{v} = \mathbf{v} \bullet \mathbf{u}$</span></li>
+<li><span>$\mathbf{u} \bullet \mathbf{u} = x_1^2 + y_1^2 + z_1^2 = \begin{Vmatrix} \mathbf{u} \end{Vmatrix}^2$</span></li>
+<li>(av) · w = a(v · w) = v · (aw) <strong>fix formatting later</strong></li>
+<li>v · (u + w) = v · u + v · w</li>
+<li>v · (u − w) = v · u − v · w</li>
+</ul>
+</li>
+<li>Finding the angle between the two vectors u and v:<ul>
+<li>Either position them so that they have a common tail, or make them lines</li>
+<li>Let <span>$\phi$</span> be the angle between the two vectors</li>
+<li><span>$\cos \phi = \frac{\mathbf{u} \bullet \mathbf{v}}{\begin{Vmatrix}\mathbf{u}\end{Vmatrix} \begin{Vmatrix} \mathbf{v} \end{Vmatrix}}$</span></li>
+<li>If the two vectors are perpendicular, then <span>$\cos \phi = 0;   \Delta \mathbf{u} \bullet \mathbf{v} = 0$</span></li>
+</ul>
+</li>
+<li>Projecting vectors onto lines<ul>
+<li>Let's say you have a vector <span>$\mathbf{d}$</span> in some random direction, any direction is fine.</li>
+<li>Let the vector <span>$\mathbf{v_1}$</span> be a vector parallel to d, <span>$\mathbf{v_2}$</span> be a vector that is perpendicular (orthogonal) to d.</li>
+<li>Now let's say that you have a vector <span>$\mathbf{v}$</span> in some random direction - again, any will do.</li>
+<li>You want to rewrite <span>$\mathbf{v}$</span> as the sum of the component vectors <span>$\mathbf{v_1}$</span> and <span>$\mathbf{v_2}$</span><ul>
+<li>Note: this is always possible (given that all vectors are non-zero).</li>
+<li>Remember that if you reverse the direction of a vector, it's still parallel to that vector.</li>
+<li>The vectors <span>$\mathbf{v_1}$</span> and <span>$\mathbf{v_2}$</span> may be zero - this happens if d is parallel to or perpendicular to v.</li>
+</ul>
+</li>
+<li>Essentially what you are doing is resolving the vector into its components - one component along the vector d, one perpendicular to d.</li>
+<li>Here's the derivation: start with <span>$\begin{Vmatrix} \mathbf{v_1} \end{Vmatrix} = \cos \phi \times \begin{Vmatrix} \mathbf{v1} \end{Vmatrix}$</span> (trivial - draw a diagram if unsure why)<ul>
+<li><span>$\begin{Vmatrix} \mathbf{v_1} \end{Vmatrix} = \cos \phi \times \begin{Vmatrix} \mathbf{v} \end{Vmatrix}$</span> where <span>$\phi$</span> is the angle between the vectors d and <span>$v$</span>, in the direction d</li>
+<li>Multiply and divide by <span>$\begin{Vmatrix} \mathbf{d} \end{Vmatrix}$</span>, so you get <span>$\begin{Vmatrix} \mathbf{v_1} \end{Vmatrix} = \frac{\begin{Vmatrix} \mathbf{v} \end{Vmatrix} \begin{Vmatrix} \mathbf{d} \end{Vmatrix} \cos \phi}{\begin{Vmatrix} \mathbf{d} \end{Vmatrix}}$</span></li>
+<li>Since the top is just equal to the dot product, as <span>$\begin{Vmatrix} \mathbf{v} \end{Vmatrix} \begin{Vmatrix} \mathbf{d} \end{Vmatrix} \cos \phi = \mathbf{v} \bullet \mathbf{d}$</span>, we can simplify this to <span>$\begin{Vmatrix} \mathbf{v_1} \end{Vmatrix} = \frac{\mathbf{v} \bullet \mathbf{d}} {\begin{Vmatrix} \mathbf{d} \end{Vmatrix}}$</span></li>
+<li>Now, we have only the magnitude of <span>$v_1$</span>. To get the vector in the desired direction, multiply it by a unit vector in the direction of d</li>
+<li>Such a unit vector is found by multiplying by d then dividing by the length of d</li>
+<li>So we get the formula <span>$\mathbf{v_1} = \bigg( \frac{\mathbf{v} \bullet \mathbf{d}} {\begin{Vmatrix} \mathbf{d} \end{Vmatrix}^2} \bigg) \mathbf{d}$</span></li>
+<li>This can also be written as <span>$proj_\mathbf{d}(\mathbf{v})$</span></li>
+</ul>
+</li>
+<li>Now, to get <span>$v_2$</span>, we just have to do <span>$\mathbf{v_2} = \mathbf{v} - \mathbf{v_1}$</span></li>
+<li>EXAMPLE PROJECTION:<ul>
+<li>Let <span>$\mathbf{v} = \begin{pmatrix} -3 \\ 4 \\ 9 \end{pmatrix}, \mathbf{d} = \begin{pmatrix} -1 \\ 3 \\ 0 \end{pmatrix}$</span> and we want to find <span>$proj_\mathbf{d}(\mathbf{v})$</span></li>
+<li><span>$\mathbf{v} \bullet \mathbf{d} = 15$</span></li>
+<li><span>$\begin{Vmatrix} \mathbf{d} \end{Vmatrix}^2 = \sqrt{10}^2 = 10$</span></li>
+<li><span>$\mathbf{v_1} = \frac{3}{2} \mathbf{d} = \begin{pmatrix} -1.5 \\ 4.5 \\ 0 \end{pmatrix}$</span></li>
+<li><span>$\mathbf{v_2} = \mathbf{v} - \mathbf{v_1} = \begin{pmatrix} -3 \\ 4 \\ 9 \end{pmatrix} - \begin{pmatrix} -1.5 \\ 4.5 \\ 0 \end{pmatrix} = \begin{pmatrix} -1.5 \\ 0.5 \\ 9 \end{pmatrix}$</span></li>
+<li>Again, magic!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.3</i>Lines<a class="headerlink" href="#lines" name="lines">&para;</a></h3>
+<ul>
+<li>Let's take P as a point in <span>$R^3$</span> with coordinates <span>$(x_0, y_0, z_0)$</span></li>
+<li>Position vectors: the position vector is the vector from the origin to point P.<ul>
+<li><span>$\overrightarrow{O}{P} = \begin{pmatrix} x_0 \\ y_0 \\ z_0 \end{pmatrix}$</span></li>
+</ul>
+</li>
+<li>Vector equations of lines:<ul>
+<li>Line passing through two points: Let Q be another point in <span>$R^3$</span> with coordinates <span>$(x_1, y_1, z_1)$</span><ul>
+<li>The vector equation of a line passing through those two points would be:</li>
+<li><span>$\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \\ z_0 \end{pmatrix} + \begin{pmatrix} x_1 - x_0 \\ y_1 - y_0 \\ z_1 - z_0 \end{pmatrix}t$</span></li>
+<li>This ensures that P is on the line (when t = 0) and that Q is on the line (when t = 1).</li>
+</ul>
+</li>
+<li>Line passing through one point and parallel to a given direction vector <span>$\mathbf{d} = \begin{pmatrix} a \\ b \\ c \end{pmatrix}$</span>:<ul>
+<li>Let's say we have a line parallel to <span>$\mathbf{d}$</span> that passes through the point P</li>
+<li>The vector equation of that line would be given by <span>$P + t \mathbf{d}$</span></li>
+<li>Specifically, <span>$\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} x_0 \\ y_0 \\ z_0 \end{pmatrix} + \begin{pmatrix} a \\ b \\ c \end{pmatrix}t$</span></li>
+</ul>
+</li>
+<li>The equivalent <strong>scalar equations</strong> to the above would be:<ul>
+<li><span>$x = x_0 + at$</span></li>
+<li><span>$y = y_0 + bt$</span></li>
+<li><span>$z = z_0 + ct$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Shortest distance from a point to a line, with a numerical example:<ul>
+<li>L = line through the point (6, 1, -3), with direction vector <span>$\mathbf{d} = \begin{pmatrix} -1 \\ 3 \\ 0 \end{pmatrix}$</span></li>
+<li>First write the vector equation of the line: <span>$\begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 6 \\ 1 \\ -3 \end{pmatrix} + \begin{pmatrix} -1 \\ 3 \\ 0 \end{pmatrix}t = \begin{pmatrix} 6 - t \\ 1 + 3t \\ -3 \end{pmatrix}$</span></li>
+<li>The shortest distance from that line to a point at (3, 5, 6) would be a straight line, perpendicular to the line</li>
+<li>Let's find the equation of that line, as the line passing through two points - one point on line L, the other point being the point (3, 5, 6)</li>
+<li>Perpendicular line: <span>$\mathbf{v} = \begin{pmatrix} x \\ y \\ z \end{pmatrix} = \begin{pmatrix} 6 - t - 3 \\ 1 + 3t - 5 \\ -3 - 6 \end{pmatrix} = \begin{pmatrix} 3 - t \\ -4 + 3t \\ -9 \end{pmatrix}$</span></li>
+<li>Now let's make this proportional to the direction vector <span>$\mathbf{d}$</span>. Solve for t such that the dot-product is zero.</li>
+<li><span>$\mathbf{v} \bullet \mathbf{d} = \begin{pmatrix} 3 - t \\ -4 + 3t \\ -9 \end{pmatrix} \bullet \begin{pmatrix} -1 \\ 3 \\ 0 \end{pmatrix} = 10t - 15 = 0$</span></li>
+<li>Therefore <span>$t = 1.5$</span> so the vector that begins at the line, is perpendicular to the line and ends at the point (3, 5, 6) is: <span>$\mathbf{v} = \begin{pmatrix} 3 - 1.5 \\ -4 + 4.5 \\ -9 \end{pmatrix} = \begin{pmatrix} 1.5 \\ 0.5 \\ -9 \end{pmatrix}$</span></li>
+<li>The length of this vector is given by its magnitude: <span>$\begin{Vmatrix} \mathbf{v} \end{Vmatrix} = \sqrt{1.5^2 + 0.5^2 + (-9)^2} = \sqrt{83.5}$</span></li>
+<li><strong>Note</strong>: other methods are possible, too; you could solve this using line projection, or by getting a different equation, etc</li>
+</ul>
+</li>
+<li><strong>Shortest distance between two lines in <span>$R^3$</span></strong>:<ul>
+<li>The lines have the vector equations <span>$L_1: \begin{pmatrix} 3 - 2t \\ 2 + t \\ 5 - 3t \end{pmatrix}, L_2: \begin{pmatrix} -4 + s \\ 3 - 2s \\ 3s \end{pmatrix}$</span></li>
+<li>So we first find the equation of a line joining two those lines. <span>$\overrightarrow{L_1 L_2} = \begin{pmatrix} -4 + s - (3 - 2t) \\ 3 - 2s - (2 + t) \\ 3s - (5 - 3t) \end{pmatrix} = \begin{pmatrix} -7 + s + 2t \\ 1 - 2s - t \\ 3s - 5 + 3t \end{pmatrix}$</span></li>
+<li>Now, we note that this line is perpendicular to the direction vectors of BOTH lines</li>
+<li>We could just find the cross product of both vectors and solve for all variables, but here's an easier way:<ul>
+<li><span>$\overrightarrow{L_1 L_2} \perp L_1 \to \overrightarrow{L_1 L_2} \bullet L_1 = \begin{pmatrix} -7 + s + 2t \\ 1 - 2s - t \\ 3s - 5 + 3t \end{pmatrix} \bullet \begin{pmatrix} -2 \\ 1 \\ -3 \end{pmatrix} = 30 - 13s - 14t = 0$</span></li>
+<li><span>$\overrightarrow{L_1 L_2} \perp L_2 \to \overrightarrow{L_1 L_2} \bullet L_2 = \begin{pmatrix} -7 + s + 2t \\ 1 - 2s - t \\ 3s - 5 + 3t \end{pmatrix} \bullet \begin{pmatrix} 1 \\ -2 \\ 3 \end{pmatrix} = -24 + 14s + 13t = 0$</span></li>
+<li>Solving for s and t we get <span>$s = -2, t = 4$</span></li>
+<li>So the point on <span>$L_1$</span> is <span>$\begin{pmatrix} 3 - 2(4) \\ 2 + (4) \\ 5 - 3(4) \end{pmatrix} = \begin{pmatrix} -5 \\ 6 \\ -7 \end{pmatrix}$</span> and the point on <span>$L_2$</span> is <span>$\begin{pmatrix} -4 + (-2) \\ 3 - 2(-2) \\ 3(-2) \end{pmatrix} = \begin{pmatrix} -6 \\ 7 \\ -6 \end{pmatrix}$</span></li>
+<li>The line segment joining these points is given by <span>$\begin{pmatrix} -7 + s + 2t \\ 1 - 2s - t \\ 3s - 5 + 3t \end{pmatrix} = \begin{pmatrix} -1 \\ 1 \\ 1 \end{pmatrix}$</span> which has a length of <span>$\sqrt{(-1)^2 + 1^2 + 1^2} = \sqrt{3}$</span></li>
+<li><strong>M A G I C</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.4</i>Planes<a class="headerlink" href="#planes" name="planes">&para;</a></h3>
+<ul>
+<li>Let's say we have the point Q <span>$(x_0, y_0, z_0)$</span> and a vector <span>$\mathbf{n} = \begin{pmatrix} a \\ b \\ c \end{pmatrix}$</span>.<ul>
+<li>There is exactly one plane containing the point Q and perpendicular to the vector n. So the vector n is the normal vector to that plane.</li>
+<li>Let any other point on the plane be given by P(x, y, z)</li>
+<li>So the equation of the plane is given by the condition that the distance between a point on the plane and the point Q is perpendicular to n.</li>
+<li>In other words: <span>$(P - Q) \perp \mathbf{n};   \to (P - Q) \bullet \mathbf{n} = 0 \to \begin{pmatrix} x - x_0 \\ y - y_0 \\ z - z_0 \end{pmatrix} \bullet \begin{pmatrix} a \\ b \\ c \end{pmatrix} = 0$</span></li>
+<li>Therefore, <span>$a(x - x_0) + b(y - y_0) + c(z - z_0) = 0 \to ax + by + cz = d$</span> (where d is a constant)</li>
+</ul>
+</li>
+<li>THE DISTANCE BETWEEN A POINT AND A PLANE, given a point Q (1, 5, 5) and the plane 2x - y + 3z = 5.<ul>
+<li>The shortest distance between a point on the plane P and the point (1, 5, 5) would be along the normal vector to that plane, <span>$\mathbf{n} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}t$</span>.</li>
+<li>So <span>$P - Q = \begin{pmatrix} 1 - x \\ 5 - y \\ 5 - z \end{pmatrix} = \begin{pmatrix} 2 \\ -1 \\ 3 \end{pmatrix}t$</span></li>
+<li>From this we can get parametric equations for t: <span>$x = 1 - 2t; y = 5 + t; z = 5 - 3t$</span></li>
+<li>By substituting this into the equation of a plane we can solve for t: <span>$14t = 7 \to t = \frac{1}{2}$</span></li>
+<li>Now we can get the coordinates of the point closest to point Q: <span>$(x, y, z) \to (0, 5.5, 3.5)$</span></li>
+<li>So the distance vector from this point P to point Q is <span>$Q - P = \begin{pmatrix} 1 - 0 \\ 5 - 5.5 \\ 5 - 3.5 \end{pmatrix} = \begin{pmatrix} 1 \\ -0.5 \\ 1.5 \end{pmatrix}$</span></li>
+<li>The length of this vector is <span>$\begin{Vmatrix} Q - P \end{Vmatrix} = \sqrt{1^2 + (-0.5)^2 + 1.5^2} = \sqrt{3.5} = \frac{1}{2} \sqrt{14}$</span></li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.5</i>The cross product<a class="headerlink" href="#the-cross-product" name="the-cross-product">&para;</a></h3>
+<ul>
+<li>Let's take two vectors in <span>$R^3: \mathbf{u} = \begin{pmatrix} a \\ b \\ c \end{pmatrix}, \mathbf{v} = \begin{pmatrix} d \\ e \\ f \end{pmatrix}$</span></li>
+<li>The cross product of these two vectors, denoted <span>$\mathbf{u} \times \mathbf{v}$</span>, is also a vector in <span>$R^3$</span><ul>
+<li>To get the cross-product, put those two vectors side by side, like this: <span>$\begin{pmatrix}a &amp; d \\ b &amp; e \\ c &amp; f \end{pmatrix}$</span></li>
+<li>To get the entry in the first row, cross out the first row and take the determinant of the remaining two rows: <span>$\det \begin{pmatrix} b &amp; e \\ c &amp; f \end{pmatrix}$</span></li>
+<li>To get the entry in the second row, cross out the second row and take the ''negative'' \determinant of the remaining two rows: <span>$\det \begin{pmatrix} a &amp; d \\ c &amp; f \end{pmatrix}$</span></li>
+<li>Same deal for the third row.</li>
+<li>A numerical example: <span>$\mathbf{u} = \begin{pmatrix} 2 \\ 1 \\ -3 \end{pmatrix}, \mathbf{v} = \begin{pmatrix} 1 \\ 2 \\ 1 \end{pmatrix}$</span></li>
+<li>Element in first row: <span>$\det \begin{pmatrix} 1 &amp; 2 \\ -3 &amp; 1 \end{pmatrix} = 1 \times 1 - 2 \times (-3) = 7$</span></li>
+<li>Element in second row: <span>$-\det \begin{pmatrix} 2 &amp; 1 \\ -3 &amp; 1 \end{pmatrix} = -(1 \times 1 - 1 \times (-3)) = -5$</span></li>
+<li>Element in third row: <span>$\det \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} = 2 \times 2 - 1 \times 1 = 3$</span></li>
+<li>So the cross-product is <span>$\begin{pmatrix} 7 \\ -5 \\ 3 \end{pmatrix}$</span></li>
+</ul>
+</li>
+<li>You could also get the cross-product by writing it as a 3 x 3 matrix, with the top row consisting of the standard basis vectors for <span>$R^3 (i, j, k)$</span><ul>
+<li>Then just take the determinant of that matrix</li>
+<li><span>$\mathbf{u} \times \mathbf{v} = \det \begin{pmatrix} i &amp; j &amp; k \\ 2 &amp; 1 &amp; -3 \\ 1 &amp; 2 &amp; 1 \end{pmatrix} = i \det \begin{pmatrix} 1 &amp; 2 \\ -3 &amp; 1 \end{pmatrix} - j \det \begin{pmatrix} 2 &amp; 1 \\ -3 &amp; 1 \end{pmatrix} + k \det \begin{pmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{pmatrix} = 7i - 5k + 3j = \begin{pmatrix} 7 \\ -5 \\ 3 \end{pmatrix}$</span></li>
+</ul>
+</li>
+<li>Properties of the cross-product:<ul>
+<li>If you cross any vector with itself, OR with the zero vector, you get 0</li>
+<li><span>$\mathbf{u} \times \mathbf{v} = - \mathbf{v} \times \mathbf{u}$</span></li>
+<li>(av) × w = a(v × w) = v × (aw) where a is a scalar</li>
+<li>Associative: v × (u + w) = (v × u) + (v × w)</li>
+<li>(u + w) × v = (u × v) + (w × v)</li>
+<li>The Lagrange Identity: <span>$ \begin{Vmatrix} u \times v \end{Vmatrix}^2 = \begin{Vmatrix} u \end{Vmatrix}^2 \begin{Vmatrix} v \end{Vmatrix}^2 - (u \bullet v)^2$</span></li>
+<li>If you have three vectors u, v and w, then <span>$u \bullet (v \times w) = \det \begin{pmatrix} u &amp; v &amp; w \end{pmatrix}$</span></li>
+<li>Let <span>$\theta$</span> be the angle between the two vectors:<ul>
+<li><span>$\begin{Vmatrix} u \times v \end{Vmatrix} = \begin{Vmatrix} u \end{Vmatrix} \begin{Vmatrix} v \end{Vmatrix} \sin \theta$</span> (incidentally, this also gives the area of the parallelogram defined by the two vectors)</li>
+<li>From the above it follows that if the vectors are parallel the cross-product is the zero vector (although there are easier ways to determine that)</li>
+<li>And if the vectors are perpendicular then <span>$\begin{Vmatrix} u \times v \end{Vmatrix} = \begin{Vmatrix} u \end{Vmatrix} \begin{Vmatrix} v \end{Vmatrix}$</span></li>
+<li>Example of the area of the parallelogram between two vectors in <span>$R^2$</span>:</li>
+<li>The vectors defining two adjacent sides of the parallelogram are <span>$u = \begin{pmatrix} 1 \\ 4 \end{pmatrix}, v = \begin{pmatrix} 8 \\ 6 \end{pmatrix}$</span></li>
+<li><span>$ u \times v = \det \begin{pmatrix} 1 &amp; 8 \\ 4 &amp; 6 \end{pmatrix} = 1(6) - (8)(4) = -26$</span></li>
+<li>So the area is 26 units squared. Note that the cross-product of two vectors in <span>$R^2$</span> is a scalar</li>
+<li>You could also do it by making them both vectors in R^3: <span>$u = \begin{pmatrix} 1 \\ 4 \\ 0 \end{pmatrix}, u = \begin{pmatrix} 8 \\ 6 \\ 0\end{pmatrix}$</span></li>
+<li>This would give you the vector <span>$ \begin{pmatrix} 0 \\ 0 \\ -26 \end{pmatrix}$</span> which clearly has a length of 26 units. So you get the same answer in the end.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>What is the main point of the cross-product? Well, it gives you a vector that is perpendicular to both u and v.<ul>
+<li>For example, let's say you want to find the equation of a plane that passes through three points: A (6, -1, 1); B (1, 0, 0); C (21, 3, 2).<ul>
+<li>First we need two vectors that are part of the plane. Any of <span>$\overrightarrow{A B}, \overrightarrow{A C}, \overrightarrow{B C}$</span> or the reverse would work.</li>
+<li>Let's use <span>$\overrightarrow{A B}$</span> and <span>$\overrightarrow{A C}$</span>: <span>$\overrightarrow{A B} = \begin{pmatrix} -5 \\ 1 \\ -1 \end{pmatrix}, \overrightarrow{A C} = \begin{pmatrix} 15 \\ 4 \\ 1 \end{pmatrix}$</span></li>
+<li>Now, let's find the normal vector for the plane. This vector would be perpendicular to both <span>$\overrightarrow{A B}$</span> and <span>$\overrightarrow{A C}$</span>, so let's find it using their cross product.</li>
+<li><span>$\overrightarrow{A B} \times \overrightarrow{A C} = \begin{pmatrix} -5 \\ 1 \\ -1 \end{pmatrix} \times \begin{pmatrix} 15 \\ 4 \\ 1 \end{pmatrix} = \begin{pmatrix} 5 \\ -10 \\ -35 \end{pmatrix}$</span></li>
+<li>Since the equation of a plane can be written based on the normal vector, the equation is <span>$5x - 10y - 35z = k$</span> where k is a constant.</li>
+<li>To find k, we can take any point on the plane and substitute in its coordinates to solve for k. Let's use point A.</li>
+<li><span>$5(6) - 10(-1) - 35(1) = 5 \to k = 5$</span></li>
+<li>So the equation of the plane is <span>$5x - 10y - 35z = 5$</span> or <span>$x - 2y - 7z = 1$</span>.</li>
+</ul>
+</li>
+<li>Or, let's say you want to find the equation of a plane that contains a point A and a line.<ul>
+<li>So take two points on that line (any two will do, pick nice and easy numbers to make it easier), name them B and C, and do the steps above.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.6</i>Matrix Transformations of R^2<a class="headerlink" href="#matrix-transformations-of-r2" name="matrix-transformations-of-r2">&para;</a></h3>
+<ul>
+<li>We can perform transformations on vectors in <span>$R^2$</span> - rotations, reflections, translations etc</li>
+<li>Such transformations can often be performed by multiplying a vector by a 2 by 2 matrix</li>
+<li>In function format, <span>$T( \mathbf{v} ) = A \mathbf{v}$</span> where A is the matrix and T is the transformation function<ul>
+<li>Example matrix transformations, on the vector <span>$\mathbf{v} = \begin{pmatrix} x \\ y \end{pmatrix}$</span><ul>
+<li>The identity matrix I: <span>$\to T( \mathbf{v} ) = \mathbf{v}$</span> (that is, the matrix does not change)</li>
+<li>The zero matrix: <span>$\to T( \mathbf{v} ) = \overrightarrow{0}$</span></li>
+<li>The matrix <span>$\begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}: T \bigg( \begin{pmatrix} x \\ y \end{pmatrix} \bigg)   = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}= \begin{pmatrix} x \\ -y \end{pmatrix}$</span> which is a reflection across the y-axis</li>
+<li>The matrix <span>$\begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}: T \bigg( \begin{pmatrix} x \\ y \end{pmatrix} \bigg)   = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}= \begin{pmatrix} -y \\ x \end{pmatrix}$</span> - counterclockwise rotation of 90 degrees about the origin, a special case of the below</li>
+<li>Counterclockwise rotation about the origin by angle <span>$\theta : \begin{pmatrix} \cos \theta &amp; - \sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix}$</span></li>
+<li>Projection of a vector onto a line:<ul>
+<li>Let's say you have a line given by y=mx. The direction vector of this line would therefore be <span>$\mathbf{d} = \begin{pmatrix} 1 \\ m \end{pmatrix}$</span></li>
+<li>So the transformation T would project vector <span>$\mathbf{v} = \begin{pmatrix} x \\ y \end{pmatrix}$</span> onto the vector d:</li>
+<li><span>$T(v) = proj_d(v) = \bigg( \frac{\mathbf{v} \bullet \mathbf{d}} {\begin{Vmatrix} \mathbf{d} \end{Vmatrix}^2} \bigg) \mathbf{d} = \bigg( \frac{x + ym} {1 + m^2} \bigg) \begin{pmatrix} 1 \\ m \end{pmatrix} = \frac{1}{1+m^2} \begin{pmatrix} x + my \\ mx + m^2y \end{pmatrix} = \frac{1}{1+m^2} \begin{pmatrix} 1 &amp; m \\ m &amp; m^2 \end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}$</span></li>
+</ul>
+</li>
+<li>On the other hand, if you wanted to reflect a vector across the line y=mx, the matrix transformation would be:<ul>
+<li><span>$\frac{1}{1+m^2} \begin{pmatrix} 1 - m^2 &amp; 2m \\ 2m &amp; m^2 - 1 \end{pmatrix}$</span>, do the derivation yourself as an exercise (sorry can't be bothered)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Linear transformations</strong>: all matrix transformations are linear and vice versa (same thing)<ul>
+<li>Must have the following properties:</li>
+<li><span>$T(c \mathbf{v}) = cT( \mathbf{v}), v \in R^2, c$</span> is a scalar</li>
+<li><span>$T(\mathbf{u} + \mathbf{v}) = T(\mathbf{u}) + T( \mathbf{v}), u \in R^2, v \in R^2$</span></li>
+<li>Converting into matrix forms from other forms:<ul>
+<li>Let's say you have <span>$T \begin{pmatrix} x \\ y \end{pmatrix} = \begin{pmatrix} 5x + 4y \\ -7x + y \end{pmatrix}$</span></li>
+<li>The matrix associated with T would be <span>$\begin{pmatrix} 5 &amp; 4 \\ -7 &amp; 1 \end{pmatrix}$</span></li>
+<li>Or, let's say you're given <span>$T \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 3 \\ -2 \end{pmatrix}$</span> and <span>$T \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} -6 \\ -5 \end{pmatrix}$</span> ... then the matrix is <span>$\begin{pmatrix} 3 &amp; -6 \\ -2 &amp; -5 \end{pmatrix}$</span></li>
+<li>Or, say you're given <span>$T \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 5 \\ 1 \end{pmatrix}, T \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \\ -3 \end{pmatrix}. T \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 10 \\ 0 \\ 0 \end{pmatrix}$</span> ... then <span>$T \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 10 \\ 5 \\ -2 \end{pmatrix}$</span></li>
+<li>OR, say you're given <span>$T \begin{pmatrix} 1 \\ 2 \end{pmatrix}, T \begin{pmatrix} 2 \\ 3 \end{pmatrix}$</span><ul>
+<li>And you want to find the matrix. So get <span>$T\begin{pmatrix} 1 \\ 0 \end{pmatrix}$</span> and <span>$T\begin{pmatrix} 0 \\ 1 \end{pmatrix}$</span> as linear combinations of the basis vectors above.</li>
+<li><span>$\begin{pmatrix} 1 \\ 0 \end{pmatrix} = -3 \begin{pmatrix} 1 \\ 2 \end{pmatrix} + 2 \begin{pmatrix} 2 \\ 3 \end{pmatrix}. \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 2 \begin{pmatrix} 1 \\ 2 \end{pmatrix} - 1 \begin{pmatrix} 2 \\ 3 \end{pmatrix}$</span></li>
+<li>So <span>$T \begin{pmatrix} 1 \\ 0 \end{pmatrix} = -3 \begin{pmatrix} 2 \\ -5 \end{pmatrix} + 2 \begin{pmatrix} 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 0 \\ 23 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \end{pmatrix} = 2 \begin{pmatrix} 2 \\ -5 \end{pmatrix} - 1 \begin{pmatrix} 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 1 \\ -14 \end{pmatrix}$</span></li>
+<li>So the matrix is <span>$\begin{pmatrix} 0 &amp; 1 \\ 23 &amp; -14 \end{pmatrix}$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Things that make a transformation NOT LINEAR</strong>:<ul>
+<li>Adding a constant</li>
+<li>Making something a constant</li>
+<li>Exponents, powers, logarithms etc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Isometric transformations</strong>: where the length of the vector does not change</li>
+<li>Effect of a matrix transformation on unit squares:<ul>
+<li>Let A be a matrix inducing the linear transformation <span>$T: R^2 \to R^2$</span></li>
+<li>The image, under the transformation T, of the unit square is a paralellogram with sides T(i) and T(j), and area <span>$\det (A)$</span></li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.7</i>Composites of transformations<a class="headerlink" href="#composites-of-transformations" name="composites-of-transformations">&para;</a></h3>
+<ul>
+<li>S and T are both transformations; the composite <span>$S \circ T (v) = S(T(v)), v \in R^2$</span><ul>
+<li>So first do T, then take the resulting vector and do S on that</li>
+<li>Obviously <span>$S \circ T (v) \neq T \circ S$</span> unless otherwise specified</li>
+<li>If S is associated with the matrix A, and T with B, then <span>$S \circ T (v)$</span> is associated with AB.</li>
+<li>EXAMPLE: composite of rotations:<ul>
+<li><span>$R_\theta \circ R_\phi = R_\phi \circ R_\theta = R_{\theta + \phi}$</span></li>
+<li><span>$A_\theta A_\phi = \begin{pmatrix} \cos \theta &amp; -\sin \theta \\ \sin \theta &amp; \cos \theta \end{pmatrix} \begin{pmatrix} \cos \phi &amp; -\sin \phi \\ \sin \phi &amp; \cos \phi \end{pmatrix} = \begin{pmatrix} \cos \theta \cos \phi - \sin \theta \sin \phi &amp; -\cos \theta \sin \phi - \sin \theta \cos \phi \\ \sin \theta \cos \phi + \cos \theta \sin \phi &amp; -\sin \theta \sin \phi + \cos \theta \cos \phi \end{pmatrix}$</span></li>
+<li>Since <span>$A_\theta A_\phi = A_{\theta + \phi}$</span>, the above is equal to <span>$\begin{pmatrix} \cos (\theta + \phi) &amp; -\sin (\theta + \phi) \\ \sin (\theta + \phi) &amp; \cos (\theta + \phi) \end{pmatrix}$</span>, which gives us the sum formulae for sine and cosine (trig identities)</li>
+<li>Pretty cool</li>
+</ul>
+</li>
+<li>ANOTHER EXAMPLE: show that the composite of two reflections - one across y=x, one across y=0 - is a different rotation depending on their order<ul>
+<li>Let rotation S be across the line y = x. It is induced by the matrix <span>$A = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix}$</span></li>
+<li>Let rotation T be across the x-axis. It is induced by the matrix <span>$B = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix}$</span></li>
+<li><span>$S \circ T \to AB = \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} = \begin{pmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{pmatrix}$</span> which is a 90 degree counterclockwise rotation</li>
+<li><span>$T \circ S \to BA = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; -1 \end{pmatrix} \begin{pmatrix} 0 &amp; 1 \\ 1 &amp; 0 \end{pmatrix} = \begin{pmatrix} 0 &amp; 1 \\ -1 &amp; 0 \end{pmatrix}$</span> which is a 270 degree counterclockwise rotation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>3.8</i>Inverses of matrix transformations<a class="headerlink" href="#inverses-of-matrix-transformations" name="inverses-of-matrix-transformations">&para;</a></h3>
+<ul>
+<li>Inverse transformation undoes the transformation, takes it back to the original state</li>
+<li>Equivalent to multiplying by the inverse of the original transformation's matrix</li>
+<li>Such a transformation only exists if the matrix is invertible</li>
+<li>This is pretty obvious, but let's say transformation T is induced by the matrix <span>$A = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; -2 \end{pmatrix}$</span></li>
+<li>Then the inverse transformation S would be induced by the matrix <span>$A^{-1} = \begin{pmatrix} \frac{1}{2} &amp; 0 \\ 0 &amp; -\frac{1}{2} \end{pmatrix}$</span></li>
+<li>So <span>$S \circ T = T \circ S = Iv = v$</span> as <span>$A^{-1}A = AA^{-1} = I$</span></li>
+</ul>
+<h2 class="header"><i>4</i>The vector space R^n<a class="headerlink" href="#the-vector-space-rn" name="the-vector-space-rn">&para;</a></h2>
+<h3 class="header"><i>4.1</i>The vector space<a class="headerlink" href="#the-vector-space" name="the-vector-space">&para;</a></h3>
+<ul>
+<li><strong>subspace</strong>: a subset U of <span>$R^n$</span> is called a subspace IF:<ul>
+<li>The zero vector belongs to U</li>
+<li>If two vectors X and Y are both in U, then <span>$X + Y \in U$</span></li>
+<li>If c is a scalar and X is in U, then <span>$cX \in U$</span></li>
+<li>EXAMPLES:<ul>
+<li>The trivial cases: <span>$R^n$</span> is a subspace of itself, and the zero vector is a subspace of <span>$R^n$</span>; all other subspaces are called proper subspaces</li>
+<li>A straight line <span>$L_m$</span> in <span>$R^2$</span> through the origin. <span>$L_m$</span> is the set of all <span>$\begin{pmatrix} x \\ y \end{pmatrix} \in R^2$</span> such that y = mx<ul>
+<li>Obviously the zero vector (the origin) is part of <span>$L_m$</span></li>
+<li>Work out the other proofs as an exercise, or edit them in if you want</li>
+</ul>
+</li>
+<li>Same for lines through the origin in <span>$R^3$</span></li>
+<li>Planes through the origin in <span>$R^3$</span> are subspaces of <span>$R^3$</span>:<ul>
+<li>def plane p: given that <span>$n = \begin{pmatrix} a \\ b \\ c \end{pmatrix}$</span> is the normal vector for the plane, <span>$p \cdot n = 0$</span></li>
+</ul>
+</li>
+<li>Certainly 0 is in the plane, and the other conditions are satisfied too (just prove that they equal 0 etc)</li>
+<li><strong>Null space of a matrix A</strong>: all vectors X where AX = 0. A subspace of R^n.<ul>
+<li>Basically take the matrix A to be part of a homogeneous system, and solve for X; resulting span of vector(s) = null space</li>
+<li>Obviously this means matrix A has to have more variables than independent equations, otherwise you only get the zero vector</li>
+<li>(Note that even if you only get the trivial solution - i.e. the zero vector - it's still a subspace, just not a proper one</li>
+</ul>
+</li>
+<li><strong>Image space of matrix A</strong>: same as column space, later</li>
+<li><strong>Eigenspace of matrix A</strong>: again a subspace of R^n. Basically all the eigenvectors, use them as bases</li>
+<li><strong>Linear combination</strong>: the whole span of all possible linear combinations of vectors OR the intersection of all subspaces containing the vectors</li>
+<li>If asked if a group of vectors span R^n, for a value of n, check to see if every possible value can be represented by them<ul>
+<li>This occurs if you have n vectors and they are all linearly independent</li>
+<li>This is obviously true for the basis vectors ... in <span>$R^2$</span>, they would be <span>$\begin{pmatrix} 1 \\ 0 \end{pmatrix}$</span> and <span>$\begin{pmatrix} 0 \\ 1 \end{pmatrix}$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.2</i>Linear independence<a class="headerlink" href="#linear-independence" name="linear-independence">&para;</a></h3>
+<ul>
+<li>For a set of vectors, say 3 vectors in R^3. Can you rewrite any vector as a linear combination of the other two vectors?<ul>
+<li>If so, then the <strong>set</strong> of vectors is linearly dependent. Otherwise, linearly independent</li>
+<li>Obviously, for m vectors in R^n, if m &gt; n then it's definitely linearly dependent</li>
+<li>If m = n, it could be either way</li>
+<li>And if m &lt; n then they still could be linearly independent but either way they're not going to span R^n</li>
+<li>Anything containing the zero vector is not independent</li>
+<li>Any non-zero vector by itself is linearly independent</li>
+<li>The non-zero rows of a row-echelon matrix are independent</li>
+<li>An invertible square matrix times a set of compatible independent vectors results in a linearly independent set</li>
+</ul>
+</li>
+<li>To prove linear independence, you could write it in matrix form, as a homogeneous system<ul>
+<li>If you only get the trivial solution, it's linearly independent</li>
+<li>For example, let's say you have 3 vectors in R^3: <span>$\begin{pmatrix} 3 \\ 1 \\ -2 \end{pmatrix}, \begin{pmatrix} -2 \\ -3 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ 3 \\ 3 \end{pmatrix}$</span><ul>
+<li>The matrix would be <span>$\begin{pmatrix} 3 &amp; -2 &amp; 1 \\ 1 &amp; -3 &amp; 3 \\ -2 &amp; -1 &amp; 3 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}$</span> so there is only the trivial solution, so it's independent</li>
+</ul>
+</li>
+<li>On the other hand, let's say you have four vectors in <span>$R^3: \begin{pmatrix} 28 \\ -11 \\ -1 \end{pmatrix}, \begin{pmatrix} -4 \\ 2 \\ -2 \end{pmatrix}, \begin{pmatrix} -4 \\ 4 \\ -12 \end{pmatrix}, \begin{pmatrix} -4 \\ 1 \\ 3 \end{pmatrix}$</span><ul>
+<li>We can see right away that it's not a linearly independent set, as there are 4 vectors and 3 dimensions</li>
+<li>HOWEVER, it might still span R^3 ... this would occur if there are 3 linearly independent vectors among the four.</li>
+<li>So let's take the matrix, and row-reduce if. If there is MORE than one row of zeros, then there are not 3 linearly independent vectors among the 4.</li>
+<li><span>$R^3: \begin{pmatrix} 28 &amp; -11 &amp; -1 \\ -4 &amp; 2 &amp; -2 \\ -4 &amp; 4 &amp; -12 \\ -4, 1, 3 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; -2 \\ 0 &amp; 1 &amp; -5 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}$</span></li>
+<li>So the largest group of linearly independent vectors in this set has 2 vectors, so it does NOT span R^3</li>
+<li>On the other hand, if the -4 in the last vector was a 4, then the set would have 3 linearly independent vectors, so it would span R^3</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Linear independence and matrix invertibility</strong>:<ul>
+<li>For a square n x n matrix, the following are equivalent:<ul>
+<li>The columns of A are linearly independent and span R^n</li>
+<li>The rows of A are linearly independent and span R^n</li>
+<li>A is invertible (i.e. its determinant is not zero)</li>
+</ul>
+</li>
+<li>This means that if you want to see if 3 vectors in R^3 are linearly independent, you can write them in matrix form and find the determinant</li>
+<li>e.g. <span>$\begin{pmatrix} 1 \\ 1 \\ -1 \end{pmatrix}, \begin{pmatrix} 1 \\ -1 \\ 1 \end{pmatrix} \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \to A = \begin{pmatrix} 1 &amp; 1 &amp; 0 \\ 1 &amp; -1 &amp; 0 \\ -1 &amp; 1 &amp; 1 \end{pmatrix}$</span></li>
+<li><span>$\det A = -1 - 1 = -2 \to$</span> the matrix is invertible, and thus the vectors are linearly independent.</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.3</i>Span<a class="headerlink" href="#span" name="span">&para;</a></h3>
+<ul>
+<li>If a vector can be written as a linear combination of other vectors then it's within the span of those vectors<ul>
+<li>So the zero vector is always within any span, but that's trivial</li>
+<li>If you have two vectors in <span>$R^2$</span>, and they're not parallel, then you can write any vector in <span>$R^2$</span> as a linear combination of those two!!!</li>
+<li>Same for 3 vectors in <span>$R^3$</span>, but you have to check that they're linearly independent etc</li>
+</ul>
+</li>
+<li>Basically any n independent vectors span <span>$R^n$</span>, even if they're in a set of &gt;n vectors</li>
+<li>If two non-zero vectors are parallel in <span>$R^3$</span>, then their span is equal to the span of just one vector - a straight line through the origin</li>
+<li>If two non-zero vectors are not parallel in <span>$R^3$</span>, then their span is a plane through the origin whose normal is the cross product of the vectors</li>
+</ul>
+<h3 class="header"><i>4.4</i>Dimension and bases<a class="headerlink" href="#dimension-and-bases" name="dimension-and-bases">&para;</a></h3>
+<ul>
+<li>Any independent set in R^n can have up to n vectors</li>
+<li>No spanning set for R^n can have less than n vectors</li>
+<li>A set is a basis of a subspace in R^n if that set is independent AND spans that subspace</li>
+<li><strong>Dimension</strong> of a subspace: number of vectors needed in a basis for the subspace, or rank of matrix whose columns are the vectors<ul>
+<li>EXAMPLES:<ul>
+<li>Any zero vector in R^n has a dimension of 0</li>
+<li>Any set of vectors in R^n can have a dimension of n (IF there are n linearly independent vectors among them) or less</li>
+<li>Given the set of vectors <span>$S = span \left \lbrace \begin{pmatrix} 8 \\ 5 \\ 8 \end{pmatrix}, \begin{pmatrix} -2 \\ 0 \\ -2 \end{pmatrix}, \begin{pmatrix} 2 \\ 4 \\ 2 \end{pmatrix}, \begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \right \rbrace$</span><ul>
+<li>S has a dimension of 2, and any two vectors or multiples thereof can be basis vectors</li>
+</ul>
+</li>
+<li>Given the set of vectors <span>$S = span \left \lbrace \begin{pmatrix} 1 \\ -5 \\ -4 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -4 \end{pmatrix}, \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ 1 \end{pmatrix} \right \rbrace$</span><ul>
+<li>S has a dimension of 3, and any three linearly independent vectors or multiples/combinations thereof can be basis vectors</li>
+</ul>
+</li>
+<li>Given another set of vectors, <span>$S = span \left \lbrace \begin{pmatrix} 1 \\ -5 \\ -4 \end{pmatrix}, \begin{pmatrix} 2 \\ -10 \\ -8 \end{pmatrix}, \begin{pmatrix} 1 \\ 1 \\ -4 \end{pmatrix}, \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix} \right \rbrace$</span><ul>
+<li>S has a dimension of 3, and again any three linearly independent vectors or multiples/combinations thereof can be basis vectors</li>
+<li>But this time, the second vector is obviously a multiple of the first vector, so discard that, and take the 1st, 3rd, and 4th as bases</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Basically, you want to see if a linear combination of the vectors can make any vector in R^n<ul>
+<li>If you have 4 vectors, 3 of them linearly independent, then they span R^3; the set as a whole is not a basis, but 3 independent vectors are</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.5</i>Rank, row and column spaces<a class="headerlink" href="#rank-row-and-column-spaces" name="rank-row-and-column-spaces">&para;</a></h3>
+<ul>
+<li>For an m x n matrix A:<ul>
+<li>The column space - col(A) - is the subspace of R^m spanned by the columns of A; if you reduce the columns, bases are given by the non-zero columns</li>
+<li>The row space - row(A) - is the subspace of R^n spanned by the rows of A; bases given by the non-zero rows in RREF</li>
+<li>The rank is the dimension of the row-space of A which is incidentally equal to the dimension of the column-space of A</li>
+</ul>
+</li>
+<li>For an n x n matrix, it is invertible iff its rank is equal to n.</li>
+<li>EXAMPLE: Given the matrix <span>$ \begin{pmatrix} 1 &amp; -1 &amp; 3 &amp; 2 &amp; 1 \\ -2 &amp; 3 &amp; 1 &amp; 1 &amp; 1 \\ -4 &amp; 7 &amp; 9 &amp; 7 &amp; 5 \\ 3 &amp; -4 &amp; 2 &amp; 1 &amp; 0 \end{pmatrix}$</span>, find bases for the row and column spaces, and the rank.<ul>
+<li>RREF: <span>$ \begin{pmatrix} 1 &amp; 0 &amp; 10 &amp; 7 &amp; 4 \\ 0 &amp; 1 &amp; 7 &amp; 5 &amp; 3 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}$</span></li>
+<li>Since the dimension of the rowspace is 2, the rank is 2.</li>
+<li>So two bases for the row space are the first two rows: <span>$\begin{pmatrix}1 &amp; 0 &amp; 10 &amp; 7 &amp; 4\end{pmatrix}^T, \begin{pmatrix} 0 &amp; 1 &amp; 7 &amp; 5 &amp; 3 \end{pmatrix}^T$</span></li>
+<li>And the bases for the column space are any linearly independent columns in the original matrix<ul>
+<li>We could transpose the original matrix and RREF it or just column-reduce it to get basis vectors</li>
+<li>But we could just take the two columns that have leading 1s in RREF and use those columns in the original matrix as bases</li>
+<li>So two bases for the column space in this case are <span>$\begin{pmatrix} 1 &amp; -2 &amp; -4 &amp; 3\end{pmatrix}^T, \begin{pmatrix} -1 &amp; 3 &amp; 7 &amp; -4 \end{pmatrix}^T$</span></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>SUMMARY OF EQUIVALENT THINGS</strong></p>
+<ul>
+<li>the following are equivalent for a m x n matrix A:<ul>
+<li>AX = 0 has only the trivial solution</li>
+<li>The columns of A are independent</li>
+<li>rank(A) = n</li>
+<li><span>$A^T A$</span> is an invertible n x n matrix</li>
+<li>MAIN POINT: the columns are a linearly independent set of vectors</li>
+</ul>
+</li>
+<li>and the following are equivalent for a m x n matrix A:<ul>
+<li>AX = B has a solution for every column <span>$B \in R^n$</span></li>
+<li>The columns of A span R^n</li>
+<li>rank(A) = m</li>
+<li><span>$AA^T$</span> is an invertible m x m matrix</li>
+<li>MAIN POINT: The columns span <span>$R^n$</span></li>
+</ul>
+</li>
+</ul>
+<h3 class="header"><i>4.6</i>Null space and image space<a class="headerlink" href="#null-space-and-image-space" name="null-space-and-image-space">&para;</a></h3>
+<ul>
+<li>Recall that the null space is the set of vectors X for which AX = 0<ul>
+<li>EXAMPLE: Given <span>$\begin{pmatrix}1 &amp; -2 &amp; 1 &amp; 1 \\ -1 &amp; 2 &amp; 0 &amp; 1 \\ 2 &amp; -4 &amp; 1 &amp; 0 \end{pmatrix}$</span>; reduce it to <span>$\to \begin{pmatrix} 1 &amp; -2 &amp; 0 &amp; -1 \\ 0 &amp; 0 &amp; 1 &amp; 2 \\ 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 \end{pmatrix}$</span></li>
+<li>Now parameterise it to get the solutions. Let's take <span>$x_2 = s, x_4 = t$</span>.</li>
+<li>So we get <span>$X = \begin{pmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{pmatrix} = \begin{pmatrix}2s + t \\ s \\ -2t \\ t \end{pmatrix} = \begin{pmatrix} 2 \\ 1 \\ 0 \\ 0 \end{pmatrix}s + \begin{pmatrix} 1 \\ 0 \\ -2 \\ 1 \end{pmatrix}t$</span></li>
+<li>So the linearly independent vectors <span>$\begin{pmatrix} 2 \\ 1 \\ 0 \\ 0 \end{pmatrix}$</span> and <span>$\begin{pmatrix} 1 \\ 0 \\ -2 \\ 1 \end{pmatrix}$</span> are basis vectors for and thus span the null space of A, which has dimension = 2</li>
+</ul>
+</li>
+<li>The image space is just the column space of the matrix, and the dimension is just the rank of the matrix</li>
+<li>For an m x n matrix A of rank r, the dimension of the null space is equal to the n - r (number of columns minus rank)<ul>
+<li>Example: find the eigenvalues and eigenspace for the matrix <span>$A = \begin{pmatrix} 0 &amp; 1 &amp; 1 \\ 1 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 0 \end{pmatrix}$</span></li>
+<li>The characteristic polynomial factors to <span>$(x - 2)(x + 1)^2$</span> so the eigenvectors are <span>$\lambda_1 = 2, \lambda_2 = -1$</span></li>
+<li>For <span>$\lambda_1, A - \lambda_1 I = \begin{pmatrix} -2 &amp; 1 &amp; 1 \\ 1 &amp; -2 &amp; 1 \\ 1 &amp; 1 &amp; -2 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 0 &amp; -1 \\ 0 &amp; 1 &amp; -1 \\ 0 &amp; 0 &amp; 0 \end{pmatrix} \to \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}t$</span></li>
+<li>So the basis for the eigenspace is <span>$\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}$</span> and the eigenspace can be described as <span>$span = \left \lbrace \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right \rbrace$</span> which is of dimension 1 incidentally if anyone cares</li>
+<li>For <span>$\lambda_2, A - \lambda_1 I = \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 \\ 1 &amp; 1 &amp; 1 \end{pmatrix} \to \begin{pmatrix} 1 &amp; 1 &amp; 1 \\ 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 \end{pmatrix}, x_2 = s, x_3 = t, x_1 = -s - t \to \begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} = \begin{pmatrix} -s - t \\ s \\ t \end{pmatrix} \to \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}s + \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}t$</span></li>
+<li>So the bases are <span>$\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix}$</span> and the eigenspace can be described as <span>$span = \left \lbrace \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} \right \rbrace$</span> (dimension 2)</li>
+<li>Also, note that <span>$\lambda_1$</span> has a dimension and thus geometric multiplicity of 1</li>
+<li>And that <span>$\lambda_2$</span> has a dimension of 2, and an algebraic multiplicity of 2</li>
+<li>So this matrix is diagonalisable</li>
+</ul>
+</li>
+</ul>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

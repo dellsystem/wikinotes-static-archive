@@ -1,0 +1,241 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_409/">
+                COMP 409
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Monday, October 28, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Monday, October 28, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Processor Consistency, the JMM and Happens-Before Consistency
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <div class="toc">
+<ul>
+<li><a href="#java-memory-model-continued">1 Java memory model continued</a><ul>
+<li><a href="#happens-before-consistency">1.1 Happens-Before Consistency</a><ul>
+<li><a href="#example-1">1.1.1 Example 1</a></li>
+<li><a href="#example-2-out-of-thin-air-values">1.1.2 Example 2 (out-of-thin-air values)</a></li>
+</ul>
+</li>
+<li><a href="#allowable-cycles">1.2 Allowable cycles</a></li>
+<li><a href="#justification-process">1.3 Justification Process</a><ul>
+<li><a href="#example">1.3.1 Example</a></li>
+</ul>
+</li>
+<li><a href="#a-lack-of-data-races">1.4 A lack of data races</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Java memory model continued<a class="headerlink" href="#java-memory-model-continued" name="java-memory-model-continued">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Happens-Before Consistency<a class="headerlink" href="#happens-before-consistency" name="happens-before-consistency">&para;</a></h3>
+<p>What we are going to get here is a partial order on thread trace action, and that partial order is going to be per HB edges. So we build a graph of the statements that happen inside a program and we are going to ask ourselves what is its HB consistency, based on that partial ordering that we built inside it.</p>
+<p>So we have this graph that has nodes and HB edges that tells us what goes before what. Inside this graph,<br />
+a read may see a write. Then we wonder, when we are reading variable <code>x</code>, which of the writes to <code>x</code> is a thread allowed to see inside the program.<br />
+A read of <code>x</code> (i.e, <code>R(x)</code>) is allowed to see a write of <code>x</code> (i.e, <code>W(x)</code>), unless:</p>
+<ol>
+<li><code>R(x)</code> happens before <code>W(x)</code> (i.e., <code>R(x)</code> &lt; <code>W(x)</code> in our partial order). We are not allowed to see in the future.</li>
+<li>The write to <code>x</code> happens before another write to <code>x</code> that happens before the read of <code>x</code> (i.e., <code>W(x)</code> &lt; <code>W'(x)</code> &lt; <code>R(x)</code>).</li>
+</ol>
+<p>These 2 rules form the Happens-Before Consistency. Once we build a graph, and we make sure that we check the property (i.e., we do not violate the two rules), the program execution is Happens-Before consistent. Any other possible outcome, as long as we dont violate these two rules, is going to be okay (whatever that means).</p>
+<h4 class="header"><i>1.1.1</i>Example 1<a class="headerlink" href="#example-1" name="example-1">&para;</a></h4>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="c1">// Thread 0    // Thread 1</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>        <span class="n">r3</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>         <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
+</pre></div>
+
+
+<p><img alt="Example 1 Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-46.png" title="" /></p>
+<p>At each read, we can independently choose any write that we can see. By building such a graph and trying not to violate the two rules of HB consistency, we are trying to solve all the race conditions that could happen in the execution of the program.</p>
+<h4 class="header"><i>1.1.2</i>Example 2 (out-of-thin-air values)<a class="headerlink" href="#example-2-out-of-thin-air-values" name="example-2-out-of-thin-air-values">&para;</a></h4>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="c1">// Thread 0    // Thread 1</span>
+<span class="n">r1</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>        <span class="n">r2</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r1</span><span class="o">;</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">r2</span><span class="o">;</span>
+</pre></div>
+
+
+<p>Now we can print the result at the end and it prints <code>42</code>, for both <code>x</code> and <code>y</code>. Now isn't that weird? How can it prints 42 when we have initialized both variables as <code>0</code>. There must be something broken in the code, right? Let us draw the HB graph:</p>
+<p><img alt="Example 2 Graph" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-47.png" title="" /></p>
+<p>Where did <code>y</code> come from? <code>y</code> came from <code>r1</code>. Where did <code>r1</code> come from? <code>r1</code> came from <code>x</code>. Where did <code>x</code> come from? <code>x</code> came from <code>r2</code>. Where did <code>r2</code> come from? <code>r2</code> came from <code>y</code>! <code>y</code> comes from <code>y</code> (and <code>x</code> comes from <code>x</code>.)</p>
+<p>In this example, we have a causality cycle. Once we have a causality cycle, anything goes. Any value is allowed. This feature is undesirable in any programming language. <code>42</code>, in our last example, is called an <strong>"Out-of-thin-air"</strong> value. Where did it come from? There is no <code>42</code> in our program. It does not make any sense. It just popped out of thin air. This is obviously undesirable.</p>
+<p>This is where a lot of complexity from the Java memory model starts to come into play. It starts off saying: "Okay, so there are these correctly synched program, they are sequentially consistent, they have no data races. For program with data races (like that of the last example), let us build this HB consistency graph and after that we give ourselves the freedom to do whatever we want." And what we end up with is something that can sometimes be pretty weird. So, we have the possibility, if we have some cycles in our HB graph (Causality cyles), to justify any value. If our program prints a random <code>42</code>, we cannot go to the compiler or VM vendor or hardware vendor (or whoever else) and say "Dude, something is broken inside there." The guy will just say to us that it is perfectly legal, since it does not violate HB consistency.</p>
+<p>Bottom line: we want to prevent some of those causality cycles in the HB graph. Obvious solution: prevent all cycles! Unfortunately, some causality cycles are actually okay. Some of them make sense with respect to optimization or things we might do to our program to make it faster.</p>
+<h3 class="header"><i>1.2</i>Allowable cycles<a class="headerlink" href="#allowable-cycles" name="allowable-cycles">&para;</a></h3>
+<div class="codehilite"><pre><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="o">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+<span class="c1">// Thread 0     // Thread 1</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>          <span class="n">k</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>          <span class="n">a</span> <span class="o">=</span> <span class="n">k</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="o">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
+</pre></div>
+
+
+<p>Is it possible for <code>i == j == k == 2</code>? Seemingly, in order for that to happen, there has to be a cycle as <code>2</code> comes from <code>b = 2;</code>. Forbidding causality cycles, this should not happen (even though <code>2</code> is not a out-of-thin-air value). </p>
+<p>However, <code>b = 2;</code> is independent; we can modify the program by moving it up. Indeed, within <strong>Thread<sub>0</sub></strong>, <code>a</code> does not change, and <code>i == j</code> is always true (it can thus be removed). We end up with the following:</p>
+<table class="ui celled padded table">
+<thead>
+<tr>
+<th>Thread<sub>0</sub></th>
+<th>Thread<sub>1</sub></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>b = 2;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>k = b;</code></td>
+</tr>
+<tr>
+<td>-</td>
+<td><code>a = k;</code></td>
+</tr>
+<tr>
+<td><code>i = a;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>j = i;</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>There is no cycle anymore, but <code>i == j == k == 2</code>.</p>
+<h3 class="header"><i>1.3</i>Justification Process<a class="headerlink" href="#justification-process" name="justification-process">&para;</a></h3>
+<p>So we are not necessarily forbidding cycles, but in order to find out what happens in a program that has data races in it, it has to undergo a justification process, trying to prove what is allowed, and what is not allowed inside a process.</p>
+<p>Starting with a <strong>well-behaved execution</strong> (that is, the execution will only ever see writes that actually do happen before (HB)). Then, we are going over an <strong>iterative process</strong>:</p>
+<ol>
+<li>Choose a data race. Look at the possible writes it might see.</li>
+<li>Choose to commit a read/write connection (a read must see that write).</li>
+<li>Do this again until there are no more races.</li>
+</ol>
+<h4 class="header"><i>1.3.1</i>Example<a class="headerlink" href="#example" name="example">&para;</a></h4>
+<p><img alt="Justification Process 1" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-39.png" title="" /><br />
+Say <code>x = y = 0;</code>. <strong>Thread<sub>0</sub></strong> does <code>r1 = x; y = 1;</code> and <strong>Thread<sub>1</sub></strong> does <code>r2 = y; x = 1;</code>. No synchronization, no volatile variables; there are 2 data races.</p>
+<p><img alt="Justification Process 2" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-40.png" title="" /><br />
+For <code>r1 = x;</code> which must read the value of <code>x</code>, which write can it see? One that happens before, so <code>0</code> from its initialization. Same thing for the other thread with <code>y</code>. Still, that does not resolve the race conditions. <code>x</code> or <code>y</code> could receive value <code>1</code> from the other thread. As such, we can choose to commit the other write.</p>
+<p><img alt="Justification Process 3" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-41.png" title="" /><br />
+Then, we redo the execution assuming that <code>x</code> rather has the value <code>1</code>. Now, just as before, we still have a data race for <code>y</code> and we can commit <code>y = 1;</code>.</p>
+<p><img alt="Justification Process 4" src="http://cs.mcgill.ca/~ejanco/wikinotes/c409-42.png" title="" /><br />
+We do not have any race condition anymore. The final values of <code>r1</code> and <code>r2</code> are both <code>1</code>.</p>
+<p><strong>Nb:</strong> At this stage, the memory model is <strong>still broken.</strong> We should only write programs that are correctly synchronized, with no data races, with sequential consistency.</p>
+<h3 class="header"><i>1.4</i>A lack of data races<a class="headerlink" href="#a-lack-of-data-races" name="a-lack-of-data-races">&para;</a></h3>
+<p>A data race is an unordered access by two threads to the same data/memory location, of which at least one is a write.</p>
+<p>The ordering, in the case of Java, is our Happens-Before order (HB), which in itself, is the union of the program order with the synchronization order.</p>
+<p>Some of that order is very obvious from the program. The synchronization order is a runtime property. In the end, a program being datarace-free (DRF) is actually a runtime property.</p>
+<div class="codehilite"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+<span class="c1">// Thread 0            // Thread 1</span>
+<span class="k">do</span> <span class="o">{</span>                   <span class="k">do</span> <span class="o">{</span>
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>                <span class="n">r2</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">r1</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>     <span class="o">}</span> <span class="k">while</span> <span class="o">(</span><span class="n">r2</span> <span class="o">==</span> <span class="mi">0</span><span class="o">);</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">42</span><span class="o">;</span>                <span class="n">x</span> <span class="o">=</span> <span class="mi">42</span>
+</pre></div>
+
+
+<p>Is this program data race-free? There are two data races, but once the justification process is applied and a real happens-before graph is built up from the actual runtime trace, we end up with a well-behaved execution. As such, we get two infinite loops, making the <code>y = 42;</code> and <code>x = 42;</code> useless, and removing the data races. The program <em>is</em> correctly synchronized, but in a subtle way.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

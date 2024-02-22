@@ -1,0 +1,262 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/COMP_360/">
+                COMP 360
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Fall 2011 Final
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Fall 2011 Final
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>Student-provided solutions to the Fall 2011 final exam, possibly instructor-verified. You can view the original exam <a href="http://www.cs.mcgill.ca/~hatami/comp360-2012/final.pdf">here</a>.</p>
+<p>It is recommended that you do this exam yourself before checking the solutions provided here. If you notice any errors with the content on this page, feel free to either contact <a href="/users/dellsystem">@dellsystem</a> or edit the page directly.</p>
+<p>Under construction.</p>
+<div class="toc">
+<ul>
+<li><a href="#question-1">1 Question 1</a><ul>
+<li><a href="#accuracy-and-discussion">1.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-2">2 Question 2</a><ul>
+<li><a href="#accuracy-and-discussion_1">2.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-3">3 Question 3</a><ul>
+<li><a href="#accuracy-and-discussion_2">3.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-4">4 Question 4</a><ul>
+<li><a href="#accuracy-and-discussion_3">4.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-5">5 Question 5</a><ul>
+<li><a href="#accuracy-and-discussion_4">5.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-6">6 Question 6</a><ul>
+<li><a href="#accuracy-and-discussion_5">6.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-7">7 Question 7</a><ul>
+<li><a href="#accuracy-and-discussion_6">7.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-8">8 Question 8</a><ul>
+<li><a href="#accuracy-and-discussion_7">8.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-9">9 Question 9</a><ul>
+<li><a href="#accuracy-and-discussion_8">9.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-10">10 Question 10</a><ul>
+<li><a href="#accuracy-and-discussion_9">10.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-11">11 Question 11</a><ul>
+<li><a href="#accuracy-and-discussion_10">11.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+<li><a href="#question-12">12 Question 12</a><ul>
+<li><a href="#accuracy-and-discussion_11">12.1 Accuracy and discussion</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Question 1<a class="headerlink" href="#question-1" name="question-1">&para;</a></h2>
+<blockquote>
+<p>Let <span>$(A, B)$</span> be a minimum cut in a flow network, and suppose that there are exactly two edges <span>$e_1$</span> and <span>$e_2$</span> going from <span>$A$</span> to <span>$B$</span>.</p>
+<p>(a) Prove: Decreasing the capacity of <span>$e_1$</span> by 1 and at the same time increasing the capacity of <span>$e_2$</span> by 1 cannot increase the value of the maximum flow.<br />
+(b) Disprove: Decreasing the capacity of <span>$e_1$</span> by 1 and at the same time increasing the capacity of <span>$e_2$</span> by 1 cannot decrease the value of the maximum flow.</p>
+</blockquote>
+<p>(a) Suppose a flow of <span>$f_1$</span> flows through <span>$e_1$</span> and a flow of <span>$f_2$</span> flows through <span>$e_2$</span>. The only case where the maximum flow would increase if the capacity of <span>$e_1$</span> was decreased by 1 and the capacity of <span>$e_2$</span> was increased by 1 would be if lowering <span>$e_1$</span> by 1 alone doesn't decrease the maximum flow, and at the same time, increasing <span>$e_2$</span> increases the maximum flow by 1. If decreasing the capacity of <span>$e_1$</span> doesn't decrease the maximum flow, it means there are another set of edges in <span>$A$</span> that would form a lower cut, making <span>$(A, B)$</span> not the lowest cut.</p>
+<p>(b) Increasing the capacity of <span>$e_2$</span> could have no effect on the max flow (not sure how to express this, but if <span>$e_2$</span> isn't the limiting edge, increasing it by 1 would have no effect). Decreasing the capacity of <span>$e_1$</span> can decrease the maximum flow because if <span>$e_1$</span> was a limiting edge, it means that all the capacity is used, and decreasing it would lower the maximum flow. In this case it would decrease the overall max flow by 1.</p>
+<h3 class="header"><i>1.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion" name="accuracy-and-discussion">&para;</a></h3>
+<p>Answers by <a href="/users/hc6">@hc6</a>. Good enough - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>2</i>Question 2<a class="headerlink" href="#question-2" name="question-2">&para;</a></h2>
+<blockquote>
+<p>Write the dual of the following linear program: (omitted)</p>
+</blockquote>
+<p>Max: <span>$8y_1 + 4y_2$</span><br />
+Constraints: <span>$y_1-y_2 = 0$</span><br />
+<span>$y_1 + y_2 \leq 1$</span><br />
+<span>$y_1 \geq 0$</span>, <span>$y_2$</span> is universal</p>
+<h3 class="header"><i>2.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_1" name="accuracy-and-discussion_1">&para;</a></h3>
+<p>Well, I re-did this question thinking that <a href="/users/hc6">@hc6</a> had written it up originally, and I got the same answer. That counts as a verification, right? Incidentally, the min/max should be 6 for the primal/dual respectively. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>3</i>Question 3<a class="headerlink" href="#question-3" name="question-3">&para;</a></h2>
+<blockquote>
+<p>If a maximization linear program is unbounded, then what can be said about its dual? (Is it unbounded, feasible and bounded, or infeasible?) Explain.</p>
+</blockquote>
+<p>The dual is infeasible. By the weak duality theorem, we know that any solution to the primal (maximisation) is less than or equal to any solution for the dual. But if the primal is unbounded, then the dual must be infeasible, for there is no possible value for the dual that is greater than an arbitrarily large solution to the primal.</p>
+<h3 class="header"><i>3.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_2" name="accuracy-and-discussion_2">&para;</a></h3>
+<p>Good enough - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>4</i>Question 4<a class="headerlink" href="#question-4" name="question-4">&para;</a></h2>
+<blockquote>
+<p>Show that the following problem belongs to P:<br />
+<span>$$\{X = \langle G \rangle: G \,\text{has an independent set of size 10} \}$$</span></p>
+</blockquote>
+<p>Select all the different sets of size 10. For each one, check independence. If there are <span>$n$</span> vertices, there are <span>$\displaystyle \binom{n}{10}$</span> ways to choose sets of size 10, which takes <span>$O(n^{10})$</span> iterations, checking if each set is an independent set takes <span>$O(n)$</span>, thus the algorithm is <span>$O(n^{11})$</span>    </p>
+<h3 class="header"><i>4.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_3" name="accuracy-and-discussion_3">&para;</a></h3>
+<p>Should be okay (the original was missing the <span>$O(n)$</span> for the independent set checking, which was provided by <a href="/users/hc6">@hc6</a>) - <a href="/users/dellsystem">@dellsystem</a></p>
+<p>Shouldn't the cost for checking a solution be the size of <span>$E$</span>? I think the total cost should be <span>$$O(|V|^{10}*|E|)$$</span><br />
+<a href="/users/gergi">@gergi</a></p>
+<h2 class="header"><i>5</i>Question 5<a class="headerlink" href="#question-5" name="question-5">&para;</a></h2>
+<blockquote>
+<p>Describe the complexity class PSPACE.</p>
+</blockquote>
+<p>Algorithms that take a polynomial amount of space, encompasses all of NP and P</p>
+<h3 class="header"><i>5.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_4" name="accuracy-and-discussion_4">&para;</a></h3>
+<p>Should be trivial - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>6</i>Question 6<a class="headerlink" href="#question-6" name="question-6">&para;</a></h2>
+<blockquote>
+<p>Write a linear program for solving the following problem: Given an <span>$n \times n$</span> matrix <span>$A$</span> and an <span>$n$</span>-dimensional vector <span>$b$</span>, we want to find a vector <span>$x$</span> such that <span>$Ax = b$</span> and that <span>$\max_{i=1}^n |x_i|$</span> is minimized (Hint: Try to use the constraints of the form <span>$y \geq a$</span> and <span>$y \geq -a$</span>).</p>
+</blockquote>
+<p>We add a new variable <span>$x_{n+1}$</span>, then we formulate the linear program as follows:</p>
+<p><span>$$\begin{align}
+\text{minimize: }x_{n+1}\\
+x_{n+1}&amp;\geq x_i \tag{for all i}\\
+x_{n+1}&amp;\geq -x_i \tag{for all i}\\
+Ax&amp;=b\\
+\text{x is universal}
+\end{align}$$</span></p>
+<h3 class="header"><i>6.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_5" name="accuracy-and-discussion_5">&para;</a></h3>
+<p>By <a href="/users/hc6">@hc6</a>. Sure. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>7</i>Question 7<a class="headerlink" href="#question-7" name="question-7">&para;</a></h2>
+<blockquote>
+<p>Show that the following language is NP-complete:<br />
+<span>$$X = \{\langle G, k \rangle : G \text{ has a cycle of length at least } k\}$$</span></p>
+</blockquote>
+<p>Certifier: Given a cycle, check that its length is <span>$k$</span>, and that it really is a cycle. Can be done in polytime.</p>
+<p>NP-hardness: Reduce Hamiltonian cycle to this, with <span>$k$</span> being the size of the graph (number of vertices).</p>
+<h3 class="header"><i>7.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_6" name="accuracy-and-discussion_6">&para;</a></h3>
+<p>Sounds okay. - <a href="/users/dellsystem">@dellsystem</a></p>
+<h2 class="header"><i>8</i>Question 8<a class="headerlink" href="#question-8" name="question-8">&para;</a></h2>
+<blockquote>
+<p>A kite is a graph on an even number of vertices, say <span>$2k$</span>, in which <span>$k$</span> of the vertices form a clique and the remaining <span>$k$</span> vertices are connected in a tail that consists of a path joined to one of the vertices of the clique. Prove that KITE is NP-complete, where<br />
+<span>$$\text{KITE} = \{ \langle G, k \rangle : G \text{ has a subgraph which is a kite on } 2k \text{ vertices}\}$$</span></p>
+</blockquote>
+<p>Proof of NP: given a graph on 2k vertices, look for a tail with length k, then for the remaining k vertices, check for complete connectedness. </p>
+<p>Proof of NP-hardness: Reduce maximal clique to this. Suppose we want to find the maximal clique in a graph G with n vertices. For the first iteration we create a path with n vertices, then attach this path to every vertex in G, and check to see if it's a kite every time. If it outputs no, reduce the length of the tail by 1, and connect to every vertex again. Whenever it outputs yes, we know the maximal clique size will the the size of the tail of that iteration. It will take a total of <span>$n^2$</span> iteration to check, thus maximal clique is polynomial reduced to KITE.</p>
+<h3 class="header"><i>8.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_7" name="accuracy-and-discussion_7">&para;</a></h3>
+<p>i think i'm right... right? - <a href="/users/hc6">@hc6</a></p>
+<blockquote>
+<p>Looks fine - <a href="/users/dellsystem">@dellsystem</a></p>
+</blockquote>
+<h2 class="header"><i>9</i>Question 9<a class="headerlink" href="#question-9" name="question-9">&para;</a></h2>
+<blockquote>
+<p>Show that the following language is NP-complete: (omitted. Nope, added by <a href="/users/cdesmontagnes">@cdesmontagnes</a>)</p>
+</blockquote>
+<p><span>$$Z= \left \{  \left \langle    \left \{      w_1, w_2, ..., w_n    \right \}    , k  \right \rangle  | w_1, w_2, ..., w_n \in \mathbb{N}^+ \ and \  k \in \mathbb{N}^+ .  \exists S\subseteq \left \{    w_1, w_2, ..., w_n  \right \}  s.t. \ \sum_{w \in S} w = 2^k \right \}$$</span></p>
+<p>Proof of NP: Produce the subset and the value of <span>$k$</span> as a certificate. Check that the subset sums to <span>$2^k$</span>.</p>
+<p>Proof of NP-hardness: Reduce subset sum to this. Add <span>$\sum w_i + 2^k - 1$</span>?</p>
+<h3 class="header"><i>9.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_8" name="accuracy-and-discussion_8">&para;</a></h3>
+<p>TBA</p>
+<h2 class="header"><i>10</i>Question 10<a class="headerlink" href="#question-10" name="question-10">&para;</a></h2>
+<p>(a) Suppose the optimal solution satisfies <span>$m$</span> clauses, and <span>$\theta_{\text{true}}$</span> satisfies <span>$n$</span> clauses, <span>$\theta_{\text{false}}$</span> would then satisfy <span>$m-n$</span> clauses. <span>$\max(n,m-n)$</span> is at least 1/2 as big as m.</p>
+<p>(b) <span>$(x_1 \lor x_2) \land (\neg x_1 \lor \neg x_2)$</span>.</p>
+<h3 class="header"><i>10.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_9" name="accuracy-and-discussion_9">&para;</a></h3>
+<p>a) I guess you need to prove that flipping all the true to false would satisfy an inverse number of clauses.. that seems pretty trivial though... all the clauses that are false have a false term inside every one of them, and reversing them would making all the terms true, and vice versa.</p>
+<h2 class="header"><i>11</i>Question 11<a class="headerlink" href="#question-11" name="question-11">&para;</a></h2>
+<p>Make the ILP, then the LP relaxation, then round anything <span>$\geq 1/3$</span> up to 1.</p>
+<h3 class="header"><i>11.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_10" name="accuracy-and-discussion_10">&para;</a></h3>
+<p>what</p>
+<h2 class="header"><i>12</i>Question 12<a class="headerlink" href="#question-12" name="question-12">&para;</a></h2>
+<p>Done in class</p>
+<h3 class="header"><i>12.1</i>Accuracy and discussion<a class="headerlink" href="#accuracy-and-discussion_11" name="accuracy-and-discussion_11">&para;</a></h3>
+<p>TBA</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

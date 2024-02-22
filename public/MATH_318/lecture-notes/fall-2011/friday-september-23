@@ -1,0 +1,147 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, September 23, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, September 23, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Atoms and complements
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Lattice from last class continued<a class="headerlink" href="#lattice-from-last-class-continued" name="lattice-from-last-class-continued">&para;</a></h2>
+<p>Going back to the lattice that looks like four stacked squares, shifted 45 degrees. It's definitely modular, as there are no copies of five in there. It's also distributive I think? Reasoning: if you take any three points, at least 2 are on the same side and so are comparable in this lattice.</p>
+<h2 class="header"><i>2</i>Facts about any lattice<a class="headerlink" href="#facts-about-any-lattice" name="facts-about-any-lattice">&para;</a></h2>
+<p><span>$$\underbrace{x \land y = x} \iff \underbrace{x \leq y} \iff \underbrace{x \lor y = y} \tag{ all equivalent}$$</span></p>
+<ul>
+<li><span>$x \land \top = x$</span>, <span>$x \lor \top = \top$</span></li>
+<li><span>$x \land \bot = \bot$</span>, <span>$x \lor \bot = x$</span></li>
+<li><span>$x \land x = x$</span>, <span>$x \lor x = x$</span></li>
+<li><span>$x \land y = y \land x$</span>, <span>$x \lor y = y \lor x$</span> (symmetry)</li>
+<li><span>$x \land (y \land z) = (x \land y) \land z$</span> (associativity)</li>
+<li><span>$x \land (x \lor y) = x = x \lor (x \land y)$</span> (absorption)</li>
+</ul>
+<p>For example, if <span>$w = x \land (y \land z)$</span>, then <span>$w \leq x$</span>, <span>$w \leq y \land z$</span>, and if <span>$v \leq x$</span>, <span>$v \leq y \land z$</span> then <span>$v \leq w \iff w \leq x$</span>, <span>$w \leq y$</span>, <span>$w \leq z$</span> and anything <span>$\leq$</span> all three of <span>$x$</span>, <span>$y$</span> and <span>$z$</span> is <span>$\leq w$</span>. The same is true when you switch the parentheses, due to associativity.</p>
+<h3 class="header"><i>2.1</i>Atoms<a class="headerlink" href="#atoms" name="atoms">&para;</a></h3>
+<blockquote>
+<p>An <strong>atom</strong> in a lattice is <span>$a \in L$</span> such that it is above the bottom (<span>$\bot \leq a$</span>) but there is nothing between <span>$a$</span> and the bottom (so nothing just below it). Similarly, a <strong>co-atom</strong> is an element that is just below the top.</p>
+</blockquote>
+<p>In a finite lattice, there is at least one atom <span>$\leq b$</span> for any <span>$b \in L$</span>, but the situation is different for infinite lattices.</p>
+<p>Consider <span>$(\mathbb{R}; \leq)$</span> - a totally ordered set, but not a lattice as there are no top and bottom elements. So we join it with <span>$\{ -\infty, \infty\}$</span>, and make them the top and bottom elements, respectively. Now, <span>$\mathbb{R} \cup \{ -\infty, \infty \}$</span> is a lattice, but there are no atoms - you can always go longer than any real number, for instance by subtracting one.</p>
+<p>In the power set lattice <span>$(P(X); \subseteq)$</span>, which is a distributive, complemented lattice (i.e. a boolean algebra), all the singleton (<span>$\{a\}, \{b\}$</span>, etc) are atoms.</p>
+<p>In the lattice for the representative set (<span>$\mathcal{F}$</span> - discussed in the lecture on <a href="/MATH_318/lecture-notes/fall-2011/monday-september-19#representative-sets">Monday, September 19</a>), all the formulas with just one variable are atoms. So <span>$p$</span> and <span>$\neg p$</span> for some <span>$p$</span>.</p>
+<h4 class="header"><i>2.1.1</i>Finite boolean algebras<a class="headerlink" href="#finite-boolean-algebras" name="finite-boolean-algebras">&para;</a></h4>
+<p>Let <span>$B$</span> be a finite boolean algebra, and let <span>$b \in B$</span> be an element <span>$\neq \bot$</span>. There are then <span>$k$</span> distinct atoms below <span>$b$</span>, where <span>$k \geq 1$</span>. So <span>$b$</span> can be said to be the join of all those atoms: <span>$b = a_1 \lor a_2 \lor a_3 \lor ... \lor a_k$</span> where <span>$a_1 ... a_k$</span> are the atoms.</p>
+<p>This is not true for all lattices, although it might be true for some non-finite boolean algebras<sup>confirm?</sup></p>
+<h4 class="header"><i>2.1.2</i>De Morgan laws for complements<a class="headerlink" href="#de-morgan-laws-for-complements" name="de-morgan-laws-for-complements">&para;</a></h4>
+<ul>
+<li><span>$(x \land y)^c = x^c \lor y^c$</span></li>
+<li><span>$(x \lor y)^c = x^c \land y^c$</span></li>
+<li><span>$(x^c)^c = x$</span></li>
+</ul>
+<h4 class="header"><i>2.1.3</i>More on complements<a class="headerlink" href="#more-on-complements" name="more-on-complements">&para;</a></h4>
+<p>Note: anything that acts like a complement to an element <em>is</em> that element's complement.</p>
+<p>Also, note that if <span>$x \leq y$</span> then <span>$y^c \leq x$</span> not sure why.</p>
+<p>Consider <span>$b \land a_1^c ... a_k^c$</span>. If this is not equal to the bottom element, then there is an atom <span>$a \leq b \land a_1^c ... a_k^c$</span>. In particular, <span>$a \leq b$</span>, so <span>$a = a_j$</span> for some <span>$j$</span> but <span>$a_j \land a_j^c = \bot$</span>. But <span>$a \land a_j^c = a$</span>. So this is impossible, meaning, <span>$b \land a_1^c ... a_k^c = \bot$</span>. Okay.</p>
+<p>So <span>$b \land (a_1 \lor ... \lor a_k)^c = \bot$</span>. So, <span>$b^c = (a_1 \lor ... \lor a_k)^c$</span> and <span>$b = (a_1 \lor ... \lor a_k)^c$</span>. So <span>$b^c \leq (a_1 \lor ... \lor a_k)^c$</span>. So <span>$b \lor b^c \leq \underbrace{b \lor (a_1 \lor ... a_k)^c}_{= \top}$</span></p>
+<h4 class="header"><i>2.1.4</i>Complements and atoms<a class="headerlink" href="#complements-and-atoms" name="complements-and-atoms">&para;</a></h4>
+<p>So say <span>$B$</span> is a finite, boolean algebra and <span>$a_1, k$</span> are all the distinct atoms. Let <span>$x = \{a_1, ... a_n\}$</span>. Consider the boolean algebra of the power set <span>$(P(X); \subseteq)$</span> - for each <span>$b \in B$</span>, if <span>$b \neq \bot$</span>, let <span>$a$</span> be the atoms under <span>$b$</span>. Send <span>$b$</span> to <span>$\{a_1,...a_k\}$</span>. <span>$f: B \to P(X)$</span> is a bijection, and an isomorphism of boolean algebras<sup>what?</sup>. (<span>$b \leq c \in B \iff f(b) \leq f(c) \in f$</span>.)</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

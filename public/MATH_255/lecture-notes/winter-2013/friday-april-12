@@ -1,0 +1,132 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_255/">
+                MATH 255
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, April 12, 2013
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, April 12, 2013
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Series of functions
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p><strong>Definition:</strong> if <span>$(f_n)$</span> is a sequence of functions defined on <span>$D \subseteq \mathbb R$</span>, <span>$f_n : D \to \mathbb R$</span>, the sequence of partial sums <span>$(S_n)$</span> of the infinite series is defined for <span>$x \in D$</span> as</p>
+<p><span>$$
+\begin{align*}
+s_1(x) &amp;= f_1(x) \\
+s_2(x) &amp;= f_1(x) + f_2(x) \\
+&amp;\ldots \\
+s_n(x) &amp;= f_1(x) + f_2(x) + \cdots + f_n(x)
+\end{align*}
+$$</span></p>
+<p>if <span>$(s_n)$</span> converges on <span>$D$</span> to a function <span>$f$</span>, we say <span>$\sum f_n$</span> converges to <span>$f$</span>. </p>
+<p><strong>Definition:</strong> if <span>$\sum |f_n(x)|$</span> converges for every <span>$x \in D$</span> we say <span>$\sum f_n$</span> converges absolutely on <span>$D$</span>.</p>
+<p><strong>Theorem:</strong> if <span>$(f_n)$</span> are continuous on <span>$D \subseteq \mathbb R$</span> to <span>$\mathbb R$</span> <span>$\forall n \in \mathbb N$</span> and <span>$\sum f_n$</span> converges uniformly to <span>$f$</span> on <span>$D$</span> then <span>$f$</span> is continuous on <span>$D$</span>.</p>
+<p><strong>Theorem:</strong> Let <span>$(f_n)$</span> be a sequence of Riemann integrable functions on <span>$J = [a,b]$</span>. If <span>$\sum f_n$</span> converges uniformly to <span>$f$</span> on <span>$J$</span> then <span>$f$</span> is Riemann integrable on <span>$J$</span> and <span>$\int_a^b f = \sum\int_a^b f_n$</span>. (Note that <span>$\int_a^b f = \lim\int_a^b s_n$</span>).</p>
+<p><strong>Theorem:</strong> Let <span>$J = [a,b]$</span>, <span>$f_n : J \to \mathbb R$</span> be such that <span>$f_n'$</span> exists on <span>$J$</span> for all <span>$n \in \mathbb N$</span>. Suppose <span>$\sum f_n$</span> converges for at least one point in <span>$J$</span> and <span>$\sum f_n'$</span> converges uniformly on <span>$J$</span> then there exists an <span>$f : J \to \mathbb R$</span> such that <span>$\sum f_n \rightrightarrows f$</span> on <span>$J$</span>, <span>$f$</span> is differentiable on <span>$J$</span>, and <span>$f' = \sum f_n'$</span>.</p>
+<p>Given a series of functions <span>$\sum f_n$</span> we have immediately two types of convergence, namely absolute and uniform. Does one imply the other? The answer is no, but think about it.</p>
+<p><strong>Cauchy Criterion:</strong> Let <span>$(f_n)$</span> be a sequence of functions <span>$f_n : D \to \mathbb R$</span> where <span>$D \subseteq \mathbb R$</span>. <span>$\sum f_n$</span> converges uniformly on <span>$D$</span> <span>$\iff$</span> <span>$\epsilon &gt; 0$</span> given, there exists and <span>$N \in \mathbb N$</span> fucn that if <span>$m &gt; n \geq N$</span>, <span>$|f_{n+1}(x) + f_{n+2} + \ldots + f_m(x)| &lt; \epsilon$</span> for all <span>$x \in D$</span>.</p>
+<p><strong>Weierstrass M-test:</strong> Let <span>$(M_n)$</span> be a sequence of positive real numbers such that <span>$|f_n(x)| &lt; M_n$</span> for all <span>$x \in D$</span>, where <span>$f_n : D \to \mathbb R$</span>. If <span>$\sum M_n$</span> converges then the series <span>$f_n$</span> converges uniformly on <span>$D$</span>.</p>
+<p><strong>Proof:</strong> Since the series <span>$\sum M_n$</span> converges, for a given <span>$\epsilon &gt; 0$</span> there exists <span>$N \in \mathbb N$</span> such that <span>$if m &gt; n \geq N$</span>,</p>
+<p><span>$$ |M_{n+1} + M_{n+2} + \ldots + M_m| = M_{n+1} + M_{n+2} + \ldots + M_m &lt; \epsilon $$</span></p>
+<p>thus if <span>$m &gt; n &gt; N$</span>, for any <span>$x \in D$</span>,</p>
+<p><span>$$ |f_{n+1} + f_{n+2} + \ldots + f_m| \leq |f_{n+1}| + |f_{n+2}| + \ldots + |f_m| \leq M_{n+1} + M_{n+2} + \ldots + M_m &lt; \epsilon $$</span></p>
+<p>so <span>$\sum f_n$</span> converges uniformly on <span>$D$</span> by the Cauchy criterion. </p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

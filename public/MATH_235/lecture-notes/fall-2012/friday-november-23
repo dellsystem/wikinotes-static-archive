@@ -1,0 +1,163 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_235/">
+                MATH 235
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, November 23, 2012
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, November 23, 2012
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Permutation groups and cycles
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <p>In this lecture, we talked about permutation groups, cycles, and the order of a group. Nicolas Simard temporarily filled, as Henri Darmon was away at a conference.</p>
+<div class="toc">
+<ul>
+<li><a href="#permutation-groups">1 Permutation groups</a><ul>
+<li><a href="#proving-that-its-a-group">1.1 Proving that it's a group</a></li>
+<li><a href="#number-of-elements-in-a-permutation-group">1.2 Number of elements in a permutation group</a></li>
+<li><a href="#examples-and-notation">1.3 Examples and notation</a></li>
+<li><a href="#composition">1.4 Composition</a></li>
+</ul>
+</li>
+<li><a href="#cycles">2 Cycles</a><ul>
+<li><a href="#cycle-decomposition">2.1 Cycle decomposition</a></li>
+</ul>
+</li>
+<li><a href="#order">3 Order</a></li>
+</ul>
+</div>
+<h2 class="header"><i>1</i>Permutation groups<a class="headerlink" href="#permutation-groups" name="permutation-groups">&para;</a></h2>
+<p>A <strong>permutation</strong> of a set <span>$T$</span> is a bijection <span>$T \to T$</span>. If <span>$T$</span> is finite - for example, <span>$\mathbb N$</span> - then the set of all permutations is denoted <span>$\Sigma_T$</span> or <span>$S_n$</span> (we'll use the latter notation) where <span>$n = |T|$</span>.</p>
+<p>Of course, the actual elements in <span>$T$</span> don't matter. We will refer to them as <span>$1, 2, 3, \ldots n$</span> in the rest of the section, but they could really be anything and none of the properties would change.</p>
+<h3 class="header"><i>1.1</i>Proving that it's a group<a class="headerlink" href="#proving-that-its-a-group" name="proving-that-its-a-group">&para;</a></h3>
+<p>To prove that <span>$S_n$</span> is a group, we need to show that it satisfies the following properties:</p>
+<p>(0) If <span>$f, g \in S_n$</span> (so they are bijections between 2 sets of <span>$n$</span> elements) then <span>$f \circ g$</span> and <span>$g \circ f$</span> are also bijective. Well, this is sort of a necessary condition when defining composition, so <span>$\checkmark$</span><br />
+(1) Assocativity: <span>$(F \circ g) \circ h(t) = (f \circ g)(h(t)) = f(g(h(t))) = f(g\circ h(t)) = f\circ (g\circ h)(t)$</span> for all <span>$t$</span>.<br />
+(2) Identity element: <span>$1_R: T \to T$</span> is <span>$1_T(t) = t$</span>. Then <span>$1_T \circ f = f \circ 1_T = f$</span>.<br />
+(3) <span>$f^{-1}$</span> is the inverse of <span>$f$</span> (it can always be defined because <span>$f$</span> is bijective). Then <span>$f \circ f^{-1} = f^{-1} \circ f = 1_T$</span>.</p>
+<h3 class="header"><i>1.2</i>Number of elements in a permutation group<a class="headerlink" href="#number-of-elements-in-a-permutation-group" name="number-of-elements-in-a-permutation-group">&para;</a></h3>
+<p>The number of elements in <span>$S_n$</span> is <span>$n!$</span>. Reason: for <span>$f(1)$</span>, there are <span>$n$</span> choices. For <span>$f(2)$</span>, since we need to preserve injectivity, there are <span>$n-1$</span> choices. Etc.</p>
+<h3 class="header"><i>1.3</i>Examples and notation<a class="headerlink" href="#examples-and-notation" name="examples-and-notation">&para;</a></h3>
+<p>If <span>$n=1$</span>, <span>$S_n = \{1_T\}$</span> (so just the identity function).</p>
+<p>If <span>$n=2$</span>, there are 2 functions, which we can write as follows:</p>
+<p><span>$$1_T = \begin{pmatrix} 1 &amp; 2 \\ 1 &amp; 2 \end{pmatrix} \qquad \sigma = \begin{pmatrix} 1 &amp; 2 \\ 2 &amp; 1 \end{pmatrix}$$</span></p>
+<p>(The top row is the domain, the bottom row is the range. <span>$\sigma$</span> is just an arbitrary name for the other function in this set. Note that these are not actually matrices - this is just the notation.)</p>
+<p>If <span>$n=3$</span>, there are <span>$3! = 6$</span> functions, which we can enumerate as follows:</p>
+<p><span>$$\left \{\begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 1 &amp; 2 &amp; 3 \end{pmatrix}, \quad \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 1 &amp; 3 &amp; 2 \end{pmatrix}, \quad \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 1 &amp; 3 \end{pmatrix}, \quad \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; 3 &amp; 1 \end{pmatrix}, \quad \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 3 &amp; 1 &amp; 2 \end{pmatrix}, \quad \begin{pmatrix} 1 &amp; 2 &amp; 3 \\ 3 &amp; 2 &amp; 1 \end{pmatrix} \right \}$$</span></p>
+<h3 class="header"><i>1.4</i>Composition<a class="headerlink" href="#composition" name="composition">&para;</a></h3>
+<p>Composing two functions in a permutation group is easy. Let's look at an example in <span>$S_5$</span>.</p>
+<p><span>$$f = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ 2 &amp; 3 &amp; 4 &amp; 5 &amp; 1 \end{pmatrix} \qquad g = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ 5 &amp;4 &amp; 3 &amp; 2 &amp; 1 \end{pmatrix}$$</span></p>
+<p>then, their composition <span>$f \circ g$</span> is found by mapping each element to its image under <span>$g$</span>, then under <span>$f$</span>:</p>
+<p><span>$$f \circ g = \begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ 1 &amp; 5 &amp; 4 &amp; 3 &amp; 2 \end{pmatrix}$$</span></p>
+<p>Incidentally, composition is only commutative in <span>$S_1$</span> and <span>$S_2$</span>; for all other <span>$n$</span>, it is not.</p>
+<h2 class="header"><i>2</i>Cycles<a class="headerlink" href="#cycles" name="cycles">&para;</a></h2>
+<p>The notation for a cycle is <span>$\sigma = (1, 2, 3)$</span>. This tells us that <span>$1 \to 2$</span>, <span>$2 \to 3$</span>, <span>$3 \to 1$</span> in a permutation group. Any other element in <span>$S_n$</span> but not mentioned in the cycle simply stays the same. Note that this is equivalent to <span>$(2, 3, 1)$</span> which is equivalent to <span>$(3, 1, 2)$</span> (so cycles are invariant under rotation or something).</p>
+<p>Another example of a cycle: <span>$(4, 1)$</span> which means that <span>$4 \to 1$</span>, <span>$1 \to 4$</span>, <span>$2 \to 2$</span> and <span>$3 \to 3$</span>. Incidentally, a cycle of two elements (like this one) is called a transposition.</p>
+<h3 class="header"><i>2.1</i>Cycle decomposition<a class="headerlink" href="#cycle-decomposition" name="cycle-decomposition">&para;</a></h3>
+<p>We can decompose any permutation group into cycles. Some examples:</p>
+<p><span>$$\begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\ 2 &amp; 3 &amp; 1 &amp; 5 &amp; 4 \end{pmatrix} = (1, 2, 3) (4, 5)$$</span></p>
+<p><span>$$\begin{pmatrix} 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 \\ 3 &amp; 2 &amp; 6 &amp; 1 &amp; 4 &amp; 5 \end{pmatrix} = (1, 3, 6, 5, 4)(2) = (1, 3, 6, 5, 4)$$</span></p>
+<p>In the latter example, the (2) at the end is not necessary to write so we can just omit it.</p>
+<h2 class="header"><i>3</i>Order<a class="headerlink" href="#order" name="order">&para;</a></h2>
+<p>The <strong>order</strong> of a group <span>$G$</span> is the number of elements in <span>$G$</span>. We can write this as <span>$|G|$</span> or <span>$\#G$</span>. So <span>$|S_n| = n!$</span>, <span>$|\mathbb Z / n \mathbb Z| = n$</span>. We can think of it as the cardinality of the set under <span>$G$</span>, basically, but the notion of an order is separate.</p>
+<p>The order of an <em>element</em> in <span>$G$</span> is the size of its cycle. We can write it as <span>$|&lt;g&gt;|$</span> or <span>$|\# &lt;g&gt;|$</span>. If <span>$G = &lt;g&gt;$</span> for some <span>$g$</span>, then <span>$G$</span> is cyclic (i.e., it's generated by one cycle? Not completely sure about the notation here).</p>
+<p>Example: the group <span>$(\mathbb Z, +)$</span> is cyclic, generated by one.</p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<head>
+    <title>Wikinotes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.0.0/semantic.min.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+    <meta name="viewport" content="width=device-width">
+    
+<script type="text/javascript"
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+        extensions: ['cancel.js']
+    },
+    tex2jax: {
+        inlineMath: [  ['$', '$'] ],
+        processEscapes: true
+    }
+});
+</script>
+
+</head>
+<body>
+    
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
+    </div>
+    
+    <div id="content">
+        <div class="ui container">
+            
+<div class="ui container">
+    <div class="ui secondary segment">
+        <div class="ui large breadcrumb">
+            <a class="section" href="/">Home</a>
+            <i class="right chevron icon divider"></i>
+            <a class="section" href="/MATH_318/">
+                MATH 318
+            </a>
+            <i class="right chevron icon divider"></i>
+            <span class="active section">
+                
+                Friday, November 11, 2011
+                
+            </span>
+        </div>
+    </div>
+    <h1 class="ui header">
+        <div class="content">
+            
+            Friday, November 11, 2011
+            
+            <span>
+                <a href="http://creativecommons.org/licenses/by-nc/3.0/">
+                    <img src="/static/img/cc-by-nc.png" alt="CC-BY-NC"
+                         title="Available under a Creative Commons Attribution-NonCommercial 3.0 Unported License" />
+                </a>
+            </span>
+            
+            <div class="sub header">
+                Ordinals and the natural numbers
+            </div>
+            
+        </div>
+    </h1>
+    <div class="ui icon list">
+        <div class="item">
+            <i class="user icon"></i>
+            <div class="content">
+                <strong>Maintainer:</strong> admin
+            </div>
+        </div>
+    </div>
+    <div class="ui divider"></div>
+    <div id="wiki-content">
+	
+        <h2 class="header"><i>1</i>Ordinals<a class="headerlink" href="#ordinals" name="ordinals">&para;</a></h2>
+<h3 class="header"><i>1.1</i>Elements of ordinals<a class="headerlink" href="#elements-of-ordinals" name="elements-of-ordinals">&para;</a></h3>
+<p>Proof that any element of any ordinal is also an ordinal.</p>
+<p>Suppose <span>$a \in A$</span> where <span>$A$</span> is an ordinal.</p>
+<p>Claim: <span>$a$</span> is also an ordinal.</p>
+<p>Proof: First, <span>$a$</span> is transitive. ie: if <span>$y \in x \in a \to y \in a$</span>. Now we check the other properties:</p>
+<ul>
+<li>Irreflexivity: No <span>$b \in a$</span> satisfies <span>$b \in b$</span>. If <span>$b \in a$</span>, then <span>$b \in A$</span> so <span>$b \notin b$</span>.</li>
+<li>Antisymmetry: Suppose <span>$b,c \in a$</span> then <span>$b, c \in A$</span>, so we can't have <span>$b \in c \land c \in b$</span>.</li>
+<li>Transitivity: Suppose <span>$b,c,d \in a, b \in c \land c \in d$</span>. Then <span>$b,c,d \in A$</span>. So <span>$b \in d$</span> (since <span>$\in$</span> is transitive on <span>$A$</span>).</li>
+<li>Totality: Say <span>$b,c \in a$</span> then <span>$b,c \in A$</span>. So <span>$b \in c \lor b = c \lor c \in b$</span>.</li>
+<li>Well-foundedness: Suppose <span>$B \subseteq a \land B \neq 0$</span>. So <span>$B \subseteq A$</span>. So there is an element <span>$b \in B$</span> such that no <span>$c \in B$</span> is an element of <span>$b$</span>. <span>$\blacksquare$</span></li>
+</ul>
+<p>We usually use <span>$\alpha, \beta, \gamma, \sigma$</span> for ordinals.</p>
+<p>Also, when <span>$\alpha \in \beta$</span> we often just write <span>$\alpha &lt; \beta$</span></p>
+<h3 class="header"><i>1.2</i>Relatedness of ordinals<a class="headerlink" href="#relatedness-of-ordinals" name="relatedness-of-ordinals">&para;</a></h3>
+<p>Claim: Suppose <span>$\alpha, \beta$</span> are ordinals, then <span>$\alpha \in \beta$</span> or <span>$\alpha = \beta$</span> or <span>$\beta \in \alpha$</span></p>
+<p>Proof: by counterexample</p>
+<p>Suppose <span>$\alpha, \beta$</span> is a counterexample. Consider <span>$A \subseteq S \alpha$</span> such that <span>$x \in A \iff \exists$</span> ordinal <span>$y$</span> such<br />
+that <span>$x \notin y$</span> and <span>$y \neq x$</span> and <span>$y \notin x$</span>.</p>
+<p>Since <span>$\alpha \in A$</span>, <span>$A \neq \varnothing$</span>.</p>
+<p>Let <span>$a_0$</span> be the smallest element of <span>$A$</span>.</p>
+<p>Choose <span>$\beta_1$</span> ordinal such that <span>$a_0 \notin \beta_1$</span> or <span>$\alpha_0 \neq \beta_1$</span> or <span>$\beta_1 \notin \alpha_0$</span>.</p>
+<p>Let <span>$\beta_0$</span> be the smallest element of <span>$B = \{y \in S\beta_1, \alpha_0 \notin y, \alpha_0 \neq y, y \notin \alpha_0)$</span>.</p>
+<p>We can now show <span>$\alpha_0 \subseteq \beta_0$</span>. Say <span>$\sigma \in \alpha_0$</span>. Then <span>$\sigma \notin A (\sigma \in S \alpha)$</span>.</p>
+<p>So <span>$\sigma \in \beta_0$</span> or <span>$\sigma = \beta_0$</span> or <span>$\beta_0 \in \sigma$</span>.</p>
+<p><span>$\sigma = \beta_0$</span> is out (<span>$\beta_0 \notin \alpha_0)$</span>.</p>
+<p><span>$\beta_0 \in \sigma$</span> is out (otherwise <span>$\beta_0 \in \sigma \in \alpha_0$</span> so <span>$\beta_0 \in \alpha_0$</span>).</p>
+<p>So <span>$\sigma \in \beta_0$</span> (so <span>$\alpha \subseteq \beta_0$</span>).</p>
+<p>Say <span>$\delta \in \beta_0$</span> (<span>$\delta\in B$</span>).</p>
+<p>So <span>$\delta \in \alpha_0$</span> or <span>$\delta = \alpha_0$</span> or <span>$\alpha_0 \in \delta$</span>.</p>
+<p><span>$\delta = \alpha_0$</span> is out since <span>$\alpha_0 \notin \beta_0$</span>.</p>
+<p><span>$\alpha_0 \in \delta$</span> is out because if true <span>$\alpha_0 \in \delta \in \beta_0 \to \alpha_0 \in \beta_0$</span>.</p>
+<p>So <span>$\delta \in \alpha_0$</span>.</p>
+<p>This implies <span>$\beta_0 \subseteq \alpha_0$</span>. This then implies <span>$\alpha_0 = \beta_0$</span>, our final contradiction. <span>$\blacksquare$</span></p>
+<h3 class="header"><i>1.3</i>The natural numbers<a class="headerlink" href="#the-natural-numbers" name="the-natural-numbers">&para;</a></h3>
+<p>A set <span>$X$</span> is called <strong>inductive</strong> if <span>$\varnothing \in X$</span> and whenever <span>$x \in X$</span>, then <span>$Sx \in X = (x \cup \{x\})$</span> </p>
+<p><span>$n$</span> is a <strong>natural number</strong> if</p>
+<ol>
+<li><span>$n$</span> is an ordinal</li>
+<li><span>$n$</span> is an element of every inductive set</li>
+</ol>
+<p>(the axiom of infinity says <span>$\exists x(x $</span> is inductive <span>$)$</span></p>
+<p>Fact: If there is an inductive <span>$X$</span>, then there is a smallest such set.</p>
+<p>ie: there is <span>$\omega$</span> such that</p>
+<ol>
+<li><span>$\omega$</span> is inductive</li>
+<li>for any inductive <span>$Y, \omega \subseteq Y$</span></li>
+</ol>
+<p>Proof: Let <span>$\omega$</span> be <span>$x \in X:$</span> x is an element of every inductive set <span>$\}$</span> (given <span>$X$</span> this exists due to comprehension).</p>
+<p><span>$0 \in \omega$</span> in <span>$0 \in X$</span> and <span>$0 \in $</span> every inductive set.</p>
+<p>Suppose <span>$x \in \omega$</span>, then <span>$x \in X$</span> and <span>$x$</span> in Y.</p>
+<p>So <span>$Sx \in X$</span> and <span>$Sx$</span> is in Y</p>
+<p>So <span>$Sx \in \omega$</span></p>
+<p>So <span>$\omega$</span> is inductive.</p>
+<p>Suppose <span>$x \in \omega$</span> and Y is an inductive set then <span>$x \in Y$</span> so <span>$\omega \subset Y$</span></p>
+<p>Given <span>$\omega$</span>, I claim all its elements are ordinals.</p>
+<p>0 is an ordinal.</p>
+<p>Consider <span>$\{x \in \omega:$</span> x is an ordinal <span>$\} = A$</span></p>
+<p><span>$A \subset \omega$</span></p>
+<p>I claim <span>$A$</span> is inductive.</p>
+<p><span>$0 \in A$</span></p>
+<p>If <span>$x \in A$</span>, then <span>$x \in \omega$</span> and <span>$x$</span> is an ordinal. So <span>$Sx \in \omega$</span> and <span>$Sx$</span> is an ordinal. So <span>$Sx \in A$</span>. <span>$A$</span> is inductive.</p>
+<p>Hence <span>$\omega \subset A$</span>. So <span>$\omega = A$</span></p>
+<p><strong>Finiteness</strong>: A set <span>$x$</span> is <strong>finite</strong> if there is a bijection between <span>$x$</span> and a natural number. (If <span>$x$</span> is not finite, it is infinite)</p>
+<p>Fact: <span>$\omega$</span> is infinite (if it exists)</p>
+<p>It is, in a sense, the smallest infinite set.</p>
+<p>Claim: If <span>$A \subset \omega$</span> is not finite there is a bijection between <span>$f: \omega \to A$</span></p>
+<p>Rough "proof" A has a smallest element <span>$a_0$</span></p>
+<p><span>$f(0) = a_0$</span></p>
+<p><span>$A \backslash \{a_0\} \neq \varnothing$</span> so it has a smallest element (<span>$a_1$</span>).</p>
+<p>Let <span>$f(1) = a_1$</span>.</p>
+<p>Generally given, <span>$a_0, \ldots, a_n \in A$</span></p>
+<p><span>$A \backslash \{a_0, \ldots, a_n\}$</span> has a smallest element.</p>
+<p>Let <span>$f(n) = a_n$</span> for all <span>$n \in \omega$</span></p>
+<p>We say <span>$A,B$</span> have the same <strong>cardinality</strong> (or size) <span>$A \sim B$</span> if there is a bijection <span>$f: A \to B$</span> (onto)</p>
+<p><span>$\omega \sim \mathbb{Z} \sim \mathbb{Q}$</span>. That is <span>$\omega$</span> is the same size as the integers and the rationals.</p>
+<p>For any set <span>$A, A \not \sim \mathcal{P}(A)$</span></p>
+	
+    </div>
+</div>
+
+        </div>
+    </div>
+    <div id="footer" class="ui container">
+        <div class="ui stackable grid">
+            <div class="twelve wide column">
+                <p>
+                    Built by <a href="https://twitter.com/dellsystem">
+                    @dellsystem</a>. Content is student-generated. <a
+                    href="https://github.com/dellsystem/wikinotes">See the old codebase on GitHub</a>
+                </p>
+            </div>
+            <div class="four wide right aligned column">
+                <p><a href="#header">Back to top</a></p>
+            </div>
+        </div>
+    </div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-28456804-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
