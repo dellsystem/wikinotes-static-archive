@@ -37,7 +37,7 @@ urlpatterns = [
                  views.course,
                  name='course',
                  distill_func=get_all_courses),
-    distill_path('<slug:department>_<slug:number>/<slug:category>/<slug:semester>-<int:year>/<slug:slug>',
+    distill_path('<slug:department>_<slug:number>/<slug:category>/<slug:semester>-<int:year>/<slug:slug>/',
                  views.page,
                  name='page',
                  distill_func=get_all_pages),
