@@ -8,63 +8,925 @@
 </head>
 <body>
     
-<div id="masthead">
-    <div class="ui container">
-        <div class="ui grid">
-            <div class="centered row">
-                <div class="fourteen wide center aligned column">
-                    <p>
-                        <img src="/static/img/logo-large.png"
-                             class="ui centered image" />
-                    </p>
-                </div>
-            </div>
-        </div>
+    <div id="header" class="ui container">
+        <a href="/">
+            <img src="/static/img/logo-header.png" class="ui image" />
+        </a>
     </div>
-</div>
 
     <div id="content">
         <div class="ui container">
             
-<h1>Popular courses</h1>
-<div class="ui eight column doubling grid">
-    
-</div>
-<br />
 <div class="ui huge message" id="redesign-info">
     <div class="content">
         <div class="header">
-            Confused about the new look?
+            What is Wikinotes?
         </div>
         <p>
-            The old site was taken down because I didn't want to
-            have to maintain it anymore*. Based on popular demand,
-            I've decided to get a read-only version up and running
-            again, with a simpler, more responsive design. I'll slowly
-            be adding back functionality (like registration, editing,
-            viewing history, etc) as time permits.
+            Wikinotes was a collaborative, volunteer-run effort among students at McGill University in the early 2010's, with the purpose of sharing lecture notes and other study materials. It was initially hosted with MediaWiki before I decided to build a custom Django app for it, using Bootstrap 1.2 (back when Bootstrap still seemed cool and novel). Most of the content was written by myself or another different member of the Wikinotes collective. Unfortunately the full authorship history is lost for the time being, but the math and computer science courses are mostly me.
         </p>
         <p>
-            I originally built this site as a place for McGill
-            students (especially myself) to help each other by
-            sharing lecture notes and other student-created course
-            material. I've since graduated from McGill, so I no
-            longer use Wikinotes myself, and my free time is
-            limited. Contact me if you're interested in helping
-            out 
-            (<a href="https://twitter.com/dellsystem">@dellsystem
-            </a> on Twitter; ilostwaldo at gmail).
+            I've since graduated from McGill, so the project is no longer actively maintained, and I've decided to let the old codebase die out (it would be far too painful to get the old Django 1.2 app working for the latest version of Django). But I didn't want to lose the content, so I've resurrected a limited, read-only version for archival purposes. This website is hosted on Github Pages using the Django Distill app (for generating a static site from a simple Django app) just because I don't want to have to pay for hosting (see <a href="https://github.com/dellsystem/wikinotes-static-archive">the current repo</a>).
         </p>
         <p>
-            <em>*
-                It was initially built with Django 1.2 and Bootstrap
-                1.2, neither of which is supported anymore, and
-                updating the codebase for the current versions would
-                not have been worth the effort.
-            </em>
+            If you're curious about the development history, check out the <a href="https://github.com/dellsystem/wikinotes">old Github repo</a>. You can also get in touch with me through <a href="https://dellsystem.me">my personal website</a>.
         </p>
     </div>
 </div>
+
+<h1>Courses by popularity</h1>
+<div class="ui eight column doubling grid">
+    
+    <div class="center aligned column">
+        <a href="/MATH_235/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 235</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_318/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 318</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_255/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 255</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_236/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 236</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_325/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 325</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/GEOG_205/">
+            <img src="/static/img/department/GEOG_large.png"
+                 class="ui centered image" />
+            <h3>GEOG 205</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_340/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 340</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_330/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 330</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_409/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 409</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_317/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 317</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/NEUR_310/">
+            <img src="/static/img/department/NEUR_large.png"
+                 class="ui centered image" />
+            <h3>NEUR 310</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_112/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 112</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANAT_322/">
+            <img src="/static/img/department/ANAT_large.png"
+                 class="ui centered image" />
+            <h3>ANAT 322</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_310/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 310</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_270/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 270</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_242/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 242</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANAT_212/">
+            <img src="/static/img/department/ANAT_large.png"
+                 class="ui centered image" />
+            <h3>ANAT 212</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_212/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 212</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_360/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 360</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_223/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 223</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_314/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 314</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ECSE_351/">
+            <img src="/static/img/department/ECSE_large.png"
+                 class="ui centered image" />
+            <h3>ECSE 351</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_273/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 273</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_302/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 302</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_424/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 424</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_324/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 324</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_210/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 210</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_407/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 407</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANTH_360/">
+            <img src="/static/img/department/ANTH_large.png"
+                 class="ui centered image" />
+            <h3>ANTH 360</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_303/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 303</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_151/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 151</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANTH_335/">
+            <img src="/static/img/department/ANTH_large.png"
+                 class="ui centered image" />
+            <h3>ANTH 335</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_215/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 215</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/CHEM_212/">
+            <img src="/static/img/department/CHEM_large.png"
+                 class="ui centered image" />
+            <h3>CHEM 212</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_251/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 251</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_204/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 204</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/POLI_243/">
+            <img src="/static/img/department/POLI_large.png"
+                 class="ui centered image" />
+            <h3>POLI 243</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_111/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 111</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_310/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 310</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_206/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 206</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_646/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 646</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_547/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 547</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ECON_209/">
+            <img src="/static/img/department/ECON_large.png"
+                 class="ui centered image" />
+            <h3>ECON 209</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ENGL_200/">
+            <img src="/static/img/department/ENGL_large.png"
+                 class="ui centered image" />
+            <h3>ENGL 200</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/INTD_200/">
+            <img src="/static/img/department/INTD_large.png"
+                 class="ui centered image" />
+            <h3>INTD 200</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_323/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 323</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_437/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 437</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_209/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 209</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHYS_232/">
+            <img src="/static/img/department/PHYS_large.png"
+                 class="ui centered image" />
+            <h3>PHYS 232</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANAT_214/">
+            <img src="/static/img/department/ANAT_large.png"
+                 class="ui centered image" />
+            <h3>ANAT 214</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_201/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 201</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_373/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 373</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/CHEM_222/">
+            <img src="/static/img/department/CHEM_large.png"
+                 class="ui centered image" />
+            <h3>CHEM 222</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_421/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 421</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_322/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 322</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_350/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 350</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_527/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 527</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_362/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 362</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_598/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 598</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/EAST_240/">
+            <img src="/static/img/department/EAST_large.png"
+                 class="ui centered image" />
+            <h3>EAST 240</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_133/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 133</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_141/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 141</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_222/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 222</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_240/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 240</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_315/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 315</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_247/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 247</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_313/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 313</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_312/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 312</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_311/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 311</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_314/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 314</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHGY_213/">
+            <img src="/static/img/department/PHGY_large.png"
+                 class="ui centered image" />
+            <h3>PHGY 213</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PSYC_100/">
+            <img src="/static/img/department/PSYC_large.png"
+                 class="ui centered image" />
+            <h3>PSYC 100</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PSYC_340/">
+            <img src="/static/img/department/PSYC_large.png"
+                 class="ui centered image" />
+            <h3>PSYC 340</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ANAT_262/">
+            <img src="/static/img/department/ANAT_large.png"
+                 class="ui centered image" />
+            <h3>ANAT 262</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOC_311/">
+            <img src="/static/img/department/BIOC_large.png"
+                 class="ui centered image" />
+            <h3>BIOC 311</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_200/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 200</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_202/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 202</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_306/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 306</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/BIOL_370/">
+            <img src="/static/img/department/BIOL_large.png"
+                 class="ui centered image" />
+            <h3>BIOL 370</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/CHEM_110/">
+            <img src="/static/img/department/CHEM_large.png"
+                 class="ui centered image" />
+            <h3>CHEM 110</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/CHEM_120/">
+            <img src="/static/img/department/CHEM_large.png"
+                 class="ui centered image" />
+            <h3>CHEM 120</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/CHEM_243/">
+            <img src="/static/img/department/CHEM_large.png"
+                 class="ui centered image" />
+            <h3>CHEM 243</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_202/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 202</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_250/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 250</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_321/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 321</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_230/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 230</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_535/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 535</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_520/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 520</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_114/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 114</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_101/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 101</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/COMP_521/">
+            <img src="/static/img/department/COMP_large.png"
+                 class="ui centered image" />
+            <h3>COMP 521</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ECON_230D2/">
+            <img src="/static/img/department/ECON_large.png"
+                 class="ui centered image" />
+            <h3>ECON 230D2</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ECSE_304/">
+            <img src="/static/img/department/ECSE_large.png"
+                 class="ui centered image" />
+            <h3>ECSE 304</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/ECSE_305/">
+            <img src="/static/img/department/ECSE_large.png"
+                 class="ui centered image" />
+            <h3>ECSE 305</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/GEOG_216/">
+            <img src="/static/img/department/GEOG_large.png"
+                 class="ui centered image" />
+            <h3>GEOG 216</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/GEOG_272/">
+            <img src="/static/img/department/GEOG_large.png"
+                 class="ui centered image" />
+            <h3>GEOG 272</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_150/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 150</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_140/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 140</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_264/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 264</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_338/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 338</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_350/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 350</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MATH_249/">
+            <img src="/static/img/department/MATH_large.png"
+                 class="ui centered image" />
+            <h3>MATH 249</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/MIMM_314/">
+            <img src="/static/img/department/MIMM_large.png"
+                 class="ui centered image" />
+            <h3>MIMM 314</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHIL_230/">
+            <img src="/static/img/department/PHIL_large.png"
+                 class="ui centered image" />
+            <h3>PHIL 230</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHYS_101/">
+            <img src="/static/img/department/PHYS_large.png"
+                 class="ui centered image" />
+            <h3>PHYS 101</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHYS_102/">
+            <img src="/static/img/department/PHYS_large.png"
+                 class="ui centered image" />
+            <h3>PHYS 102</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHYS_131/">
+            <img src="/static/img/department/PHYS_large.png"
+                 class="ui centered image" />
+            <h3>PHYS 131</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PHYS_142/">
+            <img src="/static/img/department/PHYS_large.png"
+                 class="ui centered image" />
+            <h3>PHYS 142</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/POLI_227/">
+            <img src="/static/img/department/POLI_large.png"
+                 class="ui centered image" />
+            <h3>POLI 227</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PSYC_332/">
+            <img src="/static/img/department/PSYC_large.png"
+                 class="ui centered image" />
+            <h3>PSYC 332</h3>
+        </a>
+    </div>
+    
+    <div class="center aligned column">
+        <a href="/PSYC_328/">
+            <img src="/static/img/department/PSYC_large.png"
+                 class="ui centered image" />
+            <h3>PSYC 328</h3>
+        </a>
+    </div>
+    
+</div>
+<br />
 
         </div>
     </div>
